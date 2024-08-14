@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1723604890.76837 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1723604895.73597 0
+["pdflatex"] 1723605572.12881 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1723605576.80039 0
   "../aas_macros.sty" 1687191417 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1723594988 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1687191418 68372 58fca911fad9f2323ab3bd83506d01cc ""
@@ -290,10 +290,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3103_01.aux" 1723604895 1340 08055f7f55df820d5c9b22a0334d3d9a "pdflatex"
-  "EL3103_01.out" 1723604895 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
-  "EL3103_01.tex" 1723604884 30541 42570aa1bc7361eb6b1ce21eeab26d27 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" 1723604884 30541 42570aa1bc7361eb6b1ce21eeab26d27 ""
+  "EL3103_01.aux" 1723605576 1340 08055f7f55df820d5c9b22a0334d3d9a "pdflatex"
+  "EL3103_01.out" 1723605576 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3103_01.tex" 1723605570 30570 43a60c05f9337aaaccf9d68299d3b0e0 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" 1723605570 30570 43a60c05f9337aaaccf9d68299d3b0e0 ""
   (generated)
   "EL3103_01.aux"
   "EL3103_01.log"
