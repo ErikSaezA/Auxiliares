@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  13 AUG 2024 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  13 AUG 2024 23:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -943,7 +943,7 @@ Package hyperref Info: Link coloring ON on input line 10.
 \@outlinefile=\write4
 \openout4 = `EL3103_01.out'.
 
-<../fcfm_die.pdf, id=18, 737.75626pt x 238.8925pt>
+<../fcfm_die.pdf, id=10, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
 Package pdftex.def Info: ../fcfm_die.pdf  used on input line 14.
@@ -967,11 +967,11 @@ $[]$ $[]$
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_1_1.pdf, id=19, 467.49657pt x 320.69812pt>
+<../figures/Auxiliar_1_1.pdf, id=11, 467.49657pt x 320.69812pt>
 File: ../figures/Auxiliar_1_1.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_1_1.pdf>
 Package pdftex.def Info: ../figures/Auxiliar_1_1.pdf  used on input line 34.
-(pdftex.def)             Requested size: 264.46837pt x 181.42966pt.
+(pdftex.def)             Requested size: 238.01991pt x 163.27983pt.
 
 
 [1
@@ -979,13 +979,28 @@ Package pdftex.def Info: ../figures/Auxiliar_1_1.pdf  used on input line 34.
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_1_1.pdf>]
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_1_2.pdf, id=47, 839.38594pt x 427.5975pt>
+<../figures/Auxiliar_1_2.pdf, id=40, 839.38594pt x 427.5975pt>
 File: ../figures/Auxiliar_1_2.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_1_2.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_1_2.pdf  used on input line 95.
+Package pdftex.def Info: ../figures/Auxiliar_1_2.pdf  used on input line 91.
 (pdftex.def)             Requested size: 264.46837pt x 134.72002pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--171
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--171
+
+ []
 
 
 
@@ -993,157 +1008,145 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     ]
 
 [3
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                      <../figures/Auxiliar_1_2.pdf>]
 
 [4
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
+l.217 \end{solution}
                     ]
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 \end{solution}
-                    ]
+[5]
+
+pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_3.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<../figures/Auxiliar_1_3.pdf, id=106, 283.0575pt x 292.09125pt>
+File: ../figures/Auxiliar_1_3.pdf Graphic file (type pdf)
+<use ../figures/Auxiliar_1_3.pdf>
+Package pdftex.def Info: ../figures/Auxiliar_1_3.pdf  used on input line 222.
+(pdftex.def)             Requested size: 158.68263pt x 163.74825pt.
+
 
 [6
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{equation.0.4}) has been already used, duplicate ignored
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.262 \end{document}
-                    ]
-This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
+l.226     \item
+                Obtenga un modelo matemático que caracterice la evolución ...]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.248     \end{align}
+                     
+
+[7 <../figures/Auxiliar_1_3.pdf>]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (EL3103_01.aux)
@@ -1152,23 +1155,23 @@ LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
 Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
-(rerunfilecheck)             Checksum: 9BF0A85E5B651E7F97BB54981E3E19A9;447.
+(rerunfilecheck)             Checksum: D2D5B127F498EAA9D64B47CF9D564D3A;78.
  ) 
 Here is how much of TeX's memory you used:
- 60485 strings out of 473899
- 1560729 string characters out of 5726500
- 2346997 words of memory out of 5000000
- 82571 multiletter control sequences out of 15000+600000
- 568769 words of font info for 79 fonts, out of 8000000 for 9000
+ 60581 strings out of 473899
+ 1561989 string characters out of 5726500
+ 2348997 words of memory out of 5000000
+ 82606 multiletter control sequences out of 15000+600000
+ 570077 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,101p,985b,1136s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,101p,1015b,1109s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
-<C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on EL3103_01.pdf (6 pages, 226552 bytes).
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on EL3103_01.pdf (11 pages, 298052 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 52 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
