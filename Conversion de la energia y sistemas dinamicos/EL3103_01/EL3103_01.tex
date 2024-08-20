@@ -61,7 +61,7 @@
             \draw (2,0.5) to[generic, l=$Z$] (6,0.5);
             
             % Flecha y voltaje en el rectángulo de arriba
-            \draw[->] (4,3.5) -- (4,2.5) node[right] {$V_{line}$};
+            \draw[->] (5,3.5) -- (5,2.5) node[right] {$V_{line}$};
             
             \end{circuitikz}
         \end{center}
@@ -294,16 +294,38 @@ Al igual que antes observamos que es inductivo dado que el angulo de la potencia
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question La potencia trifásica total suministrada a una carga trifásica equilibrada cuando está operando a una tensión de fase-fase de \(220 \, [\text{kV}]\) es de \(800 \, [\text{kW}]\) con un factor de potencia de \(0,8\) en retardo. La impedancia de la línea de distribución que alimenta a la carga es de \(80 + j640 \, [\Omega/\text{fase}]\) y la frecuencia de la red es de \(50 \, [\text{Hz}]\). Tanto el generador como la carga están conectadas en Estrella. Considerando lo anterior, responda las siguientes preguntas:
-
 \begin{enumerate}
     \item[(a)] ¿Cuál es la magnitud de la tensión en el extremo de la línea correspondiente al generador cuando la carga está operando con una tensión fase-fase de \(220 \, [\text{kV}]\)?
     \item[(b)] ¿Cuál debería ser la capacidad nominal en kVAr de 3 condensadores conectados en Estrella en paralelo con la carga para que eleven el factor de potencia a atrasado de 0.95?
     \item[(c)] ¿Cuál debe ser la capacitancia de cada condensador del inciso (b)?
 \end{enumerate}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{solution}
+    \subsection*{Resolucion 3.1}
     Se busca obtener la magnitud de la tensión en el extremo de la línea correspondiente al generador, esto al igual que lo visto con anterioridad, por lo que se tiene el siguiente esquema:
+    \begin{center}
+        \begin{circuitikz}
+
+            % Rectángulo izquierdo
+            \draw (0, 0) rectangle (2, 4) node[midway] {$S_{3\phi}$};
+            
+            % Rectángulo derecho
+            \draw (6, 0) rectangle (9, 4);
+            
+            % Etiquetas dentro del rectángulo derecho
+            \node at (7.5, 2.8) {FP = 0.8};
+            \node at (7.5, 2.2) {$P = 800 \, [kW]$};
+            
+            % Impedancias
+            \draw (2,3.5) to[generic, l=$Z$] (6,3.5);
+            \draw (2,2) to[generic, l=$Z$] (6,2);
+            \draw (2,0.5) to[generic, l=$Z$] (6,0.5);
+            
+            % Flecha y voltaje en el rectángulo de arriba
+            \draw[->] (5,3.5) -- (5,2.5) node[right] {$V_{line}$};
+            
+            \end{circuitikz}
+        \end{center}
 Luego se busca obtener $S_{1\phi}$, para poder asociarlo a la corriente del sistema monofasico, por lo que:
 \begin{align}
     \cos(\phi) = FP = \frac{P}{S_{3\phi}}
@@ -315,8 +337,8 @@ Con lo que tenemos
 Luego para el angulo se obtiene directamente:
 \begin{align}
     \phi = \arccos(0.8) = 36.87^{\circ}
-\end{solution}
-De esta manera tenemos que $S_{1\phi}$ vendra dado por:
+\end{align}
+De esta manera tenemos que $S_{1\phi}$:
 \begin{align}
     S_{1\phi} = \frac{1000}{3} \angle 36.87^{\circ} = 333.33 \angle 36.87^{\circ} [kVA]
 \end{align}
@@ -325,7 +347,10 @@ Luego se tiene que pasar al sistema monofasico, con lo que la impedancia vendra 
     V_{fn} = \frac{220}{\sqrt{3}}[\Omega]
 \end{align}
 Con lo que el esquema vendra dado por:
-%%AGREGAR ESQUEMA
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_1_7}
+    \captionof{figure}{Esquema General Monofasico}
+  \end{center}
 Luego el voltaje la corriente se obtiene como:
 \begin{align}
     S_{1\phi} &= V_{fn} \cdot I^{*}\\
@@ -338,9 +363,41 @@ Con lo que finalmente el voltaje del generador se tendar que mediante malla:
     V_{a} &= 128.199\angle 0.5^{\circ} [V]
 \end{align}
 Con lo que se obtiene el voltaje del generador.
-\subsection{Resolucion 3.2}
-Se 
+\subsection*{Resolucion 3.2}
+Se busca aumentar el factor de potencia a 0.95, con lo que podemos formular un esquema tal que:
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{Auxiliar_1_8}
+    \captionof{figure}{Esquema potencias reactivas}
+  \end{center}
+Luego el factor de potencia en rojo vendra dado por:
+\begin{align}
+    FP&= 0.95\\
+    \phi &= \arccos(0.95) = 18.19^{\circ}
+\end{align}
+Mientras que el factor de potencia asociado a el azul vendra dado por:
+\begin{align}
+    FP &= 0.8 \\
+    \phi &= \arccos(0.8) = 36.87^\circ
+\end{align}
+Luego se tendremos que reducir la potencia reactiva de la carga tal que:
+\begin{align}
+    Q_{3\phi} &= Q_{1} - Q_{2} = 600 - 263.03 = 336.97 [KVar]\\
+    Q_{1\phi} &= \frac{Q_{3\phi}}{3} = 112.32 [KVar]
+\end{align}
+Con lo que se obtiene que la potencia reactiva de cada condensador es de 112.32 [KVar].
+\subsection*{Resolucion 3.3}
+Se busca obtener la capacitancia de cada condensador al igual que antes tenemos que:
+\begin{align}
+    -jQ_{c} &= \frac{|V|^{2}}{jX_{c}}
+\end{align}
+Con lo que tenemos que 
+\begin{align}
+    Q_{c} &= V_{fn}^{2}wC\\
+\end{align}
+Luego despejando la capacitancia C considerando una frecuencia de 50[Hz] se obtiene un valor de C=22.2[n F]
+\end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{questions}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%

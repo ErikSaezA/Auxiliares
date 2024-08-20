@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  20 AUG 2024 01:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  20 AUG 2024 12:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1066,11 +1066,41 @@ See the caption package documentation for explanation.
 
 [8]
 
+pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_7.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<../figures/Auxiliar_1_7.pdf, id=157, 1204.5pt x 607.51968pt>
+File: ../figures/Auxiliar_1_7.pdf Graphic file (type pdf)
+<use ../figures/Auxiliar_1_7.pdf>
+Package pdftex.def Info: ../figures/Auxiliar_1_7.pdf  used on input line 351.
+(pdftex.def)             Requested size: 245.33504pt x 123.73584pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 352.
+See the caption package documentation for explanation.
+
+
+
+pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_8.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<../figures/Auxiliar_1_8.pdf, id=158, 1204.5pt x 758.08218pt>
+File: ../figures/Auxiliar_1_8.pdf Graphic file (type pdf)
+<use ../figures/Auxiliar_1_8.pdf>
+Package pdftex.def Info: ../figures/Auxiliar_1_8.pdf  used on input line 369.
+(pdftex.def)             Requested size: 196.26503pt x 123.51656pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 370.
+See the caption package documentation for explanation.
+
+
+
 [9]
 
-[10]
+[10 <../figures/Auxiliar_1_7.pdf> <../figures/Auxiliar_1_8.pdf>]
 
 [11]
+
+[12]
+
+[13]
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1083,17 +1113,17 @@ Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
 (rerunfilecheck)             Checksum: D2D5B127F498EAA9D64B47CF9D564D3A;78.
  ) 
 Here is how much of TeX's memory you used:
- 60925 strings out of 473899
- 1573167 string characters out of 5726500
- 2349996 words of memory out of 5000000
- 82974 multiletter control sequences out of 15000+600000
+ 61055 strings out of 473899
+ 1576896 string characters out of 5726500
+ 2349997 words of memory out of 5000000
+ 83078 multiletter control sequences out of 15000+600000
  566025 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,101p,1108b,1102s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,101p,1108b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3103_01.pdf (11 pages, 360717 bytes).
+Output written on EL3103_01.pdf (13 pages, 418840 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 112 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 327 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

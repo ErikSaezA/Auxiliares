@@ -1,11 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1723642024.93981 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1723642030.50679 2
+["pdflatex"] 1724169472.09661 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1724169478.25219 0
   "../aas_macros.sty" 1687191417 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1723594988 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1687191418 68372 58fca911fad9f2323ab3bd83506d01cc ""
   "../figures/Auxiliar_1_1.pdf" 1723595113 9174 4babb1036b50566070414227fade1c35 ""
   "../figures/Auxiliar_1_2.pdf" 1723595349 10891 cb440fe0ca4eae89885444e37b6d1490 ""
   "../figures/Auxiliar_1_3.pdf" 1723603508 5238 c7baa0033ce6fd3b5537d15353c927b9 ""
+  "../figures/Auxiliar_1_4.pdf" 1723604103 13645 b20593850249fc851177a8804e1cdc2e ""
   "../macros.sty" 1723593271 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1723594468 84124 a7927d7d1dc0e2460633f0d209c3f0d0 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1687384651 12668 5c9f0939adb75a2142abeb38c3635075 ""
@@ -290,10 +291,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3103_01.aux" 1723642029 1504 8ec8ff66af73577e8367c00c665deaa8 "pdflatex"
-  "EL3103_01.out" 1723642029 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
-  "EL3103_01.tex" 1723642017 31214 13796dea561ab0fd573d9678ea738442 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" 1723642017 31214 13796dea561ab0fd573d9678ea738442 ""
+  "EL3103_01.aux" 1724169477 1471 7fb7847031edef8b759d788e412dbbe3 "pdflatex"
+  "EL3103_01.out" 1724169477 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3103_01.tex" 1724169463 30685 1bfc467ceca417e24b552e7085dd58e8 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex" 1724169463 30685 1bfc467ceca417e24b552e7085dd58e8 ""
   (generated)
   "EL3103_01.aux"
   "EL3103_01.log"

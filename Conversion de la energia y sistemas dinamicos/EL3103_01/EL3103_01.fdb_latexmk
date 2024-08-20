@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1724132414.03536 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1724132418.80822 0
+["pdflatex"] 1724171257.52803 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1724171262.73857 0
   "../aas_macros.sty" 1724116932 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1724116932 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1724116932 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -9,6 +9,8 @@
   "../figures/Auxiliar_1_4.pdf" 1724129693 14933 80a3452652be26138c06d9cfef6eec57 ""
   "../figures/Auxiliar_1_5.pdf" 1724130493 6785 b07f9774f5787c5b86ba245458169df9 ""
   "../figures/Auxiliar_1_6.pdf" 1724130722 6259 e602291a3586620b18b597a625feb238 ""
+  "../figures/Auxiliar_1_7.pdf" 1724170737 16423 11e0b0bf0d745bf278497fa5fa2fff46 ""
+  "../figures/Auxiliar_1_8.pdf" 1724170791 32909 ef1e078626960887fa749876e2ba898f ""
   "../macros.sty" 1724116932 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1723594468 84124 a7927d7d1dc0e2460633f0d209c3f0d0 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1687384651 12668 5c9f0939adb75a2142abeb38c3635075 ""
@@ -286,10 +288,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3103_01.aux" 1724132418 2029 b285c2a15df0202ea513baebf67806a8 "pdflatex"
-  "EL3103_01.out" 1724132418 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
-  "EL3103_01.tex" 1724132407 21006 814f590c18170f876308b4a6c9e554fd ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex" 1724132407 21006 814f590c18170f876308b4a6c9e554fd ""
+  "EL3103_01.aux" 1724171262 2306 a05c828e3671f11212e5bb39c7772790 "pdflatex"
+  "EL3103_01.out" 1724171262 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3103_01.tex" 1724171256 24780 24b812af809330c0c192ba149115f8cd ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex" 1724171256 24780 24b812af809330c0c192ba149115f8cd ""
   (generated)
   "EL3103_01.aux"
   "EL3103_01.log"

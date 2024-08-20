@@ -417,8 +417,14 @@ INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-s
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-OUTPUT EL3103_01.out
+INPUT .\EL3103_01.out
+INPUT .\EL3103_01.out
+INPUT EL3103_01.out
+INPUT EL3103_01.out
 OUTPUT EL3103_01.pdf
+INPUT .\EL3103_01.out
+INPUT .\EL3103_01.out
+OUTPUT EL3103_01.out
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
@@ -489,6 +495,11 @@ INPUT ..\figures\Auxiliar_1_3.pdf
 INPUT ..\figures\Auxiliar_1_3.pdf
 INPUT ..\figures\Auxiliar_1_3.pdf
 INPUT ..\figures\Auxiliar_1_3.pdf
+INPUT ..\figures\Auxiliar_1_4.pdf
+INPUT ..\figures\Auxiliar_1_4.pdf
+INPUT ..\figures\Auxiliar_1_4.pdf
+INPUT ..\figures\Auxiliar_1_4.pdf
+INPUT ..\figures\Auxiliar_1_4.pdf
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm

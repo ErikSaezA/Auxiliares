@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  14 AUG 2024 09:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  20 AUG 2024 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,10 +939,11 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
+ (EL3103_01.out) (EL3103_01.out)
 \@outlinefile=\write4
 \openout4 = `EL3103_01.out'.
 
-<../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
+<../fcfm_die.pdf, id=10, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
 Package pdftex.def Info: ../fcfm_die.pdf  used on input line 14.
@@ -966,7 +967,7 @@ $[]$ $[]$
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_1_1.pdf, id=7, 467.49657pt x 320.69812pt>
+<../figures/Auxiliar_1_1.pdf, id=11, 467.49657pt x 320.69812pt>
 File: ../figures/Auxiliar_1_1.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_1_1.pdf>
 Package pdftex.def Info: ../figures/Auxiliar_1_1.pdf  used on input line 34.
@@ -978,7 +979,7 @@ Package pdftex.def Info: ../figures/Auxiliar_1_1.pdf  used on input line 34.
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_1_1.pdf>]
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_1_2.pdf, id=36, 839.38594pt x 427.5975pt>
+<../figures/Auxiliar_1_2.pdf, id=40, 839.38594pt x 427.5975pt>
 File: ../figures/Auxiliar_1_2.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_1_2.pdf>
 Package pdftex.def Info: ../figures/Auxiliar_1_2.pdf  used on input line 91.
@@ -1072,7 +1073,7 @@ l.217 \end{solution}
 [5]
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_3.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_1_3.pdf, id=102, 283.0575pt x 292.09125pt>
+<../figures/Auxiliar_1_3.pdf, id=106, 283.0575pt x 292.09125pt>
 File: ../figures/Auxiliar_1_3.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_1_3.pdf>
 Package pdftex.def Info: ../figures/Auxiliar_1_3.pdf  used on input line 222.
@@ -1130,72 +1131,50 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5})
                                                   \__shipout_drop_firstpage_...
 l.226     \item
                 Obtenga un modelo matemático que caracterice la evolución ...]
+
+pdfTeX warning: pdflatex (file ../figures/Auxiliar_1_4.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<../figures/Auxiliar_1_4.pdf, id=121, 445.72725pt x 187.47641pt>
+File: ../figures/Auxiliar_1_4.pdf Graphic file (type pdf)
+<use ../figures/Auxiliar_1_4.pdf>
+Package pdftex.def Info: ../figures/Auxiliar_1_4.pdf  used on input line 245.
+(pdftex.def)             Requested size: 196.26503pt x 82.54994pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 246.
+See the caption package documentation for explanation.
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{equation.0.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.258     \end{align}
+l.251     \end{align}
                      
 
 [7 <../figures/Auxiliar_1_3.pdf>]
-Underfull \vbox (badness 10000) detected at line 341
- []
 
-
-Underfull \vbox (badness 10000) detected at line 341
- []
-
-
-
-[8]
+[8 <../figures/Auxiliar_1_4.pdf>]
 
 [9]
 
 [10]
 
 [11]
-
-[12]
-
-c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3103_01/EL3103_01.tex:400: LaTeX Error: Float(s) lost.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.400 \end{document}
-                    
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
 (EL3103_01.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `EL3103_01.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `EL3103_01.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D2D5B127F498EAA9D64B47CF9D564D3A;78.
+Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
+(rerunfilecheck)             Checksum: D2D5B127F498EAA9D64B47CF9D564D3A;78.
  ) 
 Here is how much of TeX's memory you used:
- 60575 strings out of 473899
- 1561652 string characters out of 5726500
+ 60592 strings out of 473899
+ 1562322 string characters out of 5726500
  2348997 words of memory out of 5000000
- 82603 multiletter control sequences out of 15000+600000
+ 82616 multiletter control sequences out of 15000+600000
  570077 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,101p,1015b,1109s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1203,9 +1182,9 @@ Here is how much of TeX's memory you used:
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3103_01.pdf (12 pages, 299037 bytes).
+Output written on EL3103_01.pdf (11 pages, 311661 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
+ 282 PDF objects out of 1000 (max. 8388607)
  127 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
