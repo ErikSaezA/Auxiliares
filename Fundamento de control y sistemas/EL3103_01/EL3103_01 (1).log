@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  20 AUG 2024 14:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  20 AUG 2024 15:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3103_01/EL3103_01.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL3103_01/EL3103_01.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL3103_01/EL3103_01.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -1113,15 +1113,15 @@ Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
 (rerunfilecheck)             Checksum: D2D5B127F498EAA9D64B47CF9D564D3A;78.
  ) 
 Here is how much of TeX's memory you used:
- 60966 strings out of 473903
- 1573512 string characters out of 5727051
+ 60965 strings out of 473903
+ 1573335 string characters out of 5727051
  2352957 words of memory out of 5000000
- 82985 multiletter control sequences out of 15000+600000
+ 82984 multiletter control sequences out of 15000+600000
  566025 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,101p,1061b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,101p,1048b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3103_01.pdf (13 pages, 418840 bytes).
+Output written on EL3103_01.pdf (13 pages, 417944 bytes).
 PDF statistics:
  327 PDF objects out of 1000 (max. 8388607)
  138 named destinations out of 1000 (max. 500000)
