@@ -164,7 +164,7 @@ Reordenando términos para despejar \(\ddot{\theta}\) en función del resto de v
 \end{equation}
 la cual corresponde a la ecuación diferencial que modela la dinámica del problema.
 \subsection*{Resolucion 2.3}
-Para identificar las entradas, debemos identificar aquellas variables que podemos manipular y que no dependen de la dinámica del problema. En este caso, podemos ver que \(\dot{x}\), correspondiente a la aceleración del carro, es una variable libre del problema la cual no depende del resto de variables, por lo que podemos considerarla como la entrada al sistema.\\\\
+Para identificar las entradas, debemos identificar aquellas variables que podemos manipular y que no dependen de la dinámica del problema. En este caso, podemos ver que \(\ddot{x}\), correspondiente a la aceleración del carro, es una variable libre del problema la cual no depende del resto de variables, por lo que podemos considerarla como la entrada al sistema.\\\\
 Con respecto a la salida, esta es la variable que más libertad entrega a quien modela, dado que depende del fenómeno de interés. En general, se puede considerar una variable de salida cualquiera de los sensores que se están utilizando para medir las variables, por lo que estos valores medidos por los sensores podrían considerarse las salidas. Sin embargo, en este problema no se indican los sensores presentes, por lo que asumiremos que cualquier variable es salida, por lo que, arbitrariamente, se escoge que \(\theta\) es la salida.\\\\
 Para reforzar el punto de la salida, podemos imaginarnos distintos casos hipotéticos sobre el sistema planteado en esta pregunta. Por ejemplo, podríamos instalar un motor en el carro al cual se encuentre conectada la vara del péndulo, y podríamos instalar un sensor que mida el voltaje que sale del motor. Al hacer esto, dado que el voltaje del motor será proporcional a la salida, en esencia tendríamos que la salida es \(\theta\). Otra posibilidad es que, en vez de los sensores planteados, podríamos instalar una IMU (Inertial Measurement Unit) en la bola del péndulo, el cual mide la aceleración de la bola en coordenadas cartesianas, por lo que tendríamos dos salidas \(\dot{x}_p\) y \(\dot{y}_p\).\\\\
 Finalmente, las últimas variables a indicar son los estados. Los estados corresponden a aquellas variables que tienen incidencia directa sobre la dinámica del sistema planteado. Una forma práctica de verlo es que cualquier diferencial que modele al sistema: si el sistema está modelado por una edo de orden n, entonces todas las derivadas de menor orden (incluyendo el orden 0, que corresponde a la variable sin derivar) van a corresponder a los estados del sistema\footnote{Otra forma útil de verlo es que los estados van a corresponder a todas aquellas variables para las cuales se debe indicar una condición inicial.}. En el problema planteado, dado que el modelo es una edo de orden 2, sabemos que las derivadas de orden 1 (\(\dot{\theta}\)) y orden 0 (\(\theta\)) serían los estados del sistema.
@@ -241,7 +241,17 @@ por lo que el modelo linealizado en torno a \(\theta = \pi\) es de la forma
 \end{enumerate}
 
 donde es importante notar que el modelo obtenido depende directamente de las hipótesis utilizadas, por lo que si se usan otras hipótesis el modelo puede cambiar. Con esto, los parámetros asociados a cada medio se pueden ver en la tabla
-%%% AGREGAR TABLA
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Medio} & \textbf{Masa [kg]} & \textbf{Calor específico [J/kgK]} & \textbf{Área de contacto [m$^2$]} \\ \hline
+    Agua          & $\rho V$           & $c_1$                            & $A_{A1}$                          \\ \hline
+    Lata          & $m$                & $c_2$                            & $A_{12}$                          \\ \hline
+    Manjar        & $M$                & $c_3$                            & $A_{23}$                          \\ \hline
+    \end{tabular}
+    \caption{Descripción de los medios y sus propiedades.}
+    \end{table}
 Por ecuación de Newton, tenemos:
 \begin{align}
     q_{ij} &= h_{ij}A_{ij} (T_i - T_j)
@@ -253,7 +263,6 @@ Luego, por balance térmico tenemos:
     \frac{dH_2}{dt} &= q_{12} + q_{32} \tag{14} \\
     \frac{dH_3}{dt} &= q_{23} \tag{15}
     \end{align}    
-
 con $Q$ el calor emitido por la cocina, y $H_i$ la entalpía del medio $i$, dada por:
 \begin{align}
     H_i &= m_i c_i T_i \tag{17}
