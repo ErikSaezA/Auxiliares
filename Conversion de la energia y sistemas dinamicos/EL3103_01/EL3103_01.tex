@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   answers
+   %answers
   ]{exam}
 
 \usepackage{../exercise-preamble}
@@ -61,7 +61,7 @@
             \draw (2,0.5) to[generic, l=$Z$] (6,0.5);
             
             % Flecha y voltaje en el rectángulo de arriba
-            \draw[->] (5,3.5) -- (5,2.5) node[right] {$V_{line}$};
+            \draw[->] (5,3.5) -- (5,2.5) node[right] {$V_{linea}$};
             
             \end{circuitikz}
         \end{center}
@@ -293,7 +293,7 @@ Con lo que se tiene que el factor de potencia es:
 Al igual que antes observamos que es inductivo dado que el angulo de la potencia es positivo, con lo que se obtiene la potencia aparente, activa y reactiva de cada carga, y su respectivo factor de potencia.
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question La potencia trifásica total suministrada a una carga trifásica equilibrada cuando está operando a una tensión de fase-fase de \(220 \, [\text{kV}]\) es de \(800 \, [\text{kW}]\) con un factor de potencia de \(0,8\) en retardo. La impedancia de la línea de distribución que alimenta a la carga es de \(80 + j640 \, [\Omega/\text{fase}]\) y la frecuencia de la red es de \(50 \, [\text{Hz}]\). Tanto el generador como la carga están conectadas en Estrella. Considerando lo anterior, responda las siguientes preguntas:
+\question La potencia trifásica total suministrada a una carga trifásica equilibrada cuando está operando a una tensión de fase-fase de \(220 \, [\text{kV}]\) es de \(800 \, [\text{kW}]\) con un factor de potencia de \(0,8\) en retardo. La impedancia de la línea de distribución que alimenta a la carga es de \(80 + j640 \, [\Omega/\text{fase}]\) y la frecuencia de la red es de \(50 \, [\text{Hz}]\).Considerando lo anterior, responda las siguientes preguntas:
 \begin{enumerate}
     \item[(a)] ¿Cuál es la magnitud de la tensión en el extremo de la línea correspondiente al generador cuando la carga está operando con una tensión fase-fase de \(220 \, [\text{kV}]\)?
     \item[(b)] ¿Cuál debería ser la capacidad nominal en kVAr de 3 condensadores conectados en Estrella en paralelo con la carga para que eleven el factor de potencia a atrasado de 0.95?

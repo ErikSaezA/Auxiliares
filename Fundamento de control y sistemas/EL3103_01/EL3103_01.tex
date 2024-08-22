@@ -105,23 +105,84 @@ Para responder esta pregunta, basta notar la expresión descrita en (\ref{eq:b_f
     Donde G(s) corresponde a la pondearcion de todos los elementos del lazo directo, es decir que si existira un controlador $G_{c}$ y la planta $G_{p}$, luego $G(s) = G_{c} \cdot G_{p}$ , esto se obtiene directamente del desarrollo de bloques. Debemos recordar que la funcion de transferencia es una propiedad propia del sistema que dependera de variables de estados y no de las entradas (Recordartorio de su curso de Dinamicos). Se debe tener un gran cuidado entre la la diferencia de los polos de lazo abierto ( $G(s) \cdot H(s)$ y de lazo cerrado ( $1+G(s) \cdot H(s)$),debido a que este ultimo da cuenta del lazo de retroalimentacion.Como se menciono anteriormente el LGR nos entrega una representacion visual del movimiento de los polos \textbf{de lazo cerrado} de la funcion de transferencia vista anteriromente. Por lo tanto tendremos que esos polos deberan cumplir que:
     \begin{align}
         1+G(s)H(s) &= 0\\
-        G(s)H(s) = -1
+        G(s)H(s) &= -1
     \end{align}
     Por lo que para que se cumpla dicha condicion se deben cumplir dos criterios
     \begin{itemize}
         \item \textbf{Condicion de modulo:} Se debe cumplir que $|G(s)H(s)| = 1$ 
         \item \textbf{Condicion de angulo:} Se debe cumplir que $\angle G(s)H(s) = \pm 180^{\circ} + n360^{\circ}$ 
     \end{itemize}
-Por lo que todos los puntos $s = \sigma j\theta$ que cumplan ambas condiciones perteneceran al LGR y seran los polos de lazo cerrados de su sistema. Comenzamos identificando los polos y ceros de la funcion de transferencia de lazo abierto (Que representaran nuestros puntos de partida) , dados por :
+Por lo que todos los puntos $s = \sigma + j\theta$ que cumplan ambas condiciones perteneceran al LGR y seran los polos de lazo cerrados de su sistema. Comenzamos identificando los polos y ceros de la funcion de transferencia de lazo abierto (Que representaran nuestros puntos de partida) , dados por :
 \begin{align}
     G(s)H(S)= \frac{1}{s} \frac{(s+2)}{(s^{2} +7s +12)} = \frac{1}{s} \frac{(s+2)}{(s+3)(s+4)}
 \end{align}
-(Consideramos que $H(s)=1$, dado que no tenemos informacion de esta funcion de transferencia), con lo que identificamos que los polos de lazo abierto son $s=0$ , $s=-3$ y $s=-4$ y los ceros son $s=-2$. Por lo que se posiciona en el LGR
+(Consideramos que $H(s)=1$, dado que no tenemos informacion de esta funcion de transferencia), con lo que identificamos que los polos de lazo abierto son $p_1=0$ , $p_2=-3$ y $p_3=-4$ y los ceros son $z_1=-2$. Por lo que se posiciona en el LGR
 
 %%AÑADIR IMAGEN DEL LGR
 
-Luego se debe encontrar las zonas en el eje real que pertenecen al LGR, esto se puede obtener de dos forams
+Luego se debe encontrar las zonas en el eje real que pertenecen al LGR, esto se puede obtener de dos formas, una considerando la condicion de angulo, la cual se ejemplifica de buena manera en lo siguiente
+
+%%% AÑADIT IMAGEN DE LA CONDICION DE ANGULO
+Otra forma (la que yo recomiendo de manera personal) es considerar la siguiente regla. En ambos casos me posiciono en un polo o un cero.
+\begin{itemize}
+    \item Si la cantidad de polos es \textbf{PAR} luego esa zona no pertenecera al LGR
+    \item Si la cantidad de polos es \textbf{IMPAR} luego esa zona pertenecera al LGR
+\end{itemize}
+Es una forma rapida, y se puede verificar mediante la condicion de angulo. Una vez identificadas las zonas del LGR en la zona real, deberemos obtener el lugar de las asintotas la cual se define como:
+\begin{align}
+    \sigma = \frac{\sum polos - \sum Ceros}{ \# Asintotas = \# Polos - \# Ceros}
+\end{align}
+Con lo que en nuestro caso particular da como resultado a:
+\begin{align}
+    \sigma = \frac{(0-3-4 )-(-2)}{2} = -2.5
+\end{align}
+Una vez se obtiene la posicion de las asintotas se debera obtener los angulos asociados a esta, las cuales vienen dadas por (\textbf{SOLO PARA GANANCIA POSITIVA $K>0$}):
+\begin{align}
+    \Theta_{k} = \frac{(2k+1)\pi}{\#asintotas}
+\end{align}
+Donde el dominio de $k \in \{0,...,\#Asintotas -1 \}$ , por lo que en nuestro caso correspondera a:
+\begin{align}
+    \Theta_{0} = \frac{\pi}{2} = 90^{\circ} \quad \Theta_{1} = \frac{3\pi}{2}= 270^{\circ}
+\end{align}
+Por lo que al ser graficadas se obtiene el siguiente esquema:
+
+%% AÑADIR IMAGEN DE LAS ASINTOTAS
+
+Por ultimo deberemos obtener el punto de llegada o salida que tiene relacion con los donde los polos de lazo cerrado divergen en el plano complejo o donde llegan. Esto se obtiene de la siguiente manera:
+\begin{align}
+    1+kG(s)H(s) &= 0\\
+    1+k\frac{1}{s} \frac{(s+2)}{(s+3)(s+4)} &= 0\\
+    k & = -\frac{s(s+3)(s+4)}{s+2}
+\end{align}
+Luego esta expresion se deriva e iguala a 0 (\textbf{Recomiendo ver el apunte del profe donde se entiende mas la idea}), una breve intuicion de lo que sucede, viene dado por el hecho de que encontramos el $\sigma$ (parte real) maxima o minima de s , antes de que esta pase a ser compleja, y deje el plano real, de esta manera se obtiene que:
+\begin{align}
+    \frac{\partial K}{\partial s} &= \frac{(3s^{2} +14s+12)(s+2) + (s^{3} + 7s^{2} +12s)}{(s+2)^{2}} = 0\\
+    &=-2s^{3}-13s^{2}-28s-24=0
+\end{align}
+Dando como resultados los siguientes polos:
+\begin{align}
+    s_{1} &= -3.43\\
+    s_{2,3}&= -1.21\pm j1.073 
+\end{align}
+Notamos que estamos viendo valores de $s=\sigma$ es decir que deberan cumplir dos condiciones
+\begin{enumerate}
+    \item Debera pertenecer al LGR de la parte real
+    \item Debera ser real dado que nos interesa unicamente que s sea real
+\end{enumerate}
+De esta manera vemos que el unico punto que cumple dicha condicion corresponde a $s_{1}$, pueden darse situaciones en que no existan puntos de llegada o salida y sigue siendo valida, simplemente nos da a entender que no cruza el eje real, luego al añadirlo al frafico previo tenemos que:
+%% AÑADIR IMAGEN DE LOS POLOS DE SALIDA
+Finalmente podemos graficar los polos de lazo cerrado, los cuales se encuentran en la siguiente imagen:
+%% AÑADIR IMAGEN DE LOS POLOS DE LAZO CERRADO
+Notamos que las lineas deben ser suaves y ademas debe ser simetrico con respecto al eje real, dado que los polos de lazo cerrado si son complejos estos deben ser conjugados, ademas la curva debe ser suave ,es decir no rectas. Una idea intuitiva para poder graficar el LGR esque los polos siempre iran a los ceros (Esto dado que para un k infinito convergen a ceros) y en caso de no existir mas ceros, los polos restantes divergen a las asintotas. Con lo que finalmente se responden las preguntas.
+\begin{enumerate}
+    \item Si , es posible dado que la cantidad de polos de lazo cerrado correspondera a la cantidad de polos de lazo abierto (Puntos de partida)
+    \item Si es posible obtenerlo, mediante el LGR es la herramienta visual que nos permite obtener los polos de lazo cerrado para analizar estabilidad.
+    \item Recordemos que los polos vienen del dominio del laplace , que en el dominio del tiempo corresponde a expresiones del tipo $Ae^{-pt}$ donde tenemos que la funcion de transferencia en el dominio del tiempo sera la suma de todos estos polos de la forma vista anteriormente, en donde que el polo sea mucho mayor nos indica que esta decae mucho mas rapido y no afectara tan rapido la respuesta,  mientras que los polos cercanos al cero seran los que afecten mas a la respuesta porque decaen mas lentos y por tanto perduran mas en el tiempo
+\end{enumerate}
+
+
 \end{solution}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{questions}
