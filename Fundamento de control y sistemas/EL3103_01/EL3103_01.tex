@@ -98,11 +98,11 @@ Para responder esta pregunta, basta notar la expresión descrita en (\ref{eq:b_f
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{solution}
 \subsection*{Resolucion 2.1}
-    Se busca obtener el lugar geometrico de la raiz (LGR), por lo que se debera tener varios aspectos en cuenta.En primera instancia, se debe reconocer que el LGR es una representación gráfica de la variación de los polos de lazo cerrado a medida que se varía un parámetro del sistema. En este caso, el parámetro que se varía es el valor de $K$. Por lo tanto, al variar $K$ se obtendrán distintas posiciones de los polos de lazo cerrado. De la primera pregunta obtuvimos que la funcion de transferencia vendra dada por:
+    Se busca obtener el lugar geometrico de la raiz (LGR), por lo que se debera tener varios aspectos en cuenta.En primera instancia, se debe reconocer que el LGR es una representación gráfica de la variación de los polos de lazo cerrado a medida que se varía un parámetro del sistema. En este caso, el parámetro que se varía es el valor de $K$ asociado a la ganancia (Esto es equivalente a un controlador proporcional que veremos mas adelante, por ahora se puede entender como un parametro que podemos variar para que los polos se muevan a lo largo del LGR). De la primera pregunta obtuvimos que la funcion de transferencia vendra dada por:
     \begin{align}
         \frac{C(s)}{R(s) }&= \frac{G(s)}{1+G(s)H(s)}
     \end{align} 
-    Donde G(s) corresponde a la pondearcion de todos los elementos del lazo directo, es decir que si existira un controlador $G_{c}$ y la planta $G_{p}$, luego $G(s) = G_{c} \cdot G_{p}$ , esto se obtiene directamente del desarrollo de bloques. Debemos recordar que la funcion de transferencia es una propiedad propia del sistema que dependera de variables de estados y no de las entradas (Recordartorio de su curso de Dinamicos). Se debe tener un gran cuidado entre la la diferencia de los polos de lazo abierto ( $G(s) \cdot H(s)$ y de lazo cerrado ( $1+G(s) \cdot H(s)$),debido a que este ultimo da cuenta del lazo de retroalimentacion.Como se menciono anteriormente el LGR nos entrega una representacion visual del movimiento de los polos \textbf{de lazo cerrado} de la funcion de transferencia vista anteriromente. Por lo tanto tendremos que esos polos deberan cumplir que:
+    Donde G(s) corresponde a la pondearcion de todos los elementos del lazo directo, es decir que si existira un controlador $G_{c}$ y la planta $G_{p}$, luego $G(s) = G_{c} \cdot G_{p}$ , esto se obtiene directamente del desarrollo de bloques. Debemos recordar que la funcion de transferencia es una propiedad propia del sistema que dependera de variables de estados y no de las entradas (Recordartorio de su curso de Dinamicos). Se debe tener un gran cuidado entre la la diferencia de los polos de lazo abierto ($G(s) \cdot H(s)$) y de lazo cerrado ($1+G(s) \cdot H(s)$),debido a que este ultimo da cuenta del lazo de retroalimentacion.Como se menciono anteriormente el LGR nos entrega una representacion visual del movimiento de los polos \textbf{de lazo cerrado} de la funcion de transferencia vista anteriromente. Por lo tanto tendremos que esos polos deberan cumplir que:
     \begin{align}
         1+G(s)H(s) &= 0\\
         G(s)H(s) &= -1
@@ -117,12 +117,23 @@ Por lo que todos los puntos $s = \sigma + j\theta$ que cumplan ambas condiciones
     G(s)H(S)= \frac{1}{s} \frac{(s+2)}{(s^{2} +7s +12)} = \frac{1}{s} \frac{(s+2)}{(s+3)(s+4)}
 \end{align}
 (Consideramos que $H(s)=1$, dado que no tenemos informacion de esta funcion de transferencia), con lo que identificamos que los polos de lazo abierto son $p_1=0$ , $p_2=-3$ y $p_3=-4$ y los ceros son $z_1=-2$. Por lo que se posiciona en el LGR
-
-%%AÑADIR IMAGEN DEL LGR
-
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_3}
+    \captionof{figure}{LGR ubicacion de los polos}
+  \end{center}
 Luego se debe encontrar las zonas en el eje real que pertenecen al LGR, esto se puede obtener de dos formas, una considerando la condicion de angulo, la cual se ejemplifica de buena manera en lo siguiente
-
-%%% AÑADIT IMAGEN DE LA CONDICION DE ANGULO
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_4}
+    \captionof{figure}{Lugar donde no se cumple la condicion de angulo en el eje real}
+\end{center}
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_5}
+    \captionof{figure}{Lugar donde se cumple la condicion de angulo en el eje real}
+\end{center}
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_6}
+    \captionof{figure}{LGR de la zona real}
+  \end{center}
 Otra forma (la que yo recomiendo de manera personal) es considerar la siguiente regla. En ambos casos me posiciono en un polo o un cero.
 \begin{itemize}
     \item Si la cantidad de polos es \textbf{PAR} luego esa zona no pertenecera al LGR
@@ -136,6 +147,10 @@ Con lo que en nuestro caso particular da como resultado a:
 \begin{align}
     \sigma = \frac{(0-3-4 )-(-2)}{2} = -2.5
 \end{align}
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_7}
+    \captionof{figure}{Lugar de ubicacion de la asintota }
+  \end{center}
 Una vez se obtiene la posicion de las asintotas se debera obtener los angulos asociados a esta, las cuales vienen dadas por (\textbf{SOLO PARA GANANCIA POSITIVA $K>0$}):
 \begin{align}
     \Theta_{k} = \frac{(2k+1)\pi}{\#asintotas}
@@ -145,9 +160,10 @@ Donde el dominio de $k \in \{0,...,\#Asintotas -1 \}$ , por lo que en nuestro ca
     \Theta_{0} = \frac{\pi}{2} = 90^{\circ} \quad \Theta_{1} = \frac{3\pi}{2}= 270^{\circ}
 \end{align}
 Por lo que al ser graficadas se obtiene el siguiente esquema:
-
-%% AÑADIR IMAGEN DE LAS ASINTOTAS
-
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_8}
+    \captionof{figure}{Angulos relacionados a las asintotas }
+  \end{center}
 Por ultimo deberemos obtener el punto de llegada o salida que tiene relacion con los donde los polos de lazo cerrado divergen en el plano complejo o donde llegan. Esto se obtiene de la siguiente manera:
 \begin{align}
     1+kG(s)H(s) &= 0\\
@@ -170,9 +186,15 @@ Notamos que estamos viendo valores de $s=\sigma$ es decir que deberan cumplir do
     \item Debera ser real dado que nos interesa unicamente que s sea real
 \end{enumerate}
 De esta manera vemos que el unico punto que cumple dicha condicion corresponde a $s_{1}$, pueden darse situaciones en que no existan puntos de llegada o salida y sigue siendo valida, simplemente nos da a entender que no cruza el eje real, luego al añadirlo al frafico previo tenemos que:
-%% AÑADIR IMAGEN DE LOS POLOS DE SALIDA
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_9}
+    \captionof{figure}{Ubicacion del lugar de salida o llegada }
+  \end{center}
 Finalmente podemos graficar los polos de lazo cerrado, los cuales se encuentran en la siguiente imagen:
-%% AÑADIR IMAGEN DE LOS POLOS DE LAZO CERRADO
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_1_10}
+    \captionof{figure}{LGR de polos de lazo cerado}
+  \end{center}
 Notamos que las lineas deben ser suaves y ademas debe ser simetrico con respecto al eje real, dado que los polos de lazo cerrado si son complejos estos deben ser conjugados, ademas la curva debe ser suave ,es decir no rectas. Una idea intuitiva para poder graficar el LGR esque los polos siempre iran a los ceros (Esto dado que para un k infinito convergen a ceros) y en caso de no existir mas ceros, los polos restantes divergen a las asintotas. Con lo que finalmente se responden las preguntas.
 \begin{enumerate}
     \item Si , es posible dado que la cantidad de polos de lazo cerrado correspondera a la cantidad de polos de lazo abierto (Puntos de partida)
