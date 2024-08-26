@@ -1,0 +1,322 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   %answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Fundamentos de control de sistemas} (EL4111-1) \\
+\large\textbf{Clase auxiliar 2} \\
+\small Prof.~Roberto Cardenas Dobson\\
+\small Prof.~Aux.~Osvaldo Jimenez - Erik Sáez\\
+\small Ayudantes.~Simon Arenas- Juan Pablo Baez - Francisco Garces - Sofia Ibarra\\
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Considere el siguiente sistema de control visto en Figura 1. Utilizando el método del lugar de la raíz, responda las siguientes preguntas:
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Auxiliar_2_11}
+        \caption{Diagrama de bloques}
+    \end{figure}
+    \begin{enumerate}
+        \item Identifique los puntos en el LGR donde la respuesta del sistema a lazo cerrado no sobrepasará el valor de referencia de entrada con un mínimo tiempo de establecimiento (asuma entrada escalón). Encuentre el valor de \(K_T\) en función de la ganancia \(K_A\) en esos puntos. Además, explique las condiciones de módulo y de ángulo que utiliza durante el desarrollo.
+        \item Repita el análisis anterior, pero considerando que la respuesta ahora tiene un \(\xi=0.707\) en la respuesta a lazo cerrado. De manera análoga, explique las condiciones de módulo y de ángulo que utiliza en su desarrollo.
+    \end{enumerate}
+    \newpage
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+   
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Sea el siguiente diagrama:
+    \begin{center}
+
+    \begin{tikzpicture}
+    % Grid setup
+    \draw[step=1cm,gray,very thin] (-6,-3) grid (2,3); % Enlarged grid
+    
+    % Axes
+    \draw[thick,->] (-6,0) -- (2.5,0) node[right] {$\text{Re}$}; % Extended x-axis
+    \draw[thick,->] (0,-3.5) -- (0,3.5) node[above] {$\text{Im}$}; % Extended y-axis
+
+    % Axis labels
+    \foreach \x in {-6,-5,...,2}
+      \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {\ifnum\x=0 \else $\x$ \fi};
+    \foreach \y in {-3,-2,...,3}
+      \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {\ifnum\y=0 \else $\y$ \fi};
+
+    % Points as blue crosses
+    \draw[blue] (0,0) -- ++(-0.1,-0.1) -- ++(0.2,0.2) ++(-0.2,0) -- ++(0.2,-0.2);
+    \draw[blue] (-5,0) -- ++(-0.1,-0.1) -- ++(0.2,0.2) ++(-0.2,0) -- ++(0.2,-0.2);
+    \draw[blue] (-3,-1) -- ++(-0.1,-0.1) -- ++(0.2,0.2) ++(-0.2,0) -- ++(0.2,-0.2);
+    \draw[blue] (-3,1) -- ++(-0.1,-0.1) -- ++(0.2,0.2) ++(-0.2,0) -- ++(0.2,-0.2);
+
+    % Red circle at -2
+    \filldraw[red] (-2,0) circle (2pt); % Increased size for visibility
+\end{tikzpicture}
+\end{center}
+    \begin{enumerate}
+        \item Encuentre la funcion de transferencia del sistema, con esta informacion , obtenga el lugar de la raiz
+        \item ¿Qué ocurre con el lugar de la raíz si el sistema tiene una ganancia negativa? En este caso, encuentre la ganancia crítica para que el sistema se mantenga estable.
+    \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+\subsection*{Resolucion 2.1}
+Dada la figura de del enunciado , se observa que se tienen 4 polos y un cero, por lo que se tendra:
+\begin{itemize}
+    \item Polos : $p_1=0$ , $p_2=-3 \pm j$ , $p=-5$.
+    \item Cero : $z_1=-2$
+\end{itemize}
+Con lo que la funcion de transferencia a lazo abierto vendra dada por:
+\begin{align}
+    H(s)G(s)&=\frac{(s+2)}{s(s+3+j)(s+3-j)(s+5)}\\
+     &=\frac{(s+2)}{s(s^2+6s+10)(s+5)}\\
+\end{align}
+Luego sera de interes encontrar todas las caracteristicas suficientes, tal que nos permitan el obtener el LGR.Comenzamos encontrando los cortes con el eje real , para la cual se utiliza la condicion de angulo en base a la siguiente regla: 
+\begin{itemize}
+    \item Si la cantidad de polos y ceros es \textbf{PAR}, luego esa zona no pertenecerá al LGR.
+    \item Si la cantidad de polos y ceros es \textbf{IMPAR}, luego esa zona pertenecerá al LGR.
+\end{itemize}
+Se debe tener la precaucion con los polos conjugados,se obtiene por tanto:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_1}
+    \captionof{figure}{Ubicacion de polos de lazo cerrado en zona real}
+  \end{center}
+Se busca el obtener la ubicacion de las asintotas , para lo cual se utiliza la siguiente formula:
+\begin{align}
+    \sigma_{a}= \frac{\sum Polos - \sum Ceros}{\# Asintotas} 
+\end{align}
+Considerando que la asintotas vienen dadas por $\#Asintotas = \#Polos - \#Ceros = 4 - 1 = 3$ se obtiene:
+\begin{align}
+    \sigma_{a}= \frac{ 0 - 5 -(3 + j) - (3 - j) - (-2)}{3} = -3 
+\end{align}
+La cual se visualiza en lo siguiente:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_2}
+    \captionof{figure}{Ubicacion de lugar de la asintota}
+  \end{center}
+Para los angulos asociados a las asintotas tenemos que $k \in \{0,\dots, \#Asintotas -1\}$ con lo que (Para $k>0$):
+\begin{align}
+    \theta_{k} = \frac{(2k+1)180}{\#Asintotas}
+\end{align}
+Con lo que se obtiene:
+\begin{align}
+    \theta_{0} &=  \frac{\pi}{3} \Leftrightarrow 60^{\circ} \\
+    \theta_{1} &=  \pi \Leftrightarrow 180^{\circ} \\
+    \theta_{2} &=  \frac{5\pi}{3} \Leftrightarrow 300^{\circ} 
+\end{align}
+Con lo cual:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_3}
+    \captionof{figure}{Angulos asociados a las asintotas}
+  \end{center}
+Se debe obtener los valores de llegada o salida, para lo cual se utiliza la expresion de lazo cerrado dada por:
+\begin{align}
+    1+kG(s)H(s) &= 0\\
+    1+ k\frac{(s+2)}{s(s^{2}+6s+10)(s+5)} &= 0\\
+    k = \frac{-s(s^{2}+6s+10)(s+5)}{(s+2)}\\
+\end{align}
+Luego derivamos e igualamos a 0 , con lo que se obtiene que 
+\begin{align}
+    \frac{dK}{ds} &= \frac{d}{ds} \left( \frac{-s(s^{2}+6s+10)(s+5)}{(s+2)} \right) = 0
+\end{align}
+Se tiene que $s_{1,2}= -3.7293 \pm 0.29837j$ y $s_{3,4}=-1.2707 \pm 0.8757j$ se observa que ambos son complejos por lo que \textbf{no existe corte con el eje real}.Se debe analizar si esque existe corte con el eje imaginario, por lo tanto:
+\begin{align}
+    1+kG(s)H(s) &= 0\\
+    1+k\frac{(s+2)}{s(s^{2}+6s+10)(s+5)} &= 0\\
+    s(s^{2}+6s+10)(s+5)+k(s+2)=0
+\end{align}
+Dado que nos interesa analizar el corte con el eje real, se impone que $s=j\omega$ con lo que se obtiene:
+\begin{align}
+    j\omega((j\omega)^{2}+6(j\omega)+10)(j\omega+5)+k(j\omega+2)=0\\
+    j\omega( -\omega^{2}+6j\omega+10)(j\omega+5)+k(j\omega+2)=0\\
+    \omega^{4}-40\omega^{2}+2k + j(50\omega +k\omega-11\omega^{3})=0
+\end{align}
+Lo anterior sera valido cuando tanto parte real e imaginaria sean nulas, por lo que igualando se obtiene:
+\begin{align}
+    \omega^{4}-40\omega^{2}+2k &= 0\\
+    50\omega +k\omega-11\omega^{3} &= 0
+\end{align}
+Luego:
+\begin{align}
+    \omega_{1,2} &= \pm 4.7385 & k_{1,2}&= 196.99\\
+    \omega_{3} &= 0 & k_{3}&= 0
+\end{align}
+Con lo que la solucion factible corresponde a $\omega_{1,2} = \pm 4.7385$ y $k_{1,2}= 196.99$, dado que $w_{3}$ es infactible dado que es un valor nulo o trivial (Es super importante destacar que la solucion se obtiene considerando $K>0$ , dado que si no se limita esta cantidad, entregara todo el conjunto de soluciones).Finalmente es posible el graficar el lugar geometrico de la raiz el cual vendra dado por lo siguiente:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_4}
+    \captionof{figure}{Lugar Geometrico de la Raiz}
+  \end{center}
+\subsection*{Resolucion 2.2}
+Dado que se tiene un sistema con ganancia negativa, se tiene que la funcion de transferencia vendra dada por (Considerando que $k>0$):
+\begin{align}
+    1-kG(s)H(s) &= 0
+\end{align}
+Con lo que la condicion sera:
+\begin{align}
+    \angle G(s)H(s) &= 0 \pm 360^{\circ} 
+\end{align}
+Por lo que notamos que al analizar el corte con el eje real, la condicion que se obtenia antes se invierte, es decir:
+\begin{itemize}
+    \item Si la cantidad de polos y ceros es \textbf{Impar}, luego esa zona no pertenecerá al LGR.
+    \item Si la cantidad de polos y ceros es \textbf{PAR}, luego esa zona pertenecerá al LGR.
+\end{itemize}
+Por lo que se obtiene lo opuesto a lo ya visto con anterioridad, es decir:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_5}
+    \captionof{figure}{Lugar Geometrico de la Raiz}
+  \end{center}
+Luego la posicion de las asintotas no cambiara, pero si los angulos, estos vendran asociados a los numeros pares, es decir:
+\begin{align}
+    \theta_{k} = \frac{2k \pi}{\#Asintotas}
+\end{align}
+Con lo que se obtiene que:
+\begin{align}
+    \theta_{0} &=   \Leftrightarrow 0^{\circ} \\
+    \theta_{1} &=   \frac{2\pi}{3} \Leftrightarrow 120^{\circ} \\
+    \theta_{2} &=  \frac{4\pi}{3} \Leftrightarrow 240^{\circ} 
+\end{align}
+De esta manera al ubicarlos:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_6}
+    \captionof{figure}{Lugar Geometrico de la Raiz}
+  \end{center}
+Notamos que los valores de llegada o salida \textbf{no se ven afectados por el signo de la ganancia}, por lo que se concluye de manera directa que nuevamente no habra corte en el eje real. Finalmente queda analizar el corte con el eje imaginario , el cual vendra dado por:
+\begin{align}
+    1-kG(s)H(s) &= 0\\
+    1-k\frac{(s+2)}{s(s^{2}+6s+10)(s+5)} &= 0\\
+    s(s^{2}+6s+10)(s+5)-k(s+2)=0
+\end{align}
+Reemplazando por $s=j\omega$ se obtiene:
+\begin{align}
+    \omega^{4}-40\omega^{2}-2k + j(50\omega -k\omega-11\omega^{3})=0
+\end{align}
+Que separando parte rteal e imaginaria se obtiene:
+\begin{align}
+    \omega^{4}-40\omega^{2}-2k &= 0\\
+    50\omega -k\omega-11\omega^{3} &= 0
+\end{align}
+Finalmente se obtienen los valores de $\omega$ y $k$ que son:
+\begin{align}
+    \omega_{1,2} &= \pm 2.110j & k_{1}&= -98.990
+\end{align}
+Se observa que son infactibles debido a que $w_{1,2}$ es un valor complejo , por lo que no cortara al eje imaginario, de esta manera podemos graficar el LGR el cual vendra dado por lo siguiente:
+\begin{center}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_2_7}
+    \captionof{figure}{Lugar Geometrico de la Raiz}
+  \end{center}
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question Encuentre los cortes al eje imaginario de la planta:
+\begin{align}
+    H(s)G(s) = \frac{(s+3)}{s^{2}-s-2}
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+\subsection*{Resolucion 3.1 (Forma 1)}
+Dada la funcion de transferencia de la planta,
+\begin{align}
+    H(s)G(s) &= \frac{(s+3)}{s^{2}-s-2}\\
+             &= \frac{(s+3)}{(s-2)(s+1)}
+\end{align}
+Con lo que tenemos que los polos de la planta vendran dados por $p_{1} = 2$ y $p_{2} = -1$ y el cero $z_{1} = -3$. Se debe analizar el corte con el eje imaginario, para lo cual se considera el criterio de Routh-Hurwitz,el cual nos permite analizar los rangos de ganancia que permiten la estabilidad del sistema en base a una tabla y los cambios de signos de la misma.Para esto se debe expresar la funcion de transferencia de lazo cerrado en forma polinomica, con lo que se obtiene:
+\begin{align}
+    1+kG(s)H(s) &= 0\\
+    1+k\frac{(s+3)}{(s-2)(s+1)} &= 0\\
+    (s-2)(s+1)+k(s+3) &= 0\\
+    s^{2}-s-2+ks+3k &= 0\\
+    s^{2}+(k-1)s-2+3k &= 0
+\end{align}
+Luego utilizamos la tabla tal que:
+\begin{center}
+    \begin{tabular}{|c|cc|}
+        \hline
+        $s^{2}$ & 1 & -2+3k\\
+        $s^{1}$ & k-1 & 0\\
+        $s^{0}$ & $\alpha_{1}$ & $\alpha_{2}$\\
+        \hline
+    \end{tabular}
+\end{center}
+Donde para obtener los valores de $\alpha_{1}$ y $\alpha_{2}$ se utilizan las formulas asociadas:
+\begin{align}
+    \alpha_{1} &= \frac{(3k-2)(k-1)-0}{k-1} = (3k-2)\\
+    \alpha_{2} &= 0
+\end{align}
+(Yo suelo utilizar este ayuda memoria para no olvidarme)
+\begin{center}
+    \includegraphics[width=0.3\textwidth]{Auxiliar_2_8}
+    \captionof{figure}{La idea es situar en la columna de la izquierda el mayor de grado hasta el menor grado, posteriormente reconocemos los coeficientes del polinomio y trazamos las flechas azules, desde la esquina superior izquierda bajando y luego subiendo hasta completar todo los coeficientes del polinomio (En caso de no haber se rellena con 0).}
+  \end{center}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{Auxiliar_2_9}
+    \captionof{figure}{Una vez ubicados los coeficientes se deben calcular los coeficientes, por lo que por ejemplo para calcular $\alpha_{1}$ se utiliza el termino superior y se realiza un \textit{Pivote} y luego se realizan las multiplicaciones diagonales y se restan y se dividen por el \textit{Pivote}.}
+  \end{center}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{Auxiliar_2_10}
+    \captionof{figure}{Para $\alpha_{2}$ se utiliza el mismo procedimiento}
+  \end{center}
+Esta metodologia utilizaba para no olvidarme, pero siempre es a criterio personal.Luego tenemos que la matriz vendra dada por:
+\begin{center}
+    \begin{tabular}{|c|cc|}
+        \hline
+        $s^{2}$ & 1 & 3k-2\\
+        $s^{1}$ & k-1 & 0\\
+        $s^{0}$ & $3k-2$ & 0\\
+        \hline
+    \end{tabular}
+\end{center}
+El criterio de Routh-width se basa en analizar la segunda columna, para la cual el cambio de signo es equivalente a entrar a zona donde este sea inestable, o equivalentemente cruze el semiplano derecho, por lo que se debera cumplir que en todo momento la primera columna sea positiva, por lo que se obtiene un intervalo vendra dado por (Es importante destacar que este analisis se realiza considerando que $k>0$):
+\begin{align}
+    k-1 &> 0\\
+    3k-2 &> 0
+\end{align}
+Con lo que se debe cumplir en simultaneo que $k>1$ y $k>\frac{2}{3}$, por lo que se obtiene que $k>1$ cumplira ambas condiciones que permitira la estabilidad .Finalmente se obtiene que el corte con el eje imaginario vendra dado por los momentos en que existe cambio de signo, por lo que estos correpsonden a $k_{1} = \frac{2}{3}$ y $k_{2}=1$, con lo que reemplazando sobre la funcion de transferencia de los polos de lazo cerrado se obtiene que:
+\subsubsection*{Caso 1: $K=\frac{2}{3}$}
+\begin{align}
+    s^{2}+(k-1)s-2+3k &= 0\\
+    (jw)^{2}+(k-1)jw-2+3\cdot \left|\frac{2}{3}\right| &= 0\\
+    -w^{2}+jw\frac{-1}{3} +0 &= 0\\
+\end{align}
+Luego igualamos separamos parte real e imaginaria y obtenemos que:
+\begin{align}
+    -w^{2} &= 0\\
+    -\frac{1}{3}w &= 0
+\end{align}
+Con lo que se obtiene que $s=0$, por lo que el corte se obtiene en el origen.
+\subsubsection*{Caso 2: K=1}
+Analogamente tenemos que:
+\begin{align}
+    s^{2}+(k-1)s-2+3k &= 0\\
+    (jw)^{2}+(k-1)jw-2+3\cdot 1 &= 0\\
+    -w^{2}+jw(1-1) -2+3 &= 0\\
+\end{align}
+Luego tenemos solo parte real,:
+\begin{align}
+    w^{2} &= \pm 1
+\end{align}
+De esta manera tenemos que los cortes se cumplen para $s= \pm j$.
+\subsection*{Resolucion 3.2 (Forma 2)} 
+Otra condicion que se utilizara con mucha mas frecuencia es la asociada a la condicion de angulo , la cual v
+\end{solution}
+
+\end{questions}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
