@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   %answers
+   answers
   ]{exam}
 
 \usepackage{../exercise-preamble}
@@ -312,7 +312,56 @@ Luego tenemos solo parte real,:
 \end{align}
 De esta manera tenemos que los cortes se cumplen para $s= \pm j$.
 \subsection*{Resolucion 3.2 (Forma 2)} 
-Otra condicion que se utilizara con mucha mas frecuencia es la asociada a la condicion de angulo , la cual v
+Otra condicion que se utilizara con mucha mas frecuencia es a la condicion de angulo , la cual vendra dada por:
+\begin{align}
+    \angle \sum \Theta_{polos} - \sum \Theta_{ceros} = \pm 180^{\circ} + n360^{\circ} 
+\end{align}
+De esta manera tenemos que encontrar los angulos asociados a los polos y ceros deberan cumplir tal condicion, pero ademas deberemos considerar que s=jw , dado nos interesa el corte en el eje real que cumpla dicha condicion de angulo.Retomando la funcion de transferencia:
+\begin{align}
+    H(s)G(s) &= \frac{(s+3)}{s^{2}-s-2}\\
+             &= \frac{(s+3)}{(s-2)(s+1)}
+\end{align}
+Tenemos luego que existe $p_{1}=-1$,$p_{2}=2$ y $z_{1}=-3$ , con lo que luego tenemos que se debe cumplir que:
+\begin{align}
+    \theta_{z_{1}} - (\theta_{p_{1}} + \theta_{p_{2}}) &= 180
+\end{align}
+Que graficamente correspondera a lo siguiente (Debemos recordar siempre como es la apertura de los angulos):
+\begin{center}
+    \includegraphics[width=0.55\textwidth]{Auxiliar_2_13}
+    \captionof{figure}{Recordatorio de como se miden los angulos para algun punto que pertenece al LGR}
+  \end{center}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{Auxiliar_2_12}
+    \captionof{figure}{Angulos para la funcion de transferencia vista con anterioridad} 
+  \end{center}
+\begin{align}
+    tan(\theta_{p_{1}})&= \frac{w}{1}\\
+    tan(\theta_{p_{2}})&= \frac{w}{2}\\
+    tan(\theta_{z_{1}})&= \frac{w}{3}
+\end{align}
+Con lo que sus respectivos angulos corresponderan a:
+\begin{align}
+    \theta_{p_{1}} &= atan(\frac{w}{1})\\
+    \theta_{p_{2}} &= 180 - atan(\frac{w}{2})\\
+    \theta_{z_{1}} &= atan(\frac{w}{1})
+\end{align}
+Con lo que reemplazando en la condicion de angulo se obtiene que:
+\begin{align}
+    atan(\frac{w}{3}) - (atan(\frac{w}{1}) + 180 - atan(\frac{w}{2})) &= 180\\
+    atan(\frac{w}{3}) - atan(\frac{w}{1}) - 180 + atan(\frac{w}{2}) &= 180\\
+    atan(\frac{w}{3}) - atan(\frac{w}{1}) + atan(\frac{w}{2}) &= 360
+\end{align}
+Donde ademas sabemos que 360 es equivalente a 0, por lo que se obtiene que:
+\begin{align}
+    atan(\frac{w}{3}) - atan(\frac{w}{1}) + atan(\frac{w}{2}) &= 0
+\end{align}
+Luego queda por resolver la ecuacion , la cual entrega tres soluciones:
+\begin{align}
+    w_{1} &= 0\\
+    w_{2} &= +j\\
+    w_{3} &= -j
+\end{align}
+Mismas obtenidas con anterioridad.
 \end{solution}
 
 \end{questions}
