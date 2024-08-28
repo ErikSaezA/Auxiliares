@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  26 AUG 2024 10:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  26 AUG 2024 23:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,7 +939,6 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (EL4113_02.out) (EL4113_02.out)
 \@outlinefile=\write4
 \openout4 = `EL4113_02.out'.
 
@@ -977,16 +976,83 @@ Package pdftex.def Info: ../figures/Auxiliar_2_11.pdf  used on input line 35.
 [1
 
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_2_11.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
+LaTeX Warning: Reference `eq1' on page 2 undefined on input line 56.
+
+
+LaTeX Warning: Reference `eq2' on page 2 undefined on input line 61.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 63.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 63.
+
+Missing character: There is no ° in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+
+LaTeX Warning: Reference `eq3' on page 2 undefined on input line 64.
+
+
+LaTeX Warning: Reference `eq4' on page 2 undefined on input line 73.
+
+
+LaTeX Warning: Reference `eq6' on page 2 undefined on input line 85.
+
+c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex:93: Extra }, or forgotten \endgroup.
+\endexam@MakeFramed ... \z@ \penalty -100 \egroup 
+                                                  \begingroup \exam@put@fram...
+l.93     \end{solution}
+                       
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex:93: LaTeX Error: \begin{enumerate} on input line 62 ended by \end{TheSolution}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93     \end{solution}
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex:93: Missing } inserted.
+<inserted text> 
+                }
+l.93     \end{solution}
+                       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <../figures/Auxiliar_2_1.pdf, id=26, 700.39867pt x 435.30127pt>
 File: ../figures/Auxiliar_2_1.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_1.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_1.pdf  used on input line 98.
+Package pdftex.def Info: ../figures/Auxiliar_2_1.pdf  used on input line 146.
 (pdftex.def)             Requested size: 245.33504pt x 152.47728pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 99.
+(caption)                particular \caption on input line 147.
 See the caption package documentation for explanation.
 
 
@@ -995,11 +1061,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_2.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_2.pdf, id=27, 779.47614pt x 491.78531pt>
 File: ../figures/Auxiliar_2_2.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_2.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_2.pdf  used on input line 111.
+Package pdftex.def Info: ../figures/Auxiliar_2_2.pdf  used on input line 159.
 (pdftex.def)             Requested size: 245.33504pt x 154.78561pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 112.
+(caption)                particular \caption on input line 160.
 See the caption package documentation for explanation.
 
 
@@ -1008,11 +1074,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_3.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_3.pdf, id=28, 716.96759pt x 439.82016pt>
 File: ../figures/Auxiliar_2_3.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_3.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_3.pdf  used on input line 126.
+Package pdftex.def Info: ../figures/Auxiliar_2_3.pdf  used on input line 174.
 (pdftex.def)             Requested size: 245.33504pt x 150.49657pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 127.
+(caption)                particular \caption on input line 175.
 See the caption package documentation for explanation.
 
 
@@ -1021,11 +1087,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_4.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_4.pdf, id=29, 714.70816pt x 541.49103pt>
 File: ../figures/Auxiliar_2_4.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_4.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_4.pdf  used on input line 163.
+Package pdftex.def Info: ../figures/Auxiliar_2_4.pdf  used on input line 211.
 (pdftex.def)             Requested size: 245.33504pt x 185.87268pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 164.
+(caption)                particular \caption on input line 212.
 See the caption package documentation for explanation.
 
 
@@ -1034,11 +1100,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_5.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_5.pdf, id=30, 841.23183pt x 521.90987pt>
 File: ../figures/Auxiliar_2_5.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_5.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_5.pdf  used on input line 182.
+Package pdftex.def Info: ../figures/Auxiliar_2_5.pdf  used on input line 230.
 (pdftex.def)             Requested size: 245.33504pt x 152.21007pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 183.
+(caption)                particular \caption on input line 231.
 See the caption package documentation for explanation.
 
 
@@ -1047,11 +1113,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_6.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_6.pdf, id=31, 814.87236pt x 533.20708pt>
 File: ../figures/Auxiliar_2_6.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_6.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_6.pdf  used on input line 197.
+Package pdftex.def Info: ../figures/Auxiliar_2_6.pdf  used on input line 245.
 (pdftex.def)             Requested size: 245.33504pt x 160.53288pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 198.
+(caption)                particular \caption on input line 246.
 See the caption package documentation for explanation.
 
 
@@ -1060,11 +1126,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_7.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_7.pdf, id=32, 823.1563pt x 522.66269pt>
 File: ../figures/Auxiliar_2_7.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_7.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_7.pdf  used on input line 221.
+Package pdftex.def Info: ../figures/Auxiliar_2_7.pdf  used on input line 269.
 (pdftex.def)             Requested size: 245.33504pt x 155.77121pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 222.
+(caption)                particular \caption on input line 270.
 See the caption package documentation for explanation.
 
 
@@ -1083,11 +1149,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_8.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_8.pdf, id=113, 733.53546pt x 649.9402pt>
 File: ../figures/Auxiliar_2_8.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_8.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 263.
+Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 311.
 (pdftex.def)             Requested size: 147.20251pt x 130.42209pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 264.
+(caption)                particular \caption on input line 312.
 See the caption package documentation for explanation.
 
 
@@ -1096,11 +1162,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_9.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_9.pdf, id=114, 1241.8897pt x 453.37683pt>
 File: ../figures/Auxiliar_2_9.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_9.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 267.
+Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 315.
 (pdftex.def)             Requested size: 269.87003pt x 98.51872pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 268.
+(caption)                particular \caption on input line 316.
 See the caption package documentation for explanation.
 
 
@@ -1109,11 +1175,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_10.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_10.pdf, id=115, 1238.87843pt x 475.9702pt>
 File: ../figures/Auxiliar_2_10.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_10.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 271.
+Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 319.
 (pdftex.def)             Requested size: 269.87003pt x 103.68246pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 272.
+(caption)                particular \caption on input line 320.
 See the caption package documentation for explanation.
 
 
@@ -1122,11 +1188,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_13.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_13.pdf, id=116, 866.8375pt x 553.54105pt>
 File: ../figures/Auxiliar_2_13.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_13.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 330.
+Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 378.
 (pdftex.def)             Requested size: 269.87003pt x 172.33078pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 331.
+(caption)                particular \caption on input line 379.
 See the caption package documentation for explanation.
 
 
@@ -1135,11 +1201,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_12.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_12.pdf, id=117, 845.75072pt x 469.9447pt>
 File: ../figures/Auxiliar_2_12.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_12.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 334.
+Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 382.
 (pdftex.def)             Requested size: 269.87003pt x 149.95512pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 335.
+(caption)                particular \caption on input line 383.
 See the caption package documentation for explanation.
 
 
@@ -1147,11 +1213,11 @@ See the caption package documentation for explanation.
 [7 <../figures/Auxiliar_2_7.pdf>]
 
 [8 <../figures/Auxiliar_2_8.pdf>]
-Underfull \vbox (badness 3386) detected at line 365
+Underfull \vbox (badness 3386) detected at line 413
  []
 
 
-Underfull \vbox (badness 3138) detected at line 365
+Underfull \vbox (badness 3138) detected at line 413
  []
 
 
@@ -1162,28 +1228,75 @@ Underfull \vbox (badness 3138) detected at line 365
 
 [11 <../figures/Auxiliar_2_13.pdf> <../figures/Auxiliar_2_12.pdf>]
 
+c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex:415: LaTeX Error: \begin{solution} on input line 45 ended by \end{questions}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.415 \end{questions}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
 [12]
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
+
+Class exam Warning: Point totals have changed. Rerun to get point totals right.
+
+
+c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex:419: LaTeX Error: \begin{questions} on input line 30 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.419 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 (EL4113_02.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-Package rerunfilecheck Info: File `EL4113_02.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `EL4113_02.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `EL4113_02.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 30 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 60719 strings out of 473899
- 1567059 string characters out of 5726500
+ 60722 strings out of 473899
+ 1566821 string characters out of 5726500
  2343997 words of memory out of 5000000
- 82759 multiletter control sequences out of 15000+600000
+ 82766 multiletter control sequences out of 15000+600000
  568809 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,101p,867b,1103s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,101p,867b,1164s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on EL4113_02.pdf (12 pages, 469761 bytes).
+Output written on EL4113_02.pdf (12 pages, 469891 bytes).
 PDF statistics:
  304 PDF objects out of 1000 (max. 8388607)
  116 named destinations out of 1000 (max. 500000)
