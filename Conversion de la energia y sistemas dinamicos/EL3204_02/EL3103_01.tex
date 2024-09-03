@@ -16,7 +16,7 @@
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
 \large\textbf{Conversión de la Energía y Sistemas Eléctricos } (EL4111-1) \\
-\large\textbf{Clase auxiliar 1} \\
+\large\textbf{Clase auxiliar 3} \\
 \small Prof.~Constanza Ahumada - Rodrigo Moreno.\\
 \small Prof.~Aux.~Javiera Pacheco - Erik Sáez\\
 \small Ayudantes.~Manuel Aceituno - Pamela Acuña - Alvaro Flores\\
@@ -32,7 +32,7 @@
     \question Considere el siguiente circuito electromecánico, el cual presenta permeabilidad infinita en el material ferromagnético, y cada devanado posee un número de vueltas \( N_1 = N_2 = 200 \, [\text{vueltas}] \), los cuales están conectados en serie. Además, los entrehierros del circuito son todos iguales, de longitud variable \( x \) y área \( A = 4 \, [\text{cm}^2] \). Por último, en la parte inferior del núcleo cuelga un péndulo cuya masa es igual a \( M = 3 \, [\text{kg}] \), y ambos se encuentran levantados debido a la acción del campo magnético y de un resorte, cuya constante elástica es \( K = 10.000 \, [\text{kg/s}^2] \) y su largo natural es de \( x_0 = 5 \, [\text{mm}] \).
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.4\textwidth]{Auxiliar_2_1}
+        \includegraphics[width=0.45\textwidth]{Auxiliar_2_1}
         \caption{Circuito electromecánico.}
     \end{figure}
 
@@ -55,9 +55,13 @@
             R(x) = \frac{x}{\mu_{0}A}
         \end{align}
         Que es en funcion del entrehierro, ademas se desprecia la reluctancias de los nucleos dado que $\mu \rightarrow \infty$. Para las inductancias mutuas se tendra que plantear el circuito magnetico , el cual viene dado por:
-        %AGREGAR IMAGEN DE CIRCUITO MAGNETICO
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Auxiliar_2_2}
+        \end{center}
         Recordamemos que la inductancia se asocia de manera directa con los flujos magneticos involucrados, por lo tanto si se desea obtener $L_{11}$ esta vendra asociada unicamente a el flujo asociada a la fuente magnetomotriz que lo genera, por lo que podemos omitir el resto (\textit{Equivalentemente a apagar las fuentes}), dado que no nos interesa el efecto de estas sobre la bobina que queremos obtener (\textit{Inductancia mutua}), por lo tanto tenemos el siguiente esquema:
-        %AGREGAR CIRCUITO CON UNA FUENTE PRENDIDA
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Auxiliar_2_3}
+        \end{center}
         Luego tendremos por tanto que:
         \begin{align}
             N_{1}I_{1}= \phi_{11}R_{eq}
@@ -86,7 +90,9 @@
             L_{22} = \frac{2N^{2} \mu_{0}A}{3x}
         \end{align}
         Luego se busca el obtener la inductancia mutua $L_{21}$, por lo que ahora se considera el efecto de la segunda bobina sobre la primera, que en terminos del circuito magnetico , equivale a apagar la segunda fuente pero considerar el flujo que esta genera, por lo que se tiene el siguiente esquema:
-        %AGREGAR CIRCUITO CON AMBAS FUENTES PRENDIDAS
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Auxiliar_2_4}
+        \end{center}
         Luego este se puede resolver por el metodo  que consideren apropiado, es directo ver que se puede resolver por division de corriente. En este caso particular tomare una mala en la zona derecha del circuito, con lo que se tiene que:
         \begin{align}
             R(\phi_{21} + \phi_{11})+ R\phi_{21}= 0\\
@@ -128,7 +134,9 @@
         Con lo que se obtiene la fuerza magnetica.
         \subsection*{Resolucion 1.3}
         Se busca obtener la ecuacion dinamica del sistema, para esto se tiene que considerar el sistema de referencia adecuado, por lo que se tiene que considerar el sistema de referencia que se muestra en la imagen, con lo que se tiene que:
-        %%% AGREGAR IMAGEN DEL SISTEMA DE REFERENCIA QUE UTILIZO
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Auxiliar_2_5}
+        \end{center}
         Luego tenemos varias fuerzas involucradas en el sistema,por lo tanto aplicando , la segunda ley de Newton se tiene que:
         \begin{align}
             \sum F &= M\ddot{x}\\
@@ -136,7 +144,7 @@
             Mg - k(x-l_{0}) - \frac{N^{2}\mu_{0}Ai^{2}}{3x^{2}} &= M\ddot{x}
         \end{align}
         Con lo que se obtiene el modelo mecanico del sistema visto anteriormente.
-        \subsection*{Resolucion 1.4}'
+        \subsection*{Resolucion 1.4}
         Se busca obtener la corriente por las bobinas y la magnitud de cada fuerza involucrada, en estado estacionario, esto ultimo hace referencia que se debera cumplir que $\ddot{x}= \dot{x}=0$, con lo que volviendo sobre nuestra ecuacion dinamica se tiene que:
         \begin{align}
             Mg - k(x-l_{0}) - \frac{N^{2}\mu_{0}Ai^{2}}{3x^{2}} &= 0 
@@ -167,16 +175,20 @@
     \end{solution}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
     \question Sea el siguiente esquema de un funcionamiento electromecanico:
-    %AGREGAR LA FOTO    
+    \begin{center}
+        \includegraphics[width=0.65\textwidth]{Auxiliar_2_10}
+    \end{center}  
     \begin{enumerate}
         \item Determine las ecuaciones que modelan el sistema mecanico y electrico.
-        \item Determinar
+        \item \textbf{Propuesto} Analice la posicion de su sistema cuando la corriente es constante (Conocida $I_{0}$) y el sistema esta en equilibrio. 
     \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{solution}
 \subsection*{Resolucion 2.1}
    Dado el esquema, se busca obtener las ecuaciones que modelan el sistema mecanico, por lo que se tiene que considerar las fuerzas involucradas en el sistema, en particular nos interesa la fuerza magnetica, por lo que se tiene el siguiente esquema:
-   %%AGREGAR IMAGEN DE COMO SE COMPORTA EL SISTEMA
+   \begin{center}
+    \includegraphics[width=0.3\textwidth]{Auxiliar_2_6}
+\end{center}
    Luego tenemos que al tener unicamente una fuente magnetica y despreciando la reluctancia del nucleo, el sistema se reduce a:
    \begin{align}
      Ni(t) = \phi(t)R_{eq}
@@ -211,7 +223,9 @@
                   &=\frac{A\mu_{0}N^{2}i^{2}}{2(l_{1}-x(t))^{2}} - k(x-l_{0}) - B\dot{x}
     \end{align}
     Por otro lado se busca obtener el modelo electrico el cual viene dado de manera simplicada por:
-    %%%% AGREGAR FOTO DEL SISTEMA ELECTRICO
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{Auxiliar_2_7}
+    \end{center}
     Con lo que mediante una malla simple se obtiene:
     \begin{align}
         \epsilon(t) = Ri(t) + \frac{d L(x(t))i(t)}{dt}
@@ -238,7 +252,9 @@
     \item No hay pérdidas por histéresis ni corrientes parásitas.
     \item La permeabilidad del núcleo es muy alta (infinita), por lo que se requiere una fuerza magnetomotriz (relacionada con la corriente de excitación) muy pequeña que es posible ignorar para establecer el flujo.
 \end{itemize}
-%%AGREGAR IMAGEN DEL CIRCUITO
+\begin{center}
+    \includegraphics[width=0.65\textwidth]{Auxiliar_2_11}
+\end{center}
 \begin{enumerate}
     \item Indicar la polaridad de los transformadores, nombrándolas y dibujando los puntos
     correspondientes
@@ -251,7 +267,9 @@
 \begin{solution}
     \subsection*{Resolucion 3.1}
     Dado que se busca indicar la polaridad de los transformadores, se debe identificar de manera visual y haciendo uso de la regla de la mano derecha, la polaridad de los transformadores, es por esto que el transformador de la izquierda se observa que su polaridad es \textbf{sustractiva} mientras que la del transformador de la derecha es \textbf{aditiva}, por lo que dibujando los puntos correspondientes se tiene:
-    %%AGREGAR LA IMAGEN DE LAS POLARIDADES
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_2_8}
+    \end{center}
     \subsection*{Resolucion 3.2}
     Se busca obtener las potencias de las cargas $Z_{1}$ y $Z_{2}$, por lo que recordando que:
     
@@ -278,7 +296,9 @@ Por lo que deberemos referencias $Z_{2}$ , por lo tanto se obtiene que:
 \begin{align}
     Z'_{2} = a^{2}Z_{2} = \left(\frac{N_{1}}{N_{2}}\right)^{2}Z_{2} = \left(\frac{30}{60}\right)^{2}(20 + j) = 5 + j0.25 [\Omega]
 \end{align}
-%%AGREGAR IMAGEN DE REFERENCIA DE Z2
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{Auxiliar_2_9}
+\end{center}
 Luego se obtiene la impedancia equivalente del circuito referenciado, la cual viene dada por:
 \begin{align}
     Z_{eq}= Z_{1} + Z'_{2}= (20+j) + (5+j0.25) = 25 + j1.25 [\Omega]
@@ -343,107 +363,36 @@ Este caso resulta de manera directa , dado que se tendra que $i_{1}= i_{2}=i_{3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Resumen}
 
-\section*{Fasores}
-
-Considerando una onda sinusoidal del tipo:
-\begin{align}
-v(t) &= V_m \cos(\omega t + \phi)
-\end{align}
-Donde:
 \begin{itemize}
-    \item $V_m$ es la magnitud de la onda.
-    \item $\omega$ es la frecuencia en [rad/seg].
-    \item $\phi$ es la fase de la onda en [rad].
-\end{itemize}
-Se tendrá que la representación fasorial de la onda anterior será:
-\begin{align}
-\tilde{V} &= V e^{j\phi} = V \angle \phi
-\end{align}
-Donde $V$ corresponderá a la amplitud efectiva de la onda. Por otro lado, se debe recordar que un número complejo se puede escribir como un número polar de la siguiente forma:
-\begin{align}
-z &= x + jy = (r \angle \phi) = r e^{j\phi}
-\end{align}
-Donde:
-\begin{align}
-r &= \sqrt{x^2 + y^2}
-\end{align}
-\begin{align}
-\phi &= \arctan\left(\frac{y}{x}\right)
-\end{align}
-\begin{itemize}
-    \item \textbf{Tensiones:}
+    \item \textbf{Ley de Faraday} \\
+    Para una espira que atraviesa un flujo magnético variable, el voltaje en [Volts] inducido en sus terminales es:
     \begin{align}
-        V_{\Delta} &= \sqrt{3} V_Y \angle 30^\circ \\
-        V_f &= \frac{V_{\Delta}}{\sqrt{3}} \angle -30^\circ
-    \end{align}
-    Por ejemplo:
-    \begin{align}
-        \Rightarrow V_{ab} &= \sqrt{3} V_{an} \angle 30^\circ
+    \epsilon &= -\frac{d\phi}{dt}
     \end{align}
     
-    \item \textbf{Corrientes:}
-    \begin{align}
-        I_Y &= \sqrt{3} I_{\Delta} \angle 30^\circ \\
-        I_{\Delta} &= \frac{I_Y}{\sqrt{3}} \angle -30^\circ
-    \end{align}
-    Por ejemplo:
-    \begin{align}
-        \Rightarrow I_{an} &= \sqrt{3} I_{ab} \angle 30^\circ
-    \end{align}
-    
-    \item \textbf{Impedancias:} \\
-    Asumiendo que el sistema es equilibrado, es decir, que las cargas son iguales, se tendrá:
-    \begin{align}
-        Z_Y &= \frac{Z_{\Delta}}{3}
-    \end{align}
-\end{itemize}
-
-\begin{itemize}
-    \item \textbf{Impedancias:} \\
-    Asumiendo que el sistema es equilibrado, es decir, que las cargas son iguales, se tendrá:
-    \begin{align}
-        Z_Y &= \frac{Z_{\Delta}}{3}
-    \end{align}
-\end{itemize}
-
-\section*{Potencias trifásicas}
-
-\begin{itemize}
-    \item \textbf{Aparente:}
-    \begin{align}
-        S_{1\phi} &= V_{fn} \cdot I_{f} = P_{1\phi} + jQ_{1\phi} \\
-        S_{3\phi} &= 3 \cdot S_{1\phi}
-    \end{align}
-    
-    Donde:
+    \item \textbf{Energía Magnética} \\
+    La acumulación de energía magnética en un caso sin pérdidas y con:
     \begin{itemize}
-        \item $S_{1\phi}$ es la potencia aparente monofásica medida en Volt-Ampere [VA].
-        \item $P_{1\phi}$ es la potencia activa monofásica medida en Watts [W].
-        \item $Q_{1\phi}$ es la potencia reactiva monofásica medida en Volt-Ampere reactivos [VAr].
+        \item 1 fuente de excitación:
+        \begin{align}
+        W_{fld} &= \frac{1}{2} i^2 \cdot L(x)
+        \end{align}
+
+        \item 2 fuentes de excitación:
+        \begin{align}
+        W_{fld} &= \frac{1}{2} i_1^2 \cdot L_{11}(x) + \frac{1}{2} i_2^2 \cdot L_{22}(x) + L_{12}(x) \cdot i_1 \cdot i_2
+        \end{align}
+
+        \item n fuentes de excitación:
+        \begin{align}
+        W_{fld} &= \frac{1}{2} \mathbf[{i}]^t \cdot [L] \cdot \mathbf[{i}]
+        \end{align}
     \end{itemize}
-    
-    \item \textbf{Activa y reactiva:}
+
+    \item \textbf{Fuerza magnética} \\
     \begin{align}
-        P_{1\phi} &= \text{Re}\{V_{fn} \cdot I_{f}^*\} = |S_{1\phi}|\cos(\phi) \\
-        Q_{1\phi} &= \text{Im}\{V_{fn} \cdot I_{f}^*\} = |S_{1\phi}|\sin(\phi)
+    f_{fld} &= -\frac{\partial W_{fld}(\lambda,x)}{\partial x} \Bigg|_{\lambda}
     \end{align}
-    
-    Donde $\phi = \text{arccos}(FP)$ corresponde al desfase angular, y $FP$ corresponderá al factor de potencia.
-    
-\end{itemize}
 
-\section*{Factor de potencia}
-
-Se define el factor de potencia como razón entre la potencia activa y el módulo de la potencia aparente.
-
-\begin{align}
-FP &= \cos(\phi) = \frac{P}{|S|}
-\end{align}
-
-Cabe destacar que el factor de potencia va siempre acompañado de un “apellido”, el cual indica si el fasor de la corriente está atrasado o adelantado con respecto al fasor del voltaje, lo que afecta al signo del ángulo $\phi$.
-
-\begin{itemize}
-    \item Un factor de potencia en \textbf{adelanto} significa que el fasor de la corriente se adelanta con respecto al fasor del voltaje, lo cual indica que estamos en presencia de una \textbf{impedancia capacitiva} y que el signo del ángulo $\phi$ va a ser negativo.
-    \item Un factor de potencia en \textbf{atraso} significa que el fasor de la corriente se atrasa con respecto al fasor del voltaje, lo cual indica que estamos en presencia de una \textbf{impedancia inductiva} y que el signo del ángulo $\phi$ es positivo.
 \end{itemize}
 \end{document}

@@ -27,23 +27,24 @@
 \noindent
 \vspace{.85cm}
 \hrule
-\textbf{Indicacciones: La tarea se puede realizar en grupos de - . Debe ser entregada el dia - , no se aceptan atrasos, el formato debera ser tipo informe.}
+\textbf{Indicacciones: La tarea se puede realizar en grupos de 3 personas . Debe ser entregada el dia viernes 13 de Septiembre , no se aceptan atrasos, el formato debera ser tipo informe.}
 \hrule
 \noindent
 \vspace{.85cm}
 \begin{questions}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Un amigo suyo se enteró que podía tener un cartel de permeabilidad magnética infinita y masa bien distribuida de 0.1 [kg] levitando gracias al poder del electromagnetismo, por ello le pidió que le calcule la corriente necesaria para poder lograr su cometido. El circuito magnético que posee está compuesto por dos núcleos magnéticos semicirculares de iguales dimensiones, con la disposición que se ve en la figura, tienen radio interno 6 [cm], radio externo 8 [cm] y profundidad de 2 [cm], lamentablemente estos tienen distinta permeabilidad relativa siendo esta $u_{r}=2$ para el núcleo asociado a la primera bobina y $u_{r}=3$ para la segunda.
+    \question Considere un cartel de permeabilidad magnética infinita y masa bien distribuida de 0 1 [kg] levitando debajo de un circuito magnético fijo que posee dos núcleos magnéticos semicirculares de iguales dimensiones, con la disposición que se muestra en la figura, tienen radio interno 6 [cm], radio externo 8 [cm] y profundidad de 2 [cm]. Permeabilidad relativa $µ_{r} =2$ para el núcleo asociado a la primera bobina y $µ_{r}=3$ para la segunda.
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.5\textwidth]{Tarea_1_1}
     \end{figure}
-    \begin{itemize}
+    \begin{enumerate}[label=\alph*)]
         \item \textbf{(1.5 Puntos)} Calcule el circuito equivalente del sistema, calcule las reluctancias de los elementos presentes y la inductancia propia de cada bobina.
-        \item \textbf{(2 Puntos)} Su amigo es muy perfeccionista así que el cartel no puede quedar desnivelado, encuentre la relación que deben cumplir las fuerzas magnetomotrices para ello.
-        \item \textbf{(2 Puntos)} Su amigo le menciona que las bobinas de 200 vueltas estaban a 2x1 por ello las compró, le gustaría que el cartel levite a 3mm de los núcleos que están fijos, con esta información, encuentre las corrientes que deben circular por cada bobina (Indicación: La fuerza ejercida por un sistema puede calcularse como la derivada de la energía del sistema respecto a la posición (h))
-        \item \textbf{(0.5 Puntos)} Respecto a las corrientes que encontró, entregue su opinión a su amigo.
-    \end{itemize}
+        \item \textbf{(2 Puntos)} Encuentre la relación que deben cumplir las fuerzas magnetomotrices para que el cartel no quede desnivelado
+        \item \textbf{(2 Puntos)} Considerando que ambas bobinas tienen 200 vueltas, calcule la corriente necesaria en cada bobina para que el cartel quede a 3mm de los núcleos (\textit{Indicación: La fuerza ejercida por un sistema puede calcularse como la derivada de la energía del sistema respecto a la posición (h)})
+        \item \textbf{(0.5 Puntos)} En cierto instante se deja de aplicar corriente en la bobina 2, mientras se mueve el cartel de arriba hacia abajo (en rangos alrededor de h) en un movimiento armónico de frecuencia 50 [Hz]. \textbf{Comente sobre la fem inducida en la segunda bobina. Si existe, calcule su valor, en caso contrario justifique.}
+    \end{enumerate}
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -53,13 +54,12 @@
         \centering
         \includegraphics[width=0.5\textwidth]{Tarea_1_2}
     \end{figure}
-    \begin{itemize}
-        \item \textbf{(0.5 Puntos)} Dado el esquema visto en la figura anterior, fabrique el conversor AC/DC , para obtener una $V_{o}= 120[V]$ mediante un rectificador de onda completa monofásico. Considere que la frecuencia de la red es de $60[Hz]$ y que su condensador es de $C=1[F]$, debe obtener los graficos asociados a la señal de salida y la señal de entrada.
-        \item \textbf{(0.5 Puntos)} Realice el mismo procedimiento pero para un rectificador de onda completa trifásico.
-        \item \textbf{(1 Puntos)} Debido a nuevas tecnologias, se desea implimentar un rectificador controlado monofásico. ¿Cuál es el valor de $\alpha$ para obtener una señal de salida de $V_{o}= 120[V]$?. Se debe justificar la razon de la eleccion del \textit{Duty cicle} y como este afecta su respuesta.
-        \item \textbf{(1 Puntos)}Realice el mismo procedimiento pero para un rectificador controlado trifásico.
-        \item \textbf{(3 Puntos)} Investigacion
-    \end{itemize}
+    \begin{enumerate}[label=\alph*)]
+        \item \textbf{(0.5 Puntos)} Dado el esquema visto en la figura anterior, fabrique el conversor AC/DC , para obtener una $V_{o}= 120[V]$ mediante un rectificador de onda completa monofásico. Considere que la frecuencia de la red es de $50[Hz]$ y que su condensador es de $C=1[F]$, ¿Cuál es el valor de $V_{s}$ para poder tener V0=120V?
+        \item \textbf{(0.5 Puntos)} Realice el mismo procedimiento y obtenga $V_{s}$ para un rectificador de onda completa pasivo. ¿Cómo cambian sus resultados al usar un rectificador de onda completa controlado? ¿Cómo influye $\alpha$?
+        \item \textbf{(2 Puntos)} Simule los tres casos y analice el comportamiento para distintos valores de C y $\alpha$. ¿Qué puede concluir con respecto al uso de los 3 rectificadores y los valores de voltaje $V_{s}$ y el tamaño de C?
+        \item \textbf{(3 Puntos)} La conexión de paneles solares a la red eléctrica se hace mediante el uso de inversores de potencia. Además, para poder entregar energía cuando la disponibilidad solar es baja se utilizan sistemas de almacenamiento de energía.  Al respecto, investigue sobre distintas topologías de conexión de paneles solares con sistema de almacenamiento a la red eléctrica (describa al menos 3) y comente sobre las ventajas y desventajas de cada método. Utilice referencias en formato IEEE.
+    \end{enumerate}
 \end{questions}
 Para la realizacion de la tarea se puede utilizar el software de simulacion que estime conveniente (\textit{Recomiendo personalmente PLECS}). Todo los graficos deben estar bien rotulados , ademas mostrar los esquemas realizados en la simulacion como los parametros utilziados.
 \end{document}

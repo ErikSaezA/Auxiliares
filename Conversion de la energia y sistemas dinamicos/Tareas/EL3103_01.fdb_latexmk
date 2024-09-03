@@ -1,13 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1725219285.72518 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/Tareas/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1725219290.89651 0
+["pdflatex"] 1725329157.32668 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/Tareas/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1725329163.05369 0
   "../aas_macros.sty" 1724116932 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
-  "../exercise-preamble.sty" 1724116932 2202 80894a6d68cfe8d710e65c775cf2987d ""
+  "../exercise-preamble.sty" 1725328343 2223 778169d6b088897742be77ed3cae0474 ""
   "../fcfm_die.pdf" 1724116932 70674 58fca911fad9f2323ab3bd83506d01cc ""
   "../figures/Tarea_1_1.pdf" 1725143412 25786 cebb6a07cdb4864e37ec2c5dc43f7b26 ""
   "../figures/Tarea_1_2.pdf" 1725144571 52873 9cca4ea57bc10a96509b8c3e35cade64 ""
   "../macros.sty" 1724116932 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1723594468 84124 a7927d7d1dc0e2460633f0d209c3f0d0 ""
-  "C:/Users/eriks/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1687384651 12668 5c9f0939adb75a2142abeb38c3635075 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1687191809 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1687191810 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1723594519 24265333 b1c902106f80346bf482f46dc20ca63a ""
@@ -218,6 +217,7 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/circuitikz/circuitikz.sty" 1722702581 13737 f02f52987d22d9c4bee3d996b2154ebe ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/cleveref/cleveref.sty" 1524385854 337536 7fc6b003158402a4c694bc0a1b729308 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/commath/commath.sty" 1153218240 9537 ecb0f152230e8d1c561906edc314dcbc ""
+  "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/enumitem/enumitem.sty" 1561039820 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1601897756 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/exam/exam.cls" 1689583161 292471 cf61070d137ac4d18fa1ab3aa514381e ""
@@ -275,10 +275,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3103_01.aux" 1725219290 873 3ec1233d241b9eb5b01f0a6dbd42cd15 "pdflatex"
-  "EL3103_01.out" 1725219289 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3103_01.tex" 1725219284 4374 ccebffb7192762385c69f54eb250f7c8 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/Tareas/EL3103_01.tex" 1725219284 4374 ccebffb7192762385c69f54eb250f7c8 ""
+  "EL3103_01.aux" 1725329162 873 28e3802aa4d4eba9545599809b317022 "pdflatex"
+  "EL3103_01.out" 1725329161 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3103_01.tex" 1725329155 4721 4bee854246f65444d29a17843acb19c3 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/Tareas/EL3103_01.tex" 1725329155 4721 4bee854246f65444d29a17843acb19c3 ""
   (generated)
   "EL3103_01.aux"
   "EL3103_01.log"
