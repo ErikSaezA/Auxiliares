@@ -1,0 +1,416 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3103) \\
+\large\textbf{Clase auxiliar 5} \\
+\normalsize Prof.~Heraldo Rozas.\\
+\normalsize Prof.~Aux.~Erik Saez - Maximiliano Morales
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Considere el sistema caracterizado por la siguiente función de transferencia:
+    \begin{align}
+    H(s) = \frac{3(s + 2)}{s^2 - 2s - 15}
+    \end{align}
+    \begin{enumerate}
+        \item Formule el sistema en variables de estado, y calcule MTE y funciones base.
+        \item Calcule la respuesta al impulso, y determine estabilidad BIBS y BIBO.
+        \item Escriba la expresión general para la respuesta del sistema ante una entrada arbitraria y para condiciones iniciales arbitrarias.
+        \item Analice controlabilidad y observabilidad del sistema.
+        \item Suponiendo que solamente tiene acceso a la salida del sistema y no al estado, diseñe un controlador que ubique los polos a lazo cerrado en $-5$ y $-3$.
+    \end{enumerate}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+        \subsection*{Resolucion 1.1}
+        Se busca obtener la representacion en variables de estado del sistema,ademas de obtener la MTE.Para comenzar encontraremos los polos y ceros de la funcion de transferencia:
+        \begin{align}
+            H(s)= \frac{3(s+2)}{s^{2}-2s-15}= \frac{3(s+2)}{(s-5)(s+3)}
+        \end{align}
+        Una vez expresada de una manera factorizada la funcion de transferencia, es posible utilizar fracciones parciales,tal que:
+        \begin{align}
+            H(s) = \frac{A}{s-5} + \frac{B}{s+3}
+        \end{align}
+        Luego formaremos un sistema de ecuaciones tal que:
+        \begin{align}
+            A(s+3) + B(s-5) &= 3(s+2)\\
+            (A+B)s + 3A-5B &= 3s + 6
+        \end{align}
+        Se obtiene que:
+        \begin{align}
+            A+B &= 3\\
+            3A-5B &= 6
+        \end{align}
+        Por tanto se obtiene que $A=\frac{21}{8}$ y $B=\frac{3}{8}$, con lo que se obtiene que:
+        \begin{align}
+            H(s) = \frac{21}{8(s-5)} + \frac{3}{8(s+3)}
+        \end{align}
+        Dado que la definicion de funcion de transferencia viene dada por $H(s)=\frac{Y(s)}{U(s)}$,luego tenemos que:
+        \begin{align}
+            Y(s)= \frac{21}{8(s-5)}U(s) + \frac{3}{8(s+3)}U(s)
+        \end{align}
+        donde es posible escribir de manera conveniente la salida tal que:
+        \begin{align}
+            Y(s) &= 
+            \underbrace{
+                \begin{pmatrix}
+                \frac{21}{8} & \frac{3}{8}
+                \end{pmatrix}
+            }_{= \mathbf{C}}
+            \underbrace{
+                \begin{pmatrix}
+                \frac{U(s)}{s+5} \\
+                \frac{U(s)}{s+3}
+                \end{pmatrix}
+            }_{= \mathbf{X(s)}}
+            \end{align}
+    La nocion sobre realizar esto,esque podemos determinar cual es la forma de la matriz C de manera directa y ademas poder conocer el vector de estados,en base a esto tendremos lo siguiente, con el fin de obtener las matrices A y B:
+    \begin{align}
+        \mathbf{X}(s) &= 
+        \begin{pmatrix}
+        X_1(s) \\
+        X_2(s)
+        \end{pmatrix}
+        = 
+        \begin{pmatrix}
+        \frac{U(s)}{s+5} \\
+        \frac{U(s)}{s+3}
+        \end{pmatrix}.
+        \end{align}
+    Luego podemos analizar por componente,es decir que:
+    \begin{align}
+        X_{1}(s)= \frac{U(s)}{s-5}\\
+        X_{1}(s)(s-5) = U(s)\\
+        sX_{1}(s) - 5X_{1}(s) = U(s)
+    \end{align}
+    Aplicando la antitransformada,considerando que $\mathcal{L} \left\{ \frac{d^n}{dt^n} f(t) \right\} = s^n F(s)$,tenemos que la expresion en el dominio del tiempo vendra dada:
+    \begin{align}
+        \dot{x}_{1}(t) - 5x_{1}(t) = u(t)\\
+        \dot{x}_{1}(t)  = 5x_{1}(t)+ u(t)
+    \end{align}
+    De manera analoga tenemos que para $X_{2}(s)$ se tiene que:
+    \begin{align}
+        X_{2}(s)= \frac{U(s)}{s+3}\\
+        X_{2}(s)(s+3) = U(s)\\
+        sX_{2}(s) + 3X_{2}(s) = U(s)
+    \end{align}
+    Aplicando la antitransformada,se tiene que:
+    \begin{align}
+        \dot{x}_{2}(t) + 3x_{2}(t) = u(t)\\
+        \dot{x}_{2}(t) = -3x_{2}(t) + u(t)
+    \end{align}
+    Una vez obtenidas las variables de estado en el dominio del tiempo , tenemos que podemos formar la matriz A y B de la siguiente manera:
+    \begin{align}
+        \frac{d}{dt} 
+        \begin{pmatrix}
+        x_1 \\
+        x_2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        5 & 0 \\
+        0 & -3
+        \end{pmatrix}
+        \begin{pmatrix}
+        x_1 \\
+        x_2
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+        1 \\
+        1
+        \end{pmatrix} u.
+    \end{align}
+    Donde se tendra que la primera matriz sera la matriz A y la segunda matriz sera la matriz B,es decir:
+    \begin{align}
+        A = \begin{pmatrix}
+        5 & 0 \\
+        0 & -3
+        \end{pmatrix}
+        \quad
+        B = \begin{pmatrix}
+        1 \\
+        1
+        \end{pmatrix}
+    \end{align}
+    De esta manera se obtiene el vector de estados x(t) y las matrices A B y C que permiten realizar la formulacion en variables de estado.La cual es posible expresarla como:
+    \begin{align}
+        \dot{x}(t) &= \begin{pmatrix} 5 & 0 \\ 0 & -3 \end{pmatrix} x(t) + \begin{pmatrix} 1 \\ 1 \end{pmatrix} u(t) \\
+        y(t) &= \begin{pmatrix} \frac{21}{8} & \frac{3}{8} \end{pmatrix} x(t)
+    \end{align}
+    Notamos que la matriz A es diagonal,lo que nos permite de manera directa obtener los matriz de transicion de estados,la cual vendra dada por:
+    \begin{align}
+        \Phi(t) = e^{At} = \begin{pmatrix} e^{5t} & 0 \\ 0 & e^{-3t} \end{pmatrix}
+    \end{align}
+    \subsection*{Resolucion 1.2}
+    Se busca el analizar la respuesta al impulso ademas de la estabilidad BIBS y BIBO,para el primer caso tenemos:
+    \begin{align}
+        h(t)=C\phi(t)B
+    \end{align}
+    Luego reemaplzaando los valores obtenidos anteriormente se tiene que:
+    \begin{align}
+        y(t) &= \begin{pmatrix} \frac{21}{8} & \frac{3}{8} \end{pmatrix} 
+        \begin{pmatrix} e^{5t} & 0 \\ 0 & e^{-3t} \end{pmatrix}
+        \begin{pmatrix} 1 \\ 1 \end{pmatrix} \\
+        &= \begin{pmatrix} \frac{21}{8} e^{5t} & \frac{3}{8} e^{-3t} \end{pmatrix} 
+        \begin{pmatrix} 1 \\ 1 \end{pmatrix} \\
+        &= \frac{21}{8} e^{5t} + \frac{3}{8} e^{-3t}
+        \end{align}
+\end{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Considere la siguiente funcion a tiempo discreto dada por:
+    \begin{align}
+        x(n+3) + 6x(n+2) + 11x(n+1) + 6x(n) = 2u(n+1) + 6u(n) 
+    \end{align}
+    \begin{enumerate}
+        \item Obtenga la funcion de transferencia del sistema 
+        \item Obtenga la respuesta al impulso 
+    \end{enumerate}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+        \subsection*{Resolucion 2.1}
+        Se busca obtener la funcion de transferencia del sistema, pero es importante notar que ahora estmaos considerando sistemas a tiempo discreto, por lo que deberemos recurrir a la transformada Z en lugar de la transformada de Laplace, la cual se define como:
+        \begin{align}
+            \mathcal{Z}\{f(t)\} = F(z) = \sum_{t=0}^{\infty} f(t)z^{-t}
+        \end{align}
+        Al igual que el ejercicio anterior, utilziaremos sus propiedades de lienalidad , y en particular una de estas la cual nos habla de los retardos:
+        \begin{align}
+            \mathcal{Z}\{f(t-k)\} = z^{-k}F(z)
+        \end{align}
+        Por lo tanto tomando la transformada Z de la funcion a tiempo discreto se obtiene:
+        \begin{align}
+            z^{3}X(z) + 6z^{2}X(z) + 11zX(z) + 6X(z) = 2zU(z) + 6U(z)
+        \end{align}
+        Con lo que si factorizamos X(z) se obtiene que:
+        \begin{align}
+        X(z)(z^{3} + 6z^{2} + 11z + 6) &= U(z)(2z + 6)\\
+        G(z)=\frac{X(z)}{U(z)}&= \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
+        \end{align}
+        Con lo que la funcion de transferencia del sistema vendra dada por:
+        \begin{align}
+            G(z) = \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
+        \end{align}
+        \subsection*{Resolucion 2.2}
+        Similar a el problema anterior, se busca obtener la respuesta a el impulso que analogamente se cumple que $u(t)= \sigma(t)$ y que por tanto $U(z)=1$, luego se debera factorizar el polinomio obtenido con anterioridad con el fin de obtener las fracciones parciales, lo que se puede hacer de la siguiente manera:
+        \begin{align}
+            z^{3} + 6z^{2}+11z+6 = (z+1)(z+2)(z+3)
+        \end{align}
+        Con lo que:
+        \begin{align}
+            G(z) = \frac{2z+6}{(z+1)(z+2)(z+3)} = \frac{A}{z+1} + \frac{B}{z+2} + \frac{C}{z+3}
+        \end{align}
+        Formamos nuestros sitemas de ecuaciones los cuales vendran dados por:
+        \begin{align}
+            A(z+2)(z+3) + B(z+1)(z+3) + C(z+1)(z+2) &= 2z+6\\
+            Az^{2} + 5Az + 6A + Bz^{2} + 4Bz + 3B + Cz^{2} + 3Cz + 2C &= 2z+6\\
+            (A+B+C)z^{2} + (5A+4B+3C)z + (6A+3B+2C) &= 2z+6
+        \end{align}
+        Con lo que se forma un sistemas de ecuaciones dado por:
+        \begin{align}
+            A+B+C &= 0\\
+            5A+4B+3C &= 2\\
+            6A+3B+2C &= 6
+        \end{align}\
+        Dando como resultado que $A=2$, $B=-2$ y $C=0$, con lo que se obtiene que:
+        \begin{align}
+            G(z) = \frac{2}{z+1} - \frac{2}{z+2}
+        \end{align}
+        Dado que queremos obtener g(n) = $\mathcal{Z}^{-1}\{G(z)\}$, se tiene debemos aplicar la antitransformada de Z , pero notamos que no presenta la forma de ninguna de las antitransformadas conocidas, por lo que debemos realizar un ajuste tal que:
+        \begin{align}
+            G(z) = \frac{2}{z}\frac{z}{z+1} - \frac{2}{z}\frac{z}{z+2}
+        \end{align}
+        Luego al recurrir a las tablas de antitransformada se tienen lo siguiente:
+        \begin{align}
+            \mathcal{Z}^{-1} \left\{ \frac{z}{z+\alpha} \right\} &= (-\alpha)^{n}\\
+            \mathcal{text}^{-1}\left\{z^{k}F(z)\right\}=f(n+k)
+        \end{align}
+        con lo que al aplicar la antitransformada se obtiene que tenemos:
+        \begin{align}
+            g(n) = 2(-1)^{n-1}- 2(-2)^{n-1}
+        \end{align}
+        Con lo que se obtiene la respuesta al impulso del sistema.
+    \end{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Considere la siguiente matriz dada por:
+    \begin{align}
+        A= \begin{bmatrix}
+            5 & -8\\
+            1 & -1
+        \end{bmatrix}
+    \end{align}
+    \begin{enumerate}
+        \item Realize una transformacion tal que $A = TDT^{-1}$ , donde D es una matriz diagonal de valores propios de A y T es una matriz de vectores propios, representadas por:
+        \begin{align}
+            D = \begin{bmatrix}
+                \lambda_{1} & 0\\
+                0 & \lambda_{2}
+            \end{bmatrix}
+            T = \begin{bmatrix}
+                v_{1} & v_{2}
+            \end{bmatrix}
+        \end{align}
+    \end{enumerate}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+        \subsection*{Resolucion 3.1}
+        Dada la matriz A se busca obtener una transformacion 
+    Para encontrar los valores propios de A , se debe cumplir que para det(A-$\lambda$I) = 0, esto con el fin de que sea singular , es decir que la matriz $A-\lambda I$ no tenga inversa o equivalente a que su determinante sea nulo , para no obtener soluciones triviales en donde el vector propio v sea 0 , dado que por definicion estos son no nulos.
+    \begin{align}
+        (A-\lambda I)v = 0
+    \end{align}
+    Por lo tanto se tiene que:
+    \begin{align}
+        |A-\lambda I| = 0\\
+        \begin{vmatrix}
+            5-\lambda & -8\\
+            1 & -1-\lambda
+        \end{vmatrix} = 0\\
+        (5-\lambda)(-1-\lambda) - (-8)(1) = 0\\
+        \lambda^{2} - 4\lambda - 3 = 0
+    \end{align}
+    De esta manera se debera cumplir que:
+    \begin{align}
+        (\lambda -3)(\lambda -1) =0
+    \end{align}
+    Con lo que finalmente se obtiene que $\lambda_{1} = 3$ y $\lambda_{2} = 1$,y por tanto nuestra matriz D la cual viene dada:
+    \begin{align}
+        D = \begin{bmatrix}
+            3 & 0\\
+            0 & 1
+        \end{bmatrix}
+    \end{align}
+     Se busca obtener los vectores propios asociados a estos valores propios, para esto calcularemos el vector proio asociado a $\lambda_{1}$ por tanto:
+     \begin{align}
+        (A - \lambda_1 I)\mathbf{v}_1 &= 0.
+    \end{align}
+    
+    Desarrollando esta expresión, tenemos
+    \begin{align}
+        \begin{pmatrix}
+        5 - 3 & -8 \\
+        1 & -1 - 3
+        \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y
+        \end{pmatrix}
+        &= \begin{pmatrix}
+        0 \\
+        0
+        \end{pmatrix}.
+    \end{align}
+    Esto permite formar un sistema de ecuaciones para x e y , dado por:
+    \begin{align}
+        2x - 8y &= 0, \\
+        x - 4y &= 0,
+    \end{align}
+    Es importante destacar que son linealmente dependientes, por lo que no existirá una solución única. Considerando esto, basta encontrar algún vector que satisfaga dicha relación. Por ejemplo, si consideramos \( y = 1 \), podemos ver que se debe tener \( x = 4 \). Así, el vector propio \( \mathbf{v}_1 \) es
+    \begin{align}
+        \mathbf{v}_1 &= \begin{pmatrix} 4 \\ 1 \end{pmatrix}.
+    \end{align}
+    Analogamente tenemos uqe para el segundo vector proipo se tiene que:
+    \begin{align}
+        (A - \lambda_2 I)\mathbf{v}_2 &= 0
+    \end{align}
+    \begin{align}
+        \iff
+        \begin{pmatrix}
+        5 - 1 & -8 \\
+        1 & -1 - 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        x \\
+        y
+        \end{pmatrix}
+        &= \begin{pmatrix}
+        0 \\
+        0
+        \end{pmatrix}.
+    \end{align}
+    Desarrollando, obtenemos el siguiente sistema de ecuaciones
+    \begin{align}
+        4x - 8y &= 0, \\
+        x - 2y &= 0.
+    \end{align}
+    Nuevamente, podemos ver que las ecuaciones son linealmente dependientes, por lo que considerando \( y = 1 \) tenemos \( x = 2 \). Por lo tanto, el segundo vector propio es
+    \begin{align}
+        \mathbf{v}_2 &= \begin{pmatrix} 2 \\ 1 \end{pmatrix}.
+    \end{align}
+    Finalmente es posible el obtener la matriz T, la cual se define como:
+    \begin{align}
+        T = \begin{bmatrix}
+            4 & 2\\
+            1 & 1
+        \end{bmatrix}
+    \end{align}
+    La cual esta asociado a los vectores propios, finalmente nos queda el obtener $T^{-1}$ , lo cual se puede hacer de la siguiente manera para una matriz de 2x2 
+    \begin{align}
+        \begin{bmatrix}
+            m_{1} & m_{2}\\
+            m_{3} & m_{4}
+        \end{bmatrix}
+    \end{align}
+    
+    Con lo que la matriz inversa se define como:
+    \begin{align}
+        M^{-1} = \frac{1}{\text{det}(M)}\begin{bmatrix}
+            m_{4} & -m_{2}\\
+            -m_{3} & m_{1}
+        \end{bmatrix}
+    \end{align}
+    
+    Por lo tanto, tenemos que:
+    \begin{align}
+        \text{det}(T) = 4 \cdot 1 - 2 \cdot 1 = 2
+    \end{align}
+    
+    Con lo que se obtiene que para \( T^{-1} \):
+    \begin{align}
+        T^{-1} = \begin{bmatrix}
+            \frac{1}{2} & 1\\
+            \frac{-1}{2} & 2
+        \end{bmatrix}
+    \end{align}
+    De esta manera se obtiene la transformación buscada dada por:
+    \begin{align}
+        A = T D T^{-1} = \begin{bmatrix}
+            4 & 2\\
+            1 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            3 & 0\\
+            0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+            \frac{1}{2} & 1\\
+            -\frac{1}{2} & 2
+        \end{bmatrix}
+    \end{align}
+
+\end{solution}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{questions}
+
+
+
+\end{document}
