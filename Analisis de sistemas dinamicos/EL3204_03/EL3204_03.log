@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  9 SEP 2024 11:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  9 SEP 2024 11:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1377,6 +1377,8 @@ pdf>]
 [6]
 
 [7]
+
+[8]
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1389,9 +1391,9 @@ Package rerunfilecheck Info: File `EL3204_03.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60480 strings out of 473899
- 1560623 string characters out of 5726500
- 2340997 words of memory out of 5000000
+ 60489 strings out of 473899
+ 1560727 string characters out of 5726500
+ 2345997 words of memory out of 5000000
  82541 multiletter control sequences out of 15000+600000
  565700 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1410,9 +1412,9 @@ C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmsy8.pfb>
-Output written on EL3204_03.pdf (7 pages, 245346 bytes).
+Output written on EL3204_03.pdf (8 pages, 252566 bytes).
 PDF statistics:
- 214 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

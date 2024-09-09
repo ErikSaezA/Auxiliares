@@ -175,6 +175,26 @@
         \begin{pmatrix} 1 \\ 1 \end{pmatrix} \\
         &= \frac{21}{8} e^{5t} + \frac{3}{8} e^{-3t}
         \end{align}
+    De esta manera se obtiene que la respuesta al impulso vendra dada por:
+    \begin{align}
+        h(t) = \frac{21}{8} e^{5t} + \frac{3}{8} e^{-3t}
+    \end{align}
+    Luego buscamos analizar la estabilidad BIBS y BIBO.
+    \subsubsection*{Estabilidad BIBS}
+    Esta estabilidad esta asociada a los estados de sus sistena (Es decir que estos no divergan para un $t \rightarrow \infty$).Observamos que la matriz A es diagonal,por lo que los valores propios(o polos) son directos,es decir que $\lambda_{1}=5$ y $\lambda_{2}=-3$,donde se observa directamente que $\lambda_{1}$ es positivo,lo que implica que nuestro sistema internamente es inestable, es decir que no es BIBS estable.
+    \subsubsection*{Estabilidad BIBO}
+    Para la estabilidad BIBO asociada a la salida nos interesa que se cumpla:
+    \begin{align}
+        \int_{0}^{\inf}|h(t)|dt= \int_{0}^{\infty} |h(t)| dt < \infty
+    \end{align}
+    Reemplazando anterior y considerando que tenemos un $t \in [0,\infty]$ luego el valor absoluto sera positivo,por tanto:
+    \begin{align}
+        \int_{0}^{\infty} |h(t)| \, dt &= \int_{0}^{\infty} \left( \frac{21}{8} e^{5t} + \frac{3}{8} e^{-3t} \right) dt \\
+        &= \frac{21}{8} \int_{0}^{\infty} e^{5t} \, dt + \frac{3}{8} \int_{0}^{\infty} e^{-3t} \, dt \\
+        &= \frac{21}{8} \left[ \frac{e^{5t}}{5} \right]_{0}^{\infty} + \frac{3}{8} \left[ \frac{e^{-3t}}{-3} \right]_{0}^{\infty} \\
+        &= \frac{21}{8} \cdot \frac{1}{5} + \frac{3}{8} \cdot \frac{1}{3}.
+    \end{align}
+  
 \end{solution}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
     \question Considere la siguiente funcion a tiempo discreto dada por:
