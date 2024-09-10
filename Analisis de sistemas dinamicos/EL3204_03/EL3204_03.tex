@@ -192,245 +192,354 @@
         \int_{0}^{\infty} |h(t)| \, dt &= \int_{0}^{\infty} \left( \frac{21}{8} e^{5t} + \frac{3}{8} e^{-3t} \right) dt \\
         &= \frac{21}{8} \int_{0}^{\infty} e^{5t} \, dt + \frac{3}{8} \int_{0}^{\infty} e^{-3t} \, dt \\
         &= \frac{21}{8} \left[ \frac{e^{5t}}{5} \right]_{0}^{\infty} + \frac{3}{8} \left[ \frac{e^{-3t}}{-3} \right]_{0}^{\infty} \\
-        &= \frac{21}{8} \cdot \frac{1}{5} + \frac{3}{8} \cdot \frac{1}{3}.
+        &= \infty
     \end{align}
-  
-\end{solution}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Considere la siguiente funcion a tiempo discreto dada por:
+    Debido al polo inestable luego tendremos en este caso en particular(\textit{No es algo que se cumpla siempre})que la salida sera inestable,por lo tanto el sistema es BIBO inestable dado que diverge y no podemos acotarlo.
+    \subsection*{Resolucion 1.3}
+    Se busca obtener la salida ante una entrada arbitraria y condiciones iniciales arbitrarias,para esto se tiene que:
     \begin{align}
-        x(n+3) + 6x(n+2) + 11x(n+1) + 6x(n) = 2u(n+1) + 6u(n) 
+        y(t) &=y_{0}(t) + y_{\theta}(t)
+    \end{align}
+    Donde tenemoqs ue $y_{0}$ es la respuesta entrada cero (RENC) , mientras que $y_{\theta}(t)$ es la respuesta a estado cero(RESC),por lo que para el primer caso:
+    \begin{align}
+        y_{0}(t)=C\phi(t)X_{0}
+    \end{align}
+    Luego reemplazando los valores obtenidos anteriormente se tiene que:
+    \begin{align}
+        y_{0}(t) &= \begin{pmatrix} \frac{21}{8} & \frac{3}{8} \end{pmatrix} 
+        \begin{pmatrix} e^{5t} & 0 \\ 0 & e^{-3t} \end{pmatrix}
+        \begin{pmatrix} x_{10} \\ x_{20} \end{pmatrix} \\
+        &= \begin{pmatrix} \frac{21}{8} e^{5t} & \frac{3}{8} e^{-3t} \end{pmatrix} 
+        \begin{pmatrix} x_{10} \\ x_{20} \end{pmatrix} \\
+        &= \frac{21}{8} e^{5t} x_{1}(0) + \frac{3}{8} e^{-3t} x_{2}(0)
+    \end{align}
+    Mientras que para la RESC se tendra que la respuesta viene dada por:
+    \begin{align}
+        y_{\theta}(t) = h(t)*u(t)
+    \end{align}
+    Es decir la convolucion entre la respuesta al impulso y la entrada,por lo que de manera integral tenemos que:
+    \begin{align}
+        y_{\theta}(t) &= \int_{0}^{t} h(t-\tau)u(\tau) \, d\tau
+    \end{align}
+    Reemplazando en base a lo obtenido con anterioridad se tiene:
+    \begin{align}
+        y_0(t) &= \int_0^t h(t-\tau) u(\tau) d\tau \\
+               &= \int_0^t \left[ \frac{21}{8} e^{5(t-\tau)} + \frac{3}{8} e^{-3(t-\tau)} \right] u(\tau) d\tau \\
+               &= \frac{21}{8} e^{5t} \int_0^t e^{-5\tau} u(\tau) d\tau + \frac{3}{8} e^{-3t} \int_0^t e^{3\tau} u(\tau) d\tau
+    \end{align}
+    Otra forma posible de expresar la respuesta al impulso es tal que h(t) = C$\phi$(t)B,por tanto:
+    \begin{align}
+        y_{\theta}(t) = C \int_{0}^{t} \Phi(t-\tau)B u(\tau) \, d\tau
+    \end{align}
+    Con lo que finalmente tenemos que la respuesta total correspondera a:
+    \begin{align}
+        y(t) = \frac{21}{8} e^{5t} x_{1}(0) + \frac{3}{8} e^{-3t} x_{2}(0) + \frac{21}{8} e^{5t} \int_0^t e^{-5\tau} u(\tau) d\tau + \frac{3}{8} e^{-3t} \int_0^t e^{3\tau} u(\tau) d\tau
+    \end{align}
+    \subsection*{Resolucion 1.4}
+    Buscamos analizar controlabilidad y observabilidad del sistema,para el primer caso se tiene que un sistema es controlable si y solo si la matriz de controlabilidad es de rango completo,que es equivalente a analizar que filas y columnas sean linealmente independientes,por lo que se tiene que la matriz de controlabilidad general viene dada por:
+    \begin{align}
+        \mathcal{C} = \begin{pmatrix} B & AB & A^{2}B & \dots & A^{n-1}B \end{pmatrix}
+    \end{align}
+    Dado que en nuesto caso particular n=2,se tiene que:
+    \begin{align}
+        \mathcal{C} = \begin{pmatrix} B & AB \end{pmatrix}
+    \end{align}
+    Luego reemplazando las matrices A y B se obtiene que la matriz de controlabilidad vendra dad por:
+    \begin{align}
+        \mathcal{C} = \begin{pmatrix} 1 & 1 \\ 5 & -3 \end{pmatrix}
+    \end{align}
+    Vemos que tanto filas como columnas son LI,por lo que el sistema es controlable.Otra forma de analizar la controlabilidad es calcular su determinante,en caso de ser nulo implica que no es controlable,en particular $\|C\|$ = 8,por lo que se confirma nuevamente que el sistema es controlable.\\\\
+    Por otro lado para anlizar la observabilidad es bastante analogo a lo visto anteriormente , es decir un sistema es observable si y solo si la matriz de observabilidad es de rango completo,es decir que las filas y columnas sean linealmente independientes,por lo que se tiene que la matriz de observabilidad general viene dada por:
+    \begin{align}
+        \vartheta = \begin{pmatrix} C \\ CA \\ CA^{2} \\ \vdots \\ CA^{n-1} \end{pmatrix}
+    \end{align}
+    Luego para nuestro caso particular se tiene que:
+    \begin{align}
+        \vartheta = \begin{pmatrix} C \\ CA \end{pmatrix}
+    \end{align}
+    Reemplazando las matrices C y A se obtiene que la matriz de observabilidad vendra dada por:
+    \begin{align}
+        \vartheta = \begin{pmatrix} \frac{21}{8} & \frac{3}{8} \\ \frac{420}{8} & -\frac{9}{8} \end{pmatrix}
+    \end{align}
+    Vemos que tanto filas como columnas son LI,por lo que el sistema es observable.Otra forma de analizar la observabilidad es calcular su determinante,en caso de ser nulo implica que no es observable,en particular $\|\vartheta\|$ = $\frac{-1449}{64}$,por lo que se confirma nuevamente que el sistema es observable.Por lo que se confirma que el sistema es controlable y observable.
+    \subsection*{Resolucion 1.5}
+    Dado que tenemos solo acceso a la salida del sistema y no al estado se busca diseñar un controlador para polos ubicados en -5 y -3, esto es posible de implementar dado que anteriormente se demostro que el sistema es controlable.La idea general de implementar el controlador,es poder trasladar los polos actual (5 t -3) a los polos deseados (-5 y -3),el problema radica en que para implementar el controlador debemos tener acceso al sistema,en caso de no tener acceso al sistema no es posible implementar el controlador.Pero podemos estimar el estado mediante un observador y utilizar el hecho de que el sistema es controlable y observable.Para implementar el observador, donde la idea es que sea un sistema gemelo al original(\textit{Digital twin}),el cual posee la forma:
+    \begin{align}
+        \dot{\hat{x}}(t) = A\hat{x}(t) + Bu(t) - F(\hat{y}(t)-y(t))\\
+        \hat{y}(t) = C\hat{x}(t)
+    \end{align}
+    Donde los terminos $\hat{y}$ y $\hat{x}$ son las estimaciones de la salida y el estado respectivamente,ademas las matrices A,B y C son las del sistema original y el termino $F(\hat{y}(t)-y(t))$ corresponde al termino de correcion,con la idea que converga al sistema original,es decir cuando $\hat(y)=y$.La idea por tanto es obtener un f que sea optimo tal que el sistema converga rapidamente al sistema original,esto deriva del siguiente hecho:
+    \begin{align}
+        e=\hat{x}-x
+    \end{align}
+    Donde e coresponde al error de estimacion asociado al estado,luego para analiar la dinamica del error tenemos que al derivar:
+    \begin{align}
+        \dot{e} &= \hat{\dot{x}} - \dot{x} \\
+                &= A \hat{x} + Bu - F (\hat{y} - y) - A x - Bu \\
+                &= A \underbrace{(\hat{x} - x)}_{=e} - F (\hat{y} - y) \\
+                &= A e - F \left( C \hat{x} - C x \right) \\
+                &= A e - FC \underbrace{(\hat{x} - x)}_{=e} \\
+                &= (A - FC) e,
+        \end{align}
+    Por lo que podemos observar que la dinamica del observador correspodnera a:
+    \begin{align}
+        \dot{e} = (A - FC) e
+    \end{align}
+    Luego la velocidad de convergencia de este error estara dada por los polos de la matriz (A-FC).Por lo que un F es optimo si ubica los polos de (A-FC) en donde se es deseado.Los valores de F se elijen tal que sean 3 veces mas negativos que los polos deseados del controlador,es decir que si los polos deseados son -5 y -3,entonces los polos de (A-FC) deben ser -15 y -9,recordemos ademas que la matriz F es de la forma:
+    \begin{align}
+        F = \begin{pmatrix} f_1 \\ f_2 \end{pmatrix}
+    \end{align}
+    Luego para obtener los valores propios de considera que:
+    \begin{align}
+        |A-FC-\lambda I| = 0
+    \end{align}
+    Por lo que se tiene que:
+    \begin{align}
+        |A - FC - \lambda I| &= \left| \begin{matrix} 5 - \frac{21}{8} f_1 - \lambda & -\frac{3}{8} f_1 \\[6pt] \frac{21}{8} f_2 & -3 - \frac{3}{8} f_2 - \lambda \end{matrix} \right| \\
+        &= \left( 5 - \frac{21}{8} f_1 - \lambda \right) \left( -3 - \frac{3}{8} f_2 - \lambda \right) - \frac{63}{64} f_1 f_2 \\
+        &= -15 - \frac{15}{8} f_2 - 5 \lambda + \frac{63}{8} f_1 + \frac{63}{64} f_1 f_2 + 21 \lambda + 3 \lambda + \frac{3}{8} f_2 \lambda + \lambda^2 - \frac{63}{64} f_1 f_2 \\
+        &= \lambda^2 + \left( -2 + \frac{21}{8} f_1 + \frac{3}{8} f_2 \right) \lambda - 15 + \frac{63}{8} f_1 - \frac{15}{8} f_2 \\
+        &=\lambda^2 + \left( -2 + \frac{21}{8} f_1 + \frac{3}{8} f_2 \right) \lambda - 15 + \frac{63}{8} f_1 - \frac{15}{8} f_2 = 0.
+    \end{align}
+    Dado que se busca obtener que $\lambda=-15$ y $\lambda=-9$,se tiene que el polinomio caracteristico vendra dado por:
+    \begin{align}
+        (\lambda + 15) (\lambda + 9) &= 0\\
+        \lambda^{2} + 24\lambda + 135 &= 0
+    \end{align}
+    Como se busca el obtener $f_{1}$ y $f_{2}$ luego ambos polinomios deberan ser identicos,de aca se deriva un sistemas de ecuaciones dado por:
+    \begin{align}
+        -2 + \frac{21}{8} f_1 + \frac{3}{8} f_2 &= 24 \\
+        -15 + \frac{63}{8} f_1 - \frac{15}{8} f_2 &= 135
+    \end{align}
+    Por tanto se obtiene que: $f_{1}=\frac{40}{3}$ y $f_{2}=-24$,con lo que se obtiene que la matriz F vendra dada por:
+    \begin{align}
+        F = \begin{pmatrix} \frac{40}{3} \\ -24 \end{pmatrix}
+    \end{align}
+    Por lo que se obtiene finalmente el observador,luego es posible implementar el controlador.Realizaremos el diseño del controlador sobre el sistema original,esto es valido siempre cuando el observador realizado con anterioridad este bien diseñado y converga rapidamente al sistema original(\textit{No es menor este supuesto!}).Para el controlador tenemos que considerar lo sigeuitne:
+    \begin{align}
+        u(t) = r(t) - Kx(t)
+    \end{align}
+    Donde K es la matriz del controlador y r(t) es la referencia del sistema , que el la entrada del sistema controlado.Luego el sistema en variables de estado correspondera a lo siguiente:
+    \begin{align}
+        \dot{x}(t) = (A-BK)x(t) + Br(t) \\
+        y(t) = Cx(t)
+    \end{align}
+    Luego de manera analoga a lo realizado para obtener el observador,se tiene que los polos del sistema controlado corresponderan a los valores propios de la matriz (A-BK),por lo que buscamos diseñar una matriz K tal que los polos queden en -5 y -3.Por lo tanto tenemos que K sera de la forma:
+    \begin{align}
+        K=\begin{pmatrix} k_{1} & k_{2} \end{pmatrix}
+    \end{align}
+    Por lo tanto los valores propios vendran dados por:
+    \begin{align}
+        |A - BK - \lambda I| &= \left| \begin{matrix} 5 - k_1 - \lambda & -k_2 \\ -k_1 & -3 - k_2 - \lambda \end{matrix} \right| \\
+        &= (5 - k_1 - \lambda)(-3 - k_2 - \lambda) - k_1 k_2 \\
+        &= \lambda^2 + (-2 + k_1 + k_2) \lambda - 15 + 3k_1 - 5k_2.
+    \end{align}
+        Al igual que antes dado que queremos que $\lambda=-5$ y $\lambda=-3$,se tiene que el polinomio caracteristico vendra dado por:
+        \begin{align}
+            (\lambda + 5) (\lambda + 3) &= 0\\
+            \lambda^{2} + 8\lambda + 15 &= 0
+        \end{align}
+        Por lo que el sistema de ecuaciones vendra dado por:
+        \begin{align}
+            -2 + k_1 + k_2 &= 8 \\
+            -15 + 3k_1 - 5k_2 &= 15
+        \end{align}
+        Con lo que resolcvemos el sistema de ecuaciones y obtenemos que $k_{1}=10$ y $k_{2}=0$,por lo que la matriz K vendra dada por:
+        \begin{align}
+            K = \begin{pmatrix} 10 & 0 \end{pmatrix}
+        \end{align}
+        Surge una alerta inmediata en el hecho de que se obtenga que $k_{2}=0$,pero tiene sentido, dado que se busca el mover un polo de -3 a -3, por lo que no se ve afectado.Finalmente se implemento el controlador.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question Considere el siguiente sistema dado en forma canónica de Jordan
+\begin{align}
+    \dot{x} &= \begin{pmatrix}
+    -3 & 1 & 0 \\
+    0 & -3 & 0 \\
+    0 & 0 & 1 
+    \end{pmatrix} x + \begin{pmatrix} 
+    5 \\
+    2 \\
+    3 
+    \end{pmatrix} u \\
+    y &= \begin{pmatrix} 1 & 1 & 0 \end{pmatrix} x.
     \end{align}
     \begin{enumerate}
-        \item Obtenga la funcion de transferencia del sistema 
-        \item Obtenga la respuesta al impulso 
+        \item Encuentre la MTE y las funciones base del sistema.
+        \item Encuentre la respuesta al impulso.
+        \item Determine estabilidad BIBS y BIBO.
+        \item Determine controlabilidad y observabilidad.
     \end{enumerate}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{solution}
-        \subsection*{Resolucion 2.1}
-        Se busca obtener la funcion de transferencia del sistema, pero es importante notar que ahora estmaos considerando sistemas a tiempo discreto, por lo que deberemos recurrir a la transformada Z en lugar de la transformada de Laplace, la cual se define como:
-        \begin{align}
-            \mathcal{Z}\{f(t)\} = F(z) = \sum_{t=0}^{\infty} f(t)z^{-t}
-        \end{align}
-        Al igual que el ejercicio anterior, utilziaremos sus propiedades de lienalidad , y en particular una de estas la cual nos habla de los retardos:
-        \begin{align}
-            \mathcal{Z}\{f(t-k)\} = z^{-k}F(z)
-        \end{align}
-        Por lo tanto tomando la transformada Z de la funcion a tiempo discreto se obtiene:
-        \begin{align}
-            z^{3}X(z) + 6z^{2}X(z) + 11zX(z) + 6X(z) = 2zU(z) + 6U(z)
-        \end{align}
-        Con lo que si factorizamos X(z) se obtiene que:
-        \begin{align}
-        X(z)(z^{3} + 6z^{2} + 11z + 6) &= U(z)(2z + 6)\\
-        G(z)=\frac{X(z)}{U(z)}&= \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
-        \end{align}
-        Con lo que la funcion de transferencia del sistema vendra dada por:
-        \begin{align}
-            G(z) = \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
-        \end{align}
-        \subsection*{Resolucion 2.2}
-        Similar a el problema anterior, se busca obtener la respuesta a el impulso que analogamente se cumple que $u(t)= \sigma(t)$ y que por tanto $U(z)=1$, luego se debera factorizar el polinomio obtenido con anterioridad con el fin de obtener las fracciones parciales, lo que se puede hacer de la siguiente manera:
-        \begin{align}
-            z^{3} + 6z^{2}+11z+6 = (z+1)(z+2)(z+3)
-        \end{align}
-        Con lo que:
-        \begin{align}
-            G(z) = \frac{2z+6}{(z+1)(z+2)(z+3)} = \frac{A}{z+1} + \frac{B}{z+2} + \frac{C}{z+3}
-        \end{align}
-        Formamos nuestros sitemas de ecuaciones los cuales vendran dados por:
-        \begin{align}
-            A(z+2)(z+3) + B(z+1)(z+3) + C(z+1)(z+2) &= 2z+6\\
-            Az^{2} + 5Az + 6A + Bz^{2} + 4Bz + 3B + Cz^{2} + 3Cz + 2C &= 2z+6\\
-            (A+B+C)z^{2} + (5A+4B+3C)z + (6A+3B+2C) &= 2z+6
-        \end{align}
-        Con lo que se forma un sistemas de ecuaciones dado por:
-        \begin{align}
-            A+B+C &= 0\\
-            5A+4B+3C &= 2\\
-            6A+3B+2C &= 6
-        \end{align}\
-        Dando como resultado que $A=2$, $B=-2$ y $C=0$, con lo que se obtiene que:
-        \begin{align}
-            G(z) = \frac{2}{z+1} - \frac{2}{z+2}
-        \end{align}
-        Dado que queremos obtener g(n) = $\mathcal{Z}^{-1}\{G(z)\}$, se tiene debemos aplicar la antitransformada de Z , pero notamos que no presenta la forma de ninguna de las antitransformadas conocidas, por lo que debemos realizar un ajuste tal que:
-        \begin{align}
-            G(z) = \frac{2}{z}\frac{z}{z+1} - \frac{2}{z}\frac{z}{z+2}
-        \end{align}
-        Luego al recurrir a las tablas de antitransformada se tienen lo siguiente:
-        \begin{align}
-            \mathcal{Z}^{-1} \left\{ \frac{z}{z+\alpha} \right\} &= (-\alpha)^{n}\\
-            \mathcal{text}^{-1}\left\{z^{k}F(z)\right\}=f(n+k)
-        \end{align}
-        con lo que al aplicar la antitransformada se obtiene que tenemos:
-        \begin{align}
-            g(n) = 2(-1)^{n-1}- 2(-2)^{n-1}
-        \end{align}
-        Con lo que se obtiene la respuesta al impulso del sistema.
-    \end{solution}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Considere la siguiente matriz dada por:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+    \subsection*{Resolucion 2.1}
+Se busca obtener la MTE,notamos que la matriz se encuentra en forma canonica de Jordan,por lo que la matriz expoenncial sera conocida,es decir una matriz tal que sea de la forma:
+\begin{align}
+        \mathbf{J} = \begin{pmatrix}
+        \lambda_1 & 1 & 0 \\
+        0 & \lambda_1 & 0 \\
+        0 & 0 & \lambda_3
+        \end{pmatrix},
+\end{align}
+Luego tendremos que de manera directa que $e^{Jt}$ sera similar a la matriz diagonal,pero con terminos $te^{\lambda t}$ en las posiciones del 1.Por lo tanto:
+\begin{align}
+    e^{Jt} = \begin{pmatrix}
+    e^{\lambda_{1}t} & te^{\lambda_{1}t} & 0 \\
+    0 & e^{\lambda_{1}t} & 0 \\
+    0 & 0 & e^{\lambda_{3}t}
+    \end{pmatrix}
+\end{align}
+Con lo que reemplazando se los valores se obtendra por tanto que la matriz de transicion de estados vendra dada por:
+\begin{align}
+    \Phi(t) = \begin{pmatrix}
+    e^{-3t} & te^{-3t} & 0 \\
+    0 & e^{-3t} & 0 \\
+    0 & 0 & e^{t}
+    \end{pmatrix}
+\end{align}
+\subsection*{Resolucion 2.2}
+Se busca determinar la respuesta al impulso,similar a lo realizado en la pregunta anterior tenemos que:
+\begin{align}
+    h(t) &= C\Phi(t)B\\
+    &= \begin{pmatrix} 1 & 1 & 0 \end{pmatrix} \begin{pmatrix}
+        e^{-3t} & t e^{-3t} & 0 \\
+        0 & e^{-3t} & 0 \\
+        0 & 0 & e^t
+        \end{pmatrix} \begin{pmatrix} 5 \\ 2 \\ 3 \end{pmatrix} \\
+        &= \begin{pmatrix} e^{-3t} & t e^{-3t} + e^{-3t} & 0 \end{pmatrix} \begin{pmatrix} 5 \\ 2 \\ 3 \end{pmatrix} \\
+        &= 5 e^{-3t} + 2 t e^{-3t} + 2 e^{-3t}
+\end{align}
+Con lo que tenemos que la respuesta al impulso vendra dada por:
+\begin{align}
+    h(t) = 7e^{3t}+2te^{-3t}
+\end{align}
+\subsection*{Resolucion 2.3}
+Luego buscamos analizar la estabilidad BIBS y BIBO,para el primer caso se analizan los valores propios de la matriz A, notamos que los polos vienen dados por $\lambda_{1}=\lambda_{2}=-3$ y $\lambda_{3}=1$,donde este ultimo tiene parte real positiva por lo que el sistema diverge en ese estado y por tanto es BIBS inestable.Por otro lado para la estabilidad BIBO se busca que la salida sea acotada,por lo que se tiene que:
+\begin{align}
+    \int_0^\infty |h(\tau)| d\tau < \infty,
+    \end{align}
+    para lo cual es útil notar que $\forall a,b \in \mathbb{R}$, $|a + b| \leq |a| + |b|$. Así, tenemos
     \begin{align}
-        A= \begin{bmatrix}
-            5 & -8\\
-            1 & -1
-        \end{bmatrix}
+    \int_0^t |h(\tau)| d\tau &= \int_0^t |7e^{-3\tau} + 2\tau e^{-3\tau}| d\tau \\
+    &\leq 7 \int_0^t |e^{-3\tau}| d\tau + 2 \int_0^t |\tau e^{-3\tau}| d\tau.
     \end{align}
-    \begin{enumerate}
-        \item Realize una transformacion tal que $A = TDT^{-1}$ , donde D es una matriz diagonal de valores propios de A y T es una matriz de vectores propios, representadas por:
-        \begin{align}
-            D = \begin{bmatrix}
-                \lambda_{1} & 0\\
-                0 & \lambda_{2}
-            \end{bmatrix}
-            T = \begin{bmatrix}
-                v_{1} & v_{2}
-            \end{bmatrix}
-        \end{align}
-    \end{enumerate}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{solution}
-        \subsection*{Resolucion 3.1}
-        Dada la matriz A se busca obtener una transformacion 
-    Para encontrar los valores propios de A , se debe cumplir que para det(A-$\lambda$I) = 0, esto con el fin de que sea singular , es decir que la matriz $A-\lambda I$ no tenga inversa o equivalente a que su determinante sea nulo , para no obtener soluciones triviales en donde el vector propio v sea 0 , dado que por definicion estos son no nulos.
+    Notemos que en el intervalo que estamos trabajando, todas las funciones son estrictamente positivas, por lo que el valor absoluto se puede eliminar, obteniendo
     \begin{align}
-        (A-\lambda I)v = 0
+    \int_0^t |h(\tau)| d\tau &\leq 7 \int_0^t e^{-3\tau} d\tau + 2 \int_0^t \tau e^{-3\tau} d\tau \\
+    &=  \frac{7}{3} (e^{-3t} - 1) + 2 \int_0^t \tau e^{-3\tau} d\tau
     \end{align}
-    Por lo tanto se tiene que:
-    \begin{align}
-        |A-\lambda I| = 0\\
-        \begin{vmatrix}
-            5-\lambda & -8\\
-            1 & -1-\lambda
-        \end{vmatrix} = 0\\
-        (5-\lambda)(-1-\lambda) - (-8)(1) = 0\\
-        \lambda^{2} - 4\lambda - 3 = 0
-    \end{align}
-    De esta manera se debera cumplir que:
-    \begin{align}
-        (\lambda -3)(\lambda -1) =0
-    \end{align}
-    Con lo que finalmente se obtiene que $\lambda_{1} = 3$ y $\lambda_{2} = 1$,y por tanto nuestra matriz D la cual viene dada:
-    \begin{align}
-        D = \begin{bmatrix}
-            3 & 0\\
-            0 & 1
-        \end{bmatrix}
-    \end{align}
-     Se busca obtener los vectores propios asociados a estos valores propios, para esto calcularemos el vector proio asociado a $\lambda_{1}$ por tanto:
-     \begin{align}
-        (A - \lambda_1 I)\mathbf{v}_1 &= 0.
-    \end{align}
-    
-    Desarrollando esta expresión, tenemos
-    \begin{align}
-        \begin{pmatrix}
-        5 - 3 & -8 \\
-        1 & -1 - 3
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y
-        \end{pmatrix}
-        &= \begin{pmatrix}
-        0 \\
-        0
-        \end{pmatrix}.
-    \end{align}
-    Esto permite formar un sistema de ecuaciones para x e y , dado por:
-    \begin{align}
-        2x - 8y &= 0, \\
-        x - 4y &= 0,
-    \end{align}
-    Es importante destacar que son linealmente dependientes, por lo que no existirá una solución única. Considerando esto, basta encontrar algún vector que satisfaga dicha relación. Por ejemplo, si consideramos \( y = 1 \), podemos ver que se debe tener \( x = 4 \). Así, el vector propio \( \mathbf{v}_1 \) es
-    \begin{align}
-        \mathbf{v}_1 &= \begin{pmatrix} 4 \\ 1 \end{pmatrix}.
-    \end{align}
-    Analogamente tenemos uqe para el segundo vector proipo se tiene que:
-    \begin{align}
-        (A - \lambda_2 I)\mathbf{v}_2 &= 0
-    \end{align}
-    \begin{align}
-        \iff
-        \begin{pmatrix}
-        5 - 1 & -8 \\
-        1 & -1 - 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y
-        \end{pmatrix}
-        &= \begin{pmatrix}
-        0 \\
-        0
-        \end{pmatrix}.
-    \end{align}
-    Desarrollando, obtenemos el siguiente sistema de ecuaciones
-    \begin{align}
-        4x - 8y &= 0, \\
-        x - 2y &= 0.
-    \end{align}
-    Nuevamente, podemos ver que las ecuaciones son linealmente dependientes, por lo que considerando \( y = 1 \) tenemos \( x = 2 \). Por lo tanto, el segundo vector propio es
-    \begin{align}
-        \mathbf{v}_2 &= \begin{pmatrix} 2 \\ 1 \end{pmatrix}.
-    \end{align}
-    Finalmente es posible el obtener la matriz T, la cual se define como:
-    \begin{align}
-        T = \begin{bmatrix}
-            4 & 2\\
-            1 & 1
-        \end{bmatrix}
-    \end{align}
-    La cual esta asociado a los vectores propios, finalmente nos queda el obtener $T^{-1}$ , lo cual se puede hacer de la siguiente manera para una matriz de 2x2 
-    \begin{align}
-        \begin{bmatrix}
-            m_{1} & m_{2}\\
-            m_{3} & m_{4}
-        \end{bmatrix}
-    \end{align}
-    
-    Con lo que la matriz inversa se define como:
-    \begin{align}
-        M^{-1} = \frac{1}{\text{det}(M)}\begin{bmatrix}
-            m_{4} & -m_{2}\\
-            -m_{3} & m_{1}
-        \end{bmatrix}
-    \end{align}
-    
-    Por lo tanto, tenemos que:
-    \begin{align}
-        \text{det}(T) = 4 \cdot 1 - 2 \cdot 1 = 2
-    \end{align}
-    
-    Con lo que se obtiene que para \( T^{-1} \):
-    \begin{align}
-        T^{-1} = \begin{bmatrix}
-            \frac{1}{2} & 1\\
-            \frac{-1}{2} & 2
-        \end{bmatrix}
-    \end{align}
-    De esta manera se obtiene la transformación buscada dada por:
-    \begin{align}
-        A = T D T^{-1} = \begin{bmatrix}
-            4 & 2\\
-            1 & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-            3 & 0\\
-            0 & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-            \frac{1}{2} & 1\\
-            -\frac{1}{2} & 2
-        \end{bmatrix}
-    \end{align}
-
 \end{solution}
+\begin{align}
+    &\int_0^t \tau e^{-3\tau} d\tau \quad u = \tau, \quad du = d\tau, \quad dv = e^{-3\tau} d\tau, \quad v = -\frac{1}{3} e^{-3\tau} \\
+    &= -\frac{1}{3} \tau e^{-3\tau} \Big|_0^t + \frac{1}{3} \int_0^t e^{-3\tau} d\tau \\
+      &= -\frac{1}{3} t e^{-3t} + \frac{1}{9} \left( e^{-3t} - 1 \right)
+    \end{align}
+    
+    Reemplazando en la ecuación anterior tenemos:
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{align}
+    \int_0^t |h(\tau)| d\tau &\leq \frac{7}{3} \left( e^{-3t} - 1 \right) - 2 e^{-3t} + \frac{2}{9} \left( 1 - e^{-3t}(3t + 1) \right) \\
+                             &= \frac{23}{9} - \frac{23}{9} e^{-3t}.
+    \end{align}
+    
+    Analizando el límite, cuando $t \to \infty$, podemos notar que el término $\frac{23}{9} e^{-3t}$ tiende a $0$, por lo que no hace falta considerarlo. Así, si analizamos únicamente el término que incluye el factor $t$, tenemos
+    
+    \begin{align}
+    \lim_{t \to \infty} \frac{t e^{-3t}}{e^{-3t}} &= \lim_{t \to \infty} \frac{t}{e^{3t}} = 0.
+    \end{align}
+    
+    Dado que es un límite de la forma $\frac{\infty}{\infty}$, podemos aplicar la regla de L'Hopital, por lo que tenemos
+    
+    \begin{align}
+    \lim_{t \to \infty} \frac{t}{e^{3t}} &= \lim_{t \to \infty} \frac{1}{3e^{3t}} = 0.
+    \end{align}
+    
+    Finalmente, esto permite ver que
+    
+    \begin{align}
+    \int_0^\infty |h(t)| dt &\leq \frac{23}{9} < \infty,
+    \end{align}
+    por lo que el sistema es **BIBO estable**.
+\subsection*{Resolucion 2.4}
+Se busca analizar la controlabilidad y observabilidad del sistema,para el primer caso se tiene que un sistema es controlable si y solo si la matriz de controlabilidad es de rango completo,es decir que las filas y columnas sean linealmente independientes,por lo que se tiene que la matriz de controlabilidad general viene dada por:
+\begin{align}
+    \mathcal{C} = \begin{pmatrix} B & AB & A^{2}B \end{pmatrix}
+\end{align}
+Esto debido a que en este caso $n=3$,tenemos lo siguiente:
+\begin{align}
+    AB &= \begin{pmatrix}
+    -3 & 1 & 0 \\
+    0 & -3 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    5 \\
+    2 \\
+    3
+    \end{pmatrix}
+    = \begin{pmatrix}
+    -13 \\
+    -6 \\
+    3
+    \end{pmatrix}.
+\end{align}
+\begin{align}
+     A^2 B &= \begin{pmatrix}
+    -3 & 1 & 0 \\
+    0 & -3 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    -3 & 1 & 0 \\
+    0 & -3 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    5 \\
+    2 \\
+    3
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    9 & -6 & 0 \\
+    0 & 9 & 0 \\
+    0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+    5 \\
+    2 \\
+    3
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    33 \\
+    18 \\
+    3
+    \end{pmatrix}.
+    \end{align}
+Con lo que la matriz de controlabilidad vendra dada por:
+\begin{align}
+    \mathcal{C} = \begin{pmatrix}
+    5 & -13 & 33 \\
+    2 & -6 & 18 \\
+    3 & 3 & 3
+    \end{pmatrix}
+\end{align}
+Se observa de manera directa que las columnas son linealmente independiente, por lo que el sistema es controlable(\textit{Es posible verificarlo con el determinante}).Luego para la matriz de observabilidad se tiene que:
+\begin{align}
+    \vartheta = \begin{pmatrix} C \\ CA \\ CA^{2} \end{pmatrix}
+\end{align}
+Luego cada termino vendra dada por:
+\begin{align}
+    CA = \begin{pmatrix} 1 & 1 & 0 \end{pmatrix} \begin{pmatrix} -3 & 1 & 0 \\ 0 & -3 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} -3 & -2 & 0 \end{pmatrix}
+\end{align}
+Luego para el termino $CA^{2}$ se tiene que:
+\begin{align}
+    CA^{2} = \begin{pmatrix} 1 & 1 & 0 \end{pmatrix} \begin{pmatrix} 9 & -6 & 0 \\ 0 & 9 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 9 & 3 & 0 \end{pmatrix}
+\end{align}
+Finalmente la matriz de observabilidad vendra dada por:
+\begin{align}
+    \vartheta = \begin{pmatrix} 1 & 1 & 0 \\ -3 & -2 & 0 \\ 9 & 3 & 0 \end{pmatrix}
+\end{align}
+Se observa que una columna de 0 en la matriz, por lo que las columnas no son linealmente independientes, por lo que el sistema no es observable,se tendra de manera directa que el determinante de la matriz es 0. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{questions}
-
-
-
 \end{document}
