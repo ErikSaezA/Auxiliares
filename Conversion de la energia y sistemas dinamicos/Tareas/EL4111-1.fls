@@ -1,7 +1,7 @@
 PWD c:\Users\Erik\Desktop\Auxiliares\Auxiliares\Conversion de la energia y sistemas dinamicos\Tareas
 INPUT C:\Users\Erik\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Erik\Desktop\Auxiliares\Auxiliares\Conversion de la energia y sistemas dinamicos\Tareas\EL3103_01.tex
-OUTPUT EL3103_01.log
+INPUT c:\Users\Erik\Desktop\Auxiliares\Auxiliares\Conversion de la energia y sistemas dinamicos\Tareas\EL4111-1.tex
+OUTPUT EL4111-1.log
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\base\ifthen.sty
@@ -404,10 +404,10 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\cleveref\cleveref.st
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\EL3103_01.aux
-INPUT .\EL3103_01.aux
-INPUT EL3103_01.aux
-OUTPUT EL3103_01.aux
+INPUT .\EL4111-1.aux
+INPUT .\EL4111-1.aux
+INPUT EL4111-1.aux
+OUTPUT EL4111-1.aux
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -419,14 +419,14 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sy
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT .\EL3103_01.out
-INPUT .\EL3103_01.out
-INPUT EL3103_01.out
-INPUT EL3103_01.out
-INPUT .\EL3103_01.out
-INPUT .\EL3103_01.out
-OUTPUT EL3103_01.out
-OUTPUT EL3103_01.pdf
+INPUT .\EL4111-1.out
+INPUT .\EL4111-1.out
+INPUT EL4111-1.out
+INPUT EL4111-1.out
+INPUT .\EL4111-1.out
+INPUT .\EL4111-1.out
+OUTPUT EL4111-1.out
+OUTPUT EL4111-1.pdf
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
@@ -479,9 +479,9 @@ INPUT ..\figures\Tarea_1_2.pdf
 INPUT ..\figures\Tarea_1_2.pdf
 INPUT ..\figures\Tarea_1_2.pdf
 INPUT C:\Users\Erik\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT EL3103_01.aux
-INPUT .\EL3103_01.out
-INPUT .\EL3103_01.out
+INPUT EL4111-1.aux
+INPUT .\EL4111-1.out
+INPUT .\EL4111-1.out
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb

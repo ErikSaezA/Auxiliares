@@ -1,13 +1,13 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  3 SEP 2024 10:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  3 SEP 2024 18:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Conversion de la energia y siste
-mas dinamicos/Tareas/EL3103_01.tex"
+mas dinamicos/Tareas/EL4111-1.tex"
 
 (c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Conversion de la energia y sistema
-s dinamicos/Tareas/EL3103_01.tex
+s dinamicos/Tareas/EL4111-1.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -1247,8 +1247,8 @@ ex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count393
 \l__pdf_internal_box=\box104
-) (EL3103_01.aux)
-\openout1 = `EL3103_01.aux'.
+) (EL4111-1.aux)
+\openout1 = `EL4111-1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -1344,9 +1344,9 @@ nslations-basic-dictionary')
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (EL3103_01.out) (EL3103_01.out)
+ (EL4111-1.out) (EL4111-1.out)
 \@outlinefile=\write4
-\openout4 = `EL3103_01.out'.
+\openout4 = `EL4111-1.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -1387,7 +1387,7 @@ Package pdftex.def Info: ../figures/Tarea_1_1.pdf  used on input line 39.
 <../figures/Tarea_1_2.pdf, id=8, 581.92406pt x 195.73125pt>
 File: ../figures/Tarea_1_2.pdf Graphic file (type pdf)
 <use ../figures/Tarea_1_2.pdf>
-Package pdftex.def Info: ../figures/Tarea_1_2.pdf  used on input line 55.
+Package pdftex.def Info: ../figures/Tarea_1_2.pdf  used on input line 54.
 (pdftex.def)             Requested size: 264.46837pt x 88.9563pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1398,27 +1398,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 {C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.p
 df> <../figures/Tarea_1_1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
+
 
 [2 <../figures/Tarea_1_2.pdf>]
 This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3103_01.aux)
+(EL4111-1.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
+Package rerunfilecheck Info: File `EL4111-1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60639 strings out of 473903
- 1562334 string characters out of 5727051
- 2329545 words of memory out of 5000000
- 82777 multiletter control sequences out of 15000+600000
+ 60640 strings out of 473903
+ 1562322 string characters out of 5727051
+ 2329544 words of memory out of 5000000
+ 82778 multiletter control sequences out of 15000+600000
  565425 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,7n,101p,830b,1178s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,7n,101p,829b,1178s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1428,7 +1433,7 @@ onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Pro
 grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Loc
 al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3103_01.pdf (2 pages, 259941 bytes).
+Output written on EL4111-1.pdf (2 pages, 261046 bytes).
 PDF statistics:
  91 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
