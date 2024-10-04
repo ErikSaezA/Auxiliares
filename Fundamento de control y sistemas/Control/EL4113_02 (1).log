@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  4 OCT 2024 10:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  4 OCT 2024 14:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -965,6 +965,10 @@ $[]$ $[]$
  []
 
 
+Underfull \vbox (badness 1308) detected at line 140
+ []
+
+
 
 [1
 
@@ -972,191 +976,193 @@ $[]$ $[]$
 
 [2]
 
+[3]
+
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_1.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_1.pdf, id=50, 700.39867pt x 435.30127pt>
+<../figures/Auxiliar_2_1.pdf, id=65, 700.39867pt x 435.30127pt>
 File: ../figures/Auxiliar_2_1.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_1.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_1.pdf  used on input line 173.
+Package pdftex.def Info: ../figures/Auxiliar_2_1.pdf  used on input line 180.
 (pdftex.def)             Requested size: 245.33504pt x 152.47728pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 174.
+(caption)                particular \caption on input line 181.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_2.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_2.pdf, id=51, 779.47614pt x 491.78531pt>
+<../figures/Auxiliar_2_2.pdf, id=66, 779.47614pt x 491.78531pt>
 File: ../figures/Auxiliar_2_2.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_2.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_2.pdf  used on input line 186.
+Package pdftex.def Info: ../figures/Auxiliar_2_2.pdf  used on input line 193.
 (pdftex.def)             Requested size: 245.33504pt x 154.78561pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 187.
+(caption)                particular \caption on input line 194.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_3.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_3.pdf, id=52, 716.96759pt x 439.82016pt>
+<../figures/Auxiliar_2_3.pdf, id=67, 716.96759pt x 439.82016pt>
 File: ../figures/Auxiliar_2_3.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_3.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_3.pdf  used on input line 201.
+Package pdftex.def Info: ../figures/Auxiliar_2_3.pdf  used on input line 208.
 (pdftex.def)             Requested size: 245.33504pt x 150.49657pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 202.
+(caption)                particular \caption on input line 209.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_4.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_4.pdf, id=53, 714.70816pt x 541.49103pt>
+<../figures/Auxiliar_2_4.pdf, id=68, 714.70816pt x 541.49103pt>
 File: ../figures/Auxiliar_2_4.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_4.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_4.pdf  used on input line 238.
+Package pdftex.def Info: ../figures/Auxiliar_2_4.pdf  used on input line 245.
 (pdftex.def)             Requested size: 245.33504pt x 185.87268pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 239.
+(caption)                particular \caption on input line 246.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_5.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_5.pdf, id=54, 841.23183pt x 521.90987pt>
+<../figures/Auxiliar_2_5.pdf, id=69, 841.23183pt x 521.90987pt>
 File: ../figures/Auxiliar_2_5.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_5.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_5.pdf  used on input line 257.
+Package pdftex.def Info: ../figures/Auxiliar_2_5.pdf  used on input line 264.
 (pdftex.def)             Requested size: 245.33504pt x 152.21007pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 258.
+(caption)                particular \caption on input line 265.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_6.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_6.pdf, id=55, 814.87236pt x 533.20708pt>
+<../figures/Auxiliar_2_6.pdf, id=70, 814.87236pt x 533.20708pt>
 File: ../figures/Auxiliar_2_6.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_6.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_6.pdf  used on input line 272.
+Package pdftex.def Info: ../figures/Auxiliar_2_6.pdf  used on input line 279.
 (pdftex.def)             Requested size: 245.33504pt x 160.53288pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 273.
+(caption)                particular \caption on input line 280.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_7.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_7.pdf, id=56, 823.1563pt x 522.66269pt>
+<../figures/Auxiliar_2_7.pdf, id=71, 823.1563pt x 522.66269pt>
 File: ../figures/Auxiliar_2_7.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_7.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_7.pdf  used on input line 296.
+Package pdftex.def Info: ../figures/Auxiliar_2_7.pdf  used on input line 303.
 (pdftex.def)             Requested size: 245.33504pt x 155.77121pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 297.
+(caption)                particular \caption on input line 304.
 See the caption package documentation for explanation.
 
 
 
-[3]
+[4]
 
-[4 <../figures/Auxiliar_2_1.pdf>]
-Underfull \vbox (badness 6808) detected at line 299
+[5 <../figures/Auxiliar_2_1.pdf>]
+Underfull \vbox (badness 6808) detected at line 306
  []
 
 
-Underfull \vbox (badness 6808) detected at line 299
+Underfull \vbox (badness 6808) detected at line 306
  []
 
 
 
-[5 <../figures/Auxiliar_2_2.pdf> <../figures/Auxiliar_2_3.pdf>]
+[6 <../figures/Auxiliar_2_2.pdf> <../figures/Auxiliar_2_3.pdf>]
 
-[6]
+[7]
 
-[7 <../figures/Auxiliar_2_4.pdf> <../figures/Auxiliar_2_5.pdf>]
+[8 <../figures/Auxiliar_2_4.pdf> <../figures/Auxiliar_2_5.pdf>]
 
-[8 <../figures/Auxiliar_2_6.pdf>]
+[9 <../figures/Auxiliar_2_6.pdf>]
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_8.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_8.pdf, id=149, 733.53546pt x 649.9402pt>
+<../figures/Auxiliar_2_8.pdf, id=164, 733.53546pt x 649.9402pt>
 File: ../figures/Auxiliar_2_8.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_8.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 338.
+Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 345.
 (pdftex.def)             Requested size: 147.20251pt x 130.42209pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 339.
+(caption)                particular \caption on input line 346.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_9.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_9.pdf, id=150, 1241.8897pt x 453.37683pt>
+<../figures/Auxiliar_2_9.pdf, id=165, 1241.8897pt x 453.37683pt>
 File: ../figures/Auxiliar_2_9.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_9.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 342.
+Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 349.
 (pdftex.def)             Requested size: 269.87003pt x 98.51872pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 343.
+(caption)                particular \caption on input line 350.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_10.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_10.pdf, id=151, 1238.87843pt x 475.9702pt>
+<../figures/Auxiliar_2_10.pdf, id=166, 1238.87843pt x 475.9702pt>
 File: ../figures/Auxiliar_2_10.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_10.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 346.
+Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 353.
 (pdftex.def)             Requested size: 269.87003pt x 103.68246pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 347.
+(caption)                particular \caption on input line 354.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_13.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_13.pdf, id=152, 866.8375pt x 553.54105pt>
+<../figures/Auxiliar_2_13.pdf, id=167, 866.8375pt x 553.54105pt>
 File: ../figures/Auxiliar_2_13.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_13.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 405.
+Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 412.
 (pdftex.def)             Requested size: 269.87003pt x 172.33078pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 406.
+(caption)                particular \caption on input line 413.
 See the caption package documentation for explanation.
 
 
 
 pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_12.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../figures/Auxiliar_2_12.pdf, id=153, 845.75072pt x 469.9447pt>
+<../figures/Auxiliar_2_12.pdf, id=168, 845.75072pt x 469.9447pt>
 File: ../figures/Auxiliar_2_12.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_12.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 409.
+Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 416.
 (pdftex.def)             Requested size: 269.87003pt x 149.95512pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 410.
+(caption)                particular \caption on input line 417.
 See the caption package documentation for explanation.
 
 
 
-[9 <../figures/Auxiliar_2_7.pdf>]
+[10 <../figures/Auxiliar_2_7.pdf>]
 
-[10 <../figures/Auxiliar_2_8.pdf> <../figures/Auxiliar_2_9.pdf> <../figures/Auxiliar_2_10.pdf>]
+[11 <../figures/Auxiliar_2_8.pdf> <../figures/Auxiliar_2_9.pdf> <../figures/Auxiliar_2_10.pdf>]
 
-[11]
+[12]
 
-[12 <../figures/Auxiliar_2_13.pdf> <../figures/Auxiliar_2_12.pdf>]
+[13 <../figures/Auxiliar_2_13.pdf> <../figures/Auxiliar_2_12.pdf>]
 
-[13]
+[14]
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1169,17 +1175,17 @@ Package rerunfilecheck Info: File `EL4113_02.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60641 strings out of 473903
- 1563553 string characters out of 5727051
- 2349957 words of memory out of 5000000
- 82654 multiletter control sequences out of 15000+600000
- 568809 words of font info for 80 fonts, out of 8000000 for 9000
+ 60584 strings out of 473903
+ 1561995 string characters out of 5727051
+ 2347957 words of memory out of 5000000
+ 82588 multiletter control sequences out of 15000+600000
+ 569155 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,101p,820b,1101s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on EL4113_02.pdf (13 pages, 466758 bytes).
+ 99i,13n,101p,818b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on EL4113_02.pdf (14 pages, 497177 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 139 named destinations out of 1000 (max. 500000)
+ 356 PDF objects out of 1000 (max. 8388607)
+ 148 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728050020.68953 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex" "EL4113_02.pdf" "EL4113_02" 1728050027.1135 0
+["pdflatex"] 1728050771.06839 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" "EL4113_02.pdf" "EL4113_02" 1728050777.32409 0
   "../aas_macros.sty" 1724102252 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1724102252 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1724102252 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -53,6 +53,7 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -60,6 +61,7 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1247596673 31764 459c573c03a4949a528c2cc7f557e217 ""
@@ -296,10 +298,10 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL4113_02.aux" 1728050025 3461 846fa45a1d6e5e1924d5cfa444d95d31 "pdflatex"
-  "EL4113_02.out" 1728050025 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL4113_02.tex" 1727980885 21458 12606e33a4f9bb514433f07cf9d1c054 ""
-  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_02/EL4113_02.tex" 1727980885 21458 12606e33a4f9bb514433f07cf9d1c054 ""
+  "EL4113_02.aux" 1728050776 3461 846fa45a1d6e5e1924d5cfa444d95d31 "pdflatex"
+  "EL4113_02.out" 1728050775 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL4113_02.tex" 1728050769 21805 8f978906d272c19874b18c955141a517 ""
+  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" 1728050769 21805 8f978906d272c19874b18c955141a517 ""
   (generated)
   "EL4113_02.aux"
   "EL4113_02.log"
