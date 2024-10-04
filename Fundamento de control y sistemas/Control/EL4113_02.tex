@@ -29,92 +29,20 @@
 
 \begin{questions}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Teniendo la siguiente planta:
-
-    \begin{align}
-        G_p(s) = \frac{(1,429 - s)}{(s + 1,429)(s^2 + s + 1)} \tag{1}
-    \end{align}
-    
-    El diseño de control a lazo cerrado debe cumplir con las siguientes especificaciones:
+    \question Considere el siguiente sistema de control visto en Figura 1. Utilizando el método del lugar de la raíz, responda las siguientes preguntas:
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Auxiliar_2_11}
+        \caption{Diagrama de bloques}
+    \end{figure}
     \begin{enumerate}
-        \item Máximo sobrepaso = 4.3254\%
-        \item Frecuencia natural = 0.722
-        \item Cero error en estado estacionario a entrada escalón.
+        \item Identifique los puntos en el LGR donde la respuesta del sistema a lazo cerrado no sobrepasará el valor de referencia de entrada con un mínimo tiempo de establecimiento (asuma entrada escalón). Encuentre el valor de \(K_T\) en función de la ganancia \(K_A\) en esos puntos. Además, explique las condiciones de módulo y de ángulo que utiliza durante el desarrollo.
+        \item Repita el análisis anterior, pero considerando que la respuesta ahora tiene un \(\xi=0.707\) en la respuesta a lazo cerrado. De manera análoga, explique las condiciones de módulo y de ángulo que utiliza en su desarrollo.
     \end{enumerate}
-    
-    Se pide lo siguiente:
-    
-    \begin{enumerate}
-        \item[(a)] Utilizando las condiciones de módulo y ángulo, diseñe un controlador bipropio que cumpla con las especificaciones mencionadas. Utilice cancelación en su diseño si lo considera necesario. (20/50)
-        
-        \item[(b)] El ingeniero a cargo del proyecto se da cuenta de que debe considerar los límites físicos de la planta para diseñar correctamente el controlador. Modifique su controlador para que incluya anti-windup generalizado (determine el diagrama de control). De no ser posible aplicar este esquema, explique por qué y proponga otro esquema de anti-windup. (10/50)
-    
-        \item[(c)] Por un error de implementación, la ganancia del controlador diseñado en (a) aumenta en un 100\%. ¿Todavía existe cero error de estado estacionario bajo esta nueva condición o ya no es posible lograr este objetivo dado el error de implementación cometido? Fundamente adecuadamente su respuesta. (10/50)
-        
-        \item[(d)] Suponga que ahora debe rediseñar el controlador propuesto en (a), con el propósito de que se permita alcanzar cero error en estado estacionario a una entrada de la forma \( e(t) = A_m t^2 + B_m \sin(\omega_1 t) + C_m \cos(\omega_2 t) \). ¿Cuáles son los elementos mínimos que debe tener la función de transferencia de este controlador para cumplir con estos requerimientos? Proponga una expresión para el controlador que cumpliría con estos requisitos. (10/50)
-    \end{enumerate}
-
-%----------------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{solution}
-    \subsection*{Resolución a)}
-    Utilizando el maximo sobrepaso , es posible obtener el coeficiente de amortiguamiento $\xi$ , el cual vendra dado por:
-    \begin{align}
-        e^{-\xi \pi / \sqrt{1-\xi^{2}}} &= 0.04321\\
-        \frac{-\xi \pi }{\sqrt{1-\xi^{2}}} &= ln(0.04321)\\
-        \xi &= 0.707
-    \end{align}
-    Una vez obtenido el coeficiente de amortiguamiento y dado que la frecuencia natural es conocida, se tiene que el punto de diseño corresponde:
-    \begin{align}
-        s_{1,2} &= -\xi w_n \pm jw_n \sqrt{1-\xi^{2}}\\
-        s_{1,2} &= -0.5105 \pm j0.5105
-    \end{align}
-    Luego tenemos que el denominador de la planta corresponde a:
-    \begin{align}
-        s^{2}+s+1 &= 0\\
-        s_{1,2} &= \frac{-1}{2} \pm j\frac{\sqrt{3}}{2}
-    \end{align}
-    Con lo que la planta vendra dada por 
-  \begin{align}
-    G_p(s) &= \frac{(1,429 - s)}{(s + 1,429)\left(s + \frac{1}{2} + j \frac{\sqrt{3}}{2}\right)\left(s + \frac{1}{2} - j \frac{\sqrt{3}}{2}\right)}
-\end{align}
-Luego se debe pronponer un controlador por lo que dado que es posible utilizar cancelacion de polos, se propone un controlador de la forma:
-\begin{align}
-    G_c(S) &= k \frac{\left(s + \frac{1}{2} + j \frac{\sqrt{3}}{2}\right)\left(s + \frac{1}{2} - j \frac{\sqrt{3}}{2}\right)}{s(s+a)}
-\end{align}
-De esta manera se tiene que el controlador es bi-propio , produce una cancelacion,cero error a estado estacionario y nos da un grado de libertad para realizar la sintonizacion. De manera visual mediante LGR , se tiene que por condicion de angulo debe cumplirse que:
-\begin{align}
-    \sum \theta_{polos} - \sum \theta_{ceros} &= 0
-\end{align}
-Es importante notar que consideramos que sea igual a 0, dado que el sistema tiene una ganancia negativa. Por lo tanto:
-\begin{align}
-    \theta_p + \theta_0 + \theta_a - \theta_z = 0
-\end{align}
-Luego cada angulo vendra dado por:
-\begin{align}
-    \theta_o &= 180^{\circ} - \tan^{-1}\left(\frac{0.5105}{0.5105}\right) = 135^{\circ} \\
-    \theta_z &= 180^{\circ} - \tan^{-1}\left(\frac{0.5105}{0.5105 + 1.429}\right) = 165.25^{\circ} \\
-    \theta_a &= \tan^{-1}\left( \frac{0.5105}{a - 0.05105}\right) \\
-    \theta_p &= \tan^{-1}\left( \frac{0.5105}{1.429 - 0.5105}\right) = 29.07^{\circ}
-\end{align}
-Retomando la condicion de angulo se obtiene que:
-\begin{align}
-    \theta_p + \theta_0 + \theta_a - \theta_z &= 0\\
-    \theta_{a}&=\tan(1.18^{\circ})
-\end{align}
-De esta manera se obtiene que el punto a en el eje real, vendra dado por:
-\begin{align}
-    a &=25.27
-\end{align}
-Una vez obtenido el punto a, es posible calcular la ganancia la cual viene dada por:
-
-%---- Agregar calculo de la ganancia
-
-Con lo que finalmente el controlador tendra la forma:
-\begin{align}
-    1=1
-\end{align}
-\subsection*{b)}
-Dado que se busca implementar el efecto del anti-Windup 
+    \subsection*{a)}
+    
 \end{solution}
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
