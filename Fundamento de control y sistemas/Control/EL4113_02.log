@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  4 OCT 2024 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  4 OCT 2024 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -939,6 +939,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
+ (EL4113_02.out) (EL4113_02.out)
 \@outlinefile=\write4
 \openout4 = `EL4113_02.out'.
 
@@ -986,129 +987,6 @@ Package pdftex.def Info: ../figures/Control_P2.pdf  used on input line 155.
 
 
 [4 <../figures/Control_P2.pdf>]
-Runaway argument?
- 
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Paragraph ended before \align was complete.
-<to be read again> 
-                   \par 
-l.225 
-      
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Missing $ inserted.
-<inserted text> 
-                $
-l.225 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Missing } inserted.
-<inserted text> 
-                }
-l.225 
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.225 
-      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.225 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:225: Extra }, or forgotten \endgroup.
-\@par ... \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.225 
-      
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Misplaced \cr.
-\math@cr@@@ ->\cr 
-                  
-l.226 \end{align}
-                 
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Misplaced \noalign.
-\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
-                                                  {\vskip #1\relax }
-l.226 \end{align}
-                 
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Misplaced \noalign.
-\black@ #1->\noalign 
-                     {\ifdim #1>\displaywidth \dimen@ \prevdepth \nointerlin...
-l.226 \end{align}
-                 
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-
-Overfull \hbox (264.26921pt too wide) detected at line 226
-[]
- []
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Extra }, or forgotten \endgroup.
-\endalign ->\math@cr \black@ \totwidth@ \egroup 
-                                                \ifingather@ \restorealignst...
-l.226 \end{align}
-                 
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Missing $ inserted.
-<inserted text> 
-                $
-l.226 \end{align}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex:226: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.226 \end{align}
-                 
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-
 
 [5]
 
@@ -1116,11 +994,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_8.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_8.pdf, id=100, 733.53546pt x 649.9402pt>
 File: ../figures/Auxiliar_2_8.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_8.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 266.
+Package pdftex.def Info: ../figures/Auxiliar_2_8.pdf  used on input line 269.
 (pdftex.def)             Requested size: 147.20251pt x 130.42209pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 267.
+(caption)                particular \caption on input line 270.
 See the caption package documentation for explanation.
 
 
@@ -1129,11 +1007,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_9.pdf): PDF inclusion: foun
 <../figures/Auxiliar_2_9.pdf, id=101, 1241.8897pt x 453.37683pt>
 File: ../figures/Auxiliar_2_9.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_9.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 270.
+Package pdftex.def Info: ../figures/Auxiliar_2_9.pdf  used on input line 273.
 (pdftex.def)             Requested size: 269.87003pt x 98.51872pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 271.
+(caption)                particular \caption on input line 274.
 See the caption package documentation for explanation.
 
 
@@ -1142,11 +1020,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_10.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_10.pdf, id=102, 1238.87843pt x 475.9702pt>
 File: ../figures/Auxiliar_2_10.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_10.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 274.
+Package pdftex.def Info: ../figures/Auxiliar_2_10.pdf  used on input line 277.
 (pdftex.def)             Requested size: 269.87003pt x 103.68246pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 275.
+(caption)                particular \caption on input line 278.
 See the caption package documentation for explanation.
 
 
@@ -1155,11 +1033,11 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_13.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_13.pdf, id=103, 866.8375pt x 553.54105pt>
 File: ../figures/Auxiliar_2_13.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_13.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 333.
+Package pdftex.def Info: ../figures/Auxiliar_2_13.pdf  used on input line 336.
 (pdftex.def)             Requested size: 269.87003pt x 172.33078pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 334.
+(caption)                particular \caption on input line 337.
 See the caption package documentation for explanation.
 
 
@@ -1168,60 +1046,47 @@ pdfTeX warning: pdflatex (file ../figures/Auxiliar_2_12.pdf): PDF inclusion: fou
 <../figures/Auxiliar_2_12.pdf, id=104, 845.75072pt x 469.9447pt>
 File: ../figures/Auxiliar_2_12.pdf Graphic file (type pdf)
 <use ../figures/Auxiliar_2_12.pdf>
-Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 337.
+Package pdftex.def Info: ../figures/Auxiliar_2_12.pdf  used on input line 340.
 (pdftex.def)             Requested size: 269.87003pt x 149.95512pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 338.
+(caption)                particular \caption on input line 341.
 See the caption package documentation for explanation.
 
 
 
 [6]
 
-[7 <../figures/Auxiliar_2_8.pdf> <../figures/Auxiliar_2_9.pdf> <../figures/Auxiliar_2_10.pdf>]
+[7 <../figures/Auxiliar_2_8.pdf> <../figures/Auxiliar_2_9.pdf>]
 
-[8]
+[8 <../figures/Auxiliar_2_10.pdf>]
 
-[9 <../figures/Auxiliar_2_13.pdf> <../figures/Auxiliar_2_12.pdf>]
+[9 <../figures/Auxiliar_2_13.pdf>]
 
-[10]
+[10 <../figures/Auxiliar_2_12.pdf>]
 This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
 (EL4113_02.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `EL4113_02.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `EL4113_02.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `EL4113_02.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60485 strings out of 473903
- 1559430 string characters out of 5727051
- 2343957 words of memory out of 5000000
- 82525 multiletter control sequences out of 15000+600000
+ 60494 strings out of 473903
+ 1559719 string characters out of 5727051
+ 2344957 words of memory out of 5000000
+ 82528 multiletter control sequences out of 15000+600000
  568814 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,101p,818b,1099s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on EL4113_02.pdf (10 pages, 416453 bytes).
+Output written on EL4113_02.pdf (10 pages, 418015 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 117 named destinations out of 1000 (max. 500000)
+ 285 PDF objects out of 1000 (max. 8388607)
+ 119 named destinations out of 1000 (max. 500000)
  48 words of extra memory for PDF output out of 10000 (max. 10000000)
 

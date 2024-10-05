@@ -218,11 +218,14 @@ Luego dado que el punto de llegada esta ubicado en -15.5, luego los polos ubicad
 De manera grafica se tiene que:
 %----AGREGAR LA FORMA VISUAL--------
 \subsection*{2) - a)}
-Luego tenemos el siguiente esquema:
+Luego tenemos el siguiente para el lazo externo:
 %----------AGREGAR Gint-------
-Dado que se busca operar con polos reales se tendra 
 \begin{align}
-    
+    G_{int}(s) = \frac{K_{i}}{1+\frac{5K_i}{s+20}}= \frac{2(s+20)}{s+30}
+\end{align}
+Luego aplicando el teorema de valor final a una entrada escalon tenemos que:
+\begin{align}
+    lim_{s \rightarrow 0}\left(\frac{s \cdot \frac{1}{s}}{1+ \frac{5K_i}{(s+20)}}\right)
 \end{align}
 \end{solution}
 %-----------------------

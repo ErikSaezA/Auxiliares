@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728066963.84701 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" "EL4113_02.pdf" "EL4113_02" 1728066971.23208 2
+["pdflatex"] 1728067520.34886 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" "EL4113_02.pdf" "EL4113_02" 1728067527.79774 0
   "../aas_macros.sty" 1724102252 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1724102252 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1724102252 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -290,10 +290,10 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL4113_02.aux" 1728066969 2452 06c3d508f0a3cb2991419cc28c23691d "pdflatex"
-  "EL4113_02.out" 1728066969 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL4113_02.tex" 1728066952 18860 ed5eb4a0149af53226e7bcb53ffe2c19 ""
-  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" 1728066952 18860 ed5eb4a0149af53226e7bcb53ffe2c19 ""
+  "EL4113_02.aux" 1728067526 2453 c154f1d69468a090ffd7b1ade79c99d2 "pdflatex"
+  "EL4113_02.out" 1728067525 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL4113_02.tex" 1728067517 19083 22b0b94d9d7d9e0ab26a421b4162abf8 ""
+  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Fundamento de control y sistemas/Control/EL4113_02.tex" 1728067517 19083 22b0b94d9d7d9e0ab26a421b4162abf8 ""
   (generated)
   "EL4113_02.aux"
   "EL4113_02.log"

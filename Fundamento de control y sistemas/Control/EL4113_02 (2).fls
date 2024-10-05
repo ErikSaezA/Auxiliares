@@ -417,12 +417,6 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\00miktex\epstopdf-sy
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT .\EL4113_02.out
-INPUT .\EL4113_02.out
-INPUT EL4113_02.out
-INPUT EL4113_02.out
-INPUT .\EL4113_02.out
-INPUT .\EL4113_02.out
 OUTPUT EL4113_02.out
 OUTPUT EL4113_02.pdf
 INPUT ..\fcfm_die.pdf
