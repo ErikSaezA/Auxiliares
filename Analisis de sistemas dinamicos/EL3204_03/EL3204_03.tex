@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   answers
+  % answers
   ]{exam}
 
 \usepackage{../exercise-preamble}
@@ -33,7 +33,7 @@
     H(s) = \frac{3(s + 2)}{s^2 - 2s - 15}
     \end{align}
     \begin{enumerate}
-        \item Formule el sistema en variables de estado, y calcule MTE y funciones base.
+        \item Formule el sistema en variables de estado, y calcule la MTE.
         \item Calcule la respuesta al impulso, y determine estabilidad BIBS y BIBO.
         \item Escriba la expresión general para la respuesta del sistema ante una entrada arbitraria y para condiciones iniciales arbitrarias.
         \item Analice controlabilidad y observabilidad del sistema.
@@ -185,7 +185,7 @@
     \subsubsection*{Estabilidad BIBO}
     Para la estabilidad BIBO asociada a la salida nos interesa que se cumpla:
     \begin{align}
-        \int_{0}^{\inf}|h(t)|dt= \int_{0}^{\infty} |h(t)| dt < \infty
+        \int_{0}^{\infty}|h(t)|dt= \int_{0}^{\infty} |h(t)| dt < \infty
     \end{align}
     Reemplazando anterior y considerando que tenemos un $t \in [0,\infty]$ luego el valor absoluto sera positivo,por tanto:
     \begin{align}
@@ -263,12 +263,12 @@
     \end{align}
     Vemos que tanto filas como columnas son LI,por lo que el sistema es observable.Otra forma de analizar la observabilidad es calcular su determinante,en caso de ser nulo implica que no es observable,en particular $\|\vartheta\|$ = $\frac{-1449}{64}$,por lo que se confirma nuevamente que el sistema es observable.Por lo que se confirma que el sistema es controlable y observable.
     \subsection*{Resolucion 1.5}
-    Dado que tenemos solo acceso a la salida del sistema y no al estado se busca diseñar un controlador para polos ubicados en -5 y -3, esto es posible de implementar dado que anteriormente se demostro que el sistema es controlable.La idea general de implementar el controlador,es poder trasladar los polos actual (5 t -3) a los polos deseados (-5 y -3),el problema radica en que para implementar el controlador debemos tener acceso al sistema,en caso de no tener acceso al sistema no es posible implementar el controlador.Pero podemos estimar el estado mediante un observador y utilizar el hecho de que el sistema es controlable y observable.Para implementar el observador, donde la idea es que sea un sistema gemelo al original(\textit{Digital twin}),el cual posee la forma:
+    Dado que tenemos solo acceso a la salida del sistema y no al estado se busca diseñar un controlador para polos ubicados en -5 y -3, esto es posible de implementar dado que anteriormente se demostro que el sistema es controlable.La idea general de implementar el controlador,es poder trasladar los polos actual (5 y -3) a los polos deseados (-5 y -3),el problema radica en que para implementar el controlador debemos tener acceso al sistema,en caso de no tener acceso al sistema no es posible implementar el controlador.Pero podemos estimar el estado mediante un observador y utilizar el hecho de que el sistema es controlable y observable.Para implementar el observador, donde la idea es que sea un sistema gemelo al original(\textit{Digital twin}),el cual posee la forma:
     \begin{align}
         \dot{\hat{x}}(t) = A\hat{x}(t) + Bu(t) - F(\hat{y}(t)-y(t))\\
         \hat{y}(t) = C\hat{x}(t)
     \end{align}
-    Donde los terminos $\hat{y}$ y $\hat{x}$ son las estimaciones de la salida y el estado respectivamente,ademas las matrices A,B y C son las del sistema original y el termino $F(\hat{y}(t)-y(t))$ corresponde al termino de correcion,con la idea que converga al sistema original,es decir cuando $\hat(y)=y$.La idea por tanto es obtener un f que sea optimo tal que el sistema converga rapidamente al sistema original,esto deriva del siguiente hecho:
+    Donde los terminos $\hat{y}$ y $\hat{x}$ son las estimaciones de la salida y el estado respectivamente,ademas las matrices A,B y C son las del sistema original y el termino $F(\hat{y}(t)-y(t))$ corresponde al termino de correcion,con la idea que converga al sistema original,es decir cuando $\hat{y}=y$.La idea por tanto es obtener un F que sea optimo tal que el sistema converga rapidamente al sistema original,esto deriva del siguiente hecho:
     \begin{align}
         e=\hat{x}-x
     \end{align}
@@ -428,7 +428,6 @@ Luego buscamos analizar la estabilidad BIBS y BIBO,para el primer caso se analiz
     \int_0^t |h(\tau)| d\tau &\leq 7 \int_0^t e^{-3\tau} d\tau + 2 \int_0^t \tau e^{-3\tau} d\tau \\
     &=  \frac{7}{3} (e^{-3t} - 1) + 2 \int_0^t \tau e^{-3\tau} d\tau
     \end{align}
-\end{solution}
 \begin{align}
     &\int_0^t \tau e^{-3\tau} d\tau \quad u = \tau, \quad du = d\tau, \quad dv = e^{-3\tau} d\tau, \quad v = -\frac{1}{3} e^{-3\tau} \\
     &= -\frac{1}{3} \tau e^{-3\tau} \Big|_0^t + \frac{1}{3} \int_0^t e^{-3\tau} d\tau \\
@@ -438,28 +437,27 @@ Luego buscamos analizar la estabilidad BIBS y BIBO,para el primer caso se analiz
     Reemplazando en la ecuación anterior tenemos:
 
     \begin{align}
-    \int_0^t |h(\tau)| d\tau &\leq \frac{7}{3} \left( e^{-3t} - 1 \right) - 2 e^{-3t} + \frac{2}{9} \left( 1 - e^{-3t}(3t + 1) \right) \\
-                             &= \frac{23}{9} - \frac{23}{9} e^{-3t}.
+        \int_0^t h(\tau) d\tau &= - \frac{5}{3} \left( e^{-3t} - 1 \right) - \frac{2}{3} \left( e^{-3t} - 1 \right) - \frac{2}{3} t e^{-3t} - \frac{2}{9} \left( e^{-3t} - 1 \right) \\
+        &= \frac{23}{9} e^{-3t} - \frac{2}{3} t e^{-3t} + \frac{23}{9}
     \end{align}
+        
     
-    Analizando el límite, cuando $t \to \infty$, podemos notar que el término $\frac{23}{9} e^{-3t}$ tiende a $0$, por lo que no hace falta considerarlo. Así, si analizamos únicamente el término que incluye el factor $t$, tenemos
-    
-    \begin{align}
-    \lim_{t \to \infty} \frac{t e^{-3t}}{e^{-3t}} &= \lim_{t \to \infty} \frac{t}{e^{3t}} = 0.
-    \end{align}
-    
-    Dado que es un límite de la forma $\frac{\infty}{\infty}$, podemos aplicar la regla de L'Hopital, por lo que tenemos
-    
-    \begin{align}
-    \lim_{t \to \infty} \frac{t}{e^{3t}} &= \lim_{t \to \infty} \frac{1}{3e^{3t}} = 0.
-    \end{align}
-    
-    Finalmente, esto permite ver que
-    
-    \begin{align}
-    \int_0^\infty |h(t)| dt &\leq \frac{23}{9} < \infty,
-    \end{align}
-    por lo que el sistema es **BIBO estable**.
+    Analizando el límite del valor absoluto, cuando \( t \to \infty \) podemos notar que el término \( \frac{23}{9}e^{-3t} \) tiende a 0, por lo que no hace falta considerarlo. Así, si analizamos únicamente el término que incluye el factor \( te^{-3t} \), tenemos
+
+\begin{align}
+\lim_{t \to \infty} te^{-3t} &= \lim_{t \to \infty} \frac{t}{e^{3t}} 
+\end{align}
+
+Dado que es un límite de la forma \( \frac{\infty}{\infty} \), podemos aplicar la regla de L'Hopital, por lo que tenemos
+
+\begin{align}
+\lim_{t \to \infty} \frac{t}{e^{3t}} &= \lim_{t \to \infty} \frac{1}{3e^{3t}} = 0 
+\end{align}
+Luego, dado que todos los términos convergen, podemos ver que
+\begin{align}
+\int_0^\infty h(t) dt &< \infty 
+\end{align}
+Por lo que es BIBO estable.
 \subsection*{Resolucion 2.4}
 Se busca analizar la controlabilidad y observabilidad del sistema,para el primer caso se tiene que un sistema es controlable si y solo si la matriz de controlabilidad es de rango completo,es decir que las filas y columnas sean linealmente independientes,por lo que se tiene que la matriz de controlabilidad general viene dada por:
 \begin{align}
@@ -540,6 +538,7 @@ Finalmente la matriz de observabilidad vendra dada por:
     \vartheta = \begin{pmatrix} 1 & 1 & 0 \\ -3 & -2 & 0 \\ 9 & 3 & 0 \end{pmatrix}
 \end{align}
 Se observa que una columna de 0 en la matriz, por lo que las columnas no son linealmente independientes, por lo que el sistema no es observable,se tendra de manera directa que el determinante de la matriz es 0. 
+\end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{questions}
 \end{document}
