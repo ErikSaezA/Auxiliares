@@ -1,6 +1,7 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Título de la imagen en el índice.}}{1}{figure.caption.2}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Curvas de nivel en el plano (x, $\lambda $) tanto para $u=0$ como para $u=E$ para los diferentes valores de $\lambda _{0}$, en particular $\lambda _{0} = \{0.8, 0.9, 1, 1.1, 2\}$.}}{5}{figure.caption.4}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Curvas de nivel en el plano (x, $\lambda $) tanto para $u=0$ como para $u=E$ para $\lambda _{0}=2$.}}{5}{figure.caption.5}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Curvas de nivel en el plano (x, $\lambda $) tanto para $u=0$ como para $u=E$ para $\lambda _{0}=0.5$.}}{6}{figure.caption.6}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Dinamica de la poblacion de peces resultante $x^{*}(t)$ para $\lambda _{0}=0.5$.}}{7}{figure.caption.7}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Curvas de nivel en el plano (x, $\lambda $) tanto para $u=0$ para los diferentes valores de $\lambda _{0}$, en un rango de de -200 -- 200}}{5}{figure.caption.4}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Curvas de nivel en el plano (x, $\lambda $) para $u=E$ para los diferentes valores de $\lambda _{0}$, en un rango de de -200 -- 200.}}{5}{figure.caption.5}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Grafico de x(t) que representa el número de peces en el lago en función del tiempo.}}{7}{figure.caption.6}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Grafico de u(t)=E optimo, que representa la actividad pesquera (medida en cantidad de botes pesqueros en el lago).}}{8}{figure.caption.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Repuesta manipulada y respuesta al escalon del sistema .}}{13}{figure.caption.9}%

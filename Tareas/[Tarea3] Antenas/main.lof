@@ -1,0 +1,11 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Formato de un frame APT.}}{3}{figure.caption.6}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Ejemplo de frame recibido según un formato APT}}{3}{figure.caption.7}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Imágenes obtenidas por las distintas antenas que fueron utilizadas en el paper de referencia.}}{4}{figure.caption.8}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Diagrama de antena Moxon.}}{5}{figure.caption.10}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Dimensiones antena Moxon simulada en HFFS con conexión LumpedPort. El material celeste corresponden a barras de PVC de 2 cm de diámetro y largo 33 cm. No se incluyen estos valores ya que a priori no toman mayor relevancia en el diseño de la antena más que proveer una estructura firme.}}{5}{figure.caption.12}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Parámetro $S_{11}$ de antena Moxon simulada en HFSS. La marca indica mínima ganancia (-30 dB) para la frecuencia 137.5 Mhz.}}{5}{figure.caption.13}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Patrón de radiación en 3D indicando la ganancia en base a un mapa de colores donde se observa que presenta un maximo en 6.2[dB].}}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Antena Moxon y su respectivo patrón de radiación superpuesto. Se observa que el patrón comienza desde el puerto de alimentación y se extiende hacia atrás de la antena en el eje Y.}}{6}{figure.caption.15}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Planos E-Plane (café) y H-Plane (rojo) para la ganancia en un gráfico polar,}}{6}{figure.caption.16}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Antena Moxon fab}}{7}{figure.caption.17}%

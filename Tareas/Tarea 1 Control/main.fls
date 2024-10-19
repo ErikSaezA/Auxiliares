@@ -502,7 +502,6 @@ INPUT main.lot
 OUTPUT main.lot
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathit.enc
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-rm.enc
-INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT .\example.tex
 INPUT .\example.tex
 INPUT .\example.tex
@@ -576,6 +575,7 @@ INPUT .\img\\ejemplos\test-image.png
 INPUT .\img\\ejemplos\test-image.png
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr6.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmri12.tfm
+INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ec-lmr8.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr8.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr6.tfm
@@ -605,13 +605,13 @@ INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr8.
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr6.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr5.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathex.enc
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
-INPUT .\img\[P2] Curvas de nivel.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
+INPUT .\img\Grafico u=0.png
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr10.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr8.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmr5.tfm
@@ -639,27 +639,34 @@ INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\stmaryrd\stmary5.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr10.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr8.tfm
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\ts1-lmr5.tfm
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 2.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi 0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
-INPUT .\img\[P2] Phi =0.5.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\Grafico u=E.png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de x(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P2] Grafico de u(t).png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
+INPUT .\img\[P3]Respuesta al escalon.png
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex\generic\stringenc\se-utf8.def
@@ -682,6 +689,8 @@ INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.p
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr12.pfb
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr17.pfb
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr17.pfb
+INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr6.pfb
+INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr6.pfb
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr7.pfb
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr7.pfb
 INPUT C:\Users\eriks\AppData\Local\Programs\MiKTeX\fonts\type1\public\lm\lmr8.pfb
