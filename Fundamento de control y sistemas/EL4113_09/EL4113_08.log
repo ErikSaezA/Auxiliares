@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  30 OCT 2024 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  30 OCT 2024 18:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_08/EL4113_08.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_08/EL4113_08.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_09/EL4113_08.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_09/EL4113_08.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -848,19 +848,12 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `amsthm' support loaded on input line 3026.
-)) (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count391
-\float@exts=\toks58
-\float@box=\box103
-\@float@everytoks=\toks59
-\@floatcapt=\box104
-)
+))
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 10.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count392
-\l__pdf_internal_box=\box105
+\l__color_backend_stack_int=\count391
+\l__pdf_internal_box=\box103
 ) (EL4113_08.aux)
 \openout1 = `EL4113_08.aux'.
 
@@ -884,17 +877,17 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count393
+\scratchcounter=\count392
 \scratchdimen=\dimen348
-\scratchbox=\box106
-\nofMPsegments=\count394
-\nofMParguments=\count395
-\everyMPshowfont=\toks60
-\MPscratchCnt=\count396
+\scratchbox=\box104
+\nofMPsegments=\count393
+\nofMParguments=\count394
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count395
 \MPscratchDim=\dimen349
-\MPnumerator=\count397
-\makeMPintoPDFobject=\count398
-\everyMPtoPDFconversion=\toks61
+\MPnumerator=\count396
+\makeMPintoPDFobject=\count397
+\everyMPtoPDFconversion=\toks59
 ) (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -902,7 +895,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
@@ -972,60 +964,95 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--25
 $[]$ $[]$ 
  []
 
+<../figures/Auxiliar_8_1.png, id=7, 1009.52156pt x 274.02374pt>
+File: ../figures/Auxiliar_8_1.png Graphic file (type png)
+<use ../figures/Auxiliar_8_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_1.png  used on input line 36.
+(pdftex.def)             Requested size: 423.151pt x 114.8592pt.
+<../figures/Auxiliar_8_2.png, id=9, 969.6225pt x 397.485pt>
+File: ../figures/Auxiliar_8_2.png Graphic file (type png)
+<use ../figures/Auxiliar_8_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_2.png  used on input line 60.
+(pdftex.def)             Requested size: 317.36526pt x 130.10298pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 61.
+See the caption package documentation for explanation.
+
+<../figures/Auxiliar_8_5.png, id=10, 947.79094pt x 625.58719pt>
+File: ../figures/Auxiliar_8_5.png Graphic file (type png)
+<use ../figures/Auxiliar_8_5.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_5.png  used on input line 116.
+(pdftex.def)             Requested size: 317.36526pt x 209.47038pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 117.
+See the caption package documentation for explanation.
+
+<../figures/Auxiliar_8_6.png, id=11, 944.02687pt x 650.43pt>
+File: ../figures/Auxiliar_8_6.png Graphic file (type png)
+<use ../figures/Auxiliar_8_6.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_6.png  used on input line 145.
+(pdftex.def)             Requested size: 317.36526pt x 218.66208pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 146.
+See the caption package documentation for explanation.
+
+<../figures/Auxiliar_8_8.png, id=12, 962.84718pt x 646.66594pt>
+File: ../figures/Auxiliar_8_8.png Graphic file (type png)
+<use ../figures/Auxiliar_8_8.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_8.png  used on input line 184.
+(pdftex.def)             Requested size: 290.91682pt x 195.38269pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 185.
+See the caption package documentation for explanation.
+
+File: ../figures/Auxiliar_8_8.png Graphic file (type png)
+<use ../figures/Auxiliar_8_8.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_8.png  used on input line 193.
+(pdftex.def)             Requested size: 290.91682pt x 195.38269pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 194.
+See the caption package documentation for explanation.
+
+<../figures/Auxiliar_8_9.png, id=13, 972.63374pt x 645.91313pt>
+File: ../figures/Auxiliar_8_9.png Graphic file (type png)
+<use ../figures/Auxiliar_8_9.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_9.png  used on input line 246.
+(pdftex.def)             Requested size: 290.91682pt x 193.19394pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 247.
+See the caption package documentation for explanation.
+
 
 
 [1
 
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_8_1.png>]
+<../figures/Auxiliar_8_3.png, id=33, 1054.6903pt x 295.1025pt>
+File: ../figures/Auxiliar_8_3.png Graphic file (type png)
+<use ../figures/Auxiliar_8_3.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_3.png  used on input line 281.
+(pdftex.def)             Requested size: 423.151pt x 118.39462pt.
+<../figures/Auxiliar_8_4.png, id=34, 440.39531pt x 213.79875pt>
+File: ../figures/Auxiliar_8_4.png Graphic file (type png)
+<use ../figures/Auxiliar_8_4.png>
+Package pdftex.def Info: ../figures/Auxiliar_8_4.png  used on input line 327.
+(pdftex.def)             Requested size: 264.46837pt x 128.39441pt.
 
-[2]
-
-[3]
-
-[4]
-<../figures/Auxiliar_9_1.png, id=74, 706.13812pt x 365.86688pt>
-File: ../figures/Auxiliar_9_1.png Graphic file (type png)
-<use ../figures/Auxiliar_9_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_9_1.png  used on input line 423.
-(pdftex.def)             Requested size: 343.46754pt x 177.95882pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 424.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_9_2.png, id=76, 706.89093pt x 398.23781pt>
-File: ../figures/Auxiliar_9_2.png Graphic file (type png)
-<use ../figures/Auxiliar_9_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_9_2.png  used on input line 427.
-(pdftex.def)             Requested size: 343.46754pt x 193.49754pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 428.
+(caption)                particular \caption on input line 328.
 See the caption package documentation for explanation.
 
 
 
-[5]
-
-[6]
-
-[7]
-
-[8]
-Underfull \vbox (badness 10000) detected at line 446
- []
-
-
-Underfull \vbox (badness 10000) detected at line 446
- []
-
-
-
-[9 <../figures/Auxiliar_9_1.png>]
-
-[10 <../figures/Auxiliar_9_2.png>]
-This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
+[2 <../figures/Auxiliar_8_3.png>]
+This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (EL4113_08.aux)
@@ -1037,17 +1064,17 @@ Package rerunfilecheck Info: File `EL4113_08.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60581 strings out of 473899
- 1562533 string characters out of 5726500
- 2355997 words of memory out of 5000000
- 82646 multiletter control sequences out of 15000+600000
- 571110 words of font info for 89 fonts, out of 8000000 for 9000
+ 60485 strings out of 473899
+ 1562393 string characters out of 5726500
+ 2334967 words of memory out of 5000000
+ 82638 multiletter control sequences out of 15000+600000
+ 565079 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,101p,885b,1098s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL4113_08.pdf (10 pages, 472542 bytes).
+ 99i,13n,101p,867b,1041s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on EL4113_08.pdf (2 pages, 415030 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 75 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

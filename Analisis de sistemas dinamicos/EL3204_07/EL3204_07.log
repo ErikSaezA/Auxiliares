@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  30 OCT 2024 18:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  29 OCT 2024 23:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_08/EL4113_08.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_08/EL4113_08.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_07/EL3204_07.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_07/EL3204_07.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -856,32 +856,32 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks59
 \@floatcapt=\box104
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 10.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 11.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count392
 \l__pdf_internal_box=\box105
-) (EL4113_08.aux)
-\openout1 = `EL4113_08.aux'.
+) (EL3204_07.aux)
+\openout1 = `EL3204_07.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count393
@@ -945,30 +945,30 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
-Package hyperref Info: Link coloring ON on input line 10.
- (EL4113_08.out) (EL4113_08.out)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 11.
+Package hyperref Info: Link coloring ON on input line 11.
+ (EL3204_07.out) (EL3204_07.out)
 \@outlinefile=\write4
-\openout4 = `EL4113_08.out'.
+\openout4 = `EL3204_07.out'.
 
-<../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
+<../fcfm_die.pdf, id=10, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 14.
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 15.
 (pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16.
  (C:\Users\eriks\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--25
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 13--25
 $[]$ $[]$ 
  []
 
@@ -983,71 +983,49 @@ $[]$ $[]$
 [3]
 
 [4]
-<../figures/Auxiliar_9_1.png, id=74, 706.13812pt x 365.86688pt>
-File: ../figures/Auxiliar_9_1.png Graphic file (type png)
-<use ../figures/Auxiliar_9_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_9_1.png  used on input line 423.
-(pdftex.def)             Requested size: 343.46754pt x 177.95882pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 424.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_9_2.png, id=76, 706.89093pt x 398.23781pt>
-File: ../figures/Auxiliar_9_2.png Graphic file (type png)
-<use ../figures/Auxiliar_9_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_9_2.png  used on input line 427.
-(pdftex.def)             Requested size: 343.46754pt x 193.49754pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 428.
-See the caption package documentation for explanation.
-
-
 
 [5]
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
+
+ []
+
+
 
 [7]
 
 [8]
-Underfull \vbox (badness 10000) detected at line 446
- []
 
-
-Underfull \vbox (badness 10000) detected at line 446
- []
-
-
-
-[9 <../figures/Auxiliar_9_1.png>]
-
-[10 <../figures/Auxiliar_9_2.png>]
+[9]
 This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL4113_08.aux)
+(EL3204_07.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
-Package rerunfilecheck Info: File `EL4113_08.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `EL3204_07.out' has not changed.
+(rerunfilecheck)             Checksum: EC21E5D85EA84752C8DB311131392972;121.
  ) 
 Here is how much of TeX's memory you used:
- 60581 strings out of 473899
- 1562533 string characters out of 5726500
- 2355997 words of memory out of 5000000
- 82646 multiletter control sequences out of 15000+600000
- 571110 words of font info for 89 fonts, out of 8000000 for 9000
+ 60524 strings out of 473899
+ 1561457 string characters out of 5726500
+ 2362997 words of memory out of 5000000
+ 82602 multiletter control sequences out of 15000+600000
+ 565766 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,12n,101p,885b,1098s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL4113_08.pdf (10 pages, 472542 bytes).
+ 99i,17n,101p,1032b,1129s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3204_07.pdf (9 pages, 273746 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 214 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
