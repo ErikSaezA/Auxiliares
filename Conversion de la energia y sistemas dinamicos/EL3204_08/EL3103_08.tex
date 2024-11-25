@@ -1,0 +1,89 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Conversión de la Energía y Sistemas Eléctricos } (EL4111-1) \\
+\large\textbf{Clase auxiliar 8} \\
+\small Prof.~Constanza Ahumada - Rodrigo Moreno.\\
+\small Prof.~Aux.~Javiera Pacheco - Erik Sáez\\
+\small Ayudantes.~Manuel Aceituno - Pamela Acuña - Alvaro Flores\\
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%---------------------------------------------------------------------------------------------------------------------------------
+\begin{questions}
+  \question Sea el siguiente set de ecuaciones:
+  \begin{itemize}
+    \item ¿Cuál es la principal diferencia en los componentes utilizados entre las centrales generadoras convencionales y las centrales basadas en ERNC? Explica cómo esta diferencia afecta los sistemas de control utilizados en cada tipo de central.
+    
+    \item Explica cómo se genera la potencia en un aerogenerador y describe el rol de la velocidad del viento en la curva de potencia, incluyendo las velocidades de ``Cut-in'' y ``Cut-out''.
+    
+    \item  ¿Qué es la ley de Betz y cuál es su implicancia en la eficiencia máxima teórica de un aerogenerador?
+    
+    \item Describe los tipos de aerogeneradores de eje horizontal y de eje vertical, y menciona una ventaja y una desventaja de cada uno.
+\end{itemize}
+  %---------------------------------------------------------------------------------------------------------------------------------
+    \question Considerando los datos de la siguiente tabla, construya las curvas V-I y V-P para el panel fotovoltaico para las siguientes condiciones (indicando los MPP's de cada uno):
+
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|}
+            \hline
+            \textbf{Parámetro} & \textbf{Valor} \\
+            \hline
+            $I_{sc}$ & 15 [A] \\
+            $V_{oc}$ & 70 [V] \\
+            $K_i$ & 0,0032 [A/K] \\
+            $K_v$ & -0,123 [V/K] \\
+            $\alpha$ & 1,3 \\
+            $R_s$ & 0,221 [$\Omega$] \\
+            $R_p$ & 415,405 [$\Omega$] \\
+            $N_s$ & 30 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+    \begin{enumerate}
+        \item Condiciones estándar (1000 W/m$^2$ y 25 [ºC])
+        \item $G = 1000$ W/m$^2$ y $T = 10$[ºC]
+        \item $G = 500$ W/m$^2$ y $T = 25$[ºC]
+    \end{enumerate}
+    
+    Comente los resultados, ¿Tiene sentido lo obtenido?
+    %---------------------------------------------------------------------------------------------------------------------------------
+    \question 
+    Una turbina eólica está acoplada a un generador de inducción trifásico de 560 kW, 50 Hz y 4 polos. La turbina tiene 47 metros de diámetro, una velocidad del viento nominal de 11 [m/s] y una caja de amplificación de velocidad de relación 1:52,6514.
+    
+    Considere el siguiente coeficiente de desempeño:
+    \[
+    C_p(\lambda) = 0.0013\lambda^3 - 0.0439\lambda^2 + 0.4083\lambda - 0.6703
+    \]
+    
+    \begin{enumerate}
+        \item Grafique el coeficiente de desempeño \( C_p \) en función de \( \lambda \).
+        
+        \item Suponiendo que la turbina funciona acoplada a un generador de velocidad fija (con deslizamiento de -3\%), grafique la potencia bruta (antes de \( C_p \)) y potencia obtenida desde la turbina (considerando \( C_p \)) para velocidades del viento entre cero y velocidad nominal. ¿Cuál es la velocidad de cut-in para este modo de funcionamiento?
+        
+        \item Para el caso anterior, grafique la curva de potencia considerando la velocidad de cut-in determinada, una potencia máxima a velocidad nominal y una velocidad cut-out de \( v = 25 \, \text{m/s} \).
+    \end{enumerate}
+\end{questions}
+\newpage
+%---------------------------------------------------------------------------------------------------------------------------------
+
+\end{document}

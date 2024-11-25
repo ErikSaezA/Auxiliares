@@ -1,0 +1,142 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   %answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3103) \\
+\large\textbf{Clase auxiliar 10} \\
+\normalsize Prof.~Heraldo Rozas.\\
+\normalsize Prof.~Aux.~Erik Saez - Maximiliano Morales
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%--------------------------------------------------------------------------
+%Resumen
+\section{Resumen}
+
+\subsection*{Estimador de máxima verosimilitud:}
+
+Se define el estimador de máxima verosimilitud del parámetro $\theta$ de una distribución conocida $f_X(x|\theta)$, teniendo un vector de $n$ observaciones de dicha variable, como:
+\begin{align}
+\hat{\theta}_{ML} &= \arg \max_{\theta \in \Theta} L(X_1, \dots, X_n|\theta)
+\end{align}
+Donde:
+\begin{align}
+L(X_1, \dots, X_n|\theta) &= f_{X_1,\dots,X_n}(x_1, \dots, x_n|\theta)
+\end{align}
+Un criterio equivalente (y a veces mejor) es el siguiente:
+\begin{align}
+\hat{\theta}_{ML} &= \arg \max_{\theta \in \Theta} \ln[L(X_1, \dots, X_n|\theta)]
+\end{align}
+
+\subsection*{Estimador lineal de mínimos cuadrados:}
+
+Sea $Y$ un vector de observaciones, un vector $\theta \in \mathbb{R}$ a inferir y un estimador $\hat{\theta} : \mathbb{X} \to \mathbb{R}^n$, tal que se tiene la relación lineal $Y = X \cdot \hat{\theta} + V^n$, con $X \in \mathbb{M}_{mn}$ y $V^n$ un vector de ruido. Se define como el estimador lineal de mínimos cuadrados a:
+\begin{align}
+\hat{\theta}_{LS}(Y) &= (X^T \cdot X)^{-1} \cdot X^T \cdot Y
+\end{align}
+Tal que este minimiza la distancia entre el parámetro $\theta$ y el estimador $\hat{\theta}$, es decir, se minimiza $\|\hat{\theta} - \hat{\theta}_{LS}(Y)\|^2$.
+
+Para cada estimador de mínimos cuadrados, se define su varianza residual (distancia entre $Y$ e $Y_{est}$) en función del estimador como:
+\begin{align}
+\sigma_R^2 &= \sum_{i=1}^n (Y_i - (X \cdot \hat{\theta}_{LS})_i)^2
+\end{align}
+Finalmente, el valor que permite definir qué tan bueno es el estimador con respecto al estimador de media muestral típico $\sigma_Y^2 = \sum_{i=1}^n (Y_i - (X \cdot \hat{\theta}_{\text{Media}})_i)^2$ es:
+\begin{align}
+R^2 &= 1 - \frac{\sigma_R^2}{\sigma_Y^2}
+\end{align}
+
+Para este valor, existen 3 casos:
+\begin{itemize}
+    \item $R^2 = 1$: El estimador es óptimo pues posee una varianza mucho menor al de la media muestral.
+    \item $R^2 = 0$: El estimador es equivalente al de la media muestral.
+    \item $R^2 < 0$: El estimador posee peor desempeño que la media muestral.
+\end{itemize}
+
+\subsection*{Estimador MAP}
+
+Sea el vector $X = (X_1, \dots, X_n)$ tal que $X_i$ i.i.d. $\forall i \in \{1, \dots, n\}$, con función de densidad condicionada al parámetro $\theta$ $f_{X|\theta}$. A su vez, $\theta$ posee la función de densidad $f_\theta$. Se define el estimador de máxima verosimilitud a posteriori de $\theta$ como:
+\begin{align}
+\hat{\theta}_{MAP} &= \arg \max_{\theta \in A} f_{\theta|X}
+\end{align}
+
+Este término puede desarrollarse más para obtener una expresión más fácil de obtener usando el teorema de Bayes:
+\begin{align}
+\hat{\theta}_{MAP} &= \arg \max_{\theta \in A} f_{X|\theta} \cdot f_\theta \\
+&\iff \hat{\theta}_{MAP} = \arg \max_{\theta \in A} \ln(f_{X|\theta} \cdot f_\theta)
+\end{align}
+\newpage
+%--------------------------------------------------------------------------
+\begin{questions}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question 
+    Considere $X_1, X_2, \dots, X_n$ variables aleatorias i.i.d. observaciones de la siguiente f.d.p.m.:
+    \begin{align}
+    p(x|\lambda) = \frac{e^{-\lambda} \cdot \lambda^x}{x!}
+    \end{align}
+    
+    \begin{enumerate}
+        \item Encuentre el estimador de máxima verosimilitud $\hat{\lambda}_{ML}$.
+        \item Compruebe si el estimador encontrado es insesgado y consistente. \textit{Hint}: Recuerde que una distribución $X \sim \text{Poisson}(\lambda)$ cumple que $\mathbb{E}(X) = \text{Var}(X) = \lambda$.
+    \end{enumerate}
+      
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+        \subsection*{Resolucion 1.1}
+    \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question  Considere un sistema con dos sensores que toman medidas de una constante desconocida $\theta$. Cada observación es ruidosa y puede ser modelada de la forma:
+\begin{align}
+y(1) &= \theta + v(1) \\
+y(2) &= \theta + v(2)
+\end{align}
+
+Donde $v(1)$ y $v(2)$ son variables aleatorias definidas por ruido no-correlacionado, media cero y varianzas $\sigma_1^2$ y $\sigma_2^2$ respectivamente.
+
+En ausencia de cualquier otra información, es decir, sin información previa acerca del valor de $\theta$, se busca el mejor estimador lineal de $\theta$ de la forma:
+\begin{align}
+\hat{\theta} = k_1 \cdot y(1) + k_2 \cdot y(2)
+\end{align}
+
+\begin{enumerate}
+    \item Encuentre el estimador de mínimos cuadrados de $\theta$.
+    \item Determine si dicho estimador es insesgado.
+    \item Determine la varianza residual y el valor de $R^2$. ¿Qué puede decir del desempeño del estimador?
+    \item Encuentre los valores para $k_1$ y $k_2$ que definen un estimador \textbf{insesgado} para $\theta$ que minimiza el error cuadrático medio, $\mathbb{E}[(\theta - \hat{\theta})^2]$.
+    \item Obtenga el valor $R^2$ para este estimador y déjelo en función de las variables del problema.
+    \item Obtenga los valores factibles para cada caso de $R^2$ y determine cuál estimador es mejor.
+\end{enumerate}
+
+%--------------------------
+\begin{solution}
+    \subsection*{Resolucion 2.1}
+\end{solution}
+%--------------------------
+\question 
+Sean $X_1, \dots, X_n$ muestras \textit{i.i.d.} de la variable aleatoria $X \sim \mathcal{N}(\mu, \sigma^2)$. A su vez, $\mu$ es una variable aleatoria continua tal que $\mu \sim \mathcal{N}(0, \sigma_0^2)$.
+
+\begin{enumerate}
+    \item Determine las densidades $f_{X_1, \dots, X_n}$ y $f_\mu$.
+    \item Obtenga el estimador MAP de $\mu$, $\hat{\mu}_{MAP}$.
+    \item Determine los casos límite en que $\sigma_0^2 \to \infty$ y $\sigma_0^2 \to 0$. Interprete cada situación.
+\end{enumerate}
+%--------------------------
+\end{questions}
+
+\end{document}

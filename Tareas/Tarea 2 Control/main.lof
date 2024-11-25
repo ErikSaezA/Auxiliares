@@ -1,0 +1,18 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Implementación de la planta no lineal en \textit {Simulink}, junto con el código implementado para la planta, además de las diferentes entradas y salidas.}}{1}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Implementación del ruido blanco gaussiano considerando una media de 0, una varianza de \(\sigma ^2 = (0.01)^2\), y un tiempo de muestreo de \(T_s = 1 \tmspace +\thickmuskip {.2777em} [s]\), usando el bloque \textit {band limited white noise}.}}{2}{figure.caption.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Implementación del controlador PI en \textit {Simulink} junto con la señal de referencia \(r(t) = 2\), además de las diferentes entradas y salidas del controlador.}}{2}{figure.caption.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Implementación del controlador PI en \textit {Simulink} con sus valores de ganancia proporcional \(K_{p} = 0.01\) y ganancia integral \(K_{i} = 0.06\).}}{3}{figure.caption.5}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Salida de la planta controlada, la cual cumple con el tiempo de establecimiento menor a 100 \([s]\) además de no superar el límite del 10\% de sobrepaso.}}{3}{figure.caption.6}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Implementación del controlador difuso en \textit {Simulink} donde se considera el bloque \textit {Fuzzy Logic}, además de los ponderadores o ganancias \(GE\), \(GDE\) y \(GU\).}}{4}{figure.caption.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Definición de los conjuntos difusos tanto para el error (\textbf {e}), la derivada del error (\textbf {de}) y por último la salida del controlador difuso (\textbf {u}).}}{5}{figure.caption.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Salida de la planta controlada donde se observa una respuesta suficientemente aceptable.}}{6}{figure.caption.11}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Implementación de la señal PRBS en \textit {Simulink} para la obtención del modelo ARX.}}{7}{figure.caption.12}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Señal PRBS y la respuesta de la planta para la obtención del modelo ARX.}}{7}{figure.caption.13}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Implementación del modelo ARX con sus parámetros óptimos y comparación de datos.}}{8}{figure.caption.14}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Implementación del controlador MPC en \textit {Simulink} con los coeficientes del modelo ARX.}}{9}{figure.caption.16}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Implementación de la señal de referencia \(r(t)\) en \textit {Simulink} para la comparación de los controladores.}}{10}{figure.caption.17}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Respuesta del controlador PI clásico para la señal de referencia \(r(t)\).}}{11}{figure.caption.18}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Respuesta del controlador PI difuso para la señal de referencia \(r(t)\).}}{12}{figure.caption.19}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Respuesta del controlador MPC para la señal de referencia \(r(t)\).}}{13}{figure.caption.20}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Comparación de las respuestas de los controladores para la señal de referencia \(r(t)\).}}{14}{figure.caption.21}%
