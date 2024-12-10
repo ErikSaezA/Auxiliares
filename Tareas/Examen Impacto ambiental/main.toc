@@ -1,0 +1,15 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introduccion}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contextualización sobre las líneas HVDC}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Descripción técnica de las líneas HVDC}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ventajas respecto a líneas (AC)}{3}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Impacto sobre las personas}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Efectos del campo eléctrico y magnético generado}{5}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Estudios sobre exposición prolongada}{6}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Personas con marcapasos o dispositivos médicos}{6}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Bombas de insulina}{7}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Desfibriladores implantables}{8}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Trabajadores que operan cerca de líneas HVDC}{8}{subsubsection.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.1.6}Regulaciones y estándares internacionales para minimizar riesgos}{9}{subsubsection.3.1.6}%
+\contentsline {section}{\numberline {4}Análisis crítico}{9}{section.4}%
+\contentsline {section}{Referencias}{11}{section.4}%

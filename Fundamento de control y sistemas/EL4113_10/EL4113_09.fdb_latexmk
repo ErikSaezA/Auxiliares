@@ -1,9 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1731939064.5353 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_10/EL4113_09.tex" "EL4113_09.pdf" "EL4113_09" 1731939070.10801 0
+["pdflatex"] 1732588936.98814 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_10/EL4113_09.tex" "EL4113_09.pdf" "EL4113_09" 1732588941.87443 0
   "../aas_macros.sty" 1724519401 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1724519401 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1724519401 70674 58fca911fad9f2323ab3bd83506d01cc ""
-  "../figures/Auxiliar_12_1.png" 1731721775 45123 4d92c3fc193a5a803ad454dd72da2cda ""
+  "../figures/Auxiliar_12_1.png" 1732586105 23124 aade5aceea8fc58a452f1fff78ad4413 ""
+  "../figures/Auxiliar_12_2.png" 1732586697 31649 34933447e9e173af972b25d4822f0f9b ""
   "../macros.sty" 1724519401 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1728393191 84124 a7927d7d1dc0e2460633f0d209c3f0d0 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1687384651 12668 5c9f0939adb75a2142abeb38c3635075 ""
@@ -280,10 +281,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL4113_09.aux" 1731939069 1367 7d96d85b80973f9fc2db701a35d1d354 "pdflatex"
-  "EL4113_09.out" 1731939069 312 71ed7a6d576ed706e94a4235e8d1da51 "pdflatex"
-  "EL4113_09.tex" 1731939057 31730 2cbf6303db09a9bb21ec550f5b24b5da ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_10/EL4113_09.tex" 1731939057 31730 2cbf6303db09a9bb21ec550f5b24b5da ""
+  "EL4113_09.aux" 1732588941 1367 4dfe8fb25060860335b1562fa3324962 "pdflatex"
+  "EL4113_09.out" 1732588941 312 71ed7a6d576ed706e94a4235e8d1da51 "pdflatex"
+  "EL4113_09.tex" 1732588935 31941 4bf80953f3cbe97a5306a3c94ad430b1 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Fundamento de control y sistemas/EL4113_10/EL4113_09.tex" 1732588935 31941 4bf80953f3cbe97a5306a3c94ad430b1 ""
   (generated)
   "EL4113_09.aux"
   "EL4113_09.log"

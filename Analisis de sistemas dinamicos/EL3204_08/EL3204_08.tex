@@ -29,7 +29,63 @@
 %--------------------------------------------------------------------------
 %Resumen
 \section{Resumen}
+\subsection*{Estimador insesgado}
+Un estimador $\tau_N : X_N \to \Theta$ se dice insesgado si 
+\begin{align}
+\forall \theta \in \Theta, \mathbb{E}_{X_1, \dots, X_N \sim \mu_N} \left[\tau_N(X_1, \dots, X_N)\right] = \theta.
+\end{align}
+Es decir, si se tiene un estado $\theta$ el cual se busca estimar, entonces el estimador $\hat{\theta}$ se dice insesgado si y solo si
+\begin{align}
+\mathbb{E}\left[\hat{\theta}\right] = \theta.
+\end{align}
 
+\subsection*{Estimador consistente}
+Una familia de estimadores $\{\tau_N \mid \forall N \in \mathbb{N}, \tau_N : X_N \to \Theta \}$ se dice consistente si cada estimador $\tau_N$ es asintóticamente insesgado y
+\begin{align}
+\lim_{N \to \infty} \text{Var}(\tau_N(x)) = 0.
+\end{align}
+
+\subsection*{Error cuadrático medio (Mean Squared Error, MSE)}
+El MSE de un estimador $\hat{x}$ está dado por
+\begin{align}
+\text{MSE}(\hat{x}) &= \text{tr}\left( \mathbb{E} \left[ (\hat{x}(Y) - X)(\hat{x}(Y) - X)^T \mid Y \right] \right) \\
+&= \mathbb{E}\left[ (\hat{x}(Y) - X)^T (\hat{x}(Y) - X) \mid Y \right].
+\end{align}
+El estimador que minimiza este MSE es de la forma
+\begin{align}
+\hat{x}_{\text{MMSE}}(y) = \mathbb{E}\{X \mid Y = y\}.
+\end{align}
+
+\subsection*{Distribuciones notables}
+\begin{itemize}
+    \item \textbf{Gaussiana:} 
+    \begin{align}
+    X \sim N(\mu, \sigma^2) &\Rightarrow f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( - \frac{(x - \mu)^2}{2\sigma^2} \right).
+    \end{align}
+    
+    \item \textbf{Gaussiana multivariada:}
+    \begin{align}
+    X \sim N(\mu, \Sigma) &\Rightarrow f_X(x) = \frac{1}{\sqrt{(2\pi)^n |\Sigma|}} \exp\left( - \frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right),
+    \end{align}
+    donde $\mu \in \mathbb{R}^n$ y $\Sigma \in M_{n \times n}(\mathbb{R})$.
+    \item \textbf{Propiedades Matrices}
+    Para la matriz por bloques
+\[
+U = \begin{pmatrix}
+A & B \\
+C & D
+\end{pmatrix},
+\]
+si \(A\) y \(D\) son invertibles, se tiene:
+
+\begin{align}
+|U| &= |A| \, |D - CA^{-1}B|, \tag{8} \\
+U^{-1} &= \begin{pmatrix}
+A^{-1} + A^{-1}B(D - CA^{-1}B)^{-1}CA^{-1} & -A^{-1}B(D - CA^{-1}B)^{-1} \\
+-(D - CA^{-1}B)^{-1}CA^{-1} & (D - CA^{-1}B)^{-1}
+\end{pmatrix}. \tag{9}
+\end{align}
+\end{itemize}
 \subsection*{Estimador de máxima verosimilitud:}
 
 Se define el estimador de máxima verosimilitud del parámetro $\theta$ de una distribución conocida $f_X(x|\theta)$, teniendo un vector de $n$ observaciones de dicha variable, como:
@@ -45,30 +101,7 @@ Un criterio equivalente (y a veces mejor) es el siguiente:
 \hat{\theta}_{ML} &= \arg \max_{\theta \in \Theta} \ln[L(X_1, \dots, X_n|\theta)]
 \end{align}
 
-\subsection*{Estimador lineal de mínimos cuadrados:}
-
-Sea $Y$ un vector de observaciones, un vector $\theta \in \mathbb{R}$ a inferir y un estimador $\hat{\theta} : \mathbb{X} \to \mathbb{R}^n$, tal que se tiene la relación lineal $Y = X \cdot \hat{\theta} + V^n$, con $X \in \mathbb{M}_{mn}$ y $V^n$ un vector de ruido. Se define como el estimador lineal de mínimos cuadrados a:
-\begin{align}
-\hat{\theta}_{LS}(Y) &= (X^T \cdot X)^{-1} \cdot X^T \cdot Y
-\end{align}
-Tal que este minimiza la distancia entre el parámetro $\theta$ y el estimador $\hat{\theta}$, es decir, se minimiza $\|\hat{\theta} - \hat{\theta}_{LS}(Y)\|^2$.
-
-Para cada estimador de mínimos cuadrados, se define su varianza residual (distancia entre $Y$ e $Y_{est}$) en función del estimador como:
-\begin{align}
-\sigma_R^2 &= \sum_{i=1}^n (Y_i - (X \cdot \hat{\theta}_{LS})_i)^2
-\end{align}
-Finalmente, el valor que permite definir qué tan bueno es el estimador con respecto al estimador de media muestral típico $\sigma_Y^2 = \sum_{i=1}^n (Y_i - (X \cdot \hat{\theta}_{\text{Media}})_i)^2$ es:
-\begin{align}
-R^2 &= 1 - \frac{\sigma_R^2}{\sigma_Y^2}
-\end{align}
-
-Para este valor, existen 3 casos:
-\begin{itemize}
-    \item $R^2 = 1$: El estimador es óptimo pues posee una varianza mucho menor al de la media muestral.
-    \item $R^2 = 0$: El estimador es equivalente al de la media muestral.
-    \item $R^2 < 0$: El estimador posee peor desempeño que la media muestral.
-\end{itemize}
-
+ 
 \subsection*{Estimador MAP}
 
 Sea el vector $X = (X_1, \dots, X_n)$ tal que $X_i$ i.i.d. $\forall i \in \{1, \dots, n\}$, con función de densidad condicionada al parámetro $\theta$ $f_{X|\theta}$. A su vez, $\theta$ posee la función de densidad $f_\theta$. Se define el estimador de máxima verosimilitud a posteriori de $\theta$ como:
@@ -99,43 +132,189 @@ Este término puede desarrollarse más para obtener una expresión más fácil d
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{solution}
         \subsection*{Resolucion 1.1}
+        Primeramente, debemos obtener la función verosimilitud del vector aleatorio \( X = (X_1, X_2, \ldots, X_n) \) (recordando que los \( X_i \sim Poisson(\lambda) \) son i.i.d.):
+
+\begin{align}
+L(x_1, \ldots, x_n \mid \lambda) 
+    &= p_{X_1, \ldots, X_n}(x_1, \ldots, x_n \mid \lambda) 
+    = \prod_{i=1}^n p_{X_i}(x_i \mid \lambda), \\
+L(x_1, \ldots, x_n \mid \lambda) 
+    &= \prod_{i=1}^n \frac{e^{-\lambda} \lambda^{x_i}}{x_i!}, \\
+L(x_1, \ldots, x_n \mid \lambda) 
+    &= \frac{e^{-n\lambda} \lambda^{\sum_{i=1}^n x_i}}{\prod_{i=1}^n x_i!}.
+\end{align}
+
+Para obtener el estimador de máxima verosimilitud de \(\lambda\), debemos recordar su definición:
+\begin{align}
+\hat{\lambda}_{ML} = \arg \max_{\lambda} L(x_1, \ldots, x_n \mid \lambda).
+\end{align}
+
+Es decir, debemos usar el criterio de la primera derivada en la función verosimilitud para encontrar el valor de \(\lambda\) que entrega el valor máximo de \(L(*)\). (Asumimos que la segunda derivada cumple el criterio de concavidad para que sea máximo). Sin embargo, se puede notar que derivar la verosimilitud con respecto a \(\lambda\) resultará en una derivada de producto, lo cual no es ideal para trabajar. Otra forma más conveniente de obtener el estimador es redefiniéndolo de la siguiente manera:
+\begin{align}
+\hat{\lambda}_{ML} = \arg \max_{\lambda} \ln[L(x_1, \ldots, x_n \mid \lambda)].
+\end{align}
+
+Esto se cumple ya que la función \(\ln[*]\) es creciente y, al obtener el \(\lambda\) tal que maximiza \(\ln[L(*)]\), se obtiene el mismo valor de \(\lambda\) que maximiza \(L(*)\).
+
+\subsection*{Aplicando \(\ln()\) a \(L()\):}
+
+\begin{align}
+\ln[L(x_1, \ldots, x_n \mid \lambda)] 
+    &= \ln \left[ \frac{e^{-n\lambda} \lambda^{\sum_{i=1}^n x_i}}{\prod_{i=1}^n x_i!} \right], \\
+    &= \ln[e^{-n\lambda}] + \ln[\lambda^{\sum_{i=1}^n x_i}] - \ln \left[\prod_{i=1}^n x_i! \right], \\
+    &= -n\lambda + \sum_{i=1}^n x_i \cdot \ln[\lambda] - \sum_{i=1}^n \ln[x_i!].
+\end{align}
+
+Con la expresión anterior, obtenemos el \(\lambda\) tal que \(\ln[L(*)]\) sea máximo:
+\begin{align}
+\frac{d}{d\lambda} \left( \ln[L(x_1, \ldots, x_n \mid \lambda)] \right) 
+    &= \frac{d}{d\lambda} \left( -n\lambda + \sum_{i=1}^n x_i \cdot \ln[\lambda] - \sum_{i=1}^n \ln[x_i!] \right) = 0, \\
+-n + \frac{\sum_{i=1}^n x_i}{\lambda} &= 0, \\
+\lambda &= \frac{\sum_{i=1}^n x_i}{n}.
+\end{align}
+
+Luego, el valor de \(\lambda\) que maximiza la verosimilitud es la media empírica de los datos:
+\begin{align}
+\hat{\lambda}_{ML} = \arg \max_{\lambda} \ln[L(x_1, \ldots, x_n \mid \lambda)] = \frac{\sum_{i=1}^n x_i}{n}.
+\end{align}
+\subsection*{Resolucion 1.2}
+Para demostrar que $\hat{\lambda}_{ML}$ debemos comprobar si se cumple $\mathbb{E}(\hat{\lambda}_{ML}) = \lambda$. En efecto, usando la indicación para la esperanza de variables Poisson:
+
+\begin{align}
+\mathbb{E}(\hat{\lambda}_{ML}) &= \mathbb{E}\left(\frac{\sum_{i=1}^n X_i}{n}\right) \\
+&= \frac{1}{n} \cdot \mathbb{E}\left(\sum_{i=1}^n X_i\right) \\
+&= \frac{1}{n} \sum_{i=1}^n \mathbb{E}(X_i) \\
+&= \frac{1}{n} \cdot \sum_{i=1}^n \lambda \\
+&= \frac{1}{n} \cdot n \cdot \lambda \\
+&= \lambda
+\end{align}
+
+Con ello, queda comprobado que el estimador es insesgado.
+
+Con respecto a la consistencia, dado que sabemos que el estimador es insesgado, basta demostrar el siguiente límite (Definición de consistencia para estimadores insesgados):
+
+\[
+\lim_{n \to \infty} \mathrm{Var}(\hat{\lambda}_{ML}) = 0
+\]
+
+Para comprobar lo anterior, obtengamos la varianza del estimador:
+
+\begin{align}
+\mathrm{Var}(\hat{\lambda}_{ML}) &= \mathrm{Var}\left(\frac{\sum_{i=1}^n X_i}{n}\right) \\
+&= \frac{1}{n^2} \cdot \mathrm{Var}\left(\sum_{i=1}^n X_i\right) \\
+&= \frac{1}{n^2} \cdot \sum_{i=1}^n \mathrm{Var}(X_i) \\
+&= \frac{1}{n^2} \cdot \sum_{i=1}^n \lambda \\
+&= \frac{1}{n^2} \cdot n \cdot \lambda \\
+&= \frac{\lambda}{n}
+\end{align}
+
+Luego, al aplicar el límite se obtiene lo siguiente:
+
+\begin{align}
+\lim_{n \to \infty} \mathrm{Var}(\hat{\lambda}_{ML}) &= \lim_{n \to \infty} \frac{\lambda}{n} \\
+&= 0
+\end{align}
+
+Es decir, es consistente.
     \end{solution}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question  Considere un sistema con dos sensores que toman medidas de una constante desconocida $\theta$. Cada observación es ruidosa y puede ser modelada de la forma:
+%--------------------------
+    \question Considere una variable \(X\) cuya PDF está dada por
+
+    \[
+    f_{X|\Theta}(x|\theta) = \theta x^{\theta - 1}, \tag{1}
+    \]
+    
+    correspondiente a una distribución Beta con \(\beta = 1\). Suponga que se realizan \(n\) mediciones \(X_1, \ldots, X_n\) i.i.d. de \(X\).
+    
+    \begin{enumerate}
+        \item Encuentre la esperanza de \(X\).
+        \item Encuentre el estimador ML para el parámetro \(\theta\). ¿Es posible concluir sobre el sesgo de este estimador?
+        \item Considerando que se conoce a priori que \(\Theta \sim \text{Exp}(\Lambda)\), encuentre el estimador MAP para \(\theta\).
+    \end{enumerate}
+%--------------------------
+\begin{solution}
+    \subsection*{Resolucion 2.1}
+    Para una medición particular $X$, notemos que la esperanza está dada por
+
 \begin{align}
-y(1) &= \theta + v(1) \\
-y(2) &= \theta + v(2)
+\mathbb{E}[X \mid \Theta = \theta] &= \int_0^1 x f_X(x \mid \theta) dx \tag{2} \\
+&= \int_0^1 x \theta x^{\theta - 1} dx \tag{3} \\
+&= \theta \int_0^1 x^\theta dx \tag{4} \\
+&= \frac{\theta}{\theta + 1} x^{\theta + 1} \Big|_0^1 \tag{5} \\
+&= \frac{\theta}{\theta + 1} (1 - 0) \tag{6} \\
+&= \frac{\theta}{\theta + 1} \tag{7}
 \end{align}
 
-Donde $v(1)$ y $v(2)$ son variables aleatorias definidas por ruido no-correlacionado, media cero y varianzas $\sigma_1^2$ y $\sigma_2^2$ respectivamente.
+Por lo tanto:
 
-En ausencia de cualquier otra información, es decir, sin información previa acerca del valor de $\theta$, se busca el mejor estimador lineal de $\theta$ de la forma:
-\begin{align}
-\hat{\theta} = k_1 \cdot y(1) + k_2 \cdot y(2)
-\end{align}
+\[
+\mathbb{E}[X \mid \Theta = \theta] = \frac{\theta}{\theta + 1}. \tag{8}
+\]
+\subsection*{Resolucion 2.2}
+\end{solution}
+%--------------------------
+\question Sean \( X_1, \ldots, X_n \) muestras i.i.d. de la variable aleatoria \( X \sim \mathcal{N}(\mu, \sigma^2) \). A su vez, \(\mu\) es una variable aleatoria continua tal que \( \mu \sim \mathcal{N}(0, \sigma_0^2) \).
 
 \begin{enumerate}
-    \item Encuentre el estimador de mínimos cuadrados de $\theta$.
-    \item Determine si dicho estimador es insesgado.
-    \item Determine la varianza residual y el valor de $R^2$. ¿Qué puede decir del desempeño del estimador?
-    \item Encuentre los valores para $k_1$ y $k_2$ que definen un estimador \textbf{insesgado} para $\theta$ que minimiza el error cuadrático medio, $\mathbb{E}[(\theta - \hat{\theta})^2]$.
-    \item Obtenga el valor $R^2$ para este estimador y déjelo en función de las variables del problema.
-    \item Obtenga los valores factibles para cada caso de $R^2$ y determine cuál estimador es mejor.
+    \item Determine las densidades \( f_{X_1, \ldots, X_n} \) y \( f_\mu \).
+    \item Obtenga el estimador MAP de \(\mu\), \(\hat{\mu}_{MAP}\).
+    \item Determine los casos límite en que \( \sigma_0^2 \to \infty \) y \( \sigma_0^2 \to 0 \). Interprete cada situación.
 \end{enumerate}
+
+%--------------------------
+\question  
+Considere que tiene un estado modelado como una variable aleatoria \( Y \) en \( \mathbb{R}^q \), sobre el cual se realizan mediciones dadas por otra variable aleatoria \( X \) en \( \mathbb{R}^p \), donde ambas variables son gaussianas tales que
+\[
+X \sim \mathcal{N}(\mu_X, \Sigma_X), \quad Y \sim \mathcal{N}(\mu_Y, \Sigma_Y).
+\tag{10}
+\]
+
+Para fines de modelación, supongamos que la distribución conjunta está dada por otra variable aleatoria \( Z \) dada por
+\[
+Z = 
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix},
+\tag{11}
+\]
+de modo que \( Z \) es una gaussiana de la forma \( Z \sim \mathcal{N}(\mu_Z, \Sigma_Z) \) con
+\[
+\mu_Z := 
+\begin{pmatrix}
+\mu_X \\
+\mu_Y
+\end{pmatrix},
+\tag{12}
+\]
+\[
+\Sigma_Z := 
+\begin{pmatrix}
+\Sigma_X & \Sigma_{XY} \\
+\Sigma_{YX} & \Sigma_Y
+\end{pmatrix},
+\tag{13}
+\]
+donde las matrices \( \Sigma_{XY} \) y \( \Sigma_{YX} \) corresponden a las varianzas cruzadas, y están definidas por
+\[
+\Sigma_{XY} = \mathbb{E}\big\{(X - \mu_X)(Y - \mu_Y)^\top \big\}, \quad 
+\Sigma_{YX} = \mathbb{E}\big\{(Y - \mu_Y)(X - \mu_X)^\top \big\}.
+\tag{14}
+\]
+
+\begin{enumerate}
+    \item Encuentre la distribución de \( Y|X \).
+    \item Obtenga el estimador que minimiza el MSE.
+    \item Determine si el estimador es insesgado. Obtenga la varianza del estimador, y concluya sobre su consistencia.
+\end{enumerate}
+
 
 %--------------------------
 \begin{solution}
     \subsection*{Resolucion 2.1}
 \end{solution}
 %--------------------------
-\question 
-Sean $X_1, \dots, X_n$ muestras \textit{i.i.d.} de la variable aleatoria $X \sim \mathcal{N}(\mu, \sigma^2)$. A su vez, $\mu$ es una variable aleatoria continua tal que $\mu \sim \mathcal{N}(0, \sigma_0^2)$.
 
-\begin{enumerate}
-    \item Determine las densidades $f_{X_1, \dots, X_n}$ y $f_\mu$.
-    \item Obtenga el estimador MAP de $\mu$, $\hat{\mu}_{MAP}$.
-    \item Determine los casos límite en que $\sigma_0^2 \to \infty$ y $\sigma_0^2 \to 0$. Interprete cada situación.
-\end{enumerate}
 %--------------------------
 \end{questions}
 

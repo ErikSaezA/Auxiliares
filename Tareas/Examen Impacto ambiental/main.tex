@@ -1,0 +1,81 @@
+% Template:     Informe LaTeX
+% Documento:    Archivo principal
+% Versión:      8.3.6 (23/08/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Examen}
+\def\documentsubtitle {}
+\def\documentsubject {Líneas eléctrica en CC de alta tensión}
+
+\def\documentauthor {Erik Saez}
+\def\coursename {Impacto Ambiental y Social de Proyectos Eléctricos}
+\def\coursecode {EL6046-1}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería Eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.57cm}
+\def\universitylocation {Santiago de Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\authortable {
+	\begin{tabular}{ll}
+		Integrantes:
+		& \begin{tabular}[t]{l}
+			Erik Saez
+		\end{tabular} \\
+		Profesor:
+		& \begin{tabular}[t]{l}
+			Aldo Di Biase F. 
+		\end{tabular} \\
+
+		\multicolumn{2}{l}{Fecha de entrega: 10 de diciembre de 2024} \\
+		\multicolumn{2}{l}{\universitylocation}
+	\end{tabular}
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% PORTADA
+\templatePortrait
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% RESUMEN O ABSTRACT
+\begin{abstractd}
+En el presente informe se analizan los efectos de los campos electromagnéticos (CEM) generados por líneas de corriente continua de alta tensión (HVDC) en dispositivos médicos implantables, como marcapasos, bombas de insulina y desfibriladores automáticos implantables (DAI). Se presentan estudios que investigan cómo los CEM pueden interferir con el funcionamiento de estos dispositivos, destacando los riesgos potenciales y las recomendaciones para minimizar dichos riesgos.\\\\
+Además, se realiza un análisis crítico de los estudios revisados, señalando las limitaciones en términos de tamaño de muestra, condiciones experimentales controladas y variabilidad en el diseño y tecnología de los dispositivos. Se destaca la necesidad de investigaciones adicionales con tamaños de muestra más grandes, condiciones experimentales más representativas del mundo real y una mayor diversidad de dispositivos y participantes para obtener conclusiones más concluyentes y generalizables. También se subraya la importancia de considerar la evolución tecnológica de los dispositivos médicos en estudios futuros para garantizar que las recomendaciones de seguridad se basen en la tecnología más reciente.\\\\
+Finalmente, se discuten las regulaciones y estándares internacionales que establecen límites de exposición a los CEM para proteger tanto a los pacientes con dispositivos médicos implantables como a los trabajadores que operan cerca de líneas HVDC. 
+\end{abstractd}
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\templateIndex
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{example} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}

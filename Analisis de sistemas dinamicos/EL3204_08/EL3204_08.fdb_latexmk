@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1732098300.08382 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_08/EL3204_08.tex" "EL3204_08.pdf" "EL3204_08" 1732098304.66837 0
+["pdflatex"] 1732846459.98582 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_08/EL3204_08.tex" "EL3204_08.pdf" "EL3204_08" 1732846466.22845 0
   "../aas_macros.sty" 1687191417 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1723594988 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1687191418 68372 58fca911fad9f2323ab3bd83506d01cc ""
@@ -22,6 +22,7 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
+  "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi8.tfm" 1136765053 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr10.tfm" 1136765053 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -281,10 +282,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3204_08.aux" 1732098303 1227 85ea18eb29f0dcb327fa1acdfab1b4ae "pdflatex"
-  "EL3204_08.out" 1732098303 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
-  "EL3204_08.tex" 1732098298 6449 a7e8ef52d6a5bdb3dec85122e4ab1f93 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_08/EL3204_08.tex" 1732098298 6449 a7e8ef52d6a5bdb3dec85122e4ab1f93 ""
+  "EL3204_08.aux" 1732846465 1448 8a632c555730e26e9d2c075798fc07e8 "pdflatex"
+  "EL3204_08.out" 1732846465 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3204_08.tex" 1732846453 12815 f0b23d39fd1d74676b9fc7850edc5224 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Analisis de sistemas dinamicos/EL3204_08/EL3204_08.tex" 1732846453 12815 f0b23d39fd1d74676b9fc7850edc5224 ""
   (generated)
   "EL3204_08.aux"
   "EL3204_08.log"

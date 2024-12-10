@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1729370008.41477 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3204_06/EL3103_06.tex" "EL3103_06.pdf" "EL3103_06" 1729370013.9291 0
+["pdflatex"] 1733430912.19736 "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3204_06/EL3103_06.tex" "EL3103_06.pdf" "EL3103_06" 1733430919.07035 0
   "../aas_macros.sty" 1724116932 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
-  "../exercise-preamble.sty" 1725328343 2223 778169d6b088897742be77ed3cae0474 ""
+  "../exercise-preamble.sty" 1730124452 2245 a8bf6f00fcbbd260ce82efed49132ae3 ""
   "../fcfm_die.pdf" 1724116932 70674 58fca911fad9f2323ab3bd83506d01cc ""
   "../figures/Auxiliar_6_1.png" 1729014022 50866 b2f00a8ca5552f8d22c1af7388132c79 ""
   "../figures/Auxiliar_6_2.png" 1729014512 14621 7d1196d522fd0d972f5f14c4ad643edd ""
@@ -288,9 +288,10 @@
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
+  "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/eriks/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "EL3103_06.aux" 1729370013 1493 f0899d06b6079a4ddd2069f860067db5 "pdflatex"
-  "EL3103_06.out" 1729370013 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3103_06.aux" 1733430918 1493 f0899d06b6079a4ddd2069f860067db5 "pdflatex"
+  "EL3103_06.out" 1733430918 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
   "EL3103_06.tex" 1729370007 33107 a4a9d827f3ebda886f2f5bbdc5ad4ff4 ""
   "c:/Users/eriks/OneDrive/Escritorio/Organizacion/Universidad/[Github] Auxiliares/Auxiliares/Conversion de la energia y sistemas dinamicos/EL3204_06/EL3103_06.tex" 1729370007 33107 a4a9d827f3ebda886f2f5bbdc5ad4ff4 ""
   (generated)

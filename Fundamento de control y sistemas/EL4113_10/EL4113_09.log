@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  18 NOV 2024 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.13)  25 NOV 2024 23:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -971,14 +971,19 @@ $[]$ $[]$
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
 
 [2]
-<../figures/Auxiliar_12_1.png, id=46, 563.85657pt x 296.60812pt>
+<../figures/Auxiliar_12_1.png, id=46, 674.52pt x 303.38344pt>
 File: ../figures/Auxiliar_12_1.png Graphic file (type png)
 <use ../figures/Auxiliar_12_1.png>
 Package pdftex.def Info: ../figures/Auxiliar_12_1.png  used on input line 76.
-(pdftex.def)             Requested size: 211.57147pt x 111.29565pt.
+(pdftex.def)             Requested size: 264.46837pt x 118.95326pt.
+<../figures/Auxiliar_12_2.png, id=48, 854.44218pt x 368.87813pt>
+File: ../figures/Auxiliar_12_2.png Graphic file (type png)
+<use ../figures/Auxiliar_12_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_12_2.png  used on input line 95.
+(pdftex.def)             Requested size: 294.40503pt x 127.09985pt.
 
 
-[3 <../figures/Auxiliar_12_1.png>]
+[3 <../figures/Auxiliar_12_1.png> <../figures/Auxiliar_12_2.png>]
 
 [4]
 
@@ -995,6 +1000,8 @@ Package pdftex.def Info: ../figures/Auxiliar_12_1.png  used on input line 76.
 [10]
 
 [11]
+
+[12]
 This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1007,17 +1014,17 @@ Package rerunfilecheck Info: File `EL4113_09.out' has not changed.
 (rerunfilecheck)             Checksum: 71ED7A6D576ED706E94A4235E8D1DA51;312.
  ) 
 Here is how much of TeX's memory you used:
- 60614 strings out of 473899
- 1563475 string characters out of 5726500
- 2370997 words of memory out of 5000000
- 82647 multiletter control sequences out of 15000+600000
+ 60627 strings out of 473899
+ 1563839 string characters out of 5726500
+ 2372997 words of memory out of 5000000
+ 82659 multiletter control sequences out of 15000+600000
  566371 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,22n,101p,911b,1106s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/eriks/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL4113_09.pdf (11 pages, 318915 bytes).
+Output written on EL4113_09.pdf (12 pages, 327823 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 127 named destinations out of 1000 (max. 500000)
- 39 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 44 words of extra memory for PDF output out of 10000 (max. 10000000)
 

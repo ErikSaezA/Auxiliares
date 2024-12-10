@@ -1,0 +1,86 @@
+% Template:     Informe LaTeX
+% Documento:    Archivo principal
+% Versión:      8.3.6 (23/08/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/informe]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Tarea 5}
+\def\documentsubtitle {}
+\def\documentsubject {Implementacion y fabricacion de antena Horn}
+
+\def\documentauthor {Erik Saez}
+\def\coursename {Antenas}
+\def\coursecode {EL7030}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería Eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.57cm}
+\def\universitylocation {Santiago de Chile}
+
+% INTEGRANTES, PROFESORES Y FECHAS
+\def\authortable {
+	\begin{tabular}{ll}
+		Integrantes:
+		& \begin{tabular}[t]{l}
+			Erik Saez
+		\end{tabular} \\
+		Profesor:
+		& \begin{tabular}[t]{l}
+			Ricardo Finger 
+		\end{tabular} \\
+		Auxiliar:
+		& \begin{tabular}[t]{l}
+			Juan Torrejon H.\\
+			Vicente Aitken A
+		\end{tabular} \\
+		\multicolumn{2}{l}{} \\
+		& \\
+		\multicolumn{2}{l}{Fecha de realización: \today} \\
+		\multicolumn{2}{l}{Fecha de entrega: \today} \\
+		\multicolumn{2}{l}{\universitylocation}
+	\end{tabular}
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% PORTADA
+\templatePortrait
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% RESUMEN O ABSTRACT
+\begin{abstractd}
+	Se busco el diseñar una antena direccional y compacta operando entre 3.3 y 3.5 GHz, se analizaron varias topologías, seleccionando la antena Horn por su alto desempeño al ofrecer un patrón de radiación uniforme y polarización lineal. Utilizando HFSS, se parametrizaron dimensiones clave, como la apertura del cuerno y la altura del pin excitador. Inicialmente, el diseño mostró un desempeño subóptimo, por lo que se realizó una optimización paramétrica ajustando valores como las dimensiones de apertura (149 mm × 97.8 mm), logrando mejoras significativas en el parámetro $S_{11}$ y el patrón de radiación. Finalmente, se fabricó la antena utilizando impresión 3D y recubrimiento de cobre, obteniendo resultados satisfactorios tanto en medidas de reflexiones como en directividad y ganancia, cumpliendo los requisitos del proyecto.
+\end{abstractd}
+
+% TABLA DE CONTENIDOS - ÍNDICE
+\templateIndex
+
+% CONFIGURACIONES FINALES
+\templateFinalcfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+
+\input{example} % Ejemplo, se puede borrar
+
+% FIN DEL DOCUMENTO
+\end{document}

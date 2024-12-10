@@ -16,7 +16,7 @@
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
 \large\textbf{Fundamentos de control de sistemas} (EL4111-1) \\
-\large\textbf{Clase auxiliar 12} \\
+\large\textbf{Pauta auxiliar 12} \\
 \small Prof.~Roberto Cardenas Dobson\\
 \small Prof.~Aux.~Osvaldo Jimenez - Erik Sáez\\
 \small Ayudantes.~Simon Arenas- Juan Pablo Baez - Francisco Garces - Sofia Ibarra\\
@@ -29,7 +29,7 @@
 \section{Resumen}
 Un sistema de control se puede representar mediante un modelo de espacio de estados, el cual se puede expresar como:
 \begin{align}
-    \dot{x(t)} &= Ax(t) + Bu(t) + \text{Perturbaciones} \\
+    \dot{x}(t) &= Ax(t) + Bu(t) + \text{Perturbaciones} \\
     y &= Cx(t) + Du(t) + \text{Perturbaciones}
 \end{align}
 Consideramos el caso continuo, como recordatorio tenemos que:
@@ -48,8 +48,8 @@ Recordemos que los polos de un sistema en variables fisicas son los valores prop
 \end{align}
 Luego si se implementa una entrada tal que $u(t) = R(s) -Kx(s)$ tendremos que reemplazando en la ecuacion de estado se obtiene:
 \begin{align}
-    \dot{x(t)} &= Ax(t) + B(R(s) - Kx(s))\\
-    \dot{x(t)} &= (A - BK)x(t) + BR(s)
+    \dot{x}(t) &= Ax(t) + B(R(s) - Kx(s))\\
+    \dot{x}(t) &= (A - BK)x(t) + BR(s)
 \end{align}
 Por lo tanto tenemos que la nueva matriz de estado sera $A_{c} = A - BK$, por lo que si se desea re-ubicar los polos del sistema se debe calcular la matriz K tal que los valores propios de la matriz $A_{c}$ sean los deseados. Previamente se debe verificar que el sistema sea controlable para poder aplicar esta idea, esto se logra con la matriz de controlabilidad $\zeta$ la cual se obtiene como:
 \begin{align}
@@ -73,7 +73,7 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.4\textwidth]{Auxiliar_12_1}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_12_1}
         \caption{Sistema de generación conectado mediante filtro LCL a la red.}
     \end{figure}
 
@@ -87,17 +87,22 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
     \subsection*{Resolucion 1.1}
     Se busca obtener las ecuaciones en variables de estado del sistema de figura 1, es decir:
     \begin{align}
-        \dot{x(t)} &= Ax(t) + Bu(t) + \text{Perturbaciones} \\
+        \dot{x}(t) &= Ax(t) + Bu(t) + \text{Perturbaciones} \\
         y &= Cx(t) + Du(t) + \text{Perturbaciones}
     \end{align}
     Retomando el sistema visto en la figura 1. tenemos que este circuito puede ser resuelto mediante metodo de mallas, obteniendo el siguiente esquema:
-    %----AGREGAR MALLAS
-    La impedancia intrinseca esta asocada a la bobina, luego tenemos que las ecuaciones de las malla 1 y 2 vendran dadas lo siguiente:
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{Auxiliar_12_2}
+    \end{center}
+    \begin{center}
+        \textbf{Figura 1:} Circuito electrico
+    \end{center}
+    La resistencia intrinseca ($r_{int}$) esta asocada a la bobina, luego tenemos que las ecuaciones de las malla 1 y 2 vendran dadas lo siguiente:
     \begin{align}
         -V_{c} + V_{L} + R_{int} \cdot i_{1} + e_{c}&= 0 \\
         -e_{c}  + R\cdot i_{2} + V_{red} &= 0
     \end{align}
-    Luego tenemos que $V_{l} = L \frac{di_{1}}{dt}$ y $i_{c}= C\frac{de_{c}}{dt}$. Ademas dada la polaridad del condensador es posible imponer que:
+    Luego tenemos que $V_{l} = L \frac{di_{1}}{dt}$ y $i_{c}= C\frac{de_{c}}{dt}$.Ademas dada la polaridad del condensador es posible imponer que:
     \begin{align}
         i_{c} = i_{1} - i_{2}\\
         i_{2} = i_{1} + i_{c}
@@ -162,7 +167,7 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
             0
         \end{bmatrix}
     \end{align}
-        Ademas notamos que las perturbaciones van asociada a, recordemos que $v_{c}$ no es una perturbacion dado que corresponde a la variable de entrada o manipulable:
+        Ademas notamos que las perturbaciones van asociada a $V_{red}$, recordemos que $v_{c}$ no es una perturbacion dado que corresponde a la variable de entrada o manipulable:
         \begin{align}
             \begin{bmatrix}
                 0\\
@@ -172,13 +177,13 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
         \end{align}
         Con lo que ya es posible formular el sistema como:
         \begin{align}
-            \dot{x(t)} &= Ax(t) + Bu(t) + \text{Perturbaciones} 
+            \dot{x}(t0) &= Ax(t) + Bu(t) + \text{Perturbaciones} 
         \end{align}
-        Por otro lado se tiene que la salida del sistema es la corriente \( i_2 \), por lo que se tiene que:
+        Por otro lado se tiene que la salida del sistema es la corriente \( i_2 \) (\textit{Por enunciado}), por lo que se tiene que:
         \begin{align}
             y &= Cx(t) + Du(t) + \text{Perturbaciones}
         \end{align}
-        Vovliendo sobre lo anterior se define la salida como \( y = i_{2} \), por lo que se tiene que:
+        Volviendo sobre lo anterior se define la salida como \( y = i_{2} \), por lo que se tiene que:
         \begin{align}
             i_{2} &= \frac{e_{c} - V_{red}}{R}\\
             i_{2} &= \frac{1}{R} \cdot e_{c} - \frac{V_{red}}{R}
@@ -297,7 +302,7 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
             \end{bmatrix}
             i^{*}_{1}
         \end{align}
-        Podemos por tanto las nuevas matrices A, B y C, Es importante notar algunos aspectos de la mismas. Para la nueva matriz A al adicionar un nuevo estado, se genera por tanto una nueva fila y columna en la matriz A, donde en la fila se adiciona un 1 en la variable donde se busque obtener el control integral (\textit{Que en este caso se hace unicamente para la corriente dado que por ejemplo no queremos control integral para $e_{c}$}) y ademas se agrega una ultima columna que sirve para setear el valor de referencia de la variable de estado que se busca controlar.
+        Se obtienen las nuevas matrices A', B' y C', Es importante notar algunos aspectos de la mismas. Para la nueva matriz A al adicionar un nuevo estado, se genera por tanto una nueva fila y columna en la matriz A, donde en la fila se adiciona un 1 en la variable donde se busque obtener el control integral (\textit{Que en este caso se hace unicamente para la corriente dado que por ejemplo no queremos control integral para $e_{c}$}) y ademas se agrega una ultima columna que sirve para setear el valor de referencia de la variable de estado que se busca controlar.
 
         Luego se debe verificar si el sistema es controlable, para ello se debe verificar si la matriz de controlabilidad es de rango completo, recordemos que esta viene de manera general por:
         \begin{align}
@@ -308,19 +313,19 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
         \end{align}
         De esta manera tenemos que que reemplazando valores:
         \begin{align}
-            B = 
+            B' = 
             \begin{bmatrix}
                 10^{3}\\
                 0\\
                 0
             \end{bmatrix}
-            AB = 
+            A'B' = 
             \begin{bmatrix}
                 -3 \cdot 10^{5}\\
                 \frac{10^{8}}{3}\\
                 1000
             \end{bmatrix}
-            A^{2}B = 
+            A'^{2}B' = 
             \begin{bmatrix}
                 -3.324 \cdot 10^{10}\\
                 -1.121 \cdot 10^{12}\\
@@ -340,7 +345,7 @@ Para determinar si el sistema es controlable se debe verificar que el sistema se
         \begin{align}
             det(\zeta) = 1.11 \cdot 10^{18} \neq 0
         \end{align}
-        Por lo que podemos concluir que el sistema es controlable. Existen variadas formas equivalente de verificar si el sistema es controlable(\textit{Otra forma rapida y equivalente si la matriz es de rango completo es ver si filas y columnas son LI, mas forma las adjunto en el apunte de dinamicos \href{https://www.u-cursos.cl/ingenieria/2024/1/EL3204/1/material_docente/detalle?id=7719473}{link}
+        Por lo que podemos concluir que el sistema es controlable. Existen variadas formas equivalente de verificar si el sistema es controlable (\textit{Otra forma rapida y equivalente si la matriz es de rango completo es ver si filas y columnas son LI, mas forma las adjunto en el apunte de dinamicos \href{https://www.u-cursos.cl/ingenieria/2024/1/EL3204/1/material_docente/detalle?id=7719473}{link}
         }). Se busca expresar el sistema en su forma canonica controlable, es decir:
         \begin{align}
             A_{c}=
