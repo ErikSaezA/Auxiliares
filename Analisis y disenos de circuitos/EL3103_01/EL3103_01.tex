@@ -6,7 +6,7 @@
   ]{exam}
 
 \usepackage{../exercise-preamble}
-
+\usepackage{multicol}
 \begin{document}
 
 \noindent
@@ -14,6 +14,7 @@
 \includegraphics[width=\textwidth]{../fcfm_die}
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
+    
 \begin{center} 
 \large\textbf{Análisis y Diseño de Circuitos Eléctricos} (EL3101-2) \\
 \large\textbf{Clase auxiliar 1} \\
@@ -207,7 +208,7 @@
     Luego para cada nodo tenemos lo siguiente:
     \begin{align}
         \sum_{\text{Nodo 1}} V_{n} &= V_{1} - V_{2} - V_{3} = 0\\
-        V_{1} = V_{2} + V_{3}
+        V_{1} &= V_{2} + V_{3}
     \end{align}
     \begin{align}
         \sum_{\text{Nodo 2}} V_{n} &= 5[v] - 10[v] + V_{2} = 0\\
@@ -217,7 +218,65 @@
         \sum_{\text{Nodo 3}} V_{n} &= 15[v] - 5 + V_{3} = 0\\
         V_{3} &= -10[v]
     \end{align}
-    Con lo que
+    Con lo que finalmente se obtiene $V_1 = V_2 + V_3 = -5[v]$
+    \item Se busca obtener la corriente en cada resistencia, pero utilizando LCK, para esto tenemos el siguiente esquema:
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_1_8}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
+    Luego se tiene que en cada nodo:
+    \begin{align}
+        \text{Nodo A:}& i_3 + i_1 = i_2\\
+        \text{Nodo B:}& i_6 + i_2 + i_3 0\\
+        \text{Nodo C:}& i_4 = i_3 + i_5
+    \end{align}
+    Luego se tiene lo siguiente para la diferencia de voltajes:
+    \begin{multicols}{2} % Inicia dos columnas
+
+        \begin{align}
+            V_{AB}: V_A - V_B = V_2 &= i_2 R_2 \\
+            V_A - V_B &= i_2 R_2 \\
+            10[V] - 5[V] &= i_2 R_2 \\
+            \frac{5[V]}{500[\Omega]} &= i_2 \\
+            i_2 &= 0.01[A]
+        \end{align}
+    
+        \begin{align}
+            V_{CB} : V_C - V_B &= i_5 R_3 \\
+            V_C - V_B &= i_5 R_3 \\
+            15[V] - 5[V] &= i_5 R_3 \\
+            \frac{10[V]}{500[\Omega]} &= i_5 \\
+            i_5 &= 0.02[A]
+        \end{align}
+    
+        \begin{align}
+            i_6 &= -(i_2 + i_5) \\
+            i_6 &= -0.03[A]
+        \end{align}
+    
+        \columnbreak % Salto a la segunda columna
+    
+        \begin{align}
+            V_{CA} : V_C - V_A &= i_3 R_1 \\
+            15[V] - 10[V] &= i_3 R_1 \\
+            i_3 &= \frac{5[V]}{500[\Omega]} \\
+            i_3 &= 0.01[A]
+        \end{align}
+    
+        \begin{align}
+            i_1 &= i_2 - i_3 \\
+                &= 0.01[A] - 0.01[A] \\
+                &= 0[A]
+        \end{align}
+    
+        \begin{align}
+            i_5 &= i_4 - i_3 \\
+            0.02[A] &= i_4 + 0.01[A] \\
+            i_4 &= 0.01[A]
+        \end{align}
+    
+    \end{multicols} % Fin de las dos columnas
+    Finalmente se obtienen los mismos valores de corriente que se obtuvieron en el punto anterior, pero desde otro modo de resolucion.
     \end{enumerate}
 
 \end{solution}
@@ -235,5 +294,27 @@
 \end{questions}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\begin{solution}
+    \begin{enumerate}
+        \item Se busca el identificar todos los nodos del circuito, por lo tanto se tiene lo siguiente:
+        \begin{center}
+            \includegraphics[width=0.4\textwidth]{Auxiliar_1_9}
+            \captionof{figure}{Esquema del circuito con los nodos identificados}
+        \end{center}
+        \item Se busca simplificar el circuito lo mas posible, por lo tanto se identifica lo siguiente:
+        \begin{itemize}
+            \item Tanto $R_2$ como $R_4$ se encuentran en serie.
+            \item Tanto $R_7$ como $R_8$ se encuentran en serie.
+        \end{itemize}
+        Luego tenemos que el esquema simplificado es el siguiente:
+    \begin{center}
+        \includegraphics[width=0.4\textwidth]{Auxiliar_1_10}
+        \captionof{figure}{Esquema del circuito con los nodos identificados}
+    \end{center}
+    Luego se asignan las referencias de signos dando como resultado:
+    %%AGREGAR IMAGEN
+    \item Luego se busca plantear las ecuaciones de malla, por lo tanto se tiene lo siguiente:
+   
+    \end{enumerate}
+\end{solution}
 \end{document}
