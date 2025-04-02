@@ -108,349 +108,145 @@
         De esta manera se obtiene el voltaje $v_{sal}$ en funcion de la corriente $i$.
     \end{solution}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question  Para el circuito de la figura:
-
-    \begin{enumerate}
-        \item El valor de R2 respecto a R1 que maximiza la potencia disipada en R2.
-        \item Qué ocurre con la potencia si el valor de R2 es muy alto (Aprox. a $\infty$).
-        \item Qué ocurre con la potencia si el valor de R2 es muy bajo (Aprox. a 0).
-    \end{enumerate}
+    \question  Sea el esquema visto en la figura  , obtenga la corriente $i_{R}$ en la resistencia $R= 1/6 [\Omega]$ 
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{Auxiliar_1_1}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_3_10}
         \captionof{figure}{Esquema del circuito}
     \end{center}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{solution}
-        \begin{enumerate}
-            \item Se busca obtener el valor de $R_2$ respecto a $R_{1}$ que maximiza la potencia disipada en $R_2$, por lo tanto:
-            \begin{align}
-            V - V_{R1} - V_{R2} &= 0\\
-            V &= V_{R1} + V_{R2}\\
-            V &= R_{1} \cdot I_{1} + R_{2} \cdot I_{1}\\
-            I_{1} &= \frac{V}{R_{1} + R_{2}}
-            \end{align}
-            Luego reemplazando sobre la potencia disipada en $R_{2}$:
-            \begin{align}
-                P_{R2} &= V_{R2} \cdot I_{1}\\
-                &= R_{2} \cdot I_{1}^{2}\\
-                &= R_{2} \cdot \left( \frac{V}{R_{1} + R_{2}} \right)^{2}
-            \end{align}
-            Para cumplir la condicion de maximo se deriva respecto a $R_{2}$ y se iguala a 0, tal que:
-            \begin{align}
-                \frac{dP_{R2}}{dR_{2}} &= 0\\
-                \frac{d}{dR_{2}} \left( R_{2} \cdot \left( \frac{V}{R_{1} + R_{2}} \right)^{2} \right) &= 0\\
-                \frac{1}{(R_{1} + R_{2})^{2}} - \frac{2R_{2}}{(R_{1} + R_{2})^{3}} &= 0\\
-                \frac{1}{(R_{1} + R_{2})^{2}} &= \frac{2R_{2}}{(R_{1} + R_{2})^{3}}\\
-                1 &= \frac{2R_{2}}{(R_{1}+R_{2})}\\
-                R_{1} + R_{2} &= 2R_{2}\\
-                R_{1} &= R_{2}
-            \end{align}
-            De esta manera se obtiene que el valor de $R_{2}$ respecto a $R_{1}$ que maximiza la potencia disipada en $R_{2}$ es $R_{1} = R_{2}$.
-            \item Analizando este caso en diferentes aspectos, tenemos que:
-            \begin{equation}
-                lim_{R_{2} \to \infty} (P_{R2}) = \frac{R_{2} \cdot V^{2}}{(R_{1} + R_{2})^{2}} = \frac{\frac{1}{R_{2}} \cdot V^{2}}{(\frac{R_{1}}{(R_{2})^{2}} + 1)^{2}} = 0
-            \end{equation}
-            Por otro lado el voltaje se tendra que:
-            \begin{equation}
-                lim_{R_{2} \to \infty} (V_{R2}) = R_{2} \cdot I_{1} = R_{2}\left( \frac{V}{R_{1} + R_{2}} \right) = \frac{V}{\left( \frac{1}{R_{2}+1}\right)} = V
-            \end{equation}
-        Por ultimo la corriente se tendra que:
-        \begin{equation}
-            lim_{R_{2} \to \infty} (I_{1}) = \frac{V}{R_{1} + R_{2}} = 0
-        \end{equation}
-        Este fenomeno es conocido como un circuito abierto, puede entenderse como que la resistencia tiende a infinito y por tanto no permite circular corriente, por lo tanto no se disipa potencia.
+        Se resolvera mediante metodo de nodos, por lo tanto se plantea lo siguiente:
         \begin{center}
-            \includegraphics[width=0.3\textwidth]{Auxiliar_1_4}
-            \captionof{figure}{Esquema del circuito abierto}
+            \includegraphics[width=0.5\textwidth]{Auxiliar_3_11}
+            \captionof{figure}{Esquema del circuito}
         \end{center}
-        \item Por otro lado sea el caso que $R_{2}$ tiende a 0, se tiene que en base al mismo analisis:
-        \begin{equation}
-            lim_{R_{2} \to 0} (P_{R2}) = \frac{R_{2} \cdot V^{2}}{(R_{1} + R_{2})^{2}} = \frac{0 \cdot V^{2}}{(R_{1})^{2}} = 0
-        \end{equation}
-        Por otro lado el voltaje se tendra que:
-        \begin{equation}
-            lim_{R_{2} \to 0} (V_{R2}) = R_{2} \cdot I_{1} = R_{2}\left( \frac{V}{R_{1} + R_{2}} \right) = 0
-        \end{equation}
-        Por ultimo la corriente se tendra que:
-        \begin{equation}
-            lim_{R_{2} \to 0} (I_{1}) = \frac{V}{R_{1} + R_{2}} = \frac{V}{R_{1}} = \frac{V}{R_{1}}
-        \end{equation}
-        Este fenomeno es conocido como un corto circuito, puede entenderse como que la resistencia tiende a 0 y por tanto no permite caida de voltaje y deja pasar toda la corriente, por lo tanto no se disipa potencia.
-        \begin{center}
-            \includegraphics[width=0.4\textwidth]{Auxiliar_1_5}
-            \captionof{figure}{Esquema del circuito cerrado para $R_{2}$}
-        \end{center}
-        Estos dos conceptos es super importante entenderlos y no confundirlos.
-    \end{enumerate}
+        Con lo es posible plantear las siguientes ecuaciones, teniendo en consideracion que $V_{F} = 0$ Y $V_{E}= -6[V]$,dada la eleccion de la tierra, luego:
+        \begin{align}
+            \text{Nodo A:} \quad & i_{20} + i_{5} = i_{10}\\
+            & (V_{b} - V_{a})20 + (V_{D} - V_{a})5 = (V_{a} + 6)10\\
+            \text{Nodo B:} \quad & i_{5v_{x}} + i_{15} = i_{20}\\
+            & 5V_{x} + (V_{c} - V_{b})15 = (V_{b} - V_{a})20\\
+            \text{Nodo C:} \quad & i_{2} =i_{15} + 40\\
+            & (V_{D} - V_{c})2 = (V_{c} - V_{b})15 + 40\\
+            \text{Nodo D:} \quad & i_{5} + i_{2} +i_{6} +i_{5v_{x}} = 0\\
+            & (V_{D} - V_{a})5 + (V_{D} - V_{c})2 + 6v_{D} + 5V_{x} = 0\\
+        \end{align}
+        Pero tenemos que $V_{x} = V_{D} - V_{A}$, por tanto se tiene el siguiente sistema de ecuaciones:
+        \begin{align}
+            -35v_A + 20v_B + 5v_D &= 60 \\
+            15v_A - 35v_B + 15v_C + 5v_D &= 0 \\
+            15v_B - 17v_C + 2v_D &= 40 \\
+            -10v_A - 2v_C + 18v_D &= 0
+        \end{align}
+        Con lo que despejando el sistema de ecuaciones tenemos que:
+        \begin{align}
+            v_A &= -7[V] \\
+            v_B &= -8[V] \\
+            v_C &= -10[V] \\
+            v_D &= -5[V]
+        \end{align}
+        De esta manera tenemos que la corriente $i_R$ sera:
+        \begin{align}
+            i_R &= \frac{V_{D} - V_{F}}{\frac{1}{6}} \\
+            &= \frac{-5 - 0}{\frac{1}{6}} \\
+            &= -30[A]
+        \end{align}
+        Con lo que finalmente tenemos que la corriente $i_R$ es de $-30[A]$, lo que indica que la corriente fluye en sentido opuesto al planteado.
     \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question  En base a la figura del enunciado:
-\begin{enumerate}
-    \item Asigne referencias a cada elemento.
-    \item Use LVK para encontrar el voltaje en cada resistencia.
-    \item Use la ley de Ohm para encontrar la corriente en cada resistencia.
-    \item Use LCK para encontrar la corriente que pasa a través de cada fuente de voltaje.
-\end{enumerate}
+
+\question Considera el circuito de la figura 1 (a) donde $V_b$, $V_1$ y $V_2$ son fuentes de voltajes conocidos. En particular las últimas dos están referenciadas a tierra.
+Se solicita entonces:
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{Auxiliar_1_2}
+    \includegraphics[width=0.7\textwidth]{Auxiliar_3_12}
     \captionof{figure}{Esquema del circuito}
 \end{center}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{solution}
-   \begin{enumerate}
-    \item Las asignaciones de referencias son arbitrarias y propias de quien las plantee, el unico requerimiento es que se mantenga la consistencia en el analisis, en este caso particular:
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{Auxiliar_1_6}
-        \captionof{figure}{Esquema del circuito}
-    \end{center}
-    \item Se busca obtener el voltaje en cada resistencia, por lo tanto se plantea LVK en cada malla:
-    \begin{center}
-        \includegraphics[width=0.6\textwidth]{Auxiliar_1_7}
-        \captionof{figure}{Esquema del circuito con todas las referencias}
-    \end{center}
-    Luego para cada nodo tenemos lo siguiente:
-    \begin{align}
-        \sum_{\text{Nodo 1}} V_{n} &= V_{1} - V_{2} - V_{3} = 0\\
-        V_{1} &= V_{2} + V_{3}
-    \end{align}
-    \begin{align}
-        \sum_{\text{Nodo 2}} V_{n} &= 5[v] - 10[v] + V_{2} = 0\\
-        V_{2} &= 5[v]
-    \end{align}
-    \begin{align}
-        \sum_{\text{Nodo 3}} V_{n} &= 15[v] - 5 + V_{3} = 0\\
-        V_{3} &= -10[v]
-    \end{align}
-    Con lo que finalmente se obtiene $V_1 = V_2 + V_3 = -5[v]$
-    \item Se busca obtener la corriente en cada resistencia, pero utilizando LCK, para esto tenemos el siguiente esquema:
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{Auxiliar_1_8}
-        \captionof{figure}{Esquema del circuito}
-    \end{center}
-    Luego se tiene que en cada nodo:
-    \begin{align}
-    \text{Nodo A:} \quad & i_3 + i_1 = i_2 \\
-    \text{Nodo B:} \quad & i_6 + i_2 + i_3 = 0 \\
-    \text{Nodo C:} \quad & i_4 = i_3 + i_5
-    \end{align}
-    Luego se tiene lo siguiente para la diferencia de voltajes:
-    \begin{multicols}{2} % Inicia dos columnas
-
-        \begin{align*}
-            V_{AB}: V_A - V_B = V_2 &= i_2 R_2 \\
-            V_A - V_B &= i_2 R_2 \\
-            10[V] - 5[V] &= i_2 R_2 \\
-            \frac{5[V]}{500[\Omega]} &= i_2 \\
-            i_2 &= 0.01[A]
-        \end{align*}
-    
-        \begin{align*}
-            V_{CB} : V_C - V_B &= i_5 R_3 \\
-            V_C - V_B &= i_5 R_3 \\
-            15[V] - 5[V] &= i_5 R_3 \\
-            \frac{10[V]}{500[\Omega]} &= i_5 \\
-            i_5 &= 0.02[A]
-        \end{align*}
-    
-        \begin{align*}
-            i_6 &= -(i_2 + i_5) \\
-            i_6 &= -0.03[A]
-        \end{align*}
-    
-        \columnbreak % Salto a la segunda columna
-    
-        \begin{align*}
-            V_{CA} : V_C - V_A &= i_3 R_1 \\
-            15[V] - 10[V] &= i_3 R_1 \\
-            i_3 &= \frac{5[V]}{500[\Omega]} \\
-            i_3 &= 0.01[A]
-        \end{align*}
-    
-        \begin{align*}
-            i_1 &= i_2 - i_3 \\
-                &= 0.01[A] - 0.01[A] \\
-                &= 0[A]
-        \end{align*}
-    
-        \begin{align*}
-            i_5 &= i_4 - i_3 \\
-            0.02[A] &= i_4 + 0.01[A] \\
-            i_4 &= 0.01[A]
-        \end{align*}
-    
-    \end{multicols}
-    
-
-
-    \end{enumerate}
-
-\end{solution}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\question En base a la figura del enunciado:
 \begin{enumerate}
-    \item Identifique todos los nodos.
-    \item Simplifique el circuito lo que más pueda y luego asigne referencia de signos.
-    \item Plantee todas las ecuaciones de malla del circuito. 
-    \item Calcule las corrientes incógnitas del método de mallas considerando que todas las resistencias tienen el mismo valor.
+    \item Encontrar el equivalente de Thevenin desde los terminales a-b para obtener el circuito equivalente de la figura 1 (b). 
+    \item Encuentre las condiciones de $V_2$ tal que el diodo esté en estado ON/OFF. 
+    \item Imponga $V_1 = 0 [V]$, $V_B = 1 [V]$. Si $V_2$ es la onda rectangular de la figura 2, encuentre y grafique el comportamiento del voltaje $V_C$ en función del tiempo. 
 \end{enumerate}
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{Auxiliar_1_3}
+    \includegraphics[width=0.3\textwidth]{Auxiliar_3_13}
     \captionof{figure}{Esquema del circuito}
 \end{center}
-\end{questions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{solution}
     \begin{enumerate}
-        \item Se busca el identificar todos los nodos del circuito, por lo tanto se tiene lo siguiente:
+        \item Dado que se busca obtener el equivalente de Thevenin, primero se realizan unas reduccion con el fin de simplificar mas el circuito, es decir:
         \begin{center}
-            \includegraphics[width=0.4\textwidth]{Auxiliar_1_9}
-            \captionof{figure}{Esquema del circuito con los nodos identificados}
+            \includegraphics[width=0.8\textwidth]{Auxiliar_3_14}
+            \captionof{figure}{Esquema del circuito}
         \end{center}
-        \item Se busca simplificar el circuito lo mas posible, por lo tanto se identifica lo siguiente:
-        \begin{itemize}
-            \item Tanto $R_2$ como $R_4$ se encuentran en serie.
-            \item Tanto $R_7$ como $R_8$ se encuentran en serie.
-        \end{itemize}
-        Luego tenemos que el esquema simplificado es el siguiente:
+    Luego se busca obtener el voltaje de Thevenin y la resistencia de theve, para el primero debemos cortocircuitar las fuentes de voltaje y dejar abiertas las fuentes de corriente (En caso de existir), por lo que se tiene que:
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{Auxiliar_1_10}
-        \captionof{figure}{Esquema del circuito con los nodos identificados}
+        \includegraphics[width=0.35\textwidth]{Auxiliar_3_15}
+        \captionof{figure}{Esquema del circuito}
     \end{center}
-    Luego se asignan las referencias de signos dando como resultado:
+    Tenemos por tanto que la resistencia de Thevenin sera:
+    \begin{equation}
+        R_{th} = \frac{R}{2} + \frac{R}{2} = R
+    \end{equation}
+    Por otro lado tendremos que el voltaje de Thevenin sera:
     \begin{center}
-        \includegraphics[width=0.4\textwidth]{Auxiliar_1_11}
-        \captionof{figure}{Esquema del circuito con los referencias}
+        \includegraphics[width=0.45\textwidth]{Auxiliar_3_16}
+        \captionof{figure}{Esquema del circuito}
     \end{center}
-    \item Luego se busca plantear las ecuaciones de malla, por lo tanto se tiene lo siguiente:
+    De esta manera tenemos que el circuito vendra dado por una malla tal que:
     \begin{align}
-        \text{Malla 1:} \quad & -V_s + V_1 + V_3 + V_6 = 0 \\
-        \text{Malla 2:} \quad & - V_3 + V_{2,4} - V_5 = 0 \\
-        \text{Malla 3:} \quad & -V_6 + V_5 - V_{7,8} = 0 
+        0 = \frac{-V_{1}}{2} + i\frac{R}{2} - V_{B} + i\frac{R}{2} + \frac{V_{2}}{2}-V_{th}\\
+        v_{th}= \frac{V_{2}- v_{1}}{2} - V_{b}
     \end{align}
-    Luego reoordenando de manera conveniente tenemos que:
-    \begin{align}
-        V_s &= V_1 + V_3 + V_6 \\
-        0 &= V_3 + V_5 - V_{2,4} \\
-        0 &= V_5 + V_{7,8} - V_6 
-    \end{align}
-    Luego ademas tenemos que:
-    \begin{align}
-        V_1 &= i_1 R_1 \\
-        V_{2,4} &= i_2 R_{2,4}= i_2 (R_2 + R_4) \\
-        V_3 &= (i_1 - i_2) R_3 \\
-        V_5 &= (i_3 - i_2) R_5 \\
-        V_6 &= (i_1 - i_3) R_6 \\
-        V_{7,8} &= i_3 R_{7,8} = i_3 (R_7 + R_8)
-    \end{align}
-    Reemplazando sobre lo anterior tenemos que:
-    \begin{align}
-        V_s &= V_1 + V_3 + V_6 = i_1 R_1 + (i_1 - i_2) R_3 + (i_1 - i_3) R_6 \\
-        0 &= V_3 + V_6 - V_{2,4}= (i_1 - i_2) R_3 + (i_3 - i_2) R_5 - i_2 (R_2 + R_4) \\
-        0 &= V_5 + V_{7,8}- V_6 = (i_3 - i_2) R_5 + i_3 (R_7 + R_8) - (i_1 - i_3) R_6 
-    \end{align}
-    Luego reoordenando se tiene:
-    \begin{align}
-        V_s &= i_1 (R_1 + R_3 + R_6) + i_2 (-R_3) + i_3 (-R_6) \\
-        0 &= i_1 (R_3) + i_2 (-R_5 - R_4 - R_3 - R_2) + i_3 (R_5) \\
-        0 &= i_1 (-R_6) + i_2 (-R_5) + i_3 (R_8 + R_7 + R_6 + R_5) 
-    \end{align}
-    Con lo que expresando en forma matricial tenemos que:
+    Con lo que de esta manera tenemos que el sistema reducido corresopndera a :
+    \begin{center}
+        \includegraphics[width=0.3\textwidth]{Auxiliar_3_17}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
+    obteniendo lo buscado.
+    \item Se busca las condiciones de $V_2$ tal que el diodo se encuentre en estado ON/OFF, por lo que tenemos que dividir por casos:
+    \begin{itemize}
+        \item \textbf{Estado OFF:} En este caso tenemos que se debe cumplir que $I_{D} = 0$ y para esto se debe tener que $V_{D} < 0$ por lo tanto retomando la ecuacion anterior, se realiza una malla en el sistema reducido y por tanto:
+        \begin{align}
+            V_{th} + Ri_{D} +V_{D}&= 0\\
+            \frac{V_{2}- V_{1}}{2} - V_{b} + Ri_{D} +V_{D}&= 0
+        \end{align} 
+        Pero sabemos que $I_{D}= 0 $ en el caso en que el diodo este en OFF y por lo tanto $V_{D} < 0 $:
+        \begin{align}
+            \frac{V_{2}- V_{1}}{2} - V_{b} +V_{D}= 0\\
+            V_{D} = -\frac{V_{2}- V_{1}}{2} + V_{b}\\
+        \end{align} 
+        Dado que $V_{D} < 0$, despejando $v_{2}$ se tendra que:
+        \begin{align}
+            V_{2} &< V_{1} + 2V_{b}\\
+        \end{align}
+        \item \textbf{Estado ON:} En este caso tenemos que se debe cumplir que $I_{D} > 0$ y para esto se debe tener que $V_{D} = 0$ por lo tanto retomando la ecuacion anterior, se realiza una malla en el sistema reducido y por tanto:
+        \begin{align}
+            V_{th} + Ri_{D} +V_{D}&= 0\\
+            \frac{V_{2}- V_{1}}{2} - V_{b} + Ri_{D} +V_{D}&= 0
+        \end{align} 
+        Se debe cumpli rque $Ri_{D} > 0 $ ademas que $V_{D} = 0$, por lo que se tiene que:
+        \begin{equation}
+            Ri_{D} = -\frac{V_{2}- V_{1}}{2} + V_{b} > 0 
+        \end{equation}
+        De esta manera se tiene que despejando $V_{2}$ se tendra que:
+        \begin{align}
+            V_{2} &> V_{1} + 2V_{b}\\
+        \end{align}
+    \end{itemize}
+    Por lo que se determinan las condiciones de $V_2$ tal que el diodo esté en estado ON/OFF.
+    \item Se impone $V_1 = 0 [V]$, $V_B = 1 [V]$, viendo el grafico tenemos que $V_{2}= 30$ inicialmente, por lo que en base a las desigualdades anteriores tenemos que:
     \begin{equation}
-        \begin{bmatrix}
-            R_1 + R_3 + R_6 & -R_3 & -R_6 \\
-            R_3 & -R_5 - R_4 - R_3 - R_2 & R_5 \\
-            -R_6 & -R_5 & R_8 + R_7 + R_6 + R_5
-        \end{bmatrix}
-        \begin{bmatrix}
-            i_1 \\
-            i_2 \\
-            i_3
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            V_s \\
-            0 \\
-            0
-        \end{bmatrix}
+        2V_{b} + V_{1}= 2 
     \end{equation}
-    Luego multiplicando por (-1) la segunda fila se obtiene:
-    \begin{equation}
-        \begin{bmatrix}
-            R_1 + R_3 + R_6 & -R_3 & -R_6 \\
-            -R_3 & R_5 + R_4 + R_3 + R_2 & -R_5 \\
-            -R_6 & -R_5 & R_8 + R_7 + R_6 + R_5
-        \end{bmatrix}
-        \begin{bmatrix}
-            i_1 \\
-            i_2 \\
-            i_3
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            V_s \\
-            0 \\
-            0
-        \end{bmatrix}
-    \end{equation}
-    En base al enunciado, se consideran todas las resistencias iguales por tanto:
-    \begin{equation}
-        \begin{bmatrix}
-            3R & -R & -R \\
-            -R & 4R & -R \\
-            -R & -R & 4R
-        \end{bmatrix}
-        \begin{bmatrix}
-            i_1 \\
-            i_2 \\
-            i_3
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            V_s \\
-            0 \\
-            0
-        \end{bmatrix}
-    \end{equation}
-    Por lo que se necesita obtener la inversa de la matriz de coeficientes (\textbf{Propuesta para el lector}), por tanto se tiene:
-    \begin{equation}
-        \begin{bmatrix}
-            3R & -R & -R \\
-            -R & 4R & -R \\
-            -R & -R & 4R
-        \end{bmatrix}^{-1}
-        =
-        \begin{bmatrix}
-            3/7R & 1/7R & 1/7R \\
-            1/7R & 11/35R & 4/35R \\
-            1/7R & 4/35R & 11/35R
-        \end{bmatrix}
-    \end{equation}
-    De esta manera tenemos que las corrientes vendran dadas por:
-    \begin{equation}
-        \begin{bmatrix}
-            i_1 \\
-            i_2 \\
-            i_3
-        \end{bmatrix}
-        =
-        \begin{bmatrix}
-            3/7R & 1/7R & 1/7R \\
-            1/7R & 11/35R & 4/35R \\
-            1/7R & 4/35R & 11/35R
-        \end{bmatrix}
-        \begin{bmatrix}
-            V_s \\
-            0 \\
-            0
-        \end{bmatrix}
-    \end{equation}
-    De esta manera se tiene que las corrientes seran:
-    \begin{align}
-        i_1 &= \frac{3}{7R} \cdot V_s \\
-        i_2 &= \frac{1}{7R} \cdot V_s \\
-        i_3 &= \frac{1}{7R} \cdot V_s
-    \end{align}
-    Con lo que se obtienen las corrientes incognitas del circuito.
-    \end{enumerate}
+    Por lo que es mayor que $0$, por lo que el diodo se encuentra en estado ON, por lo que el voltaje $V_{C}$ sera:
+\end{enumerate}
 \end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question
+    Para el circuito de la figura, calcule las corrientes de malla:
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{Auxiliar_3_18}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
+\end{questions}
 \end{document}
