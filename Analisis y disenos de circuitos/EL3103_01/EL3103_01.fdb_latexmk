@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1742339659.74781 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1742339672.78902 2
+["pdflatex"] 1743608186.1956 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3103_01.tex" "EL3103_01.pdf" "EL3103_01" 1743608199.89203 0
   "../aas_macros.sty" 1733956008 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1733956008 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1733956008 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -292,10 +292,10 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL3103_01.aux" 1742339671 2296 d37c2ab819b2daa51100074b55b64842 "pdflatex"
-  "EL3103_01.out" 1742339668 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3103_01.tex" 1742339630 14209 bc0ac0292f3931e1f547c2726e709340 ""
-  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3103_01.tex" 1742339630 14209 bc0ac0292f3931e1f547c2726e709340 ""
+  "EL3103_01.aux" 1743608198 2715 1d6a692cd7a87f2ec29a51f869f7ac98 "pdflatex"
+  "EL3103_01.out" 1743608194 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3103_01.tex" 1743608152 13871 9cc5fc24826b83b53312c85ba2bf33b9 ""
+  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3103_01.tex" 1743608152 13871 9cc5fc24826b83b53312c85ba2bf33b9 ""
   (generated)
   "EL3103_01.aux"
   "EL3103_01.log"
