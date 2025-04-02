@@ -15,10 +15,10 @@
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
-\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3103) \\
-\large\textbf{Clase auxiliar 3} \\
-\normalsize Prof.~Heraldo Rozas.\\
-\normalsize Prof.~Aux.~Erik Saez - Maximiliano Morales
+\large\textbf{Electromagnetismo Aplicado} (EL3103-1) \\
+\large\textbf{Clase auxiliar 2} \\
+\normalsize Prof.~Benjamin Jacard H.\\
+\normalsize Prof.~Aux.~Erik Saez A.
 \end{center}
 \end{minipage}
 
@@ -27,384 +27,402 @@
 \vspace{.85cm}
 
 \begin{questions}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Considere el sistema linealizado dado por la siguiente ecuacion diferencial:
-    \begin{align}
-        \ddot{\theta(t)} =\frac{g}{l}\theta(t) +\frac{1}{l}u(t)
-    \end{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Sean los siguientes problemas:
     \begin{enumerate}
-        \item Descomponga la salida como la suma de la respuesta a entrada cero (RENC) y la respuesta a estado cero (RESC), en el dominio de Laplace.
-        \item Obtenga la funcion de transferencia del sistema, y encuentre la respuesta al impulso ante condiciones iniciales nulas en el dominio del tiempo
-        \item Obtenga la respeusta a entrada cero en el dominio del tiempo, y exprese la respuesta ante una entrada y condiciones inciiales arbitrarias
+        \item Usa la ley de Gauss para encontrar el campo eléctrico dentro de una esfera sólida uniformemente cargada (densidad de carga \( \rho \)).
+        \item Dos esferas, cada una de radio \( R \) y con densidades de carga volumétrica uniformes \( +\rho \) y \( -\rho \), respectivamente, están colocadas de manera que se solapan parcialmente. Llama al vector desde el centro positivo al centro negativo \( d \). Muestra que el campo en la región de solapamiento es constante y encuentra su valor.
+        \begin{center}
+            \includegraphics[width=0.25\textwidth]{Auxiliar_2_2}
+            \captionof{figure}{Esquema del problema}
+        \end{center}
     \end{enumerate}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{solution}
-        \subsection*{Resolucion 1.1}
-        Recordemos que la transformada de Laplace no es mas que una transformada del domino del tiempo al domino de las frecuencias complejas, la cual ademas presenta una variedad de propiedades utiles siendo una de las mas importantes la linealidad, es decir que presenta aditividad y homogeneidad.En particular en el curso utilizaremos la transformada de laplace unilateral la cual se define como:
-        \begin{align}
-            \mathcal{L}\{f(t)\} = F(s) = \int_{0}^{\infty} f(t)e^{-st}dt
-        \end{align}
-        Dado que se busca el obtener la funcion de transferencia en el dominio de laplace de la ecuacion de segundo grado, luego se tendra que:
-        \begin{align}
-            \mathcal{L}\{\ddot{\theta(t)}\} &= \mathcal{L}\{\frac{g}{l}\theta(t) +\frac{1}{l}u(t)\}\\
-        \end{align}
-        Una de las virtudes de la transformada de laplace en presencia de derivadas esque podemos utilizar la siguiente regla generica:
-        \begin{align}
-            \mathcal{L}\{\ddot{f(t)}\} = s^{n}\mathcal{L}\{f(t)\} - s^{n-1}f(0) - s^{n-2}\dot{f}(0) - ... - f^{(n-1)}(0)
-        \end{align}
-        Por lo que al aplicar a nuestro caso particular se tendra que:
-        \begin{align}
-         s^{2}\Theta(s) - s\Theta(0) - \dot{\Theta}(0) = \frac{g}{l}\Theta(s) + \frac{1}{l}U(s) 
-        \end{align}
-        Reordenando la expresion se llega a lo siguiente:
-        \begin{align}
-            \Theta(s) = \frac{s\Theta(0) + \dot\Theta(0) }{s^{2}-\frac{g}{l}} + \frac{1}{l(s^{2}-\frac{g}{l})}U(s)
-        \end{align}
-        Donde se logra identificar de manera directa la respuesta a entrada cero y la respuesta a estado cero, la cual es posible dada la linealidad de la transformada, por lo tanto tenemos que:
-        \begin{align}
-            \Theta_{RENC} &= \frac{s\Theta(0) + \dot\Theta(0) }{s^{2}-\frac{g}{l}}\\
-            \Theta_{RESC} &= \frac{1}{l(s^{2}-\frac{g}{l})}U(s)
-        \end{align}
-        Con lo que la salida se puede expresar como:
-        \begin{align}
-            \Theta(s) = \Theta_{RENC} + \Theta_{RESC}
-        \end{align}
-        \subsection*{Resolucion 1.2}
-        Se busca obtener la funcion de transferencia del sistema la cual se define como la relacion entre la salida y la entrada en el dominio de laplace, es de importancia destacar que esta funcion nos da una relacion entre la salida y las entradas , pero que no depende de estas ultimas, es decir que es una \textbf{Propiedad propia del sistema en particular} y que no cambia ni con la representacion las diferentes representaciones que hagamos de nuestros sistemas en variables de estado (Se vera con mas detalle en proximos auxiliares). Esta respuesta se analiza considerando la RESC, y recordando la definicion de esta , en esta caso en particular se cumplira cuando las condiciones iniciales sean nulas, por lo que se tendra que:
-        \begin{align}
-            \Theta_{RESC} = \frac{1}{l(s^{2}-\frac{g}{l})}U(s)
-        \end{align}
-        Con lo que:
-        \begin{align}
-            H(s) = \frac{Y(s)}{U(s)} = \frac{\Theta_{RESC}}{U(s)} = \frac{1}{l(s^{2}-\frac{g}{l})} 
-        \end{align}
-        Vemos que se cancelan las entradas, podemos reordenarla como :
-        \begin{align}
-            H(s) = \frac{\frac{1}{l}}{(s+\sqrt{\frac{g}{l}})(s-\sqrt{\frac{g}{l}})}
-        \end{align}
-        Donde identificamos polos.Luego se busca el obtener la respuesta al impulso , la cual se define como $u(t) = \delta(t)$ en el dominio del tiempo y $U(s) = 1$ en el dominio de laplace, por lo que se tendra que:
-        \begin{align}
-            H(s) = \frac{Y(s)}{U(s)}=\frac{\Theta_{RESC}}{1}
-        \end{align}
-        COn lo que debemos aplicar la antitransformada para obtener la respuesta
-        \begin{align}
-            h(t)= \mathcal{L}^{-1}\{H(s)\}
-        \end{align}
-        Para realizar esto, es conveniente descomponer la funcion de transferencia en fracciones parciales, lo que se puede hacer de la siguiente manera (Se define $\omega_{0} = \sqrt{\frac{g}{l}}$):
-        \begin{align}
-            H(s) = \frac{1/l}{(s+\omega_{0})(s-\omega_{0})} = \frac{A}{s+\omega_{0}} + \frac{B}{s-\omega_{0}}
-        \end{align}
-        Donde los metodos de resolucion para obtener las fracciones los habran visto en cursos pasados, por lo que tenemos que:
-        \begin{align}
-            A(s-\omega_{0}) + B(s+\omega_{0}) &= \frac{1}{l}\\
-            As - A\omega_{0} + Bs + B\omega_{0} &= \frac{1}{l}\\
-            (A+B)s + (B-A)\omega_{0} &= \frac{1}{l}
-        \end{align}
-        Para que esto se cumpla luego:
-        \begin{align}
-            (A+B)s=0\\
-            (B-A)\omega_{0} = \frac{1}{l}
-        \end{align}
-    Por lo que se tendra que A = -B, con lo que reemplazando
+        La resolucion viene dada por:
+        \begin{enumerate}
+            \item Se busca obtener el campo eléctrico dentro de una esfera sólida uniformemente cargada, para ello se debe utilizar la ley de Gauss, la cual se puede expresar de la siguiente manera:
+            \begin{equation}
+                \oint \Vec{E} \cdot \Vec{ds} = \frac{Q_{encerrada}}{\epsilon_{0}}
+            \end{equation}
+            Dado que se tiene una esfera sólida, se puede considerar una superficie gaussiana esférica, por lo que se tiene que:
+            \begin{align}
+                \oint \Vec{E} \cdot \Vec{ds} &= \frac{Q_{encerrada}}{\epsilon_{0}}\\
+                E \cdot 4\pi r^{2} &= \frac{1}{\epsilon_{0}} \int \rho \cdot dV\\
+                E \cdot 4\pi r^{2} &= \frac{1}{\epsilon_{0}} \int \rho \cdot \frac{4}{3}\pi r^{3} \cdot dr\\
+                E &= \frac{1}{3\epsilon_{0}} \rho r \hat{r}
+            \end{align}
+            Es importante considerar que E puede ser sacado de la integral debido a que es constante radialmente, y que dado que estamos dentro de la esfera luego la integral de volumen sera sobre un r y no un R.
+            \item Se busca obtener que el campo electrico en la region de solapamiento es constante, para ello recordamos el campo electrico obtenido con anterioridad:
+            \begin{equation}
+                E = \frac{1}{3\epsilon_{0}} \rho r \hat{r}
+            \end{equation}
+            Luego es posible realizar lo siguiente:
+            \begin{center}
+            \begin{tikzpicture}
+                % Dibuja las esferas
+                \shade[ball color=gray!30] (0,0) circle(2);
+                \shade[ball color=gray!30] (3,0) circle(2);
+                
+                % Dibuja los vectores r1 y r2
+                \draw[->, thick] (0,0) -- (1.5, 0.5) node[above right] {$\mathbf{r_1}$};
+                \draw[->, thick] (3,0) -- (1.5, 0.5) node[above left] {$\mathbf{r_2}$};
+                
+                % Etiquetas
+                \node at (0, 2.5) {+};
+                \node at (3, 2.5) {-};
+                \node at (1.5, -2.5) {Región de solapamiento};
+                
+                % Dibuja el vector d
+                \draw[->, thick] (0,0) -- (3,0) node[below right] {$\mathbf{d}$};
+                
+                % Opcional: dibujar los centros de las esferas
+                \filldraw[black] (0,0) circle (2pt);
+                \filldraw[black] (3,0) circle (2pt);
+                
+            \end{tikzpicture}     
+        \end{center}       
+            Debido a la superposicion, luego tendremos que en tal punto el campo electrico sera la suma de ambos campos electricos, por lo que se tendra que:
+            \begin{align}
+                \sum E_{n} &= E_{1} + E_{2}\\
+                           &= \frac{1}{3\epsilon_{0}} \rho r_{1} \hat{r_{1}} - \frac{1}{3\epsilon_{0}} \rho r_{2} \hat{r_{2}}\\
+                           &= \frac{1}{3\epsilon_{0}} \rho (r_{1} - r_{2}) \hat{r}
+            \end{align}
+            Dado lo anterior tenemos que la resta de  \( r_{1} - r_{2} \) sera igual a \( d \), por lo que se tendra que:
+            \begin{equation}
+                \sum E_{n} = \frac{1}{3\epsilon_{0}} \rho d \hat{r}
+            \end{equation}
+            Lo cual demuestra que el campo electrico en la region de solapamiento es constante y su valor es \( \frac{1}{3\epsilon_{0}} \rho d \hat{r} \).
+        \end{enumerate}
+    \end{solution}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question  Considere un condensador cuyo dieléctrico de permitividad $\epsilon$ está limitado por dos esferas concéntricas de radios a y b y dos conos equipotenciales de semiángulos $\theta_{1}$ y $\theta_{2}$ como se indica en la figura. Se busca obtener lo siguiente:
+    \begin{enumerate}
+        \item Obtenga el potencial $\phi_{e}(r,\theta,\phi)$ 
+        \item Campo eléctrico \textbf{E}
+        \item Capacitancia \textbf{C} a partir de la carga 
+        \item Capacitancia \textbf{C} a partir de la energía 
+    \end{enumerate}
+    \begin{center}
+        \begin{tikzpicture}
+            % Definición de parámetros
+            \def\a{2} % Radio menor
+            \def\b{4} % Radio mayor
+            \def\thetaone{30} % Ángulo θ1 en grados
+            \def\thetatwo{60} % Ángulo θ2 en grados
+    
+            % Dibujar ejes coordenados
+            \draw[->] (0,-0.5) -- (0,5) node[above] {$z$}; % Eje vertical
+    
+            % Dibujar sector circular con dos radios
+            \fill[gray!20] (0,0) -- (\thetaone:\b) arc (\thetaone:\thetatwo:\b) -- (\thetatwo:\a) arc (\thetatwo:\thetaone:\a) -- cycle;
+    
+            % Dibujar los radios menores y mayores
+            \draw (0,0) -- (\thetaone:\b);
+            \draw (0,0) -- (\thetatwo:\b);
+            \draw (0,0) -- (\thetaone:\a);
+            \draw (0,0) -- (\thetatwo:\a);
+            
+            % Dibujar los arcos de radio mayor y menor
+            \draw (\thetaone:\b) arc (\thetaone:\thetatwo:\b);
+            \draw (\thetaone:\a) arc (\thetaone:\thetatwo:\a);
+    
+            % Línea para marcar distancia a (desde el origen hasta el inicio de la zona sombreada)
+            \draw[dashed] (0,0) -- (\thetaone:\a);
+    
+            % Etiquetas de ángulos
+            \node at (\thetatwo:\b+0.3) {$\theta_2$};
+            \node at (\thetaone:\b+0.3) {$\theta_1$};
+    
+            % Etiqueta del material dieléctrico
+             \node at (45:\b*0.8) {$\varepsilon$};
+            % Marcar distancia a y b con líneas de referencia desplazadas
+            \draw[<->] (0.3,-0.1) --++ (\thetaone:\a-0.3) node[midway, below] {$a$};  % Etiqueta para 'a'
+            \draw[<->] (\thetaone:\a) --++ (\thetaone:\b-\a) node[midway, below] {$b$}; % Etiqueta para 'b'
+    
+            % Marcar distancia a y b con líneas de referencia desplazadas
+            \draw[<->] (0.3,-0.1) --++ (\thetaone:\a-0.3);  % Línea para 'a' (sin cambios)
+            \draw[<->] (\thetaone:\a) --++ (\thetaone:\b-\a); % Línea para 'b' movida diagonalmente
+    
+             % Flecha de rotación alrededor del eje z
+          
+            \node[left] at (0.3,4.5) {$\circlearrowright$};
+    
+        \end{tikzpicture}
+    \end{center}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+         La resolución viene dada por:
+    \begin{enumerate}
+        \item Se busca obtener el potencial escalar eléctrico $\phi_{e}$, para la figura en rotación. Se observa que es de conveniencia el utilizar coordenadas esféricas, además que el potencial magnético dependerá solo de $\theta$ y también se considera que no existe densidad de carga libre en el dielectrico (\textit{Si existe en las placas, pero no tenemos informacion acerca de su densidad}), por tanto podemos utilizar la ecuación de Laplace tal que:
+        \begin{equation}
+            \begin{aligned}
+                \nabla^{2}\psi (r,\theta,\phi) &= \frac{1}{r^{2}}\frac{d}{dr}\left(r^{2}\frac{d\psi}{dr}\right) + \frac{1}{r^{2}sin(\theta)}\dfrac{d}{d\theta}\left(sin(\theta) \frac{d\psi}{d\theta}\right) \\
+                &\quad + \frac{1}{r^{2}sin^{2}(\theta) }\frac{d^{2}\psi}{d\phi^{2}} = 0
+            \end{aligned}
+        \end{equation}
+        Debido a la dependencia en una sola componente para el potencial tenemos lo siguiente:
+        \begin{equation}
+            \begin{aligned}
+                \nabla^{2}\phi_{e}(\theta) &=  \frac{1}{r^{2}sin(\theta)}\dfrac{d}{d\theta}\left(sin(\theta) \frac{d\phi_{e}}{d\theta}\right) = 0, \\
+                sin(\theta) \frac{d\phi_{e}}{d\theta} &= A, \\
+                \frac{d\phi_{e}}{d\theta} &= \frac{A}{sin(\theta)}, \\
+                \phi_{e}(\theta) &= A\ln\left(\tan( \theta/2) \right) + B.
+            \end{aligned}
+        \end{equation}
+        De esta manera se obtiene la forma general del potencial escalar eléctrico $\phi_{e}$. Luego se deben obtener las ecuaciones de borde para determinar las constantes que caracterizan este sistema. Al ser solo un medio, se simplifica un poco mas el sistema. Para la primera condición:
+        \begin{equation}
+            \begin{aligned}
+                \phi_{e}(\theta = \theta_{1}) &= V_{0}, \\
+                V_{0} &= A \cdot \ln\left(\tan(\theta_{1}/2)\right) + B.
+            \end{aligned}
+        \end{equation}
+        Para la segunda condición de borde:
+        \begin{equation}
+            \begin{aligned}
+                \phi_{e}(\theta = \theta_{2}) &= 0, \\
+                0 &= A\cdot \ln\left(\tan(\theta_{2}/2)\right) + B.
+            \end{aligned}
+        \end{equation}
+        Luego despejando las constantes obtenemos lo siguiente:
+        \begin{equation}
+            \begin{aligned}
+                A &= \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}, \\
+                B &=  -\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot \ln\left(\tan(\theta_{2}/2)\right).
+            \end{aligned}
+        \end{equation}
+        
+        Obteniendo la forma particular del potencial escalar eléctrico:
+        
+        \begin{equation}
+            \begin{aligned}
+                \phi_{e}(\theta) &= A\cdot \ln\left(\tan(\theta/2)\right) + B \\
+                &= \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot \ln\left(\tan(\theta/2)\right) \\
+                &\quad - \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot \ln\left(\tan(\theta_{2}/2)\right).
+            \end{aligned}
+        \end{equation}
+    \item Se busca obtener el campo eléctrico $\textbf{E}$ el cual se puede obtener de manera directa mediante el campo escalar eléctrico y el hecho de que $\textbf{E}$ es conservativo, por tanto:
+    \begin{equation}
+        E= - \nabla \phi_{e}(\theta)
+    \end{equation}
+    Se deberá tener en cuenta que estamos en coordenadas esféricas, por lo que tendremos lo siguiente:
+    \begin{equation}
+        \nabla \psi = \frac{\partial \psi}{\partial r} \hat{r} + \frac{1}{r} \frac{\partial \psi}{\partial \theta} \hat{\theta} + \frac{1}{r \sin \theta} \frac{\partial \psi}{\partial \phi} \hat{\phi}
+    \end{equation}
+    Luego reemplazando el potencial escalar obtenido con anterioridad, se tendra:
+    \begin{equation}
+        \begin{aligned}
+            \textbf{E} &= -\frac{1}{r}\frac{d\phi_{e}}{d\theta} \hat{\theta} \\
+                       &= \text{\footnotesize$-\frac{1}{r} \frac{d}{d\theta}\left( \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot \ln(\tan(\theta/2)) -\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot \ln(\tan(\theta_{2}/2))\right) \hat{\theta}$} \\
+                       &= \frac{-1}{r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}  \frac{d}{d\theta} \left( \ln(\tan(\theta/2)) \right) \hat{\theta} \\
+                       &=\frac{-1}{r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \frac{1}{\tan(\theta/2)} \frac{d}{d\theta}\left(\ln(\theta/2)\right)\hat{\theta} \\
+                       &= \frac{-1}{2r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{\cos(\theta/2)}{\sin(\theta/2)}\cdot \frac{1}{\cos^{2}(\theta/2)}\hat{\theta} \\
+                       &=\frac{-1}{r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{1}{2\sin(\theta/2)\cos(\theta/2)}\hat{\theta} \\
+                       &=\frac{-1}{r} \left(\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{1}{\sin(\theta)}\right)\hat{\theta}
+        \end{aligned}
+    \end{equation}
+    Finalmente, se obtiene el campo eléctrico en base al potencial $\phi_{e}$. Es importante notar que si bien el potencial era una función de $\theta$, el campo eléctrico no dependerá de esta sola componente necesariamente y podrá depender de más. Como es el caso obtenido, el cual dependerá tanto de \textbf{r} como de \textbf{$\theta$} tal que \textbf{E}$(r,\theta)$.
+    \item Se busca obtener la capacitancia $C$ en base a la carga. Es importante notar que este término deberá estar expresado en constantes geométricas del material y no en alguna dependencia de una variable (\textit{Puede ser un buen indicador para saber si el ejercicio está bien realizado}).
+    \begin{equation}
+        C = \frac{Q}{\Delta V}
+    \end{equation}
+    Sabemos que la diferencia de potencial entre ambas placas corresponderá a $\Delta V = V_{0}$, por lo que $ C = \frac{Q}{V_{0}}$. Utilizando la ley de Gauss tendremos la siguiente relacion:
+    \begin{equation}
+            \oint \Vec{D} \cdot \Vec{ds} = Q_{encerrada} 
+    \end{equation}
+    Luego dado que conocemos el valor del desplazamiento eléctrico, se toma una superficie Gaussiana que encierre cualquiera de las placas, eso se resume en considerar que $\vec{ds}=  r\cdot \sin(\theta)(dr) (d\theta)$, dado que es la unica coordenada de interes, y por tanto se tendra que:
+    \begin{equation}
+        \begin{aligned}
+            Q &= -\epsilon \int \frac{-1}{r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{1}{\sin(\theta)}(\hat{\theta}) \cdot r\cdot \sin(\theta)(dr) (d\theta)(\hat{\theta}) \\
+              &=  \frac{-V_{0}\epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \int_{0}^{2\pi} \int_{a}^{b} dr d\theta \\
+              &=  \frac{V_{0}\epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \cdot(2\pi)(a-b)
+        \end{aligned}
+    \end{equation}
+    Otra manera de entenderlo, por si se complica entender dicha superficie es lo siguiente:
     \begin{align}
-        (B-A)\omega_{0} &= \frac{1}{l}\\
-        2B\omega_{0} &= \frac{1}{l}\\
-        B &= \frac{1}{2l\omega_{0}}
+        \oint \Vec{D} \cdot \Vec{ds} &= Q_{encerrada} \\
+        \Vec{D} \cdot \Vec{ds} &= \rho_{f} \cdot dV \\
     \end{align}
-    Con lo que $A=-\frac{1}{2l\omega_{0}}$ , de desta manera se puede reescribir la funcion de transferencia como:
+    Tomando una superficie Gaussiana A, tenemos que:
     \begin{align}
-        H(s) = \frac{1}{2l\omega_{0}}\left(\frac{1}{s-\omega_{0}} - \frac{1}{s+\omega_{0}}\right)
+        \Vec{D} \cdot \Vec{ds} &= \rho_{f} dS \\
+        D \cdot A &= \rho_{f} A\\
+        D &= \rho_{f} \cdot \hat{n}
     \end{align}
-    Utilizar fracciones parciales es util debido a que conocemos sus antitransformada para volver al dominio del tiempo , es decir:
-    \begin{align}
-        \mathcal{L}^{-1}\left\{\frac{1}{s-a}\right\} = e^{at}
-    \end{align}
-    Con lo que se obtiene finalmente que:
-    \begin{align}
-        h(t) = \mathcal{L}^{-1}\{H(s)\} = \frac{1}{2l\omega_{0}}\left(e^{\omega_{0}t} - e^{-\omega_{0}t}\right)
-    \end{align}
-    \subsection*{Resolucion 1.3}
-    Se busca obtener la RENC en el dominio del tiempo ante condiciones iniciales arbitrarias, para esto tenemos que realizar el procedimiento analogo:
-    \begin{align}
-        \Theta_{RENC} = \frac{s\Theta(0) + \dot{\Theta}(0)}{(s+\omega_{0})(s-\omega_{0})} = \frac{\alpha}{s+\omega_{0}} + \frac{\beta}{s-\omega_{0}}
-    \end{align}
-    Donde se tiene que:
-    \begin{align}
-        \alpha(s-\omega_{0}) + \beta(s+\omega_{0}) &= s\Theta(0) + \dot{\Theta}(0)\\
-        \alpha s - \alpha\omega_{0} + \beta s + \beta\omega_{0} &= s\Theta(0) + \dot{\Theta}(0)\\
-        (\alpha + \beta)s + (\beta - \alpha)\omega_{0} &= s\Theta(0) + \dot{\Theta}(0)
-    \end{align}
-    Con lo que tenemos por tanto que:
-    \begin{align}
-        \alpha + \beta &= \Theta(0)\\
-        (\beta - \alpha)\omega_{0} &=s\Theta(0) + \dot{\Theta}(0)   
-    \end{align}
-    Luego despejando $\alpha$ y $\beta$ se tiene que:
-    \begin{align}
-        \Theta_{RENC}(s) = \frac{\omega_{0}\Theta(0)- \dot{\Theta(0)}}{2\omega_{0}}\frac{1}{s+\omega_{0}} + \frac{\omega_{0}\Theta(0)+ \dot{\Theta(0)}}{2\omega_{0}}\frac{1}{s-\omega_{0}}
-    \end{align}
-    Con lo que aplicando la antitransformada para volver al dominio del tiempo se obtiene que:
-    \begin{align}
-        \theta_{RENC}(t) = \frac{\omega_{0}\Theta(0)- \dot{\Theta(0)}}{2\omega_{0}}e^{-\omega_{0}t} + \frac{\omega_{0}\Theta(0)+ \dot{\Theta(0)}}{2\omega_{0}}e^{\omega_{0}t}
-    \end{align}
-    Por ultimo tenemos que la para la respuesta total debemos tener el cuidado con lo siguiente.Sabemos que:
-    \begin{align}
-        \Theta(s) = \Theta_{RENC} + \Theta_{RESC}
-    \end{align}
-    Donde la RESC se define como:
-    \begin{align}
-        \Theta(s) = \Theta_{RESC} = H(s)U(s)
-    \end{align}
-    Lo cual viene de la convolucion en el dominio de Laplace que en el tiempo se expresa como :
-    \begin{align}
-    \mathcal{L}{\{f(t)*g(t)\}} = F(s)G(s)
-    \end{align}
-    Por lo que volviendo sobre nuestra ecuacion en el dominio del tiempo, esto implicara que 
-    \begin{align}
-        \theta_{resc}(t) = h(t)*u(t) 
-    \end{align}
-    Siendo u(t) una entrada arbitraria , luego tenemos que la respuesta total considerando esto ultimo viene expresada por:
-    \begin{align}
-        \theta(t) &= \frac{\omega_{0}\Theta(0)- \dot{\Theta(0)}}{2\omega_{0}}e^{-\omega_{0}t} + \frac{\omega_{0}\Theta(0)+ \dot{\Theta(0)}}{2\omega_{0}}e^{\omega_{0}t} + h(t)*u(t)\\
-        &=\frac{\omega_{0}\Theta(0)- \dot{\Theta(0)}}{2\omega_{0}}e^{-\omega_{0}t} + \frac{\omega_{0}\Theta(0)+ \dot{\Theta(0)}}{2\omega_{0}}e^{\omega_{0}t} + \left( \frac{1}{2\omega_{0}l}(e^{\omega_{0}t} - e^{-\omega_{0}t})\right) * u(t)
-    \end{align}
-    Con lo que finalmente se obtiene la respuesta final de nuestro sistema en el dominio del tiempo.
+    Donde $\rho_{f}$ es la densidad de carga superficial y $\hat{n}$ es el vector normal a la superficie. Finalmente se obtiene la capacitancia en base a la carga, tal que:
+    \begin{equation}
+        \begin{aligned}
+            C &= \frac{Q}{V_{0}} \\
+              &= \frac{(a-b)  \cdot 2\pi \cdot \epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}
+        \end{aligned}
+    \end{equation}
+    \item Se busca obtener la capacitancia desde un punto de vista energético. Esto se puede relacionar con la siguiente expresión:
+    \begin{equation}
+        \frac{1}{2}C V^{2} = \int \frac{1}{2}\epsilon \|E\|^{2} dv
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            CV_{0}^{2} &= \epsilon \int \frac{1}{r^{2}}  \frac{V_{0}^{2}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}\frac{1}{\sin^{2}(\theta)} \cdot r^{2} \cdot \sin(\theta) (d\theta) (d\phi) (dr)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            C &= \frac{\epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}} \int_{a}^{b} \int_{0}^{2\pi} \int_{\theta_{1}}^{\theta_{2}}\frac{1}{\sin(\theta)} (d\theta) (d\phi) (dr)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            C &= \frac{\epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}} (b-a) \cdot 2\pi \cdot \ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            C &=\frac{(a-b)  \cdot 2\pi \cdot \epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}
+        \end{aligned}
+    \end{equation}
+    Con lo que finalmente se obtiene la capacitancia desde un punto de vista energético, dando así consistencia al problema, dado lo obtenido con anterioridad. 
+    \end{enumerate}         
     \end{solution}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Considere la siguiente funcion a tiempo discreto dada por:
-    \begin{align}
-        x(n+3) + 6x(n+2) + 11x(n+1) + 6x(n) = 2u(n+1) + 6u(n) 
-    \end{align}
+    \question  Dos barras macizas de sección rectangular se alinean tal que las caras próximas entre las barras son planas y oblicuas, formando los diferentes ángulos mostrados en la Figura y con una diferencia de potencial magnético escalar IN. Las caras oblicuas son de longitud L y ancho b. El espacio entre las caras oblicuas se llena con dos materiales de constantes magnéticas $\mu_{1}$ y $\mu_{2}$ se debe obtener lo siguiente:
     \begin{enumerate}
-        \item Obtenga la funcion de transferencia del sistema 
-        \item Obtenga la respuesta al impulso 
+        \item Obtenga una expresión explícita para el campo magnético escalar $\phi_{m}$ así como para $H_{i}$ en los diferentes medios 
+        \item  Obtenga el valor de la inductancia (Considere que la corriente $I_{0}$ es producida por un devanado tal que pueda utilizar la expresión conocida)
+        \item Obtenga la energía magnética total del sistema 
     \end{enumerate}
+    \begin{center}
+        \includegraphics[width=0.7\textwidth]{Auxiliar_2_1}
+        \captionof{figure}{Esquema del problema}
+    \end{center}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{solution}
-        \subsection*{Resolucion 2.1}
-        Se busca obtener la funcion de transferencia del sistema, pero es importante notar que ahora estmaos considerando sistemas a tiempo discreto, por lo que deberemos recurrir a la transformada Z en lugar de la transformada de Laplace, la cual se define como:
-        \begin{align}
-            \mathcal{Z}\{f(t)\} = F(z) = \sum_{t=0}^{\infty} f(t)z^{-t}
-        \end{align}
-        Al igual que el ejercicio anterior, utilziaremos sus propiedades de lienalidad , y en particular una de estas la cual nos habla de los retardos:
-        \begin{align}
-            \mathcal{Z}\{f(t-k)\} = z^{-k}F(z)
-        \end{align}
-        Por lo tanto tomando la transformada Z de la funcion a tiempo discreto se obtiene:
-        \begin{align}
-            z^{3}X(z) + 6z^{2}X(z) + 11zX(z) + 6X(z) = 2zU(z) + 6U(z)
-        \end{align}
-        Con lo que si factorizamos X(z) se obtiene que:
-        \begin{align}
-        X(z)(z^{3} + 6z^{2} + 11z + 6) &= U(z)(2z + 6)\\
-        G(z)=\frac{X(z)}{U(z)}&= \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
-        \end{align}
-        Con lo que la funcion de transferencia del sistema vendra dada por:
-        \begin{align}
-            G(z) = \frac{2z+6}{z^{3} + 6z^{2} + 11z + 6}
-        \end{align}
-        \subsection*{Resolucion 2.2}
-        Similar a el problema anterior, se busca obtener la respuesta a el impulso que analogamente se cumple que $u(t)= \sigma(t)$ y que por tanto $U(z)=1$, luego se debera factorizar el polinomio obtenido con anterioridad con el fin de obtener las fracciones parciales, lo que se puede hacer de la siguiente manera:
-        \begin{align}
-            z^{3} + 6z^{2}+11z+6 = (z+1)(z+2)(z+3)
-        \end{align}
-        Con lo que:
-        \begin{align}
-            G(z) = \frac{2z+6}{(z+1)(z+2)(z+3)} = \frac{A}{z+1} + \frac{B}{z+2} + \frac{C}{z+3}
-        \end{align}
-        Formamos nuestros sitemas de ecuaciones los cuales vendran dados por:
-        \begin{align}
-            A(z+2)(z+3) + B(z+1)(z+3) + C(z+1)(z+2) &= 2z+6\\
-            Az^{2} + 5Az + 6A + Bz^{2} + 4Bz + 3B + Cz^{2} + 3Cz + 2C &= 2z+6\\
-            (A+B+C)z^{2} + (5A+4B+3C)z + (6A+3B+2C) &= 2z+6
-        \end{align}
-        Con lo que se forma un sistemas de ecuaciones dado por:
-        \begin{align}
-            A+B+C &= 0\\
-            5A+4B+3C &= 2\\
-            6A+3B+2C &= 6
-        \end{align}\
-        Dando como resultado que $A=2$, $B=-2$ y $C=0$, con lo que se obtiene que:
-        \begin{align}
-            G(z) = \frac{2}{z+1} - \frac{2}{z+2}
-        \end{align}
-        Dado que queremos obtener g(n) = $\mathcal{Z}^{-1}\{G(z)\}$, se tiene debemos aplicar la antitransformada de Z , pero notamos que no presenta la forma de ninguna de las antitransformadas conocidas, por lo que debemos realizar un ajuste tal que:
-        \begin{align}
-            G(z) = \frac{2}{z}\frac{z}{z+1} - \frac{2}{z}\frac{z}{z+2}
-        \end{align}
-        Luego al recurrir a las tablas de antitransformada se tienen lo siguiente:
-        \begin{align}
-            \mathcal{Z}^{-1} \left\{ \frac{z}{z+\alpha} \right\} &= (-\alpha)^{n}\\
-            \mathcal{text}^{-1}\left\{z^{k}F(z)\right\}=f(n+k)
-        \end{align}
-        con lo que al aplicar la antitransformada se obtiene que tenemos:
-        \begin{align}
-            g(n) = 2(-1)^{n-1}- 2(-2)^{n-1}
-        \end{align}
-        Con lo que se obtiene la respuesta al impulso del sistema.
-    \end{solution}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \question Considere la siguiente matriz dada por:
-    \begin{align}
-        A= \begin{bmatrix}
-            5 & -8\\
-            1 & -1
-        \end{bmatrix}
-    \end{align}
-    \begin{enumerate}
-        \item Realize una transformacion tal que $A = TDT^{-1}$ , donde D es una matriz diagonal de valores propios de A y T es una matriz de vectores propios, representadas por:
-        \begin{align}
-            D = \begin{bmatrix}
-                \lambda_{1} & 0\\
-                0 & \lambda_{2}
-            \end{bmatrix}
-            T = \begin{bmatrix}
-                v_{1} & v_{2}
-            \end{bmatrix}
-        \end{align}
-    \end{enumerate}
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \begin{solution}
-        \subsection*{Resolucion 3.1}
-        Dada la matriz A se busca obtener una transformacion 
-    Para encontrar los valores propios de A , se debe cumplir que para det(A-$\lambda$I) = 0, esto con el fin de que sea singular , es decir que la matriz $A-\lambda I$ no tenga inversa o equivalente a que su determinante sea nulo , para no obtener soluciones triviales en donde el vector propio v sea 0 , dado que por definicion estos son no nulos.
-    \begin{align}
-        (A-\lambda I)v = 0
-    \end{align}
-    Por lo tanto se tiene que:
-    \begin{align}
-        |A-\lambda I| = 0\\
-        \begin{vmatrix}
-            5-\lambda & -8\\
-            1 & -1-\lambda
-        \end{vmatrix} = 0\\
-        (5-\lambda)(-1-\lambda) - (-8)(1) = 0\\
-        \lambda^{2} - 4\lambda - 3 = 0
-    \end{align}
-    De esta manera se debera cumplir que:
-    \begin{align}
-        (\lambda -3)(\lambda -1) =0
-    \end{align}
-    Con lo que finalmente se obtiene que $\lambda_{1} = 3$ y $\lambda_{2} = 1$,y por tanto nuestra matriz D la cual viene dada:
-    \begin{align}
-        D = \begin{bmatrix}
-            3 & 0\\
-            0 & 1
-        \end{bmatrix}
-    \end{align}
-     Se busca obtener los vectores propios asociados a estos valores propios, para esto calcularemos el vector proio asociado a $\lambda_{1}$ por tanto:
-     \begin{align}
-        (A - \lambda_1 I)\mathbf{v}_1 &= 0.
-    \end{align}
-    
-    Desarrollando esta expresión, tenemos
-    \begin{align}
-        \begin{pmatrix}
-        5 - 3 & -8 \\
-        1 & -1 - 3
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y
-        \end{pmatrix}
-        &= \begin{pmatrix}
-        0 \\
-        0
-        \end{pmatrix}.
-    \end{align}
-    Esto permite formar un sistema de ecuaciones para x e y , dado por:
-    \begin{align}
-        2x - 8y &= 0, \\
-        x - 4y &= 0,
-    \end{align}
-    Es importante destacar que son linealmente dependientes, por lo que no existirá una solución única. Considerando esto, basta encontrar algún vector que satisfaga dicha relación. Por ejemplo, si consideramos \( y = 1 \), podemos ver que se debe tener \( x = 4 \). Así, el vector propio \( \mathbf{v}_1 \) es
-    \begin{align}
-        \mathbf{v}_1 &= \begin{pmatrix} 4 \\ 1 \end{pmatrix}.
-    \end{align}
-    Analogamente tenemos uqe para el segundo vector proipo se tiene que:
-    \begin{align}
-        (A - \lambda_2 I)\mathbf{v}_2 &= 0
-    \end{align}
-    \begin{align}
-        \iff
-        \begin{pmatrix}
-        5 - 1 & -8 \\
-        1 & -1 - 1
-        \end{pmatrix}
-        \begin{pmatrix}
-        x \\
-        y
-        \end{pmatrix}
-        &= \begin{pmatrix}
-        0 \\
-        0
-        \end{pmatrix}.
-    \end{align}
-    Desarrollando, obtenemos el siguiente sistema de ecuaciones
-    \begin{align}
-        4x - 8y &= 0, \\
-        x - 2y &= 0.
-    \end{align}
-    Nuevamente, podemos ver que las ecuaciones son linealmente dependientes, por lo que considerando \( y = 1 \) tenemos \( x = 2 \). Por lo tanto, el segundo vector propio es
-    \begin{align}
-        \mathbf{v}_2 &= \begin{pmatrix} 2 \\ 1 \end{pmatrix}.
-    \end{align}
-    Finalmente es posible el obtener la matriz T, la cual se define como:
-    \begin{align}
-        T = \begin{bmatrix}
-            4 & 2\\
-            1 & 1
-        \end{bmatrix}
-    \end{align}
-    La cual esta asociado a los vectores propios, finalmente nos queda el obtener $T^{-1}$ , lo cual se puede hacer de la siguiente manera para una matriz de 2x2 
-    \begin{align}
-        \begin{bmatrix}
-            m_{1} & m_{2}\\
-            m_{3} & m_{4}
-        \end{bmatrix}
-    \end{align}
-    
-    Con lo que la matriz inversa se define como:
-    \begin{align}
-        M^{-1} = \frac{1}{\text{det}(M)}\begin{bmatrix}
-            m_{4} & -m_{2}\\
-            -m_{3} & m_{1}
-        \end{bmatrix}
-    \end{align}
-    
-    Por lo tanto, tenemos que:
-    \begin{align}
-        \text{det}(T) = 4 \cdot 1 - 2 \cdot 1 = 2
-    \end{align}
-    
-    Con lo que se obtiene que para \( T^{-1} \):
-    \begin{align}
-        T^{-1} = \begin{bmatrix}
-            \frac{1}{2} & 1\\
-            \frac{-1}{2} & 2
-        \end{bmatrix}
-    \end{align}
-    De esta manera se obtiene la transformación buscada dada por:
-    \begin{align}
-        A = T D T^{-1} = \begin{bmatrix}
-            4 & 2\\
-            1 & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-            3 & 0\\
-            0 & 1
-        \end{bmatrix}
-        \begin{bmatrix}
-            \frac{1}{2} & 1\\
-            -\frac{1}{2} & 2
-        \end{bmatrix}
-    \end{align}
+        \begin{enumerate}
+            \item Dado el esquema se considerará una equivalencia a una \textbf{fuente de voltaje desde el punto de vista magnético}, lo que permitirá generar así un potencial escalar magnético entre ambos medios y por tanto el definir un $H_{1}$ y $H_{2}$, es decir:
+            \begin{align}
+                H_{i}= -\nabla \phi_{mi}
+            \end{align}
+            De esta manera se debe encontrar la expresión general para el potencial magnético. Además, se debe analizar qué dirección presentará este y qué tipo de coordenadas es el adecuado para trabajar. Dada la geometría lo más recomendado a utilizar es coordenadas cilíndricas y que el potencial dependa solo de $\phi_{mi}(r,\theta,z) = \phi_{mi}(\theta)$, luego se tendrá:
+            \begin{align}
+                \nabla^{2}\phi_{mi}(\theta) = \frac{1}{r^{2}}\left(\frac{\partial^{2}\phi_{mi}}{\partial\theta^{2}}\right)= 0
+            \end{align}
+            Luego encontramos una expresión general para dicho campo magnético, tal que:
+            \begin{align}
+                \frac{1}{r^{2}} \left(\frac{\partial^{2}\phi_{mi}}{\partial\theta^{2}}\right) &= 0\\
+                \frac{\partial^{2}\phi_{mi}}{\partial\theta^{2}} &=0\\
+                \frac{\partial^{2}\phi_{mi}}{\partial\theta^{2}} &=0\\
+                \frac{\partial \phi_{mi}}{\partial \theta} &= A\\
+                \phi_{mi}(\theta) &= A\theta + B 
+            \end{align}
+            Se debe considerar los dos medios que presentes, por tanto:
+            \begin{align}
+                \phi_{m1}(\theta) = A\theta + B\\
+                \phi_{m2}(\theta) = C\theta + D
+            \end{align}
+            Por lo que debemos encontrar las constantes mediante las condiciones proporcionadas por el sistema, es decir:\\
+            \subsubsection*{\underline{Condición para $\theta =\alpha_{1}$}}
+            \begin{align}
+                \phi_{m1}(\theta = \alpha_{1}) = NI= A\alpha_{1} + B
+            \end{align}
+            \subsubsection*{\underline{Condición para $\theta =0$}}
+            \begin{align}
+                \phi_{m2}(\theta = 0) &=C\cdot 0 + D\\
+                                      &= 0
+            \end{align}
+            \subsubsection*{\underline{Condición de continuidad para $\theta= \alpha_{2}$}}
+            \begin{align}
+                \phi_{m1}(\theta = \alpha_{2}) &= \phi_{m2}(\theta = \alpha_{2})
+            \end{align}
+            
+            \subsubsection*{\underline{Condiciones de borde entre ambos medios}}
+            \begin{align}
+               H_{1}&= -\nabla \phi_{m1} (\hat{\theta})   &   H_{2}&= -\nabla \phi_{m2} (\hat{\theta})\\
+                    &= -\frac{1}{r}\left(\frac{\partial \phi_{m1}}{\partial\theta}\right) (\hat{\theta}) &      &= -\frac{1}{r}\left(\frac{\partial \phi_{m2}}{\partial\theta}\right) (\hat{\theta})\\
+                    &= -\frac{1}{r} A (\hat{\theta})   &   &= -\frac{1}{r} C (\hat{\theta})   
+            \end{align}
+            Luego por condiciones de borde tenemos:
+            \begin{align}
+                B_{1n} = B_{2n}
+            \end{align}
+            Dado a que todo el campo magnético va solo en la componente normal se logra simplificar a lo siguiente:
+            \begin{align}
+                B_{1}         &=  B_{2}\\
+                H_{1}\mu_{1}  &= H_{2}\mu_{2}\\
+                -\frac{1}{r}A \mu_{1}&= -\frac{1}{r}C \mu_{2}\\
+                A\mu_{1} &= C\mu_{2}
+            \end{align}
+            Con lo que se obtienen las 4 incógnitas que permiten el despeje para una expresión explícita del potencial magnético escalar para ambos medios, por tanto despejando las constantes se tiene que:
+            \begin{align}
+                A  &= \frac{NI \mu_{2}}{\mu_{1}\alpha_{2} - \mu_{2} (\alpha_{2} - \alpha_{1})}\\
+                B  &= NI - \frac{NI \mu_{2} \alpha_{1}}{\mu_{1} \alpha_{2} - \mu{2}(\alpha_{2}- \alpha_{1})}\\ 
+                C  &= \frac{NI \mu_{1}}{\mu_{1}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}\\
+                D  &= 0
+            \end{align}
+            Finalmente se obtiene las expresiones explícitas para los campos tal que:
+            \begin{align}
+                \phi_{m1}(\theta) &= \frac{NI \mu_{2}}{\mu_{1}\alpha_{2} - \mu_{2} (\alpha_{2} - \alpha_{1})}(\theta) +  NI - \frac{NI \mu_{2} \alpha_{1}}{\mu_{1} \alpha_{2} - \mu{2}(\alpha_{2}- \alpha_{1})}\\\\
+                \phi_{m2}(\theta) &= \frac{NI \mu_{1}}{\mu_{1}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}(\theta) \\\\
+                H_{1}(r) &= -\frac{1}{r} \left( \frac{NI \mu_{2}}{\mu_{1}\alpha_{2} - \mu_{2} (\alpha_{2} - \alpha_{1})} \right) \hat{\theta}\\\\
+                H_{2}(r) &=  \frac{NI \mu_{1}}{\mu_{1}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}\hat{\theta}
+            \end{align}
 
+        \item Se busca obtener la inductancia del sistema, la cual viene dada por:
+\begin{align}
+  L= N\frac{\phi}{I}    
+\end{align}
+Además, es importante destacar que el flujo será equivalente para ambos materiales debido a las condiciones de borde $B_{1} = B_{2}$, por lo que será equivalente calcularla para un medio u otro:
+\begin{align}
+    \phi_{1} &= \int_{S} B_{1} d\hat{S}\\
+         &= \int_{0}^{b} \int_{R}^{R+L} \mu_{1}H_{1} (\hat{\theta}) \cdot  (dr) (dz) (\hat{\theta})\\
+         &= \int_{0}^{b} \int_{R}^{R+L} \mu_{1} -\frac{1}{r} A  \cdot  (dr) (dz) \\
+         &= -\mu_{1}A \cdot b  \int_{R}^{R+L} \frac{1}{r} (dr) \\
+         &= \mu_{1} A\cdot b \cdot ln\left(\frac{R}{R+L}\right)\\
+         &= \mu_{1}\cdot  \frac{NI \mu_{2}}{\mu_{1}\alpha_{2} - \mu_{2} (\alpha_{2} - \alpha_{1})}  \cdot b \cdot ln\left(\frac{R}{R+L}\right)
+\end{align}
+\begin{align}
+    \phi_{2} &= \int_{S} B_{2} d\hat{S}\\
+         &= \int_{0}^{b} \int_{R}^{R+L} \mu_{2}H_{2} (\hat{\theta}) \cdot  (dr) (dz) (\hat{\theta})\\
+         &= \int_{0}^{b} \int_{R}^{R+L} \mu_{2} -\frac{1}{r} C  \cdot  (dr) (dz) \\
+         &= -\mu_{2}C \cdot b  \int_{R}^{R+L} \frac{1}{r} (dr)\\
+         &= \mu_{2} C\cdot b \cdot ln\left(\frac{R}{R+L}\right)\\
+         &= \mu_{2}\cdot  \frac{NI \mu_{1}}{\mu_{1}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}   \cdot b \cdot ln\left(\frac{R}{R+L}\right)
+\end{align}
+Con lo que se logra verificar la equivalencia entre utilizar $B_{1}$ o $B_{2}$, con lo que reemplazando sobre la expresión de la inductancia se tendrá:
+\begin{align}
+    L &= N \frac{\phi}{I}\\
+      &= \frac{ \mu_{2} \mu_{1} N^{2}}{\mu_{1}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}   \cdot b \cdot ln\left(\frac{R}{R+L}\right)
+\end{align}
+        \item Se busca obtener la energía en ambos medios por lo que se utiliza lo siguiente expresión de la densidad:
+        \begin{align}
+            w_{mi}= \frac{1}{2}\mu_{i} H_{i}^{2}
+        \end{align}
+        Dado que queremos la energía en un volumen, luego integramos definiendo sus limites de integración como:\\
+        {\small
+        \begin{align}
+            W_{m1} &= \frac{1}{2}\mu_{1} \int_{V} H_{1}(r)^{2} \, dV\\
+                  &= \frac{1}{2}\mu_{1} \int \int \int  H_{1}(r)^{2}  r \, dr \, d\theta \, dz\\
+                  &=- \frac{1}{2}\mu_{1} \int_{0}^{b}\int_{\alpha_{2}}^{\alpha_{1}} \int_{R}^{R+L} A^{2} \frac{1}{r^{2}} r \, dr \, d\theta \, dz\\
+                  &= -\frac{1}{2}\mu_{1} A^{2} \int_{0}^{b}\int_{\alpha_{2}}^{\alpha_{1}} \int_{R}^{R+L} \frac{1}{r} dr \, d\theta \, dz\\
+                  &= \frac{1}{2}\mu_{1} A^{2}  \cdot  (\alpha_{2} - \alpha_{1}) \cdot \ln\left(\frac{R+L}{R}\right) \cdot b\\
+                  &= \frac{1}{2}\mu_{1} \cdot  (\alpha_{2} - \alpha_{1}) \cdot \ln\left(\frac{R+L}{R}\right) \cdot b \cdot \left(\frac{NI \mu_{2}}{\mu_{1}\alpha_{2} - \mu_{2} (\alpha_{2} - \alpha_{1})}\right)^{2}
+        \end{align}
+        }
+        De manera análoga tenemos que la energía en el otro medio vendrá dado por lo siguiente:\\
+        {\small
+        \begin{align}
+            W_{2} &= \frac{1}{2}\mu_{2} \int_{V} H_{2}(r)^{2} \cdot dV\\
+                  &= \frac{1}{2}\mu_{2} \int \int \int  H_{2}(r)^{2}  r dr d\theta dz\\
+                  &= -\frac{1}{2}\mu_{2} \int_{0}^{b}\int_{0}^{\alpha_{2}} \int_{R}^{R+L} C^{2} \frac{1}{r^{2}} r dr d\theta dz\\
+                  &= -\frac{1}{2}\mu_{2} C^{2} \int_{0}^{b}\int_{0}^{\alpha_{2}} \int_{R}^{R+L} \frac{1}{r} dr d\theta dz\\
+                  &=  -\frac{1}{2}\mu_{2}C^{2}  \cdot b \cdot \alpha_{2} \cdot ln\left(\frac{R+L}{R}\right) \\
+                  &=  -\frac{1}{2}\mu_{2}  \cdot b \cdot \alpha_{2} \cdot ln\left(\frac{R+L}{R}\right) \cdot \left(\frac{NI \mu_{1}}{\mu_{2}\alpha_{2} - \mu_{2}(\alpha_{2} - \alpha_{1})}\right)^{2}
+        \end{align}
+        }
+        Con lo que finalmente se puede obtener la energía total del sistema, la cual será la suma de ambas.
+    \end{enumerate}
 \end{solution}
-
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{questions}
-
-
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
