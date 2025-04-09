@@ -1,6 +1,6 @@
-PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Analisis y disenos de circuitos\EL3101_03
+PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Analisis y disenos de circuitos\Tarea 1
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Analisis y disenos de circuitos\EL3101_03\EL3101-2.tex
+INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Analisis y disenos de circuitos\Tarea 1\EL3101-2.tex
 OUTPUT EL3101-2.log
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
@@ -307,6 +307,7 @@ INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzl
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryquotes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
+INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzext-util.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex

@@ -236,17 +236,102 @@ Se solicita entonces:
     Por lo que se determinan las condiciones de $V_2$ tal que el diodo esté en estado ON/OFF.
     \item Se impone $V_1 = 0 [V]$, $V_B = 1 [V]$, viendo el grafico tenemos que $V_{2}= 30$ inicialmente, por lo que en base a las desigualdades anteriores tenemos que:
     \begin{equation}
-        2V_{b} + V_{1}= 2 
+        2V_{b} + V_{1} = 2 \cdot 1 + 0 = 2 
     \end{equation}
-    Por lo que es mayor que $0$, por lo que el diodo se encuentra en estado ON, por lo que el voltaje $V_{C}$ sera:
+    Por lo que es menor que $V_{2}$ y por tanto el diodo se encuentra en estado ON, por lo que el voltaje en el nodo $V_{C}$ sera:
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_3_20}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
+    \begin{align}
+        \frac{\frac{V_{2}}{2}-V_{c}}{\frac{R}{2}} - \frac{(V_{c} - V_{b}) - \frac{V_{1}}{2}}{\frac{R}{2}}=0
+    \end{align}
+    Notemos ademas que como estamos considerando que el diodo se encuentra funcionando, por lo que $V_{D} = 0$. Considerando que $V_{2} = 30$, $V_{1} = 0$, $V_{b} = 1$, se tiene que:
+    \begin{align}
+        \frac{\frac{30}{2}-V_{c}}{\frac{R}{2}} - \frac{(V_{c} - 1) - \frac{0}{2}}{\frac{R}{2}}=0\\
+        \frac{15-V_{c}}{\frac{R}{2}} - \frac{(V_{c} - 1)}{\frac{R}{2}}=0\\
+        15-V_{c} = V_{c} - 1\\
+        16 = 2V_{c}\\
+        V_{C} = 8[V]
+    \end{align}
+    Por otro lado cuando $V_{2} =-30 $ tendremos que este se encuentrara en estado OFF, por lo que el voltaje $V_{D} <0$ y $I_{D}= 0$ por lo tanto:
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_3_21}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
+    \begin{align}
+        V_{c} &= \frac{V_{2}}{2} + i\frac{R}{2}\\
+        &= \frac{-30}{2} + 0\\
+        &= -15[V]
+    \end{align} 
+    De esta manera se obtienen los valores de $V_{C}$ en funcion del tiempo, por lo que graficando se tendra que:
+    \begin{center}
+        \includegraphics[width=0.25\textwidth]{Auxiliar_3_19}
+        \captionof{figure}{Esquema del circuito}
+    \end{center}
 \end{enumerate}
 \end{solution}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \question
     Para el circuito de la figura, calcule las corrientes de malla:
     \begin{center}
-        \includegraphics[width=0.6\textwidth]{Auxiliar_3_18}
+        \includegraphics[width=0.5\textwidth]{Auxiliar_3_18}
         \captionof{figure}{Esquema del circuito}
     \end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+    Se busca obtener las corrientes de malla para el circuito, por lo que mediante el metodo de mallas tenemos:
+    \begin{align}
+        \text{Malla 1:} \quad & -100 + 3(i_{a} -i_{b}) + v_{\text{fuente de corriente}} + 6i_{a} = 0\\
+        \text{Malla 2:} \quad & 50 + 4i_{c} -v_{\text{fuente de corriente}} + 2(i_{c} -i_{b})= 0\\
+        \text{Malla 3:} \quad & 10i_{b} + 2(i_{b} -i_{c}) + 3(i_{b} -i_{a}) = 0\\
+    \end{align}
+    Ademas sabemos la direccion de corriente que circula por el centro de la malla debido a la fuente de corriente (Debe ir hacia arriba), es decir:
+    \begin{align}
+        i_{c} - i_{a} = 5[A]
+    \end{align}
+    Sumando la malla 1 y 2 se tiene que:
+    \begin{align}
+        -100 + 3(i_{a} -i_{b}) + v_{\text{fc}} + 6i_{a} + 50 + 4i_{c} -v_{\text{fc}} + 2(i_{c} -i_{b})= 0\\
+        -50 + 9i_{a} - 5i_{b} + 6i_{c} = 0\\
+    \end{align}
+    Luego reduciendo la malla 3 se tiene que:
+    \begin{align}
+        10i_{b} + 2(i_{b} -i_{c}) + 3(i_{b} -i_{a}) &= 0\\
+        10i_{b} + 2i_{b} - 2i_{c} + 3i_{b} - 3i_{a} &= 0\\
+        15i_{b} - 3i_{a} - 2i_{c} &= 0
+    \end{align}
+    Esto nos permite eliminar el $v_{\text{fuente de corriente}}$ debido a que no lo conocemos, luego tomando esta ecuacion y las del resto, es posible expresar el sistema en forma matricial, es decir:
+    \begin{align}
+       9i_{a} - 5i_{b} + 6i_{c} = 50\\
+       - 3i_{a} +15i_{b}- 2i_{c} &= 0
+       -i_{a} + 0i_{b} + i_{c}  = 5
+    \end{align}
+    De esta manera se tiene la matriz:
+    \begin{align}
+        \begin{pmatrix}
+            9 & -5 & 6 \\
+            -3 & 15 & -2 \\
+            -1 & 0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            i_{a} \\
+            i_{b} \\
+            i_{c}
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            50 \\
+            0 \\
+            5
+        \end{pmatrix}
+    \end{align}
+    La cual pueden resolverse como estimen conveniente, por lo que se tiene que:
+    \begin{align}
+        i_{a} &= 1.75[A] \\
+        i_{b} &= 1.25[A] \\
+        i_{c} &= 6.75[A]
+    \end{align}
+    COn lo que se obtienen los valores buscados.
+\end{solution}
 \end{questions}
 \end{document}
