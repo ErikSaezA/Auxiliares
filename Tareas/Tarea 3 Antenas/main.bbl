@@ -1,0 +1,186 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{noaaSatellites}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=ccf4fedea4dc4f2f8d4b497515012150}{%
+           family={NOAA},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{fullhash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{fullhashraw}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{bibnamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorbibnamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authornamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorfullhash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorfullhashraw}{ccf4fedea4dc4f2f8d4b497515012150}
+      \field{extraname}{1}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{History of NOAA Satellites}
+      \verb{urlraw}
+      \verb https://www.nesdis.noaa.gov/our-satellites/related-information/history-of-noaa-satellites
+      \endverb
+      \verb{url}
+      \verb https://www.nesdis.noaa.gov/our-satellites/related-information/history-of-noaa-satellites
+      \endverb
+      \keyw{NOAA,satellites,history,NESDIS}
+    \endentry
+    \entry{noaaReceiveStations}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=ccf4fedea4dc4f2f8d4b497515012150}{%
+           family={NOAA},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{fullhash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{fullhashraw}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{bibnamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorbibnamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authornamehash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorfullhash}{ccf4fedea4dc4f2f8d4b497515012150}
+      \strng{authorfullhashraw}{ccf4fedea4dc4f2f8d4b497515012150}
+      \field{extraname}{2}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Users Guide: Building Receive Stations}
+      \verb{urlraw}
+      \verb https://noaasis.noaa.gov/NOAASIS/pubs/Users_Guide-Building_Receive_Stations_March_2009.pdf
+      \endverb
+      \verb{url}
+      \verb https://noaasis.noaa.gov/NOAASIS/pubs/Users_Guide-Building_Receive_Stations_March_2009.pdf
+      \endverb
+      \keyw{NOAA,receive stations,satellite,guide}
+    \endentry
+    \entry{PazPenagos2024}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=d8da9d6c54bae9541aa3b66dde5ce4d9}{%
+           family={Penagos},
+           familyi={P\bibinitperiod},
+           given={Hernán\bibnamedelima Paz},
+           giveni={H\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=fb6a35b1bc9f583d05431d1448cc2373}{%
+           family={Mahecha},
+           familyi={M\bibinitperiod},
+           given={Esteban\bibnamedelima Morales},
+           giveni={E\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=6b26d5c21c2c5252e02c6b1e70786370}{%
+           family={Avendaño},
+           familyi={A\bibinitperiod},
+           given={Alejandro\bibnamedelima Páez},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=69dbe95c7e2606b7e3eaaa1daa5633a8}{%
+           family={Riaño},
+           familyi={R\bibinitperiod},
+           given={Rubén\bibnamedelima Campos},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{d26f00a6aee5b2ee7b52b29e2014af62}
+      \strng{fullhash}{df7b6582d0db10774ed1f06720288024}
+      \strng{fullhashraw}{df7b6582d0db10774ed1f06720288024}
+      \strng{bibnamehash}{d26f00a6aee5b2ee7b52b29e2014af62}
+      \strng{authorbibnamehash}{d26f00a6aee5b2ee7b52b29e2014af62}
+      \strng{authornamehash}{d26f00a6aee5b2ee7b52b29e2014af62}
+      \strng{authorfullhash}{df7b6582d0db10774ed1f06720288024}
+      \strng{authorfullhashraw}{df7b6582d0db10774ed1f06720288024}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ciencia y Poder Aéreo}
+      \field{number}{2}
+      \field{title}{Comparative study of six antenna designs for receiving APT images from NOAA-19 in urban environments}
+      \field{volume}{19}
+      \field{year}{2024}
+      \field{pages}{58\bibrangedash 68}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.18667/cienciaypoderaereo.810
+      \endverb
+    \endentry
+    \entry{noaaProyecto}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=60cca1685c457b9ad7de4d9c705a3503}{%
+           family={Universidad\bibnamedelimb Politécnica\bibnamedelima Salesiana},
+           familyi={U\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={Facultad\bibnamedelimb de\bibnamedelima Ingenierías},
+           giveni={F\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim I\bibinitperiod},
+           suffix={Sede\bibnamedelima Guayaquil},
+           suffixi={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{fullhash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{fullhashraw}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{bibnamehash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{authorbibnamehash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{authornamehash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{authorfullhash}{60cca1685c457b9ad7de4d9c705a3503}
+      \strng{authorfullhashraw}{60cca1685c457b9ad7de4d9c705a3503}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proyecto de Titulación}
+      \field{title}{Diseño e implementación de un prototipo para recepción de señales satelitales para la obtención de imágenes meteorológicas del sistema de satélites NOAA (National Oceanic and Atmospheric Administration) usando radio definido por software}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.nesdis.noaa.gov/our-satellites/related-information/history-of-noaa-satellites
+      \endverb
+      \verb{url}
+      \verb https://www.nesdis.noaa.gov/our-satellites/related-information/history-of-noaa-satellites
+      \endverb
+    \endentry
+    \entry{moxonAntenna}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Moxon antenna}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/Moxon_antenna
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Moxon_antenna
+      \endverb
+      \keyw{Moxon antenna,antenna design,radio}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
