@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744215520.881 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/Tarea 1/Tarea_1.tex" "Tarea_1.pdf" "Tarea_1" 1744215525.39966 0
+["pdflatex"] 1744333194.60324 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/Tarea 1/Tarea_1.tex" "Tarea_1.pdf" "Tarea_1" 1744333200.6844 0
   "../aas_macros.sty" 1733956008 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1733956008 2202 80894a6d68cfe8d710e65c775cf2987d ""
   "../fcfm_die.pdf" 1733956008 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -281,10 +281,10 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1733946707 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "Tarea_1.aux" 1744215524 2624 3d27c5fe943eaead2648e53b2233e72f "pdflatex"
-  "Tarea_1.out" 1744215524 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Tarea_1.tex" 1744215519 5526 e44bf4fa3e8fa09f4c8f421488b2eb46 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/Tarea 1/Tarea_1.tex" 1744215519 5526 e44bf4fa3e8fa09f4c8f421488b2eb46 ""
+  "Tarea_1.aux" 1744333200 2623 0cd7b5519c5b24355825ca746689012d "pdflatex"
+  "Tarea_1.out" 1744333198 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Tarea_1.tex" 1744333191 5567 00cbc8ed9d2071dbd111119789ba03d4 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/Tarea 1/Tarea_1.tex" 1744333191 5567 00cbc8ed9d2071dbd111119789ba03d4 ""
   (generated)
   "Tarea_1.aux"
   "Tarea_1.log"

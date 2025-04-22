@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  9 APR 2025 12:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  10 APR 2025 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1056,7 +1056,7 @@ See the caption package documentation for explanation.
 File: ../figures/Tarea_1_2.png Graphic file (type png)
 <use ../figures/Tarea_1_2.png>
 Package pdftex.def Info: ../figures/Tarea_1_2.png  used on input line 59.
-(pdftex.def)             Requested size: 264.46837pt x 106.26938pt.
+(pdftex.def)             Requested size: 290.91682pt x 116.8995pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 60.
@@ -1078,55 +1078,57 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 78.
 See the caption package documentation for explanation.
 
-<../figures/Tarea_1_4.png, id=35, 709.90219pt x 539.01375pt>
-File: ../figures/Tarea_1_4.png Graphic file (type png)
-<use ../figures/Tarea_1_4.png>
-Package pdftex.def Info: ../figures/Tarea_1_4.png  used on input line 87.
-(pdftex.def)             Requested size: 211.57147pt x 160.63615pt.
+<../figures/Tarea_1_6.png, id=35, 450.18187pt x 243.91125pt>
+File: ../figures/Tarea_1_6.png Graphic file (type png)
+<use ../figures/Tarea_1_6.png>
+Package pdftex.def Info: ../figures/Tarea_1_6.png  used on input line 87.
+(pdftex.def)             Requested size: 264.46837pt x 143.296pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 88.
 See the caption package documentation for explanation.
 
-<../figures/Tarea_1_5.png, id=36, 652.68843pt x 376.40625pt>
-File: ../figures/Tarea_1_5.png Graphic file (type png)
-<use ../figures/Tarea_1_5.png>
-Package pdftex.def Info: ../figures/Tarea_1_5.png  used on input line 94.
-(pdftex.def)             Requested size: 158.68263pt x 91.511pt.
+
+
+[2 <../figures/Tarea_1_3.png> <../figures/Tarea_1_6.png>]
+<../figures/Tarea_1_4.png, id=48, 709.90219pt x 539.01375pt>
+File: ../figures/Tarea_1_4.png Graphic file (type png)
+<use ../figures/Tarea_1_4.png>
+Package pdftex.def Info: ../figures/Tarea_1_4.png  used on input line 94.
+(pdftex.def)             Requested size: 211.57147pt x 160.63615pt.
+
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 95.
 See the caption package documentation for explanation.
 
-
-
-[2 <../figures/Tarea_1_3.png> <../figures/Tarea_1_4.png>]
-<../figures/Tarea_1_6.png, id=51, 450.18187pt x 243.91125pt>
-File: ../figures/Tarea_1_6.png Graphic file (type png)
-<use ../figures/Tarea_1_6.png>
-Package pdftex.def Info: ../figures/Tarea_1_6.png  used on input line 109.
-(pdftex.def)             Requested size: 264.46837pt x 143.296pt.
-
+<../figures/Tarea_1_5.png, id=49, 652.68843pt x 376.40625pt>
+File: ../figures/Tarea_1_5.png Graphic file (type png)
+<use ../figures/Tarea_1_5.png>
+Package pdftex.def Info: ../figures/Tarea_1_5.png  used on input line 101.
+(pdftex.def)             Requested size: 158.68263pt x 91.511pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 110.
+(caption)                particular \caption on input line 102.
 See the caption package documentation for explanation.
 
-<../figures/Tarea_1_7.png, id=52, 401.24907pt x 236.38312pt>
+
+
+[3 <../figures/Tarea_1_4.png> <../figures/Tarea_1_5.png>]
+<../figures/Tarea_1_7.png, id=62, 401.24907pt x 236.38312pt>
 File: ../figures/Tarea_1_7.png Graphic file (type png)
 <use ../figures/Tarea_1_7.png>
-Package pdftex.def Info: ../figures/Tarea_1_7.png  used on input line 122.
+Package pdftex.def Info: ../figures/Tarea_1_7.png  used on input line 125.
 (pdftex.def)             Requested size: 264.46837pt x 155.81134pt.
 
+
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 123.
+(caption)                particular \caption on input line 126.
 See the caption package documentation for explanation.
 
 
 
-[3 <../figures/Tarea_1_5.png> <../figures/Tarea_1_6.png> <../figures/Tarea_1_7.png>]
-
-[4]
+[4 <../figures/Tarea_1_7.png>]
 This exam contains 6 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1139,15 +1141,15 @@ Package rerunfilecheck Info: File `Tarea_1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61556 strings out of 473523
- 1578771 string characters out of 5724698
- 2356556 words of memory out of 5000000
- 84038 multiletter control sequences out of 15000+600000
+ 61557 strings out of 473523
+ 1578779 string characters out of 5724698
+ 2355556 words of memory out of 5000000
+ 84039 multiletter control sequences out of 15000+600000
  565847 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,6n,101p,850b,1474s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,6n,101p,850b,1209s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Tarea_1.pdf (4 pages, 468880 bytes).
+Output written on Tarea_1.pdf (4 pages, 469129 bytes).
 PDF statistics:
  118 PDF objects out of 1000 (max. 8388607)
  29 named destinations out of 1000 (max. 500000)
