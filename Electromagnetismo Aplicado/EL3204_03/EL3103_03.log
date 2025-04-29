@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.11)  1 APR 2025 12:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  28 APR 2025 22:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_03/EL3103_03.tex"
 (c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_03/EL3103_03.tex
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
 Document Class: exam 2023/07/09 Version 2.704 by Philip Hirschhorn
 (C:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
@@ -327,7 +327,7 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
 \Gm@cnth=\count331
 \Gm@cntv=\count332
@@ -534,7 +534,7 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \arrowsize=\dimen299
 ))) (C:\Program Files\MiKTeX\tex/latex/circuitikz\circuitikz.sty
-Package: circuitikz 2024/08/03{} The CircuiTikz circuit drawing package version 1.7.0
+Package: circuitikz 2025/03/21{} The CircuiTikz circuit drawing package version 1.7.2
  (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen300
@@ -630,7 +630,7 @@ File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+) (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzext-util.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -673,7 +673,7 @@ File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfnodepartsixbox=\box91
 \pgfnodepartfivebox=\box92
 ))) (C:\Program Files\MiKTeX\tex/latex/siunitx\siunitx.sty
-Package: siunitx 2024-11-19 v3.3.24 A comprehensive (SI) units package
+Package: siunitx 2025-03-26 v3.4.8 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count367
 \l__siunitx_number_exponent_fixed_int=\count368
 \l__siunitx_number_min_decimal_int=\count369
@@ -691,7 +691,7 @@ Package: siunitx 2024-11-19 v3.3.24 A comprehensive (SI) units package
  (C:\Program Files\MiKTeX\tex/latex/translations\translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count378
 ) (C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
@@ -1047,22 +1047,22 @@ This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (EL3103_03.aux)
  ***********
-LaTeX2e <2024-11-01>
-L3 programming layer <2024-11-02>
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `EL3103_03.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60783 strings out of 473682
- 1555622 string characters out of 5729114
- 2366331 words of memory out of 5000000
- 83020 multiletter control sequences out of 15000+600000
- 570357 words of font info for 85 fonts, out of 8000000 for 9000
+ 61632 strings out of 473523
+ 1580341 string characters out of 5724698
+ 2403588 words of memory out of 5000000
+ 84010 multiletter control sequences out of 15000+600000
+ 571125 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,101p,828b,1101s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,11n,101p,828b,1226s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3103_03.pdf (12 pages, 365630 bytes).
+Output written on EL3103_03.pdf (12 pages, 365260 bytes).
 PDF statistics:
  289 PDF objects out of 1000 (max. 8388607)
  126 named destinations out of 1000 (max. 500000)

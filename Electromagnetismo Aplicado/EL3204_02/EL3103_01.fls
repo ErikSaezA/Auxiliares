@@ -307,6 +307,7 @@ INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzl
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryquotes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
+INPUT C:\Program Files\MiKTeX\tex\generic\tikz-ext\tikzext-util.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
@@ -474,6 +475,12 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT ..\figures\Auxiliar_2_3.png
+INPUT ..\figures\Auxiliar_2_3.png
+INPUT ..\figures\Auxiliar_2_3.png
+INPUT ..\figures\Auxiliar_2_3.png
+INPUT ..\figures\Auxiliar_2_3.png
+INPUT ..\figures\Auxiliar_2_3.png
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi9.tfm
@@ -550,5 +557,3 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
