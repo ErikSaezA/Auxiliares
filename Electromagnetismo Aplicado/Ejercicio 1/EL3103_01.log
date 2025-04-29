@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  2 APR 2025 13:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  8 APR 2025 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3101_03/EL3101-3.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/EL3101_03/EL3101-3.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Electromagnetismo Aplicado/Ejercicio 1/EL3103_01.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Electromagnetismo Aplicado/Ejercicio 1/EL3103_01.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -848,83 +848,14 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `amsthm' support loaded on input line 3026.
-)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
-Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
-\c@tracingmulticols=\count391
-\mult@box=\box103
-\multicol@leftmargin=\dimen348
-\c@unbalance=\count392
-\c@collectmore=\count393
-\doublecol@number=\count394
-\multicoltolerance=\count395
-\multicolpretolerance=\count396
-\full@width=\dimen349
-\page@free=\dimen350
-\premulticols=\dimen351
-\postmulticols=\dimen352
-\multicolsep=\skip96
-\multicolbaselineskip=\skip97
-\partial@page=\box104
-\last@line=\box105
-\mc@boxedresult=\box106
-\maxbalancingoverflow=\dimen353
-\mult@rightbox=\box107
-\mult@grightbox=\box108
-\mult@firstbox=\box109
-\mult@gfirstbox=\box110
-\@tempa=\box111
-\@tempa=\box112
-\@tempa=\box113
-\@tempa=\box114
-\@tempa=\box115
-\@tempa=\box116
-\@tempa=\box117
-\@tempa=\box118
-\@tempa=\box119
-\@tempa=\box120
-\@tempa=\box121
-\@tempa=\box122
-\@tempa=\box123
-\@tempa=\box124
-\@tempa=\box125
-\@tempa=\box126
-\@tempa=\box127
-\@tempa=\box128
-\@tempa=\box129
-\@tempa=\box130
-\@tempa=\box131
-\@tempa=\box132
-\@tempa=\box133
-\@tempa=\box134
-\@tempa=\box135
-\@tempa=\box136
-\@tempa=\box137
-\@tempa=\box138
-\@tempa=\box139
-\@tempa=\box140
-\@tempa=\box141
-\@tempa=\box142
-\@tempa=\box143
-\@tempa=\box144
-\@tempa=\box145
-\@tempa=\box146
-\c@minrows=\count397
-\c@columnbadness=\count398
-\c@finalcolumnbadness=\count399
-\last@try=\dimen354
-\multicolovershoot=\dimen355
-\multicolundershoot=\dimen356
-\mult@nat@firstbox=\box147
-\colbreak@box=\box148
-\mc@col@check@num=\count400
-)
+))
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 10.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count401
-\l__pdf_internal_box=\box149
-) (EL3101-3.aux)
-\openout1 = `EL3101-3.aux'.
+\l__color_backend_stack_int=\count391
+\l__pdf_internal_box=\box103
+) (EL3103_01.aux)
+\openout1 = `EL3103_01.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -946,16 +877,16 @@ LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count402
-\scratchdimen=\dimen357
-\scratchbox=\box150
-\nofMPsegments=\count403
-\nofMParguments=\count404
+\scratchcounter=\count392
+\scratchdimen=\dimen348
+\scratchbox=\box104
+\nofMPsegments=\count393
+\nofMParguments=\count394
 \everyMPshowfont=\toks58
-\MPscratchCnt=\count405
-\MPscratchDim=\dimen358
-\MPnumerator=\count406
-\makeMPintoPDFobject=\count407
+\MPscratchCnt=\count395
+\MPscratchDim=\dimen349
+\MPnumerator=\count396
+\makeMPintoPDFobject=\count397
 \everyMPtoPDFconversion=\toks59
 ) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1008,9 +939,9 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (EL3101-3.out) (EL3101-3.out)
+ (EL3103_01.out) (EL3103_01.out)
 \@outlinefile=\write4
-\openout4 = `EL3101-3.out'.
+\openout4 = `EL3103_01.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -1029,252 +960,62 @@ LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--26
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--24
 $[]$ $[]$ 
  []
 
-<../figures/Auxiliar_3_1.png, id=7, 673.01437pt x 334.24875pt>
-File: ../figures/Auxiliar_3_1.png Graphic file (type png)
-<use ../figures/Auxiliar_3_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_1.png  used on input line 37.
-(pdftex.def)             Requested size: 264.46837pt x 131.34592pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 38.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_2.png, id=9, 697.10437pt x 456.95718pt>
-File: ../figures/Auxiliar_3_2.png Graphic file (type png)
-<use ../figures/Auxiliar_3_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_2.png  used on input line 45.
-(pdftex.def)             Requested size: 245.33504pt x 160.81595pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 46.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_3.png, id=10, 315.42844pt x 216.05719pt>
-File: ../figures/Auxiliar_3_3.png Graphic file (type png)
-<use ../figures/Auxiliar_3_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_3.png  used on input line 50.
-(pdftex.def)             Requested size: 147.20251pt x 100.82819pt.
+<../figures/Ejercicio_1_1.png, id=7, 383.18156pt x 331.2375pt>
+File: ../figures/Ejercicio_1_1.png Graphic file (type png)
+<use ../figures/Ejercicio_1_1.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_1.png  used on input line 50.
+(pdftex.def)             Requested size: 211.57147pt x 182.89383pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 51.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_4.png, id=11, 335.00156pt x 219.06844pt>
-File: ../figures/Auxiliar_3_4.png Graphic file (type png)
-<use ../figures/Auxiliar_3_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_4.png  used on input line 59.
-(pdftex.def)             Requested size: 147.20251pt x 96.26003pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 60.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_5.png, id=12, 1075.01625pt x 294.34969pt>
-File: ../figures/Auxiliar_3_5.png Graphic file (type png)
-<use ../figures/Auxiliar_3_5.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_5.png  used on input line 68.
-(pdftex.def)             Requested size: 294.40503pt x 80.6118pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 69.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_6.png, id=13, 885.3075pt x 258.9675pt>
-File: ../figures/Auxiliar_3_6.png Graphic file (type png)
-<use ../figures/Auxiliar_3_6.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_6.png  used on input line 73.
-(pdftex.def)             Requested size: 294.40503pt x 86.11943pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 74.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_7.png, id=14, 409.53pt x 213.79875pt>
-File: ../figures/Auxiliar_3_7.png Graphic file (type png)
-<use ../figures/Auxiliar_3_7.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_7.png  used on input line 86.
-(pdftex.def)             Requested size: 196.26503pt x 102.46237pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 87.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_8.png, id=15, 971.12813pt x 474.27188pt>
-File: ../figures/Auxiliar_3_8.png Graphic file (type png)
-<use ../figures/Auxiliar_3_8.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_8.png  used on input line 91.
-(pdftex.def)             Requested size: 294.40503pt x 143.77344pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 92.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_9.png, id=16, 412.54124pt x 307.1475pt>
-File: ../figures/Auxiliar_3_9.png Graphic file (type png)
-<use ../figures/Auxiliar_3_9.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_9.png  used on input line 96.
-(pdftex.def)             Requested size: 196.26503pt x 146.12622pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 97.
 See the caption package documentation for explanation.
 
 
 
 [1
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_3_1.png> <../figures/Auxiliar_3_2.png>]
-
-[2 <../figures/Auxiliar_3_3.png> <../figures/Auxiliar_3_4.png> <../figures/Auxiliar_3_5.png> <../figures/Auxiliar_3_6.png>]
-
-[3 <../figures/Auxiliar_3_7.png> <../figures/Auxiliar_3_8.png> <../figures/Auxiliar_3_9.png>]
-<../figures/Auxiliar_3_10.png, id=63, 713.66624pt x 499.8675pt>
-File: ../figures/Auxiliar_3_10.png Graphic file (type png)
-<use ../figures/Auxiliar_3_10.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_10.png  used on input line 113.
-(pdftex.def)             Requested size: 264.46837pt x 185.23792pt.
+{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Ejercicio_1_1.png>]
+<../figures/Ejercicio_1_2.png, id=27, 360.59718pt x 306.39468pt>
+File: ../figures/Ejercicio_1_2.png Graphic file (type png)
+<use ../figures/Ejercicio_1_2.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_2.png  used on input line 67.
+(pdftex.def)             Requested size: 158.68263pt x 134.8281pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 114.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_11.png, id=64, 514.17094pt x 384.6872pt>
-File: ../figures/Auxiliar_3_11.png Graphic file (type png)
-<use ../figures/Auxiliar_3_11.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_11.png  used on input line 120.
-(pdftex.def)             Requested size: 245.33504pt x 183.55595pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 121.
-See the caption package documentation for explanation.
-
-
-Underfull \vbox (badness 10000) detected at line 155
- []
-
-
-
-[4 <../figures/Auxiliar_3_10.png>]
-Underfull \vbox (badness 1147) detected at line 155
- []
-
-
-Underfull \vbox (badness 1147) detected at line 155
- []
-
-
-
-[5 <../figures/Auxiliar_3_11.png>]
-<../figures/Auxiliar_3_12.png, id=101, 825.83531pt x 242.40562pt>
-File: ../figures/Auxiliar_3_12.png Graphic file (type png)
-<use ../figures/Auxiliar_3_12.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_12.png  used on input line 161.
-(pdftex.def)             Requested size: 370.2541pt x 108.68204pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 162.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_13.png, id=102, 459.21562pt x 459.21562pt>
-File: ../figures/Auxiliar_3_13.png Graphic file (type png)
-<use ../figures/Auxiliar_3_13.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_13.png  used on input line 170.
-(pdftex.def)             Requested size: 158.68263pt x 158.68181pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 171.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_14.png, id=103, 989.19562pt x 458.46281pt>
-File: ../figures/Auxiliar_3_14.png Graphic file (type png)
-<use ../figures/Auxiliar_3_14.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_14.png  used on input line 178.
-(pdftex.def)             Requested size: 392.53755pt x 181.92679pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 179.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_15.png, id=104, 679.78969pt x 368.1253pt>
-File: ../figures/Auxiliar_3_15.png Graphic file (type png)
-<use ../figures/Auxiliar_3_15.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_15.png  used on input line 183.
-(pdftex.def)             Requested size: 171.73752pt x 92.99724pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 184.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_16.png, id=105, 840.89156pt x 314.67563pt>
-File: ../figures/Auxiliar_3_16.png Graphic file (type png)
-<use ../figures/Auxiliar_3_16.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_16.png  used on input line 192.
-(pdftex.def)             Requested size: 220.80003pt x 82.62518pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 193.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_17.png, id=106, 436.63126pt x 243.91125pt>
-File: ../figures/Auxiliar_3_17.png Graphic file (type png)
-<use ../figures/Auxiliar_3_17.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_17.png  used on input line 202.
-(pdftex.def)             Requested size: 147.20251pt x 82.22902pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 203.
+(caption)                particular \caption on input line 68.
 See the caption package documentation for explanation.
 
 
 
-[6 <../figures/Auxiliar_3_12.png> <../figures/Auxiliar_3_13.png>]
-
-[7 <../figures/Auxiliar_3_14.png> <../figures/Auxiliar_3_15.png> <../figures/Auxiliar_3_16.png>]
-
-[8 <../figures/Auxiliar_3_17.png>]
-<../figures/Auxiliar_3_18.png, id=154, 405.76593pt x 232.61906pt>
-File: ../figures/Auxiliar_3_18.png Graphic file (type png)
-<use ../figures/Auxiliar_3_18.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_18.png  used on input line 248.
-(pdftex.def)             Requested size: 317.36526pt x 181.94615pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 249.
-See the caption package documentation for explanation.
-
-
-
-[9 <../figures/Auxiliar_3_18.png>]
-This exam contains 4 questions with 0 parts, 0 subparts, and 0 subsubparts.
+[2 <../figures/Ejercicio_1_2.png>]
+This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3101-3.aux)
+(EL3103_01.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `EL3101-3.out' has not changed.
+Package rerunfilecheck Info: File `EL3103_01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60741 strings out of 473903
- 1565741 string characters out of 5727051
- 2328956 words of memory out of 5000000
- 82812 multiletter control sequences out of 15000+600000
- 565766 words of font info for 66 fonts, out of 8000000 for 9000
+ 60321 strings out of 473903
+ 1556752 string characters out of 5727051
+ 2331927 words of memory out of 5000000
+ 82468 multiletter control sequences out of 15000+600000
+ 565700 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,101p,839b,1105s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3101-3.pdf (9 pages, 573149 bytes).
+ 99i,11n,101p,816b,1029s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on EL3103_01.pdf (2 pages, 247361 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 108 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 64 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
