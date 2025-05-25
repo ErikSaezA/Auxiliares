@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  7 MAY 2025 03:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.12.11)  21 MAR 2025 20:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/EL3101_04/EL3101-4.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/EL3101_04/EL3101-4.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3101-2.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis y disenos de circuitos/EL3103_01/EL3101-2.tex
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
 Document Class: exam 2023/07/09 Version 2.704 by Philip Hirschhorn
 (C:\Program Files\MiKTeX\tex/latex/base\ifthen.sty
@@ -327,7 +327,7 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (C:\Program Files\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (C:\Program Files\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
+Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
 \Gm@cnth=\count331
 \Gm@cntv=\count332
@@ -534,7 +534,7 @@ File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \arrowsize=\dimen299
 ))) (C:\Program Files\MiKTeX\tex/latex/circuitikz\circuitikz.sty
-Package: circuitikz 2025/03/21{} The CircuiTikz circuit drawing package version 1.7.2
+Package: circuitikz 2024/08/03{} The CircuiTikz circuit drawing package version 1.7.0
  (C:\Program Files\MiKTeX\tex/generic/pgf/libraries\pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen300
@@ -630,7 +630,7 @@ File: pgflibrarypatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryangles.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryquotes.code.tex
 File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzext-util.tex)) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
+) (C:\Program Files\MiKTeX\tex/generic/tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -673,7 +673,7 @@ File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfnodepartsixbox=\box91
 \pgfnodepartfivebox=\box92
 ))) (C:\Program Files\MiKTeX\tex/latex/siunitx\siunitx.sty
-Package: siunitx 2025-03-26 v3.4.8 A comprehensive (SI) units package
+Package: siunitx 2024-11-19 v3.3.24 A comprehensive (SI) units package
 \l__siunitx_number_uncert_offset_int=\count367
 \l__siunitx_number_exponent_fixed_int=\count368
 \l__siunitx_number_min_decimal_int=\count369
@@ -691,7 +691,7 @@ Package: siunitx 2025-03-26 v3.4.8 A comprehensive (SI) units package
  (C:\Program Files\MiKTeX\tex/latex/translations\translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
  (C:\Program Files\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count378
 ) (C:\Program Files\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
@@ -922,8 +922,8 @@ Package translations Info: No language package found. I am going to use `english
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count403
 \l__pdf_internal_box=\box149
-) (EL3101-4.aux)
-\openout1 = `EL3101-4.aux'.
+) (EL3101-2.aux)
+\openout1 = `EL3101-2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -1007,9 +1007,9 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (EL3101-4.out) (EL3101-4.out)
+ (EL3101-2.out) (EL3101-2.out)
 \@outlinefile=\write4
-\openout4 = `EL3101-4.out'.
+\openout4 = `EL3101-2.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -1032,205 +1032,158 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--26
 $[]$ $[]$ 
  []
 
-<../figures/Auxiliar_5_14.png, id=7, 767.86874pt x 256.96pt>
-File: ../figures/Auxiliar_5_14.png Graphic file (type png)
-<use ../figures/Auxiliar_5_14.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_14.png  used on input line 32.
-(pdftex.def)             Requested size: 476.03984pt x 159.30571pt.
+<../figures/Auxiliar_1_12.png, id=7, 542.77782pt x 370.38374pt>
+File: ../figures/Auxiliar_1_12.png Graphic file (type png)
+<use ../figures/Auxiliar_1_12.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_12.png  used on input line 80.
+(pdftex.def)             Requested size: 423.151pt x 288.76251pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 33.
+(caption)                particular \caption on input line 81.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_2.png, id=9, 402.00188pt x 149.8097pt>
-File: ../figures/Auxiliar_5_2.png Graphic file (type png)
-<use ../figures/Auxiliar_5_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_2.png  used on input line 41.
-(pdftex.def)             Requested size: 238.01991pt x 88.7001pt.
+<../figures/Auxiliar_1_1.png, id=9, 632.3625pt x 459.96844pt>
+File: ../figures/Auxiliar_1_1.png Graphic file (type png)
+<use ../figures/Auxiliar_1_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_1.png  used on input line 93.
+(pdftex.def)             Requested size: 211.57147pt x 153.8886pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 42.
+(caption)                particular \caption on input line 94.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_3.png, id=10, 496.10344pt x 516.42938pt>
-File: ../figures/Auxiliar_5_3.png Graphic file (type png)
-<use ../figures/Auxiliar_5_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_3.png  used on input line 57.
-(pdftex.def)             Requested size: 147.20251pt x 153.2358pt.
+<../figures/Auxiliar_1_4.png, id=10, 499.8675pt x 374.14781pt>
+File: ../figures/Auxiliar_1_4.png Graphic file (type png)
+<use ../figures/Auxiliar_1_4.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_4.png  used on input line 137.
+(pdftex.def)             Requested size: 158.68263pt x 118.77061pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 58.
+(caption)                particular \caption on input line 138.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_4.png, id=11, 612.78937pt x 397.485pt>
-File: ../figures/Auxiliar_5_4.png Graphic file (type png)
-<use ../figures/Auxiliar_5_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_4.png  used on input line 63.
-(pdftex.def)             Requested size: 171.73752pt x 111.39815pt.
+<../figures/Auxiliar_1_5.png, id=11, 464.4853pt x 390.70969pt>
+File: ../figures/Auxiliar_1_5.png Graphic file (type png)
+<use ../figures/Auxiliar_1_5.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_5.png  used on input line 154.
+(pdftex.def)             Requested size: 211.57147pt x 177.96991pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 64.
+(caption)                particular \caption on input line 155.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_5.png, id=12, 944.02687pt x 392.96812pt>
-File: ../figures/Auxiliar_5_5.png Graphic file (type png)
-<use ../figures/Auxiliar_5_5.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_5.png  used on input line 92.
-(pdftex.def)             Requested size: 220.80003pt x 91.90979pt.
+<../figures/Auxiliar_1_2.png, id=12, 455.45157pt x 242.40562pt>
+File: ../figures/Auxiliar_1_2.png Graphic file (type png)
+<use ../figures/Auxiliar_1_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_2.png  used on input line 169.
+(pdftex.def)             Requested size: 264.46837pt x 140.7618pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 93.
-See the caption package documentation for explanation.
-
-File: ../figures/Auxiliar_5_3.png Graphic file (type png)
-<use ../figures/Auxiliar_5_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_3.png  used on input line 152.
-(pdftex.def)             Requested size: 122.66751pt x 127.68861pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 153.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_5_6.png, id=13, 992.95969pt x 204.01219pt>
-File: ../figures/Auxiliar_5_6.png Graphic file (type png)
-<use ../figures/Auxiliar_5_6.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_6.png  used on input line 166.
-(pdftex.def)             Requested size: 343.46754pt x 70.56793pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 167.
+(caption)                particular \caption on input line 170.
 See the caption package documentation for explanation.
 
 
 
 [1
 
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_5_14.png> <../figures/Auxiliar_5_2.png>]
-
-[2 <../figures/Auxiliar_5_3.png> <../figures/Auxiliar_5_4.png>]
-
-[3 <../figures/Auxiliar_5_5.png>]
-
-[4]
-
-[5 <../figures/Auxiliar_5_6.png>]
-<../figures/Auxiliar_5_10.png, id=110, 552.56438pt x 225.09094pt>
-File: ../figures/Auxiliar_5_10.png Graphic file (type png)
-<use ../figures/Auxiliar_5_10.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_10.png  used on input line 218.
-(pdftex.def)             Requested size: 317.36526pt x 129.27858pt.
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_1_1.png>]
+<../figures/Auxiliar_1_6.png, id=37, 868.74562pt x 411.78844pt>
+File: ../figures/Auxiliar_1_6.png Graphic file (type png)
+<use ../figures/Auxiliar_1_6.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_6.png  used on input line 177.
+(pdftex.def)             Requested size: 264.46837pt x 125.35965pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 219.
+(caption)                particular \caption on input line 178.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_7.png, id=111, 752.8125pt x 307.90031pt>
-File: ../figures/Auxiliar_5_7.png Graphic file (type png)
-<use ../figures/Auxiliar_5_7.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_7.png  used on input line 226.
-(pdftex.def)             Requested size: 294.40503pt x 120.4142pt.
+<../figures/Auxiliar_1_7.png, id=38, 849.1725pt x 432.86719pt>
+File: ../figures/Auxiliar_1_7.png Graphic file (type png)
+<use ../figures/Auxiliar_1_7.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_7.png  used on input line 182.
+(pdftex.def)             Requested size: 317.36526pt x 161.77657pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 227.
+(caption)                particular \caption on input line 183.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_8.png, id=112, 718.93594pt x 380.17032pt>
-File: ../figures/Auxiliar_5_8.png Graphic file (type png)
-<use ../figures/Auxiliar_5_8.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_8.png  used on input line 245.
-(pdftex.def)             Requested size: 294.40503pt x 155.68521pt.
+<../figures/Auxiliar_1_8.png, id=39, 1062.97125pt x 531.48563pt>
+File: ../figures/Auxiliar_1_8.png Graphic file (type png)
+<use ../figures/Auxiliar_1_8.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_8.png  used on input line 201.
+(pdftex.def)             Requested size: 264.46837pt x 132.2304pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 246.
+(caption)                particular \caption on input line 202.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_9.png, id=113, 533.74406pt x 352.31625pt>
-File: ../figures/Auxiliar_5_9.png Graphic file (type png)
-<use ../figures/Auxiliar_5_9.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_9.png  used on input line 264.
-(pdftex.def)             Requested size: 196.26503pt x 129.54858pt.
+<../figures/Auxiliar_1_3.png, id=40, 642.90187pt x 550.30594pt>
+File: ../figures/Auxiliar_1_3.png Graphic file (type png)
+<use ../figures/Auxiliar_1_3.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_3.png  used on input line 271.
+(pdftex.def)             Requested size: 264.46837pt x 226.38261pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 265.
+(caption)                particular \caption on input line 272.
 See the caption package documentation for explanation.
 
-
-
-[6 <../figures/Auxiliar_5_10.png> <../figures/Auxiliar_5_7.png>]
-
-[7 <../figures/Auxiliar_5_8.png> <../figures/Auxiliar_5_9.png>]
-<../figures/Auxiliar_5_11.png, id=144, 880.03781pt x 347.04657pt>
-File: ../figures/Auxiliar_5_11.png Graphic file (type png)
-<use ../figures/Auxiliar_5_11.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_11.png  used on input line 307.
-(pdftex.def)             Requested size: 317.36526pt x 125.15378pt.
-
+<../figures/Auxiliar_1_9.png, id=41, 588.69937pt x 520.94624pt>
+File: ../figures/Auxiliar_1_9.png Graphic file (type png)
+<use ../figures/Auxiliar_1_9.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_9.png  used on input line 280.
+(pdftex.def)             Requested size: 211.57147pt x 187.22255pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 308.
+(caption)                particular \caption on input line 281.
 See the caption package documentation for explanation.
 
-
-
-[8]
-<../figures/Auxiliar_5_12.png, id=167, 488.57532pt x 173.89969pt>
-File: ../figures/Auxiliar_5_12.png Graphic file (type png)
-<use ../figures/Auxiliar_5_12.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_12.png  used on input line 317.
-(pdftex.def)             Requested size: 294.40503pt x 104.78905pt.
-
+<../figures/Auxiliar_1_10.png, id=42, 664.73344pt x 510.40688pt>
+File: ../figures/Auxiliar_1_10.png Graphic file (type png)
+<use ../figures/Auxiliar_1_10.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_10.png  used on input line 290.
+(pdftex.def)             Requested size: 211.57147pt x 162.45346pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 318.
+(caption)                particular \caption on input line 291.
 See the caption package documentation for explanation.
 
-<../figures/Auxiliar_5_13.png, id=168, 482.55281pt x 264.23718pt>
-File: ../figures/Auxiliar_5_13.png Graphic file (type png)
-<use ../figures/Auxiliar_5_13.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_13.png  used on input line 331.
-(pdftex.def)             Requested size: 294.40503pt x 161.21669pt.
+<../figures/Auxiliar_1_11.png, id=43, 516.42938pt x 405.76593pt>
+File: ../figures/Auxiliar_1_11.png Graphic file (type png)
+<use ../figures/Auxiliar_1_11.png>
+Package pdftex.def Info: ../figures/Auxiliar_1_11.png  used on input line 295.
+(pdftex.def)             Requested size: 211.57147pt x 166.23508pt.
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 332.
+(caption)                particular \caption on input line 296.
 See the caption package documentation for explanation.
 
 
-Underfull \vbox (badness 1033) detected at line 407
- []
 
-
-
-[9 <../figures/Auxiliar_5_11.png> <../figures/Auxiliar_5_12.png>]
-
-[10 <../figures/Auxiliar_5_13.png>]
-
-[11]
-
-[12]
-This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
+[2 <../figures/Auxiliar_1_2.png> <../figures/Auxiliar_1_3.png>]
+This exam contains 4 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3101-4.aux)
+(EL3101-2.aux)
  ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+LaTeX2e <2024-11-01>
+L3 programming layer <2024-11-02>
  ***********
-Package rerunfilecheck Info: File `EL3101-4.out' has not changed.
+Package rerunfilecheck Info: File `EL3101-2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61755 strings out of 473523
- 1582558 string characters out of 5724698
- 2379586 words of memory out of 5000000
- 84118 multiletter control sequences out of 15000+600000
- 569231 words of font info for 79 fonts, out of 8000000 for 9000
+ 60780 strings out of 473682
+ 1556479 string characters out of 5729114
+ 2332300 words of memory out of 5000000
+ 83124 multiletter control sequences out of 15000+600000
+ 568463 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,101p,853b,1374s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on EL3101-4.pdf (12 pages, 797680 bytes).
+ 99i,12n,101p,853b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on EL3101-2.pdf (2 pages, 212902 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 143 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 84 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 
