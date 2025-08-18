@@ -1,0 +1,153 @@
+% Template:     Control LaTeX
+% Documento:    Archivo principal
+% Versión:      5.3.2 (12/04/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/controles]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Control 1}
+\def\evaluationindication {\textbf{}}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Análisis y Diseño de Circuitos Eléctricos}
+\def\coursecode {EL3101-2}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.75cm}
+\def\universitylocation {Santiago de Chile}
+
+% EQUIPO DOCENTE
+\def\teachingstaff {
+	\textbf{Profesor: Santiago Bradford V.} \\
+	Auxiliares: Byron Castro, Rodrigo Catalán, Erik Sáez. \\
+Ayudantes: Benjamín Bruhn, Joaquín Herrera, Nicolás Mayolafquén, César Olivares, Felipe Vargas, Simón Vidal. \\
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+% \newboxquestion{P1} \\
+% Considere el circuito de la figura \ref{fig:p1} (a) donde $V_b$, $V_1$ y $V_2$ son fuentes de voltajes conocidos. En particular las últimas dos están referenciadas a tierra.\\
+% Se solicita entonces:
+
+% \begin{figure}[H]
+% \centering
+% \begin{tabular}{ccc}
+%     \includegraphics[width=0.48\textwidth]{img/p1.png} &
+%     \includegraphics[width=0.28\textwidth]{img/p1.a.png} \\
+%     (a) & (b) \\[6pt]
+%     \end{tabular}
+% \caption{Circuito original (a) y equivalente (b).}
+% \label{fig:p1}
+% \end{figure}
+
+
+
+% \begin{enumerate}
+%     \item Encontrar el equivalente de Thevenin desde los terminales a-b para obtener el circuito equivalente de la figura \ref{fig:p1} (b). \textbf{(1 Punto)}
+%     \item Encuentre las condiciones de $V_{2}$ tal que el diodo esté en estado ON/OFF. \textbf{(0.5 Punto)}
+%     \item Imponga $V_1 = 0$ [V], $V_B = 1$ [V]. Si $V_2$ es la onda rectangular de la figura \ref{fig:p1v2}, encuentre y grafique el comportamiento del voltaje $V_c$ en función del tiempo. \textbf{(0.5 Punto)}
+%     \begin{figure}[H]
+%         \centering
+%         \includegraphics[width=0.25\linewidth]{img/p1v2.png}
+%         \caption{$V_2$ en función del tiempo}
+%         \label{fig:p1v2}
+%     \end{figure}
+    
+    
+    
+% \end{enumerate}
+
+
+
+
+% \newboxquestion{P2}\\\\
+% Sea el esquema visto en la figura \ref{fig:Figura_2} , determine:
+% \begin{enumerate}
+%     \item La relación entre $V_{i}/V_{o}$ e identifique el valor de la ganancia asociada. \textbf{(1 Punto)}
+%     \item Analice las situaciones en que $R_{2} \rightarrow \infty$ y  $R_{2} \rightarrow 0$, comente sus resultados. \textbf{(1 Punto)}
+% \end{enumerate}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{img/P1.jpeg}
+%     \caption{Esquema figura}
+%     \label{fig:Figura_2}
+% \end{figure}
+% \newboxquestion{P3}\\\\
+% Sea el esquema visto en la figura \ref{fig:Figure_3} , obtenga la corriente $i_{R}$ en la resistencia R= 1/6 [\ohm] \textbf{(2 puntos)}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.55\textwidth]{img/Figure_3.jpeg}
+%     \caption{Esquema figura}
+%     \label{fig:Figure_3}
+% \end{figure}
+% \newboxquestion{P1} \\
+\begin{enumerate}
+    \item Para el circuito de la Figura \ref{fig:p1}, encuentre los circuitos equivalentes de Thévenin y Norton respecto a los nodos $P$ y $Q$, considerando como carga la resistencia de 80$[k\Omega]$: \textbf{(6 puntos)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth]{img/P1.png}
+        \caption{Circuito P1.}
+        \label{fig:p1}
+    \end{figure}
+
+    \item Sea el circuito de la Figura 2 compuesto por diodos ideales y R las resistencias. Se solicita obtener el voltaje de salida $V_o$, para lo cual se procede como sigue:
+
+    \begin{enumerate}
+        \item[a)] Analizar los casos ON-OFF y OFF-ON para $D_1$ y $D_2$ y determinar para qué condiciones de $v_i$ se obtiene cada caso. \textbf{(1.5 puntos)}
+        \item[b)] A partir del resultado anterior encontrar la relación $V_o - V_i$. \textbf{(1.5 puntos)}
+        \item[c)] Demostrar que los casos ON-ON y OFF-OFF (ambos diodos $D_1$ y $D_2$ en el mismo estado simultáneamente) no son factibles. \textbf{(1.5 puntos)}
+        \item[d)] Realizar un bosquejo de $V_o$ si $V_i = 20\sin(\omega t)$ y analice a que corresponde este sistema. \textbf{(1.5 puntos)}
+    \end{enumerate}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\linewidth]{img/p2.png}
+        \caption{Circuito P2.}
+        \label{fig:p2}
+    \end{figure}]
+    \begin{enumerate}
+        \item Se busca analizar los casos ON-OFF y OFF-ON para $D_1$ y $D_2$ y determinar para qué condiciones de $v_i$ se obtiene cada caso, tomando el primer caso tenemos que:
+        \begin{itemize}
+            \item D1-ON/D2-OFF: Luego tenemos que el circuito se reduce a lo siguiente:
+        \end{itemize}
+    \end{enumerate}
+    \item Eres un estudiante del curso Análisis y Diseño de Circuitos Eléctricos que explora una cueva subterránea que, según las leyendas, fue un laboratorio de antiguos inventores. En un túnel, encuentras una puerta antigua con una cerradura electrónica especial. Al lado, hay una mesa con dos fuentes de voltaje ($V_1$ y $V_2$), una protoboard y varios componentes electrónicos. La cerradura se activa con una señal eléctrica específica y necesitas generar una tensión de salida que cumpla con la siguiente función para abrirla:
+    \begin{align*}
+    V_{0} = 4V_{1} - 6V_{2}
+    \end{align*}
+    \begin{enumerate}
+    \item Tienes a tu disposición 5 amplificadores operacionales (OPAMs) y 10 resistencias. Tu desafío es usar estos componentes para diseñar un circuito en la protoboard que logre la señal requerida para desbloquear la puerta. \textbf{(3 puntos)} 
+    \item Entras a la sala de operación del laboratorio y se activa el protocolo de autodestrucción. Para desactivar el protocolo debes encontrar las resistencias $R_1$ y $R_2$ el circuito de la figura \ref{fig:p3} sabiendo que $\frac{V_0}{v_s} = 0.09$ y $R_{eq} = 50[\Omega]$ vista desde $V_s$. \textbf{(3 puntos)}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/EEEE.png}
+    \caption{Circuito desactivador.}
+    \label{fig:p3}
+    \end{figure}
+    
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
