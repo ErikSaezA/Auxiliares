@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  28 APR 2025 22:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  25 MAY 2025 01:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_03/EL3103_03.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_03/EL3103_03.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_06/EL3103_06.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Electromagnetismo Aplicado/EL3204_06/EL3103_06.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
@@ -853,8 +853,8 @@ Package translations Info: No language package found. I am going to use `english
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count393
 \l__pdf_internal_box=\box103
-) (EL3103_03.aux)
-\openout1 = `EL3103_03.aux'.
+) (EL3103_06.aux)
+\openout1 = `EL3103_06.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -938,9 +938,9 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (EL3103_03.out) (EL3103_03.out)
+ (EL3103_06.out) (EL3103_06.out)
 \@outlinefile=\write4
-\openout4 = `EL3103_03.out'.
+\openout4 = `EL3103_06.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -963,108 +963,70 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 12--24
 $[]$ $[]$ 
  []
 
+<../figures/Auxiliar_6_1.png, id=7, 1041.8925pt x 589.20125pt>
+File: ../figures/Auxiliar_6_1.png Graphic file (type png)
+<use ../figures/Auxiliar_6_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_6_1.png  used on input line 42.
+(pdftex.def)             Requested size: 264.46837pt x 149.55655pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 43.
+See the caption package documentation for explanation.
+
 
 
 [1
 
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_6_1.png (PNG copy)>]
 
 [2]
 
 [3]
+<../figures/Auxiliar_6_2.png, id=82, 399.894pt x 258.36525pt>
+File: ../figures/Auxiliar_6_2.png Graphic file (type png)
+<use ../figures/Auxiliar_6_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_6_2.png  used on input line 167.
+(pdftex.def)             Requested size: 264.46837pt x 170.87639pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 168.
+See the caption package documentation for explanation.
+
+
 
 [4]
-<../figures/Auxiliar_3_1.png, id=89, 1040.38687pt x 250.68657pt>
-File: ../figures/Auxiliar_3_1.png Graphic file (type png)
-<use ../figures/Auxiliar_3_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_1.png  used on input line 201.
-(pdftex.def)             Requested size: 317.36526pt x 76.46884pt.
 
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 202.
-See the caption package documentation for explanation.
-
-
-
-[5 <../figures/Auxiliar_3_1.png>]
+[5 <../figures/Auxiliar_6_2.png>]
 
 [6]
-<../figures/Auxiliar_3_2.png, id=127, 420.82219pt x 361.35pt>
-File: ../figures/Auxiliar_3_2.png Graphic file (type png)
-<use ../figures/Auxiliar_3_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_2.png  used on input line 310.
-(pdftex.def)             Requested size: 245.33504pt x 210.66383pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 311.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_3.png, id=128, 478.03593pt x 350.05782pt>
-File: ../figures/Auxiliar_3_3.png Graphic file (type png)
-<use ../figures/Auxiliar_3_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_3.png  used on input line 340.
-(pdftex.def)             Requested size: 147.20251pt x 107.79036pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 341.
-See the caption package documentation for explanation.
-
-<../figures/Auxiliar_3_4.png, id=129, 271.76532pt x 252.945pt>
-File: ../figures/Auxiliar_3_4.png Graphic file (type png)
-<use ../figures/Auxiliar_3_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_4.png  used on input line 345.
-(pdftex.def)             Requested size: 147.20251pt x 137.01282pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 346.
-See the caption package documentation for explanation.
-
-
 
 [7]
 
-[8 <../figures/Auxiliar_3_2.png>]
-
-[9 <../figures/Auxiliar_3_3.png> <../figures/Auxiliar_3_4.png>]
-Underfull \vbox (badness 10000) detected at line 555
- []
-
-
-Underfull \vbox (badness 10000) detected at line 555
- []
-
-
-
-[10]
-
-[11]
-
-[12]
-This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
+[8]
+This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3103_03.aux)
+(EL3103_06.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `EL3103_03.out' has not changed.
+Package rerunfilecheck Info: File `EL3103_06.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61632 strings out of 473523
- 1580341 string characters out of 5724698
- 2403588 words of memory out of 5000000
- 84010 multiletter control sequences out of 15000+600000
- 571125 words of font info for 85 fonts, out of 8000000 for 9000
+ 61423 strings out of 473523
+ 1575877 string characters out of 5724698
+ 2384587 words of memory out of 5000000
+ 83838 multiletter control sequences out of 15000+600000
+ 568229 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,101p,828b,1226s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3103_03.pdf (12 pages, 365260 bytes).
+ 99i,14n,101p,828b,1375s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on EL3103_06.pdf (8 pages, 338499 bytes).
 PDF statistics:
- 289 PDF objects out of 1000 (max. 8388607)
- 126 named destinations out of 1000 (max. 500000)
- 50 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 222 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

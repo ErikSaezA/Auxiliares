@@ -104,51 +104,8 @@
         \item Capacitancia \textbf{C} a partir de la energía 
     \end{enumerate}
     \begin{center}
-        \begin{tikzpicture}
-            % Definición de parámetros
-            \def\a{2} % Radio menor
-            \def\b{4} % Radio mayor
-            \def\thetaone{30} % Ángulo θ1 en grados
-            \def\thetatwo{60} % Ángulo θ2 en grados
-    
-            % Dibujar ejes coordenados
-            \draw[->] (0,-0.5) -- (0,5) node[above] {$z$}; % Eje vertical
-    
-            % Dibujar sector circular con dos radios
-            \fill[gray!20] (0,0) -- (\thetaone:\b) arc (\thetaone:\thetatwo:\b) -- (\thetatwo:\a) arc (\thetatwo:\thetaone:\a) -- cycle;
-    
-            % Dibujar los radios menores y mayores
-            \draw (0,0) -- (\thetaone:\b);
-            \draw (0,0) -- (\thetatwo:\b);
-            \draw (0,0) -- (\thetaone:\a);
-            \draw (0,0) -- (\thetatwo:\a);
-            
-            % Dibujar los arcos de radio mayor y menor
-            \draw (\thetaone:\b) arc (\thetaone:\thetatwo:\b);
-            \draw (\thetaone:\a) arc (\thetaone:\thetatwo:\a);
-    
-            % Línea para marcar distancia a (desde el origen hasta el inicio de la zona sombreada)
-            \draw[dashed] (0,0) -- (\thetaone:\a);
-    
-            % Etiquetas de ángulos
-            \node at (\thetatwo:\b+0.3) {$\theta_2$};
-            \node at (\thetaone:\b+0.3) {$\theta_1$};
-    
-            % Etiqueta del material dieléctrico
-             \node at (45:\b*0.8) {$\varepsilon$};
-            % Marcar distancia a y b con líneas de referencia desplazadas
-            \draw[<->] (0.3,-0.1) --++ (\thetaone:\a-0.3) node[midway, below] {$a$};  % Etiqueta para 'a'
-            \draw[<->] (\thetaone:\a) --++ (\thetaone:\b-\a) node[midway, below] {$b$}; % Etiqueta para 'b'
-    
-            % Marcar distancia a y b con líneas de referencia desplazadas
-            \draw[<->] (0.3,-0.1) --++ (\thetaone:\a-0.3);  % Línea para 'a' (sin cambios)
-            \draw[<->] (\thetaone:\a) --++ (\thetaone:\b-\a); % Línea para 'b' movida diagonalmente
-    
-             % Flecha de rotación alrededor del eje z
-          
-            \node[left] at (0.3,4.5) {$\circlearrowright$};
-    
-        \end{tikzpicture}
+        \includegraphics[width=0.4\textwidth]{Auxiliar_2_3}
+        \captionof{figure}{Esquema del problema}
     \end{center}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \begin{solution}
