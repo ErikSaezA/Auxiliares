@@ -1,0 +1,101 @@
+% Template:     Control LaTeX
+% Documento:    Archivo principal
+% Versión:      5.3.2 (12/04/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/controles]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Control 3}
+\def\evaluationindication {\textbf{}}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Análisis y Diseño de Circuitos Eléctricos}
+\def\coursecode {EL3101-2}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.75cm}
+\def\universitylocation {Santiago de Chile}
+
+% EQUIPO DOCENTE
+\def\teachingstaff {
+	\textbf{Profesor: Santiago Bradford V.} \\
+	Auxiliares: Byron Castro, Rodrigo Catalán, Erik Sáez. \\
+Ayudantes: Benjamín Bruhn, Joaquín Herrera, Nicolás Mayolafquén, César Olivares, Felipe Vargas, Simón Vidal. \\
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+\begin{enumerate}
+    \item 
+    Para el circuito de la figura, si el interruptor ha estado conectado a la fuente de 10 [V] durante un tiempo muy largo y en un instante que denominaremos $t = 0$ pasa a conectar la fuente $v_s$. Si $v_s(t) = 6e^{-3t}u(t)$[V]  determine para el voltaje $v_c(t)$:
+
+    \begin{enumerate}
+     \item[a)] La respuesta de entrada cero para $v_c(t)$ \textbf{(3 puntos)}
+     \item[b)] La respuesta de estado cero $v_c(t)$ \textbf{(3 puntos)}
+    \end{enumerate}
+
+    
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{img/Figura_4.png}
+        \caption{Circuito P1.}
+        \label{fig:p1}
+    \end{figure}
+    
+    \item 
+    \begin{enumerate}[label=(\alph*)]
+        \item Diseñe un circuito sin utilizar inductores que tenga la siguiente función de transferencia \textbf{(2 puntos)}:
+        \begin{equation}
+            T(s) = \frac{250000}{s(s + 800)(s + 10)}
+        \end{equation}
+        
+      Siguiendo con la exploración del laboratorio del control anterior, encuentras una nueva sección dedicada a simulaciones espaciales que te pide diseñar lo siguiente para poder salir de la sala del control.
+
+        \item Diseñe un filtro pasa bajos con frecuencia de corte $\omega_c = 1800~\text{rad/s}$, utilizando un mínimo de 4 elementos donde al menos 2 deben estar en paralelo y 2 en serie (considerando como elemento resistencias, inductancias y capacitancias segun prefiera). Aplique factores de escala de ser necesario. \textbf{(2 puntos)}
+    
+        \item Diseñe un filtro pasa altos con frecuencia de corte $\omega_c = 3600~\text{rad/s}$, utilizando un mínimo de 4 elementos donde al menos 2 deben estar en paralelo y 2 en serie (considerando como elemento resistencias, inductancias y capacitancias segun prefiera). Aplique factores de escala de ser necesario. \textbf{(2 puntos)}
+
+    \end{enumerate}
+
+    \textit{Indicación: Todas las resistencias deben ser mayores o iguales a $10\,k\Omega$}
+
+    \item Sea la siguiente función de transferencia:
+    \begin{equation}
+        H(s) = \frac{5(s + 1)}{s(s + 5)(s + 20)}
+    \end{equation}
+    Determine:
+    \begin{enumerate}[label=(\alph*)] 
+        \item Diagrama de magnitud \textbf{(2 puntos)}
+        \item Diagrama de fase \textbf{(2 puntos)}
+        \item En base a el diagrama de bode de magnitud, determine la funcion de transferencia: \textbf{(2 puntos)}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\linewidth]{img/Figura_5.png}
+        \caption{Diagrama de Bode.}
+        \label{fig:p4}
+    \end{figure}
+    \end{enumerate}
+    \end{enumerate}
+
+\end{document}

@@ -1,0 +1,86 @@
+% Template:     Control LaTeX
+% Documento:    Archivo principal
+% Versión:      5.3.2 (12/04/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/controles]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Examen}
+\def\evaluationindication {\textbf{}}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Análisis y Diseño de Circuitos Eléctricos}
+\def\coursecode {EL3101-2}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.75cm}
+\def\universitylocation {Santiago de Chile}
+
+% EQUIPO DOCENTE
+\def\teachingstaff {
+	\textbf{Profesor: Santiago Bradford V.} \\
+	Auxiliares: Byron Castro, Rodrigo Catalán, Erik Sáez. \\
+Ayudantes: Benjamín Bruhn, Joaquín Herrera, Nicolás Mayolafquén, César Olivares, Felipe Vargas, Simón Vidal. \\
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+\begin{enumerate}
+    \item Para la red de la figura en régimen permanente senoidal, calcule la potencia disipada por la resistencia de $10\,\Omega$.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.55\linewidth]{img/Examen_1_1.png}
+        \caption{Circuito P1.}
+        \label{fig:p1}
+    \end{figure}
+    
+   \item Para la red de la figura, en régimen permanente, aplicando análisis nodal determine la corriente $I$ y el voltaje $V_x$. Las fuentes están dadas por:
+    \begin{align*}
+        V_f &= 20\sqrt{2}\cos(2t - 90^\circ) \\
+        i_f &= 5\sqrt{2}\cos(4t)
+    \end{align*}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{img/Figura_6}
+        \caption{Circuito P2.}
+        \label{fig:p2}
+    \end{figure}
+
+    \item Una fuente simétrica y equilibrada de secuencia positiva suministra potencia a tres cargas, siendo una de ellas desconocida, tal como se muestra en la figura 3. Si el voltaje fase-fase es de $208~[V]$ efectivos a $50~[Hz]$, la corriente de línea $98,6~[A]$ efectivos, y el factor de potencia combinado de la carga es de $0,6756$ en atraso.
+\begin{enumerate}
+    \item[a.] Encuentre la carga desconocida en términos de $kW$ y $kVAR$.
+    \item[b.] Determine la capacitancia $C$ por fase a poner en un banco de condensadores en $\Delta$, para corregir el factor de potencia del conjunto a $0,8944$. Realice un diagrama de potencia.
+\end{enumerate}
+  \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.7\linewidth]{img/Examen_1_3.png}
+        \caption{Circuito P3.}
+        \label{fig:p3}
+    \end{figure}
+    \end{enumerate}
+
+\end{document}

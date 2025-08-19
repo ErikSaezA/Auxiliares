@@ -1,0 +1,89 @@
+% Template:     Control LaTeX
+% Documento:    Archivo principal
+% Versión:      5.3.2 (12/04/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/controles]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Control 2}
+\def\evaluationindication {\textbf{}}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Análisis y Diseño de Circuitos Eléctricos}
+\def\coursecode {EL3101-2}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de Ingeniería eléctrica}
+\def\universitydepartmentimage {departamentos/die}
+\def\universitydepartmentimagecfg {height=1.75cm}
+\def\universitylocation {Santiago de Chile}
+
+% EQUIPO DOCENTE
+\def\teachingstaff {
+	\textbf{Profesor: Santiago Bradford V.} \\
+	Auxiliares: Byron Castro, Rodrigo Catalán, Erik Sáez. \\
+Ayudantes: Benjamín Bruhn, Joaquín Herrera, Nicolás Mayolafquén, César Olivares, Felipe Vargas, Simón Vidal. \\
+}
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+
+% INICIO DE PÁGINAS
+\begin{document}
+
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+\begin{enumerate}
+    \item El interruptor ha estado en la posición \textbf{A} durante un tiempo muy largo y en un instante que llamaremos \( t=0 \) el interruptor pasa de la posición \textbf{A} a la posición \textbf{B} cuando el voltaje \( V_0 \) alcanza un 50\% de su valor inicial. El interruptor vuelve a la posición \textbf{A}. Determine el voltaje en el condensador para \( t \geq 0 \).
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth]{img/P11.png}
+        \caption{Circuito P1.}
+        \label{fig:p1}
+    \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Resuelva lo siguiente
+\begin{enumerate}
+    \item[a)] Encuentre la ecuación diferencial que describe el comportamiento de la variable de salida \( v_0(t) \) para \( t \geq 0 \) e indique a qué tipo de respuesta corresponde.  (\textbf{3pt})
+    
+    \item[b)] Si \( v_s(t) = 5\cos(2000t) \), encuentre la respuesta particular para \( v_0(t) \).  (\textbf{2pt})
+    
+    \item[c)] Si \( v_1(0) = 0 \) y \( v_2(0) = 0 \), determine la respuesta para \( v(t) \) para \( t \geq 0 \) debido a la entrada indicada en la parte b), indicando la respuesta en régimen permanente.  (\textbf{1pt})
+\end{enumerate}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\linewidth]{img/Control_2_1.png}
+        \caption{Circuito P2.}
+        \label{fig:p2}
+    \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \item Siguiendo con la exploración del laboratorio del control anterior, encuentras una nueva sección dedicada a simulaciones espaciales. Un antiguo manuscrito describe el siguiente desafío. Se necesita lanzar una nave de masa \( m \) desde la Tierra y estudiar su velocidad. Sus impulsores proporcionan en todo momento una fuerza igual a \( mg \) para contrarrestar el peso de la nave. Ahora bien, se tiene la capacidad de suministrar una fuerza extra \( F(t) \). Es decir, la ecuación diferencial que modela su velocidad considerando el roce con el aire es:
+
+\[
+V'(t) = -\frac{k}{m} V(t) + \frac{F(t)}{m}
+\]
+con condición inicial \( V(0) = 20\,\mathrm{[m/s]} \).
+
+\begin{enumerate}
+    \item[\textbf{a)}] Utilizando un solo OpAmp, dos resistencias \( R_1 \) y \( R_2 \), y un condensador \( C_1 \), diseña una computadora analógica que modele la velocidad de la nave. Recuerda plasmar la condición inicial en tu circuito y expresar explícitamente las igualdades sobre \( R_1 \cdot C_1 \) y \( R_2 \cdot C_2 \). (\textbf{3pt})
+    \item[\textbf{b)}] Determina la respuesta al impulso \( h(t) = Z_{t_0=0}[\delta(t)] \). Expresa tu respuesta para que sea válida para todo \( t \geq 0 \). (\textbf{3pt})
+    \item[\textbf{c)}] Se busca estudiar qué sucede con la nave a largo plazo si se aplica un pulso unitario que se activa en \( t = 0 \) y termina en \( t = 1 \). Considera el caso en que el roce con el aire es despreciable, es decir, \( k = 0 \).(\textbf{3pt})
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
