@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  27 MAY 2025 13:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  27 MAY 2025 13:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/Control 2/main.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/Control 2/main.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/Control 2 Circuitos semestre 2025 copy/main.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Analisis y disenos de circuitos/Control 2 Circuitos semestre 2025 copy/main.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -1977,17 +1977,17 @@ File: csquotes.cfg
 \corefontwidth=\skip136
 \coreimageshspace=\skip137
 \c@totalquestions=\count429
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 5612.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 5623.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-pdfdoc.def
 File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
 )
-Package hyperref Info: Option `pdfcenterwindow' set `true' on input line 5612.
-Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 5612.
-Package hyperref Info: Option `unicode' set `true' on input line 5612.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 5612.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 5612.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 5612.
-Package hyperref Info: Option `colorlinks' set `true' on input line 5671.
+Package hyperref Info: Option `pdfcenterwindow' set `true' on input line 5623.
+Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 5623.
+Package hyperref Info: Option `unicode' set `true' on input line 5623.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 5623.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 5623.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 5623.
+Package hyperref Info: Option `colorlinks' set `true' on input line 5682.
 \bibitemsep=\skip138
 \bibparskip=\skip139
 \cftbeforelistingsskip=\skip140
@@ -2006,7 +2006,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 5671.
 \cftbeforeequtitleskip=\skip151
 \cftafterequtitleskip=\skip152
 \c@totalcount@templateIndexEquations=\count432
-LaTeX Font Info:    Trying to load font information for T1+lmvtt on input line 5948.
+LaTeX Font Info:    Trying to load font information for T1+lmvtt on input line 5959.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmvtt.fd
 File: t1lmvtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -2017,170 +2017,6 @@ File: t1lmvtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 \c@lema=\count437
 \c@prop=\count438
 \c@multicoldepth=\count439
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
-Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
-\pgfutil@everybye=\toks61
-\pgfutil@tempdima=\dimen323
-\pgfutil@tempdimb=\dimen324
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
-\pgfutil@abb=\box129
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
-Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
-))
-Package: pgf 2023-01-15 v3.1.10 (3.1.10)
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
-Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks62
-\pgfkeys@temptoks=\toks63
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks64
-))
-\pgf@x=\dimen325
-\pgf@y=\dimen326
-\pgf@xa=\dimen327
-\pgf@ya=\dimen328
-\pgf@xb=\dimen329
-\pgf@yb=\dimen330
-\pgf@xc=\dimen331
-\pgf@yc=\dimen332
-\pgf@xd=\dimen333
-\pgf@yd=\dimen334
-\w@pgf@writea=\write3
-\r@pgf@reada=\read4
-\c@pgf@counta=\count440
-\c@pgf@countb=\count441
-\c@pgf@countc=\count442
-\c@pgf@countd=\count443
-\t@pgf@toka=\toks65
-\t@pgf@tokb=\toks66
-\t@pgf@tokc=\toks67
-\pgf@sys@id@count=\count444
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
-File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
-)
-Driver file for pgf: pgfsys-pdftex.def
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
-))) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count445
-\pgfsyssoftpath@bigbuffer@items=\count446
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
-Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
-\pgfmath@dimen=\dimen335
-\pgfmath@count=\count447
-\pgfmath@box=\box130
-\pgfmath@toks=\toks68
-\pgfmath@stack@operand=\toks69
-\pgfmath@stack@operation=\toks70
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count448
-)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.tex) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen336
-\pgf@picmaxx=\dimen337
-\pgf@picminy=\dimen338
-\pgf@picmaxy=\dimen339
-\pgf@pathminx=\dimen340
-\pgf@pathmaxx=\dimen341
-\pgf@pathminy=\dimen342
-\pgf@pathmaxy=\dimen343
-\pgf@xx=\dimen344
-\pgf@xy=\dimen345
-\pgf@yx=\dimen346
-\pgf@yy=\dimen347
-\pgf@zx=\dimen348
-\pgf@zy=\dimen349
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen350
-\pgf@path@lasty=\dimen351
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen352
-\pgf@shorten@start@additional=\dimen353
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box131
-\pgf@hbox=\box132
-\pgf@layerbox@main=\box133
-\pgf@picture@serial@count=\count449
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen354
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen355
-\pgf@pt@y=\dimen356
-\pgf@pt@temp=\dimen357
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen358
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen359
-\pgf@sys@shading@range@num=\count450
-\pgf@shadingcount=\count451
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box134
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box135
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen360
-\pgf@nodesepend=\dimen361
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
-)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
-Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks71
-\verbatim@line=\toks72
-\verbatim@in@stream=\read5
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\tcb@titlebox=\box136
-\tcb@upperbox=\box137
-\tcb@lowerbox=\box138
-\tcb@phantombox=\box139
-\c@tcbbreakpart=\count452
-\c@tcblayer=\count453
-\c@tcolorbox@number=\count454
-\l__tcobox_tmpa_box=\box140
-\l__tcobox_tmpa_dim=\dimen362
-\tcb@temp=\box141
-\tcb@temp=\box142
-\tcb@temp=\box143
-\tcb@temp=\box144
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -2192,45 +2028,45 @@ LaTeX Info: Redefining \% on input line 16.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count455
-\scratchdimen=\dimen363
-\scratchbox=\box145
-\nofMPsegments=\count456
-\nofMParguments=\count457
-\everyMPshowfont=\toks73
-\MPscratchCnt=\count458
-\MPscratchDim=\dimen364
-\MPnumerator=\count459
-\makeMPintoPDFobject=\count460
-\everyMPtoPDFconversion=\toks74
+\scratchcounter=\count440
+\scratchdimen=\dimen323
+\scratchbox=\box129
+\nofMPsegments=\count441
+\nofMParguments=\count442
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count443
+\MPscratchDim=\dimen324
+\MPnumerator=\count444
+\makeMPintoPDFobject=\count445
+\everyMPtoPDFconversion=\toks62
 ) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: floatrow package is loaded.
@@ -2248,22 +2084,22 @@ Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/floatrow\fr-longtable.sty
 Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
-\flrow@LT@lasthead=\box146
-\flrow@LT@prelastfoot=\box147
-\c@FBLTpage=\count461
+\flrow@LT@lasthead=\box130
+\flrow@LT@prelastfoot=\box131
+\c@FBLTpage=\count446
 )
 \symgns@font=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 50.
-Package gensymb Info: Math companion symbols declared on input line 50.
-LaTeX Info: Redefining \degree on input line 50.
-LaTeX Info: Redefining \celsius on input line 50.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 50.
-LaTeX Info: Redefining \ohm on input line 50.
-Package gensymb Info: Using \textohm for \ohm on input line 50.
-Package gensymb Info: Using \textmu for \micro on input line 50.
-\c@lstlisting=\count462
-Package hyperref Info: Link coloring ON on input line 50.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 44.
+Package gensymb Info: Math companion symbols declared on input line 44.
+LaTeX Info: Redefining \degree on input line 44.
+LaTeX Info: Redefining \celsius on input line 44.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 44.
+LaTeX Info: Redefining \ohm on input line 44.
+Package gensymb Info: Using \textohm for \ohm on input line 44.
+Package gensymb Info: Using \textmu for \micro on input line 44.
+\c@lstlisting=\count447
+Package hyperref Info: Link coloring ON on input line 44.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -2331,117 +2167,109 @@ Package hyperref Info: Link coloring ON on input line 50.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 53.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 47.
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 53.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 53.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 53.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 53.
+(Font)              <12> on input line 47.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 53.
+(Font)              <8> on input line 47.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 53.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+(Font)              <6> on input line 47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 53.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 53.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 53.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 53.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 47.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<./img//departamentos/fcfm.pdf, id=7, 737.14398pt x 238.8925pt>
-File: ./img//departamentos/fcfm.pdf Graphic file (type pdf)
-<use ./img//departamentos/fcfm.pdf>
-Package pdftex.def Info: ./img//departamentos/fcfm.pdf  used on input line 53.
+<./img//departamentos/die.pdf, id=4, 737.14398pt x 238.8925pt>
+File: ./img//departamentos/die.pdf Graphic file (type pdf)
+<use ./img//departamentos/die.pdf>
+Package pdftex.def Info: ./img//departamentos/die.pdf  used on input line 47.
 (pdftex.def)             Requested size: 153.63503pt x 49.79231pt.
- (Introduccion.tex
-<img/C1_figura.png, id=9, 549.252pt x 347.49825pt>
-File: img/C1_figura.png Graphic file (type png)
-<use img/C1_figura.png>
-Package pdftex.def Info: img/C1_figura.png  used on input line 13.
-(pdftex.def)             Requested size: 281.8561pt x 178.31934pt.
-) (P1.tex
+<img/P11.png, id=5, 1145.78062pt x 457.71pt>
+File: img/P11.png Graphic file (type png)
+<use img/P11.png>
+Package pdftex.def Info: img/P11.png  used on input line 54.
+(pdftex.def)             Requested size: 281.8561pt x 112.59041pt.
+<img/Control_2_1.png, id=7, 741.972pt x 386.6445pt>
+File: img/Control_2_1.png Graphic file (type png)
+<use img/Control_2_1.png>
+Package pdftex.def Info: img/Control_2_1.png  used on input line 70.
+(pdftex.def)             Requested size: 375.80574pt x 195.82915pt.
+
+
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.2698pt, 469.75539pt, 72.2698pt)
+* v-part:(T,H,B)=(65.44142pt, 652.70622pt, 76.82234pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75539pt
+* \textheight=652.70622pt
+* \oddsidemargin=-0.00018pt
+* \evensidemargin=-0.00018pt
+* \topmargin=-95.82857pt
+* \headheight=64.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=24.67471pt
+* \skip\footins=14.22636pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 [1
 
 
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./img//departamentos/fcfm.pdf> <./img/C1_figura.png>]) (P1_pauta.tex
-LaTeX Font Info:    Calculating math sizes for size <8.00006> on input line 6.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.00006> on input line 6.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.6> on input line 6.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.00003> on input line 6.
 
-
-[2{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13])
-
-[14] (P2.tex
-
-[15]
-
-[16]
-
-[17])
-
-Package caption Warning: Unused \captionsetup[sub] on input line 198.
-See the caption package documentation for explanation.
-
-
+{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc} <./img//departamentos/die.pdf> <./img/P11.png>]
 
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\se-utf8.def
 File: se-utf8.def 2019/11/29 v1.12 stringenc: UTF-8
-) [18] (main.aux
+) [2 <./img/Control_2_1.png>] (main.aux
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
 )
@@ -2451,18 +2279,18 @@ L3 programming layer <2024-05-27>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 41883 strings out of 473903
- 760201 string characters out of 5727051
- 1955908 words of memory out of 5000000
- 63872 multiletter control sequences out of 15000+600000
- 634574 words of font info for 108 fonts, out of 8000000 for 9000
+ 32279 strings out of 473903
+ 544909 string characters out of 5727051
+ 1941908 words of memory out of 5000000
+ 54547 multiletter control sequences out of 15000+600000
+ 593172 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,15n,110p,2969b,2482s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (18 pages, 388029 bytes).
+ 113i,13n,110p,2998b,2364s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
+Output written on main.pdf (2 pages, 301960 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 80 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
+ 20 words of extra memory for PDF output out of 10000 (max. 10000000)
 
