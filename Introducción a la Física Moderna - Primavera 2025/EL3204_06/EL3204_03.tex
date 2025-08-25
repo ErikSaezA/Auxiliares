@@ -1,0 +1,340 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3103) \\
+\large\textbf{Clase auxiliar 6} \\
+\normalsize Prof.~Heraldo Rozas.\\
+\normalsize Prof.~Aux.~Erik Saez - Maximiliano Morales
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \question Sea una planta con función de transferencia dada por:
+    \begin{align}
+        G_{p}(s) = \frac{3}{(s+5)(s-5)}
+    \end{align}
+    A la cual se le adiciona un controlador de la forma:
+    \begin{align}
+        G_{s}(s) = K \cdot \frac{(s+5)(s+8.18)}{s(s+450)} 
+    \end{align}
+    Determine mediante el criterio de Routh-Hurwitz el rango de valores de K para los cuales el sistema es estable.
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{solution}
+        \subsection*{Resolucion 1.1}
+    Dado que se busca el analizar si el sistema es estable mediante el criterio de Routh-Hurwitz,se tendra que en base a la ecuacion caracteristica:
+    \begin{align}
+        1 + G_{p}(s)G_{s}(s) = 0
+    \end{align}
+    Luego se resuelve esta ecuacion con el fin de obtener una factorizacion asociadas a los s, por lo tanto:
+    \begin{align}
+        1+G(s)H(s) = 0\\
+        1+G_{p}(s)G_{c}(s) = 0\\
+        1+\frac{3k(s+8.18)}{s(s-5)(s+450)} = 0\\
+        s(s+450)(s-5 + 3k(s+8.18)) = 0\\
+        s^{3} + 445s^{2} - 2250s + 3ks^{2} + 24.54k = 0\\
+        s^{3} + 445s^{2} + (3k-2250)s + 24.54k = 0
+    \end{align}
+    Con lo que se obtienen los valores de las constantes que seran utilizados para el criterio de estabilidad de Routh-Hurwitz:
+    \begin{align}
+        a_{1} &= 1\\
+        a_{2} &= 445\\
+        a_{3} &= 3k-2250\\
+        a_{4} &= 24.54k
+    \end{align}
+    Luego nuestra tabla se vera de la siguiente forma:
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $s^{3}$ & 1 & (3k-2250)\\
+            $s^{2}$ & 445 & 24.54k\\
+            $s^{1}$ & $\alpha_{1}$ & $\alpha_{2}$\\
+            $s^{0}$ & $\beta_{1}$ & $\beta_{2}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+    Luego, se tendra que:
+    \begin{align}
+        \alpha_{1} &= \frac{445(3k-2250) - 24.54k}{445}\\
+                   &= 2.94k - 2250\\
+        \alpha_{2} &= 0\\
+        \beta_{1}  &= \frac{\alpha_{1} \cdot 24.54k - \alpha_{2}\cdot 445}{\alpha_{1}}\\
+                   &= 25.54k\\
+        \beta_{2}  &=0
+    \end{align}
+    Por lo tanto, para sea estable no debe existir un cambio de signo,eso implica que se debe cumplir que $\alpha_{1}>1$ y $\beta_{1}>0$,por lo que se tiene que para $\alpha_{1}$:
+    \begin{align}
+        2.94k - 2250 &> 0\\
+        2.94k &> 2250\\
+        k &> 765.3
+    \end{align}
+    por otro lado para $\beta_{1}$ se tiene que:
+    \begin{align}
+        25.54k &> 0\\
+        k &> 0
+    \end{align}
+    Se cumple que cuando $k>765.3$ el sistema se mantiene estable,por lo que implica que el caso critico se cumple cuando $k=765.3$.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question Sean las siguientes funciones, determine la estabilidad Lyapunov para cada una de ellas:
+\begin{enumerate}
+    \item Considere el siguiente sistema dinamico: 
+    \begin{align}
+        \dot{x}_1 &= -x_1 + 4x_2, \\
+        \dot{x}_2 &= -x_1 - x_2^3.
+    \end{align}
+    \item Un ejemplo ampliamente estudiado en el área de sistemas dinámicos y caos es el famoso sistema de Lorenz, que es un sistema no lineal que evoluciona en \( \mathbb{R}^3 \), cuyas ecuaciones están dadas por
+    \begin{align}
+        \dot{x} &= \sigma (y - x), \\
+        \dot{y} &= r x - y - x z, \\
+        \dot{z} &= x y - b z.
+    \end{align}
+    
+    \item La ecuación dinámica de un péndulo con una masa \( M \) al final de una barra rígida pero sin masa de longitud \( R \) es
+    \begin{align}
+        MR\ddot{\theta} + Mg \sin \theta = 0
+    \end{align}
+
+\end{enumerate}
+%--------------------------
+\begin{solution}
+    \textbf{Funciones de Lyapunov:}
+
+    Sea \( V \) una función continua de \( \mathbb{R}^n \) a \( \mathbb{R} \). Llamamos a \( V(x) \) localmente positiva definida (lpd) alrededor de \( x = 0 \) si:
+    \begin{enumerate}
+        \item \( V(0) = 0 \).
+        \item \( V(x) > 0 \) para \( 0 < \|x\| < r \), para algún \( r \).
+    \end{enumerate}
+    De manera similar, la función es llamada localmente positiva semidefinida (lpsd) si en la segunda condición se reemplaza \( V(x) > 0 \) por \( V(x) \geq 0 \).\\\\
+    La función \( V(x) \) es localmente negativa definida (lnd) si \( -V(x) \) es lpd, y localmente negativa semidefinida (lnsd) si \( -V(x) \) es lpsd.\\\\
+    Una buena forma de visualizar una función de Lyapunov lpd es imaginar "contornos" de valores constantes de \( V \), que forman una serie de superficies cerradas concéntricas alrededor del origen.\\\\
+    La derivada de \( V(x) \) a lo largo de una trayectoria del sistema \( \dot{x} = f(x) \) es dada por:
+    
+    \[
+    \dot{V}(x(t)) = \frac{dV(x)}{dx} \dot{x} = \frac{dV(x)}{dx} f(x),
+    \]
+    
+    donde \( \frac{dV(x)}{dx} \) es un vector fila —el gradiente o el Jacobiano de \( V \)— con respecto a \( x \).
+    \subsection*{Resolucion 1.1}
+    Lo primero que se debe analizar del sistema es si es unilateral,eso significa que si la dinamica depende directamente del tiempo en la dinamica del sistema, es decir:
+    \begin{align}
+        \dot{x} = f(x,t)
+    \end{align}
+    Como observamos en la dinamica tenemos que se cumple que 
+    \begin{align}
+        \dot{x} = f(x)
+    \end{align}
+    Luego debemos encontrar proponer una funcion V(X), para nuestro sistema dinamico:
+    \begin{align}
+        \dot{x_{1}} &= -x_{1} + 4x_{2}\\
+        \dot{x_{2}} &= -x_{1} - x_{2}^{3}
+    \end{align}
+    Notamos que el punto de equilibrio se cumple para $x_{1} = 0$ y $x_{2} = 0$, luego tenemos que la funcion de Lyapunov propuesta es:
+    \begin{align}
+        V=x_{1}^{2} + ax_{2}^{2} 
+    \end{align}
+    Donde tenemos que a es una constante positiva, luego vemos ademas que se cumple $V(x)=0$ y que por otro lado $|V(x)| \to \infty \text{ cuando } \|x\| \to \infty. $ con lo que es definida positiva. Sabemos ademas que 
+    \begin{align}
+        \dot{V}(x(t)) = 
+    \end{align}
+    Luego tendremo por tanto que:
+        \begin{align}
+            \dot{V} &= \begin{bmatrix} 2x_1 & 2ax_2 \end{bmatrix} \begin{bmatrix} -x_1 + 4x_2 \\ -x_1 - x_2^3 \end{bmatrix} \\
+            &= -2x_1^2 + (8 - 2a)x_1 x_2 - 2ax_2^4.
+        \end{align}
+    Como a es un parametro libre y queremos que la derivada sea negativa, luego podemos proponer que $a=4$, con lo que se tiene que:
+    \begin{align}
+        \dot{V} = -2x_{1}^{2} - 2x_{2}^{4} < 0
+    \end{align}
+    Luego tenemos que es una funcion enteramente negativa en todo el espacio por lo que se conluye que el sistema asintoticamente estable con respecto al origen x=0
+    \subsection*{Resolucion 1.2}
+    Sea el sistema dado por las ecuaciones:
+    \begin{align}
+        \dot{x} &= \sigma (y - x), \\
+        \dot{y} &= r x - y - x z, \\
+        \dot{z} &= x y - b z.
+    \end{align}
+    Donde \( \sigma \), \( r \) y \( b \) son constantes positivas. Este sistema de ecuaciones proporciona un modelo aproximado de una capa fluida horizontal que es calentada desde abajo. El fluido más caliente asciende desde el fondo y provoca corrientes de convección. Esto es una aproximación de lo que ocurre en la atmósfera. Bajo calentamiento intenso, este modelo exhibe un comportamiento dinámico complejo. Sin embargo, en este ejemplo, queremos analizar la estabilidad del origen bajo la condición \( r < 1 \), que se sabe que no conduce a un comportamiento complejo. Definamos \( V = \alpha_1 x^2 + \alpha_2 y^2 + \alpha_3 z^2 \), donde \( \alpha_1 \), \( \alpha_2 \) y \( \alpha_3 \) son constantes positivas por determinar. Es claro que \( V \) es definida positiva en \( \mathbb{R}^3 \) y es radialmente ilimitada. La derivada de \( V \) a lo largo de las trayectorias del sistema está dada por
+    \begin{align}
+        \dot{V} &= \begin{bmatrix} 2\alpha_1 x & 2\alpha_2 y & 2\alpha_3 z \end{bmatrix} 
+        \begin{bmatrix} 
+        \sigma (y - x) \\ 
+        r x - y - x z \\ 
+        x y - b z 
+        \end{bmatrix} \\
+        &= -2\alpha_1 \sigma x^2 - 2\alpha_2 y^2 - 2\alpha_3 b z^2 \\
+        & \quad + x y (2\alpha_1 \sigma + 2r \alpha_2) + (2\alpha_3 - 2\alpha_2) x y z.
+    \end{align}
+    Ademas es importante notar que el punto de equilibrio se cumple para $x=0$, $y=0$ y $z=0$,debido a la condicion de $r<1$ ademas que se cumple que V(x=0)=0.
+    Si elegimos \( \alpha_2 = \alpha_3 = 1 \) y \( \alpha_1 = \frac{1}{\sigma} \), entonces \( \dot{V} \) se convierte en
+    \begin{align}
+        \dot{V} &= -2 \left( x^2 + y^2 + 2bz^2 - (1 + r)xy \right) \\
+        &= -2 \left[ \left( x - \frac{1}{2}(1 + r)y \right)^2 + \left( 1 - \left( \frac{1 + r}{2} \right)^2 \right)y^2 + b z^2 \right].
+    \end{align}
+Dado que \( 0 < r < 1 \), se deduce que \( 0 < \frac{1 + r}{2} < 1 \) y, por lo tanto, \( \dot{V} \) es definida negativa en todo el espacio de estados \( \mathbb{R}^3 \). Esto implica que el origen es globalmente asintóticamente estable.
+\subsection*{Resolucion 1.3}
+La ecuación dinámica de un péndulo con una masa \( M \) al final de una barra rígida pero sin masa de longitud \( R \) es
+
+\[
+    MR\ddot{\theta} + Mg \sin \theta = 0
+\]
+
+donde \( \theta \) es el ángulo que se forma con la dirección hacia abajo, y \( g \) es la aceleración debido a la gravedad. Para poner el sistema en forma de espacio de estados, tomemos \( x_1 = \theta \) y \( x_2 = \dot{\theta} \); entonces
+
+\begin{align}
+    \dot{x}_1 &= x_2, \\
+    \dot{x}_2 &= -\frac{g}{R} \sin x_1.
+\end{align}
+
+Tomemos como función candidata de Lyapunov la energía total del sistema. Entonces
+
+\begin{align}
+    V(x) &= \frac{1}{2} MR^2 x_2^2 + MgR (1 - \cos x_1) \quad \text{(energía cinética + potencial)}.
+\end{align}
+
+La derivada de \( V(x) \) con respecto al tiempo es
+
+\begin{align}
+    \dot{V} &= \frac{dV}{dx} f(x) = \begin{bmatrix} MgR \sin x_1 & MR^2 x_2 \end{bmatrix} \begin{bmatrix} x_2 \\ -\frac{g}{R} \sin x_1 \end{bmatrix}, \\
+    &= 0.
+\end{align}
+Por lo tanto, \( V \) es una función de Lyapunov y el sistema es estable en el sentido de Lyapunov (i.s.L.). No podemos concluir estabilidad asintótica con este análisis.
+
+
+\end{solution}
+%--------------------------
+\question 
+    \begin{enumerate}
+    \item Sea \( X \) una variable aleatoria discreta tal que \( X \sim \text{Poisson}(\lambda) \), obtenga su esperanza y su varianza.
+    
+    \item Sean \( X_1, X_2, \dots, X_n \) variables aleatorias continuas i.i.d tal que cada una distribuye \( \mathcal{N}(\mu, \sigma^2) \). Obtenga su distribución conjunta.
+    
+    \item \textbf{Propuesto} Sean \( X_1, X_2, \dots, X_n \) variables aleatorias continuas i.i.d tal que cada una distribuye \( \mathcal{N}(\mu, \sigma^2) \). Obtenga la distribución de \( Y = \frac{\sum_{i=1}^{n} X_i - \mu}{\sqrt{n} \cdot \sigma} \).
+\end{enumerate}
+%-----------------------------------
+\begin{solution}
+\subsection*{Resolucion 3.1}
+    Recordar que si \( X \sim \text{poisson}(\lambda) \), se cumple que su función de probabilidad de masas es:
+\[
+p(x) = \frac{e^{-\lambda} \cdot \lambda^x}{x!} \quad \text{para } x \geq 0
+\]
+
+Para obtener la esperanza, usaremos la definición de esta para variables aleatorias discretas:
+\[
+\mathbb{E}(X) = \sum_{x} x \cdot p(x) = \sum_{x=0}^{\infty} x \cdot \frac{e^{-\lambda} \cdot \lambda^x}{x!} = 0 + \sum_{x=1}^{\infty} x \cdot \frac{e^{-\lambda} \cdot \lambda^x}{x!}
+\]
+\[
+= \sum_{x=1}^{\infty} \frac{e^{-\lambda} \cdot \lambda^x}{(x-1)!} = e^{-\lambda} \cdot \lambda \cdot \sum_{x=1}^{\infty} \frac{\lambda^{x-1}}{(x-1)!}
+\]
+
+Realizando el cambio de variable \( u = x - 1 \), se llega a la siguiente igualdad:
+\[
+\mathbb{E}(X) = e^{-\lambda} \cdot \lambda \cdot \sum_{u=0}^{\infty} \frac{\lambda^u}{u!}
+\]
+
+Para poder obtener la esperanza, es necesario recordar la siguiente expresión de la función exponencial (que proviene de las series de Taylor):
+\[
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}
+\]
+
+Como se puede notar, la sumatoria en la expresión obtenida de la esperanza es equivalente a \( e^{\lambda} \) usando la definición previamente mencionada. Con ello:
+\[
+\mathbb{E}(X) = e^{-\lambda} \cdot \lambda \cdot e^{\lambda}
+\implies \mathbb{E}(X) = \lambda
+\]
+
+Para la varianza, usaremos la definición \( \text{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 \). Como ya tenemos el valor de \( \mathbb{E}(X) \), calcularemos \( \mathbb{E}(X^2) \).
+Por definición:
+\[
+\mathbb{E}(X^2) = \sum_x x^2 \cdot p(x) = \sum_{x=0}^{\infty} x^2 \cdot \frac{e^{-\lambda} \cdot \lambda^x}{x!} = 0 + \sum_{x=1}^{\infty} x^2 \cdot \frac{e^{-\lambda} \cdot \lambda^x}{x!}
+\]
+\[
+= \sum_{x=1}^{\infty} \frac{e^{-\lambda} \cdot \lambda^x}{(x-1)!} = e^{-\lambda} \cdot \lambda \cdot \sum_{x=1}^{\infty} \frac{x \cdot \lambda^{x-1}}{(x-1)!}
+\]
+
+Realizando el cambio de variable \( u = x - 1 \), se llega a lo siguiente:
+\[
+\mathbb{E}(X^2) = \sum_{u=0}^{\infty} (u + 1) \cdot \frac{e^{-\lambda} \cdot \lambda^{u+1}}{u!} = \sum_{u=0}^{\infty} u \cdot \frac{e^{-\lambda} \cdot \lambda^{u+1}}{u!} + \sum_{u=0}^{\infty} \frac{e^{-\lambda} \cdot \lambda^{u+1}}{u!}
+\]
+
+Donde:
+\[
+\sum_{u=0}^{\infty} u \cdot \frac{e^{-\lambda} \cdot \lambda^{u+1}}{u!} = \lambda \cdot \sum_{u=0}^{\infty} u \cdot \frac{e^{-\lambda} \cdot \lambda^u}{u!} = \lambda \cdot \mathbb{E}(X) = \lambda^2
+\]
+Y:
+\[
+\sum_{u=0}^{\infty} \frac{e^{-\lambda} \cdot \lambda^{u+1}}{u!} = \lambda \cdot e^{-\lambda} \cdot \sum_{u=0}^{\infty} \frac{\lambda^u}{u!} = \lambda \cdot e^{-\lambda} \cdot e^{\lambda} = \lambda
+\]
+
+Con lo cual se llega a que \( \mathbb{E}(X^2) = \lambda^2 + \lambda \).
+
+Finalmente, se tiene la expresión de la varianza:
+\[
+\text{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = \lambda^2 + \lambda - \lambda^2 = \lambda
+\]
+\subsection*{Resolucion 3.2}
+Sean \( X_1, X_2, ..., X_n \) variables aleatorias continuas \textit{i.i.d.} tal que cada una distribuye \( \mathcal{N}(\mu, \sigma^2) \). Obtenga su distribución conjunta.
+
+Dado que las variables \( X_1, X_2, ..., X_n \) son \textit{i.i.d.}, ocurre que son independientes entre sí y que todas distribuyen \( \mathcal{N}(\mu, \sigma^2) \). Es decir, estamos frente a un vector aleatorio \textit{i.i.d.} y lo pedido es \( f_{X_1, X_2, ..., X_n} \). Dado que son independientes, se tiene la siguiente igualdad:
+\[
+f_{X_1, X_2, ..., X_n} = \prod_{i=0}^{n} f_{X_i}
+\]
+
+Recordando la función de densidad de la distribución normal de media \( \mu \) y varianza \( \sigma^2 \):
+\[
+f_{X_i} = \frac{1}{\sqrt{2\pi} \cdot \sigma} \cdot e^{-\frac{(x_i - \mu)^2}{2\sigma^2}}
+\]
+
+Reemplazamos la función de densidad en la productoria:
+\[
+f_{X_1, X_2, ..., X_n} = \prod_{i=0}^{n} \frac{1}{\sqrt{2\pi} \cdot \sigma} \cdot e^{-\frac{(x_i - \mu)^2}{2\sigma^2}} = \frac{1}{(2\pi)^{n/2} \cdot \sigma^n} \cdot \exp\left(-\frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2\right)
+\]
+
+Luego, la función de probabilidad conjunta depende de la suma de las variables aleatorias del vector:
+\[
+f_{X_1, X_2, ..., X_n} = \frac{1}{(2\pi)^{n/2} \cdot \sigma^n} \cdot \exp\left(-\frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2\right)
+\]
+\subsection*{Resolucion 3.3}
+Sean \( X_1, X_2, ..., X_n \) variables aleatorias continuas \textit{i.i.d.} tal que cada una distribuye \( \mathcal{N}(\mu, \sigma^2) \). Obtenga la distribución de 
+    $
+    Y = \frac{\sum_{i=1}^{n} X_i - \mu}{\sqrt{n} \cdot \sigma}.
+    $
+
+Como la variable \( Y \) es una \textbf{combinación lineal} de distribuciones normales, también distribuirá normal (\textit{propiedad vista en recordatorio}). Con ello, calcularemos la esperanza y su varianza para tener así sus parámetros. Para la esperanza, se tiene:
+\begin{align*}
+\mathbb{E}(Y) &= \mathbb{E}\left( \frac{\sum_{i=1}^{n} X_i - n\mu}{\sqrt{n} \cdot \sigma} \right) \\
+&= \frac{1}{\sqrt{n} \cdot \sigma} \left( \mathbb{E}\left( \sum_{i=1}^{n} X_i \right) - n\mu \right) \\
+&= \frac{1}{\sqrt{n} \cdot \sigma} \cdot \left( \sum_{i=1}^{n} \mathbb{E}(X_i) - n\mu \right) \\
+&= \frac{1}{\sqrt{n} \cdot \sigma} \cdot (n\mu - n\mu) = 0
+\end{align*}
+
+Para la varianza, utilizaremos que son \textit{i.i.d.}, pues si \( X \) e \( Y \) son dos v.a. independientes se cumple que \( \text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) \):
+\[
+\text{Var}(Y) = \text{Var}\left( \frac{\sum_{i=1}^{n} X_i - n\mu}{\sqrt{n} \cdot \sigma} \right) = \frac{1}{n\sigma^2} \text{Var}\left( \sum_{i=1}^{n} X_i - n\mu \right)
+\]
+\[
+= \frac{1}{n\sigma^2} \text{Var}\left( \sum_{i=1}^{n} X_i \right) = \frac{1}{n\sigma^2} \sum_{i=1}^{n} \text{Var}(X_i) = \frac{1}{n\sigma^2} \cdot n \cdot \sigma^2 = 1
+\]
+
+Finalmente, tenemos que \( Y \sim \mathcal{N}(0, 1) \), lo cual significa que se acaba de realizar una estandarización (Le restamos a una variable su media y dividimos la resta por su desviación estándar).
+\end{solution}
+\end{questions}
+\end{document}
