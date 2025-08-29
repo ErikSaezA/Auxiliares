@@ -13,8 +13,6 @@ Durante mi paso por la Universidad he participado activamente en la **docencia u
 
 **Por eso** dejo aquí, de forma abierta, diversos materiales en los que participé junto a los equipos docentes —Auxiliares, presentaciones, **aplicaciones** y **métodos de estudio**— que me fueron útiles a lo largo de mi carrera. Ojalá le sirvan a quienes continúan fortaleciendo la docencia en nuestro departamento. ⚡
 
----
-
 ## Cursos donde participé en el equipo docente
 
 ### Profesor Auxiliar
