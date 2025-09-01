@@ -46,7 +46,7 @@ A continuacion dare una guia detallada de como trabajo a la hora de editar mis d
 [![Overleaf](https://img.shields.io/badge/Overleaf-Editor%20online-44B78B?logo=overleaf&logoColor=white)](https://www.overleaf.com/)
 
 
-**Overleaf** es una gran herramienta, pero por sus **límites de plan gratuito** (p. ej., *compile timeouts* y restricciones de colaboración) y la necesidad de estar **siempre en línea**, opté por trabajar **en local** con **VS Code + LaTeX + Copilot + GitHub**. Así obtienes sugerencias con IA, compilación local (sin límites de tiempo) e integración directa con control de versiones. :contentReference[oaicite:0]{index=0}
+**Overleaf** es una gran herramienta, pero por sus **límites de plan gratuito** (p. ej., *compile timeouts* y restricciones de colaboración) y la necesidad de estar **siempre en línea**, opté por trabajar **en local** con **VS Code + LaTeX + Copilot + GitHub**. Así obtienes sugerencias con IA, compilación local (sin límites de tiempo) e integración directa con control de versiones
 
 ---
 
