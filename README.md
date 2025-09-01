@@ -13,8 +13,6 @@ Durante mi paso por la Universidad he participado activamente en la **docencia u
 
 **Por eso** dejo aquí, de forma abierta, diversos materiales en los que participé junto a los equipos docentes —Auxiliares, presentaciones, **aplicaciones** y **métodos de estudio**— que me fueron útiles a lo largo de mi carrera. Ojalá le sirvan a quienes continúan fortaleciendo la docencia en nuestro departamento. ⚡
 
----
-
 ## Cursos donde participé en el equipo docente
 
 ### Profesor Auxiliar
@@ -48,7 +46,7 @@ A continuacion dare una guia detallada de como trabajo a la hora de editar mis d
 [![Overleaf](https://img.shields.io/badge/Overleaf-Editor%20online-44B78B?logo=overleaf&logoColor=white)](https://www.overleaf.com/)
 
 
-**Overleaf** es una gran herramienta, pero por sus **límites de plan gratuito** (p. ej., *compile timeouts* y restricciones de colaboración) y la necesidad de estar **siempre en línea**, opté por trabajar **en local** con **VS Code + LaTeX + Copilot + GitHub**. Así obtienes sugerencias con IA, compilación local (sin límites de tiempo) e integración directa con control de versiones. :contentReference[oaicite:0]{index=0}
+**Overleaf** es una gran herramienta, pero por sus **límites de plan gratuito** (p. ej., *compile timeouts* y restricciones de colaboración) y la necesidad de estar **siempre en línea**, opté por trabajar **en local** con **VS Code + LaTeX + Copilot + GitHub**. Así obtienes sugerencias con IA, compilación local (sin límites de tiempo) e integración directa con control de versiones
 
 ---
 
