@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Motivación}{3}{0}{1}
+\beamer@sectionintoc {2}{Aspectos Generales del curso}{4}{0}{2}
+\beamer@sectionintoc {3}{Resumen de Conceptos}{6}{0}{3}
+\beamer@sectionintoc {4}{Pregunta 1}{9}{0}{4}
+\beamer@sectionintoc {5}{Pregunta 2}{10}{0}{5}
+\beamer@sectionintoc {6}{Pregunta 3}{11}{0}{6}
