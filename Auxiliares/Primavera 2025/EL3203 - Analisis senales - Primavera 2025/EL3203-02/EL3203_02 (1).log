@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  1 SEP 2025 21:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  1 SEP 2025 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1037,18 +1037,11 @@ Overfull \vbox (13.90994pt too high) detected at line 376
 [9]
 
 [10]
-Overfull \hbox (9.56248pt too wide) in paragraph at lines 496--498
-\OT1/cmr/m/n/10.95 Consideremos el caso causal $\OML/cmm/m/it/10.95 n \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0$, con $\OML/cmm/m/it/10.95 x\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 ] = 0$ para $\OML/cmm/m/it/10.95 n < \OT1/cmr/m/n/10.95 0$ y condi-ciones ini-ciales $\OML/cmm/m/it/10.95 y\OT1/cmr/m/n/10.95 [\OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 1] = \OML/cmm/m/it/10.95 y[]; [] ; y\OT1/cmr/m/n/10.95 [\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 ] =
- []
-
-
 
 [11]
 
 [12]
-
-[13]
-This exam contains 6 questions with 3 parts, 0 subparts, and 0 subsubparts.
+This exam contains 6 questions with 5 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (EL3203_02.aux)
@@ -1060,17 +1053,17 @@ Package rerunfilecheck Info: File `EL3203_02.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60649 strings out of 473903
- 1562986 string characters out of 5727051
+ 60657 strings out of 473903
+ 1563072 string characters out of 5727051
  2342957 words of memory out of 5000000
- 82659 multiletter control sequences out of 15000+600000
- 568809 words of font info for 80 fonts, out of 8000000 for 9000
+ 82670 multiletter control sequences out of 15000+600000
+ 569430 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,16n,101p,874b,1109s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3203_02.pdf (13 pages, 450201 bytes).
+Output written on EL3203_02.pdf (12 pages, 448121 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 135 named destinations out of 1000 (max. 500000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

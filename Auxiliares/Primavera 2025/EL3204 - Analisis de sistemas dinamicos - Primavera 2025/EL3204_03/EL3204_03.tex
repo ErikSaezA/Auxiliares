@@ -1,0 +1,743 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{amsmath} % matrices (pmatrix, vmatrix), etc.
+\usepackage{bm}      % \bm{·} para negrita en modo matemático
+\usepackage{float}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center}
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\
+\large\textbf{Clase auxiliar 3} \\
+\normalsize Prof.~ Marcos Orchard - Sebastián Espinosa.\\
+\normalsize Prof.~Aux.~Erik Sáez
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \question Considere un sistema modelado por la siguiente ecuación diferencial:
+  \begin{equation}
+    \ddot y + 2\dot y - 15 y = u.
+  \end{equation}
+
+  \begin{parts}
+    \part Encuentre la función de transferencia del sistema.
+    \part Formule el sistema en variables de estado.
+    \part Obtenga la MTE del sistema y encuentre las funciones base.
+    \part Encuentre la respuesta al impulso del sistema.
+    \part Determine la estabilidad BIBS y BIBO del sistema.
+  \end{parts}
+%----------------------------------
+\begin{solution}
+  \subsection*{Resolución 1.1}
+  Recordemos que la función de transferencia relaciona la entrada y la salida de un sistema. Es útil trabajar en el dominio de Laplace, pues simplifica los cálculos. Definimos \(H(s)\) tal que
+  \begin{equation}
+    H(s) = \frac{Y(s)}{U(s)}.
+  \end{equation}
+
+  Aplicamos la transformada de Laplace a la ecuación diferencial, asumiendo condiciones iniciales nulas (consideramos la respuesta de estado cero). De este modo,
+  \begin{equation}
+    \mathcal{L}\{\ddot y + 2\dot y - 15 y\}
+    = s^{2}Y(s) + 2sY(s) - 15Y(s) = U(s).
+  \end{equation}
+  Reordenando,
+  \begin{equation}
+    H(s) = \frac{Y(s)}{U(s)} = \frac{1}{s^{2} + 2s - 15}
+    = \frac{1}{(s+5)(s-3)}.
+  \end{equation}
+  \subsection*{Resolución 1.2}
+Para hacer la formulación en variables de estado, utilizaremos dos métodos distintos, cada uno con sus ventajas y desventajas.
+
+\paragraph{Método 1}
+Este primer método tiene la ventaja de permitirnos, de forma relativamente directa, obtener una formulación en variables de estado directamente a partir de la ecuación diferencial. En la ecuación diferencial que modela al sistema, si definimos $x_1 = y$ y $x_2 = \dot{y}$ notemos que tenemos
+\setcounter{equation}{4}
+\begin{equation}
+\dot{x}_2 + 2x_2 - 15x_1 = u \;\Leftrightarrow\; \dot{x}_2 = 15x_1 - 2x_2 + u,
+\end{equation}
+lo cual corresponde a la ecuación diferencial del segundo estado. Para obtener la ecuación diferencial asociada a $x_1$, notemos que, por la forma en que están definidos los estados, se tiene $\dot{x}_1 = x_2$, por lo que el par de ecuaciones diferenciales puede escribirse como
+\begin{equation}
+\begin{gathered}
+\dot{x}_1 = x_2 \\
+\dot{x}_2 = 15x_1 - 2x_2 + u
+\end{gathered}
+\;\;\Leftrightarrow\;\;
+\frac{d}{dt}\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+=
+\begin{pmatrix} 0 & 1 \\[2pt] 15 & -2 \end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
++
+\begin{pmatrix} 0 \\ 1 \end{pmatrix} u,
+\end{equation}
+lo cual, junto con el hecho de que
+\begin{equation}
+y = x_1 = \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix},
+\end{equation}
+corresponde al sistema formulado en variables de estado.
+
+\paragraph{Método 2}
+Como veremos, este método requiere más trabajo para obtener el sistema formulado en variables de estado, pero su ventaja es que reduce bastante trabajo en las siguientes partes. Este método se basa en que, si consideramos un sistema LTI arbitrario de la forma
+\begin{equation}
+\dot{x} = A x + B u
+\end{equation}
+\begin{equation}
+y = C x,
+\end{equation}
+y le aplicamos la transformada de Laplace y reordenamos términos, se verifica que este sistema, en el dominio de Laplace, corresponde a
+\begin{equation}
+X(s) = (sI - A)^{-1} B\, U(s)
+\end{equation}
+\begin{equation}
+Y(s) = C X(s).
+\end{equation}
+
+Así, para encontrar la formulación en variables de estado, podemos manipular los términos en el dominio de Laplace para encontrar $A$, $B$ y $C$ tales que el sistema tenga la forma deseada. Para esto, utilizaremos la función de transferencia, por lo que comenzaremos descomponiéndola en fracciones parciales.
+
+Notemos que el denominador de la función de transferencia se puede factorizar como $s^2 + 2s - 15 = (s-3)(s+5)$, por lo que tenemos
+\begin{equation}
+H(s) = \frac{1}{(s-3)(s+5)}.
+\end{equation}
+Luego, queremos encontrar $\alpha$ y $\beta$ tales que
+\begin{equation}
+H(s) = \frac{\alpha}{s-3} + \frac{\beta}{s+5},
+\end{equation}
+donde, utilizando el método visto en auxiliares anteriores, sabemos que se tiene
+\begin{equation}
+\alpha = \left.\frac{1}{s+5}\right|_{s=3} = \frac{1}{8}
+\end{equation}
+\begin{equation}
+\beta = \left.\frac{1}{s-3}\right|_{s=-5} = -\,\frac{1}{8},
+\end{equation}
+de modo que podemos separar $H(s)$ en fracciones parciales como
+\begin{equation}
+H(s) = \frac{1}{8}\,\frac{1}{s-3} - \frac{1}{8}\,\frac{1}{s+5}.
+\end{equation}
+
+Como $H(s) = \dfrac{Y(s)}{U(s)}$ por definición, se tiene
+\begin{equation}
+Y(s) = \frac{1}{8}\,\frac{U(s)}{s-3} - \frac{1}{8}\,\frac{U(s)}{s+5}.
+\end{equation}
+La idea detrás de este método está en notar que esta expresión puede escribirse, de forma equivalente, como
+\begin{equation}
+Y(s) = \begin{pmatrix} \dfrac{1}{8} & -\dfrac{1}{8} \end{pmatrix}
+\begin{pmatrix}
+\dfrac{U(s)}{s-3} \\[8pt]
+\dfrac{U(s)}{s+5}
+\end{pmatrix}.
+\end{equation}
+
+El motivo de esta reescritura es que, como puede notarse, hemos expresado la salida de forma análoga a la relación $Y(s)=C\,X(s)$, considerando
+\begin{equation}
+C = \begin{pmatrix} \dfrac{1}{8} & -\dfrac{1}{8} \end{pmatrix}
+\qquad
+X(s) =
+\begin{pmatrix}
+\dfrac{U(s)}{s-3} \\[8pt]
+\dfrac{U(s)}{s+5}
+\end{pmatrix},
+\end{equation}
+por lo que ya tenemos uno de los términos ($C$). Luego, para obtener $A$ y $B$, notemos que
+\begin{equation}
+X(s) =
+\begin{pmatrix}
+X_1(s) \\ X_2(s)
+\end{pmatrix}
+=
+\begin{pmatrix}
+\dfrac{U(s)}{s-3} \\[8pt]
+\dfrac{U(s)}{s+5}
+\end{pmatrix},
+\end{equation}
+por lo que, analizando la primera ecuación, tenemos
+\begin{equation}
+X_1(s) = \frac{U(s)}{s-3}.
+\end{equation}
+Si reordenamos los términos, tenemos
+\begin{equation}
+s\,X_1(s) - 3\,X_1(s) = U(s),
+\end{equation}
+y, aplicando transformada inversa (suponiendo $x_1(0)=0$ en este paso de manipulación en Laplace), notando que $sX_1(s)$ corresponde a la derivada de $x_1$, tenemos
+\begin{equation}
+\dot{x}_1 - 3x_1 = u \;\Leftrightarrow\; \dot{x}_1 = 3x_1 + u.
+\end{equation}
+Haciendo este mismo procedimiento para la segunda ecuación, se obtiene
+\begin{equation}
+\dot{x}_2 = -5x_2 + u,
+\end{equation}
+por lo que, juntando ambas ecuaciones diferenciales y añadiendo la expresión para la salida, tenemos
+\begin{equation}
+\frac{d}{dt}\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+=
+\begin{pmatrix} 3 & 0 \\[2pt] 0 & -5 \end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
++
+\begin{pmatrix} 1 \\ 1 \end{pmatrix} u
+\end{equation}
+\begin{equation}
+y = \begin{pmatrix} \dfrac{1}{8} & -\dfrac{1}{8} \end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix},
+\end{equation}
+lo cual corresponde al sistema formulado en variables de estado.
+\subsection*{Resolución 1.3}
+Comencemos calculando la matriz de transición de estados (MTE), ya que obtener las funciones base requiere conocerla.
+Notemos que la MTE por definición se calcula como
+\setcounter{equation}{26}
+\begin{equation}
+\boldsymbol{\Phi}(t)=e^{At}=\mathcal{L}^{-1}\!\left\{(sI-A)^{-1}\right\},
+\end{equation}
+si el sistema es continuo, y como
+\begin{equation}
+\boldsymbol{\Phi}(k)=A^k=\mathcal{Z}^{-1}\!\left\{\,z\,(zI-A)^{-1}\right\}
+\end{equation}
+si el sistema es de tiempo discreto. Dado que en este caso estamos trabajando con derivadas, el
+sistema es de tiempo continuo, por lo que utilizaremos la primera forma.
+
+Notemos que, dependiendo de la forma que utilicemos para formular el sistema en variables de
+estado, la matriz $A$ cambia. Comencemos calculando la MTE para el sistema obtenido con
+el primer método.
+
+\paragraph{Método 1}
+En este caso, tenemos
+\begin{equation}
+A=\begin{pmatrix}
+0 & 1\\
+15 & -2
+\end{pmatrix}.
+\end{equation}
+
+Obtener la exponencial de una matriz es, en general, un procedimiento complicado de realizar directamente. Sin embargo, para hacerlo, consideremos la siguiente propiedad: si tomamos $e^{At}$
+y lo expandimos en su serie de Taylor centrada en 0, tenemos
+\begin{equation}
+e^{At}=\sum_{k\ge 0}\frac{A^k t^k}{k!}.
+\end{equation}
+Si consideramos una diagonalización de $A$ tal que $A=TDT^{-1}$, entonces tenemos
+\begin{equation}
+e^{At}=\sum_{k\ge 0}\frac{(TDT^{-1})^{k}\,t^k}{k!}.
+\end{equation}
+Si expandimos $(TDT^{-1})^{k}$, notemos que, para cada valor de $k$ se tiene
+\begin{equation}
+(TDT^{-1})^{k}=
+\underbrace{TDT^{-1}\cdot TDT^{-1}\cdots TDT^{-1}}_{\text{$k$ veces}},
+\end{equation}
+donde, en cada una de las multiplicaciones, los términos $T^{-1}$ y $T$ se anulan, de modo que se tiene
+\begin{equation}
+(TDT^{-1})^{k}=TD^{k}T^{-1}.
+\end{equation}
+Reemplazando en la expresión de la exponencial, tenemos
+\begin{equation}
+\begin{aligned}
+e^{At}&=\sum_{k\ge 0}(TDT^{-1})^{k}\,\frac{t^k}{k!}
+= T\left(\sum_{k\ge 0}D^{k}\,\frac{t^k}{k!}\right)T^{-1}
+=Te^{Dt}T^{-1},
+\end{aligned}
+\end{equation}
+lo cual simplifica el procedimiento, ya que $e^{Dt}$ es fácil de obtener, dado que corresponde simplemente
+a la exponencial de cada uno de los términos de la diagonal.
+
+Considerando esto, para calcular la MTE comenzaremos diagonalizando $A$, para lo cual debemos
+obtener los valores y vectores propios, dado que, si sabemos que los valores propios son $\lambda_1$ y $\lambda_2$ y los
+vectores propios son $\mathbf{v}_1$ y $\mathbf{v}_2$, entonces $T$ y $D$ pueden ser expresados como
+\begin{equation}
+T=\big(\,\mathbf{v}_1\;\;\mathbf{v}_2\,\big)
+\qquad
+D=\begin{pmatrix}
+\lambda_1 & 0\\
+0 & \lambda_2
+\end{pmatrix}.
+\end{equation}
+
+Calculando los valores propios, tenemos
+\begin{equation}
+\lvert A-\lambda I\rvert=
+\begin{vmatrix}
+-\lambda & 1\\
+15 & -2-\lambda
+\end{vmatrix}
+\end{equation}
+\begin{equation}
+= \lambda^2+2\lambda-15=0
+\end{equation}
+\begin{equation}
+\Rightarrow \;\lambda_1=3,\;\lambda_2=-5,
+\end{equation}
+por lo que podemos expresar $D$ como
+\begin{equation}
+D=\begin{pmatrix}
+3 & 0\\
+0 & -5
+\end{pmatrix}.
+\end{equation}
+
+Ahora, calculemos los vectores propios. Para el vector propio asociado al primer valor propio,
+buscamos $\mathbf{v}_1$ tal que
+\begin{equation}
+(A-\lambda_1 I)\,\mathbf{v}_1=\mathbf{0}.
+\end{equation}
+Expresando esta relación, tenemos
+\begin{equation}
+\begin{pmatrix}
+-3 & 1\\
+15 & -2-3
+\end{pmatrix}
+\begin{pmatrix}
+x\\ y
+\end{pmatrix}
+=
+\begin{pmatrix}
+0\\ 0
+\end{pmatrix},
+\end{equation}
+lo cual puede ser expresado como el sistema de ecuaciones
+\begin{equation}
+-3x+y=0
+\end{equation}
+\begin{equation}
+15x-5y=0,
+\end{equation}
+podemos notar que ambas ecuaciones son linealmente dependientes, por lo que no existe una
+solución única, sino que hay infinitas soluciones. Sin embargo, para la obtención de los vectores
+propios basta con tener \emph{alguna} solución, por lo que fijaremos $x=1$ y encontraremos el $y$
+que lo satisfaga; de donde vemos que $y=3$, por lo que
+\begin{equation}
+\mathbf{v}_1=\begin{pmatrix}1\\ 3\end{pmatrix}.
+\end{equation}
+Si repetimos este procedimiento para el segundo vector propio, se obtiene
+\begin{equation}
+\mathbf{v}_2=\begin{pmatrix}1\\ -5\end{pmatrix},
+\end{equation}
+por lo que $T$ está dada por
+\begin{equation}
+T=\begin{pmatrix}
+1 & 1\\
+3 & -5
+\end{pmatrix}.
+\end{equation}
+
+Por último, para tener la diagonalización, nos falta el término $T^{-1}$, lo cual requiere invertir
+la matriz. Este procedimiento es la parte más compleja del desarrollo, ya que, para matrices grandes,
+encontrar la inversa es algo no trivial y que requiere bastante desarrollo. Sin embargo, para el caso en que
+tenemos matrices $2\times 2$, es un poco más sencillo, dado que hay un resultado conocido que nos ayuda:
+si tenemos una matriz $M$ de la forma
+\begin{equation}
+M=\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix},
+\end{equation}
+entonces su inversa es conocida y está dada por
+\begin{equation}
+M^{-1}=\frac{1}{|M|}
+\begin{pmatrix}
+d & -b\\
+-c & a
+\end{pmatrix}.
+\end{equation}
+Así, reemplazando los valores que tenemos en $T$, podemos ver que la inversa corresponde a
+\begin{equation}
+T^{-1}=\begin{pmatrix}
+\frac{5}{8} & \frac{1}{8}\\[4pt]
+\frac{3}{8} & -\frac{1}{8}
+\end{pmatrix}.
+\end{equation}
+
+Finalmente, tenemos todos los componentes para poder obtener la MTE. Dado que $D$ es diagonal,
+sabemos que se tiene
+\begin{equation}
+e^{Dt}=\begin{pmatrix}
+e^{3t} & 0\\
+0 & e^{-5t}
+\end{pmatrix},
+\end{equation}
+por lo que la MTE está dada por
+\begin{equation}
+\boldsymbol{\Phi}(t)=e^{At}
+\end{equation}
+\begin{equation}
+=Te^{Dt}T^{-1}
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}
+1 & 1\\
+3 & -5
+\end{pmatrix}
+\begin{pmatrix}
+e^{3t} & 0\\
+0 & e^{-5t}
+\end{pmatrix}
+\begin{pmatrix}
+\frac{5}{8} & \frac{1}{8}\\[4pt]
+\frac{3}{8} & -\frac{1}{8}
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}
+\frac{5}{8}e^{3t}+\frac{3}{8}e^{-5t} &
+\frac{1}{8}e^{3t}-\frac{1}{8}e^{-5t}\\[4pt]
+\frac{15}{8}e^{3t}-\frac{15}{8}e^{-5t} &
+\frac{3}{8}e^{3t}+\frac{5}{8}e^{-5t}
+\end{pmatrix}.
+\end{equation}
+
+Como podemos ver, al usar el método 1 para formular el sistema en variables de estado, el desarrollo
+que debemos hacer para encontrar la MTE es bastante complejo (especialmente para matrices
+de alta dimensionalidad), es propenso a errores de cálculo, y la expresión que obtenemos finalmente
+para la MTE es compleja y tiene múltiples términos, lo cual dificulta utilizarla posteriormente para
+el cálculo de otras cantidades importantes para un sistema LTI.
+
+\paragraph{Método 2}
+Ahora, consideremos el sistema formulado con el segundo método. Como podemos ver,
+en este caso tenemos
+\begin{equation}
+A=\begin{pmatrix}
+3 & 0\\
+0 & -5
+\end{pmatrix}.
+\end{equation}
+Dado que $A$ es diagonal, obtener la MTE es sencillo, ya que no requiere diagonalizar: en particular,
+tenemos
+\begin{equation}
+\boldsymbol{\Phi}(t)=e^{At}=
+\begin{pmatrix}
+e^{3t} & 0\\
+0 & e^{-5t}
+\end{pmatrix}.
+\end{equation}
+
+Como podemos ver, hacer el esfuerzo al comienzo de formular el sistema en variables de estado dejando
+$A$ diagonal nos ahorra muchísimo trabajo al calcular la MTE y, además, hace que esta
+muestra una forma más sencilla de trabajar. Por esto, si tienen la oportunidad de elegir qué
+método utilizar, la recomendación es utilizar el segundo método. Desde este punto, consideraremos
+el resultado de este segundo método para los cálculos, dado que simplifica los desarrollos.
+
+Teniendo la MTE, podemos proceder a obtener las funciones base. Para esto, debemos tener en
+cuenta que las funciones base $\phi_i(t)$ son las componentes linealmente independientes de la
+respuesta a entrada cero, por lo que el desarrollo se reduce a expresar dicha respuesta y
+luego extraer las componentes linealmente independientes.
+
+Para esto, podemos utilizar la propiedad conocida de que, para un sistema LTI, la respuesta a
+entrada cero está dada por
+\begin{equation}
+y_0(t)=C\,\boldsymbol{\Phi}(t)\,x(0),
+\end{equation}
+donde $x(0)$ corresponde a las condiciones iniciales. Reemplazando las matrices conocidas y considerando
+condiciones iniciales arbitrarias no nulas, tenemos
+\begin{equation}
+y_0(t)=\begin{pmatrix}\frac{1}{8} & -\frac{1}{8}\end{pmatrix}
+\begin{pmatrix}
+e^{3t} & 0\\
+0 & e^{-5t}
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\ x_2
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=\frac{x_1}{8}\,e^{3t}-\frac{x_2}{8}\,e^{-5t}.
+\end{equation}
+
+Podemos ver que, en la expresión anterior, los términos que acompañan a las exponenciales
+son constantes (las condiciones iniciales, pese a ser arbitrarias, son constantes), por lo que las componentes
+linealmente independientes corresponden únicamente a las exponenciales: es decir, las funciones
+base están dadas por
+\begin{equation}
+\boldsymbol{\phi}(t)=
+\begin{pmatrix}
+e^{3t}\\
+e^{-5t}
+\end{pmatrix}.
+\end{equation}
+\subsection*{Resolución 1.4}
+Para un sistema LTI continuo sin término directo ($D=0$), la respuesta al impulso está dada por
+\begin{equation}
+  h(t) = C\,\boldsymbol{\Phi}(t)\,B.
+\end{equation}
+Usando la realización del Método 2, con
+$A=\begin{pmatrix}3&0\\0&-5\end{pmatrix}$, $B=\begin{pmatrix}1\\1\end{pmatrix}$ y
+$C=\begin{pmatrix}\tfrac{1}{8} & -\tfrac{1}{8}\end{pmatrix}$, y
+$\boldsymbol{\Phi}(t)=\operatorname{diag}(e^{3t},e^{-5t})$, se obtiene
+\begin{equation}
+  h(t) = \tfrac{1}{8}e^{3t} - \tfrac{1}{8}e^{-5t},\quad t\ge 0.
+\end{equation}
+Obsérvese que este resultado es independiente de la realización elegida (Método 1 o 2).
+\subsection*{Resolución 1.5}
+El principal punto a tener en mente a la hora de analizar la estabilidad es que, si un sistema es BIBS estable, entonces es estable ante cualquier otra noción de estabilidad. Esto hace que la recomendación general sea comenzar verificando la estabilidad BIBS y, si el sistema no es BIBS-estable, verificar el resto de criterios de estabilidad.
+
+\paragraph*{BIBS}
+Para que el sistema sea BIBS-estable, para un sistema de tiempo continuo se debe cumplir que $\forall \lambda \in \mathrm{eig}(A)$, $\mathrm{Re}\{\lambda\}\le 0$, mientras que para un sistema de tiempo discreto se debe cumplir que $\forall \lambda \in \mathrm{eig}(A)$, $|\lambda|\le 1$. Es importante mencionar que estas nociones de estabilidad vienen del hecho de que los polos de un sistema continuo corresponden a polos en el dominio de Laplace, mientras que los polos de un sistema discreto son polos en el dominio $\mathcal{Z}$, por lo que el criterio depende de las regiones de convergencia de cada uno de los dominios (semiplano negativo para dominio de Laplace, círculo unitario para dominio Z).
+
+En este caso, dado que $A$ es diagonal, podemos ver rápidamente que los polos son $\lambda_1=3$ y $\lambda_2=-5$. Dado que el sistema es a tiempo continuo, debemos verificar que las partes reales sean negativas: en este caso, podemos ver que $\mathrm{Re}\{\lambda_1\}=3>0$, por lo que el sistema no es BIBS-estable.
+
+\paragraph*{BIBO}
+Dado que el sistema no es BIBS-estable, debemos verificar estabilidad BIBO. Para que un sistema sea BIBO-estable se debe cumplir que
+\setcounter{equation}{62}
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt < \infty,
+\end{equation}
+si el sistema es de tiempo continuo, o que
+\begin{equation}
+\sum_{k\ge 0} |h(k)| < \infty,
+\end{equation}
+si el sistema es de tiempo discreto. Dado que en este caso el sistema es de tiempo continuo, utilicemos la primera forma presentada. Considerando la respuesta al impulso que fue calculada anteriormente, notemos que
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt
+=\int_{0}^{\infty} \left| \frac{1}{8}e^{3t}-\frac{1}{8}e^{-5t} \right| dt.
+\end{equation}
+
+Como podemos ver, dentro de la respuesta al impulso aparece el término $e^{3t}$, el cual diverge a medida que $t\to\infty$. Esto hace que la integral diverja, de modo que $\int_{0}^{\infty} |h(t)|\,dt=\infty$, por lo que el sistema tampoco es BIBO-estable.
+
+	extit{(Nota)} En una evaluación, basta con dar el argumento anterior para concluir que el sistema no es BIBO-estable. A continuación, se justifica brevemente la divergencia de la integral.
+
+Para justificar rigurosamente la divergencia, notemos que se tiene la propiedad de que, para cualquier función $f:\mathbb{R}\to\mathbb{R}$ integrable, se cumple
+\begin{equation}
+\left|\int_{a}^{b} f(t)\,dt\right|
+\le
+\int_{a}^{b} |f(t)|\,dt,
+\end{equation}
+lo cual es una generalización de la desigualdad triangular. Si aplicamos esto a nuestro problema, tenemos
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt
+\ge
+\left|\int_{0}^{\infty} h(t)\,dt\right|,
+\end{equation}
+lo cual nos entrega una cota inferior para la integral deseada. Reemplazando la respuesta al impulso en esta cota, tenemos
+\begin{equation}
+\left|\int_{0}^{\infty} h(t)\,dt\right|
+=
+\left|\int_{0}^{\infty} \left(\frac{1}{8}e^{3t}-\frac{1}{8}e^{-5t}\right) dt \right|
+\end{equation}
+\begin{equation}
+=
+\left|\frac{1}{8}\int_{0}^{\infty} e^{3t} dt - \frac{1}{8}\int_{0}^{\infty} e^{-5t} dt \right|
+\end{equation}
+\begin{equation}
+=\left| \infty \right|
+\end{equation}
+\begin{equation}
+=\infty,
+\end{equation}
+donde la divergencia proviene de que la integral de $e^{3t}$ diverge. Como $\int_{0}^{\infty} |h(t)|\,dt \ge \left|\int_{0}^{\infty} h(t)\,dt\right| = \infty$, concluimos que $\int_{0}^{\infty} |h(t)|\,dt$ diverge; por tanto, el sistema no es BIBO-estable.
+\end{solution}
+%-----------------------
+\question Considere el siguiente sistema formulado en variables de estado:
+\begin{equation}
+  \dot{x}(t) =
+  \begin{pmatrix}
+    -2 & 1 & 0 & 0 \\
+     0 & -2 & 1 & 0 \\
+     0 &  0 & -2 & 0 \\
+     0 &  0 &  0 & 1
+  \end{pmatrix} x(t)
+  +
+  \begin{pmatrix}
+    1 \\
+    2 \\
+    3 \\
+    0
+  \end{pmatrix} u(t),
+  \qquad
+  y(t) = \begin{pmatrix} 1 & 0 & 1 & 1 \end{pmatrix} x(t).
+\end{equation}
+
+\begin{parts}
+  \part Encuentre la MTE y las funciones base del sistema.
+  \part Encuentre la respuesta al impulso del sistema.
+  \part Determine estabilidad BIBS y BIBO.
+  \part Determine observabilidad y controlabilidad.
+\end{parts}
+\begin{solution}
+  \subsection*{Resolucion 2.1}
+  Dado que $A$ está en forma canónica de Jordan, calcular la MTE dada por
+\setcounter{equation}{2}
+\begin{equation}
+\bm{\Phi}(t)=e^{At}
+\end{equation}
+es sencillo. Para hacerlo, debemos considerar dos propiedades importantes que se cumplen con la forma canónica de Jordan:
+
+\medskip
+\noindent\textbf{1.} Para una matriz de $n\times n$ en forma canónica de Jordan ``pura'', de la forma
+\begin{equation}
+J:=\begin{pmatrix}
+\lambda & 1 & 0 & 0 & \cdots & 0 & 0\\
+0 & \lambda & 1 & 0 & \cdots & 0 & 0\\
+0 & 0 & \lambda & 1 & \cdots & 0 & 0\\
+0 & 0 & 0 & \lambda & \cdots & 1 & 0\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & 0 & \cdots & \lambda & 1\\
+0 & 0 & 0 & 0 & \cdots & 0 & \lambda
+\end{pmatrix},
+\end{equation}
+donde es importante notar que la diagonal está compuesta por $n$ elementos iguales y la diagonal inmediatamente arriba está compuesta de $n-1$ unos, se cumple que la exponencial tiene la siguiente forma
+\begin{equation}
+e^{J}=
+\begin{pmatrix}
+e^{\lambda} & t\,e^{\lambda} & \tfrac{t^{2}}{2!}e^{\lambda} & \tfrac{t^{3}}{3!}e^{\lambda} & \cdots & \tfrac{t^{n-1}}{(n-1)!}e^{\lambda}\\
+0 & e^{\lambda} & t\,e^{\lambda} & \tfrac{t^{2}}{2!}e^{\lambda} & \cdots & \tfrac{t^{n-2}}{(n-2)!}e^{\lambda}\\
+0 & 0 & e^{\lambda} & t\,e^{\lambda} & \cdots & \tfrac{t^{n-3}}{(n-3)!}e^{\lambda}\\
+\vdots & \vdots & \vdots & \ddots & \ddots & \vdots\\
+0 & 0 & 0 & \cdots & e^{\lambda} & t\,e^{\lambda}\\
+0 & 0 & 0 & \cdots & 0 & e^{\lambda}
+\end{pmatrix},
+\end{equation}
+donde podemos notar que cada valor corresponde a los elementos de la serie de Taylor de la exponencial, y que, a lo largo de cada diagonal, los elementos son iguales.
+
+\medskip
+\noindent\textbf{2.} Para una matriz $M$ Jordan por bloques, de la forma
+\begin{equation}
+M:=\begin{pmatrix}
+J_1 & 0 & \cdots & 0\\
+0 & J_2 & \cdots & 0\\
+0 & 0 & \cdots & J_n
+\end{pmatrix},
+\end{equation}
+con $J_i$ matrices en forma canónica de Jordan pura, la exponencial se aplica a cada bloque por separado. Es decir, tenemos
+\begin{equation}
+e^{M}:=\begin{pmatrix}
+e^{J_1} & 0 & \cdots & 0\\
+0 & e^{J_2} & \cdots & 0\\
+0 & 0 & \cdots & e^{J_n}
+\end{pmatrix}.
+\end{equation}
+
+Apliquemos estas dos propiedades a la matriz $A$ de nuestro sistema. Para esto, notemos que está compuesta de dos bloques de Jordan de la forma
+\begin{equation}
+A_1:=\begin{pmatrix}
+-2 & 1 & 0\\
+0 & -2 & 1\\
+0 & 0 & -2
+\end{pmatrix}
+\qquad
+A_2:=\begin{pmatrix}1\end{pmatrix},
+\end{equation}
+los cuales entregan
+\begin{equation}
+e^{A_1 t}:=\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t}\\
+0 & e^{-2t} & t e^{-2t}\\
+0 & 0 & e^{-2t}
+\end{pmatrix}
+\qquad
+e^{A_2 t}:=\begin{pmatrix} e^{t}\end{pmatrix}.
+\end{equation}
+
+De esto, componiendo ambas componentes en la MTE original, tenemos
+\begin{equation}
+\boxed{\;
+\bm{\Phi}(t)=
+\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t} & 0\\
+0 & e^{-2t} & t e^{-2t} & 0\\
+0 & 0 & e^{-2t} & 0\\
+0 & 0 & 0 & e^{t}
+\end{pmatrix}
+\; }.
+\end{equation}
+
+Para encontrar las funciones base, debemos encontrar las componentes linealmente independientes de la respuesta a entrada cero (RENC). Para calcular la RENC, tenemos
+\begin{equation}
+y_{0}(t)=C\,\bm{\Phi}(t)\,x_{0}
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}1 & 0 & 1 & 1\end{pmatrix}
+\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t} & 0\\
+0 & e^{-2t} & t e^{-2t} & 0\\
+0 & 0 & e^{-2t} & 0\\
+0 & 0 & 0 & e^{t}
+\end{pmatrix}
+\begin{pmatrix}x_{1}\\ x_{2}\\ x_{3}\\ x_{4}\end{pmatrix}
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t}+e^{-2t} & e^{t}
+\end{pmatrix}
+\begin{pmatrix}x_{1}\\ x_{2}\\ x_{3}\\ x_{4}\end{pmatrix}
+\end{equation}
+\begin{equation}
+= x_{1}e^{-2t} + x_{2}\,t e^{-2t} + \frac{x_{3}}{2}\, t^{2} e^{-2t} + x_{3} e^{-2t} + x_{4} e^{t}.
+\end{equation}
+
+Luego, podemos identificar que las funciones base corresponden a
+\begin{equation}
+\boxed{\;\phi=\{\,e^{-2t},\; t e^{-2t},\; t^{2} e^{-2t},\; e^{t}\,\}\;}
+\end{equation}
+donde es importante notar que los términos $t^{n}$ son parte de las funciones base, ya que no son términos constantes.
+\subsection*{Resolución 2.2}
+
+Para encontrar la respuesta al impulso, encontremos una expresión general para poder obtenerla.
+Para esto, apliquemos la transformada de Laplace sobre la ecuación diferencial del sistema
+\setcounter{equation}{15}
+\begin{equation}
+\dot{x}=Ax+Bu
+\;\xrightarrow{\ \mathcal{L}\{\}\ }\;
+sX(s)=AX(s)+BU(s),
+\end{equation}
+de donde podemos despejar $X(s)=(sI-A)^{-1}BU(s)$. Luego, considerando la ecuación de la salida, tenemos
+\begin{equation}
+y=Cx
+\;\xrightarrow{\ \mathcal{L}\{\}\ }\;
+Y(s)=CX(s)=C(sI-A)^{-1}BU(s).
+\end{equation}
+
+Si ahora consideramos que $\mathcal{L}\{\delta(t)\}=1$, podemos ver que cuando $u(t)=\delta(t)$ (ya que estamos interesados en analizar la respuesta al impulso) se tiene $U(s)=1$, por lo que la salida en el dominio de Laplace está dada por
+\begin{equation}
+H(s)=CX(s)=C(sI-A)^{-1}B,
+\end{equation}
+donde $H(s)$ corresponde a la salida, la cual se renombra para ser consistente con la nomenclatura usual (donde $h(t)$ es la respuesta al impulso). De esto, podemos aplicar la inversa de Laplace para obtener la respuesta en el dominio del tiempo, considerando que $C$ y $B$ son constantes, por lo que salen de la antitransformada.
+
+Aplicando esto, tenemos
+\begin{equation}
+h(t)=C\,\mathcal{L}^{-1}\!\left\{(sI-A)^{-1}\right\}B
+= C\,\bm{\Phi}(t)\,B,
+\end{equation}
+donde usamos el hecho de que $\bm{\Phi}(t)=\mathcal{L}^{-1}\!\left\{(sI-A)^{-1}\right\}$ es un resultado conocido. Utilizando esta ecuación en el sistema que estamos analizando, tenemos
+\begin{equation}
+h(t)=C\bm{\Phi}(t)B
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}1&0&1&1\end{pmatrix}
+\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \dfrac{t^{2}}{2}e^{-2t} & 0\\
+0 & e^{-2t} & t e^{-2t} & 0\\
+0 & 0 & e^{-2t} & 0\\
+0 & 0 & 0 & e^{t}
+\end{pmatrix}
+\begin{pmatrix}
+1\\ 2\\ 3\\ 0
+\end{pmatrix},
+\end{equation}
+\begin{equation}
+=\begin{pmatrix}
+e^{-2t} & t e^{-2t} & \dfrac{t^{2}}{2}e^{-2t}+e^{-2t} & e^{t}
+\end{pmatrix}
+\begin{pmatrix}
+1\\ 2\\ 3\\ 0
+\end{pmatrix},
+\end{equation}
+\begin{equation}
+= e^{-2t}+2t e^{-2t}+\frac{3}{2}t^{2}e^{-2t}+3e^{-2t}
+= 4e^{-2t}+2t e^{-2t}+\frac{3}{2}t^{2}e^{-2t},
+\end{equation}
+\begin{equation}
+\boxed{\,h(t)=4e^{-2t}+2t e^{-2t}+\frac{3}{2}t^{2}e^{-2t}\,}.
+\end{equation}
+
+donde podemos notar el hecho de que el término $e^{t}$ no aparece dentro de la respuesta al impulso\textsuperscript{1}.
+
+\end{solution}
+\end{questions}
+\end{document}
