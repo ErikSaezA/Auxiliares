@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756837472.85353 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_03/EL3204_03.tex" "EL3204_03.pdf" "EL3204_03" 1756837478.29489 0
+["pdflatex"] 1756915483.39763 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_03/EL3204_03.tex" "EL3204_03.pdf" "EL3204_03" 1756915489.72611 0
   "../aas_macros.sty" 1756817419 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1756817419 2282 67423f5bf846307bd339f448d9ebb19d ""
   "../fcfm_die.pdf" 1756817419 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -313,10 +313,10 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1742126431 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "EL3204_03.aux" 1756837477 4816 facfb6f2574f13e263c320296e361832 "pdflatex"
-  "EL3204_03.out" 1756837476 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3204_03.tex" 1756837471 43586 ac97572344f10122f7456b42b6a40753 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_03/EL3204_03.tex" 1756837471 43586 ac97572344f10122f7456b42b6a40753 ""
+  "EL3204_03.aux" 1756915488 4589 c6927e05c661822a68d741d3095355a3 "pdflatex"
+  "EL3204_03.out" 1756915487 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3204_03.tex" 1756915476 43575 c5d0b8771322877ace9985c4a851c68c ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_03/EL3204_03.tex" 1756915476 43575 c5d0b8771322877ace9985c4a851c68c ""
   (generated)
   "EL3204_03.aux"
   "EL3204_03.log"
