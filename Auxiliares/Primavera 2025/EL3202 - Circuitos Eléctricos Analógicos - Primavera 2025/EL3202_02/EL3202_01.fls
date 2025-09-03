@@ -1,6 +1,6 @@
-PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\[EL3202] Circuitos Eléctricos Analógicos - Primavera 2025\EL3202_02
+PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025\EL3202_02
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\[EL3202] Circuitos Eléctricos Analógicos - Primavera 2025\EL3202_02\EL3202_01.tex
+INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025\EL3202_02\EL3202_01.tex
 OUTPUT EL3202_01.log
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
@@ -488,7 +488,6 @@ INPUT ..\figures\Auxiliar_2_5.jpg
 INPUT ..\figures\Auxiliar_2_5.jpg
 INPUT ..\figures\Auxiliar_2_5.jpg
 INPUT ..\figures\Auxiliar_2_5.jpg
-INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT ..\figures\Auxiliar_2_6.png
 INPUT ..\figures\Auxiliar_2_6.png
 INPUT ..\figures\Auxiliar_2_6.png
@@ -537,6 +536,7 @@ INPUT ..\figures\Auxiliar_2_1.png
 INPUT ..\figures\Auxiliar_2_1.png
 INPUT ..\figures\Auxiliar_2_1.png
 INPUT ..\figures\Auxiliar_2_1.png
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT ..\figures\Auxiliar_2_2.png
 INPUT ..\figures\Auxiliar_2_2.png
 INPUT ..\figures\Auxiliar_2_2.png
@@ -558,37 +558,17 @@ INPUT ..\figures\Auxiliar_2_12.png
 INPUT EL3202_01.aux
 INPUT .\EL3202_01.out
 INPUT .\EL3202_01.out
-INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
-INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr7.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  31 AUG 2025 13:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  2 SEP 2025 21:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/[EL3202] Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_02/EL3202_01.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/[EL3202] Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_02/EL3202_01.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_02/EL3202_01.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_02/EL3202_01.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
@@ -105,7 +105,7 @@ File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \exam@FrameRule=\dimen143
 \exam@FrameSep=\dimen144
 ) (../exercise-preamble.sty
-Package: ../exercise-preamble 2023/04/30 Prof. Cassanelli custom LaTeX style
+Package: ../exercise-preamble 2023/01/01 v1.0 Exercise preamble
  (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
@@ -827,12 +827,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip95
 )
-Package hyperref Info: Option `unicode' set `true' on input line 76.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 76.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 76.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 76.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 76.
-Package hyperref Info: Option `colorlinks' set `true' on input line 76.
+Package hyperref Info: Option `unicode' set `true' on input line 80.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 80.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 80.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 80.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 80.
+Package hyperref Info: Option `colorlinks' set `true' on input line 80.
  (C:\Program Files\MiKTeX\tex/latex/cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
@@ -975,128 +975,103 @@ $[]$ $[]$
 File: ../figures/Auxiliar_2_3.png Graphic file (type png)
 <use ../figures/Auxiliar_2_3.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_3.png  used on input line 49.
-(pdftex.def)             Requested size: 392.53755pt x 231.44456pt.
-<../figures/Auxiliar_2_4.png, id=10, 442.65375pt x 318.43968pt>
+(pdftex.def)             Requested size: 423.151pt x 249.49971pt.
+
+LaTeX Warning: Reference `fig:impurezas' on page 1 undefined on input line 54.
+
+<../figures/Auxiliar_2_4.png, id=9, 442.65375pt x 318.43968pt>
 File: ../figures/Auxiliar_2_4.png Graphic file (type png)
 <use ../figures/Auxiliar_2_4.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_4.png  used on input line 93.
-(pdftex.def)             Requested size: 343.46754pt x 247.09918pt.
-<../figures/Auxiliar_2_5.jpg, id=12, 639.89063pt x 219.82124pt>
+(pdftex.def)             Requested size: 370.2541pt x 266.36993pt.
+
+LaTeX Warning: Reference `fig:generacion_termica' on page 1 undefined on input line 98.
+
+<../figures/Auxiliar_2_5.jpg, id=10, 639.89063pt x 219.82124pt>
 File: ../figures/Auxiliar_2_5.jpg Graphic file (type jpg)
 <use ../figures/Auxiliar_2_5.jpg>
 Package pdftex.def Info: ../figures/Auxiliar_2_5.jpg  used on input line 112.
-(pdftex.def)             Requested size: 392.53755pt x 134.8488pt.
+(pdftex.def)             Requested size: 423.151pt x 145.36757pt.
 
-Underfull \vbox (badness 3449) detected at line 173
- []
+LaTeX Warning: Reference `fig:fermi' on page 1 undefined on input line 116.
 
+
+LaTeX Warning: Reference `fig:bandas_temp' on page 1 undefined on input line 193.
+
+<../figures/Auxiliar_2_6.png, id=11, 518.93875pt x 344.28625pt>
+File: ../figures/Auxiliar_2_6.png Graphic file (type png)
+<use ../figures/Auxiliar_2_6.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_6.png  used on input line 197.
+(pdftex.def)             Requested size: 317.36526pt x 210.5659pt.
+
+LaTeX Warning: Reference `fig:tipo_n' on page 1 undefined on input line 277.
+
+File: ../figures/Auxiliar_2_6.png Graphic file (type png)
+<use ../figures/Auxiliar_2_6.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_6.png  used on input line 281.
+(pdftex.def)             Requested size: 264.46837pt x 175.46808pt.
+
+LaTeX Warning: Reference `fig:tabla_periodica' on page 1 undefined on input line 302.
+
+<../figures/Auxiliar_2_8.png, id=14, 715.67375pt x 355.3275pt>
+File: ../figures/Auxiliar_2_8.png Graphic file (type png)
+<use ../figures/Auxiliar_2_8.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_8.png  used on input line 305.
+(pdftex.def)             Requested size: 423.151pt x 210.0914pt.
+
+LaTeX Warning: Reference `fig:tabla_periodica' on page 1 undefined on input line 309.
+
+
+LaTeX Warning: Reference `fig:concentraciones_pn' on page 1 undefined on input line 364.
+
+<../figures/Auxiliar_2_9.png, id=15, 766.865pt x 311.1625pt>
+File: ../figures/Auxiliar_2_9.png Graphic file (type png)
+<use ../figures/Auxiliar_2_9.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_9.png  used on input line 368.
+(pdftex.def)             Requested size: 423.151pt x 171.70016pt.
+
+LaTeX Warning: Reference `fig:bandas_pn' on page 1 undefined on input line 375.
+
+<../figures/Auxiliar_2_10.png, id=16, 612.2875pt x 383.4325pt>
+File: ../figures/Auxiliar_2_10.png Graphic file (type png)
+<use ../figures/Auxiliar_2_10.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_10.png  used on input line 391.
+(pdftex.def)             Requested size: 423.151pt x 264.98996pt.
+<../figures/Auxiliar_2_1.png, id=17, 640.3925pt x 276.03125pt>
+File: ../figures/Auxiliar_2_1.png Graphic file (type png)
+<use ../figures/Auxiliar_2_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_2_1.png  used on input line 399.
+(pdftex.def)             Requested size: 370.2541pt x 159.5928pt.
 
 
 [1
 
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
-
-[2 <../figures/Auxiliar_2_3.png>]
-
-[3 <../figures/Auxiliar_2_4.png>]
-
-[4 <../figures/Auxiliar_2_5.jpg>]
-
-[5]
-<../figures/Auxiliar_2_6.png, id=77, 518.93875pt x 344.28625pt>
-File: ../figures/Auxiliar_2_6.png Graphic file (type png)
-<use ../figures/Auxiliar_2_6.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_6.png  used on input line 197.
-(pdftex.def)             Requested size: 294.40503pt x 195.3311pt.
-
-
-[6 <../figures/Auxiliar_2_6.png (PNG copy)>]
-File: ../figures/Auxiliar_2_6.png Graphic file (type png)
-<use ../figures/Auxiliar_2_6.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_6.png  used on input line 281.
-(pdftex.def)             Requested size: 245.33504pt x 162.77066pt.
-
-
-[7]
-Underfull \vbox (badness 1953) detected at line 289
- []
-
-
-Underfull \vbox (badness 1867) detected at line 289
- []
-
-
-
-[8]
-<../figures/Auxiliar_2_8.png, id=125, 715.67375pt x 355.3275pt>
-File: ../figures/Auxiliar_2_8.png Graphic file (type png)
-<use ../figures/Auxiliar_2_8.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_8.png  used on input line 305.
-(pdftex.def)             Requested size: 392.53755pt x 194.89395pt.
-<../figures/Auxiliar_2_9.png, id=128, 766.865pt x 311.1625pt>
-File: ../figures/Auxiliar_2_9.png Graphic file (type png)
-<use ../figures/Auxiliar_2_9.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_9.png  used on input line 368.
-(pdftex.def)             Requested size: 392.53755pt x 159.27951pt.
-<../figures/Auxiliar_2_10.png, id=130, 612.2875pt x 383.4325pt>
-File: ../figures/Auxiliar_2_10.png Graphic file (type png)
-<use ../figures/Auxiliar_2_10.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_10.png  used on input line 391.
-(pdftex.def)             Requested size: 392.53755pt x 245.81721pt.
-
-
-[9]
-
-[10 <../figures/Auxiliar_2_8.png (PNG copy)>]
-
-[11]
-Underfull \vbox (badness 10000) detected at line 396
- []
-
-
-Underfull \vbox (badness 8189) detected at line 396
- []
-
-
-
-[12 <../figures/Auxiliar_2_9.png (PNG copy)>]
-<../figures/Auxiliar_2_1.png, id=172, 640.3925pt x 276.03125pt>
-File: ../figures/Auxiliar_2_1.png Graphic file (type png)
-<use ../figures/Auxiliar_2_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_1.png  used on input line 399.
-(pdftex.def)             Requested size: 370.2541pt x 159.5928pt.
-<../figures/Auxiliar_2_2.png, id=174, 646.415pt x 340.27126pt>
+<../figures/Auxiliar_2_2.png, id=53, 646.415pt x 340.27126pt>
 File: ../figures/Auxiliar_2_2.png Graphic file (type png)
 <use ../figures/Auxiliar_2_2.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_2.png  used on input line 416.
 (pdftex.def)             Requested size: 370.2541pt x 194.90158pt.
-
-
-[13 <../figures/Auxiliar_2_10.png (PNG copy)> <../figures/Auxiliar_2_1.png (PNG copy)>]
-<../figures/Auxiliar_2_11.png, id=186, 653.44125pt x 379.4175pt>
+<../figures/Auxiliar_2_11.png, id=54, 653.44125pt x 379.4175pt>
 File: ../figures/Auxiliar_2_11.png Graphic file (type png)
 <use ../figures/Auxiliar_2_11.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_11.png  used on input line 427.
-(pdftex.def)             Requested size: 392.53755pt x 227.92435pt.
-<../figures/Auxiliar_2_12.png, id=189, 507.8975pt x 380.42125pt>
+(pdftex.def)             Requested size: 423.151pt x 245.69792pt.
+
+
+LaTeX Warning: Reference `fig:voltaje_externo' on page 2 undefined on input line 432.
+
+
+LaTeX Warning: Reference `fig:bandas_polarizacion' on page 2 undefined on input line 510.
+
+<../figures/Auxiliar_2_12.png, id=55, 507.8975pt x 380.42125pt>
 File: ../figures/Auxiliar_2_12.png Graphic file (type png)
 <use ../figures/Auxiliar_2_12.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_12.png  used on input line 514.
-(pdftex.def)             Requested size: 294.40503pt x 220.51675pt.
+(pdftex.def)             Requested size: 317.36526pt x 237.71625pt.
 
 
-[14 <../figures/Auxiliar_2_2.png (PNG copy)> <../figures/Auxiliar_2_11.png (PNG copy)>]
-
-[15]
-
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{equation.28}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.530 \end{solution}
-                    ]
-
-[17 <../figures/Auxiliar_2_12.png (PNG copy)>]
+[2 <../figures/Auxiliar_2_1.png (PNG copy)> <../figures/Auxiliar_2_2.png (PNG copy)>]
 This exam contains 5 questions with 19 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1105,21 +1080,25 @@ This exam has a total of 0 bonus points.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `EL3202_01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61732 strings out of 473523
- 1582997 string characters out of 5724698
- 2374588 words of memory out of 5000000
- 84122 multiletter control sequences out of 15000+600000
+ 61631 strings out of 473523
+ 1581785 string characters out of 5724698
+ 2367545 words of memory out of 5000000
+ 84106 multiletter control sequences out of 15000+600000
  569577 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,17n,101p,905b,1261s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3202_01.pdf (17 pages, 970972 bytes).
+ 99i,17n,101p,905b,1187s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on EL3202_01.pdf (2 pages, 208531 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 114 named destinations out of 1000 (max. 500000)
+ 102 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
