@@ -11,6 +11,12 @@
 \usepackage{float}
 
 \begin{document}
+% Override preamble's \pagestyle{empty}: show page numbers centered in the footer
+\pagestyle{headandfoot}
+\firstpageheader{}{}{}
+\runningheader{}{}{}
+\firstpagefooter{}{\thepage}{}
+\runningfooter{}{\thepage}{}
 
 \noindent
 \begin{minipage}{0.47\textwidth}
@@ -46,12 +52,20 @@
 %----------------------------------
 \begin{solution}
   \subsection*{Resolución 1.1}
-  Recordemos que la función de transferencia relaciona la entrada y la salida de un sistema. Es útil trabajar en el dominio de Laplace, pues simplifica los cálculos. Definimos \(H(s)\) tal que
+  Recordemos que la función de transferencia relaciona la entrada y la salida de un sistema. Es útil trabajar en el dominio de Laplace dado que simplifica los cálculos. Definimos \(H(s)\) tal que
   \begin{equation}
     H(s) = \frac{Y(s)}{U(s)}.
   \end{equation}
-
-  Aplicamos la transformada de Laplace a la ecuación diferencial, asumiendo condiciones iniciales nulas (consideramos la respuesta de estado cero). De este modo,
+ Dado que nuestro sistema es una ecuacion diferencial en el dominio temporal, deberemos aplicar la transformada de Laplace. Ademas tenemos que tener en consideracion condiciones iniciales nulas (consideramos la respuesta de estado cero). Utilizando la siguiente expresion:
+ \begin{equation}
+   \mathcal{L}\{\dot{y}\} = sY(s) - y(0),
+ \end{equation}
+  y, en general, para la $n$-ésima derivada se cumple
+  \begin{equation}
+    \mathcal{L}\{y^{(n)}(t)\}
+    = s^{n} Y(s) - s^{n-1} y(0) - s^{n-2} \dot y(0) - \cdots - y^{(n-1)}(0),
+  \end{equation}
+  Para la ecuación diferencial dada, aplicando la transformada de Laplace y considerando condiciones iniciales nulas, tenemos
   \begin{equation}
     \mathcal{L}\{\ddot y + 2\dot y - 15 y\}
     = s^{2}Y(s) + 2sY(s) - 15Y(s) = U(s).
@@ -65,12 +79,15 @@
 Para hacer la formulación en variables de estado, utilizaremos dos métodos distintos, cada uno con sus ventajas y desventajas.
 
 \paragraph{Método 1}
-Este primer método tiene la ventaja de permitirnos, de forma relativamente directa, obtener una formulación en variables de estado directamente a partir de la ecuación diferencial. En la ecuación diferencial que modela al sistema, si definimos $x_1 = y$ y $x_2 = \dot{y}$ notemos que tenemos
-\setcounter{equation}{4}
+Este primer método permite, de forma relativamente directa, obtener una formulación en variables de estado a partir de la ecuación diferencial. En la ecuación diferencial que modela al sistema, si definimos $x_1 = y$ y $x_2 = \dot{y}$, notemos que tenemos de la ecuacion diferencial original
+\begin{equation}
+  \ddot{y} + 2\dot{y} - 15 y = u,
+\end{equation}
+Ahora tenemos que,
 \begin{equation}
 \dot{x}_2 + 2x_2 - 15x_1 = u \;\Leftrightarrow\; \dot{x}_2 = 15x_1 - 2x_2 + u,
 \end{equation}
-lo cual corresponde a la ecuación diferencial del segundo estado. Para obtener la ecuación diferencial asociada a $x_1$, notemos que, por la forma en que están definidos los estados, se tiene $\dot{x}_1 = x_2$, por lo que el par de ecuaciones diferenciales puede escribirse como
+lo cual corresponde a la ecuación diferencial del segundo estado ($x_2$). Para obtener la ecuación diferencial asociada a $x_1$, notemos que, por la forma en que están definidos los estados, se tiene $\dot{x}_1 = x_2$, por lo que el par de ecuaciones diferenciales puede escribirse como
 \begin{equation}
 \begin{gathered}
 \dot{x}_1 = x_2 \\
@@ -88,10 +105,10 @@ lo cual, junto con el hecho de que
 \begin{equation}
 y = x_1 = \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix},
 \end{equation}
-corresponde al sistema formulado en variables de estado.
+Corresponde finalmente al sistema formulado en variables de estado.
 
 \paragraph{Método 2}
-Como veremos, este método requiere más trabajo para obtener el sistema formulado en variables de estado, pero su ventaja es que reduce bastante trabajo en las siguientes partes. Este método se basa en que, si consideramos un sistema LTI arbitrario de la forma
+Este método requiere más trabajo para obtener el sistema formulado en variables de estado, pero su ventaja es que reduce bastante trabajo en las siguientes partes. Este método se basa en que, si consideramos un sistema LTI arbitrario de la forma
 \begin{equation}
 \dot{x} = A x + B u
 \end{equation}
@@ -116,17 +133,23 @@ Luego, queremos encontrar $\alpha$ y $\beta$ tales que
 \begin{equation}
 H(s) = \frac{\alpha}{s-3} + \frac{\beta}{s+5},
 \end{equation}
-donde, utilizando el método visto en auxiliares anteriores, sabemos que se tiene
-\begin{equation}
-\alpha = \left.\frac{1}{s+5}\right|_{s=3} = \frac{1}{8}
-\end{equation}
-\begin{equation}
-\beta = \left.\frac{1}{s-3}\right|_{s=-5} = -\,\frac{1}{8},
-\end{equation}
-de modo que podemos separar $H(s)$ en fracciones parciales como
-\begin{equation}
-H(s) = \frac{1}{8}\,\frac{1}{s-3} - \frac{1}{8}\,\frac{1}{s+5}.
-\end{equation}
+donde, utilizando el método visto en auxiliares anteriores, se tiene
+\begin{align}
+  \frac{\alpha(s+5) + \beta(s-3)}{(s-3)(s+5)} &= \frac{1}{(s-3)(s+5)}
+\end{align}
+Por lo que se formula un sistema de ecuaciones dado por:
+\begin{align}
+  \alpha s + 5\alpha + \beta s - 3\beta &= 1\\
+  s(\alpha + \beta) + (5\alpha - 3\beta) &= 1
+\end{align}
+Con lo que :
+\begin{align}
+  \alpha + \beta &= 0 \\
+  5\alpha - 3\beta &= 1 \\
+  \rightarrow
+  \alpha = \frac{1}{8}, \quad \beta = -\frac{1}{8}
+\end{align}
+
 
 Como $H(s) = \dfrac{Y(s)}{U(s)}$ por definición, se tiene
 \begin{equation}
@@ -171,7 +194,7 @@ Si reordenamos los términos, tenemos
 \begin{equation}
 s\,X_1(s) - 3\,X_1(s) = U(s),
 \end{equation}
-y, aplicando transformada inversa (suponiendo $x_1(0)=0$ en este paso de manipulación en Laplace), notando que $sX_1(s)$ corresponde a la derivada de $x_1$, tenemos
+y, aplicando transformada inversa (suponiendo $x_1(0)=0$), notando que $sX_1(s)$ corresponde a la derivada de $x_1$, tenemos
 \begin{equation}
 \dot{x}_1 - 3x_1 = u \;\Leftrightarrow\; \dot{x}_1 = 3x_1 + u.
 \end{equation}
@@ -192,9 +215,9 @@ por lo que, juntando ambas ecuaciones diferenciales y añadiendo la expresión p
 y = \begin{pmatrix} \dfrac{1}{8} & -\dfrac{1}{8} \end{pmatrix}
 \begin{pmatrix} x_1 \\ x_2 \end{pmatrix},
 \end{equation}
-lo cual corresponde al sistema formulado en variables de estado.
+lo cual corresponde al sistema formulado en variables de estado. Si bien este procedimiento requiere más trabajo que el anterior, el sistema resultante tiene una ventaja clave: la matriz $A$ queda diagonal, a diferencia del obtenido con el método 1. Esto simplifica de manera notable el cálculo de variables posteriores (por ejemplo, la MTE y la respuesta impulsional), por lo que suele ser el enfoque recomendado para obtener una realización en variables de estado a partir de una ecuación diferencial. Además, la diagonal de $A$ coincide con los polos de la función de transferencia $H(s)$ (los valores de $s$ que anulan su denominador), una característica especialmente útil de este método.
 \subsection*{Resolución 1.3}
-Comencemos calculando la matriz de transición de estados (MTE), ya que obtener las funciones base requiere conocerla.
+Recordemos que la MTE es una función que nos permite analizar la evolución de un sistema en variables de estado. Comencemos calculando la matriz de transición de estados (MTE), ya que obtener las funciones base requiere conocerla.
 Notemos que la MTE por definición se calcula como
 \setcounter{equation}{26}
 \begin{equation}
@@ -247,9 +270,7 @@ e^{At}&=\sum_{k\ge 0}(TDT^{-1})^{k}\,\frac{t^k}{k!}
 \end{aligned}
 \end{equation}
 lo cual simplifica el procedimiento, ya que $e^{Dt}$ es fácil de obtener, dado que corresponde simplemente
-a la exponencial de cada uno de los términos de la diagonal.
-
-Considerando esto, para calcular la MTE comenzaremos diagonalizando $A$, para lo cual debemos
+a la exponencial de cada uno de los términos de la diagonal. Considerando esto, para calcular la MTE comenzaremos diagonalizando $A$, para lo cual debemos
 obtener los valores y vectores propios, dado que, si sabemos que los valores propios son $\lambda_1$ y $\lambda_2$ y los
 vectores propios son $\mathbf{v}_1$ y $\mathbf{v}_2$, entonces $T$ y $D$ pueden ser expresados como
 \begin{equation}
@@ -364,12 +385,10 @@ e^{3t} & 0\\
 \end{pmatrix},
 \end{equation}
 por lo que la MTE está dada por
-\begin{equation}
-\boldsymbol{\Phi}(t)=e^{At}
-\end{equation}
-\begin{equation}
-=Te^{Dt}T^{-1}
-\end{equation}
+\begin{align}
+\boldsymbol{\Phi}(t)&=e^{At}\\
+&=Te^{Dt}T^{-1}
+\end{align}
 \begin{equation}
 =\begin{pmatrix}
 1 & 1\\
@@ -466,19 +485,38 @@ Para un sistema LTI continuo sin término directo ($D=0$), la respuesta al impul
 \begin{equation}
   h(t) = C\,\boldsymbol{\Phi}(t)\,B.
 \end{equation}
-Usando la realización del Método 2, con
-$A=\begin{pmatrix}3&0\\0&-5\end{pmatrix}$, $B=\begin{pmatrix}1\\1\end{pmatrix}$ y
-$C=\begin{pmatrix}\tfrac{1}{8} & -\tfrac{1}{8}\end{pmatrix}$, y
-$\boldsymbol{\Phi}(t)=\operatorname{diag}(e^{3t},e^{-5t})$, se obtiene
+Usando la realización del Método 2, tenemos
+\[
+  A=\begin{pmatrix}3&0\\0&-5\end{pmatrix},\quad
+  B=\begin{pmatrix}1\\[2pt]1\end{pmatrix},\quad
+  C=\begin{pmatrix}\tfrac{1}{8} & -\tfrac{1}{8}\end{pmatrix}.
+\]
+Como $A$ es diagonal, la MTE se escribe explícitamente como
 \begin{equation}
-  h(t) = \tfrac{1}{8}e^{3t} - \tfrac{1}{8}e^{-5t},\quad t\ge 0.
+  \boldsymbol{\Phi}(t)=e^{At}=\begin{pmatrix} e^{3t} & 0 \\ 0 & e^{-5t} \end{pmatrix}.
 \end{equation}
-Obsérvese que este resultado es independiente de la realización elegida (Método 1 o 2).
+Por tanto,
+\begin{equation}
+  h(t) 
+  = C\,\boldsymbol{\Phi}(t)\,B
+  = \begin{pmatrix}\tfrac{1}{8} & -\tfrac{1}{8}\end{pmatrix}
+    \begin{pmatrix} e^{3t} & 0 \\ 0 & e^{-5t} \end{pmatrix}
+    \begin{pmatrix} 1 \\[2pt] 1 \end{pmatrix}
+  = \tfrac{1}{8}e^{3t} - \tfrac{1}{8}e^{-5t},\quad t\ge 0.
+\end{equation}
+Algo interesante que pueden verificar es que, si obtienen la respuesta al impulso para el sistema formulado con el método 1, deberían observar que, si bien la MTE es distinta para cada formulación, la respuesta al impulso es la misma para ambos. ¿Por qué ocurre esto?
 \subsection*{Resolución 1.5}
 El principal punto a tener en mente a la hora de analizar la estabilidad es que, si un sistema es BIBS estable, entonces es estable ante cualquier otra noción de estabilidad. Esto hace que la recomendación general sea comenzar verificando la estabilidad BIBS y, si el sistema no es BIBS-estable, verificar el resto de criterios de estabilidad.
 
 \paragraph*{BIBS}
 Para que el sistema sea BIBS-estable, para un sistema de tiempo continuo se debe cumplir que $\forall \lambda \in \mathrm{eig}(A)$, $\mathrm{Re}\{\lambda\}\le 0$, mientras que para un sistema de tiempo discreto se debe cumplir que $\forall \lambda \in \mathrm{eig}(A)$, $|\lambda|\le 1$. Es importante mencionar que estas nociones de estabilidad vienen del hecho de que los polos de un sistema continuo corresponden a polos en el dominio de Laplace, mientras que los polos de un sistema discreto son polos en el dominio $\mathcal{Z}$, por lo que el criterio depende de las regiones de convergencia de cada uno de los dominios (semiplano negativo para dominio de Laplace, círculo unitario para dominio Z).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Auxiliar_3_2}
+  \caption{Regiones de estabilidad para sistemas continuos y discretos: en tiempo continuo (plano-$s$) el sistema es estable si y solo si todos los polos están en el semiplano izquierdo ($\mathrm{Re}\{s_i\}<0$); la frontera $\mathrm{Re}\{s\}=0$ (eje imaginario) corresponde a modos no amortiguados y, con integradores puros ($s=0$) o multiplicidad mayor que 1, no hay estabilidad BIBS. En tiempo discreto (plano-$z$) la estabilidad requiere que todos los polos estén estrictamente dentro del círculo unitario ($|z_i|<1$); la frontera $|z|=1$ indica magnitud constante y polos sobre ella o repetidos implican inestabilidad BIBS. Bajo muestreo ideal de periodo $T$, el mapeo $z=e^{sT}$ lleva el semiplano izquierdo del plano-$s$ al interior del círculo unitario del plano-$z$, y $\mathrm{Re}\{s\}=0$ se mapea a $|z|=1$.}
+  \label{fig:region_estabilidad}
+\end{figure}
 
 En este caso, dado que $A$ es diagonal, podemos ver rápidamente que los polos son $\lambda_1=3$ y $\lambda_2=-5$. Dado que el sistema es a tiempo continuo, debemos verificar que las partes reales sean negativas: en este caso, podemos ver que $\mathrm{Re}\{\lambda_1\}=3>0$, por lo que el sistema no es BIBS-estable.
 
@@ -559,6 +597,7 @@ donde la divergencia proviene de que la integral de $e^{3t}$ diverge. Como $\int
   \part Determine estabilidad BIBS y BIBO.
   \part Determine observabilidad y controlabilidad.
 \end{parts}
+%-----------------------
 \begin{solution}
   \subsection*{Resolucion 2.1}
   Dado que $A$ está en forma canónica de Jordan, calcular la MTE dada por
@@ -575,7 +614,7 @@ J:=\begin{pmatrix}
 \lambda & 1 & 0 & 0 & \cdots & 0 & 0\\
 0 & \lambda & 1 & 0 & \cdots & 0 & 0\\
 0 & 0 & \lambda & 1 & \cdots & 0 & 0\\
-0 & 0 & 0 & \lambda & \cdots & 1 & 0\\
+0 & 0 & 0 & \lambda & \cdots & 0 & 0\\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
 0 & 0 & 0 & 0 & \cdots & \lambda & 1\\
 0 & 0 & 0 & 0 & \cdots & 0 & \lambda
@@ -585,14 +624,16 @@ donde es importante notar que la diagonal está compuesta por $n$ elementos igua
 \begin{equation}
 e^{J}=
 \begin{pmatrix}
-e^{\lambda} & t\,e^{\lambda} & \tfrac{t^{2}}{2!}e^{\lambda} & \tfrac{t^{3}}{3!}e^{\lambda} & \cdots & \tfrac{t^{n-1}}{(n-1)!}e^{\lambda}\\
-0 & e^{\lambda} & t\,e^{\lambda} & \tfrac{t^{2}}{2!}e^{\lambda} & \cdots & \tfrac{t^{n-2}}{(n-2)!}e^{\lambda}\\
-0 & 0 & e^{\lambda} & t\,e^{\lambda} & \cdots & \tfrac{t^{n-3}}{(n-3)!}e^{\lambda}\\
-\vdots & \vdots & \vdots & \ddots & \ddots & \vdots\\
-0 & 0 & 0 & \cdots & e^{\lambda} & t\,e^{\lambda}\\
-0 & 0 & 0 & \cdots & 0 & e^{\lambda}
-\end{pmatrix},
+e^{\lambda} & \dfrac{t^{1}}{1!}e^{\lambda} & \dfrac{t^{2}}{2!}e^{\lambda} & \dfrac{t^{3}}{3!}e^{\lambda} & \cdots & \dfrac{t^{\,n-1}}{(n-1)!}e^{\lambda} & \dfrac{t^{\,n}}{n!}e^{\lambda}\\
+0 & e^{\lambda} & \dfrac{t^{1}}{1!}e^{\lambda} & \dfrac{t^{2}}{2!}e^{\lambda} & \cdots & \dfrac{t^{\,n-2}}{(n-2)!}e^{\lambda} & \dfrac{t^{\,n-1}}{(n-1)!}e^{\lambda}\\
+0 & 0 & e^{\lambda} & \dfrac{t^{1}}{1!}e^{\lambda} & \cdots & \dfrac{t^{\,n-3}}{(n-3)!}e^{\lambda} & \dfrac{t^{\,n-2}}{(n-2)!}e^{\lambda}\\
+0 & 0 & 0 & e^{\lambda} & \cdots & \dfrac{t^{1}}{1!}e^{\lambda} & \dfrac{t^{2}}{2!}e^{\lambda}\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & 0 & \cdots & e^{\lambda} & \dfrac{t^{1}}{1!}e^{\lambda}\\
+0 & 0 & 0 & 0 & \cdots & 0 & e^{\lambda}
+\end{pmatrix}.
 \end{equation}
+
 donde podemos notar que cada valor corresponde a los elementos de la serie de Taylor de la exponencial, y que, a lo largo de cada diagonal, los elementos son iguales.
 
 \medskip
@@ -606,10 +647,10 @@ J_1 & 0 & \cdots & 0\\
 \end{equation}
 con $J_i$ matrices en forma canónica de Jordan pura, la exponencial se aplica a cada bloque por separado. Es decir, tenemos
 \begin{equation}
-e^{M}:=\begin{pmatrix}
-e^{J_1} & 0 & \cdots & 0\\
-0 & e^{J_2} & \cdots & 0\\
-0 & 0 & \cdots & e^{J_n}
+e^{M t}:=\begin{pmatrix}
+e^{J_1 t} & 0 & \cdots & 0\\
+0 & e^{J_2 t} & \cdots & 0\\
+0 & 0 & \cdots & e^{J_n t}
 \end{pmatrix}.
 \end{equation}
 
@@ -636,7 +677,7 @@ e^{A_2 t}:=\begin{pmatrix} e^{t}\end{pmatrix}.
 
 De esto, componiendo ambas componentes en la MTE original, tenemos
 \begin{equation}
-\boxed{\;
+\;
 \bm{\Phi}(t)=
 \begin{pmatrix}
 e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t} & 0\\
@@ -644,7 +685,7 @@ e^{-2t} & t e^{-2t} & \tfrac{t^{2}}{2} e^{-2t} & 0\\
 0 & 0 & e^{-2t} & 0\\
 0 & 0 & 0 & e^{t}
 \end{pmatrix}
-\; }.
+\;.
 \end{equation}
 
 Para encontrar las funciones base, debemos encontrar las componentes linealmente independientes de la respuesta a entrada cero (RENC). Para calcular la RENC, tenemos
@@ -736,8 +777,333 @@ e^{-2t} & t e^{-2t} & \dfrac{t^{2}}{2}e^{-2t}+e^{-2t} & e^{t}
 \boxed{\,h(t)=4e^{-2t}+2t e^{-2t}+\frac{3}{2}t^{2}e^{-2t}\,}.
 \end{equation}
 
-donde podemos notar el hecho de que el término $e^{t}$ no aparece dentro de la respuesta al impulso\textsuperscript{1}.
+donde podemos notar el hecho de que el término $e^{t}$ no aparece dentro de la respuesta al impulso.
 
+\subsection*{Resolución 2.3}
+
+Para analizar la estabilidad de un sistema, el dato más importante que se debe tener en cuenta
+es el hecho de que, si un sistema es BIBS-estable, entonces automáticamente podemos concluir
+que es BIBO-estable y Lyapunov-estable. Por esto, se recomienda comenzar siempre analizando la
+estabilidad BIBS.
+
+\paragraph*{BIBS}
+Para que un sistema sea BIBS-estable, se debe cumplir
+\setcounter{equation}{24}
+\begin{equation}
+\forall \lambda_i \in \mathrm{eig}(A)\;,\qquad \mathrm{Re}(\lambda_i)\le 0,
+\end{equation}
+lo cual indica que todos los polos del sistema
+deben tener parte real negativa o cero.\footnote{En sistemas LTI continuos, los polos del sistema coinciden con los valores propios de $A$.}
+
+En nuestro sistema, dado que $A$ está en forma canónica de Jordan, obtener los polos es sencillo:
+estos son simplemente los valores en la diagonal de la matriz, donde la multiplicidad algebraica de
+un polo está dada por la cantidad de veces que aparece en dicha diagonal. En este caso, podemos ver
+que los polos son $\lambda_1=-2$ con multiplicidad algebraica $3$, y $\lambda_2=1$ con multiplicidad algebraica $1$.
+Dado que el polo $\lambda_2$ tiene parte real positiva, podemos concluir que el sistema \textbf{no es BIBS-estable}.
+
+\paragraph*{BIBO}
+Para que un sistema sea BIBO-estable, se debe cumplir que la norma 1 de la respuesta al
+impulso es finita: es decir, se debe cumplir
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt < \infty.
+\end{equation}
+Aplicando esto a nuestro sistema, considerando la respuesta al impulso de la ecuación 24, tenemos
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt
+=\int_{0}^{\infty} \left|4e^{-2t}+2t e^{-2t}+\frac{3}{2}t^{2}e^{-2t}\right| dt.
+\end{equation}
+
+Para determinar la estabilidad, consideremos que todas las normas, por definición, cumplen la
+desigualdad triangular, la cual indica
+\begin{equation}
+\forall x,\forall y,\qquad \|x+y\| \le \|x\|+\|y\|.
+\end{equation}
+Podemos aplicar esta propiedad a nuestra integral y obtener una cota superior: si esta cota superior
+es menor a infinito, entonces podemos concluir que la integral original también lo es. Haciendo esto, tenemos
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt
+\le \int_{0}^{\infty} \left|4e^{-2t}\right| dt
++ \int_{0}^{\infty} \left|2t e^{-2t}\right| dt
++ \int_{0}^{\infty} \left|\frac{3}{2}t^{2}e^{-2t}\right| dt .
+\end{equation}
+Para resolver estas integrales, notemos que, en el dominio $[0,\infty)$, todas las exponenciales son
+positivas, por lo que el valor absoluto no tiene efecto sobre las exponenciales. De esto, tenemos
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt \le
+4\underbrace{\int_{0}^{\infty} e^{-2t}dt}_{=:I_1}
++2\underbrace{\int_{0}^{\infty} t e^{-2t}dt}_{=:I_2}
++\frac{3}{2}\underbrace{\int_{0}^{\infty} t^{2} e^{-2t}dt}_{=:I_3}.
+\end{equation}
+
+Resolviendo cada una de las integrales, tenemos
+\begin{equation}
+I_1=\int_{0}^{\infty} e^{-2t}dt
+\end{equation}
+\begin{equation}
+=\left[\frac{e^{-2t}}{-2}\right]_{0}^{\infty}
+\end{equation}
+\begin{equation}
+=0-\frac{1}{-2}
+\end{equation}
+\begin{equation}
+=\frac{1}{2}.
+\end{equation}
+
+Para $I_2$, si integramos por partes considerando $u=t$ y $dv=e^{-2t}dt$ tenemos $du=dt$, $v=-\tfrac{1}{2}e^{-2t}$, y, reemplazando, tenemos
+\begin{equation}
+I_2=\int_{0}^{\infty} t e^{-2t}dt
+=-\frac{1}{2}\, t e^{-2t}\Big|_{0}^{\infty}
++\frac{1}{2}\underbrace{\int_{0}^{\infty} e^{-2t}dt}_{I_1}.
+\end{equation}
+Para el primer término, cuando $t=0$ se tiene $t e^{-2t}\big|_{t=0}=0$, pero el límite superior se debe
+analizar dado que es un límite de la forma $\infty\cdot 0$. Calculando este límite, tenemos
+\begin{equation}
+\lim_{t\to\infty} t e^{-2t}
+=\lim_{t\to\infty}\frac{t}{e^{2t}}
+\stackrel{\text{L'H\^opital}}{=} \lim_{t\to\infty}\frac{1}{2e^{2t}}=0.
+\end{equation}
+Para el segundo término, podemos ver que este es simplemente $I_1$, por lo que tenemos
+\begin{equation}
+I_2=-\frac{1}{2}(0-0)+\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}.
+\end{equation}
+
+Finalmente, para $I_3$ podemos integrar por partes considerando $u=t^{2}$ y $dv=e^{-2t}dt$, lo cual entrega
+$du=2t\,dt$ y $v=-\tfrac{1}{2}e^{-2t}$, por lo que tenemos
+\begin{equation}
+I_3=\int_{0}^{\infty} t^{2}e^{-2t}dt
+=-\frac{1}{2}t^{2}e^{-2t}\Big|_{0}^{\infty}
++\underbrace{\int_{0}^{\infty} t e^{-2t}dt}_{I_2}.
+\end{equation}
+donde, de forma similar a $I_2$, aplicando L'H\^opital dos veces se puede verificar que el primer término
+es nulo, y podemos ver que el segundo término es $I_2$, por lo que $I_3=\tfrac{1}{4}$.
+
+Juntando estas integrales, tenemos
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt
+\le 4\cdot\frac{1}{2}+2\cdot\frac{1}{4}+\frac{3}{2}\cdot\frac{1}{4}
+= \frac{23}{8} < \infty,
+\end{equation}
+de lo que podemos concluir
+\begin{equation}
+\int_{0}^{\infty} |h(t)|\,dt < \infty,
+\end{equation}
+por lo que tenemos que el sistema \fbox{es BIBO-estable}.
+
+Un punto importante a notar es el hecho de que el sistema es BIBS-inestable pero BIBO-estable:
+en este caso, esto sucede ya que la salida asociada al término que diverge (correspondiente a $e^{t}$) no
+está presente dentro de la respuesta al impulso. Esto hace que, pese a que el estado está divergiendo a
+medida que pasa el tiempo, al aplicar un impulso al sistema la salida que medimos converge, haciendo
+que el sistema sea BIBO-estable.
+\subsection*{Resolución 2.4}
+
+% --- Controlabilidad y observabilidad (definición y verificación) ---
+
+\paragraph{Controlabilidad y observabilidad.}
+En el sistema LTI
+\begin{align}
+\dot x(t) &= A\,x(t) + B\,u(t), &
+y(t) &= C\,x(t) + D\,u(t),
+\end{align}
+decimos que el par $(A,B)$ es \emph{controlable} si existe una entrada $u(t)$ en un intervalo $[t_0,t_1]$
+que lleva el estado desde cualquier $x(t_0)$ a cualquier $x(t_1)$ en tiempo finito. Análogamente, el par
+$(A,C)$ es \emph{observable} si, con $u(\cdot)$ y $y(\cdot)$ medidos en un intervalo, se puede reconstruir
+exactamente el estado inicial $x(t_0)$.
+
+\subsubsection*{Condiciones de verificación}
+
+\textbf{(1) Criterio de rango de Kalman}
+\begin{align}
+\mathcal C &:= \big[\,B\;\; AB\;\; \cdots\;\; A^{n-1}B\,\big], 
+& (A,B)\ \text{controlable} &\iff \operatorname{rank}(\mathcal C)=n,\\[2mm]
+\mathcal O &:= 
+\begin{bmatrix}
+C\\ CA\\ \vdots\\ CA^{n-1}
+\end{bmatrix},
+& (A,C)\ \text{observable} &\iff \operatorname{rank}(\mathcal O)=n.
+\end{align}
+
+\textbf{(2) Prueba PBH (Popov–Belevitch–Hautus)}
+\begin{align}
+\operatorname{rank}\!\begin{bmatrix}\lambda I-A & B\end{bmatrix}=n\quad 
+&\forall\,\lambda\in\mathrm{spec}(A)\ \Longleftrightarrow\ (A,B)\ \text{controlable},\\[2mm]
+\operatorname{rank}\!\begin{bmatrix}\lambda I-A\\ C\end{bmatrix}=n\quad 
+&\forall\,\lambda\in\mathrm{spec}(A)\ \Longleftrightarrow\ (A,C)\ \text{observable}.
+\end{align}
+
+	extbf{(3) Gramianos (horizonte $[t_0,t_1]$ y caso LTI)}
+Con la MTE $\Phi(\cdot,\cdot)$,
+\begin{align}
+W_c(t_0,t_1) &= \int_{t_0}^{t_1} \Phi(t_1,\tau)\,B B^\top\,\Phi^\top(t_1,\tau)\,d\tau, &
+W_o(t_0,t_1) &= \int_{t_0}^{t_1} \Phi^\top(\tau,t_0)\,C^\top C\,\Phi(\tau,t_0)\,d\tau,
+\end{align}
+y se cumple
+\begin{align}
+W_c(t_0,t_1)\succ 0 &\iff (A,B)\ \text{controlable en }[t_0,t_1], &
+W_o(t_0,t_1)\succ 0 &\iff (A,C)\ \text{observable en }[t_0,t_1].
+\end{align}
+Para sistemas LTI (con $A$ constante) en horizonte infinito —si $A$ es estable—,
+\begin{align}
+W_c &= \int_{0}^{\infty} e^{A\tau} B B^\top e^{A^\top \tau}\,d\tau, &
+W_o &= \int_{0}^{\infty} e^{A^\top \tau} C^\top C\, e^{A\tau}\,d\tau,
+\end{align}
+existen y satisfacen las ecuaciones de Lyapunov
+\begin{align}
+ A W_c + W_c A^\top + B B^\top &= 0, &
+ A^\top W_o + W_o A + C^\top C &= 0,
+\end{align}
+y su positividad definida caracteriza controlabilidad/observabilidad.
+
+\paragraph{¿Por qué importan?}
+Si $(A,B)$ es controlable, podemos ubicar polos mediante realimentación de estado ($u=-Kx$). Si $(A,C)$
+es observable, existe un observador de Luenberger que reconstruye $x(t)$ a partir de $y(t)$. El
+\emph{principio de separación} permite diseñar controlador y observador por separado. Estas propiedades
+identifican qué modos son alcanzables o visibles, habilitan realizaciones mínimas (eliminando modos
+inalcanzables o no observables) y, cuando no se cumplen por completo, motivan las nociones prácticas de
+\emph{estabilizabilidad} y \emph{detectabilidad}.
+
+A continuación aplicaremos estos criterios al sistema dado: construiremos las matrices de
+controlabilidad y observabilidad y verificaremos si su rango es $n$.
+
+\paragraph*{Observabilidad}
+En este caso, dado que $n=4$ buscamos verificar que la matriz
+\setcounter{equation}{42}
+\begin{equation}
+\vartheta =
+\begin{pmatrix}
+C\\
+CA\\
+CA^{2}\\
+CA^{3}
+\end{pmatrix}
+\end{equation}
+tenga rango $4$. Calculando cada una de las filas de la matriz por separado, tenemos
+\begin{equation}
+CA=\begin{pmatrix}1&0&1&1\end{pmatrix}
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=(-2\;\;1\;\;-2\;\;1)
+\end{equation}
+\begin{equation}
+CA^{2}=(-2\;\;1\;\;-2\;\;1)
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=(4\;\;-4\;\;5\;\;1)
+\end{equation}
+\begin{equation}
+CA^{3}=(4\;\;-4\;\;5\;\;1)
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=(-8\;\;12\;\;-14\;\;1).
+\end{equation}
+Ensamblando estas filas en la matriz de observabilidad, tenemos
+\begin{equation}
+\vartheta=
+\begin{pmatrix}
+1&0&1&1\\
+-2&1&-2&1\\
+4&-4&5&1\\
+-8&12&-14&1
+\end{pmatrix}.
+\end{equation}
+Como dijimos, para que el sistema sea observable, se debe cumplir $\mathrm{rank}(\vartheta)=4$, lo cual es equivalente a decir que todas las filas/columnas sean linealmente independientes entre sí. Una forma de verificar esto es considerar que, por teorema, se tiene
+\begin{equation}
+\forall U\in \mathcal{M}_{n\times n}(\mathbb{R}),\quad
+\big(\mathrm{rank}(U)=n \Leftrightarrow |U|\neq 0\big),
+\end{equation}
+por lo que basta verificar si $|\vartheta|$ es nulo o no para determinar la observabilidad. Si calculamos este determinante, tenemos $|\vartheta|=27\neq 0$, por lo que el sistema \textbf{es observable}.
+
+\paragraph*{Controlabilidad}
+De forma similar a cómo hicimos con la observabilidad, para la controlabilidad
+buscamos verificar que la matriz de controlabilidad
+\begin{equation}
+\zeta=\big(B\;\;AB\;\;A^{2}B\;\;A^{3}B\big)
+\end{equation}
+tiene rango $4$. Calculando cada componente, tenemos
+\begin{equation}
+AB=
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+1\\2\\3\\0
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=
+\begin{pmatrix}
+0\\ -1\\ -6\\ 0
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+A^{2}B=
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+0\\ -1\\ -6\\ 0
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=
+\begin{pmatrix}
+-1\\ -4\\ 12\\ 0
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+A^{3}B=
+\begin{pmatrix}
+-2&1&0&0\\
+0&-2&1&0\\
+0&0&-2&0\\
+0&0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+-1\\ -4\\ 12\\ 0
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+=
+\begin{pmatrix}
+-2\\ 20\\ -24\\ 0
+\end{pmatrix}.
+\end{equation}
+
+Juntando todo, tenemos
+\begin{equation}
+\zeta=
+\begin{pmatrix}
+1&0&-1&-2\\
+2&-1&-4&20\\
+3&-6&12&-24\\
+0&0&0&0
+\end{pmatrix},
+\end{equation}
+ donde aplicamos el mismo criterio que en observabilidad para verificar si
+$\mathrm{rank}(\zeta)=4$. En este caso, $|\zeta|=0$, por lo que $\mathrm{rank}(\zeta)<4$ y, en consecuencia, el sistema \textbf{no es controlable}.
 \end{solution}
 \end{questions}
 \end{document}
