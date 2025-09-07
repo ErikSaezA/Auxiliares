@@ -498,25 +498,25 @@ INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs5.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm7.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm5.tfm
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_14.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_15.png
-INPUT ..\figures\Auxiliar_2_7.png
-INPUT ..\figures\Auxiliar_2_7.png
-INPUT ..\figures\Auxiliar_2_7.png
-INPUT ..\figures\Auxiliar_2_7.png
-INPUT ..\figures\Auxiliar_2_7.png
-INPUT ..\figures\Auxiliar_2_7.png
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
 INPUT ..\figures\Auxiliar_2_12.png
 INPUT ..\figures\Auxiliar_2_12.png
 INPUT ..\figures\Auxiliar_2_12.png
@@ -550,6 +550,8 @@ INPUT ..\figures\Auxiliar_2_10.png
 INPUT FI1100_04.aux
 INPUT .\FI1100_04.out
 INPUT .\FI1100_04.out
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -574,3 +576,5 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\latxfont\line10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\latxfont\line10.pfb

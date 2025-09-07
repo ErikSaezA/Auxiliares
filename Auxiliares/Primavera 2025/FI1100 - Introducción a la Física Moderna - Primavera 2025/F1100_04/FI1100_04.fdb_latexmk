@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1757071083.39546 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_04/FI1100_04.tex" "FI1100_04.pdf" "FI1100_04" 1757071095.85198 0
+["pdflatex"] 1757287648.88894 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_04/FI1100_04.tex" "FI1100_04.pdf" "FI1100_04" 1757287659.97956 0
   "../aas_macros.sty" 1733956008 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1756663600 2268 beee9b5ef5d7b665f41302098481d628 ""
   "../fcfm_die.png" 1755832802 95763 5c4fe7bb0d609d7785070ea374172491 ""
@@ -53,6 +53,7 @@
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1247596653 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "C:/Program Files/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Program Files/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Program Files/MiKTeX/tex/generic/bigintcalc/bigintcalc.sty" 1576433602 40635 c40361e206be584d448876bba8a64a3b ""
@@ -289,14 +290,15 @@
   "C:/Program Files/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Program Files/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1743987548 83965 9d76c75bafb07e33148657a7df88de60 ""
+  "C:/Users/eriks/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1733953982 12668 d00a84e665fec850571a213331cfcaba ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1733946707 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1742126431 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "FI1100_04.aux" 1757071094 3404 edddea85455b846a1bd3f6a6009f71dc "pdflatex"
-  "FI1100_04.out" 1757071090 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "FI1100_04.tex" 1757071067 24844 d36466cf18e89aebc3fb9e6afebf5a9b ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_04/FI1100_04.tex" 1757071067 24844 d36466cf18e89aebc3fb9e6afebf5a9b ""
+  "FI1100_04.aux" 1757287659 5732 7a541a9a6f7d3fe15fcafc54fd3b4b24 "pdflatex"
+  "FI1100_04.out" 1757287654 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "FI1100_04.tex" 1757287647 24759 cf33a16ac2046d1be0bca5afa0bbeb2b ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_04/FI1100_04.tex" 1757287647 24759 cf33a16ac2046d1be0bca5afa0bbeb2b ""
   (generated)
   "FI1100_04.aux"
   "FI1100_04.log"

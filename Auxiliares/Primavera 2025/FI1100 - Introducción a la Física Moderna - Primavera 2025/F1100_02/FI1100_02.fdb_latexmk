@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756843429.09357 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_01/FI1100_01.tex" "FI1100_01.pdf" "FI1100_01" 1756843436.30833 0
+["pdflatex"] 1757287802.93128 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_02/FI1100_02.tex" "FI1100_02.pdf" "FI1100_02" 1757287813.27987 0
   "../aas_macros.sty" 1733956008 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1756663600 2268 beee9b5ef5d7b665f41302098481d628 ""
   "../fcfm_die.png" 1755832802 95763 5c4fe7bb0d609d7785070ea374172491 ""
@@ -297,13 +297,13 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1733946707 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "FI1100_01.aux" 1756843435 2371 acd9c3a0687237170b32c4779ec6d647 "pdflatex"
-  "FI1100_01.out" 1756843433 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "FI1100_01.tex" 1755833159 13465 5293a6896945e641df036fcf440eab87 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_01/FI1100_01.tex" 1755833159 13465 5293a6896945e641df036fcf440eab87 ""
+  "FI1100_02.aux" 1757287811 2371 acd9c3a0687237170b32c4779ec6d647 "pdflatex"
+  "FI1100_02.out" 1757287809 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "FI1100_02.tex" 1757287789 13465 5293a6896945e641df036fcf440eab87 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/FI1100 - Introducción a la Física Moderna - Primavera 2025/F1100_02/FI1100_02.tex" 1757287789 13465 5293a6896945e641df036fcf440eab87 ""
   (generated)
-  "FI1100_01.aux"
-  "FI1100_01.log"
-  "FI1100_01.out"
-  "FI1100_01.pdf"
+  "FI1100_02.aux"
+  "FI1100_02.log"
+  "FI1100_02.out"
+  "FI1100_02.pdf"
   (rewritten before read)

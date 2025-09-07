@@ -1,7 +1,7 @@
-PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\FI1100 - Introducción a la Física Moderna - Primavera 2025\F1100_01
+PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\FI1100 - Introducción a la Física Moderna - Primavera 2025\F1100_02
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\FI1100 - Introducción a la Física Moderna - Primavera 2025\F1100_01\FI1100_01.tex
-OUTPUT FI1100_01.log
+INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\FI1100 - Introducción a la Física Moderna - Primavera 2025\F1100_02\FI1100_02.tex
+OUTPUT FI1100_02.log
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\ifthen.sty
@@ -405,10 +405,10 @@ INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\FI1100_01.aux
-INPUT .\FI1100_01.aux
-INPUT FI1100_01.aux
-OUTPUT FI1100_01.aux
+INPUT .\FI1100_02.aux
+INPUT .\FI1100_02.aux
+INPUT FI1100_02.aux
+OUTPUT FI1100_02.aux
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -420,14 +420,14 @@ INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
-INPUT .\FI1100_01.out
-INPUT .\FI1100_01.out
-INPUT FI1100_01.out
-INPUT FI1100_01.out
-INPUT .\FI1100_01.out
-INPUT .\FI1100_01.out
-OUTPUT FI1100_01.out
-OUTPUT FI1100_01.pdf
+INPUT .\FI1100_02.out
+INPUT .\FI1100_02.out
+INPUT FI1100_02.out
+INPUT FI1100_02.out
+INPUT .\FI1100_02.out
+INPUT .\FI1100_02.out
+OUTPUT FI1100_02.out
+OUTPUT FI1100_02.pdf
 INPUT ..\fcfm_die.png
 INPUT ..\fcfm_die.png
 INPUT ..\fcfm_die.png
@@ -514,9 +514,9 @@ INPUT ..\figures\Auxiliar_1_6.png
 INPUT ..\figures\Auxiliar_1_6.png
 INPUT ..\figures\Auxiliar_1_6.png
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT FI1100_01.aux
-INPUT .\FI1100_01.out
-INPUT .\FI1100_01.out
+INPUT FI1100_02.aux
+INPUT .\FI1100_02.out
+INPUT .\FI1100_02.out
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb

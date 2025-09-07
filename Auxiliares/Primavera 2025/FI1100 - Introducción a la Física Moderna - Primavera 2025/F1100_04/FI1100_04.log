@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  5 SEP 2025 07:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  7 SEP 2025 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -980,73 +980,83 @@ Package pdftex.def Info: ../figures/Auxiliar_2_9.png  used on input line 59.
 File: ../figures/Auxiliar_2_11.png Graphic file (type png)
 <use ../figures/Auxiliar_2_11.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_11.png  used on input line 184.
-(pdftex.def)             Requested size: 370.2541pt x 220.15431pt.
+(pdftex.def)             Requested size: 343.46754pt x 204.22972pt.
 
-LaTeX Warning: Reference `fig:y0t' on page 1 undefined on input line 218.
 
-<../figures/Auxiliar_2_14.png, id=10, 650.43pt x 289.08pt>
+[1
+
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.png> <../figures/Auxiliar_2_9.png>]
+
+[2]
+
+[3]
+<../figures/Auxiliar_2_14.png, id=80, 650.43pt x 289.08pt>
 File: ../figures/Auxiliar_2_14.png Graphic file (type png)
 <use ../figures/Auxiliar_2_14.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_14.png  used on input line 222.
-(pdftex.def)             Requested size: 370.2541pt x 164.56116pt.
-
-LaTeX Warning: Reference `fig:perfil' on page 1 undefined on input line 255.
-
-<../figures/Auxiliar_2_15.png, id=11, 505.89pt x 231.264pt>
+(pdftex.def)             Requested size: 343.46754pt x 152.65587pt.
+<../figures/Auxiliar_2_15.png, id=82, 505.89pt x 231.264pt>
 File: ../figures/Auxiliar_2_15.png Graphic file (type png)
 <use ../figures/Auxiliar_2_15.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_15.png  used on input line 259.
-(pdftex.def)             Requested size: 343.80565pt x 157.1692pt.
-<../figures/Auxiliar_2_7.png, id=12, 568.37344pt x 383.93437pt>
+(pdftex.def)             Requested size: 318.93254pt x 145.79942pt.
+
+
+[4 <../figures/Auxiliar_2_11.png>]
+
+[5 <../figures/Auxiliar_2_14.png>]
+<../figures/Auxiliar_2_7.png, id=105, 568.37344pt x 383.93437pt>
 File: ../figures/Auxiliar_2_7.png Graphic file (type png)
 <use ../figures/Auxiliar_2_7.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_7.png  used on input line 271.
 (pdftex.def)             Requested size: 396.70256pt x 267.97891pt.
 
 
-[1
-
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.png> <../figures/Auxiliar_2_9.png>]
-<../figures/Auxiliar_2_12.png, id=42, 706.89093pt x 430.60875pt>
+[6 <../figures/Auxiliar_2_15.png>]
+<../figures/Auxiliar_2_12.png, id=116, 706.89093pt x 430.60875pt>
 File: ../figures/Auxiliar_2_12.png Graphic file (type png)
 <use ../figures/Auxiliar_2_12.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_12.png  used on input line 309.
-(pdftex.def)             Requested size: 423.151pt x 257.7693pt.
-<../figures/Auxiliar_2_13.png, id=43, 483.30562pt x 387.69844pt>
+(pdftex.def)             Requested size: 392.53755pt x 239.12209pt.
+<../figures/Auxiliar_2_13.png, id=117, 483.30562pt x 387.69844pt>
 File: ../figures/Auxiliar_2_13.png Graphic file (type png)
 <use ../figures/Auxiliar_2_13.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_13.png  used on input line 329.
-(pdftex.def)             Requested size: 264.46837pt x 212.15811pt.
-<../figures/Auxiliar_2_3.png, id=44, 245.41687pt x 284.56313pt>
+(pdftex.def)             Requested size: 245.33504pt x 196.80072pt.
+
+
+[7 <../figures/Auxiliar_2_7.png>]
+
+[8 <../figures/Auxiliar_2_12.png>]
+
+[9 <../figures/Auxiliar_2_13.png>]
+<../figures/Auxiliar_2_3.png, id=155, 245.41687pt x 284.56313pt>
 File: ../figures/Auxiliar_2_3.png Graphic file (type png)
 <use ../figures/Auxiliar_2_3.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_3.png  used on input line 403.
 (pdftex.def)             Requested size: 150.74802pt x 174.79903pt.
-<../figures/Auxiliar_2_5.png, id=45, 529.22719pt x 352.31625pt>
+<../figures/Auxiliar_2_5.png, id=156, 529.22719pt x 352.31625pt>
 File: ../figures/Auxiliar_2_5.png Graphic file (type png)
 <use ../figures/Auxiliar_2_5.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_5.png  used on input line 418.
-(pdftex.def)             Requested size: 317.36526pt x 211.27847pt.
-
-Overfull \hbox (31.07458pt too wide) in paragraph at lines 429--431
-\OT1/cmr/m/n/10.95 cruzan por primera vez, el pulso su-pe-rior ll-eva ven-taja tem-po-ral, por lo que [].
- []
+(pdftex.def)             Requested size: 294.40503pt x 195.9894pt.
 
 
-
-[2 <../figures/Auxiliar_2_7.png> <../figures/Auxiliar_2_3.png>]
-<../figures/Auxiliar_2_10.png, id=64, 337.26pt x 165.61874pt>
+[10 <../figures/Auxiliar_2_3.png>]
+<../figures/Auxiliar_2_10.png, id=173, 337.26pt x 165.61874pt>
 File: ../figures/Auxiliar_2_10.png Graphic file (type png)
 <use ../figures/Auxiliar_2_10.png>
 Package pdftex.def Info: ../figures/Auxiliar_2_10.png  used on input line 440.
 (pdftex.def)             Requested size: 264.46837pt x 129.87453pt.
 
 
-LaTeX Warning: Reference `eq:Eexpandstart' on page 3 undefined on input line 485.
+[11 <../figures/Auxiliar_2_5.png>]
 
+[12 <../figures/Auxiliar_2_10.png>]
 
+[13]
 
-[3 <../figures/Auxiliar_2_10.png>]
+[14]
 This exam contains 5 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
@@ -1055,25 +1065,21 @@ This exam has a total of 0 bonus points.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `FI1100_04.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61550 strings out of 473523
- 1580213 string characters out of 5724698
- 2372544 words of memory out of 5000000
- 84025 multiletter control sequences out of 15000+600000
+ 61669 strings out of 473523
+ 1581583 string characters out of 5724698
+ 2384575 words of memory out of 5000000
+ 84041 multiletter control sequences out of 15000+600000
  569577 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,19n,101p,905b,1213s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on FI1100_04.pdf (3 pages, 582703 bytes).
+ 99i,19n,101p,905b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/latxfont/line10.pfb>
+Output written on FI1100_04.pdf (14 pages, 1605928 bytes).
 PDF statistics:
- 129 PDF objects out of 1000 (max. 8388607)
- 29 named destinations out of 1000 (max. 500000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
  68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
