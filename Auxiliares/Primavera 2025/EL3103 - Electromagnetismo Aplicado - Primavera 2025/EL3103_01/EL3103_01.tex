@@ -11,7 +11,7 @@
 
 \noindent
 \begin{minipage}{0.47\textwidth}
-    \includegraphics[width=\textwidth]{../../fcfm_die}
+  \includegraphics[width=\textwidth]{../fcfm_die}
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
@@ -259,7 +259,7 @@ La ecuación de Laplace cumple las siguientes características:
     Para $Q_{2}$ el proceso es análogo, imponiendo el signo negativo propio del condensador, obteniendo la siguiente expresión:
 
 \begin{align}
-    Q_2 &= = -\frac{\epsilon_{1}\epsilon_{2}V_{0}  2\pi d}{\epsilon_{2}\ln\del{\frac{b}{a}} + \epsilon_{1}\ln\del{\frac{c}{b}}}
+  Q_2 &= -\frac{\epsilon_{1}\epsilon_{2}V_{0}  2\pi d}{\epsilon_{2}\ln\del{\frac{b}{a}} + \epsilon_{1}\ln\del{\frac{c}{b}}}
 \end{align}
 Finalmente, se puede concluir que la carga es ambos electródos tiene igual magnitud pero distinto signo.
 
@@ -320,12 +320,12 @@ Finalmente, se puede concluir que la carga es ambos electródos tiene igual magn
     \end{align}
     Ahora que encontramos una expresión para $f_{\theta , z}$, reemplazamos esta en nuestro potencial $V^*$:
     \begin{align}
-        V^* &= A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta}) + f_z
+  V^* &= A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta)} + f_z
     \end{align}
     Repetimos el proceso para encontrar $f_z$ utilizando la tercera EDO:
     \begin{align}
         \frac{\partial V^*}{\partial z} &= K_2 \cdot z \\
-        \frac{\partial (A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta}) + f_z)}{\partial z} &= K_2 \cdot z \\
+  \frac{\partial (A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta)} + f_z)}{\partial z} &= K_2 \cdot z \\
         \frac{\partial f_z}{\partial z} &= K_2 \cdot z \\
         \dif{f_z} &= K_2 \cdot z \dif{z} \\
         \int \dif{f_z} &= \int K_2 \cdot z \dif{z} \\
@@ -333,7 +333,7 @@ Finalmente, se puede concluir que la carga es ambos electródos tiene igual magn
     \end{align}
     Y de esta forma, el potencial encontrado es:
     \begin{align}
-        V^* &= A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta}) + K_2 \cdot \frac{z^2}{2} + C
+  V^* &= A\cdot \ln{(r)} + K_1 \cdot \cos{(\theta)} + K_2 \cdot \frac{z^2}{2} + C
     \end{align}
     De esta forma, se encontró un potencial que cumple con la ecuación $\vec{\mathbf{E_1}}= -\nabla V^*$, por lo tanto, el campo eléctrico es conservativo.
     
