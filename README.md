@@ -53,6 +53,9 @@ A continuación, se listan los cursos en los que participé como **Ayudante**, e
 - **EL3105 — Seminario de Ingeniería Eléctrica e Innovación Tecnológica** *(Otoño 2025)*
 - **FI2002 — Electromagnetismo** *(Verano 2023)*
 
+## Colaboradores
+- **Lucas Palomino** — Estudiante de **Ingeniería Civil Eléctrica**. Colaboró con el material de **Electromagnetismo Aplicado (Primavera 2025)**
+  
 ## Métodos de Estudio
 
 A lo largo de mi carrera universitaria, he probado diversos métodos de estudio y herramientas digitales que me han permitido mejorar mi productividad y organización. A continuación, describo aquellas aplicaciones y técnicas que más me han servido, así como los métodos que empleo para sacarles el máximo provecho en mi día a día académico y profesional.
@@ -88,8 +91,6 @@ A continuación, ofrezco una guía detallada sobre cómo trabajo al editar mis d
 
 **Overleaf** es una excelente herramienta para edición online, pero debido a sus **límites en el plan gratuito** (como *compile timeouts* y restricciones de colaboración) y la necesidad de estar **siempre en línea**, opté por trabajar **localmente** utilizando **VS Code + LaTeX + Copilot + GitHub**.
 
-## Videos de referencia
-
 A continuación, incluyo algunos videos útiles para realizar las instalaciones de las herramientas necesarias. Más abajo encontrarás una guía paso a paso:
 
 - [![Ver en YouTube](https://img.shields.io/badge/Ver%20en-YouTube-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=9w7eb56bF7Y) **Instalación de LaTeX en VS Code**
@@ -105,38 +106,38 @@ Descarga el instalador para tu sistema (Windows/macOS/Linux), ejecútalo e insta
 ### 2) Instalar una distribución de LaTeX (elige según tu sistema)
 
 - **Windows (recomendado por simplicidad): MiKTeX**  
-  [![MiKTeX](https://img.shields.io/badge/Download-MiKTeX-2D2D2D?logo=windows&logoColor=white)](https://miktex.org/download)  
+  - [![MiKTeX](https://img.shields.io/badge/Download-MiKTeX-2D2D2D?logo=windows&logoColor=white)](https://miktex.org/download)  
   Instala **Basic MiKTeX** y asegúrate de dejar activada la opción de instalación “on-the-fly” para que los paquetes necesarios se descarguen automáticamente cuando los uses.  
   **Consejo:** actualiza MiKTeX tras la instalación.
 
 - **macOS: MacTeX**  
-  [![MacTeX](https://img.shields.io/badge/Download-MacTeX-000000?logo=apple&logoColor=white)](https://www.tug.org/mactex/mactex-download.html)  
+  - [![MacTeX](https://img.shields.io/badge/Download-MacTeX-000000?logo=apple&logoColor=white)](https://www.tug.org/mactex/mactex-download.html)  
   Descarga **MacTeX-2025** (≈6 GB) o, si prefieres algo más ligero, **BasicTeX**. La instalación se realiza mediante un archivo `.pkg`.
 
 - **Linux: TeX Live**  
-  [![TeX Live](https://img.shields.io/badge/Download-TeX%20Live-555555?logo=linux&logoColor=white)](https://www.tug.org/texlive/)  
+  - [![TeX Live](https://img.shields.io/badge/Download-TeX%20Live-555555?logo=linux&logoColor=white)](https://www.tug.org/texlive/)  
   Puedes instalar **TeX Live** desde tu gestor de paquetes o utilizando el instalador oficial disponible en su página web.
 
 ### 3) (Solo Windows + MiKTeX) Instalar Perl
 
-[![Strawberry Perl](https://img.shields.io/badge/Install-Strawberry%20Perl-DA1F26?logo=perl&logoColor=white)](https://strawberryperl.com/)  
+- [![Strawberry Perl](https://img.shields.io/badge/Install-Strawberry%20Perl-DA1F26?logo=perl&logoColor=white)](https://strawberryperl.com/)  
 Si usas Windows con **MiKTeX**, necesitarás instalar **Strawberry Perl** para habilitar el comando `latexmk`. Verifica la instalación ejecutando `perl -v` en la terminal.
 
 ### 4) Instalar la extensión de LaTeX en VS Code
 
-[![LaTeX Workshop](https://img.shields.io/badge/VS%20Code-LaTeX%20Workshop-1f425f?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)  
+- [![LaTeX Workshop](https://img.shields.io/badge/VS%20Code-LaTeX%20Workshop-1f425f?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)  
 Para instalar la extensión **LaTeX Workshop** en **VS Code**, abre la **Paleta de Comandos** (`Ctrl/Cmd+P`), escribe `ext install latex-workshop` y presiona Enter. Esta extensión permite compilar proyectos LaTeX directamente en el editor.  
 **Compilación:** Abre tu archivo `main.tex` y usa “**LaTeX Workshop: Build LaTeX project**” (o `Ctrl+Alt+B`) para generar el PDF. **`latexmk`** se utiliza por defecto (requiere Perl).
 
 ### 5) Activar GitHub Copilot en VS Code (opcional pero recomendado)
 
-[![Copilot Overview](https://img.shields.io/badge/Docs-Copilot%20Overview-181717?logo=github&logoColor=white)](https://code.visualstudio.com/docs/copilot/overview)  
-[![Copilot Get Started](https://img.shields.io/badge/Docs-Get%20Started-181717?logo=github&logoColor=white)](https://code.visualstudio.com/docs/copilot/getting-started)  
+- [![Copilot Overview](https://img.shields.io/badge/Docs-Copilot%20Overview-181717?logo=github&logoColor=white)](https://code.visualstudio.com/docs/copilot/overview)  
+- [![Copilot Get Started](https://img.shields.io/badge/Docs-Get%20Started-181717?logo=github&logoColor=white)](https://code.visualstudio.com/docs/copilot/getting-started)  
 Inicia sesión con tu cuenta de GitHub y habilita **GitHub Copilot** para obtener sugerencias basadas en IA. Si cuentas con correo institucional, es posible que puedas acceder a un plan gratuito completo.
 
 ### 6) (Opcional) Vincular tu proyecto con GitHub Desktop — Resumen con acciones
 
-[![GitHub Desktop](https://img.shields.io/badge/Download-GitHub%20Desktop-181717?logo=github&logoColor=white)](https://desktop.github.com/download/)  
+- [![GitHub Desktop](https://img.shields.io/badge/Download-GitHub%20Desktop-181717?logo=github&logoColor=white)](https://desktop.github.com/download/)  
 Para gestionar **Git/GitHub** mediante una interfaz gráfica sin utilizar la terminal, puedes usar **GitHub Desktop**.
 
 #### Pasos rápidos:
