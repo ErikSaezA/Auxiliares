@@ -4,8 +4,8 @@
 Por si buscas contactarme,
 
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-Erik%20Sáez-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/erik-s%C3%A1ez-aravena-447352210/)
-- [![Correo 1](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-red?logo=gmail&logoColor=white)](mailto:erik.saez@ug.uchile.cl)
-- [![Correo 2](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-red?logo=gmail&logoColor=white)](mailto:esaez.das@uchile.cl)
+- [![](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-red?logo=gmail&logoColor=white)](mailto:erik.saez@ug.uchile.cl)
+- [![](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-red?logo=gmail&logoColor=white)](mailto:esaez.das@uchile.cl)
 
 ## Presentación
 Hola! Soy Erik Sáez, estudiante de **Magíster en Ingeniería Civil Eléctrica** de la **Universidad de Chile**. Desde mi época escolar me apasiona la **docencia**: buscar y comprender **el porqué de las cosas** ha sido siempre mi motor, manteniéndome motivado y resiliente; nada es fácil y el camino muchas veces ha sido desafiante.
