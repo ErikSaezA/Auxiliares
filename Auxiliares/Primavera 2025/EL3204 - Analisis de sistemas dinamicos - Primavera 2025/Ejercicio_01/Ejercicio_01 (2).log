@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  22 AUG 2025 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  10 SEP 2025 01:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis de sistemas dinamicos - Primavera 2025/EL3204_01 copy/EL3204_02.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Analisis de sistemas dinamicos - Primavera 2025/EL3204_01 copy/EL3204_02.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
@@ -105,8 +105,12 @@ File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 \exam@FrameRule=\dimen143
 \exam@FrameSep=\dimen144
 ) (../exercise-preamble.sty
+
+LaTeX Warning: You have requested file `',
+               but the file provides `../exercise-preamble'.
+
 Package: ../exercise-preamble 2023/04/30 Prof. Cassanelli custom LaTeX style
- (C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Program Files\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
  (C:\Program Files\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -827,12 +831,12 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip95
 )
-Package hyperref Info: Option `unicode' set `true' on input line 76.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 76.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 76.
-Package hyperref Info: Option `pdffitwindow' set `false' on input line 76.
-Package hyperref Info: Option `pdfnewwindow' set `true' on input line 76.
-Package hyperref Info: Option `colorlinks' set `true' on input line 76.
+Package hyperref Info: Option `unicode' set `true' on input line 80.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 80.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 80.
+Package hyperref Info: Option `pdffitwindow' set `false' on input line 80.
+Package hyperref Info: Option `pdfnewwindow' set `true' on input line 80.
+Package hyperref Info: Option `colorlinks' set `true' on input line 80.
  (C:\Program Files\MiKTeX\tex/latex/cleveref\cleveref.sty
 Package: cleveref 2018/03/27 v0.21.4 Intelligent cross-referencing
 Package cleveref Info: `hyperref' support loaded on input line 2370.
@@ -854,45 +858,64 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box103
 \@float@everytoks=\toks59
 \@floatcapt=\box104
+) (C:\Program Files\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen348
+\lightrulewidth=\dimen349
+\cmidrulewidth=\dimen350
+\belowrulesep=\dimen351
+\belowbottomsep=\dimen352
+\aboverulesep=\dimen353
+\abovetopsep=\dimen354
+\cmidrulesep=\dimen355
+\cmidrulekern=\dimen356
+\defaultaddspace=\dimen357
+\@cmidla=\count394
+\@cmidlb=\count395
+\@aboverulesep=\dimen358
+\@belowrulesep=\dimen359
+\@thisruleclass=\count396
+\@lastruleclass=\count397
+\@thisrulewidth=\dimen360
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 11.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 17.
  (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count394
+\l__color_backend_stack_int=\count398
 \l__pdf_internal_box=\box105
-) (EL3204_02.aux)
-\openout1 = `EL3204_02.aux'.
+) (Ejercicio_01.aux)
+\openout1 = `Ejercicio_01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count395
-\scratchdimen=\dimen348
+\scratchcounter=\count399
+\scratchdimen=\dimen361
 \scratchbox=\box106
-\nofMPsegments=\count396
-\nofMParguments=\count397
+\nofMPsegments=\count400
+\nofMParguments=\count401
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count398
-\MPscratchDim=\dimen349
-\MPnumerator=\count399
-\makeMPintoPDFobject=\count400
+\MPscratchCnt=\count402
+\MPscratchDim=\dimen362
+\MPnumerator=\count403
+\makeMPintoPDFobject=\count404
 \everyMPtoPDFconversion=\toks61
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -944,105 +967,192 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Program Files\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 11.
-Package hyperref Info: Link coloring ON on input line 11.
- (EL3204_02.out) (EL3204_02.out)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 17.
+Package hyperref Info: Link coloring ON on input line 17.
 \@outlinefile=\write4
-\openout4 = `EL3204_02.out'.
+\openout4 = `Ejercicio_01.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 15.
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 21.
 (pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 13--25
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 19--31
 $[]$ $[]$ 
  []
 
-<../figures/Auxiliar_2_1.png, id=7, 539.76656pt x 263.48438pt>
-File: ../figures/Auxiliar_2_1.png Graphic file (type png)
-<use ../figures/Auxiliar_2_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_1.png  used on input line 35.
-(pdftex.def)             Requested size: 317.36526pt x 154.92372pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--132
-[]|\OT1/cmr/m/n/10.95 Comportamiento
- []
+LaTeX Warning: Reference `fig:relay' on page 1 undefined on input line 43.
 
+<../figures/Ejercicio_1_1.png, id=7, 942.52126pt x 612.03656pt>
+File: ../figures/Ejercicio_1_1.png Graphic file (type png)
+<use ../figures/Ejercicio_1_1.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_1.png  used on input line 47.
+(pdftex.def)             Requested size: 423.151pt x 274.77885pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
-[]|\OT1/cmr/m/n/10.95 Comportamiento
- []
+LaTeX Warning: Reference `tab:variables' on page 1 undefined on input line 52.
 
-<../figures/Auxiliar_2_2.png, id=9, 899.61093pt x 481.04718pt>
-File: ../figures/Auxiliar_2_2.png Graphic file (type png)
-<use ../figures/Auxiliar_2_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_2_2.png  used on input line 165.
-(pdftex.def)             Requested size: 294.40503pt x 157.42482pt.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 66.
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:78: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 \end{table}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 
 [1
 
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_2_1.png>]
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Ejercicio_1_1.png>]
 
-[2]
+LaTeX Warning: Reference `fig:core' on page 2 undefined on input line 84.
+
+<../figures/Ejercicio_1_2.png, id=24, 1092.33093pt x 383.93437pt>
+File: ../figures/Ejercicio_1_2.png Graphic file (type png)
+<use ../figures/Ejercicio_1_2.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_2.png  used on input line 88.
+(pdftex.def)             Requested size: 449.59946pt x 158.02338pt.
+
+
+[2 <../figures/Ejercicio_1_2.png>]
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:135: Improper \prevdepth.
+\newpage ...everypar {}\fi \par \ifdim \prevdepth 
+                                                  >\z@ \vskip -\ifdim \prevd...
+l.135 \newpage
+              
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:135: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 \newpage
+              
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
 
 [3]
 
-[4 <../figures/Auxiliar_2_2.png>]
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:136: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:138: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138 
+      
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex:140: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140   \item
+              Establezca de forma clara todas las hipótesis simplificatoria...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Reference `fig:core' on page 4 undefined on input line 140.
+
+
+LaTeX Warning: Reference `tab:casos-corriente' on page 4 undefined on input line 192.
+
+
+
+[4]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 
 [5]
 
 [6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-This exam contains 2 questions with 0 parts, 0 subparts, and 0 subsubparts.
+This exam contains 0 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3204_02.aux)
+
+Class exam Warning: Point totals have changed. Rerun to get point totals right.
+
+(Ejercicio_01.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `EL3204_02.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Ejercicio_01.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Ejercicio_01.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61547 strings out of 473523
- 1577857 string characters out of 5724698
- 2414585 words of memory out of 5000000
- 83901 multiletter control sequences out of 15000+600000
- 569577 words of font info for 80 fonts, out of 8000000 for 9000
+ 61509 strings out of 473523
+ 1577574 string characters out of 5724698
+ 2360567 words of memory out of 5000000
+ 83962 multiletter control sequences out of 15000+600000
+ 570960 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,101p,872b,1218s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on EL3204_02.pdf (13 pages, 397394 bytes).
+ 89i,12n,90p,994b,1278s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb>
+Output written on Ejercicio_01.pdf (6 pages, 489359 bytes).
 PDF statistics:
- 324 PDF objects out of 1000 (max. 8388607)
- 150 named destinations out of 1000 (max. 500000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 46 named destinations out of 1000 (max. 500000)
  28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
