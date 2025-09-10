@@ -9,19 +9,27 @@ Por si buscas contactarme,
 - [![](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:erik.saez@ug.uchile.cl)
 - [![](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:esaez.das@uchile.cl)
 
-Erik Sáez
-Estudiante de Magíster en Ingeniería Civil Eléctrica en la Universidad de Chile
 
-Desde mis años escolares, la docencia ha sido una de mis mayores motivaciones. La búsqueda y comprensión profunda del porqué de las cosas ha sido el motor que me ha impulsado a mantenerme resiliente y comprometido con mi desarrollo, aun cuando el camino ha sido desafiante.
+**Erik Sáez** - Estudiante de **Magíster en Ingeniería Civil Eléctrica** en la **Universidad de Chile**
 
-A lo largo de mi trayectoria universitaria, he tenido el privilegio de contribuir activamente en el ámbito de la docencia universitaria como profesor auxiliar. Además, he participado en la gestión estudiantil, desempeñándome inicialmente en el equipo de Docencia del Centro de Estudiantes y posteriormente como Vicepresidente del CEIE (Centro de Estudiantes de Ingeniería Eléctrica).
+Desde mis años escolares, la **docencia** ha sido una de mis mayores motivaciones. La búsqueda y comprensión profunda del **porqué de las cosas** ha sido el motor que me ha impulsado a mantenerme resiliente y comprometido con mi desarrollo, aun cuando el camino ha sido desafiante.
 
-Con el objetivo de apoyar a quienes continúan fortaleciendo la docencia en nuestro departamento, pongo a disposición diversos materiales y recursos en los que participé junto a los equipos docentes, tales como auxiliares, presentaciones, aplicaciones y métodos de estudio que me han sido de gran utilidad a lo largo de mi carrera. Espero que estos recursos también sean de beneficio para otros.
-## Cursos donde participé en el equipo docente
+A lo largo de mi trayectoria universitaria, he tenido el privilegio de contribuir activamente en el ámbito de la **docencia universitaria** como **profesor auxiliar**. Además, he participado en la **gestión estudiantil**, desempeñándome inicialmente en el equipo de **Docencia del Centro de Estudiantes** y posteriormente como **Vicepresidente del CEIE** (Centro de Estudiantes de Ingeniería Eléctrica).
+
+Con el objetivo de apoyar a quienes continúan fortaleciendo la docencia en nuestro departamento, pongo a disposición diversos materiales y recursos en los que participé junto a los equipos docentes, tales como **auxiliares**, **presentaciones**, **aplicaciones** y **métodos de estudio** que me han sido de gran utilidad a lo largo de mi carrera. Espero que estos recursos también sean de beneficio para otros.
+
+<p align="center">
+  <img src="https://github.com/ErikSaezA/Auxiliares/blob/57c6dc88c332a01c7a3555674885a92171669de9/imagen.png" width="300">
+</p>
+
+## Participación en Cuerpos Docentes
+Los cursos que se muestran a continuación están en el repositorio, estos son en los que participé como **Profesor Auxiliar** o **Ayudante**.
 
 ### Profesor Auxiliar
+A continuación, se listan los cursos en los que participé como **Profesor Auxiliar**, en este rol realicé tareas/controles/presentaciones:
+
 - **FI1100 — Introducción a la Física Moderna** *(Primavera 2025)*
-- **EL3202-1 — Circuitos Eléctricos Analógicos** *(Primavera 2025)*
+- **EL3202 — Circuitos Eléctricos Analógicos** *(Primavera 2025)*
 - **EL3204 — Análisis de Sistemas Dinámicos y Estimación** *(Primavera 2025)*
 - **EL3204 — Análisis de Señales** *(Primavera 2025)*
 - **EL3101 — Análisis y Diseño de Circuitos Eléctricos** *(Otoño 2025)*
@@ -37,11 +45,14 @@ Con el objetivo de apoyar a quienes continúan fortaleciendo la docencia en nues
 - **FI1000 — Introducción a la Física Clásica** *(Otoño 2022)*
 
 ### Ayudante
+A continuación, se listan los cursos en los que participé como **Ayudante**, en este rol solo realicé correcciones:
+
 - **EL4112 — Principios de Comunicaciones** *(Primavera 2025)*
 - **EL3101 — Análisis y Diseño de Circuitos Eléctricos** *(Primavera 2025)*
 - **EL3105 — Seminario de Ingeniería Eléctrica e Innovación Tecnológica** *(Primavera 2025)*
 - **EL3105 — Seminario de Ingeniería Eléctrica e Innovación Tecnológica** *(Otoño 2025)*
 - **FI2002 — Electromagnetismo** *(Verano 2023)*
+
 
 
 # VS Code + LaTeX + Copilot + GitHub — Guía rápida
