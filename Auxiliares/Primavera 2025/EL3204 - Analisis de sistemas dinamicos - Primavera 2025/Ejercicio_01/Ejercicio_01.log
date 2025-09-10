@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  9 SEP 2025 18:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  9 SEP 2025 19:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_04/EL3204_04.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_04/EL3204_04.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -105,8 +105,12 @@ File: size11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 \exam@FrameRule=\dimen143
 \exam@FrameSep=\dimen144
 ) (../exercise-preamble.sty
+
+LaTeX Warning: You have requested package `',
+               but the package provides `../exercise-preamble'.
+
 Package: ../exercise-preamble 2023/04/30 Prof. Cassanelli custom LaTeX style
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -848,63 +852,71 @@ LaTeX Info: Redefining \Cpagerefrange on input line 2370.
 LaTeX Info: Redefining \labelcref on input line 2370.
 LaTeX Info: Redefining \labelcpageref on input line 2370.
 Package cleveref Info: `amsthm' support loaded on input line 3026.
-)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
-Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup8
-\symboldletters=\mathgroup9
-\symboldsymbols=\mathgroup10
-Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
-Package bm Info: No bold for \U/msa/m/n, using \pmb.
-Package bm Info: No bold for \U/msb/m/n, using \pmb.
-Package bm Info: No bold for \U/rsfs/m/n, using \pmb.
-\symboldugrf@m=\mathgroup11
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+)) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count391
 \float@exts=\toks58
 \float@box=\box103
 \@float@everytoks=\toks59
 \@floatcapt=\box104
+) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen348
+\lightrulewidth=\dimen349
+\cmidrulewidth=\dimen350
+\belowrulesep=\dimen351
+\belowbottomsep=\dimen352
+\aboverulesep=\dimen353
+\abovetopsep=\dimen354
+\cmidrulesep=\dimen355
+\cmidrulekern=\dimen356
+\defaultaddspace=\dimen357
+\@cmidla=\count392
+\@cmidlb=\count393
+\@aboverulesep=\dimen358
+\@belowrulesep=\dimen359
+\@thisruleclass=\count394
+\@lastruleclass=\count395
+\@thisrulewidth=\dimen360
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 14.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 17.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count392
+\l__color_backend_stack_int=\count396
 \l__pdf_internal_box=\box105
-) (EL3204_04.aux)
-\openout1 = `EL3204_04.aux'.
+) (Ejercicio_01.aux)
+\openout1 = `Ejercicio_01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count393
-\scratchdimen=\dimen348
+\scratchcounter=\count397
+\scratchdimen=\dimen361
 \scratchbox=\box106
-\nofMPsegments=\count394
-\nofMParguments=\count395
+\nofMPsegments=\count398
+\nofMParguments=\count399
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count396
-\MPscratchDim=\dimen349
-\MPnumerator=\count397
-\makeMPintoPDFobject=\count398
+\MPscratchCnt=\count400
+\MPscratchDim=\dimen362
+\MPnumerator=\count401
+\makeMPintoPDFobject=\count402
 \everyMPtoPDFconversion=\toks61
 ) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -956,126 +968,95 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 14.
-Package hyperref Info: Link coloring ON on input line 14.
- (EL3204_04.out) (EL3204_04.out)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 17.
+Package hyperref Info: Link coloring ON on input line 17.
+ (Ejercicio_01.out) (Ejercicio_01.out)
 \@outlinefile=\write4
-\openout4 = `EL3204_04.out'.
+\openout4 = `Ejercicio_01.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 24.
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 21.
 (pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 25.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 22.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (61.11494pt too wide) detected at line 41
-[]
- []
-
-
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 22--46
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 19--31
 $[]$ $[]$ 
  []
 
-<../figures/Auxiliar_4_1.png, id=8, 1036.62282pt x 353.06906pt>
-File: ../figures/Auxiliar_4_1.png Graphic file (type png)
-<use ../figures/Auxiliar_4_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_4_1.png  used on input line 211.
-(pdftex.def)             Requested size: 441.60007pt x 150.41061pt.
-<../figures/Auxiliar_4_2.png, id=10, 1162.3425pt x 393.72093pt>
-File: ../figures/Auxiliar_4_2.png Graphic file (type png)
-<use ../figures/Auxiliar_4_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_4_2.png  used on input line 216.
-(pdftex.def)             Requested size: 441.60007pt x 149.58546pt.
-<../figures/Auxiliar_4_3.png, id=11, 697.8572pt x 520.94624pt>
-File: ../figures/Auxiliar_4_3.png Graphic file (type png)
-<use ../figures/Auxiliar_4_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_4_3.png  used on input line 252.
-(pdftex.def)             Requested size: 441.60007pt x 329.65254pt.
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 45.
+(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/base\omlcmr.fd
+File: omlcmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 45.
+<../figures/Ejercicio_1_1.png, id=8, 942.52126pt x 612.03656pt>
+File: ../figures/Ejercicio_1_1.png Graphic file (type png)
+<use ../figures/Ejercicio_1_1.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_1.png  used on input line 49.
+(pdftex.def)             Requested size: 423.151pt x 274.77885pt.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 68.
+ (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../figures/Ejercicio_1_2.png, id=12, 1092.33093pt x 383.93437pt>
+File: ../figures/Ejercicio_1_2.png Graphic file (type png)
+<use ../figures/Ejercicio_1_2.png>
+Package pdftex.def Info: ../figures/Ejercicio_1_2.png  used on input line 87.
+(pdftex.def)             Requested size: 449.59946pt x 158.02338pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 
 [1
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
+{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Ejercicio_1_1.png>]
 
-[2]
+[2 <../figures/Ejercicio_1_2.png>]
 
 [3]
 
 [4]
 
-[5 <../figures/Auxiliar_4_1.png> <../figures/Auxiliar_4_2.png>]
-
-[6]
-
-[7 <../figures/Auxiliar_4_3.png>]
-<../figures/Auxiliar_4_4.png, id=125, 728.7225pt x 296.60812pt>
-File: ../figures/Auxiliar_4_4.png Graphic file (type png)
-<use ../figures/Auxiliar_4_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_4_4.png  used on input line 297.
-(pdftex.def)             Requested size: 396.70256pt x 161.46492pt.
-
-
-[8 <../figures/Auxiliar_4_4.png>]
-File: ../figures/Auxiliar_4_3.png Graphic file (type png)
-<use ../figures/Auxiliar_4_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_4_3.png  used on input line 742.
-(pdftex.def)             Requested size: 306.08516pt x 228.4937pt.
-
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
-
-[15]
-
-[16]
-
-[17]
-
-[18]
-This exam contains 2 questions with 12 parts, 0 subparts, and 0 subsubparts.
+[5]
+This exam contains 1 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3204_04.aux)
+(Ejercicio_01.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `EL3204_04.out' has not changed.
+Package rerunfilecheck Info: File `Ejercicio_01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61350 strings out of 473903
- 1579475 string characters out of 5727051
- 2410957 words of memory out of 5000000
- 83284 multiletter control sequences out of 15000+600000
- 577936 words of font info for 112 fonts, out of 8000000 for 9000
+ 60539 strings out of 473903
+ 1560689 string characters out of 5727051
+ 2322937 words of memory out of 5000000
+ 82637 multiletter control sequences out of 15000+600000
+ 570797 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,21n,101p,926b,1138s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on EL3204_04.pdf (18 pages, 468908 bytes).
+ 89i,11n,90p,908b,1209s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb>
+Output written on Ejercicio_01.pdf (5 pages, 480117 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 194 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 38 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -25,8 +25,20 @@
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
 \begin{center}
-\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\
-\large\textbf{Clase auxiliar 4} \\
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\Definiendo:
+\begin{align}
+  L= \begin{bmatrix} \ell_1 \\ \ell_2 \end{bmatrix}
+\end{align}
+calculamos el producto $LC$:
+\begin{align}
+  LC = \begin{bmatrix} \ell_1 \\ \ell_2 \end{bmatrix} \begin{bmatrix} 0.01 & 0 \end{bmatrix} = \begin{bmatrix} 0.01\ell_1 & 0 \\ 0.01\ell_2 & 0 \end{bmatrix}
+\end{align}
+El polinomio característico de $A-LC$ es:
+\begin{align}
+  \det(\lambda I - (A-LC)) &= \det\begin{bmatrix} \lambda + 2 + 0.01\ell_1 & -10 \\ 1 + 0.01\ell_2 & \lambda + 1 \end{bmatrix} \\
+  &= (\lambda + 2 + 0.01\ell_1)(\lambda + 1) - (-10)(1 + 0.01\ell_2) \\
+  &= \lambda^2 + (3 + 0.01\ell_1)\lambda + (12 + 0.01\ell_1 + 0.1\ell_2)
+\end{align}extbf{Clase auxiliar 4} \\
 \normalsize Prof.~ Marcos Orchard - Sebastián Espinosa.\\
 \normalsize Prof.~Aux.~Erik Sáez
 \end{center}
@@ -126,7 +138,8 @@ Donde en forma matricial se tendra que:
   \end{pmatrix}
   +
   \begin{pmatrix}
-   5/2 & 1/2
+   5/2 \\
+    1/2
   \end{pmatrix}
   u(t) 
 \end{align}
@@ -271,17 +284,12 @@ El error estará dado por:
     F = \begin{pmatrix} \frac{247}{6} \\ -\frac{91}{6} \end{pmatrix}
   \end{align}
   % Explicación ampliada del principio de separación
-  \paragraph{Principio de separación (explicación).} El controlador por realimentación de estados diseña $K$ para colocar los polos de la matriz $A-BK$. Cuando agregamos un observador de Luenberger, la dinámica conjunta (control + observador) en las coordenadas $x$ (estado real) y $e = \hat x - x$ (error de estimación) queda
+   El controlador por realimentación de estados diseña $K$ para colocar los polos de la matriz $A-BK$. Cuando agregamos un observador de Luenberger, la dinámica conjunta (control + observador) en las coordenadas $x$ (estado real) y $e = \hat x - x$ (error de estimación) queda
   \[
      \dot x = (A-BK)x + Br, \qquad \dot e = (A-FC)e.
   \]
   Obsérvese que $e$ no aparece en la ecuación de $\dot x$ (no hay términos cruzados). Esto significa que la evolución del estado real (y, por ende, del lazo de control) no depende de cómo transcurre transitoriamente el error del observador: mientras $K$ estabilice/ubique los polos deseados de $(A-BK)$, esa parte permanecerá válida. En paralelo, $F$ se elige para que $(A-FC)$ haga que $e(t)\to 0$ rápidamente. Así, el diseño se separa en dos problemas independientes: (i) colocación de polos de control y (ii) colocación de polos del observador.
-  
-  En términos más formales, si el par $(A,B)$ es estabilizable y el par $(A,C)$ es detectable (en nuestro caso son controlable y observable, condiciones más fuertes), entonces existe una elección de $K$ y $F$ tal que ambos subsistemas son estables y la matriz bloque triangular
-  \[
-     \begin{pmatrix} A-BK & -BK \\ 0 & A-FC \end{pmatrix}
-  \]
-  tiene autovalores exactamente iguales a la unión de los autovalores de $A-BK$ y $A-FC$. Por eso podemos reutilizar, sin modificaciones, el $K$ calculado en la Parte 4 incluso cuando sólo disponemos de $\hat x$: basta sustituir $x$ por $\hat x$ en la ley de control $u = r - K\hat x$. Una vez que $e(t)$ converge a cero, $\hat x \approx x$ y la acción de control coincide prácticamente con la que se habría aplicado con estado completo. El beneficio de elegir polos del observador más rápidos (más a la izquierda) es minimizar el impacto transitorio de los errores de estimación sobre la salida.
+
   \end{solution}
 %----------------------------  Segunda pregunta
   \question Considere un motor eléctrico DC que impulsa un carrito, como se muestra en la figura.
@@ -305,8 +313,9 @@ El error estará dado por:
 % (Sin solución incluida para esta pregunta de momento.)
 \end{questions}
 \begin{solution}
-\subsection*{Resolución 2.2}
-Suponiendo una carga fija podemos modelar el rotor de la siguiente manera:
+\subsection*{Resolución 2.1}
+Para modelar el sistema motor DC - carrito, consideramos un motor de corriente continua con armadura controlada que mueve un carrito a través de un sistema de engranajes. Suponiendo una carga fija, podemos modelar el circuito eléctrico de la armadura de la siguiente manera:
+
 \begin{figure}[H]
 \centering
 \begin{circuitikz}[american voltages, european resistors]
@@ -320,39 +329,56 @@ Suponiendo una carga fija podemos modelar el rotor de la siguiente manera:
   % Anotamos la corriente de armadura encima del resistor (opcional)
   \draw[->] (3.3,3.25) -- (3.8,3.25) node[midway, above] {$i_a(t)$};
 \end{circuitikz}
-\caption{Modelo eléctrico de la armadura con $e(t)=k_e\,\omega(t)$.}
+\caption{Modelo eléctrico de la armadura con fuerza contraelectromotriz $e(t)=k_e\,\omega(t)$.}
 \label{fig:armadura}
 \end{figure}
 
-El modelo eléctrico de la armadura, mostrado en la Fig.~\ref{fig:armadura}, se obtiene por ley de mallas:
+El modelo eléctrico de la armadura, mostrado en la Fig.~\ref{fig:armadura}, se obtiene aplicando la ley de tensiones de Kirchhoff:
 \begin{align}
-V_{a}&= R_{a}i_{a} + V_L + k_e \omega(t)\\ 
-V_a&=-R_a\,i_a(t)+L_a\,\frac{di_a(t)}{dt}+k_e\,\omega(t).\\
-\frac{\partial i_a(t)}{\partial t} &= -\frac{R_a}{L_a}\,i_a(t)-\frac{k_e}{L_a}\,\omega(t)+\frac{1}{L_a}\,v_a(t).
+v_a(t) &= R_a\,i_a(t) + L_a\,\frac{di_a(t)}{dt} + k_e\,\omega(t)
 \end{align}
-Por otro parte, para la parte mecanica, sabemos $\tau = k_m\,i_a(t)$. por lo tanto:
+donde $k_e\,\omega(t)$ representa la fuerza contraelectromotriz generada por la rotación del motor.
+
+Despejando la derivada de la corriente:
 \begin{align}
-\tau_m = \sum_{i} \tau_i 
+\frac{di_a(t)}{dt} &= -\frac{R_a}{L_a}\,i_a(t) - \frac{k_e}{L_a}\,\omega(t) + \frac{1}{L_a}\,v_a(t)
 \end{align}
-De esta manera por ley de torques tenemos que $J \dot{\omega}$ por inercia y $B \omega$ por roce, de esta manera tenemos que:
+Por otro lado, para la parte mecánica consideramos que el torque generado por el motor es proporcional a la corriente de armadura:
 \begin{align}
-  k_m\,i_a(t)&=J\,\dot{\omega}(t)+B\,\omega(t).\\
-  \dot{\omega}(t)&=-\frac{B}{J}\,\omega(t)+\frac{k_m}{J}\,i_a(t).
+\tau_m(t) = k_m\,i_a(t)
 \end{align}
-Luego tomamos las dos ecuaciones diferenciales obtenidas y las ordenamos:
+donde $k_m$ es la constante de torque del motor.
+
+Aplicando la segunda ley de Newton para rotación al eje del motor, el torque neto es igual a la suma de los torques de inercia y fricción viscosa:
 \begin{align}
- \frac{\partial \omega(t)}{\partial t} &= -\frac{B}{J}\,\omega(t)+\frac{k_m}{J}\,i_a(t),\\
-  \frac{\partial i_a(t)}{\partial t} &= -\frac{R_a}{L_a}\,i_a(t)-\frac{k_e}{L_a}\,\omega(t)+\frac{1}{L_a}\,v_a(t).
+\tau_m(t) &= J\,\frac{d\omega(t)}{dt} + B\,\omega(t)
 \end{align}
-Luego podemos definir el vector de estado y la entrada como:
+donde $J$ es el momento de inercia del sistema rotativo y $B$ es el coeficiente de fricción viscosa.
+
+Sustituyendo la expresión del torque del motor:
+\begin{align}
+k_m\,i_a(t) &= J\,\frac{d\omega(t)}{dt} + B\,\omega(t)
+\end{align}
+
+Despejando la derivada de la velocidad angular:
+\begin{align}
+\frac{d\omega(t)}{dt} &= -\frac{B}{J}\,\omega(t) + \frac{k_m}{J}\,i_a(t)
+\end{align}
+Luego, tomando las dos ecuaciones diferenciales obtenidas, tenemos el sistema de ecuaciones que describe la dinámica del motor DC:
+\begin{align}
+ \frac{d\omega(t)}{dt} &= -\frac{B}{J}\,\omega(t) + \frac{k_m}{J}\,i_a(t) \\
+  \frac{di_a(t)}{dt} &= -\frac{R_a}{L_a}\,i_a(t) - \frac{k_e}{L_a}\,\omega(t) + \frac{1}{L_a}\,v_a(t)
+\end{align}
+
+Definimos el vector de estado y la entrada como:
 \begin{equation}
-  x(t)=\begin{bmatrix}\omega(t)\\ i_a(t)\end{bmatrix},
-  \qquad
-  u(t)=v_a(t).
+  x(t) = \begin{bmatrix}\omega(t)\\ i_a(t)\end{bmatrix}, \qquad
+  u(t) = v_a(t)
 \end{equation}
-De esta manera podemos observar que el sistema queda en la forma estandar de espacio de estados donde las matrices $A$ y $B$ quedan definidas como:
+
+De esta manera, el sistema se puede escribir en la forma estándar de espacio de estados $\dot{x}(t) = Ax(t) + Bu(t)$, donde las matrices $A$ y $B$ quedan definidas como:
 \begin{equation}
-  \dot{x}(t)=
+  \dot{x}(t) = 
   \underbrace{\begin{bmatrix}
     -\dfrac{B}{J} & \dfrac{k_m}{J}\\[6pt]
     -\dfrac{k_e}{L_a} & -\dfrac{R_a}{L_a}
@@ -360,38 +386,33 @@ De esta manera podemos observar que el sistema queda en la forma estandar de esp
   +
   \underbrace{\begin{bmatrix}
     0\\[2pt]\dfrac{1}{L_a}
-  \end{bmatrix}}_{B}\,u(t).
+  \end{bmatrix}}_{B}\,u(t)
 \end{equation}
-La salida requerida es la velocidad lineal del carrito, proporcional a la velocidad angular del eje:
+La salida requerida es la velocidad lineal del carrito, que es proporcional a la velocidad angular del eje del motor a través de la relación de engranajes:
 \begin{align}
-  y(t)=\dot z(t)=k_g\,\omega(t)
-  =&
-  \underbrace{\begin{bmatrix}k_g & 0\end{bmatrix}}_{C}\,x(t)
-  +
-  \underbrace{0}_{D}\,u(t).\\
-  =&\begin{bmatrix}
-    k_g & 0
-  \end{bmatrix}
-  \begin{bmatrix}
-    \omega(t)\\ i_a(t)
-  \end{bmatrix}
+  y(t) = \dot{z}(t) = k_g\,\omega(t)
 \end{align}
-Algunas hipótesis simplificatorias podrían ser:
-\begin{itemize}
-  \item Juego de engranajes ideal, sin pérdidas.
-  \item Fricción viscosa lineal.
-  \item Flujo magnético constante.
-  \item No hay saturación magnética.
-  \item El motor opera en su región lineal.
-  \item El carrito se mueve en una superficie horizontal sin pendiente.
-  \item No hay fuerzas externas actuando sobre el carrito (como viento o fricción adicional).
-  \item $\ddots$
-\end{itemize}
-\subsection*{Resolucion 2.1}
+donde $k_g$ es la constante de proporcionalidad que relaciona la velocidad angular del motor con la velocidad lineal del carrito.
 
-Con los parámetros usados en el desarrollo manuscrito
-$k_m=1$, $k_e=1$, $R_a=1~\Omega$, $L_a=1~\mathrm{H}$, $J=0.1~\mathrm{kg\,m^2}$,
-$B=0.2~\mathrm{N\,m\,s}$ y $k_g=0.01~\mathrm{m/rad}$, el modelo queda
+Por lo tanto, la ecuación de salida en forma matricial es:
+\begin{align}
+  y(t) &= \underbrace{\begin{bmatrix}k_g & 0\end{bmatrix}}_{C}\,x(t) + \underbrace{0}_{D}\,u(t) \\
+  &= \begin{bmatrix} k_g & 0 \end{bmatrix} \begin{bmatrix} \omega(t)\\ i_a(t) \end{bmatrix}
+\end{align}
+Algunas hipótesis simplificatorias consideradas en este modelo son:
+\begin{itemize}
+  \item Sistema de engranajes ideal, sin pérdidas por fricción, juego mecánico o elasticidad.
+  \item Fricción viscosa lineal, donde el torque de fricción es proporcional a la velocidad angular.
+  \item Flujo magnético constante y ausencia de saturación magnética.
+  \item El motor opera dentro de sus límites nominales en región lineal.
+  \item El carrito se mueve en una superficie plana sin inclinación.
+  \item No hay fuerzas externas como viento, vibraciones o cargas variables.
+  \item Todas las constantes del sistema ($R_a$, $L_a$, $J$, $B$, $k_m$, $k_e$, $k_g$) son valores fijos.
+  \item Modelo de parámetros concentrados, despreciando efectos distribuidos.
+\end{itemize}
+\subsection*{Resolución 2.2}
+
+Sustituyendo los parámetros numéricos dados: $k_m=1$, $k_e=1$, $R_a=1~\Omega$, $L_a=1~\mathrm{H}$, $J=0.1~\mathrm{kg\,m^2}$, $B=0.2~\mathrm{N\,m\,s}$ y $k_g=0.01~\mathrm{m/rad}$, las matrices del sistema quedan:
 
 \begin{align}
 A&=
@@ -414,205 +435,218 @@ B=
 \end{bmatrix},\qquad
 C=\begin{bmatrix} k_g & 0\end{bmatrix}=\begin{bmatrix}0.01 & 0\end{bmatrix}.
 \end{align}
-Notamos que la matriz $A$ no es diagonal, pero si es diagonalizable dado que es de rango completo, por lo que planteamos que $A=TDT^{-1}$, donde $D$ es diagonal y $T$ es la matriz de autovectores. Por lo tanto el polinomio característico de $A$ vendra dado por:
+
+Para calcular la matriz de transición $\Phi(t) = e^{At}$, observamos que la matriz $A$ no es diagonal, pero sí es diagonalizable. Utilizaremos la descomposición $A=TDT^{-1}$, donde $D$ es la matriz diagonal de autovalores y $T$ la matriz de autovectores. Primero calculamos el polinomio característico de $A$:
 \begin{align}
-\det(\lambda I-A)=(\lambda+2)(\lambda+1)+10
-=\lambda^2+3\lambda+12.
+\det(\lambda I-A) &= \det\begin{bmatrix} \lambda+2 & -10 \\ 1 & \lambda+1 \end{bmatrix} \\
+&= (\lambda+2)(\lambda+1) - (-10)(1) \\
+&= \lambda^2 + 3\lambda + 2 + 10 = \lambda^2+3\lambda+12
 \end{align}
-De esta manera definimos que:
+
+Resolviendo la ecuación característica $\lambda^2+3\lambda+12=0$ usando la fórmula cuadrática:
 \begin{align}
-  \lambda_1 &= -1.5 + j\frac{\sqrt{39}}{2}\\ \lambda_2 &= -1.5 - j\frac{\sqrt{39}}{2}
+\lambda_{1,2} &= \frac{-3 \pm \sqrt{9-48}}{2} = \frac{-3 \pm \sqrt{-39}}{2} = -\frac{3}{2} \pm j\frac{\sqrt{39}}{2}
 \end{align}
-Luego, definimos la matriz $D$ como la matriz diagonal formada por los autovalores:
+
+Por lo tanto, los autovalores son:
+\begin{align}
+  \lambda_1 &= -1.5 + j\frac{\sqrt{39}}{2}, \quad \lambda_2 = -1.5 - j\frac{\sqrt{39}}{2}
+\end{align}
+Por lo tanto, los autovalores son:
+\begin{align}
+  \lambda_1 &= -1.5 + j\frac{\sqrt{39}}{2}, \quad \lambda_2 = -1.5 - j\frac{\sqrt{39}}{2}
+\end{align}
+
+La matriz diagonal de autovalores es:
 \begin{equation}
-  D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \operatorname{diag}(\lambda_1,\lambda_2).
+  D = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix} = \operatorname{diag}(\lambda_1,\lambda_2)
 \end{equation}
-Luego, para obtener un autovector asociado a $\lambda_1$ resolvemos
+
+Ahora calculamos los autovectores. Para el autovalor $\lambda_1$, resolvemos $(A - \lambda_1 I)v_1 = 0$:
 \begin{align}
-  (A- \lambda_1 I)v_1 = 0 \;\Longrightarrow\;
   \begin{bmatrix}
-    -2 -(-1.5 + j\dfrac{\sqrt{39}}{2}) & 10 \\
-    -1 & -1 -(-1.5 + j\dfrac{\sqrt{39}}{2})
+    -2 - \lambda_1 & 10 \\
+    -1 & -1 - \lambda_1
   \end{bmatrix}
   \begin{bmatrix}
-    v_{x1} \\ v_{y1}
+    v_{11} \\ v_{12}
   \end{bmatrix}
   = \begin{bmatrix}
     0 \\ 0
   \end{bmatrix}
 \end{align}
-Luego tenemos que resolviendo:
+
+Sustituyendo $\lambda_1 = -1.5 + j\frac{\sqrt{39}}{2}$:
 \begin{align}
-  \left(-0.5 - j\frac{\sqrt{39}}{2}\right)v_{x1} + 10 v_{y1} &= 0 \\
-  -v_{x1} + \left(0.5 - j\frac{\sqrt{39}}{2}\right)v_{y1} &= 0
-\end{align}
-Tomando $v_{x1}=1$ se obtiene $v_{y1} = 0.05 + j\tfrac{\sqrt{39}}{20}$, dando como resultado el vector:
-\begin{align}
-  v_1 = \begin{bmatrix} 1 \\ 0.05 + j\tfrac{\sqrt{39}}{20} \end{bmatrix}
-\end{align}
-Análogamente, para $\lambda_2$:
-\begin{align}
-(A-\lambda_2 I)v_2=0
-&\;\Rightarrow\;
-v_2=
-\begin{bmatrix}
-1\\[2pt]
-0.05-j\,\dfrac{\sqrt{39}}{20}
-\end{bmatrix}
+  \begin{bmatrix}
+    -0.5 - j\frac{\sqrt{39}}{2} & 10 \\
+    -1 & 0.5 - j\frac{\sqrt{39}}{2}
+  \end{bmatrix}
+  \begin{bmatrix}
+    v_{11} \\ v_{12}
+  \end{bmatrix}
+  = \begin{bmatrix}
+    0 \\ 0
+  \end{bmatrix}
 \end{align}
 
-De esta manera tenemos el vector de autovectores $T$ dados por:
+De la primera ecuación: $\left(-0.5 - j\frac{\sqrt{39}}{2}\right)v_{11} + 10v_{12} = 0$, despejamos:
 \begin{align}
-T&=\big[v_1\; v_2\big]=
-\begin{bmatrix}
-1 & 1\\[2pt]
-0.05+j\,\dfrac{\sqrt{39}}{20} &
-0.05-j\,\dfrac{\sqrt{39}}{20}
-\end{bmatrix},\\[6pt]
-T^{-1}&=\frac{1}{\det T}
-\begin{bmatrix}
-0.05-j\,\dfrac{\sqrt{39}}{20} & -1\\[6pt]
--0.05-j\,\dfrac{\sqrt{39}}{20} & 1
-\end{bmatrix}
-=\frac{10j}{\sqrt{39}}
-\begin{bmatrix}
-\dfrac{1}{20}-j\,\dfrac{\sqrt{39}}{20} & -1\\[8pt]
--\dfrac{1}{20}-j\,\dfrac{\sqrt{39}}{20} & \;\;1
-\end{bmatrix}.
+v_{12} = \frac{0.5 + j\frac{\sqrt{39}}{2}}{10}v_{11} = \left(0.05 + j\frac{\sqrt{39}}{20}\right)v_{11}
 \end{align}
-Donde para $T^{-1}$ utilizamos la formula vista en el auxiliar anterior, con lo que finalmente la matriz de transición de estados queda:
 
+Tomando $v_{11}=1$, obtenemos el autovector:
+\begin{align}
+  v_1 = \begin{bmatrix} 1 \\ 0.05 + j\frac{\sqrt{39}}{20} \end{bmatrix}
+\end{align}
+Tomando $v_{11}=1$, obtenemos el autovector:
+\begin{align}
+  v_1 = \begin{bmatrix} 1 \\ 0.05 + j\frac{\sqrt{39}}{20} \end{bmatrix}
+\end{align}
+
+Para $\lambda_2$ (conjugado de $\lambda_1$), el autovector correspondiente será el conjugado de $v_1$:
+\begin{align}
+v_2 = \begin{bmatrix} 1 \\ 0.05 - j\frac{\sqrt{39}}{20} \end{bmatrix}
+\end{align}
+
+Definimos $a = 0.05 + j\frac{\sqrt{39}}{20}$ para simplificar la notación. Entonces las matrices de transformación son:
+\begin{align}
+T &= [v_1 \; v_2] = \begin{bmatrix} 1 & 1 \\ a & a^* \end{bmatrix}
+\end{align}
+
+Para calcular $T^{-1}$, utilizamos la fórmula para matrices $2 \times 2$:
+\begin{align}
+T^{-1} &= \frac{1}{\det(T)} \begin{bmatrix} a^* & -1 \\ -a & 1 \end{bmatrix}
+\end{align}
+
+El determinante es: $\det(T) = 1 \cdot a^* - 1 \cdot a = a^* - a = -j\frac{\sqrt{39}}{10}$, por lo que:
+\begin{align}
+T^{-1} &= \frac{10j}{\sqrt{39}} \begin{bmatrix} a^* & -1 \\ -a & 1 \end{bmatrix}
+\end{align}
+
+La matriz de transición de estados se obtiene mediante:
 \begin{equation}
-\Phi(t)=e^{At}=T\,e^{Dt}\,T^{-1}.
+\Phi(t) = e^{At} = T\,e^{Dt}\,T^{-1}
 \end{equation}
-Luego reemplazando tenemos que:
+
+donde $e^{Dt}$ es la matriz diagonal:
 \begin{align}
   e^{Dt} &= \begin{pmatrix} e^{\lambda_1 t} & 0 \\ 0 & e^{\lambda_2 t} \end{pmatrix} = \begin{pmatrix} e^{(-1.5 + j\frac{\sqrt{39}}{2})t} & 0 \\ 0 & e^{(-1.5 - j\frac{\sqrt{39}}{2})t} \end{pmatrix}
 \end{align}
-Con lo que finalmente tenemos que:
+
+Realizando la multiplicación matricial $\Phi(t) = T e^{Dt} T^{-1}$ y factorizando $e^{-1.5t}$:
 \begin{align}
-  \Phi(t) &= T e^{Dt} T^{-1} \\
-  &= \begin{bmatrix}
-    1 & 1\\
-    0.05+j\,\dfrac{\sqrt{39}}{20} & 0.05-j\,\dfrac{\sqrt{39}}{20}
-  \end{bmatrix}
-  \begin{pmatrix}
-    e^{(-1.5 + j\frac{\sqrt{39}}{2})t} & 0 \\
-    0 & e^{(-1.5 - j\frac{\sqrt{39}}{2})t}
-  \end{pmatrix}
-  \begin{bmatrix}
-    0.05-j\,\dfrac{\sqrt{39}}{20} & -1\\
-    -0.05-j\,\dfrac{\sqrt{39}}{20} & 1
-  \end{bmatrix} \frac{10j}{\sqrt{39}} 
-\end{align}
-Con lo que finalmente tenemos que:
-\begin{align}
-a=\frac{1}{20}+j\frac{\sqrt{39}}{20}.
+\Phi(t) &= e^{-1.5t} \begin{bmatrix}
+\cos\left(\frac{\sqrt{39}}{2}t\right) - \frac{1}{\sqrt{39}}\sin\left(\frac{\sqrt{39}}{2}t\right) & \frac{20}{\sqrt{39}}\sin\left(\frac{\sqrt{39}}{2}t\right) \\[6pt]
+\frac{1}{10}\sin\left(\frac{\sqrt{39}}{2}t\right) & \cos\left(\frac{\sqrt{39}}{2}t\right) + \frac{1}{\sqrt{39}}\sin\left(\frac{\sqrt{39}}{2}t\right)
+\end{bmatrix}
 \end{align}
 
-Con
-\[
-T=\begin{bmatrix}1&1\\ a&a^*\end{bmatrix},\qquad
-T^{-1}=\frac{10j}{\sqrt{39}}\begin{bmatrix}a^*&-1\\ -a&1\end{bmatrix},\qquad
-e^{Dt}=\mathrm{diag}\!\left(e^{(\lambda_1)t},\,e^{(\lambda_2)t}\right),
-\]
-la multiplicación matricial,
-\begin{align}
-\Phi(t)
-&=\frac{10j}{\sqrt{39}}
-\begin{bmatrix}
-a^*\,e^{(-\frac{3}{2}+j\frac{\sqrt{39}}{2})t}-a\,e^{(-\frac{3}{2}-j\frac{\sqrt{39}}{2})t} &
--\,e^{(-\frac{3}{2}+j\frac{\sqrt{39}}{2})t}+e^{(-\frac{3}{2}-j\frac{\sqrt{39}}{2})t}
-\\[6pt]
-|a|^2\!\left(e^{(-\frac{3}{2}+j\frac{\sqrt{39}}{2})t}-e^{(-\frac{3}{2}-j\frac{\sqrt{39}}{2})t}\right) &
--\,a\,e^{(-\frac{3}{2}+j\frac{\sqrt{39}}{2})t}+a^*\,e^{(-\frac{3}{2}-j\frac{\sqrt{39}}{2})t}
-\end{bmatrix}.
-\end{align}
-Como $|a|^2=\left(\frac{1}{20}\right)^2+\left(\frac{\sqrt{39}}{20}\right)^2=\frac{1}{10}$, una forma explícita es
-\begin{align}
-\Phi(t)=e^{-\frac{3}{2}t}\,\frac{10j}{\sqrt{39}}
-\begin{bmatrix}
-\left(\frac{1}{20}-j\frac{\sqrt{39}}{20}\right)e^{j\frac{\sqrt{39}}{2}t}
--\left(\frac{1}{20}+j\frac{\sqrt{39}}{20}\right)e^{-j\frac{\sqrt{39}}{2}t}
-&
--\,e^{j\frac{\sqrt{39}}{2}t}+e^{-j\frac{\sqrt{39}}{2}t}
-\\[8pt]
-\frac{1}{10}\!\left(e^{j\frac{\sqrt{39}}{2}t}-e^{-j\frac{\sqrt{39}}{2}t}\right)
-&
--\left(\frac{1}{20}+j\frac{\sqrt{39}}{20}\right)e^{j\frac{\sqrt{39}}{2}t}
-+\left(\frac{1}{20}-j\frac{\sqrt{39}}{20}\right)e^{-j\frac{\sqrt{39}}{2}t}
-\end{bmatrix}.
-\end{align}
-Con lo que finalmente se obtiene la matriz de transición de estados $\Phi(t)$.
+Esta expresión se obtiene utilizando las identidades de Euler para convertir las exponenciales complejas en funciones trigonométricas reales, aprovechando que los autovalores son complejos conjugados.
 \subsection*{Resolución 2.3}
-Sabemos que un sistema LTI continuo será asintóticamente estable si y sólo si
+
+Para determinar la estabilidad del sistema, analizamos los autovalores de la matriz $A$. Un sistema lineal e invariante en el tiempo (LTI) continuo será asintóticamente estable si y sólo si todos los autovalores tienen parte real negativa:
 \begin{equation}
-\Re(\lambda_i)<0 \quad \forall\,\lambda_i\in\mathrm{eig}(A).
+\Re(\lambda_i) < 0 \quad \forall\,\lambda_i \in \mathrm{eig}(A)
 \end{equation}
-Del lo visto en la parte 2.2, los autovalores de $A$ son,
+
+De los cálculos realizados en la resolución 2.2, obtuvimos que los autovalores de $A$ son:
 \begin{equation}
-\lambda_{1,2}=-\frac{3}{2}\pm j\,\frac{\sqrt{39}}{2}.
+\lambda_{1,2} = -\frac{3}{2} \pm j\,\frac{\sqrt{39}}{2}
 \end{equation}
-Luego tenemos que:
-\begin{equation}
-\Re(\lambda_1)=\Re(\lambda_2)=-\frac{3}{2}<0,
-\end{equation}
-por lo que podemos concluir que $e^{At}\to 0$ cuando $t\to\infty$ y el sistema es \textbf{estable asintóticamente}.
+
+Analizando la parte real de ambos autovalores:
+\begin{align}
+\Re(\lambda_1) &= \Re\left(-\frac{3}{2} + j\,\frac{\sqrt{39}}{2}\right) = -\frac{3}{2} < 0 \\
+\Re(\lambda_2) &= \Re\left(-\frac{3}{2} - j\,\frac{\sqrt{39}}{2}\right) = -\frac{3}{2} < 0
+\end{align}
+
+Como ambos autovalores tienen parte real negativa ($-1.5$), se cumple la condición de estabilidad asintótica. Esto significa que:
+\begin{itemize}
+\item La matriz de transición $\Phi(t) = e^{At} \to 0$ cuando $t \to \infty$
+\item Cualquier condición inicial del sistema convergerá a cero en ausencia de entrada
+\item El sistema es **estable asintóticamente**
+\end{itemize}
+
+Físicamente, esto indica que el motor DC con carrito retornará a su estado de equilibrio (velocidad cero) después de cualquier perturbación, con un comportamiento oscilatorio amortiguado debido a la parte imaginaria de los autovalores.
 \subsection*{Resolución 2.4}
 
-Recordando que la respuesta al impulso es $h(t)=\mathcal{L}^{-1}\{H(s)\}$ con
+Para obtener la respuesta al impulso del sistema, necesitamos calcular la función de transferencia $H(s)$ y luego aplicar la transformada inversa de Laplace. La función de transferencia se define como:
 \begin{equation}
-H(s)=C\,(sI-A)^{-1}B,
+H(s) = C(sI-A)^{-1}B
 \end{equation}
-y usando
-\(
-A=\begin{bmatrix}-2&10\\-1&-1\end{bmatrix},\;
-B=\begin{bmatrix}0\\1\end{bmatrix},\;
-C=\begin{bmatrix}0.01&0\end{bmatrix},
-\)
-se tiene
+
+Utilizando las matrices numéricas obtenidas anteriormente:
 \begin{align}
-sI-A&=\begin{bmatrix}s+2&-10\\ 1&s+1\end{bmatrix},\\
-(sI-A)^{-1}
-&=\frac{1}{(s+2)(s+1)+10}
-\begin{bmatrix}s+1&10\\ -1&s+2\end{bmatrix}
-=\frac{1}{s^2+3s+12}
-\begin{bmatrix}s+1&10\\ -1&s+2\end{bmatrix},\\
-H(s)&=C\,(sI-A)^{-1}B
-=\frac{1}{s^2+3s+12}\;C
-\begin{bmatrix}10\\ s+2\end{bmatrix}
-=\frac{0.1}{s^2+3s+12}.
+A=\begin{bmatrix}-2&10\\-1&-1\end{bmatrix}, \quad
+B=\begin{bmatrix}0\\1\end{bmatrix}, \quad
+C=\begin{bmatrix}0.01&0\end{bmatrix}
 \end{align}
 
-Sea
-\(
-\lambda_{1,2}=-\dfrac{3}{2}\pm j\,\dfrac{\sqrt{39}}{2}
-\)
-(entonces $s^2+3s+12=(s-\lambda_1)(s-\lambda_2)$). Por fracciones parciales:
+Primero calculamos $(sI-A)$:
 \begin{align}
-H(s)
-&=\frac{0.1}{(s-\lambda_1)(s-\lambda_2)}
-=\frac{0.1}{\lambda_1-\lambda_2}\,\frac{1}{s-\lambda_1}
-+\frac{0.1}{\lambda_2-\lambda_1}\,\frac{1}{s-\lambda_2} \\
-&=\frac{-j\,0.1}{\sqrt{39}}\;\frac{1}{s-\lambda_1}
-+\frac{j\,0.1}{\sqrt{39}}\;\frac{1}{s-\lambda_2},
+sI-A &= \begin{bmatrix}s&0\\0&s\end{bmatrix} - \begin{bmatrix}-2&10\\-1&-1\end{bmatrix} = \begin{bmatrix}s+2&-10\\ 1&s+1\end{bmatrix}
 \end{align}
-pues $\lambda_1-\lambda_2=j\sqrt{39}$.
 
-Aplicando transformada inversa de Laplace (sin convertir a senos/cosenos), la
-respuesta al impulso queda
+Para calcular la inversa de una matriz $2 \times 2$, usamos la fórmula:
 \begin{align}
-h(t)
-&=\mathcal{L}^{-1}\{H(s)\}
-=\frac{-j\,0.1}{\sqrt{39}}\;e^{\lambda_1 t}
-+\frac{j\,0.1}{\sqrt{39}}\;e^{\lambda_2 t},\qquad t\ge 0,\\
-&=\frac{-j\,0.1}{\sqrt{39}}\;e^{\left(-\frac{3}{2}+j\frac{\sqrt{39}}{2}\right)t}
-+\frac{j\,0.1}{\sqrt{39}}\;e^{\left(-\frac{3}{2}-j\frac{\sqrt{39}}{2}\right)t},\qquad t\ge 0.
+(sI-A)^{-1} &= \frac{1}{\det(sI-A)} \begin{bmatrix}s+1&10\\ -1&s+2\end{bmatrix}
 \end{align}
-Que podemos expresarla en funcion del seno y coseno como: 
+
+El determinante es:
 \begin{align}
-h(t) &= \frac{0.2}{\sqrt{39}} e^{-\frac{3}{2}t} \sin\left(\frac{\sqrt{39}}{2}t\right), \quad t \geq 0.
+\det(sI-A) &= (s+2)(s+1) - (-10)(1) = s^2+3s+2+10 = s^2+3s+12
 \end{align}
+
+Por lo tanto:
+\begin{align}
+(sI-A)^{-1} &= \frac{1}{s^2+3s+12} \begin{bmatrix}s+1&10\\ -1&s+2\end{bmatrix}
+\end{align}
+
+Ahora calculamos la función de transferencia:
+\begin{align}
+H(s) &= C(sI-A)^{-1}B \\
+&= \begin{bmatrix}0.01&0\end{bmatrix} \cdot \frac{1}{s^2+3s+12} \begin{bmatrix}s+1&10\\ -1&s+2\end{bmatrix} \cdot \begin{bmatrix}0\\1\end{bmatrix} \\
+&= \frac{1}{s^2+3s+12} \begin{bmatrix}0.01&0\end{bmatrix} \begin{bmatrix}10\\ s+2\end{bmatrix} \\
+&= \frac{0.01 \cdot 10}{s^2+3s+12} = \frac{0.1}{s^2+3s+12}
+\end{align}
+
+Para obtener la respuesta al impulso $h(t) = \mathcal{L}^{-1}\{H(s)\}$, utilizamos el método de fracciones parciales. Como ya conocemos los autovalores del sistema:
+\begin{align}
+\lambda_{1,2} = -\frac{3}{2} \pm j\frac{\sqrt{39}}{2}
+\end{align}
+
+podemos factorizar el denominador como $s^2+3s+12=(s-\lambda_1)(s-\lambda_2)$. 
+
+Aplicando fracciones parciales:
+\begin{align}
+H(s) &= \frac{0.1}{(s-\lambda_1)(s-\lambda_2)} = \frac{A}{s-\lambda_1} + \frac{B}{s-\lambda_2}
+\end{align}
+
+Para encontrar las constantes $A$ y $B$, utilizamos:
+\begin{align}
+A &= \frac{0.1}{\lambda_1-\lambda_2} = \frac{0.1}{j\sqrt{39}} = \frac{-j \cdot 0.1}{\sqrt{39}} \\
+B &= \frac{0.1}{\lambda_2-\lambda_1} = \frac{0.1}{-j\sqrt{39}} = \frac{j \cdot 0.1}{\sqrt{39}}
+\end{align}
+
+Por lo tanto:
+\begin{align}
+H(s) &= \frac{-j \cdot 0.1}{\sqrt{39}} \cdot \frac{1}{s-\lambda_1} + \frac{j \cdot 0.1}{\sqrt{39}} \cdot \frac{1}{s-\lambda_2}
+\end{align}
+
+Aplicando la transformada inversa de Laplace:
+\begin{align}
+h(t) &= \mathcal{L}^{-1}\{H(s)\} \\
+&= \frac{-j \cdot 0.1}{\sqrt{39}} e^{\lambda_1 t} + \frac{j \cdot 0.1}{\sqrt{39}} e^{\lambda_2 t}, \quad t \geq 0 \\
+&= \frac{-j \cdot 0.1}{\sqrt{39}} e^{\left(-\frac{3}{2}+j\frac{\sqrt{39}}{2}\right)t} + \frac{j \cdot 0.1}{\sqrt{39}} e^{\left(-\frac{3}{2}-j\frac{\sqrt{39}}{2}\right)t}, \quad t \geq 0
+\end{align}
+
+Para expresar el resultado en términos de funciones trigonométricas reales, factorizamos $e^{-\frac{3}{2}t}$ y aplicamos las identidades de Euler. Después de simplificar algebraicamente:
+\begin{align}
+h(t) &= \frac{0.2}{\sqrt{39}} e^{-\frac{3}{2}t} \sin\left(\frac{\sqrt{39}}{2}t\right), \quad t \geq 0
+\end{align}
+
+Esta respuesta al impulso muestra el comportamiento característico de un sistema subamortiguado: una exponencial decreciente modulada por una función senoidal, reflejando la naturaleza oscilatoria amortiguada del sistema motor DC-carrito.
 \subsection*{Resolución 2.5}
 
 La salida para condiciones iniciales arbitrarias $x(0)=\begin{bmatrix}x_1(0)\\ x_2(0)\end{bmatrix}$ y entrada $u(t)$ se escribe como
@@ -664,7 +698,7 @@ y(t)
 \end{align}
 
 \subsection*{Resolución 2.6}
-Para determinar si el sistema es completamente controlable y observable, utilizamos las matrices de controlabilidad y observabilidad. La matriz de controlabilidad $ \mathcal{C} $ para n=2, viene dado por:
+Para determinar si el sistema es completamente controlable y observable, utilizamos las matrices de controlabilidad y observabilidad. La matriz de controlabilidad $\mathcal{C}$ para $n=2$ viene dada por:
 \begin{align}
 \mathcal{C} = [B \quad AB]
 \end{align}
@@ -677,11 +711,13 @@ Por lo que la matriz de controlabilidad queda:
 \begin{align}
 \mathcal{C} = \begin{bmatrix} 0 & 10 \\ 1 & -1 \end{bmatrix}
 \end{align}
-Vemos que tanto filas como columnas son linealmente independientes, por lo que es de rango completo. Otra manera es utilizar el determinante, por tanto
+Observamos que tanto las filas como las columnas son linealmente independientes, por lo que la matriz es de rango completo. Otra manera de verificar esto es calculando el determinante:
 \begin{align}
 \det(\mathcal{C}) = (0)(-1) - (10)(1) = -10 \neq 0
 \end{align}
-Por lo que nuevamente verificamos que es de rango completo, por lo que sera controlable. La matriz de observabilidad $ \mathcal{O} $ para n=2, viene dado por:
+Como el determinante es diferente de cero, confirmamos que la matriz es de rango completo, por lo que el sistema es controlable. 
+
+La matriz de observabilidad $\mathcal{O}$ para $n=2$ viene dada por:
 \begin{align}
 \mathcal{O} = \begin{bmatrix} C \\ CA \end{bmatrix}
 \end{align}
@@ -693,24 +729,26 @@ Por lo que la matriz de observabilidad queda:
 \begin{align}
 \mathcal{O} = \begin{bmatrix} 0.01 & 0 \\ -0.02 & 0.1 \end{bmatrix}
 \end{align}
-Luego vemos que tanto filas como columnas son linealmente independientes, por lo que es de rango completo. Otra manera es utilizar el determinante, por tanto
+Nuevamente observamos que tanto las filas como las columnas son linealmente independientes, por lo que la matriz es de rango completo. Verificamos esto calculando el determinante:
 \begin{align}
 \det(\mathcal{O}) = (0.01)(0.1) - (0)(-0.02) = 0.001 \neq 0
 \end{align}
-Por lo que nuevamente verificamos que es de rango completo, por lo que sera observable. De esta manera concluimos que el sistema es completamente controlable y observable.
+Como el determinante es diferente de cero, confirmamos que la matriz es de rango completo, por lo que el sistema es observable. 
+
+De esta manera concluimos que el sistema es completamente controlable y observable.
 \subsection*{Resolución 2.7}
-Dado que el sistema es observable, podemos diseñar un observador de estados. Queremos que los polos del observador se ubiquen en $-10$ y $-5$, para esto utilizaremos el siguiente esquema:
+Dado que el sistema es observable, podemos diseñar un observador de estados. Queremos que los polos del observador se ubiquen en $-10$ y $-5$. Para esto utilizaremos el siguiente esquema:
   \begin{figure}[H]\centering
     \includegraphics[width=.6\textwidth]{../figures/Auxiliar_4_3.png}
-    \caption{El observador replica la ecuación $\dot{\hat x}=A\hat x + Bu + F(y-\hat y)$. La rama principal implementa el modelo del sistema ($A$, $B$ y el integrador). La rama vertical superior lleva la salida estimada $\hat y = C\hat x$ al comparador donde se obtiene el error de salida $e_y$. Ese error, tras el bloque de ganancia $F$, se suma como término corrector que desplaza los polos de la dinámica del error a posiciones elegidas (más rápidos), garantizando convergencia de $\hat x$ hacia $x$. De este modo el diseño de $F$ es independiente del de $K$, ilustrando el principio de separación.}
+    \caption{El observador replica la ecuación $\dot{\hat x}=A\hat x + Bu + L(y-\hat y)$. La rama principal implementa el modelo del sistema ($A$, $B$ y el integrador). La rama vertical superior lleva la salida estimada $\hat y = C\hat x$ al comparador donde se obtiene el error de salida $e_y$. Ese error, tras el bloque de ganancia $L$, se suma como término corrector que desplaza los polos de la dinámica del error a posiciones elegidas (más rápidos), garantizando convergencia de $\hat x$ hacia $x$. De este modo el diseño de $L$ es independiente del de $K$, ilustrando el principio de separación.}
   \end{figure}
 
-Tenemos que el gemelo digital vendra dado por
+Tenemos que el observador de estados vendrá dado por
 \begin{align}
 \dot{\hat x} &= A\hat x + Bu + L\big(y-\hat y\big)\\
 \hat y &= C\hat x,
 \end{align}
-con error de estimación $e:=x-\hat x$. Entonces
+con error de estimación $e:=x-\hat x$. La dinámica del error de estimación se obtiene como:
 \begin{align}
 \dot e
 &= \dot x - \dot{\hat x}
@@ -718,11 +756,11 @@ con error de estimación $e:=x-\hat x$. Entonces
 &= A(x-\hat x) - L\big(Cx - C\hat x\big)
 = (A-LC)e. \label{eq:error_dyn}
 \end{align}
-Con lo que tenemos que:
+Por lo tanto:
 \begin{align}
-\dot e &= (A-LC)e,
+\dot e &= (A-LC)e
 \end{align}
-Luego los polos del observador son los autovalores de $A-LC$, por lo que deberemos obtenerlos tal que se ubiquen en $-10$ y $-5$, por tanto:
+Los polos del observador son los autovalores de $A-LC$, por lo que debemos determinar $L$ tal que estos autovalores se ubiquen en $-10$ y $-5$. Definiendo:
 \begin{align}
   L= \begin{bmatrix} \ell_1 \\ \ell_2 \end{bmatrix}\\
   LC = \begin{bmatrix} 0.01\ell_1 & 0 \\ 0.01\ell_2 & 0 \end{bmatrix}
@@ -742,19 +780,19 @@ Igualando coeficientes, obtenemos el siguiente sistema de ecuaciones:
   3 + 0.01\ell_1 &= 15 \\
   12 + 0.01\ell_1 + 0.1\ell_2 &= 50
 \end{align}
-Resolviendo el sistema, tenemos:
+Resolviendo el sistema de ecuaciones:
 \begin{align}
-  \ell_1 &= 1200 \\
+  \ell_1 &= \frac{15-3}{0.01} = \frac{12}{0.01} = 1200 \\
   12 + 0.01(1200) + 0.1\ell_2 &= 50 \\
   12 + 12 + 0.1\ell_2 &= 50 \\
   24 + 0.1\ell_2 &= 50 \\
   0.1\ell_2 &= 26 \\
   \ell_2 &= 260
 \end{align}
-Con lo que finalmente tenemos que L sera:
+Por lo tanto, la matriz de ganancias del observador es:
 \[
 L=\begin{bmatrix}1200\\260\end{bmatrix}
 \]
-Con lo que finalmente se obtiene el observador deseado.
+Con esta matriz $L$, el observador de estados tendrá polos ubicados en $-10$ y $-5$, asegurando una convergencia rápida del error de estimación hacia cero.
 \end{solution}
 \end{document}
