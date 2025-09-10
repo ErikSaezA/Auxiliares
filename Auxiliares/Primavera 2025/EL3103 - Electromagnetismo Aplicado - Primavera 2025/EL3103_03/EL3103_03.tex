@@ -4,21 +4,22 @@
   % addpoints,
    answers
   ]{exam}
-
+\usepackage{float}
 \usepackage{../exercise-preamble}
 
 \begin{document}
 
 \noindent
 \begin{minipage}{0.47\textwidth}
-    \includegraphics[width=\textwidth]{../../fcfm_die}
+  \includegraphics[width=\textwidth]{../fcfm_die}
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
 \large\textbf{Electromagnetismo Aplicado} (EL3103) \\
 \large\textbf{Clase auxiliar 3} \\
 \normalsize Prof.~\professor\\
-\normalsize Prof. Aux. Lucas Palomino \\
+\normalsize Prof. Aux. Lucas Palomino
+\\
 \normalsize Ayudantes: \ayudanteA~-~\ayudanteB
 \end{center}
 \end{minipage}
@@ -26,7 +27,6 @@
 \vspace{0.5cm}
 \noindent
 \vspace{.85cm}
-
 \section{Resumen:}
 \subsection*{Ecuación de Laplace en 2D}
 Cuando se tienen potenciales que dependen de dos variables, la ecuación de Laplace se representará de la siguiente manera:
@@ -77,13 +77,13 @@ Resolvemos para los casos $\lambda = 0$, $\lambda > 0 \rightarrow \lambda = k^2$
 \end{align}
 Donde la solución es una serie de Fourier. 
 
-\subsection*{Serie de Fourier:} Sea $f : [-\tau , \tau] \rightarrow \mathbb{R}$ función integrable. Se define la serie de Fourier de f como:
+\subsection*{Serie de Fourier:} Sea $f : [-\tau , \tau] \rightarrow \mathbb{R}$ función integrable. Se define la serie de Fourier de $f$ como:
 \begin{align}
     S_f(x) &= \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos{(\frac{n \pi x}{\tau})} + b_n \sin{(\frac{n \pi x}{\tau})})
 \end{align}
 Donde:
 \begin{align}
-    a_0 = \frac{1}{\tau} \int_{-\tau}^\tau f(x) dx && a_n = \frac{1}{\tau} \int_{-\tau}^\tau f(x) \cos{(\frac{n \pi x}{\tau})}dx && b_n = \int_{-\tau}^\tau f(x) \sin{(\frac{n \pi x}{\tau})}dx
+    a_0 = \frac{1}{\tau} \int_{-\tau}^\tau f(x)\, dx && a_n = \frac{1}{\tau} \int_{-\tau}^\tau f(x) \cos\!\left(\frac{n \pi x}{\tau}\right) dx && b_n = \frac{1}{\tau} \int_{-\tau}^\tau f(x) \sin\!\left(\frac{n \pi x}{\tau}\right) dx
 \end{align}
 \vspace{0.2cm}
 
@@ -129,7 +129,7 @@ Reemplazamos por el operador diferencial y despejamos:
 \end{align}
 Y la solución es de la forma:
 \begin{align}
-    y(x) &= A \sin{(wx)} + B \cos{(wx)}
+    y(x) &= A \sin{(\omega x)} + B \cos{(\omega x)}
 \end{align}
 \vspace{0.2cm}
 \subsection*{Clasificación de materiales según sus propiedades magnéticas:}
@@ -160,7 +160,7 @@ Ferromagnético & \(10^{2} \; \text{a} \; 10^{5}\) & \(10^{2} \; \text{a} \; 10^
 \begin{questions}
 \question \label{rectangular_plate} Considere una placa rectangular de dimensiones $0 < x < a$, $0 < y < b$, donde el potencial $V(x,y)$ satisface la ecuación de Laplace, 
 \begin{align}
-    \nabla^^2 V(x,y) &= \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2V}{\partial y^2} = 0
+    \nabla^2 V(x,y) &= \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} = 0
 \end{align}
 con condiciones de borde:
 \begin{align}
@@ -196,7 +196,7 @@ con condiciones de borde:
             V(0,y) &= 0 \rightarrow X(0) \cdot Y(y) = 0 \rightarrow X(0) = 0 \\
             V(a,y) &= 0 \rightarrow X(a) \cdot Y(y) = 0 \rightarrow X(a) = 0 \\
             V(x,0) &= 0 \rightarrow X(x) \cdot Y(0) = 0 \rightarrow Y(0) = 0 \\
-            V(x.b) &= f(x) \rightarrow X(x) \cdot Y(b) = f(x)
+            V(x,b) &= f(x) \rightarrow X(x) \cdot Y(b) = f(x)
         \end{align}
         \underline{Paso 2:} Partiremos resolviendo la EDO que depende de $x$, ya que tenemos más condiciones de borde. Así, partimos por el caso $\lambda = 0$:
         \begin{align}
@@ -255,18 +255,18 @@ con condiciones de borde:
         \end{align}
         De esta forma, nos queda que:
         \begin{align}
-            X_n(x) &= A_n\cdot \sin{(\frac{n \pi x}{a})}
+            X_n(x) &= A_n\cdot \sin\!\left(\frac{n \pi x}{a}\right)
         \end{align}
         \underline{Paso 3:} Reemplazamos $X_n(x)$ en la EDP del principio, primero calculamos la segunda derivada:
         \begin{align}
-            X_n(x) &= A_n\cdot \sin{(\frac{n \pi x}{a})} \\
-            \rightarrow X'_n(x) &= A_n\cdot (\frac{n \pi}{a}) \cos{(\frac{n \pi x}{a})} \\
-            \rightarrow X''_n(x) &= -A_n\cdot (\frac{n \pi}{a})^2 \sin{(\frac{n \pi x}{a})}
+            X_n(x) &= A_n\cdot \sin\!\left(\frac{n \pi x}{a}\right) \\
+            \rightarrow X'_n(x) &= A_n\cdot \left(\frac{n \pi}{a}\right) \cos\!\left(\frac{n \pi x}{a}\right) \\
+            \rightarrow X''_n(x) &= -A_n\cdot \left(\frac{n \pi}{a}\right)^2 \sin\!\left(\frac{n \pi x}{a}\right)
         \end{align}
         Reemplazando:
         \begin{align}
-            \frac{-A_n\cdot (\frac{n \pi}{a})^2 \sin{(\frac{n \pi x}{a})}}{A_n\cdot \sin{(\frac{n \pi x}{a})}} &= -\frac{Y''(y)}{Y(y)} \\
-            \frac{Y''(y)}{Y(y)} &= (\frac{n \pi}{a})^2
+            \frac{-A_n\cdot \left(\frac{n \pi}{a}\right)^2 \sin\!\left(\frac{n \pi x}{a}\right)}{A_n\cdot \sin\!\left(\frac{n \pi x}{a}\right)} &= -\frac{Y''(y)}{Y(y)} \\
+            \frac{Y''(y)}{Y(y)} &= \left(\frac{n \pi}{a}\right)^2
         \end{align}
         Resolviendo esa EDO por polinomio característico se obtendrá:
         \begin{align}
@@ -275,46 +275,47 @@ con condiciones de borde:
         Usando la condición de borde que nos sirve (la tercera):
         \begin{align}
             Y_n(0) &= 0 = C_n + D_n \rightarrow D_n = -C_n \rightarrow Y_n(y) = C_n \cdot e^{\frac{n \pi y}{a}} - C_n \cdot e^{-\frac{n \pi y}{a}} \\
-            Y_n(y) &= C_n \cdot [e^{\frac{n \pi y}{a}} - e^{-\frac{n \pi y}{a}}]
+            Y_n(y) &= C_n \cdot \bigl[e^{\frac{n \pi y}{a}} - e^{-\frac{n \pi y}{a}}\bigr]
         \end{align}
         Sabemos que $\frac{e^{x} - e^{-x}}{2} = \sinh{(x)}$, así:
         \begin{align}
-            Y_n(y) &= C_n \cdot [e^{\frac{n \pi y}{a}} - e^{-\frac{n \pi y}{a}}] = C_n \cdot 2 \cdot \sinh{(\frac{n \pi y}{a})}
+            Y_n(y) &= C_n \cdot \bigl[e^{\frac{n \pi y}{a}} - e^{-\frac{n \pi y}{a}}\bigr] = 2 C_n \cdot \sinh\!\left(\frac{n \pi y}{a}\right)
         \end{align}
         Definiendo $B_n = 2C_n$:
         \begin{align}
-            Y_n(y) = B_n \cdot \sinh{(\frac{n \pi y}{a})}
+            Y_n(y) = B_n \cdot \sinh\!\left(\frac{n \pi y}{a}\right)
         \end{align}
     \underline{Paso 4:} La solución a la ecuación de Laplace queda:
     \begin{align}
-        V(x,y) &= \sum_{n=1}^{\infty} X(x) Y(y) \\ 
-        V(x,y) &=\sum_{n=1}^{\infty} A_n \cdot \sin{(\frac{n \pi x}{a}}) \cdot B_n \cdot \sinh{(\frac{n \pi y}{a}})
+    V(x,y) &= \sum_{n=1}^{\infty} X(x) Y(y) \\ 
+    V(x,y) &= \sum_{n=1}^{\infty} A_n \cdot \sin\!\left(\frac{n \pi x}{a}\right) \cdot B_n \cdot \sinh\!\left(\frac{n \pi y}{a}\right)
     \end{align}
     Definiendo $\hat{A_n} = A_n \cdot B_n$:
     \begin{align}
-        V(x,y) &=\sum_{n=1}^{\infty} \hat{A_n} \cdot \sin{(\frac{n \pi x}{a}}) \cdot \sinh{(\frac{n \pi y}{a}})
+    V(x,y) &= \sum_{n=1}^{\infty} \hat{A_n} \cdot \sin\!\left(\frac{n \pi x}{a}\right) \cdot \sinh\!\left(\frac{n \pi y}{a}\right)
     \end{align}
     Finalmente, utilizando la última ecuación de borde, se puede despejar la constante y obtener el potencial:
     \begin{align}
-        V(x,b) &= \sum_{n=1}^{\infty} \hat{A_n} \cdot \sinh{(\frac{n \pi b}{a}}) \cdot \sin{(\frac{n \pi x}{a}}) = f(x)
+    V(x,b) &= \sum_{n=1}^{\infty} \hat{A_n} \cdot \sinh\!\left(\frac{n \pi b}{a}\right) \cdot \sin\!\left(\frac{n \pi x}{a}\right) = f(x)
     \end{align}
     Sabemos que la función obtenida es una serie de Fourier. Tenemos solo el término del seno de la serie de Fourier, por ende, podemos igualar la constante con la constante conocida de la serie de Fourier. Entonces:
     \begin{align}
-        \hat{A_n} \cdot \sinh{(\frac{n \pi b}{a}}) &= \frac{2}{a} \cdot \int_{0}^{a} f(x) \sin{(\frac{n \pi x}{a})} dx \\
-        \hat{A_n} &= \frac{2}{a} \cdot \frac{1}{\sinh{(\frac{n \pi b}{a}})}\int_{0}^{a} f(x) \sin{(\frac{n \pi x}{a})}dx
+    \hat{A_n} \cdot \sinh\!\left(\frac{n \pi b}{a}\right) &= \frac{2}{a} \int_{0}^{a} f(x) \sin\!\left(\frac{n \pi x}{a}\right) dx \\
+    \hat{A_n} &= \frac{2}{a} \cdot \frac{1}{\sinh\!\left(\frac{n \pi b}{a}\right)}\int_{0}^{a} f(x) \sin\!\left(\frac{n \pi x}{a}\right) dx
     \end{align}
     Y de esta forma, el potencial nos queda:
     \begin{align}
-        V(x,y) &=\sum_{n=1}^{\infty} \frac{2}{a} \cdot \frac{1}{\sinh{(\frac{n \pi b}{a}})} \left[\int_{0}^{a} f(x) \sin{(\frac{n \pi x}{a})} dx\right] \cdot \sin{(\frac{n \pi x}{a}}) \cdot \sinh{(\frac{n \pi y}{a}})
+    V(x,y) &= \sum_{n=1}^{\infty} \frac{2}{a} \cdot \frac{1}{\sinh\!\left(\frac{n \pi b}{a}\right)} \left[\int_{0}^{a} f(x) \sin\!\left(\frac{n \pi x}{a}\right) dx\right] \cdot \sin\!\left(\frac{n \pi x}{a}\right) \cdot \sinh\!\left(\frac{n \pi y}{a}\right)
     \end{align}
 
-    \part Para obtener el campo, simplemente calculamos $\mathbf{E} = -\nabla \mathbf{V}$:
+    \part Para obtener el campo, simplemente calculamos $\mathbf{E} = -\nabla V$:
     \begin{align}
         \mathbf{E} &= -\nabla \mathbf{V}\\
         \mathbf{E} &= -(\frac{\partial V}{\partial x} \mathbf{\hat{x}} + \frac{\partial V}{\partial y} \mathbf{\hat{y}})
     \end{align}
     \begin{multline}
-        \mathbf{E} = -\sum_{n=1}^{\infty} \left [ \frac{2}{a} \cdot \frac{1}{\sinh{(\frac{n \pi b}{a}})}\int_{0}^{a} f(x) \sin{(\frac{n \pi x}{a})}dx \cdot \frac{n \pi}{a} \cdot \cos{(\frac{n \pi x}{a}}) \cdot \sinh{(\frac{n \pi y}{a}}) \mathbf{\hat{x}} + \\\frac{2}{a} \cdot \frac{1}{\sinh{(\frac{n \pi b}{a}})}\int_{0}^{a} f(x) \sin{(\frac{n \pi x}{a})}dx \cdot \frac{n \pi}{a} \cdot \sin{(\frac{n \pi x}{a}}) \cdot \cosh{(\frac{n \pi y}{a}}) \mathbf{\hat{y}} \right]
+        \mathbf{E} = -\sum_{n=1}^{\infty} \Bigg[ \frac{2}{a} \cdot \frac{1}{\sinh\!\left(\frac{n \pi b}{a}\right)}\int_{0}^{a} f(x) \sin\!\left(\frac{n \pi x}{a}\right) dx \, \frac{n \pi}{a} \, \cos\!\left(\frac{n \pi x}{a}\right) \, \sinh\!\left(\frac{n \pi y}{a}\right) \, \mathbf{\hat{x}} \\
+        +\, \frac{2}{a} \cdot \frac{1}{\sinh\!\left(\frac{n \pi b}{a}\right)}\int_{0}^{a} f(x) \sin\!\left(\frac{n \pi x}{a}\right) dx \, \frac{n \pi}{a} \, \sin\!\left(\frac{n \pi x}{a}\right) \, \cosh\!\left(\frac{n \pi y}{a}\right) \, \mathbf{\hat{y}} \Bigg]
     \end{multline}
     
     
@@ -386,7 +387,7 @@ con condiciones de borde:
         \frac{1}{r} \frac{\partial V_{m}}{\partial r} + \frac{\partial^{2}V_{m}}{\partial r^2} + \frac{1}{r^{2}}\frac{\partial^{2}V_{m}}{\partial \theta^{2}}&=0
     \end{align}
     \underline{Paso 1:}
-    Se tendrá una dependencia de dos variables, por lo tanto se utilizará separación de varibles para su resolución, por lo que  expresando el potencial como $V_{m} = M(r)N(\theta)$, se tendrá que:
+    Se tendrá una dependencia de dos variables, por lo tanto se utilizará separación de variables para su resolución, por lo que  expresando el potencial como $V_{m} = M(r)N(\theta)$, se tendrá que:
     \begin{align}
         \frac{\partial V_{m}}{ \partial r} &= M(r)'N(\theta)\\
         \frac{\partial^{2} V_{m}}{\partial r^2} &= M(r)''N(\theta)\\
@@ -409,7 +410,7 @@ con condiciones de borde:
     \begin{align}
         N(\theta) = A \theta + B
     \end{align}
-    Al estar trabajando en coordenadas cilíndricas, se debe cumplir la condición de peridiocidad para el ángulo $\theta$, es decir, $N(\theta) = N(\theta + 2 \pi)$. De esta manera:
+    Al estar trabajando en coordenadas cilíndricas, se debe cumplir la condición de periodicidad para el ángulo $\theta$, es decir, $N(\theta) = N(\theta + 2 \pi)$. De esta manera:
     \begin{align}
         A \theta + B &= A(\theta + 2 \pi) + B \\
         A \theta &= A \theta + 2 \pi A \\
@@ -526,7 +527,7 @@ Pero todavía nos falta encontrar $M(r)$. Si reemplazáramos $N(\theta)$ en la E
     \end{align}
 
     
-    \part{Se considera el caso en que $n = 1$ por enunciado. Luego, la serie se reduce a:
+    \part Se considera el caso en que $n = 1$ por enunciado. Luego, la serie se reduce a:
     \begin{align}
         V_{m} = M_{1}N_{1} = B_0 + \left[(A \sin{(\theta)} +  C \cos{(\theta)}) \cdot (D r + \frac{E}{r}) \right]
     \end{align}
@@ -573,9 +574,5 @@ Pero todavía nos falta encontrar $M(r)$. Si reemplazáramos $N(\theta)$ en la E
   \end{solution}
 
 \end{questions}
-
-
-
-
 
 \end{document}

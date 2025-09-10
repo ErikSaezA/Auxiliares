@@ -2,43 +2,29 @@
   11pt,
   letterpaper,
    addpoints,
-   answers
+  answers
   ]{exam}
 
-\usepackage{../exercise-preamble}
-\usepackage{amsmath} % matrices (pmatrix, vmatrix), etc.
-\usepackage{bm}      % \bm{·} para negrita en modo matemático
+% Carga el preámbulo localizado en la carpeta superior
+\input{../exercise-preamble.sty}
+% Paquetes locales
 \usepackage{float}
-\usepackage{graphicx}
+\usepackage{booktabs} % para \toprule, \midrule, \bottomrule
+\usepackage{xcolor} % para colores
+
+% Macros locales
+\newcommand{\Rel}{\mathfrak{R}} % símbolo para la reluctancia
 
 \begin{document}
-% Override preamble's \pagestyle{empty}: show page numbers centered in the footer
-\pagestyle{headandfoot}
-\firstpageheader{}{}{}
-\runningheader{}{}{}
-\firstpagefooter{}{\thepage}{}
-\runningfooter{}{\thepage}{}
 
 \noindent
 \begin{minipage}{0.47\textwidth}
 \includegraphics[width=\textwidth]{../fcfm_die}
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
-\begin{center}
-\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\Definiendo:
-\begin{align}
-  L= \begin{bmatrix} \ell_1 \\ \ell_2 \end{bmatrix}
-\end{align}
-calculamos el producto $LC$:
-\begin{align}
-  LC = \begin{bmatrix} \ell_1 \\ \ell_2 \end{bmatrix} \begin{bmatrix} 0.01 & 0 \end{bmatrix} = \begin{bmatrix} 0.01\ell_1 & 0 \\ 0.01\ell_2 & 0 \end{bmatrix}
-\end{align}
-El polinomio característico de $A-LC$ es:
-\begin{align}
-  \det(\lambda I - (A-LC)) &= \det\begin{bmatrix} \lambda + 2 + 0.01\ell_1 & -10 \\ 1 + 0.01\ell_2 & \lambda + 1 \end{bmatrix} \\
-  &= (\lambda + 2 + 0.01\ell_1)(\lambda + 1) - (-10)(1 + 0.01\ell_2) \\
-  &= \lambda^2 + (3 + 0.01\ell_1)\lambda + (12 + 0.01\ell_1 + 0.1\ell_2)
-\end{align}extbf{Clase auxiliar 4} \\
+\begin{center} 
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\
+\large\textbf{Clase auxiliar 4} \\
 \normalsize Prof.~ Marcos Orchard - Sebastián Espinosa.\\
 \normalsize Prof.~Aux.~Erik Sáez
 \end{center}
@@ -298,7 +284,7 @@ El error estará dado por:
   \end{center}
   Suponga que los parámetros del sistema son:
   \[
-     k_m = 1\;\text{Nm/A},\quad k_e = 1\;\text{Vs},\quad R_a = 0.01\,\Omega,\quad L_a = 1\,\text{H},        \\
+     k_m = 1\;\text{Nm/A},\quad k_e = 1\;\text{Vs},\quad R_a = 1\,\Omega,\quad L_a = 1\,\text{H},        \\
      J = 0.1\,\text{kgm}^2,\quad B = 0.2\,\text{Nms}, \quad k_g = 0.01\,\text{m/rad}.
   \]
   \begin{parts}
@@ -565,7 +551,7 @@ Como ambos autovalores tienen parte real negativa ($-1.5$), se cumple la condici
 \begin{itemize}
 \item La matriz de transición $\Phi(t) = e^{At} \to 0$ cuando $t \to \infty$
 \item Cualquier condición inicial del sistema convergerá a cero en ausencia de entrada
-\item El sistema es **estable asintóticamente**
+\item El sistema es estable asintóticamente
 \end{itemize}
 
 Físicamente, esto indica que el motor DC con carrito retornará a su estado de equilibrio (velocidad cero) después de cualquier perturbación, con un comportamiento oscilatorio amortiguado debido a la parte imaginaria de los autovalores.
