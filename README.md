@@ -1,19 +1,22 @@
+<img src="https://github.com/ErikSaezA/Auxiliares/blob/a734ed37e3f254b44b9a7b0d7f999a8cec547ac4/Logo%20DIE%20FCFM.png" width="500">
+
+
 # Recursos de Docencia — Ingeniería Eléctrica · Universidad de Chile
 
-## Contacto
 Por si buscas contactarme,
 
-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-Erik%20Sáez-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/erik-s%C3%A1ez-aravena-447352210/)
-- [![](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-red?logo=gmail&logoColor=white)](mailto:erik.saez@ug.uchile.cl)
-- [![](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-red?logo=gmail&logoColor=white)](mailto:esaez.das@uchile.cl)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-Erik%20Sáez-lightgray?logo=linkedin&logoColor=white&color=lightgray)](https://www.linkedin.com/in/erik-s%C3%A1ez-aravena-447352210/)
+- [![](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:erik.saez@ug.uchile.cl)
+- [![](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:esaez.das@uchile.cl)
 
-## Presentación
-Hola! Soy Erik Sáez, estudiante de **Magíster en Ingeniería Civil Eléctrica** de la **Universidad de Chile**. Desde mi época escolar me apasiona la **docencia**: buscar y comprender **el porqué de las cosas** ha sido siempre mi motor, manteniéndome motivado y resiliente; nada es fácil y el camino muchas veces ha sido desafiante.
+Erik Sáez
+Estudiante de Magíster en Ingeniería Civil Eléctrica en la Universidad de Chile
 
-Durante mi paso por la Universidad he participado activamente en la **docencia universitaria** como **profesor auxiliar** y en la **gestión estudiantil**, primero en el equipo de **Docencia del Centro de Estudiantes** y luego como **Vicepresidente del CEIE** (Centro de Estudiantes de Ingeniería Eléctrica).
+Desde mis años escolares, la docencia ha sido una de mis mayores motivaciones. La búsqueda y comprensión profunda del porqué de las cosas ha sido el motor que me ha impulsado a mantenerme resiliente y comprometido con mi desarrollo, aun cuando el camino ha sido desafiante.
 
-**Por eso** dejo aquí, de forma abierta, diversos materiales en los que participé junto a los equipos docentes —Auxiliares, presentaciones, **aplicaciones** y **métodos de estudio**— que me fueron útiles a lo largo de mi carrera. Ojalá le sirvan a quienes continúan fortaleciendo la docencia en nuestro departamento. ⚡
+A lo largo de mi trayectoria universitaria, he tenido el privilegio de contribuir activamente en el ámbito de la docencia universitaria como profesor auxiliar. Además, he participado en la gestión estudiantil, desempeñándome inicialmente en el equipo de Docencia del Centro de Estudiantes y posteriormente como Vicepresidente del CEIE (Centro de Estudiantes de Ingeniería Eléctrica).
 
+Con el objetivo de apoyar a quienes continúan fortaleciendo la docencia en nuestro departamento, pongo a disposición diversos materiales y recursos en los que participé junto a los equipos docentes, tales como auxiliares, presentaciones, aplicaciones y métodos de estudio que me han sido de gran utilidad a lo largo de mi carrera. Espero que estos recursos también sean de beneficio para otros.
 ## Cursos donde participé en el equipo docente
 
 ### Profesor Auxiliar
