@@ -2,12 +2,13 @@
   11pt,
   letterpaper,
    addpoints,
-   %answers
+   answers
   ]{exam}
 
 \usepackage{../exercise-preamble}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{cancel} % Para mostrar la sustitución sin(theta) -> theta
 \usetikzlibrary{decorations.pathmorphing}
 
 \begin{document}
@@ -21,10 +22,7 @@
 \end{minipage}
 \begin{minipage}{0.53\textwidth}
 \begin{center} 
-\large\textbf{Introducción a la Física Moderna} (F1100-5) \\
-\large\textbf{Clase auxiliar 5} \\
-\normalsize Prof.~ Rodrigo Soto.\\
-\normalsize Prof.~Aux.~Erik Sáez - Javiera Toro 
+\large\textbf{Introducción a la Física Moderna} (F1100) \\
 \end{center}
 \end{minipage}
 
@@ -132,7 +130,7 @@ Primero identificaremos las fuerzas que actúan sobre la masa $M$ cuando el pén
 \end{itemize}
 Luego deberemos definir las coordenadas del sistema. Por lo que consideramos el sistema de referencia rotado en direccion a la cuerda, es decir, el origen de coordenadas se encuentra en la masa con $\bar{x}$ en la misma direccion que la cuerda y $\bar{y}$ perpendicular a esta, estios nuevos ejes los denotaremos como $\bar{x}$ y $\bar{y}$. Luego realizando un analisis de fuerzas tenemos que:
 \begin{align}
-  \text{$\bar{x}$}: a_{t} L = P \cdot L \sin\theta + F_e \cdot L \cos\theta 
+  \text{$\bar{x}$}: a_{t} M = P  \sin\theta + F_e \cdot L \cos\theta 
 \end{align}
 Esto se visualiza en la siguiente figura:
 
@@ -179,25 +177,29 @@ Esto se visualiza en la siguiente figura:
 \end{tikzpicture}
 \caption{Diagrama de fuerzas para el péndulo con resorte. La línea gris vertical punteada representa la posición de equilibrio. El ángulo $\theta$ (naranja) muestra el desplazamiento angular desde la vertical. Las líneas negras punteadas definen el sistema de coordenadas polares con eje radial alineado con la cuerda y eje tangencial perpendicular. Las fuerzas actuantes son: $\vec{T}$ (azul) tensión de la cuerda, $M\vec{g}$ (rojo) peso, y $\vec{F}_k$ (verde) fuerza del resorte, el sistema esta en la situacion en la que el sistema esta desacelerando y la fuerza elastica apunta a la derecha, por lo cual $a_{t} < 0 $}
 \end{figure}
-Por lo tanto  tenemos que en la direccion $\hat{x}$ se debe cumplir que
+Por lo tanto  tenemos que en la direccion $\hat{x}$, recordemos que la aceleracion tangencial es $a_t = -L\ddot{\theta}$ (Dado la situacion de desaceleracion que estamos considerando) se debe cumplir que
 \begin{align}
-  -ML\ddot{\theta} = P \cdot L \sin\theta + F_e \cdot L \cos\theta
+  a_{t} M &= P \cdot  \sin\theta + F_e \cdot L \cos\theta\\
+  (-L\ddot{\theta})M &= P \cdot  \sin\theta + F_e \cdot L \cos\theta
 \end{align}
 Donde tenemos que:
 \begin{align}
-  F_{e} = kx(\cos(\theta)) = (k\sin\theta)L \cos\theta
+  F_{e} = kx(\cos(\theta)) = (k\sin\theta) \cos\theta
 \end{align}
 Donde el x es la elongacion del resorte en relacion al problema original, por lo que deberemos referenciarlo al nuevo sistema de coordenadas. De esta manera tenemos que:
 \begin{align}
-  -ML\ddot{\theta} = Mg\sin\theta + (k \sin\theta)L \cos\theta
+  -L\ddot{\theta}M = Mg\sin\theta - (kL \sin\theta) \cos\theta
 \end{align}
-Dado que estamos en pequeñas oscilaciones, podemos hacer la aproximación $\sin\theta \approx \theta$ y $\cos\theta \approx 1$, con lo que el sistema resulta:
+Donde el signo negativo en la fuerza del resorte indica que se opone al desplazamiento. Dado que estamos en pequeñas oscilaciones, podemos hacer la aproximación $\sin\theta \approx \theta$ y $\cos\theta \approx 1$, con lo que el sistema resulta:
 \begin{align}
-  -ML\ddot{\theta} &= Mg\theta + kL\theta \\
-  -ML\ddot{\theta} + Mg\theta + kL\theta &= 0 \\
-  ML\ddot{\theta} + (Mg + kL)\theta &= 0 \\
+  -L\ddot{\theta}M &= Mg\sin\theta - kL \sin\theta \cos\theta \\
+  \Rightarrow -L\ddot{\theta}M &= Mg\,\overset{\theta}{\cancel{\sin\theta}} - kL\,\overset{\theta}{\cancel{\sin\theta}}\overset{1}{\cancel{\cos\theta}} \\
+  -L\ddot{\theta}M &= Mg\theta - kL\theta \\
+  -L\ddot{\theta}M - Mg\theta + kL\theta &= 0 \\
+  ML\ddot{\theta} + Mg\theta - kL\theta &= 0 \\
+  ML\ddot{\theta} + (Mg - kL)\theta &= 0 \\
   \Rightarrow \quad
-  \ddot{\theta} + \frac{g}{L}\left(1 + \frac{kL}{Mg}\right)\theta = 0
+  \ddot{\theta} + \frac{g}{L}\left(1 - \frac{kL}{Mg}\right)\theta = 0
 \end{align}
 
 Donde reconocemos corresponde a una ecuacion tipica de oscilador armonico simple, por lo que la frecuencia angular sera:
@@ -305,40 +307,49 @@ Lo primero sera escribir la función $f(\bar{x})$ donde tenemos que c es la velo
   \end{figure}
   
   \subsection*{Resolución 2.2}
-  
-  Para calcular la velocidad vertical, derivamos $u(x,t)$ con respecto al tiempo:
-  \begin{equation}
-    v(x,t) = \frac{\partial u(x,t)}{\partial t}
-  \end{equation}
-  
-  Usando la regla de la cadena:
-  \begin{equation}
-    u(x,t) = \frac{1\,\mathrm{cm}}{1 + (x-ct)^2\,\mathrm{cm}^{-2}}
-  \end{equation}
-  
-  Sea $\lambda = x - ct$, entonces:
-  \begin{equation}
-    \frac{\partial u}{\partial t} = \frac{du}{d\lambda} \cdot \frac{\partial \lambda}{\partial t} = \frac{du}{d\lambda} \cdot (-c)
-  \end{equation}
-  
-  Calculando la derivada:
-  \begin{align}
-    \frac{du}{d\lambda} &= \frac{d}{d\lambda}\left[\frac{1\,\mathrm{cm}}{1 + \lambda^2\,\mathrm{cm}^{-2}}\right] \\
-    &= 1\,\mathrm{cm} \cdot \frac{d}{d\lambda}\left[(1 + \lambda^2\,\mathrm{cm}^{-2})^{-1}\right] \\
-    &= 1\,\mathrm{cm} \cdot (-1)(1 + \lambda^2\,\mathrm{cm}^{-2})^{-2} \cdot 2\lambda\,\mathrm{cm}^{-2} \\
-    &= -\frac{2\lambda\,\mathrm{cm}^{-1}}{(1 + \lambda^2\,\mathrm{cm}^{-2})^2}
-  \end{align}
-  
-  Por tanto:
-  \begin{equation}
-    v(x,t) = -(-c) \cdot \frac{2(x-ct)\,\mathrm{cm}^{-1}}{[1 + (x-ct)^2\,\mathrm{cm}^{-2}]^2} = \frac{2c(x-ct)\,\mathrm{cm}^{-1}}{[1 + (x-ct)^2\,\mathrm{cm}^{-2}]^2}
-  \end{equation}
-  
-  En $t = 0$ y con $c = 1\,\mathrm{cm/s}$:
-  \begin{equation}
-    v(x,0) = \frac{2x\,\mathrm{cm}^{-1}}{[1 + x^2\,\mathrm{cm}^{-2}]^2}
-  \end{equation}
-  Esto se ve graciamente en la siguiente gráfica:
+
+Fijamos $x$ como constante y derivamos $u(x,t)$ respecto de $t$:
+\begin{equation}
+u(x,t) = \frac{1}{1+(x-ct)^2} = [1+(x-ct)^2]^{-1}
+\end{equation}
+
+Aplicamos la regla de la cadena, la cual se define como:
+\begin{align}
+\frac{d}{dt} f(g(t)) &= f'(g(t)) \cdot g'(t)
+\end{align}
+Para nuestro caso particular tenemos que:
+\begin{align}
+  f'(g(t)) &= -[1+(x-ct)^2]^{-2} \\
+  g'(t) &= \frac{d}{dt}[1+(x-ct)^2]
+\end{align}
+Con lo que la derivada queda:
+\begin{equation}
+\frac{d}{dt} [1+(x-ct)^2]^{-1} = -[1+(x-ct)^2]^{-2} \cdot \frac{d}{dt}[1+(x-ct)^2]
+\end{equation}
+
+La derivada del corchete interior es:
+\begin{align}
+\frac{d}{dt}[1+(x-ct)^2] &= 2(x-ct) \cdot \frac{d}{dt}(x-ct) \\
+&= 2(x-ct)(-c) \\
+&= -2c(x-ct)
+\end{align}
+
+Por tanto, la velocidad vertical $v(x,t) = \frac{d}{dt}u(x,t)$ queda:
+\begin{equation}
+v(x,t) = -[1+(x-ct)^2]^{-2} \cdot [-2c(x-ct)] = \frac{2c(x-ct)}{[1+(x-ct)^2]^2}
+\end{equation}
+
+\begin{equation}
+\boxed{v(x,t) = \frac{2c(x-ct)}{[1+(x-ct)^2]^2}}
+\end{equation}
+
+En $t=0$ y con $c=1\,\mathrm{cm/s}$:
+\begin{equation}
+\boxed{v(x,0) = \frac{2x}{(1+x^2)^2}}
+\end{equation}
+
+
+
 
   \subsection*{Resolución 2.3}
   
@@ -494,47 +505,36 @@ Esta ecuación relaciona las tensiones para cualquier posición $x$. En la posic
 
 \subsection*{Resolución 3.2}
 
-Para encontrar la frecuencia angular, analizamos las fuerzas horizontales restauradoras de manera general.
-
-Las componentes horizontales de las tensiones son:
+Para encontrar la frecuencia angular, analizamos las fuerzas horizontales restauradoras de manera general. Las componentes horizontales de las tensiones son:
 \begin{align}
 F_{1x} &= -T_1\sin\theta_1 = -T_1 \frac{x}{\sqrt{x^2 + L_1^2}} \\
 F_{2x} &= -T_2\sin\theta_2 = -T_2 \frac{x}{\sqrt{x^2 + L_2^2}}
 \end{align}
 
-Para oscilaciones pequeñas alrededor del equilibrio, podemos expandir estas expresiones para $x \ll L_1, L_2$:
+Para oscilaciones pequeñas alrededor del equilibrio, podemos expandir estas expresiones para $x \ll L_1, L_2$ usando la expansión de Taylor:
 \begin{align}
 \frac{x}{\sqrt{x^2 + L_i^2}} &= \frac{x}{L_i\sqrt{1 + (x/L_i)^2}} \\
 &\approx \frac{x}{L_i} - \frac{x^3}{2L_i^3}
 \end{align}
 
-Por lo tanto, las fuerzas horizontales se aproximan como:
+\textbf{Nota sobre aproximaciones paraxiales:} Si usáramos la aproximación paraxial ($\sin\theta \approx \theta$ y $\theta \approx \tan\theta = \frac{x}{L}$), obtendríamos directamente $\sin\theta \approx \frac{x}{L}$, lo que daría solo el término lineal. Esta aproximación es menos precisa que la expansión de Taylor, ya que omite los términos de orden superior que pueden ser importantes para analizar efectos no lineales, pero que para nuestro es suficiente. Por lo tanto, las fuerzas horizontales se aproximan como:
 \begin{align}
 F_{1x} &\approx -T_1 \left(\frac{x}{L_1} - \frac{x^3}{2L_1^3}\right) \\
 F_{2x} &\approx -T_2 \left(\frac{x}{L_2} - \frac{x^3}{2L_2^3}\right)
 \end{align}
 
-Para pequeñas oscilaciones, manteniendo solo el término lineal:
+Como se menciona anteriormente nos interesa solo las pequeñas oscilaciones, manteniendo solo el término lineal:
 \begin{align}
 F_{1x} &\approx -T_1 \frac{x}{L_1} \\
 F_{2x} &\approx -T_2 \frac{x}{L_2}
 \end{align}
 
-Si consideramos también el término no lineal (cúbico):
-\begin{align}
-F_{1x} &\approx -T_1 \frac{x}{L_1} + T_1 \frac{x^3}{2L_1^3} \\
-F_{2x} &\approx -T_2 \frac{x}{L_2} + T_2 \frac{x^3}{2L_2^3}
-\end{align}
 
 Aplicando la segunda ley de Newton en la dirección horizontal (considerando solo términos lineales para MAS):
 \begin{equation}
 m\ddot{x} = F_{1x} + F_{2x} \approx -\left(\frac{T_1}{L_1} + \frac{T_2}{L_2}\right)x
 \end{equation}
 
-Para el análisis completo (incluyendo términos no lineales):
-\begin{equation}
-m\ddot{x} = -\left(\frac{T_1}{L_1} + \frac{T_2}{L_2}\right)x + \left(\frac{T_1}{2L_1^3} + \frac{T_2}{2L_2^3}\right)x^3
-\end{equation}
 
 Para pequeñas oscilaciones, el término no lineal es despreciable ($x^3 \ll x$), por lo que obtenemos la ecuación del oscilador armónico simple:
 \begin{equation}
@@ -560,8 +560,6 @@ Sustituyendo $T_1 = T_2 + mg$:
 \boxed{\omega = \sqrt{\frac{T_2}{m}\left(\frac{1}{L_1} + \frac{1}{L_2}\right) + \frac{g}{L_1}}}
 \end{equation}
 
-\textbf{Nota sobre efectos no lineales:} El término cúbico $\left(\frac{T_1}{2L_1^3} + \frac{T_2}{2L_2^3}\right)x^3$ introduce correcciones no lineales que pueden afectar la frecuencia para amplitudes grandes, causando dependencia de la frecuencia con la amplitud (anharmonicidad).
-
 \subsection*{Resolución 3.3}
 
 El período de oscilación es:
@@ -569,11 +567,6 @@ El período de oscilación es:
 \boxed{T = \frac{2\pi}{\omega} = \frac{2\pi}{\sqrt{\frac{T_2}{m}\left(\frac{1}{L_1} + \frac{1}{L_2}\right) + \frac{g}{L_1}}}}
 \end{equation}
 
-\textbf{Corrección no lineal del período:} Para amplitudes finitas, el término cúbico causa que el período real sea ligeramente diferente al período lineal. La corrección de primer orden es:
-\begin{equation}
-T_{\text{real}} \approx T\left(1 + \frac{3}{32}\left(\frac{T_1}{2L_1^3} + \frac{T_2}{2L_2^3}\right)\frac{A^2}{m\omega^2}\right)
-\end{equation}
-donde $A$ es la amplitud de oscilación.
 
 \subsection*{Resolución 3.4}
 
@@ -604,18 +597,6 @@ Como la amplitud es positiva por definición, tomamos $A = |x_0|$.
 \end{equation}
 
 donde $x$ es la distancia inicial desde la posición de equilibrio.
-
-\textbf{Consideraciones sobre la validez de la aproximación lineal:} La aproximación $x \ll L_1, L_2$ es válida cuando la amplitud de oscilación es mucho menor que las longitudes de las cuerdas. Para amplitudes mayores, los efectos no lineales se vuelven importantes y pueden causar:
-\begin{itemize}
-\item \textbf{Dependencia del período con la amplitud:} El período real aumenta ligeramente con amplitudes mayores.
-\item \textbf{Distorsión armónica:} La forma de onda deja de ser sinusoidal pura.
-\item \textbf{Desplazamiento del equilibrio:} La posición de equilibrio efectiva puede cambiar.
-\end{itemize}
-
-La condición cuantitativa para la validez de la aproximación lineal es:
-\begin{equation}
-\frac{|x_0|^2}{L_1^2} \ll 1 \quad \text{y} \quad \frac{|x_0|^2}{L_2^2} \ll 1
-\end{equation}
 \end{solution}
 
 \question En la siguiente figura se muestran dos pulsos, el pulso triangular se mueve hacia la derecha con una rapidez de $1~\mathrm{m/s}$ y el pulso rectangular se mueve hacia la izquierda también con una rapidez de $1~\mathrm{m/s}$. En el tiempo $t=0$, ambos pulsos están separados una distancia de $2~\mathrm{m}$.
