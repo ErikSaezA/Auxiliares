@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  12 SEP 2025 02:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  11 SEP 2025 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -971,41 +971,43 @@ Overfull \hbox (2.43332pt too wide) in paragraph at lines 18--30
 $[]$ $[]$ 
  []
 
-<../figures/Auxiliar_5_1.png, id=8, 1121.18875pt x 1388.18625pt>
-File: ../figures/Auxiliar_5_1.png Graphic file (type png)
-<use ../figures/Auxiliar_5_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_1.png  used on input line 303.
-(pdftex.def)             Requested size: 317.36526pt x 392.94708pt.
-<../figures/Auxiliar_5_2.png, id=9, 569.84895pt x 348.3414pt>
-File: ../figures/Auxiliar_5_2.png Graphic file (type png)
-<use ../figures/Auxiliar_5_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_2.png  used on input line 367.
-(pdftex.def)             Requested size: 423.151pt x 258.66687pt.
 
 
 [1
 
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.png>]
-<../figures/Auxiliar_5_3.png, id=36, 2023.56pt x 1186.4325pt>
-File: ../figures/Auxiliar_5_3.png Graphic file (type png)
-<use ../figures/Auxiliar_5_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_3.png  used on input line 703.
-(pdftex.def)             Requested size: 528.93675pt x 310.1126pt.
-<../figures/Auxiliar_5_4.png, id=37, 531.48563pt x 350.05782pt>
-File: ../figures/Auxiliar_5_4.png Graphic file (type png)
-<use ../figures/Auxiliar_5_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_5_4.png  used on input line 727.
-(pdftex.def)             Requested size: 264.46837pt x 174.18987pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 [2]
 
-[3 <../figures/Auxiliar_5_4.png>]
-This exam contains 5 questions with 9 parts, 0 subparts, and 0 subsubparts.
+[3]
+<../figures/Auxiliar_5_1.png, id=60, 1121.18875pt x 1388.18625pt>
+File: ../figures/Auxiliar_5_1.png Graphic file (type png)
+<use ../figures/Auxiliar_5_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_5_1.png  used on input line 303.
+(pdftex.def)             Requested size: 294.40503pt x 364.52086pt.
+<../figures/Auxiliar_5_2.png, id=61, 569.84895pt x 348.3414pt>
+File: ../figures/Auxiliar_5_2.png Graphic file (type png)
+<use ../figures/Auxiliar_5_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_5_2.png  used on input line 367.
+(pdftex.def)             Requested size: 392.53755pt x 239.95186pt.
+
+
+[4]
+
+[5 <../figures/Auxiliar_5_1.png (PNG copy)>]
+
+[6]
+
+[7 <../figures/Auxiliar_5_2.png>]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+This exam contains 4 questions with 9 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (FI1100_05.aux)
@@ -1017,17 +1019,17 @@ Package rerunfilecheck Info: File `FI1100_05.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61830 strings out of 473523
- 1585706 string characters out of 5724698
- 2375544 words of memory out of 5000000
- 84310 multiletter control sequences out of 15000+600000
- 569885 words of font info for 81 fonts, out of 8000000 for 9000
+ 61881 strings out of 473523
+ 1585735 string characters out of 5724698
+ 2384575 words of memory out of 5000000
+ 84277 multiletter control sequences out of 15000+600000
+ 569539 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,101p,1050b,1179s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on FI1100_05.pdf (3 pages, 256557 bytes).
+ 99i,14n,101p,1140b,1255s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on FI1100_05.pdf (11 pages, 543668 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 109 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
