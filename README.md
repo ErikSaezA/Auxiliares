@@ -8,7 +8,8 @@ Por si buscas contactarme,
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-Erik%20Sáez-lightgray?logo=linkedin&logoColor=white&color=lightgray)](https://www.linkedin.com/in/erik-s%C3%A1ez-aravena-447352210/)
 - [![](https://img.shields.io/badge/Correo-erik.saez%40ug.uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:erik.saez@ug.uchile.cl)
 - [![](https://img.shields.io/badge/Correo-esaez.das%40uchile.cl-lightgray?logo=gmail&logoColor=white&color=lightgray)](mailto:esaez.das@uchile.cl)
-
+<!-- Imagen a la derecha -->
+<img src="https://github.com/ErikSaezA/Auxiliares/blob/57c6dc88c332a01c7a3555674885a92171669de9/imagen.png" align="right" width="350" alt="Erik Sáez">
 
 **Erik Sáez** - Estudiante de **Magíster en Ingeniería Civil Eléctrica** en la **Universidad de Chile**
 
@@ -18,9 +19,8 @@ A lo largo de mi trayectoria universitaria, he tenido el privilegio de contribui
 
 Con el objetivo de apoyar a quienes continúan fortaleciendo la docencia en nuestro departamento, pongo a disposición diversos materiales y recursos en los que participé junto a los equipos docentes, tales como **auxiliares**, **presentaciones**, **aplicaciones** y **métodos de estudio** que me han sido de gran utilidad a lo largo de mi carrera. Espero que estos recursos también sean de beneficio para otros.
 
-<p align="center">
-  <img src="https://github.com/ErikSaezA/Auxiliares/blob/57c6dc88c332a01c7a3555674885a92171669de9/imagen.png" width="300">
-</p>
+<br clear="right"/>
+
 
 ## Participación en Cuerpos Docentes
 Los cursos que se muestran a continuación están en el repositorio, estos son en los que participé como **Profesor Auxiliar** o **Ayudante**.
