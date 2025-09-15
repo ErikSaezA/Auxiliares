@@ -1,0 +1,7 @@
+\beamer@sectionintoc {1}{Resumen MAS}{3}{0}{1}
+\beamer@sectionintoc {2}{Resumen Ondas}{4}{0}{2}
+\beamer@sectionintoc {3}{Pregunta 1}{5}{0}{3}
+\beamer@sectionintoc {4}{Pregunta 2}{6}{0}{4}
+\beamer@sectionintoc {5}{Pregunta 3}{7}{0}{5}
+\beamer@sectionintoc {6}{Pregunta 4}{8}{0}{6}
+\beamer@sectionintoc {7}{Pregunta 5}{9}{0}{7}

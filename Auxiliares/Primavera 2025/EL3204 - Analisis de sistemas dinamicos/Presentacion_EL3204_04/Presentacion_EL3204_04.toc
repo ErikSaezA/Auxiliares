@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Estabilidad BIBS y BIBO}{3}{0}{1}
+\beamer@sectionintoc {2}{Controlabilidad y observabilidad}{4}{0}{2}
+\beamer@sectionintoc {3}{Control por retroalimentación de estados}{5}{0}{3}
+\beamer@sectionintoc {4}{Pregunta 1}{7}{0}{4}
+\beamer@sectionintoc {5}{Pregunta 2}{8}{0}{5}

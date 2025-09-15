@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Resumen}{3}{0}{1}
+\beamer@sectionintoc {2}{Pregunta 1}{5}{0}{2}
+\beamer@sectionintoc {3}{Pregunta 2}{6}{0}{3}
+\beamer@sectionintoc {4}{Pregunta 3}{8}{0}{4}

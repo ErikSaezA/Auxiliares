@@ -1,0 +1,169 @@
+%TEMPLATE INFORMES LATEX
+
+%IMPORTACIÓN DE LIBRERÍAS
+%----------------------------------
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{subfig}
+\usepackage{subfigure}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{biblatex} %Imports biblatex package
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\definecolor{gray}{RGB}{220,220,220}
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{pdfpages}
+%Estilo de página
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+    \usepackage{wrapfig}
+    \usepackage{color}
+    \definecolor{rojo}{RGB}{255,26,34}
+    \definecolor{gris}{RGB}{104,108,113}
+    \newcommand{\HRule}{\rule{\linewidth}{.4mm}}
+    %figuras .eps
+    \usepackage{epstopdf}
+    %\epstopdfsetup{update}
+    \usepackage{hyperref}
+    %agregar .m
+    %\usepackage[numbered,framed]{mcode}
+    %\usepackage{listings}
+    \addto\captionsenglish{\renewcommand{\figurename}{Figura}}
+    \usepackage[table]{xcolor}
+    \usepackage{indentfirst}
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}
+\usepackage{array}
+\graphicspath{ {figures/} }
+
+%IMPORTAR BIBLIOGRAFÍA
+%----------------------------------
+\addbibresource{bibliografia.bib} 
+\bibliographystyle{ieee}
+%INICIO DEL DOCUMENTO
+%----------------------------------
+\begin{document}
+\renewcommand{\tablename}{Tabla}
+
+
+%TÍTULO Y ENCABEZADOS ---------------------------------
+\begin{titlepage}
+
+%ENCABEZADO DE PORTADA
+%---------------------------------
+{
+\begin{wrapfigure}{l}{.8cm}
+\vspace{-.7cm}
+\includegraphics[width=4.7cm]{img/fcfm}
+\end{wrapfigure}
+\textsc{\color{red}\hspace{3cm}Universidad de Chile}\\
+\textsc{\color{gray}\hspace{3.6cm}Facultad de Ciencias Físicas y Matemáticas}\\
+\textsc{\color{gray}\hspace{3.6 cm}Departamento de Ingeniería Eléctrica}\\
+\textsc{\color{gray}\hspace{3.6cm}\small EL7030 - Antenas}\\
+}
+%ENCABEZADO DE OTRAS PÁGINAS
+%--------------------------------
+\fancyhead[l]{\small EL7030 - Antenas - 2024/1}
+\fancyhead[r]{\includegraphics[scale=0.1]{img/fcfm}}
+    
+% TITULO 
+--------------------------------
+        \begin{center}
+        ~\\[3.5cm]
+        \HRule~ \\[0.4cm]
+        { \Huge \textup \bfseries  Tarea 3: Diseño de antena Moxon adaptada para la recepción de señales NOAA}\\[0.4cm]
+        { \Large \textup{EL7030 - Antenas}}\\[0.2cm]
+        \HRule ~\\[2cm]
+        \end{center}
+        \begin{minipage}{.5\textwidth}
+       
+        \end{minipage}
+    
+%INTEGRANTES
+    ~\\[2cm]
+    ~ ~ ~
+    \begin{minipage}{.8\textwidth}
+    \begin{flushright}
+    \begin{tabular}{l}
+        
+        \emph{Profesor:} \\
+            {\small Ricardo Finger C.} \\
+        \\[0.29cm]
+
+        \emph{Profesor auxiliar:} \\
+            {\small Juan Torrejon H.} \\
+            {\small Vicente Aitken A.} \\
+        \\[0.29cm]
+        
+        %\emph{Ayudantes:} \\
+        %    {\small Camila Maire} \\
+        %    {\small Ricardo García R.} \\
+        %    {\small Valeria C. Zúñiga} \\
+        %\\[0.29cm]
+
+        \emph{Estudiante:} \\
+            {\small Maximiliano Morales
+            H.} \\
+            {\small Erik Sáez Aravena}\\
+        \\[0.29cm] 
+        
+        \emph{Fecha de entrega:} \\
+            {\small \today}
+        \\[0.29cm]  
+
+    \end{tabular}
+    \end{flushright}
+    \end{minipage}
+    
+\end{titlepage}
+
+\newpage
+
+%TABLA DE CONTENIDOS-------------------------
+\renewcommand{\contentsname}{Índice.}
+\tableofcontents{}
+\newpage
+
+%LISTA DE FIGURAS Y TABLAS-------------------------
+\renewcommand{\listfigurename}{Lista de figuras.}
+\renewcommand{\listtablename}{Lista de tablas.}
+\listoffigures
+\listoftables
+\pagenumbering{arabic}
+
+\newpage
+\input{resultados.tex}
+\newpage
+%\printbibliography
+\end{document}
