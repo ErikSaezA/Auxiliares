@@ -1,0 +1,29 @@
+site_name: Auxiliares
+site_url: https://eriksaeza.github.io/Auxiliares/
+repo_url: https://github.com/ErikSaezA/Auxiliares
+repo_name: ErikSaezA/Auxiliares
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.path         # migas de pan
+    - navigation.footer       # prev/next
+    - search.highlight
+    - content.code.copy       # botón copiar en bloques de código
+    - content.code.annotate   # anotaciones en bloques
+plugins:
+  - search
+  - tags
+
+markdown_extensions:            # paquete recomendado por Material
+  - admonition
+  - attr_list
+  - footnotes
+  - def_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
