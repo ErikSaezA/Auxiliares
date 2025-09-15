@@ -1,18 +1,8 @@
-# Welcome to MkDocs
+# 3103 Electromagnetismo Aplicado
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Semestres
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start theasdasdsasdas live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Prisnt help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-asSasdasdasdasdasdasdasdsass
+<div class="grid cards" markdown>
+- **Primavera 2025**  
+  [:octicons-arrow-right-24: Entrar](Primavera-2025/index.md)
+</div>

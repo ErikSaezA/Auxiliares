@@ -7,19 +7,45 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: es
+  palette:
+    # Claro
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    # Oscuro
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/white-balance-sunny
+        name: Cambiar a modo claro
   features:
     - navigation.tabs
     - navigation.top
-    - navigation.path         # migas de pan
-    - navigation.footer       # prev/next
+    - navigation.path
+    - navigation.sections
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
     - search.highlight
-    - content.code.copy       # botón copiar en bloques de código
-    - content.code.annotate   # anotaciones en bloques
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.action.view
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: Roboto
+    code: Roboto Mono
+
 plugins:
   - search
   - tags
 
-markdown_extensions:            # paquete recomendado por Material
+markdown_extensions:
   - admonition
   - attr_list
   - footnotes
@@ -27,3 +53,25 @@ markdown_extensions:            # paquete recomendado por Material
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.details
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Ingeniería Civil Eléctrica:
+      - Primer año:
+          - 3103 Electromagnetismo Aplicado:
+              - Presentación: Ingenieria-Civil-Electrica/Primer-año/3103-Electromagnetismo Aplicado/index.md
+              - Primavera 2025: Ingenieria-Civil-Electrica/Primer-año/3103-Electromagnetismo Aplicado/Primavera-2025/index.md
+  - About: About/about.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ErikSaezA/Auxiliares
+      name: Repositorio en GitHub
+
+extra_css:
+  - styles/pdf-cards.css
