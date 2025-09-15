@@ -1,8 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Marco teórico}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Protocolo NOAA-APT}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Formato APT}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Antenas adaptadas a NOAA-APT}{2}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Antena Móxon}{3}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}Simulaciones HFSS}{4}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Resultados experimentales}{7}{section.2}%

@@ -1,0 +1,67 @@
+
+ En relación al sistema descrito anteriormente, responda las siguientes preguntas.
+\begin{enumerate}
+    \item \textbf{(0.5 Puntos)} Establezca al menos tres hipótesis simplificatorias necesarias para derivar el modelo matemático presentado en (1).
+    \item \textbf{(0.5 Puntos)} Formule un modelo en variables de estado, es decir, $\dot{\Vec{X}}(t)=\Vec{F}(\Vec{X}(t), u(t))$
+    con su respectiva salida $\Vec{Y}(t) = C\cdot\Vec{X}(t)$. Indique las variables que corresponden a la/s entrada/s, salida/s y variable/s de estado del sistema. 
+    \item \textbf{(0.5 Puntos)} Encuentre el punto de equilibrio ($\Vec{X}_{eq}$, $u_{eq}$)   tal que la bola de acero permanezca suspendida en el aire en la posición $y_0$. Exprese las componentes de $\Vec{X}_{eq}$ y $u_{eq}$ en términos de $y_0$. Si lo considera necesario asuma que $i(t)\geq 0,\; t\geq 0$.
+    \item \textbf{(1.5 Puntos)} Linealice el sistema planteado en la pregunta anterior en torno al punto de equilibrio ($\Vec{X}_{eq}$, $u_{eq}$). Determine explícitamente $A$ es la matriz de estado y $B$ la matriz de salida.
+    
+%     \[
+% \dot{\vec{X}} = 
+% \begin{bmatrix}
+% 0 & 1 & 0 \\
+% \frac{g}{Y_0} & 0 & -2 \sqrt{\frac{g}{M Y_0}} \\
+% 0 & 0 & -\frac{R}{L}
+% \end{bmatrix}
+% \vec{X} 
+% + 
+% \begin{bmatrix}
+% 0 \\
+% 0 \\
+% \frac{1}{L}
+% \end{bmatrix}e(t)
+% \]
+    
+    % Linealice el sistema planteando en la pregunta anterior en torno al punto de equilibrio con tal de obtener la expresión $\dot{\Vec{X}}=A\cdot \Vec{X} + B\cdot u$ donde $A$ es la matriz de estado y $B$ la matriz de salida.
+
+\end{enumerate}
+
+\textbf{Parte 2}
+
+\begin{enumerate}
+    \item \textbf{(2 Puntos)} Considere el siguiente sistema lineal descrito en (2.1) con condición inicial arbitraria $\vec{X_0}$. Determine la RENC del sistema. ¿Los estados del sistema $x_1(t)$ y $x_2(t)$ permanecen acotados para para $t\geq 0$? Si es así, provea una cota superior para $x_1(t)$ y $x_2(t)$.  
+    \begin{equation*}
+\begin{pmatrix}
+\dot{x}_1 \\
+\dot{x}_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 1 \\
+0 & - 1
+\end{pmatrix}
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}
++
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix}
+u(t) \tag{2.1}
+\end{equation*}
+
+    \begin{equation*}
+y = \begin{pmatrix}
+1 & 0
+\end{pmatrix} \cdot  \vec{x}\tag{2.2}
+\end{equation*}
+
+\end{enumerate}
+ 
+\textbf{Parte 3}
+\begin{enumerate}
+    \item \textbf{(1 Puntos)}  Las baterías de ion de litio son esenciales por su alta densidad energética y larga vida útil, siendo clave en dispositivos electrónicos y vehículos eléctricos. Comente sobre la importancia del estado de carga (SoC: State of Charge) en las baterías. ¿Cómo podemos conocer el valor actual del SoC? Elabore en base a los contenidos discutidos en clases. Responda en no más de 6 líneas, pudiendo incluir un diagrama si lo estima conveniente. 
+\end{enumerate}

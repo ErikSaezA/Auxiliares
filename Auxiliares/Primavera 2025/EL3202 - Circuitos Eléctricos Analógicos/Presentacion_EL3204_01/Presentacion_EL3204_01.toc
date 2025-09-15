@@ -1,7 +1,0 @@
-\babel@toc {spanish}{}\relax 
-\beamer@sectionintoc {1}{Resumen}{3}{0}{1}
-\beamer@sectionintoc {2}{Pregunta 1}{10}{0}{2}
-\beamer@sectionintoc {3}{Ejercicio 2}{16}{0}{3}
-\beamer@sectionintoc {4}{Ejercicio 3}{18}{0}{4}
-\beamer@sectionintoc {5}{Ejercicio 4}{19}{0}{5}
-\beamer@sectionintoc {6}{Ejercicio 5}{23}{0}{6}

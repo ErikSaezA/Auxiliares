@@ -1,3 +1,0 @@
-\beamer@sectionintoc {1}{Resumen de Conceptos}{3}{0}{1}
-\beamer@sectionintoc {2}{Pregunta 1}{7}{0}{2}
-\beamer@sectionintoc {3}{Pregunta 2}{8}{0}{3}

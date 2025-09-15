@@ -1,0 +1,703 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+   answers
+  ]{exam}
+\usepackage{float}
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+  \includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 2} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux. Lucas Palomino
+\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\section{Resumen}
+Sea $f$ un campo escalar, se define el \textbf{operador gradiente} como:
+\begin{itemize}
+    \item \textbf{Coordenadas cartesianas} $(x,y,z)$:
+    \[
+\nabla f = 
+\frac{\partial f}{\partial x}\,\hat{\mathbf{i}} \;+\;
+\frac{\partial f}{\partial y}\,\hat{\mathbf{j}} \;+\;
+\frac{\partial f}{\partial z}\,\hat{\mathbf{k}}
+\]
+\item \textbf{Coordenadas cilíndricas} $(\rho, \phi, z)$:
+\[
+\nabla f =
+\frac{\partial f}{\partial \rho}\,\hat{\boldsymbol\rho}
+\;+\; \frac{1}{\rho}\,\frac{\partial f}{\partial \phi}\,\hat{\boldsymbol\phi}
+\;+\; \frac{\partial f}{\partial z}\,\hat{\mathbf{z}}
+\]
+\item \textbf{Coordenadas esféricas} $(r,\theta,\phi)$:
+\[
+\nabla f =
+\frac{\partial f}{\partial r}\,\hat{\mathbf{r}}
+\;+\; \frac{1}{r}\,\frac{\partial f}{\partial \theta}\,\hat{\boldsymbol\theta}
+\;+\; \frac{1}{r\sin\theta}\,\frac{\partial f}{\partial \phi}\,\hat{\boldsymbol\phi}
+\]
+
+
+\end{itemize}
+Sea $f$ un campo escalar de clase $\mathcal{C}^2$, se define el \textbf{operador Laplaciano} como:
+\[
+\nabla^2 f = \nabla \cdot (\nabla f)
+\]
+o, equivalentemente, como la suma de las segundas derivadas parciales de $f$ en el sistema de coordenadas correspondiente:
+
+\begin{itemize}
+    \item \textbf{Coordenadas cartesianas} $(x,y,z)$:
+    \[
+    \nabla^2 f = \frac{\partial^2 f}{\partial x^2}
+               + \frac{\partial^2 f}{\partial y^2}
+               + \frac{\partial^2 f}{\partial z^2}
+    \]
+
+    \item \textbf{Coordenadas cilíndricas} $(r,\phi,z)$:
+    \[
+    \nabla^2 f = \frac{1}{r} \frac{\partial}{\partial r}
+    \left( r \frac{\partial f}{\partial r} \right)
+    + \frac{1}{r^2} \frac{\partial^2 f}{\partial \phi^2}
+    + \frac{\partial^2 f}{\partial z^2}
+    \]
+
+    \item \textbf{Coordenadas esféricas} $(r,\theta,\phi)$:
+    \[
+    \nabla^2 f =
+    \frac{1}{r^2} \frac{\partial}{\partial r}
+    \left( r^2 \frac{\partial f}{\partial r} \right)
+    + \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta}
+    \left( \sin\theta \frac{\partial f}{\partial \theta} \right)
+    + \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 f}{\partial \phi^2}
+    \]
+\end{itemize}
+
+\subsection*{Ecuaciones de Poisson y Laplace}
+
+A continuación, se enuncian dos expresiones fundamentales para el desarrollo de los problemas posteriores.  
+La primera corresponde a la \textbf{ecuación de Poisson}, que se expresa como:
+
+\begin{equation}
+\nabla^{2} V = -\frac{\rho}{\varepsilon_{0}}
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $V$ es el \textit{potencial eléctrico}.
+    \item $\rho$ es la densidad de carga total, incluyendo tanto carga libre ($\rho_f$), como carga ligada ($\rho_b$).
+    \item $\varepsilon_{0}$ es la permitividad del vacío.
+\end{itemize}
+
+En el caso particular en que el medio no contenga densidad de carga ($\rho = 0$), la ecuación de Poisson se reduce a la \textbf{ecuación de Laplace}:
+
+\begin{equation}
+\nabla^{2} V = 0
+\end{equation}
+
+\subsection*{Propiedades de la ecuación de Laplace}
+La ecuación de Laplace cumple las siguientes características:
+\begin{itemize}
+    \item \textbf{La media es el promedio de los extremos.}
+    \item \textbf{La ecuación de Laplace no tolera mínimos ni máximos globales.} Es decir, el valor máximo y valor mínimo del potencial se encontrarán en los extremos.
+    \item \textbf{La solución a la ecuación de Laplace es única.}
+    \item \textbf{La ecuación de Laplace es lineal.}
+\end{itemize}
+\subsection*{Ecuaciones de Maxwell en electroestática y magnetoestática}
+\begin{align}
+  \text{(i)}&\quad \tcbhighmath{\nabla\cdot \mathbf{E}= \frac{\rho}{\epsilon_0}} & \text{(iii)}&\quad \tcbhighmath{\nabla\times \mathbf{E} = 0}\\
+  \text{(ii)}&\quad \tcbhighmath{\nabla\cdot \mathbf{B} = 0} & \text{(iv)}&\quad \tcbhighmath{\nabla\times \mathbf{B} = \mu_0 \cdot \mathbf{J}}
+  \end{align}
+  Además, se tendrán las siguientes relaciones útiles:
+  \begin{align}
+      \quad \tcbhighmath{\mathbf{D} = \epsilon \mathbf{E}} &&& \quad \tcbhighmath{\mathbf{H}= \frac{1}{\mu}\mathbf{B}}\\
+      \quad \tcbhighmath{\mathbf{D} = \epsilon_0 \mathbf{E} + \mathbf{P}} &&& \quad \tcbhighmath{\epsilon = \epsilon_0 (1+\chi_e)}
+  \end{align}
+\subsection*{Condiciones de frontera para medios lineales}
+
+\begin{align*}
+    \epsilon_1\mathcal{E}_1^\bot - \epsilon_2\mathcal{E}_2^\bot &= \upsigma_f &
+    \bvec{E}_1^\parallel - \bvec{E}_2^\parallel &= 0\\
+    \mathcal{B}_1^\bot - \mathcal{B}_2^\bot &= 0 &
+    \frac{1}{\mu_1}\bvec{B}_1^\parallel - \frac{1}{\mu_2}\bvec{B}^\parallel &= \boldsymbol{\upkappa}_f\times\uvec{n}
+\end{align*}
+
+\subsection*{Potenciales magnéticos}
+\subsubsection*{Potencial escalar magnético ($V_m$):}
+\begin{itemize}
+    \item Se tiene solo en regiones donde no hay corrientes libres ($\mathbf{J} = 0$)
+    \item Análogo al potencial eléctrico, es decir, $\mathbf{B} = -\mu \nabla V_m$.
+\end{itemize}
+\subsubsection*{Potencial vectorial magnético ($\vec{A}$):}
+\begin{itemize}
+    \item Siempre se puede definir debido a la ley sin nombre ($\nabla \cdot \mathbf{B} = 0$)
+    \item Se cumple: $\nabla \times \mathbf{A}= \mathbf{B}$
+    \item Permite definir la ecuación de Poisson magnética: $\nabla^2 \mathbf{A}=-\mu_0 \mathbf{J}$
+
+\subsection*{Identidad vectorial (Rotor de un rotor):} Sea $\vec{A}$ un campo vectorial lo suficientemente suave (de clase $C^2$), entonces se cumple la siguiente identidad vectorial:
+\begin{align}
+    \nabla \times (\nabla \times \vec{A}) = \nabla (\nabla \cdot \vec{A}) - \nabla^2 \vec{A}
+\end{align}
+\end{itemize}
+
+\newpage
+
+\section{Ejercicios}
+\begin{questions}
+\question \label{q:transformer} Para el núcleo toroidal de un transformador, como se muestra en la \cref{fig:transformer}, se tienen dos pequeñas secciones de materiales de permeabilidad $\mu_{1}$ y $\mu_{2}$ y espesores $d_1$ y $d_2$ respectivamente. Además, el núcleo es de un material ferromagnético ($\mu \to \infty$) en el resto del dispositivo y tiene sección transversal circular de radio $a$. Se pide determinar:
+\begin{parts} 
+  \part Potencial magnético escalar $V_{m}(z)$ en los medios 1, 2 y los campos $H_{1}$ y $H_{2}$.
+  \part Inductancia L del enrollado. 
+  \part Energía magnética acumulada $W_{m}$ en los medios 1 y 2.
+\end{parts}
+\begin{center}
+  \tikzset{arrow inside/.style = {postaction=decorate,decoration={markings,mark=at position .52 with \arrow{latex}}}}	
+	\begin{circuitikz}[scale=0.5]
+
+    % Define Color
+    \definecolor{bluegray}{rgb}{0.4, 0.6, 0.8}
+
+    % Define Lenghts
+    \def\dx{0.3}
+    \def\dy{0.4667}
+    \def\x{10.75}
+    \def\xx{12.0}
+    \def\y{9.0}
+    %
+    \def\dX{0.4}
+    \def\dY{0.779}
+    \def\X{7.25}
+    \def\XX{6.0}
+    \def\Y{9}
+
+		% Transformer
+		\draw[draw=black, line width = .5pt, top color=gray!20,bottom color=gray!80,shading angle=20, even odd rule, rounded corners]
+			(6, -0.5) rectangle ++(6,12) (7.25, 1) rectangle ++(3.5,9);
+		
+		% Cables	
+		%% Left	
+		\draw[line width=1pt] (6,2) -- +(-2,0);
+		\draw[line width=1pt] (6,9) -- +(-2,0);	
+		%	
+		\foreach \i in {0,2,4,6}
+		{	
+			\draw[line width=1pt] (\X,\Y-\i*\dY) ..controls (\X+\dX, \Y-\i*\dY) and (\X+\dX,\Y-\dY-\i*\dY).. (\X,\Y-\dY-\i*\dY);
+			
+			\draw[line width=1pt] (\XX,\Y-\i*\dY-\dY) ..controls (\XX-\dX, \Y-\i*\dY-\dY) and (\XX-\dX,\Y-\i*\dY-2*\dY).. 
+								(\XX,\Y-\i*\dY-2*\dY);
+								
+			\draw[line width=1pt] (\XX,\Y-\i*\dY) -- (\X,\Y-\i*\dY);
+			
+			\draw[line width=1pt] (\XX,\Y-\i*\dY-2*\dY) -- (\X,\Y-\i*\dY-2*\dY);
+			
+			\draw[line width=1pt] (\X,\Y-\i*\dY-2*\dY) ..controls (\X+\dX, \Y-\i*\dY-2*\dY) and (\X+\dX,\Y-\dY-\i*\dY-2*\dY).. (\X,\Y-\dY-\i*\dY-2*\dY);
+
+		} 				
+		
+		% Current Intensities
+		%% Left
+		\draw[line width=.5, orange, -latex] (4.2,9.3) -- (5.8,9.3) node[above, pos=0.5, black] {$I_0$};
+		\draw[line width=.5, orange, latex-] (4.2,1.7) -- (5.8,1.7) node[below, pos=0.5, black] {$I_0$};
+    \node at (5,5.5) {$N$};
+
+    \draw[line width=1pt] (10.75, 7.5) -- ++ (1.25, 0);
+    \draw[line width=1pt] (10.75, 5.5) -- ++ (1.25, 0);
+    \draw[line width=1pt] (10.75, 3.5) -- ++ (1.25, 0);
+
+    \draw[pattern=north west lines] (10.75, 7.5) rectangle (12, 5.5);
+    \draw[pattern=north east lines] (10.75, 5.5) rectangle (12, 3.5);
+
+    \draw[|<->|] (12.5, 7.5) -- (12.5, 5.5) node[midway, right] {$d_2; \mu_2$};
+    \draw[<->|] (12.5, 5.5) -- (12.5, 3.5) node[midway, right] {$d_1; \mu_1$};
+
+    \coordinate (O) at (22, 5.5);
+    \draw[dashed] (O) ++ (-1.5, 0) -- ++ (3, 0);
+    \path[pattern=north east lines] (O) ++ (-1.5, -2) node[below, xshift=22pt] {$F_1 = 0$} rectangle ++ (3, 2);
+    \path[pattern=north west lines] (O) ++ (-1.5, 0) rectangle ++ (3, 2) node[above, xshift=-22pt] {$F_2 = NI_0$};
+
+    \draw (O) ++ (-1.5, -2) ++ (3, 1) node[below, left, fill=white] {$\mu_1$};
+    \draw (O) ++ (-1.5, -2) ++ (3, 3) node[below, left, fill=white] {$\mu_2$};
+
+    \draw[-latex] (O) ++ (0, -2) -- ++ (0, 6) node[left] {$z$};
+    \draw[-latex] (O) ++ (0, -2) -- ++ (2.75, 0) node[below] {$r$};
+    \draw (O) ++ (-3.5, -2) node {$z=0$};
+    \draw (O) ++ (-3.5, 0) node {$z=d_1$};
+    \draw (O) ++ (-3.5, 2) node {$z=d_1+d_2$};
+    % \draw (O) ++ (1.5, -1.35) node {$a$};
+
+    \draw[<->] (10.75, 2) -- ++ (1.25, 0) node[midway,below] {$2a$};
+
+    \node[above] at (9, -.25) {$\mu\to\infty$};
+
+
+	\end{circuitikz}
+  \captionof{figure}{Transformador, \cref{q:transformer}.}
+  \label{fig:transformer}
+\end{center}
+
+\begin{solution}
+  \begin{parts}
+  \part Se busca obtener el potencial magnético escalar $V_{m}$, el cual es posible definirlo en condiciones de $\textbf{flujo magnético nulo}$ principalmente y en otro tipo de condiciones. Este potencial se deberá obtener para los medios 1 y 2. Observación: No confundir con el potencial vector magnético $\Vec{\mathbf{A}}$, ni el potencial escalar eléctrico $V$.
+
+  Notemos que estamos en presencia de un núcleo ferromagnético (Muy usados en motores) esto implicará una permeabilidad magnética casi infinita ($\mu \rightarrow \infty$). Además se tiene la siguiente relación entre la intensidad magnética y $\mu$: 
+  \begin{align}
+    \bvec{H} &= \frac{1}{\mu} \bvec{B}, &\Rightarrow {H} &= \frac{1}{\mu} {B}.
+  \end{align}
+  Dada la consideración anterior se tendrá que $H \rightarrow 0$, es de importancia considerar que esta relación la podemos realizar dado que no estamos en presencia de un desplazamiento eléctrico variable en el tiempo $\bvec{D}$ (ver ecuaciones de Maxwell-Heaviside). Debido a lo anterior, no se tendrá una corriente superficial en el núcleo: 
+  \begin{align}
+    \nabla \times \bvec{H} = \bvec{J}_f  
+  \end{align}
+  Siendo de esta manera consistente (e independiente del tiempo), se tendrá: 
+  \begin{align}
+    \nabla \times \mathbf{H} = 0  
+  \end{align}
+  Al ser el rotor de $H$ es cero, se tendrá que el campo magnético es conservativo, esto implica que se podrá definir un potencial magnético escalar $V_{m}$ tal que:
+  \begin{align}
+    H = -\nabla V_{m} 
+  \end{align}
+  En base a esto podemos verificar de manera directa que cumple con la ecuación de Laplace:
+  \begin{align}
+    \nabla \cdot \mathbf{B} = \nabla \cdot \mu \mathbf{H}= 0 
+  \end{align}
+  Por lo que aplicando la divergencia al potencial magnético escalar se tendrá que:
+  \begin{align}
+    \nabla \cdot \mathbf{H} &= 0,\\
+    \nabla \cdot (-\nabla V_{m}) &= 0,\\
+    \nabla^{2} V_{m} &= 0.
+  \end{align}
+  Con lo que finalmente se logra definir un potencial magnético. Luego podemos analizar el tipo de coordenadas a utilizar, se observa que es de conveniencia el utilizar coordenadas cilíndricas, con lo que:
+  \begin{align}
+    \nabla^{2}V_{m} = \frac{1}{r} \dod{}{r}\del{r \dod{V_m}{r}} + \frac{1}{r^{2}}\dod[2]{V_m}{\theta} + \dod[2]{V_m}{z}
+  \end{align}
+  Se tendrá que el potencial escalar magnético dependerá de una sola dirección (nos dicen por enunciado), es decir, tenemos $V_{m}(z)$ tal que:
+  \begin{align}
+    \nabla^{2} V(z) = \dod[2]{V_m}{z} &= 0,\\
+  \end{align}
+  Así, basta resolver la EDO:
+  \begin{align}
+  \dod[2]{V_m}{z} &= 0\\
+  \dod{V_m}{z}&=A \\
+  \dif{V_m} = A\cdot \dif{z}
+  \end{align}
+  Integrando a ambos lados:
+  \begin{align}
+      \int\dif{V_m} &= A\cdot \int\dif{z}\\
+      V_m&=Az+B
+  \end{align}
+  
+  Se obtiene la forma del campo magnético escalar. Luego tenemos la presencia de dos medios, por lo tanto deberemos hacer la distinción entre cada uno de estos,
+  \begin{align}
+    V_{m1}(z) &= Az + B, \\
+    V_{m2}(z) &= Cz + D.
+  \end{align}
+  \newpage
+  Para encontrar las cuatro constantes, se debe utilizar cuatro ecuaciones que tengan relación con el potencial obtenido y despejar las constantes (similar a lo realizado en la pregunta 1 del auxiliar anterior). Estas ecuaciones son:
+  \begin{itemize}
+      \item Condición de borde de $V_{m1}$.
+      \item Condición de borde de $V_{m2}$.
+      \item Continuidad del potencial entre los distintos medios.
+      \item Usar los campos magnéticos mediante $\mathbf{H}= -\nabla V_m$.
+      \end{itemize}
+  Partamos usando las condiciones de borde dadas en el enunciado:
+
+  \underline{Medio 1}
+
+  \begin{align}
+    V_{m1}(z=(d_{1} + d_{2}))  &= A(d_{1} + d_{2}) + B = N I_{0}.
+  \end{align}
+
+  \underline{Medio 2}
+
+  \begin{align}
+    V_{m2}(z=0)  &= C\cdot 0+ D = 0.
+  \end{align}
+  Lo que implicará de manera directa que $D=0$. Se tendrá además que el campo magnético escalar deberá ser continuo:
+  \begin{align}
+    V_{m1}(z=d_{1}) &=V_{m2}(z=d_{1}) \\ A d_{1} + B &= C d_{1}.
+  \end{align}
+  Dado que se busca el obtener otra ecuación, se deriva de lo siguiente:
+  \begin{align}
+    \textbf{H}_{1}&= - \nabla V_{m1} &  
+    \textbf{H}_{2} &= - \nabla V_{m2}\\
+    {H}_{1}&= -\dod{V_{m1}}{z}\hat{z} & {H}_{2}&= -\dod{V_{m2}}{z}\hat{z}\\
+    &= -A \hat{z} &  &= -C\hat{z}
+  \end{align}
+  Normalmente pensaríamos que el campo debiése ir en $\hat{\theta}$, ya que así es en los casos clásicos de campos magnéticos en toroides (por regla de la mano derecha). En este caso, el campo se dicta en torno a la dirección del potencial ($\hat{z}$). Lo anterior viene dado por la gradiente: 
+  \begin{align}
+      \textbf{H}= - \nabla V_{m}=\dod{V_m}{x}\hat{x}+\dod{V_m}{y}\hat{y}+\dod{V_m}{z}\hat{z}.
+  \end{align} 
+  Como el potencial solo depende de $z$, nos quedamos solo con que $\mathbf{H}=\dod{V_m}{z}\hat{z}$.\\
+  De esta manera tenemos que por condición de borde y dado que el campo tiene solo componente normal en la zona de interés se cumple:
+  \begin{align}
+    B_{1n} &= B_{2n}\\
+    \mu_{1}H_{1} &=  \mu_{2}H_{2}\\
+    \mu_{1}A &=  \mu_{2}C   
+  \end{align}
+  Luego se puede plantear 4 set de ecuaciones las cuales serán:
+  \begin{align}
+    NI_{0} &= A(d_{1} + d_{2}) + B, & D&=0, & \mu_{1}A &=  \mu_{2}C, & Ad_{1} + B &= Cd_{1}.
+  \end{align}
+  Luego despejando las variables se obtiene lo siguiente:
+    \begin{align}
+      A &= \frac{N I_{0}\mu_2}{(\mu_1 d_1 +\mu_2 d_2)}\\
+      B&= NI_0d_1 \left[ \frac{\mu_1 - \mu_2}{\mu_1 d_1 + \mu_2 d_2} \right] \\
+      C&= \frac{NI_{0}\mu_{1}}{(\mu_1 d_1 + \mu_2 d_2)}\\
+      D&=0
+    \end{align}
+  Finalmente, reemplazando en las ecuaciones de los potenciales y en los campos podemos obtener:
+  \begin{align}
+      V_{m1}&= \frac{N I_{0}\mu_2}{(\mu_1 d_1 +\mu_2 d_2)}\cdot z + NI_0d_1 \left[ \frac{\mu_1 - \mu_2}{\mu_1 d_1 + \mu_2 d_2} \right] \\
+      V_{m2} &= \frac{NI_{0}\mu_{1}}{(\mu_1 d_1 + \mu_2 d_2)} \cdot z \\
+      \mathbf{H_1} &= -\frac{N I_{0}\mu_2}{(\mu_1 d_1 +\mu_2 d_2)} \hat{z} \\
+      \mathbf{H_2} &= -\frac{NI_{0}\mu_{1}}{(\mu_1 d_1 + \mu_2 d_2)} \hat{z}
+  \end{align}
+
+  \part Se busca obtener la inductancia $L$ que vendrá caracterizada por la siguiente expresión: 
+  \begin{align}
+    L = \frac{\Phi_m N}{I}
+  \end{align}
+  Donde $\Phi_m$ corresponde al flujo magnético y nos da una idea de cuánto campo magnético hay en una superficie dada y deberá por tanto, considerar ambos medios:
+    \begin{align}
+      \Phi_{m1} &= \int B_{1} \dif{a}= \mu_{1} \int_{S} H_{1} \dif{a}= \mu_{1} \int_{0}^{2\pi} \int_{0}^{a} A (-\uvec{z}) \cdot r (\dif{r}) (\dif\theta) (-\uvec{z}) = \mu_{1}  \pi a^{2} A\\
+      &=\mu_{1}  \pi a^{2} \cdot \frac{N I_{0}\mu_2}{(\mu_1 d_1 +\mu_2 d_2)}
+      \end{align}
+    De manera análoga tenemos que el flujo para la otra superficie vendrá dado por:
+    \begin{align}
+      \Phi_{m2} &= \int B_{2} \dif{a} = \mu_{2} \int_{S} H_{2} \dif{a} = \mu_{2} \int_{0}^{2\pi} \int_{0}^{a} C (-\uvec{z}) \cdot r (\dif{r}) (\dif\theta) (-\uvec{z})  \\
+      &= \mu_{2}  \pi a^{2} C = \mu_{2}\pi a^{2} \cdot \frac{NI_{0}\mu_{1}}{(\mu_1 d_1 + \mu_2 d_2)}
+      \end{align}
+    \textit{Observación 1: Para el diferencial de superficie, elegimos el que tenga la dirección del campo magnético, es decir, el que va en $\hat{z}$}. \\
+
+  Una vez obtenido el flujo magnético para ambos medios se logra obtener la inductancia utilizando la expresión:
+  \begin{align}
+    L = \frac{\Phi_m N}{I_{0}} = \mu_{2}  \pi a^{2} C = \mu_{2}\pi a^{2} \cdot \frac{N^2\mu_{1}}{(\mu_1 d_1 + \mu_2 d_2)}
+  \end{align}
+  \textit{Observación 2: Es importante considerar que es posible tomar cualquier flujo para calcular la inductancia, esto debido a que los flujos en diferentes medios son iguales.}
+
+  \part Debemos obtener la energía magnética acumulada $W_{m}$ en ambos medios, para esto se utilizará la densidad de enería magnética:
+  \begin{align}
+    w_{m} = \frac{1}{2} \mu H^{2}
+  \end{align}
+  \textit{Observación 3: La densidad de energía magnética $w_m$ es análoga a la densidad de energía eléctrica $w_e = \frac{1}{2} \epsilon \mathbf{E^2}$}. Para obtener la energía, se debe integrar la densidad en todo el espacio de cada medio.\\
+  Luego como se quiere la energía magnética se integra sobre un volumen tal que:
+
+  \underline{Medio 1}
+  
+  \begin{align} 
+    W_{m1} &= \frac{\mu_{1}}{2}\int_{v} H_{1}^{2} \dif\uptau = \frac{\mu_{1}}{2}A^{2} \int_{0}^{d_1} \int_{0}^{2\pi} \int_{0}^{a} r (\dif r) (\dif \theta) (\dif z)=\frac{\mu_{1}}{2} A^{2} \pi a^{2}d_{1} 
+  \end{align}
+
+  \underline{Medio 2}
+
+  \begin{align}
+    W_{m2} &= \frac{\mu_{w}}{2}\int_{v} H_{2}^{2} \dif\uptau = \frac{\mu_{2}}{2}C^{2} \int_{d_1}^{d_1 + d_2} \int_{0}^{2\pi} \int_{0}^{a} r (\dif r) (\dif \theta) (\dif z)=\frac{\mu_{2}}{2} C^{2} \pi a^{2}d_{2} 
+  \end{align}
+  Finalmente se obtienen las energías acumuladas en los dos diferentes medios dado que $A$ y $C$ son términos conocidos. Para obtener la energía total del sistema, se suman las energías de cada medio:
+  \begin{align}
+      W_m &= W_{m1} + W_{m2} \\
+      W_m &= \frac{\mu_{1}}{2} A^{2} \pi a^{2}d_{1} + \frac{\mu_{2}}{2} C^{2} \pi a^{2}d_{2}
+  \end{align}
+  \end{parts}
+\end{solution}
+\newpage
+
+\question \label{q:magnetic_field} Una densidad $\mathbf{J} = J_{0} \uvecs{z}$ origina un potencial magnético vectorial en la \cref{fig:magnetic_field}:
+\begin{align}
+    \vec{\mathbf{A}}= \frac{-\mu_{0}J_{0}}{4}(x^{2}+y^{2})\uvecs{z}
+\end{align}
+\begin{parts}
+    \part A partir de las ecuaciones de Maxwell para el caso magnetoestático y del potencial vectorial magnético, muestre que, imponiendo la condición de calibre (o gauge) de Coulomb ($\nabla \cdot A = 0$), el potencial vectorial magnético satisface la ecuación de Poisson vectorial $\nabla^2 \mathbf{A}=-\mu_0 \mathbf{J}$.
+    \part Use la ecuación de Poisson vectorial para comprobar si el potencial vectorial magnético dado por el enunciado pertenece a la densidad de corriente $\mathbf{J}$.
+    \part Mediante $\mathbf{A}$ calcule el campo magnético $\mathbf{B}$.
+    \part Utilice $\mathbf{J}$ y la ley de Ampère para calcular nuevamente $\mathbf{B}$, compare los resultados.
+\end{parts}
+\begin{center}
+    \begin{tikzpicture}
+      \edef\r{2cm}
+      \coordinate (O) at (0, 0);
+      \coordinate (O2) at (-2.8, 2);
+
+      \path[pattern=dots] (O) circle (\r);
+      \node at (O) {$\otimes$};
+      \node[below, yshift=-2] at (O) {$\mathbf{A}$};
+
+      \draw[-latex] (O) ++ (\r, 0) arc (0:340:{\r}) node[right] {$\mathbf{B}$};
+
+      \draw[-latex] (O2) -- ++ (0, 1) node[left] {$\uvec{y}$};
+      \draw[-latex] (O2) -- ++ (1, 0) node[below] {$\uvec{x}$};
+      \node at (O2) {$\odot$};
+      \node[below, yshift=-2] at (O2) {$\uvec{z}$};
+
+    \end{tikzpicture}
+    \captionof{figure}{Campo magnético ilustrado para \cref{q:magnetic_field}.}
+    \label{fig:magnetic_field}
+\end{center}
+
+\begin{solution}
+\begin{parts}
+\part A partir de la ley de Ampère magnetoestática:
+\begin{align}
+    \nabla \times \mathbf{B} &= \mu_0 \mathbf{J} \\
+\end{align}
+En un espacio bien definido y gracias a la ley sin nombre ($\nabla \cdot \mathbf{B} = 0$), se tiene que $\mathbf{B} = \nabla \times \mathbf{A}$. Reemplazando esto en la Ley de Ampère:
+\begin{align}
+    \nabla \times(\nabla \times \mathbf{A}) &= \mu_0 \mathbf{J}
+\end{align}
+Por identidad vectorial (ver resumen) se tiene:
+\begin{align}
+    \nabla(\nabla \cdot \mathbf{A}) - \nabla^2\mathbf{A} &= \mu_0 \mathbf{J}
+\end{align}
+Pero el enunciado dice que hay que utilizar el calibre de Coulomb, es decir, $\nabla \cdot \mathbf{A}=0$ (se cumple siempre en casos magnetoestáticos). Así:
+\begin{align}
+    - \nabla^2\mathbf{A} &= \mu_0 \mathbf{J} \\
+    \nabla^2\mathbf{A} &= -\mu_0 \mathbf{J}
+\end{align}
+Y llegamos a la Ecuación de Poisson en el caso magnético.
+\part Se tiene el siguiente potencial vectorial magnético:
+\begin{align}
+    \mathbf{A}= \frac{-\mu_{0} J_{0}}{4}(x^{2} + y^{2}) \uvecs{z} 
+\end{align}
+Realizando el análisis por componente se tendrá que el campo vectorial $\mathbf{A}$ tiene componentes solo en $\uvecs{z}$, esto se observa de manera directa
+\begin{align}
+    \nabla^{2}A_{x}= -\mu_{0}J_{x}\\
+    \nabla^{2}A_{y}= -\mu_{0}J_{y}\\
+    \nabla^{2}A_{z}= -\mu_{0}J_{z}
+\end{align}
+Donde $A_{x}=0 $ y $A_{y}=0 $, a diferencia de la componente $\uvecs{z}$. Calculando $\nabla^{2}\mathbf{A}$ tenemos que:
+\begin{align}
+    \nabla^{2} \mathbf{A} &= \frac{\partial^{2}A}{\partial^{2}x} + \frac{\partial^{2} A}{\partial^{2}y} + \frac{\partial^{2} A}{\partial^{2}z}=\frac{-\mu_{0}J_{0}}{2} + \frac{-\mu_{0}J_{0}}{2} + 0 = -\mu_{0}J_{0}.
+\end{align}
+Por tanto se comprueba finalmente que el campo vectorial $\mathbf{A}$ es el potencial de $\mathbf{J}$.
+
+\part En base a lo anterior se busca obtener el campo magnético $\mathbf{B}$ mediante $\mathbf{A}$.
+\begin{align}
+    \mathbf{B} &= \nabla \times \mathbf{A}
+\end{align}
+Para obtener el campo magnético se usará la siguiente relación:
+\begin{equation}
+\nabla \times \mathbf{A} =
+\begin{bmatrix}
+    \uvecs{x} & \uvecs{y} & \uvecs{z} \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+    A_x & A_y & A_z
+\end{bmatrix} =
+\begin{bmatrix}
+    \uvecs{x} & \uvecs{y} & \uvecs{z} \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+    0 & 0 & A_z
+\end{bmatrix}
+\end{equation}
+Calculando el rotor se tiene lo siguiente:
+\begin{align}
+    \nabla \times \mathbf{A} &= \frac{\partial A}{\partial y} \uvecs{x} - \frac{\partial A}{\partial x} \uvecs{y} + 0 \uvecs{z} \\ 
+    &= \frac{\partial}{\partial y}\del{\frac{-\mu_{0}J_{0}(x^{2} + y^{2})}{4}}\uvecs{x} - \frac{\partial}{\partial x}\del{\frac{-\mu_{0}J_{0}(x^{2} + y^{2})}{4}}\uvecs{y} \\
+    &= \frac{-\mu_{0}J_{0}}{2}(y\uvecs{x} - x\uvecs{y})
+\end{align}
+Obteniendo así el campo magnético $\mathbf{B}$ mediante $\mathbf{A}$.
+
+\part Se busca obtener $\mathbf{B}$ mediante la ley de Ampère, para ello se tiene lo siguiente:
+\begin{align}
+    \oint_\mathcal{C}  \mathbf{B} \cdot \dif{\mathbf{l}} &= \mu_{0}I_\text{enc}\\
+    \int_\mathcal{S} \mathbf{J}  \cdot \dif{\mathbf{a}} &= I_\text{enc}
+\end{align}
+Dada la geometría que presenta el sistema, es conveniente utilizar coordenadas cilíndricas con una circunferencia de radio $r$. El diferencial de línea debe ir en la dirección del campo ($r \dif{\theta} \cdot\hat{\theta}$). Por otro lado, el diferencial de superficie debe ir en la dirección de la corriente ($r \dif{r \dif{\theta} \cdot\hat{z}}$). Así:
+\begin{align}
+    \oint_\mathcal{C} \mathbf{B} \cdot \dif{\mathbf{l}} &= \int_\mathcal{S}  \mu_{0} J_{0} \dif{{a}}\\
+    B\int_{0}^{2\pi} r \dif \theta &= \mu_{0} J_{0} \int_{0}^{2\pi}\int_{0}^{r}r (\dif r)( \dif \theta)\\
+    B (2\pi r)&=  \mu_{0}J_{0}\pi r^{2}\\
+    \mathbf{B}&= \frac{\mu_{0} J_{0}r}{2} \uvecs{\theta}
+\end{align}
+Se observa además que es equivalente al anterior, esto se logra demostrar realizando un cambio de coordenadas conveniente.
+\begin{align}
+     \mathbf{B} &= \frac{-\mu_{0}J_{0}}{2}(y\uvecs{x}- x\uvecs{y})
+\end{align}
+Realizando el cambio a coordenadas cilíndricas, en donde $x = r\cdot \cos{\theta}$ e $y = r\cdot \sin{\theta}$ tenemos lo siguiente: 
+\begin{align}
+    \mathbf{B} &= \frac{-\mu_{0}J_{0}}{2}\sbr{r \sin(\theta) \uvecs{x}- r \cos(\theta) \uvecs{y}}= \frac{-\mu_{0}J_{0}r}{2}\sbr{ \sin(\theta) \uvecs{x}- \cos(\theta) \uvecs{y}} = \frac{\mu_{0}J_{0}r}{2}\uvecs{\theta}.
+\end{align}
+Esto debido a que $\hat{\theta}= -\sin{\theta} \hat{x}+\cos{\theta} \hat{y}$.
+\end{parts}
+\end{solution}
+\newpage
+
+\question \label{q:capacitor_geometry} Considere un condensador (\textit{capacitor}) cuyo dieléctrico de permitividad $\epsilon$ está limitado por dos esferas concéntricas de radios $a$ y $b$ y dos conos equipotenciales de semi ángulos $\theta_{1}$ y $\theta_{2}$ como se indica en la \cref{fig:capacitor_geometry}:
+\begin{parts}
+  \part Obtenga el potencial $V(r,\theta,\phi)$. \\
+  \textit{Hint: $\int\frac{1}{\sin{x}}\dif{x} = \ln({\tan(x/2)}) + C$}
+  \part Campo eléctrico $\mathbf{E}$.
+  \part Capacitancia $C$ a partir de la carga.
+  \part Capacitancia $C$ a partir de la energía.
+\end{parts}
+
+\begin{center}
+  \begin{tikzpicture}
+
+    \edef\radius{7cm};
+    \coordinate (O) at (0, 0);
+    \coordinate (A) at (\radius, 1);
+    \coordinate (B) at ({\radius * 0.707}, {\radius * 0.707});
+
+    \coordinate (A1) at ($(O)!0.2!(A)$);
+    \coordinate (B1) at ($(O)!0.2!(B)$);
+
+    \coordinate (A2) at ($(O)!0.8!(A)$);
+    \coordinate (B2) at ($(O)!0.8!(B)$);
+
+    \draw[dashed] (O) -- (A) ;
+    \draw[-] (A1) -- (A2);
+
+    \draw[dashed] (O) -- (B);
+    \draw[-] (B1) -- (B2);
+
+    \draw[-latex] (O) -- ++ (0, 2) node[left] {$\uvec{z}$};
+
+    \pic[draw, angle radius={0.2*\radius}] {angle = A--O--B};
+    \pic[draw, angle radius={0.8*\radius}] {angle = A--O--B};
+
+    % \pic[draw, angle radius={0.95*\radius}, ->] {angle = A--O--B};
+    \node[right] at (B) {$\theta=\theta_1$};
+    \node[right] at (A) {$\theta=\theta_2$};
+
+    \node[below] at (A1) {$r=a$};
+    \node[below] at (A2) {$r=b$};
+
+    \node[below] at ($(A1)!.5!(A2)$) {$V=0$};
+    \node[above, rotate=45] at ($(B1)!.5!(B2)$) {$V=V_0$};
+
+    \coordinate (mid1) at ($(A1)!.5!(B1)$);
+    \coordinate (mid2) at ($(A2)!.5!(B2)$);
+
+    % \draw[pattern=north west lines] (A1) arc (0:45:{0.2*\radius}) -- (B2) arc (45:0:{0.8*\radius}) -- (A1);
+    \node[fill=white] at ($(mid1)!.6!(mid2)$) {$\epsilon$};
+
+  \end{tikzpicture}
+  \captionof{figure}{Sección transversal línea de transmisión. \Cref{q:capacitor_geometry}.}
+  \label{fig:capacitor_geometry}
+\end{center}
+
+\begin{solution}
+\begin{parts}
+
+\part Se busca obtener el potencial escalar eléctrico $V$.
+Se observa que es conveniente utilizar coordenadas esféricas, además que el potencial eléctrico dependerá solo de $\theta$ (se puede apreciar claramente en la \cref{fig:capacitor_geometry}). Además, tampoco existe densidad de carga libre $\uprho$, por lo tanto utilizaremos la ecuación de Laplace:
+\begin{align}
+    \nabla^{2}V (r,\theta,\phi) = \frac{1}{r^{2}}\frac{\partial}{\partial r}\del{r^{2}\frac{\partial V}{\partial r}} + \frac{1}{r^{2}\sin(\theta)}\frac{\partial}{\partial\theta}\del{\sin(\theta) \frac{\partial V}{\partial\theta}} + \frac{1}{r^{2}\sin^{2}(\theta) }\frac{\partial^{2}V}{\partial\phi^{2}} = 0
+\end{align}
+Debido a la dependencia en una sola componente ($\theta$) para el potencial se tiene lo siguiente:
+\begin{align}
+    \nabla^{2}V(\theta) =  \frac{1}{r^{2}\sin(\theta)}\frac{\partial}{\partial\theta}\del{\sin(\theta) \frac{\partial V}{\partial\theta}} &= 0 \\
+    \frac{\partial}{\partial\theta}\del{\sin(\theta) \frac{\partial V}{\partial\theta}} &= 0
+\end{align}
+Por regla de producto se obtiene:
+\begin{align}
+    \frac{\partial \sin(\theta)}{\partial \theta}\cdot\frac{\partial V}{\partial \theta}+ \sin{(\theta)}\cdot \frac{\partial^2V}{\partial \theta^2} &=0 \\
+    \cos{(\theta)}\cdot\frac{\partial V}{\partial \theta}+ \sin{(\theta)}\cdot \frac{\partial^2V}{\partial \theta^2} &=0
+\end{align}
+Haciendo el cambio de variable $u=\frac{\partial V}{\partial \theta}$, $\frac{\partial u}{\partial \theta}= \frac{\partial^2V}{\partial \theta^2}$, se tiene:
+\begin{align}
+\cos{(\theta)}\cdot u+ \sin{(\theta)}\cdot \frac{\partial u}{\partial \theta} &=0\\
+\cos{(\theta)}\cdot u =&- \sin{(\theta)}\cdot \frac{\partial u}{\partial \theta} \\
+-\frac{\cos{(\theta)}}{\sin{\theta}}\cdot \partial \theta &= \frac{\partial u}{u}
+\end{align}
+Integrando a ambos lados:
+\begin{align}
+    -\int\frac{\cos{(\theta)}}{\sin{\theta}}\cdot \partial \theta &= \int\frac{\partial u}{u} \\
+    -\ln{(\sin{\theta})} +C &= \ln{u} \\
+    \ln{(\frac{1}{\sin{\theta}})}+C &= \ln{u} \\
+    \exp{(\ln{(\frac{1}{\sin{\theta}})}+C)} &= \exp{(\ln{u})} \\
+    \exp{(\ln{(\frac{1}{\sin{\theta}})})}\cdot\exp{C} &= \exp{(\ln{u})}\\
+    A \cdot \frac{1}{\sin{\theta}} &= u
+\end{align}
+Revirtiendo el cambio de variable:
+\begin{align}
+    \frac{\partial V}{\partial \theta} &= A \cdot \frac{1}{\sin{\theta}} \\
+    \partial V &= A \cdot \frac{\partial \theta}{\sin{ \theta}} \\
+    \int \partial V &= A \cdot \int \frac{\partial \theta}{\sin{ \theta}} \\
+    V_{(\theta)}&= A\cdot \ln{(\tan(\theta /2))} + B
+\end{align}
+De tal manera se obtiene la forma del potencial eléctrico $V$. Luego debemos utilizar las condiciones de borde para obtener las constantes que caracterizan este sistema, al ser solo un medio se simplifica el calculo, para la primera condición se tiene:
+\begin{align}
+  V\del{\theta = \theta_{1}} = V_{0} = A \ln\del{\tan(\theta_{1}/2)} + B
+\end{align}
+Para la segunda condición de borde:
+\begin{align}
+  V\del{\theta = \theta_{2}} = 0 = A\ln\del{\tan(\theta_{2}/2)} + B
+\end{align}
+Luego despejando las constantes obtenemos lo siguiente:
+\begin{align}
+  A &= \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\\
+  B &=  -\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \ln(\tan(\theta_{2}/2))
+\end{align}
+Obteniendo la forma particular del $V(\theta)$:
+\begin{align}
+  V(\theta) &= A \ln(\tan(\theta/2)) + B\\
+  &=\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \ln(\tan(\theta/2)) -\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \ln(\tan(\theta_{2}/2))
+\end{align}
+
+\part Se busca obtener el potencial del campo eléctrico $\mathbf{E}$ el cual se puede obtener de manera directa mediante el campo escalar eléctrico y el hecho de que $\mathbf{E}$ es conservativo, por tanto:
+\begin{align}
+    \mathbf{E} = - \nabla V(\theta)
+\end{align}
+Se deberá tener en cuenta que estamos en coordenadas esféricas por lo que tendremos lo siguiente:
+\begin{align}
+    \mathbf{E} &= -\frac{1}{r}\frac{dV}{d\theta} \uvecs{\theta}\\
+               &= \text{\footnotesize$-\frac{1}{r} \frac{d}{d\theta}\del{ \frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}} \ln(\tan(\theta/2)) -\frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}} \ln(\tan(\theta_{2}/2))} \uvecs{\theta}$}\\
+               &= \frac{-1}{r} \frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}}  \frac{d}{d\theta} \del{\ln(\tan(\theta/2))}\uvecs{\theta}\\
+               &=\frac{-1}{r} \frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}} \frac{1}{\tan(\theta/2)} \frac{d}{d\theta}\del{\tan(\theta/2)}\uvecs{\theta}\\
+               &= \frac{-1}{2r} \frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}}\frac{\cos(\theta/2)}{\sin(\theta/2)} \frac{1}{\cos^{2}(\theta/2)}\uvecs{\theta}\\
+               &=\frac{-1}{r} \frac{V_{0}}{\ln\del{\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}}}\frac{1}{2\sin(\theta/2)\cos(\theta/2)}\uvecs{\theta}\\
+               &=\frac{-1}{r} \del{\frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{1}{\sin(\theta)}}\uvecs{\theta}
+\end{align}
+Finalmente se obtiene el campo eléctrico en base al potencial $V$, es importante notar que si bien el potencial era una función de $\theta$, el campo eléctrico no dependerá de esta sola componente necesariamente y podrá depender de más. Como es el caso obtenido, el cual dependerá tanto de $r$ como de $\theta$ tal que $\mathbf{E}(r,\theta)$.
+
+\part Se busca obtener la capacitancia $C$ en base a la carga, es importante notar que este término deberá estar expresado en constantes geométricas del material  y no en alguna dependencia de una variable (puede ser un buen indicador para saber si el ejercicio está correcto.)
+\begin{align}
+    C = \frac{Q}{\Delta V}
+\end{align}
+Sabemos que la diferencia de potencial entre ambas placas corresponderá a $\Delta V = V_{0}$, y también que $ C = \frac{Q}{V_{0}}$, utilizando el hecho de que la densidad de carga superficial será equivalente al desplazamiento evaluado en esa superficie se tiene lo siguiente por Gauss ({recordar relación entre la densidad superficial y el desplazamiento eléctrico}):
+\begin{align}
+    Q &= \int \upsigma \cdot  \dif{\mathbf{a}} \\
+      &= \int \mathbf{D} \cdot \dif{\mathbf{a}}
+\end{align}
+Como estamos en coordenadas esféricas y sabemos que el desplazamiento como el campo eléctrico se encuentran en $\uvecs{\theta}$ luego $\dif{{a}} = r \sin(\theta) \dif{r}\dif{\phi}$, por lo que:
+\begin{align}
+    Q&= \epsilon \int \frac{-1}{r} \frac{V_{0}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}\frac{1}{\sin(\theta)}\del{\uvecs{\theta}} \cdot  r \sin(\theta) \dif{r} \dif\phi\del{\uvecs{\theta}}\\
+    &= - \frac{V_{0}\epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} \int_{0}^{2\pi} \int_{a}^{b} \dif r \dif \phi\\
+    &= - \frac{V_{0}\epsilon}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)} (2\pi)(b-a)
+\end{align}
+Finalmente se tendrá que:
+\begin{align}
+    C = \frac{Q}{V_{0}} = \frac{(a-b) 2\pi \epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}}.
+\end{align}
+\part Se busca el obtener la capacitancia desde un punto de vista energético, esto se puede relacionar con la siguiente expresión:
+\begin{align}
+    \frac{1}{2}C V^{2} &= \int \frac{1}{2}\epsilon \|\mathbf{E}\|^{2} \dif \uptau\\
+    CV_{0}^{2} &= \epsilon \int \frac{1}{r^{2}} \frac{V_{0}^{2}}{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}\frac{1}{\sin(\theta)^{2}} r^{2} \sin(\theta)  \dif{r} \dif\theta \dif\phi\\
+    C &= \frac{\epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}} \int_{a}^{b} \int_{0}^{2\pi} \int_{\theta_{1}}^{\theta_{2}}\frac{1}{\sin(\theta)}  \dif{r} \dif\theta \dif\phi\\
+    &= \frac{\epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)^{2}}} (b-a) 2\pi {\ln\left(\frac{\tan(\theta_{2}/2)}{\tan(\theta_{1}/2)}\right)}\\
+    &= -\frac{(b-a) 2\pi \epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}} = \frac{(a-b) 2\pi \epsilon}{{\ln\left(\frac{\tan(\theta_{1}/2)}{\tan(\theta_{2}/2)}\right)}}
+\end{align}
+Obteniendo la capacitancia desde la energía y desde la carga se obtiene el mismo resultado, lo que indica que el ejercicio fue resuelto de manera correcta.
+\end{parts}
+\end{solution}
+
+
+
+
+\end{questions}
+\end{document}
