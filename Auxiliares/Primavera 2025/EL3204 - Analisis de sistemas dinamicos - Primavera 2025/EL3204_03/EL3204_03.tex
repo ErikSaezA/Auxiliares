@@ -513,7 +513,7 @@ Para que el sistema sea BIBS-estable, para un sistema de tiempo continuo se debe
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{Auxiliar_3_2}
+  \includegraphics[width=0.85\textwidth]{Auxiliar_3_2}
   \caption{Regiones de estabilidad para sistemas continuos y discretos: en tiempo continuo (plano-$s$) el sistema es estable si y solo si todos los polos están en el semiplano izquierdo ($\mathrm{Re}\{s_i\}<0$); la frontera $\mathrm{Re}\{s\}=0$ (eje imaginario) corresponde a modos no amortiguados y, con integradores puros ($s=0$) o multiplicidad mayor que 1, no hay estabilidad BIBS. En tiempo discreto (plano-$z$) la estabilidad requiere que todos los polos estén estrictamente dentro del círculo unitario ($|z_i|<1$); la frontera $|z|=1$ indica magnitud constante y polos sobre ella o repetidos implican inestabilidad BIBS. Bajo muestreo ideal de periodo $T$, el mapeo $z=e^{sT}$ lleva el semiplano izquierdo del plano-$s$ al interior del círculo unitario del plano-$z$, y $\mathrm{Re}\{s\}=0$ se mapea a $|z|=1$.}
   \label{fig:region_estabilidad}
 \end{figure}
@@ -536,9 +536,7 @@ si el sistema es de tiempo discreto. Dado que en este caso el sistema es de tiem
 =\int_{0}^{\infty} \left| \frac{1}{8}e^{3t}-\frac{1}{8}e^{-5t} \right| dt.
 \end{equation}
 
-Como podemos ver, dentro de la respuesta al impulso aparece el término $e^{3t}$, el cual diverge a medida que $t\to\infty$. Esto hace que la integral diverja, de modo que $\int_{0}^{\infty} |h(t)|\,dt=\infty$, por lo que el sistema tampoco es BIBO-estable.
-
-	extit{(Nota)} En una evaluación, basta con dar el argumento anterior para concluir que el sistema no es BIBO-estable. A continuación, se justifica brevemente la divergencia de la integral.
+Como podemos ver, dentro de la respuesta al impulso aparece el término $e^{3t}$, el cual diverge a medida que $t\to\infty$. Esto hace que la integral diverja, de modo que $\int_{0}^{\infty} |h(t)|\,dt=\infty$, por lo que el sistema tampoco es BIBO-estable. En una evaluación, basta con dar el argumento anterior para concluir que el sistema no es BIBO-estable. A continuación, se justifica brevemente la divergencia de la integral.
 
 Para justificar rigurosamente la divergencia, notemos que se tiene la propiedad de que, para cualquier función $f:\mathbb{R}\to\mathbb{R}$ integrable, se cumple
 \begin{equation}
@@ -898,18 +896,12 @@ que el sistema sea BIBO-estable.
 
 % --- Controlabilidad y observabilidad (definición y verificación) ---
 
-\paragraph{Controlabilidad y observabilidad.}
 En el sistema LTI
 \begin{align}
 \dot x(t) &= A\,x(t) + B\,u(t), &
 y(t) &= C\,x(t) + D\,u(t),
 \end{align}
-decimos que el par $(A,B)$ es \emph{controlable} si existe una entrada $u(t)$ en un intervalo $[t_0,t_1]$
-que lleva el estado desde cualquier $x(t_0)$ a cualquier $x(t_1)$ en tiempo finito. Análogamente, el par
-$(A,C)$ es \emph{observable} si, con $u(\cdot)$ y $y(\cdot)$ medidos en un intervalo, se puede reconstruir
-exactamente el estado inicial $x(t_0)$.
-
-\subsubsection*{Condiciones de verificación}
+decimos que el par $(A,B)$ es \emph{controlable} si existe una entrada $u(t)$ en un intervalo $[t_0,t_1]$ que lleva el estado desde cualquier $x(t_0)$ a cualquier $x(t_1)$ en tiempo finito. Análogamente, el par $(A,C)$ es \emph{observable} si, con $u(\cdot)$ y $y(\cdot)$ medidos en un intervalo, se puede reconstruirexactamente el estado inicial $x(t_0)$. Existen diversas formas de verificar estos criterios, pero nos quedaremos con \textbf{El criterio de rango de Kalman} por su simplicidad.
 
 \textbf{(1) Criterio de rango de Kalman}
 \begin{align}
@@ -930,7 +922,7 @@ C\\ CA\\ \vdots\\ CA^{n-1}
 &\forall\,\lambda\in\mathrm{spec}(A)\ \Longleftrightarrow\ (A,C)\ \text{observable}.
 \end{align}
 
-	extbf{(3) Gramianos (horizonte $[t_0,t_1]$ y caso LTI)}
+	\textbf{(3) Gramianos (horizonte $[t_0,t_1]$ y caso LTI)}
 Con la MTE $\Phi(\cdot,\cdot)$,
 \begin{align}
 W_c(t_0,t_1) &= \int_{t_0}^{t_1} \Phi(t_1,\tau)\,B B^\top\,\Phi^\top(t_1,\tau)\,d\tau, &
@@ -953,7 +945,6 @@ existen y satisfacen las ecuaciones de Lyapunov
 \end{align}
 y su positividad definida caracteriza controlabilidad/observabilidad.
 
-\paragraph{¿Por qué importan?}
 Si $(A,B)$ es controlable, podemos ubicar polos mediante realimentación de estado ($u=-Kx$). Si $(A,C)$
 es observable, existe un observador de Luenberger que reconstruye $x(t)$ a partir de $y(t)$. El
 \emph{principio de separación} permite diseñar controlador y observador por separado. Estas propiedades

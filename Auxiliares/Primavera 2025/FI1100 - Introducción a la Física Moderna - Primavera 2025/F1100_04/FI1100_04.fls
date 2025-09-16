@@ -469,27 +469,66 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm7.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT ..\figures\Auxiliar_2_1.png
-INPUT ..\figures\Auxiliar_2_1.png
-INPUT ..\figures\Auxiliar_2_1.png
-INPUT ..\figures\Auxiliar_2_1.png
-INPUT ..\figures\Auxiliar_2_1.png
-INPUT ..\figures\Auxiliar_2_1.png
+INPUT ..\figures\Auxiliar_2_9.png
+INPUT ..\figures\Auxiliar_2_9.png
+INPUT ..\figures\Auxiliar_2_9.png
+INPUT ..\figures\Auxiliar_2_9.png
+INPUT ..\figures\Auxiliar_2_9.png
+INPUT ..\figures\Auxiliar_2_9.png
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT ..\figures\Auxiliar_2_4.png
-INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT ..\figures\Auxiliar_2_2.png
-INPUT ..\figures\Auxiliar_2_2.png
-INPUT ..\figures\Auxiliar_2_2.png
-INPUT ..\figures\Auxiliar_2_2.png
-INPUT ..\figures\Auxiliar_2_2.png
-INPUT ..\figures\Auxiliar_2_2.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT ..\figures\Auxiliar_2_11.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs7.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm5.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_14.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_15.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_7.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_12.png
+INPUT ..\figures\Auxiliar_2_13.png
+INPUT ..\figures\Auxiliar_2_13.png
+INPUT ..\figures\Auxiliar_2_13.png
+INPUT ..\figures\Auxiliar_2_13.png
+INPUT ..\figures\Auxiliar_2_13.png
+INPUT ..\figures\Auxiliar_2_13.png
 INPUT ..\figures\Auxiliar_2_3.png
 INPUT ..\figures\Auxiliar_2_3.png
 INPUT ..\figures\Auxiliar_2_3.png
@@ -502,11 +541,17 @@ INPUT ..\figures\Auxiliar_2_5.png
 INPUT ..\figures\Auxiliar_2_5.png
 INPUT ..\figures\Auxiliar_2_5.png
 INPUT ..\figures\Auxiliar_2_5.png
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
+INPUT ..\figures\Auxiliar_2_10.png
+INPUT ..\figures\Auxiliar_2_10.png
+INPUT ..\figures\Auxiliar_2_10.png
+INPUT ..\figures\Auxiliar_2_10.png
+INPUT ..\figures\Auxiliar_2_10.png
+INPUT ..\figures\Auxiliar_2_10.png
 INPUT FI1100_04.aux
 INPUT .\FI1100_04.out
 INPUT .\FI1100_04.out
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -515,8 +560,6 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
@@ -529,7 +572,9 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\latxfont\line10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\latxfont\line10.pfb

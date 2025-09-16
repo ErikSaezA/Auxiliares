@@ -148,35 +148,25 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{De EDO a variables de estado (resumen)}
-\begin{columns}
-  \begin{column}{0.48\textwidth}
-    \begin{block}{Definición (VVEE)}
-      \footnotesize
-      Continuo: $\dot x=Ax+Bu$, $y=Cx+Du$. Discreto: $x[k+1]=Ax[k]+Bu[k]$, $y[k]=Cx[k]+Du[k]$.
-      $x\in\mathbb{R}^n$, $u\in\mathbb{R}^m$, $y\in\mathbb{R}^p$.
-    \end{block}
-    \begin{block}{Método 1 (directo desde la EDO)}
-      \footnotesize
-      Para $\ddot y + 2\dot y - 15y = u$, defina $x_1=y,\;x_2=\dot y$:
-      \[
-      \dot{x}=\underbrace{\begin{pmatrix}0&1\\[2pt]15&-2\end{pmatrix}}_{A}\,x + \underbrace{\begin{pmatrix}0\\ 1\end{pmatrix}}_{B}u,\quad
-      y=\underbrace{\begin{pmatrix}1&0\end{pmatrix}}_{C}x.
-      \]
-      Pros: directo. Contras: $A$ no diagonal \,$\Rightarrow$\, cálculos largos para $\boldsymbol{\Phi}(t)$.
-    \end{block}
-  \end{column}
-  \begin{column}{0.48\textwidth}
-    \begin{block}{Método 2 (desde $H(s)$)}
-      \footnotesize
-      $H(s)=\dfrac{1}{(s-3)(s+5)}=\dfrac{1/8}{s-3}-\dfrac{1/8}{s+5}$ \;$\Rightarrow$\; realización
-      \[
-      A=\mathrm{diag}(3,-5),\; B=\begin{pmatrix}1\\ 1\end{pmatrix},\; C=\begin{pmatrix}\tfrac{1}{8}&-\tfrac{1}{8}\end{pmatrix}.
-      \]
-      Ventajas: $A$ diagonal simplifica $\boldsymbol{\Phi}(t)$ e $h(t)$; polos de $H(s)$ en la diagonal de $A$.
-    \end{block}
-  \end{column}
-\end{columns}
+\begin{frame}{Variables de estado:}
+\begin{block}{¿Qué es y por qué usarlo?}
+  Representa sistemas dinámicos mediante un \textbf{vector de estado} $x$ (memoria/CI) y matrices $(A,B,C,D)$.
+  Ventajas clave:
+  \begin{itemize}\itemsep2pt
+    \item Válido para \textbf{MIMO} (múltiples entradas/salidas) y para interconexiones (cascada, paralelo, realimentación).
+    \item Maneja \textbf{condiciones iniciales} de forma explícita y separa respuesta libre/forzada con la MTE $\Phi(t)=e^{At}$.
+    \item Base del \textbf{análisis estructural}: controlabilidad/observabilidad, Gramianos, descomposiciones.
+  \end{itemize}
+\end{block}
+
+\begin{block}{Modelo LTI continuo (notación)}
+\[
+  \dot{x}=A\,x+B\,u, \qquad y=C\,x+D\,u,
+\]
+\[
+  A\!\in\!\mathbb{R}^{n\times n},\; B\!\in\!\mathbb{R}^{n\times m},\; C\!\in\!\mathbb{R}^{p\times n},\; D\!\in\!\mathbb{R}^{p\times m}.
+\]
+\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,14 +203,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Diagonalización (idea y receta)}
+\begin{frame}{Diagonalización}
 \footnotesize
 \begin{block}{Diagonalización}
   \noindent\textbf{¿Por qué diagonalizar?}
 Escribir $A=TDT^{-1}$ desacopla la dinámica por modos y hace inmediata la MTE:
-$\Phi(t)=e^{At}=T\,e^{Dt}\,T^{-1}$ (con $e^{Dt}$ diagonal). Esto simplifica el cálculo de
-$f(A)$ (p.\,ej., $A^k$, $e^{At}$), clarifica la interpretación (autovalores $\lambda_i$ como polos/estabilidad)
-y facilita análisis y diseño por modos (REN(C)/RESC, control y observación) al reducir operaciones
+$\Phi(t)=e^{At}=T\,e^{Dt}\,T^{-1}$ (con $e^{Dt}$ diagonal). Esto simplifica el cálculo de $f(A)$ (p.\,ej., $A^k$, $e^{At}$), clarifica la interpretación (autovalores $\lambda_i$ como polos/estabilidad) y facilita análisis y diseño por modos (REN(C)/RESC, control y observación) al reducir operaciones
 matriciales a exponenciales escalares.
 
 \end{block}
@@ -230,7 +218,7 @@ matriciales a exponenciales escalares.
     \begin{block}{Condición de diagonalizabilidad}
       $A$ es diagonalizable $\Longleftrightarrow$ la suma de \emph{multiplicidades geométricas} es $n$ (equiv.: para cada $\lambda$, mult. geom. $=$ mult. alg.).
     \end{block}
-    \begin{block}{Receta (pasos prácticos)}
+    \begin{block}{Receta}
     \begin{enumerate}\itemsep2pt
       \item Calcular el polinomio característico $p(\lambda)=\det(\lambda I-A)$ y sus raíces $\lambda_i$ (autovalores).
       \item Para cada $\lambda_i$, resolver $(A-\lambda_i I)v=0$ y obtener una base del subespacio propio $\mathcal N(A-\lambda_i I)$.
@@ -242,12 +230,6 @@ matriciales a exponenciales escalares.
 
   \begin{column}{0.46\textwidth}
   
-    \begin{block}{Casos útiles}
-    \begin{itemize}\itemsep2pt
-      \item Si $A=A^\top$ (real simétrica) $\Rightarrow$ diagonalizable por matriz ortogonal: $A=Q\Lambda Q^\top$ (teorema espectral).
-      \item Si no hay $n$ autovectores L.I. $\Rightarrow$ \emph{no} es diagonalizable: usar forma canónica de Jordan.
-    \end{itemize}
-    \end{block}
 
     \begin{block}{Conexión con MTE}
     Si $A=TDT^{-1}$, entonces $f(A)=Tf(D)T^{-1}$. En particular: $\Phi(t)=e^{At}=Te^{Dt}T^{-1}$ y $e^{Dt}=\operatorname{diag}(e^{\lambda_i t})$.
@@ -260,62 +242,150 @@ matriciales a exponenciales escalares.
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Forma canónica de Jordan}
 \footnotesize
-Una matriz no diagonalizable se escribe $A=PJP^{-1}$, donde $J$ es \emph{block-diagonal} con bloques de Jordan $J_i(\lambda)$:
-\[
-J_i(\lambda)=\begin{pmatrix}
-\lambda & 1 &  & 0\\
- & \lambda & \ddots & \\
- &  & \ddots & 1\\
-0 &  &  & \lambda
-\end{pmatrix}.
-\]
-Cada bloque corresponde a una cadena de autovectores generalizados. Consecuencia clave para $e^{At}$:
-\begin{itemize}\itemsep2pt
-  \item $e^{J(\lambda)t}=e^{\lambda t}$ multiplicado por una matriz triangular con potencias $t^k/k!$ sobre superdiagonales.
-  \item Si hay bloques de tamaño $m$, aparecen términos $t^k e^{\lambda t}$, $k=0,\dots,m-1$ en las respuestas.
-\end{itemize}
+\begin{columns}[T]
+  \begin{column}{0.45\textwidth}
+    \begin{block}{¿Qué es y cuándo aparece?}
+      Toda matriz $A\in\mathbb{C}^{n\times n}$ es similar a una \textbf{forma canónica de Jordan}: $A=PJP^{-1}$, con
+      $J=\operatorname{diag}\big(J_{m_1}(\lambda_1),\dots,J_{m_r}(\lambda_r)\big)$. Un \emph{bloque de Jordan} $J_m(\lambda)$
+      tiene $\lambda$ en la diagonal y $1$ en la superdiagonal.
+      Aparece cuando $A$ \textbf{no es diagonalizable} (multiplicidad geométrica menor que la algébrica).
+    \end{block}
+    \begin{block}{¿Para qué sirve?}
+      \begin{itemize}\itemsep2pt
+        \item Describe la estructura modal cuando faltan autovectores L.I.
+        \item Facilita el cálculo de $f(A)$: $e^{At}$, $A^k$, $(sI{-}A)^{-1}$ a través de $J$.
+        \item Explica términos $t^k e^{\lambda t}$ en las respuestas si hay bloques de tamaño $m$ ($k=0,\dots,m{-}1$).
+      \end{itemize}
+    \end{block}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{block}{Bloque $J_m(\lambda)$}
+      \[
+      J_m(\lambda)=\begin{pmatrix}
+        \lambda & 1 &  & 0\\
+         & \lambda & \ddots & \\
+         &  & \ddots & 1\\
+        0 &  &  & \lambda
+      \end{pmatrix}
+      \]
+    \end{block}
+    \begin{block}{Exponencial de un bloque}
+      \[
+      e^{J_m(\lambda)\,t}=e^{\lambda t}
+      \begin{pmatrix}
+        1 & t & t^2/2! & \cdots & t^{m-1}/(m-1)!\\
+        0 & 1 & t & \cdots & t^{m-2}/(m-2)!\\
+        \vdots &  & \ddots & \ddots & \vdots\\
+        0 & \cdots & 0 & 1 & t\\
+        0 & \cdots & 0 & 0 & 1
+      \end{pmatrix}
+      \]
+    \end{block}
+  \end{column}
+\end{columns}
+\begin{block}{Consecuencia para $e^{At}$}
+  $e^{At}=P\,e^{Jt}P^{-1}$, con $e^{Jt}=\operatorname{diag}\big(e^{J_{m_i}(\lambda_i)t}\big)$. Si existen bloques de tamaño $m$, aparecen términos $t^k e^{\lambda t}$ en la respuesta ($k=0,\dots,m{-}1$).
+\end{block}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Respuesta impulsional y funciones base}
 \footnotesize
-Continuo: $\;h(t)=C\,\boldsymbol{\Phi}(t)\,B + D\,\delta(t)$.\; Discreto: $\;h[k]=C A^{k-1}B$ para $k\ge1$ y $h[0]=D$.
-
-\medskip
-Ejemplo (realización del Método 2):
-\[h(t)=\tfrac{1}{8}e^{3t}-\tfrac{1}{8}e^{-5t},\quad t\ge 0.\]
-
-Respuesta a entrada cero: $\;y_0(t)=C\,\boldsymbol{\Phi}(t)\,x(0)$.
-Las funciones base son las componentes L.I. que aparecen en $y_0(t)$.
-
-\medskip
-Ejemplo: $\;\{e^{3t},\,e^{-5t}\}$. Si hay cadenas de Jordan de tamaño $m$, aparecen términos $t^k e^{\lambda t}$, $k=0,\dots,m-1$.
+\begin{columns}[T]
+  \begin{column}{0.58\textwidth}
+    \begin{block}{Respuesta impulsional $h$ (qué es)}
+      Es la salida ante una entrada impulso unitario; actúa como \emph{núcleo de convolución}:
+      \[ y_s(t)=(h*u)(t)=\int_{0}^{t} h(t-\tau)\,u(\tau)\,d\tau,\quad Y_s(s)=H(s)\,U(s). \]
+    \end{block}
+    \begin{block}{Cómo calcular $h$ (LTI)}
+      Continuo: 
+      \[ H(s)=C(sI{-}A)^{-1}B+D,\quad h(t)=C\,e^{At}\,B + D\,\delta(t)=\mathcal L^{-1}\!\{H(s)\}. \]
+      Discreto:
+      \[ H(z)=C(zI{-}A)^{-1}B+D,\quad h[0]=D,\; h[k]=C\,A^{k-1}B\ (k\ge1)=\mathcal Z^{-1}\!\{H(z)\}. \]
+    \end{block}
+  \end{column}
+  \begin{column}{0.36\textwidth}
+    \begin{block}{Funciones base (RENC)}
+      Respuesta a entrada cero: $y_0(t)=C\,\Phi(t,t_0)\,x(t_0)$ con $\Phi(t,t_0)=e^{A(t-t_0)}$.
+      Si $A$ tiene autovalores $\lambda_i$ con bloques de Jordan de tamaño $m_i$:
+      \[ \{\, t^{k}e^{\lambda_i t}\;:\; i=1,\dots,r,\ k=0,\dots,m_i{-}1\,\}. \]
+      En discreto (análogo): $\{\, \ell\text{-potencias}\cdot \lambda_i^{\,k}\,\}$, típicamente $\{\, k^{\ell}\lambda_i^{\,k}\,\}$ con $\ell=0,\dots,m_i{-}1$.
+    \end{block}
+    \begin{block}{Uso}
+      \begin{itemize}\itemsep2pt
+        \item $h$ determina la RESC vía convolución y caracteriza la BIBO en SISO.
+        \item Las funciones base describen la RENC; revelan modos ($e^{\lambda t}$) y cadenas de Jordan ($t^k e^{\lambda t}$).
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
 \end{frame}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Estabilidad: BIBS y BIBO}
 \footnotesize
-	extbf{BIBS} (continuo): $\operatorname{Re}\{\lambda_i(A)\}<0$. \;\textbf{BIBS} (discreto): $|\lambda_i(A)|<1$. En la frontera puede haber comportamientos marginales.
-
-\medskip
-	extbf{BIBO}: continuo $\int_0^{\infty}|h(t)|\,dt<\infty$; discreto $\sum_{k\ge 0}|h[k]|<\infty$.
-
-\medskip
-Ejemplo: $\lambda_1=3,\;\lambda_2=-5$ \;$\Rightarrow$\; no BIBS. Como $h(t)$ contiene $e^{3t}$, tampoco es BIBO. Relación continuo-discreto: $z=e^{sT}$.
+\begin{columns}[T]
+  \begin{column}{0.56\textwidth}
+    \begin{block}{¿Qué miden?}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS} (bounded–input bounded–state): con entradas y C.I. acotadas, el \emph{estado} permanece acotado (estabilidad interna).
+        \item \textbf{BIBO} (bounded–input bounded–output): con entradas acotadas, la \emph{salida} permanece acotada (estabilidad externa).
+      \end{itemize}
+    \end{block}
+    \begin{block}{Criterios prácticos (LTI)}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS}: continuo $\Rightarrow \mathrm{Re}\{\lambda_i(A)\}<0$;\; discreto $\Rightarrow |\lambda_i(A)|<1$.
+        \item \textbf{BIBO} (SISO): continuo $\int_0^{\infty}|h(t)|\,dt<\infty$ $\Leftrightarrow$ polos de $H(s)$ en $\mathrm{Re}\,s<0$;\\
+        discreto $\sum_{k\ge 0}|h[k]|<\infty$ $\Leftrightarrow$ polos de $H(z)$ dentro del disco unidad.
+      \end{itemize}
+    \end{block}
+  \end{column}
+  \begin{column}{0.42\textwidth}
+    \begin{block}{Relación y matices}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS $\Rightarrow$ BIBO}. Si la realización es \emph{mínima} (controlable y observable), \textbf{BIBS $\Leftrightarrow$ BIBO}.
+        \item La BIBO depende de $H(\cdot)$ (por $C,D$); la BIBS depende solo de $A$.
+        \item En la \emph{frontera} (autovalores en eje imaginario o $|z|{=}1$) puede haber estabilidad \emph{marginal} (no BIBO si hay polos repetidos).
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
 \end{frame}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Controlabilidad y observabilidad (resumen)}
+\begin{frame}{Controlabilidad y observabilidad: qué, cómo y para qué}
 \footnotesize
-	extbf{Controlable} si $\operatorname{rank}\,[\,B\;AB\;\cdots\;A^{n-1}B\,]=n$. \quad
-	extbf{Observable} si $\operatorname{rank}\,\begin{bmatrix}C\\ CA\\ \vdots \\ CA^{n-1}\end{bmatrix}=n$.
-
-\medskip
-	extbf{PBH}: $\operatorname{rank}\,[\,sI-A\;\;B\,]=n$ y $\operatorname{rank}\,[\,sI-A\;\;C^T\,]=n$ para todo $s\in\mathbb{C}$.
-
-\medskip
-	extbf{Gramianos} (continuo, horizonte $[0,\infty)$, si $A$ Hurwitz):
-\[A W_c+W_c A^T+BB^T=0,\qquad A^T W_o+W_o A+C^T C=0.\]
+\begin{columns}[T]
+  \begin{column}{0.52\textwidth}
+    \begin{block}{¿Qué miden?}
+  	\textbf{Controlabilidad}: alcanzar cualquier estado con entradas adecuadas.\\
+  	\textbf{Observabilidad}: reconstruir el estado a partir de $u(\cdot)$ y $y(\cdot)$.
+    \end{block}
+    \begin{block}{Kalman (criterio de rango)}
+      \begin{align}
+        \mathcal C &= [\,B\;AB\;\cdots\;A^{n-1}B\,], & \operatorname{rank}(\mathcal C){=}n &\iff \text{controlable},\\
+        \mathcal O &= \begin{bmatrix} C\\ CA\\ \vdots\\ CA^{n-1}\end{bmatrix}, & \operatorname{rank}(\mathcal O){=}n &\iff \text{observable}.
+      \end{align}
+    \end{block}
+  \end{column}
+  \begin{column}{0.47\textwidth}
+    \begin{block}{Gramianos (continuo, $A$ Hurwitz)}
+      \begin{align}
+        A W_c + W_c A^\top + B B^\top &= 0, & W_c\succ 0 &\iff \text{controlable},\\
+        A^\top W_o + W_o A + C^\top C &= 0, & W_o\succ 0 &\iff \text{observable}.
+      \end{align}
+    \end{block}
+    \begin{block}{Implicancias prácticas}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{Realización mínima}: controlable y observable $\Rightarrow$ sin modos ocultos.
+        \item \textbf{Ubicación de polos} (REN(C)): factible $\iff$ controlable; \textbf{observador} (RENC): factible $\iff$ observable.
+        \item Modos incontrolables no pueden estabilizarse; modos inobservables no aparecen en $y$.
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
 \end{frame}
 
 

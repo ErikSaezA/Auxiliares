@@ -1,0 +1,35 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches: [ main ]   # cambia a [ master ] si tu rama por defecto es master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs + plugins
+        run: |
+          pip install mkdocs-material mkdocs-awesome-pages-plugin
+
+      # Copiar el PDF desde tu carpeta fuente al sitio
+      - name: Sync Auxiliar 01 (Primavera 2025)
+        run: |
+          SOURCE="Auxiliares/Primavera 2025/EL3103 - Electromagnetismo Aplicado - Primavera 2025/EL3103_01"
+          TARGET="Web_Page/docs/Ingenieria-Civil-Electrica/Primer-año/3103 Electromagnetismo Aplicado/Primavera-2025/aux_01"
+          mkdir -p "$TARGET"
+          cp -f "$SOURCE/EL3103_01.pdf" "$TARGET/EL3103_01.pdf"
+
+      - name: Build & Deploy to GitHub Pages
+        run: |
+          cd Web_Page
+          mkdocs gh-deploy --force
