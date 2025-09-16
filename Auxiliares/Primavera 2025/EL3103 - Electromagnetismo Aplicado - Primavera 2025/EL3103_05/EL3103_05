@@ -1,0 +1,578 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+   answers
+  ]{exam}
+\usepackage{float}
+\usepackage{../exercise-preamble}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 5} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof.~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\section{Resumen:}
+\subsection*{Elementos de un circuito}
+\subsubsection*{Resistencias}
+A partir de la Ley de Ohm,
+\begin{align}
+    V &= I \cdot R
+\end{align}
+se pueden deducir expresiones para el voltaje y corriente en una resistencia:
+\begin{align}
+    V_R = I_R \cdot R && I_R = \frac{V_R}{R}
+ \end{align}
+Además, en el caso de tener varias resistencias, se puede obtener la resistencia equivalente como:
+\begin{align}
+    \textbf{En serie: }& R_{eq.} = R_1 + R_2 + ... + R_n \\
+    \textbf{En paralelo: }& \frac{1}{R_{eq.}} = \frac{1}{R_1} + \frac{1}{R_2} + ... + \frac{1}{R_n}
+\end{align}
+
+\subsubsection*{Condensadores}
+Para el caso de condensadores, el voltaje $v_c (t)$ y la corriente $i_c (t)$ dependen de derivadas en función del tiempo:
+\begin{align}
+    v_c (t) = \frac{1}{C} \cdot \int_{t_0} ^ t i_c (t) dt && i_c (t) = C \cdot \frac{dv_c (t)}{dt}
+\end{align}
+Y la capacitancia equivalente se calcula como:
+
+\begin{align}
+    \textbf{En serie: }&  \frac{1}{C_{eq.}} = \frac{1}{C_1} + \frac{1}{C_2} + ... + \frac{1}{C_n} \\ 
+    \textbf{En paralelo: }& C_{eq.} = C_1 + C_2 + ... + C_n
+\end{align}
+
+\subsubsection*{Inductancias} 
+Al igual que los condensadores, en inductancias el voltaje $v_L (t)$ y la corriente $i_L (t)$ también dependen de derivadas temporales:
+\begin{align}
+    v_L (t) = L \cdot \frac{di_L}{dt} && i_L (t) = \frac{1}{L} \cdot \int_{t_0} ^ t v_L (t) dt
+\end{align}
+Y la inductancia equivalente: 
+\begin{align}
+    \textbf{En serie: }& L_{eq.} = L_1 + L_2 + ... + L_n \\
+    \textbf{En paralelo: }& \frac{1}{L_{eq.}} = \frac{1}{L_1} + \frac{1}{L_2} + ... + \frac{1}{L_n}
+\end{align}
+
+
+\subsection*{Respuesta del circuito}
+Para obtener la respuesta total del circuito en función del tiempo, separaremos en respuesta de entrada cero (RENC), y respuesta de estado cero (RESC).
+\subsubsection*{Respuesta de entrada cero:} Se obtendrá imponiendo que la entrada (fuente de voltaje o corriente) es cero, y considerando las condiciones iniciales.
+
+\subsubsection*{Respuesta de estado cero} Se obtendrá considerando la entrada, pero se considera que las condiciones iniciales son cero. 
+
+\subsubsection*{Respuesta total}
+Finalmente, la respuesta total será:
+\begin{align}
+    \text{Respuesta Total} = \text{RESC} + \text{RENC}
+\end{align}
+\subsection*{Campos armónicos} Se denominan campos armónicos a campos eléctricos o magnéticos que varían sinusoidalmente en el tiempo con una frecuencia única. Normalmente están dados por dependencias del siguiente tipo:
+\begin{align}
+    \mathbf{E} &= E_0 \cdot \cos{(\omega t + \phi)} \\
+    \mathbf{H} &= H_0 \cdot \cos{(\omega t + \phi)}
+\end{align}
+\subsection*{Notación fasorial} Para este curso, se utilizará la siguiente notación: $\mathbf{E(r)}$ para campos estáticos en el tiempo, y $\bvec{E}(r,t)$ para campos variables en el tiempo. Así, los fasores para los campos eléctricos y magnéticos armónicos vienen dados por:
+\begin{align}
+    \bvec{E} &= \text{Re}[\mathbf{E} \cdot e^{j \omega t}] \\
+    \bvec{H} &= \text{Re}[\mathbf{H} \cdot e^{j \omega t}]
+\end{align}
+Donde además:
+\begin{align}
+    \mathbf{E} &= E_0 \cdot e^{j \phi} \\
+    \mathbf{H} &= H_0 \cdot e^{j \phi} \\
+\end{align}
+
+\subsection*{Vector de Poynting}
+Hay que tener cuidado al calcular el vector de Poynting, ya que su cálculo cambia al trabajar con fasores:
+
+\subsubsection*{Definición general} 
+\begin{align}
+    \mathbf{S} &= \mathbf{E} \times \mathbf{H}
+\end{align}
+Representa la cantidad de energía transportada por unidad de tiempo.
+
+\subsubsection*{En régimen armónico}
+Acá trabajamos con fasores, y el vector de Poynting viene dado por:
+\begin{align}
+    \mathbf{S} &= \mathbf{E} \times \mathbf{H^*}
+\end{align}
+donde $\mathbf{H^*}$ representa el conjugado de $\mathbf{H}$.
+\\
+\\
+La potencia promedio viene dada por:
+\begin{align}
+    \langle \mathbf{S} \rangle &= \frac{1}{2} \text{Re} \sbr{\mathbf{S}} \\
+    \langle \mathbf{S} \rangle &= \frac{1}{2} \text{Re} \sbr{\mathbf{E} \times \mathbf{H^*}}
+\end{align}
+Para calcular la potencia promedio sobre una superficie, se utiliza:
+\begin{align}
+    P_{avg.} = \langle P \rangle &= \iint_S \langle \mathbf{S} \rangle \cdot d\mathbf{a}
+\end{align}
+
+\subsection*{Ecuaciones de onda}
+\subsubsection*{Ecuación de onda para el campo eléctrico en el vacío}
+\[
+\nabla^2 \mathbf{E} - \mu_0\varepsilon_0 \frac{\partial^2 \mathbf{E}}{\partial t^2} = 0
+\]
+\subsubsection*{Ecuación de onda para el campo magnético en el vacío}
+\[
+\nabla^2 \mathbf{B} - \mu_0\varepsilon_0 \frac{\partial^2 \mathbf{B}}{\partial t^2} = 0
+\]
+
+\subsubsection*{Velocidad de propagación}
+\[
+c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}
+\quad \text{(velocidad de la luz en el vacío)}
+\]
+
+
+
+
+\subsection*{Propiedades matemáticas}
+
+\subsubsection*{Rotor de un rotor} 
+\begin{align}
+    \nabla \times \sbr{\nabla \times \mathbf{A}} = \nabla (\nabla \cdot \mathbf{A}) - \nabla^2 \mathbf{A}
+\end{align}
+
+\subsubsection*{Conjugado de una exponencial imaginaria}
+\begin{align}
+    \sbr{\mathbf{A} \cdot e^{j \omega}}^* = \mathbf{A^*} \cdot e^{-j \omega}
+\end{align}
+Notemos que si $\mathbf{A} \in \mathbb{R}$, el conjugado no cambia, es decir, $\mathbf{A^*} = \mathbf{A}$.
+\newpage
+\section{Ejercicios:}
+
+\begin{questions}
+    \question \textbf{Circuito} \label{q:RL_circuit} 
+    \\
+    \\
+    Considere el circuito RL en serie del esquema.
+    \begin{parts}
+        \part Considerando que el circuito lleva mucho tiempo conectado a $V_s$, obtenga la condición inicial para $i_l(t)$.
+        \part En $t = 0$, la fuente de voltaje se apaga (asuma que el circuito queda cerrado). Encuentre una expresión para $i_l(t)$. 
+        \part Suponga ahora que al pasar un segundo, la fuente de voltaje se vuelve a encender. Determine $i_l(t)$ para $t > 1 [s]$. (Considere que $i_L(t=1^-) = I_0$
+    \end{parts}
+\begin{center}
+    
+\begin{circuitikz}[american]
+  
+  \draw
+    (0,0) node[ground]{}                            
+    (0,0) to[V, l=$V_s$, invert] (0,3)              
+          -- (2.5,3) to[R, l=$R$] (5.5,3)          
+          to[L, l=$L$] (9,3)                        
+          -- (9,0) -- (0,0);                        
+
+ 
+  \draw[->, thick] (1.2,3.4) .. controls (4.5,4.2) .. (7.8,3.4)
+    node[pos=0.5, above] {$i(t)$};
+\end{circuitikz}
+
+\captionof{figure}{Circuito \cref{q:RL_circuit}}
+\end{center}
+
+\begin{solution}
+    \begin{parts}
+        \part Si el circuito lleva mucho tiempo siendo alimentado por la fuente, este se considera en equilibrio. Así, la inductancia se comportará como un cortocircuito. De esta forma, el circuito para $t=0^-$ se ve tal que:
+\begin{center}
+    
+        \begin{circuitikz}[american]
+  \draw
+    (0,0) node[ground]{}
+    (0,0) to[V, l=$V_s$, invert] (0,3)       
+          -- (2.5,3) to[R, l=$R$] (5.5,3)  
+          -- (9,3)                        
+          -- (9,0) -- (0,0);
+
+  
+  
+  
+  
+  \draw[->, thick] (1.2,3.4) .. controls (4.5,4.2) .. (7.8,3.4)
+    node[pos=0.5, above] {$i(t)$};
+\end{circuitikz}
+\captionof{figure}{Circuito en equilibrio para cálculo de condición inicial, con la inductancia como un cortocircuito.}
+\end{center}
+Así, notemos que al estar en serie, la corriente de la inductancia $i_l(t)$ es la misma corriente que $i(t)$. Así, claramente $i(t) = i_l(t) = \frac{V_s}{R}$ (por ley de Ohm).
+\\
+\\
+Por ende, nuestra condición inicial es:
+\begin{align}
+    i_l(t= 0^-) = \frac{V_s}{R}
+\end{align}
+\part Hagamos LVK:
+
+\begin{align}
+    -V_s + v_R + v_L = 0
+\end{align}
+Pero nos dicen que la fuente de voltaje está apagada. Por ende, $V_s = 0$. Es decir:
+
+\begin{align}
+    V_R + V_L = 0
+\end{align}
+La idea es dejar todo en función de la variable de interés ($i_l$). Para esto, usamos las expresiones conocidas siguientes:
+\begin{align}
+    v_L(t) &= L \frac{di_L(t)}{dt} \\
+    v_R &= i(t) \cdot R = R \cdot i_L(t)
+\end{align}
+Reemplazando en la ecuación de LVK:
+\begin{align}
+    R \cdot i_L(t) + L \frac{di_L(t)}{dt} &= 0 \\
+    \frac{di_L(t)}{dt} + \frac{R}{L} i_L(t) &= 0
+\end{align}
+Y tenemos la EDO. Resolviéndola se obtiene:
+
+\begin{align}
+    i_L(t) &= A \cdot e^{-\frac{R}{L}t}
+\end{align}
+Y para despejar la constante, usamos la condición inicial de la parte a):
+\begin{align}
+    i_L(0) = \frac{V_s}{R} &= A \cdot e^{-\frac{R}{L}0} \\
+    i_L(0) = \frac{V_s}{R} &= A \rightarrow A = \frac{V_s}{R}
+\end{align}
+Y entonces:
+\begin{align}
+    i_L(t) &= \frac{V_s}{R} e^{-\frac{R}{L}t} u(t)
+\end{align}
+\textit{Observación:} El escalón unitario $u(t)$ se agrega para indicar que esta respuesta es válida solo para tiempos mayores a 0.
+
+\part Al pasar un segundo, la fuente de voltaje se vuelve a encender. Es decir, ahora debemos considerar el voltaje $V_s$. Haciendo LVK:
+\begin{align}
+    -V_s + v_R + v_L(t) &= 0 \\
+    v_R + v_L(t) &= V_s \\
+    R \cdot i_L(t) + L \frac{di_L(t)}{dt} &= V_s \\
+    \frac{di_L(t)}{dt} + \frac{R}{L} i_L(t) &= \frac{V_s}{L}
+\end{align}
+Ahora debemos resolver la EDO, al ser una ecuación diferencial complicada, utilizamos RESC y RENC:
+
+\textbf{RENC:}
+\\
+\\
+Para la RENC, consideramos que la entrada es cero. Además, debemos considerar las condiciones iniciales. Así:
+\begin{align}
+    \frac{di_L(t)}{dt} + \frac{R}{L} i_L(t) &= 0
+\end{align}
+Debemos resolver la EDO, y queda:
+\begin{align}
+    i_L(t) &= A e^{-\frac{R}{L}t}
+\end{align}
+Pero debemos considerar condiciones iniciales:
+\begin{align}
+    i_L(t=0) = I_0 &= A e^{-\frac{R}{L}\cdot 0} \\
+    I_0 &= A  \\
+    A &= I_0
+\end{align}
+Y entonces, la RENC es:
+\begin{align}
+    i_L(t) &= I_0 e^{-\frac{R}{L}t}
+\end{align}
+\\
+\textbf{RESC:}
+\\
+Para la RESC, consideramos la fuente de voltaje, pero no consideramos las condiciones iniciales (es decir, la condición inicial $i_L(t=1)$ será 0). De esta forma, la EDO a resolver es:
+\begin{align}
+    \frac{di_L(t)}{dt} + \frac{R}{L} i_L(t) &= \frac{V_s}{L}
+\end{align}
+Para resolver esto, separamos en solución homogénea y en particular:
+\\
+\\
+La homogénea se calcula considerando que la fuente de voltaje no existe, es decir, $V_s = 0$. Así:
+\begin{align}
+    \frac{di_L(t)}{dt} + \frac{R}{L} i_L(t) &= 0
+\end{align}
+La solución a esta EDO es:
+\begin{align}
+    i_{LH}(t) &= B \cdot e^{-\frac{R}{L}t}
+\end{align}
+Antes de despejar la constante, obtenemos la solución particular. Acá, se considera que ha pasado mucho tiempo en este estado, es decir, ya no habrán variaciones de corriente (la derivada será 0). Así, la EDO queda:
+\begin{align}
+    \frac{R}{L} i_L(t) &= \frac{V_s}{L} \\
+    i_{LP}(t) &= \frac{V_s}{R}
+\end{align}
+La RESC total será la suma de la homogénea con la particular:
+\begin{align}
+    RESC = i_{LH} + i_{LP} &= B \cdot e^{-\frac{R}{L}t} + \frac{V_s}{R}
+\end{align}
+Despejamos la constante con la condición inicial nula de la RESC. Es decir:
+\begin{align}
+    i_L(0) = 0 &= B \cdot e^{-\frac{R}{L}\cdot 0} + \frac{V_s}{R} \\
+    B + \frac{V_s}{R} = 0 \rightarrow B= -\frac{V_s}{R}
+\end{align}
+Y la RESC total es:
+\begin{align}
+    i_L(t) &= -\frac{V_s}{R} \cdot e^{-\frac{R}{L}t} + \frac{V_s}{R} \\
+    i_L(t) &= \frac{V_s}{R} \sbr{1 - e^{-\frac{R}{L}t}}
+\end{align}
+Y entonces, la respuesta final es RESC + RENC:
+\begin{align}
+    i_L(t) &= \sbr{\frac{V_s}{R} \sbr{1 - e^{-\frac{R}{L}t}} + I_0 e^{-\frac{R}{L}t}} u(t)
+\end{align}
+Es importante notar que esta respuesta solo es válida para tiempos mayores a 1 segundo. Así, la respuesta real es:
+\begin{align}
+     i_L(t) &= \sbr{\frac{V_s}{R} \sbr{1 - e^{-\frac{R}{L}(t-1)}} + I_0 e^{-\frac{R}{L}(t-1)}} u(t-1)
+\end{align}
+    \end{parts}
+\end{solution}
+
+   \question \textbf{Fasores} \label{q: fasores} 
+   \\
+   \\
+   \begin{parts}
+       \part Usando notación fasorial, escriba las ecuaciones de Maxwell-Heaviside para campos con comportamiento armónico que se desplazan en un medio lineal, homogéneo e isotrópico no cargado.
+       \part Sean el campo eléctrico e intensidad magnética:
+  \begin{align}
+    \bvec{E} &= \frac{E_0}{r}\sin(\theta)\sin \sbr{\omega\del{t - \frac{r}{u_0}}}\uvecs{\theta}, \\
+    \bvec{H} &= \frac{E_0}{r\sqrt{\mu_0/\epsilon_0}}\sin(\theta)\sin \sbr{\omega\del{t - \frac{r}{u_0}}}\uvecs{\phi},
+  \end{align}
+  medidos en \unit{\volt\per\m} y \unit{\ampere\per\m}, respectivamente. Entonces, determine los campos en su notación fasorial (es decir: $\mathbf{E}$ y $\mathbf{H}$), recordando que: $\bvec{E} = \text{Re}\sbr{\mathbf{E}\euler^{\ju\omega t}}$ y $\bvec{H} = \text{Re}\sbr{\mathbf{H}\euler^{\ju\omega t}}$.
+  \part Para la parte anterior, determine el vector de Poynting $\left<\mathbf{S}\right>$ y la potencia promedio irradiada $\left<P\del{r}\right>$.
+  \part \textbf{[Propuesto]} Compruebe que al aplicar las ecuaciones $\bvec{E} = \text{Re}\sbr{\mathbf{E}\euler^{\ju\omega t}}$ y $\bvec{H} = \text{Re}\sbr{\mathbf{H}\euler^{\ju\omega t}}$, los campos obtenidos en la parte b) satisfacen los valores originales para $\bvec{E}$ y $\bvec{H}$.
+   \end{parts}
+
+\begin{solution}
+    \begin{parts}
+        \part Para iniciar, debemos notar que las dos primeras ecuaciones de Maxwell se mantienen igual, es decir, la ley de Gauss y la ley sin nombre no se modifican. Así:
+        \begin{align}
+            (i) \nabla \cdot \mathbf{E} &= \frac{\rho}{\epsilon_0} \\
+            (ii) \nabla \cdot \mathbf{H} &= 0
+        \end{align}
+        Es importante notar que al estar en un medio no cargado, la ley de Gauss queda igualada a 0, es decir:
+        \begin{align}
+            (i) \nabla \cdot \mathbf{E} &= 0\\
+            (ii) \nabla \cdot \mathbf{H} &= 0
+        \end{align}
+        Veamos la ley de Faraday: 
+        \\
+        \\
+        Normalmente tendríamos que $\nabla \times \bvec{E} = -\frac{\partial \bvec{B}}{\partial t}$. Para obtener lo pedido, hay que escribir todo en función de $\mathbf{E}$ y $\mathbf{H}$, y además, reemplazar los campos no variables en el tiempo por fasores. Así:
+
+        \begin{align}
+            \nabla \times \bvec{E} &= -\frac{\partial \bvec{B}}{\partial t} \\
+            \nabla \times \bvec{E} &= -\mu \frac{\partial \bvec{H}}{\partial t} \\
+        \end{align}
+        Ahora usamos fasores y simplemente usamos que $\bvec{E} ={\mathbf{E}\euler^{\ju\omega t}}$ y $\bvec{H} = {\mathbf{H}\euler^{\ju\omega t}}$. Nos sacamos el Re[] ya que las ecuaciones de Maxwell sirven para cualquier combinación lineal de soluciones. En particular, tanto la parte real como la parte imaginaria de una solución compleja son soluciones físicas posibles, por ende, nos podemos sacar el Re[] sin alterar el resultado. Obtenemos lo siguiente:
+        \begin{align}
+            \nabla \times [\mathbf{E}  \cdot e^{j \omega t} ] &= -\mu \frac{\partial [\mathbf{H} \cdot e^{j \omega t}]}{\partial t} \\
+            e^{j \omega t} \nabla \times \mathbf{E} &= -\mu \cdot \mathbf{H} \frac{\partial [ e^{j \omega t}]}{\partial t} \\
+            e^{j \omega t} \nabla \times \mathbf{E} &= -\mu \cdot \mathbf{H} \cdot j \omega \cdot e^{j \omega t} \\
+            (iii) \nabla \times \mathbf{E} &= - j \omega \mu \mathbf{H}
+        \end{align}
+        Nos falta la ley de Ampère-Maxwell:
+        \\
+        \\
+        Partimos de $\nabla \times \bvec{B} = \mu \mathbf{J} + \mu \epsilon \frac{\partial \bvec{E}}{\partial t}$ y realizamos los mismos pasos que en el caso anterior:
+        \begin{align}
+            \nabla \times \bvec{B} &= \mu \mathbf{J} + \mu \epsilon \frac{\partial \bvec{E}}{\partial t} \\
+            \nabla \times \mu \bvec{H} &= \mu \mathbf{J} + \mu \epsilon \frac{\partial \bvec{E}}{\partial t} \\
+            \nabla \times \bvec{H} &= \mathbf{J} + \epsilon \frac{\partial \bvec{E}}{\partial t} \\
+            \nabla \times [\mathbf{H} e^{j \omega t}] &= \mathbf{J} + \epsilon \frac{\partial [\mathbf{E} e^{j \omega t}]}{\partial t} \\
+            e^{j \omega t} \nabla \times \mathbf{H} &= \mathbf{J} + \epsilon \mathbf{E}\frac{\partial [e^{j \omega t}]}{\partial t} \\
+            e^{j \omega t} \nabla \times \mathbf{H} &= \mathbf{J} + \epsilon \mathbf{E} \cdot j \omega \cdot e^{j \omega t} \\
+        \end{align}
+        Por ley de Ohm microscópica, donde $\mathbf{J = \sigma \bvec{E}}$:
+        \begin{align}
+            e^{j \omega t} \nabla \times \mathbf{H} &= \sigma \bvec{E} + \epsilon \mathbf{E} \cdot j \omega \cdot e^{j \omega t} \\
+            e^{j \omega t} \nabla \times \mathbf{H} &= \sigma \mathbf{E} e^{j \omega t} + \epsilon \mathbf{E} \cdot j \omega \cdot e^{j \omega t} \\
+            (iv) \nabla \times \mathbf{H} &= \sigma \mathbf{E} + j \omega \epsilon \mathbf{E}
+        \end{align}
+        Y de esa manera se obtuvo las cuatro ecuaciones pedidas.
+
+        \part Usamos que para fasores del estilo $\bvec{E} = \text{Re}[\mathbf{E} \cdot e^{j \omega t}]$, el valor de $\mathbf{E}$ es $\mathbf{E} = E_0 \cdot e ^{j \phi}$. Partamos por el campo $\bvec{E}$:
+        \\
+        \\
+        Rápidamente podemos notar que la amplitud son todos los términos no dependientes del tiempo, es decir:
+        \begin{align}
+            E_0 &= \frac{E_0}{r} \sin{(\theta)}
+        \end{align}
+        Por otro lado, tenemos que reconocer el término $\phi$, que viene a ser el término dentro de la sinusoide que no está multiplicando al tiempo. Si desarrollamos el término sinusoidal nos queda:
+        \begin{align}
+            \sin \sbr{\omega\del{t - \frac{r}{u_0}}} \\
+            \sin \sbr{\omega \cdot t - \omega \frac{r}{u_0}}
+        \end{align}
+        Es decir, el término $\phi$ es equivalente a:
+        \begin{align}
+            \phi = -\omega \frac{r}{u_0}
+        \end{align}
+        Y finalmente podemos obtener el valor de $\mathbf{E}$, que viene dado por:
+        \begin{align}
+            \mathbf{E} &= E_0 \cdot e^{j \phi} \hat{\theta}\\
+            \mathbf{E} &= \frac{E_0}{r} \sin{(\theta)} e^{-j \omega \frac{r}{u_0}} \hat{\theta}
+        \end{align}
+        Para $\mathbf{H}$ el desarrollo es análogo, y se obtiene:
+        \begin{align}
+            \mathbf{H} &= \frac{E_0}{r \sqrt{\mu_0 / \epsilon_0}} \sin{(\theta)} e^{-j \omega \frac{r}{u_0}} \hat{\phi}
+        \end{align}
+
+    \part Buscamos $\langle \mathbf{S} \rangle$. Usando la fórmula del resumen:
+    \begin{align}
+        \langle \mathbf{S} \rangle &= \frac{1}{2} \text{Re} \sbr{\mathbf{E} \times \mathbf{H^*}} \\
+        \langle S \rangle &= \frac{1}{2} \text{Re} \sbr{\frac{E_0}{r} \sin{(\theta)} e^{-j \omega \frac{r}{u_0}} \hat{\theta} \times \frac{E_0}{r \sqrt{\mu_0 / \epsilon_0}} \sin{(\theta)} e^{j \omega \frac{r}{u_0}} \hat{\phi}} \\
+        \langle S \rangle &= \frac{1}{2} \text{Re} \sbr{\frac{E_0^2}{r^2 \sqrt{\mu_0 / \epsilon_0}} \sin^2{(\theta)} e^{-j \omega \frac{r}{u_0}} e^{j \omega \frac{r}{u_0}} \hat{r}} \\
+        \langle S \rangle &= \frac{1}{2} \text{Re} \sbr{\frac{E_0^2}{r^2 \sqrt{\mu_0 / \epsilon_0}} \sin^2{(\theta)} \hat{r}} \\
+        \langle S \rangle &= \frac{E_0^2}{2r^2 \sqrt{\mu_0 / \epsilon_0}} \sin^2{(\theta)} \hat{r}
+    \end{align}
+
+    Nos piden ahora la potencia promedio irradiada $\langle P(r) \rangle$. Para esto, como estamos en coordenadas esféricas, debemos integrar tal que $d\Vec{s}$ vaya en $\hat{r}$. Así:
+    \begin{align}
+        \langle P(r) \rangle &= \int_{\phi = 0}^{\phi = 2\pi} \int_{\theta= 0}^{\theta=\pi} \langle \mathbf{S} \rangle r^2 \sin({\theta}) d\theta d\phi \hat{r} \\
+        \langle P(r) \rangle &= \int_{\phi = 0}^{\phi = 2\pi} \int_{\theta= 0}^{\theta=\pi} \frac{E_0^2}{2r^2 \sqrt{\mu_0 / \epsilon_0}} \sin^2{(\theta)} \hat{r} \cdot r^2 \sin({\theta}) d\theta d\phi \cdot \hat{r} \\
+        \langle P(r) \rangle &= \frac{E_0^2}{2 \sqrt{\mu_0 / \epsilon_0}}\int_{\phi = 0}^{\phi = 2\pi} \int_{\theta= 0}^{\theta=\pi} \sin^3({\theta}) d\theta d\phi \\
+        \langle P(r) \rangle &= \frac{E_0^2 \pi}{ \sqrt{\mu_0 / \epsilon_0}} \int_{\theta= 0}^{\theta=\pi} \sin^3({\theta}) d\theta
+    \end{align}
+    No es necesario integrar el $\sin^3{(\theta)}$. Con eso, obtuvimos lo pedido. Es importante notar que la unidad de medida serán [W], que es unidad de medida de potencia.
+    \end{parts}
+\end{solution}
+\newpage
+\question \textbf{Ecuaciones de onda}
+\\
+\begin{parts}
+    
+\part A partir de las ecuaciones de Maxwell-Heaviside, obtenga la ecuación de onda para los campos $\bvec{E}$ y $\bvec{B}$ en el vacío.
+\part Dada la ecuación constitutiva de London:
+\begin{align*}
+    \bvec{J} = -\frac{1}{\mu_0 \delta^2} \bvec{A}
+\end{align*}
+Demuestre que la ecuación de onda es:
+\begin{align*}
+    \nabla^2 \bvec{B} - \frac{1}{c^2} \frac{\partial^2 \bvec{B}}{\partial t^2} = \frac{\bvec{B}}{\delta^2}
+\end{align*}
+donde $\delta \ne 0$ y $c$ es la velocidad de la luz.
+\\
+\\
+\textit{Hint:} Aplique rotor a la ecuación constitutiva de London y a la ley de Ampère-Maxwell.
+\\
+\part \textbf{[Propuesto]}
+\\
+\\
+La teoría de London predice que $\bvec{B}$ no es estrictamente cero en todos los puntos dentro de un superconductor. Para ilustrarlo, considera una lámina de superconductor infinita en las direcciones $\uvec{x}$ e $\uvec{y}$, que se encuentra entre $z = -d$ y $z = d$. Calcule $\bvec{B}$ dentro del superconductor cuando la lámina se coloca en un \textbf{campo magnético estático} y uniforme $\mathbf{B}_0 = B_0\uvec{x}$. \\
+\\
+    \textit{Hint:} Resuelva la ecuación diferencial obtenida en la parte anterior, con condiciones de bordes apropiadas, y recuerde que el operador Laplaciano en coordenadas cartesianas para un campo vectorial $\bvec{B}$ se aplica componente por componente:
+    \begin{align*}
+    \nabla^2 \bvec{B} = (\nabla^2 \mathcal{B}_x)\, \uvec{x} + (\nabla^2 \mathcal{B}_y)\, \uvec{y} + (\nabla^2 \mathcal{B}_z)\, \uvec{z}
+    \end{align*}
+\end{parts}
+
+\begin{solution}
+    \begin{parts}
+        \part Partamos encontrando la ecuación de onda para $\bvec{E}$:
+        \\
+        \\
+        Para $\bvec{E}$, tenemos dos ecuaciones de Maxwell que nos sirven: la ley de Gauss y la ley de Faraday, que en el vacío se representan como:
+        \begin{align}
+            \nabla \cdot \bvec{E} &= 0 && (i) \\
+            \nabla \times \bvec{E} &= -\frac{\partial \bvec{B}}{\partial t} &&(iii)
+        \end{align}
+        Si se fijan, debemos hacer aparecer un operador Laplaciano a partir de alguna de estas dos ecuaciones y haciendo uso de la identidad vectorial del rotor de un rotor. Es decir, partamos de la ley de Faraday (iii) y apliquémosle el rotor a ambos lados de la ecuación:
+        \begin{align}
+           \nabla \times \sbr{\nabla \times \bvec{E}} &= \nabla \times \sbr{-\frac{\partial \bvec{B}}{\partial t}} \\
+           \nabla (\nabla \cdot \mathbf{\bvec{E}}) - \nabla^2 \mathbf{\bvec{E}} &= -\frac{\partial}{\partial t} \sbr{\nabla \times \bvec{B}}
+        \end{align}
+        Por la ley de Gauss en el vacío, tenemos que $\nabla \cdot \bvec{E} = 0$, y podemos reemplazar:
+        \begin{align}
+            \nabla (\nabla \cdot 0) - \nabla^2 \mathbf{\bvec{E}} &= -\frac{\partial}{\partial t} \sbr{\nabla \times \bvec{B}} \\
+            - \nabla^2 \mathbf{\bvec{E}} &= -\frac{\partial}{\partial t} \sbr{\nabla \times \bvec{B}}
+        \end{align}
+        Además, por ley de Ampère-Maxwell, tenemos que $\nabla \times \bvec{B} = \mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}$, y podemos reemplazar:
+        \begin{align}
+            - \nabla^2 \mathbf{\bvec{E}} &= -\frac{\partial}{\partial t} \sbr{\mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} 
+        \end{align}
+        Pero en el vacío, $\bvec{J} = 0$, así:
+        \begin{align}
+            - \nabla^2 \mathbf{\bvec{E}} &= -\frac{\partial}{\partial t} \sbr{ \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} \\
+            \nabla^2 \mathbf{\bvec{E}} &= \frac{\partial}{\partial t} \sbr{ \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} \\
+            \nabla^2 \mathbf{\bvec{E}} &= \mu_0 \epsilon_0 \frac{\partial^2 \bvec{E}}{\partial t ^2}
+        \end{align}
+        Y finalmente, la ecuación de onda para $\bvec{E}$ es:
+        \begin{align}
+             \nabla^2 \mathbf{\bvec{E}} - \mu_0 \epsilon_0 \frac{\partial^2 \bvec{E}}{\partial t ^2} = 0
+        \end{align}
+        \textit{Observación: Se tiene que la velocidad de la luz} $c$ viene dada por: $c=\frac{1}{\sqrt{\mu_0 \epsilon_0}}$. \textit{Esto se puede reemplazar en la ecuación de onda y obtener un equivalente:}
+        \begin{align}
+            \nabla^2 \mathbf{\bvec{E}} - \frac{1}{c^2} \frac{\partial^2 \bvec{E}}{\partial t ^2} = 0
+        \end{align}
+        Para derivar la ecuación de onda para $\bvec{B}$, el procedimiento será análogo, pero partiendo de la ley sin nombre (ii) y de la ley de Ampère-Maxwell (iv). Es decir:
+        \begin{align}
+            \nabla \cdot \bvec{B} &= 0 && (ii) \\
+            \nabla \times \bvec{B} &= \mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t} && (iv)
+        \end{align}
+        Partiendo de la ecuación (iv) y aplicando el rotor a ambos lados se obtiene:
+        \begin{align}
+             \nabla \times \sbr{\nabla \times \bvec{B}} &= \nabla \times \sbr{\mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} \\
+             \nabla(\nabla \cdot \bvec{B}) - \nabla^2 \bvec{B} &= \nabla \times \sbr{\mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}}
+        \end{align}
+        En el vacío, $\bvec{J} = 0$. Además, por ley sin nombre, $\nabla \cdot \bvec{B} = 0$, así:
+        \begin{align}
+            - \nabla^2 \bvec{B} &= \nabla \times \sbr{ \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} \\
+             - \nabla^2 \bvec{B} &= \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}}
+        \end{align}
+        Sabemos que por ley de Faraday $\nabla \times \bvec{E} = -\frac{\partial \bvec{B}}{\partial t}$. Si reemplazamos en la ecuación que teníamos se obtiene:
+        \begin{align}
+            - \nabla^2 \bvec{B} &= \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{-\frac{\partial \bvec{B}}{\partial t}} \\
+            - \nabla^2 \bvec{B} &= -\mu_0 \epsilon_0\frac{\partial^2 \bvec{B}}{\partial t^2} \\
+            \nabla^2 \bvec{B} &= \mu_0 \epsilon_0\frac{\partial^2 \bvec{B}}{\partial t^2}
+        \end{align}
+        Y finalmente se obtiene que la ecuación de onda para el campo magnético $\bvec{B}$ es:
+        \begin{align}
+          \nabla^2 \bvec{B} - \mu_0 \epsilon_0\frac{\partial^2 \bvec{B}}{\partial t^2} = 0 
+        \end{align}
+        Donde nuevamente se puede obtener un equivalente utilizando la velocidad de la luz $c$ tal que:
+        \begin{align}
+            \nabla^2 \bvec{B} - \frac{1}{c^2}\frac{\partial^2 \bvec{B}}{\partial t^2} = 0
+        \end{align}
+
+\part Usaremos el hint, que nos dice que hay que aplicarle el rotor tanto a la ley de Ampère-Maxwell como a la ecuación de London. Partamos por la ecuación constitutiva de London:
+\begin{align}
+\nabla \times \bvec{J} &= \nabla \times \sbr{-\frac{1}{\mu_0 \delta^2} \bvec{A}} \\
+\nabla \times \bvec{J} &= -\frac{1}{\mu_0 \delta^2}\nabla \times\bvec{A}
+\end{align}
+Y recordando que el campo magnético se relaciona con el potencial vectorial magnético por $\nabla \times \bvec{A} = \bvec{B}$, se obtiene que:
+\begin{align}
+    \nabla \times \bvec{J} &= -\frac{1}{\mu_0 \delta^2} \bvec{B}
+\end{align}
+Ahora, desarrollemos la Ley de Ampère-Maxwell:
+\begin{align}
+\nabla \times \sbr{\nabla \times \bvec{B}} &= \nabla \times \sbr{\mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}}    
+\end{align}
+Por identidad vectorial y debido a que el rotor distribuye en la suma, queda:
+\begin{align}
+    \nabla(\nabla \cdot \bvec{B}) - \nabla^2 \bvec{B} &= \nabla \times \sbr{\mu_0 \bvec{J}} + \nabla \times \sbr{\mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t}} \\
+    \nabla(\nabla \cdot \bvec{B}) - \nabla^2 \bvec{B} &= \mu_0 \nabla \times \bvec{J} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}}
+\end{align}
+Podemos simplificar varias cosas: Primero, gracias a la ley sin nombre se tiene que $\nabla \cdot \bvec{B} = 0$ y al reemplazar se obtiene:
+\begin{align}
+    \nabla(0) - \nabla^2 \bvec{B} &= \mu_0 \nabla \times \bvec{J} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}} \\
+    - \nabla^2 \bvec{B} &= \mu_0 \nabla \times \bvec{J} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}}
+\end{align}
+Segundo, podemos reemplazar lo obtenido al aplicar el rotor a la ecuación de London, y se tiene que:
+\begin{align}
+    - \nabla^2 \bvec{B} &= \mu_0 -\frac{1}{\mu_0 \delta^2} \bvec{B} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}} \\
+    - \nabla^2 \bvec{B} &= -\frac{1}{\delta^2} \bvec{B} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\nabla \times \bvec{E}}
+\end{align}
+Tercero, por ley de Faraday se tiene que $\nabla \times \bvec{E} = -\frac{\partial \bvec{B}}{\partial t}$ y nos quedará lo siguiente:
+\begin{align}
+    - \nabla^2 \bvec{B} &= -\frac{1}{\delta^2} \bvec{B} + \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{-\frac{\partial \bvec{B}}{\partial t}} \\
+    - \nabla^2 \bvec{B} &= -\frac{1}{\delta^2} \bvec{B} - \mu_0 \epsilon_0 \frac{\partial}{\partial t} \sbr{\frac{\partial \bvec{B}}{\partial t}} \\
+    - \nabla^2 \bvec{B} &= -\frac{1}{\delta^2} \bvec{B} - \mu_0 \epsilon_0 \frac{\partial^2 \bvec{B}}{\partial t^2} \\
+    \nabla^2 \bvec{B} &= \frac{1}{\delta^2} \bvec{B} + \mu_0 \epsilon_0 \frac{\partial^2 \bvec{B}}{\partial t^2} \\
+    \nabla^2 \bvec{B} - \mu_0 \epsilon_0 \frac{\partial^2 \bvec{B}}{\partial t^2} &= \frac{1}{\delta^2} \bvec{B} \\
+    \nabla^2 \bvec{B} - \frac{1}{c^2} \frac{\partial^2 \bvec{B}}{\partial t^2} &= \frac{1}{\delta^2} \bvec{B}
+\end{align}
+Y se llegó a lo pedido.
+\part \textbf{[Propuesto]}
+    \end{parts}
+\end{solution}
+\end{questions}
+
+
+\end{document}
