@@ -40,7 +40,9 @@
 \vspace{.85cm}
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    Considere el sistema electromecánico de la figura~\ref{fig:relay}, que modela de forma simplificada el funcionamiento de un relé electromagnético utilizado en el sistema de control de un robot industrial para el ensamblaje de componentes electrónicos de precisión. Este dispositivo consta de un núcleo de hierro de sección transversal $A$ en el cual se induce flujo magnético mediante una bobina de $N$ vueltas. El relé controla actuadores neumáticos que operan las pinzas del robot, donde la precisión y eficiencia energética son críticas para la operación. Para este estudio, usted podrá modificar el voltaje de excitación $e(t)$ y analizará cómo el entrehierco modula la inductancia $L(x)$, la fuerza de atracción magnética y la dinámica de conmutación del sistema.
+    Considere el sistema electromecánico de la figura~\ref{fig:relay}, que modela de forma simplificada el funcionamiento de un relé electromagnético utilizado en el sistema de control de un robot industrial para el ensamblaje de componentes electrónicos de precisión. Este dispositivo consta de un núcleo de hierro de sección transversal $A$ en el cual se induce flujo magnético mediante una bobina de $N$ vueltas. El relé controla actuadores neumáticos que operan las pinzas del robot, donde la precisión y eficiencia energética son críticas para la operación. Para este estudio, usted podrá modificar el voltaje de excitación $e(t)$ y analizará cómo el entrehierco modula la inductancia $L(x)$, la fuerza de atracción magnética y la dinámica de conmutación del sistema.\\
+
+    \noindent\fbox{\parbox{0.92\linewidth}{\textbf{Nota:} Considere que el movimiento de la armadura móvil ocurre únicamente en una dirección (sobre el eje $x$), es decir, el desplazamiento es unidimensional.}}
 
 \begin{figure}[h!]
   \centering
@@ -103,9 +105,9 @@ Sustituyendo esta expresión en la ecuación de Ampère:
   N \cdot i = \frac{\phi}{A_n \mu} \cdot l_n + \frac{\phi}{A_n \mu_0} \cdot l_g = \phi\!\left(\frac{l_n}{A_n \mu} + \frac{l_g}{A_n \mu_0}\right).
 \end{align}
 
-La reluctancia $\Rel$ es un parámetro fundamental que cuantifica la resistencia de un material al flujo magnético. Esta magnitud depende de la permeabilidad del material magnético ($\mu_m$), el área de la sección transversal ($A$) y la longitud del camino magnético ($l$):
+La reluctancia $\Rel$ es un parámetro fundamental que cuantifica la resistencia de un material al flujo magnético. Esta magnitud depende de la permeabilidad del material magnético ($\mu$), el área de la sección transversal ($A$) y la longitud del camino magnético ($l$):
 \begin{align}
-  \Rel = \frac{l}{A\,\mu_m}.
+  \Rel = \frac{l}{A\,\mu}.
 \end{align}
 Aplicando este concepto al circuito magnético del relé:
 \begin{align}
@@ -244,5 +246,79 @@ En el sistema analizado coexisten dos tipos principales de reluctancia: la reluc
 \end{enumerate}
 \end{questions}
 \hrulefill
+\newpage
+\begin{solution}
+  \subsection*{\textcolor{blue}{[0.15 Ptos]} Resolucion 1.1}
 
+    Dado que se busca establecer hipótesis simplificatorias, se pueden considerar las siguientes:
+
+    \begin{enumerate}
+      \item El sistema se encuentra en un espacio con \textbf{gravedad despreciable}.
+      \item La masa $M$ es \textbf{puntual (1D)} e \textbf{invariante} en el tiempo.
+      \item Resorte ideal (masa despreciable y $K$ es invariante).
+      \item El resorte actúa en \textbf{régimen lineal} (ley de Hooke) y su movimiento solo es \textbf{horizontal}.
+      \item Transformador ideal (hierro muy buen conductor), por tanto la reluctancia del hierro es \textbf{despreciable}.
+      \item Propiedades magnéticas invariantes en el tiempo ($\mu$, $\mu_0$).
+      \item Resistencia $R$ ideal, cumple con la ley de Ohm.
+      \item \dots
+    \end{enumerate}
+    \subsection*{\textcolor{blue}{[0.3 Ptos]} Resolucion 1.2}
+      Se busca modelar el sistema electromecánico del relé. Para ello, se deben encontrar dos ecuaciones: una para la parte eléctrica y otra para la parte mecánica. Comenzando con la segunda, tenemos que las fuerzas involucradas son:
+
+      \begin{itemize}
+        \item $F_m$: Fuerza magnética
+        \item $F_E$: Fuerza elástica
+        \item $F_r$: Fuerza de roce (aire)
+      \end{itemize}
+
+      Primera ley de Newton:
+      \begin{align}
+        M \ddot{x} &= \sum F_x = F_m + F_E + F_r\\
+        M \ddot{x} &= F_m - F_E - F_r
+      \end{align}
+
+      Desarrollando cada término:
+      \begin{equation}
+        M \ddot{x} = \frac{1}{2} i^2 \frac{dL}{dx} - K(x(t)-l_0) - B \dot{x}(t)
+      \end{equation}
+      donde $B$ es el coeficiente de roce viscoso, luego tenemos que la inductancia L(x) vendra dada por:
+      \begin{equation}
+        L(x) = \frac{N^2}{\Rel_{\text{total}}}
+      \end{equation}
+      \begin{equation}
+        \Rel_{\text{total}} = \Rel_{\text{hierro}} + \Rel_{\text{entehierro}}
+      \end{equation}
+      Como se mencionó en las hipótesis simplificatorias, la reluctancia del hierro es despreciable, por tanto:
+      \begin{equation}
+        \Rel_{\text{total}} \approx \Rel_{\text{entehierro}}
+      \end{equation}
+      \begin{equation}
+        \Rel_{\text{entehierro}} = \frac{l_{\text{entehierro}}}{A \mu_0}
+      \end{equation}
+      Dado el montaje del sistema:
+      \begin{equation}
+        l_{\text{entehierro}} = l_1 - x(t)
+      \end{equation}
+    Recordando que la reluctancia es $\Rel= \frac{l}{A\mu}$ tendremos que reemplazando en la expresion de la inductancia.
+    \begin{align}
+      L(x(t)) = \frac{N^{2}}{R_{total}} \approx \frac{N^{2}}{\Rel_{\text{entehierro}}} = \frac{N^{2} A \mu_0}{l_{\text{entehierro}}} = \frac{N^{2} A \mu_0}{l_1 - x(t)}
+    \end{align}
+    Con lo que se obtiene una expresion para la inductancia donde se aprecia su variabilidad con relacion a x(t), de esta manera tenemos que:
+    \begin{align}
+        \frac{\partial L}{\partial x} = \frac{N^{2} A \mu_0}{(l_1 - x(t))^2}
+    \end{align}
+    Con lo que tenemos sobre lo anterior que:
+    \begin{align}
+      M \ddot{x} &= -\frac{1}{2} i^2 \left(\frac{\partial L}{\partial x}\right) - K(x(t)-l_0) - B \dot{x}(t)\\
+      &= \frac{1}{2}i^{2}\left(\frac{N^{2}A\mu_0}{(l_1-x(t))^2}\right) - K(x(t)-l_0) - B \dot{x}(t)
+    \end{align}
+    Con lo que despejando $ \ddot{x}$ se obtiene lo siguiente:
+    \begin{align}
+      \ddot{x} = \frac{1}{2M}i^{2}(t) \left(\frac{N^{2}A\mu_0}{(l_1-x(t))^2}\right) - \frac{K}{M}(x(t)-l_0) - \frac{B}{M} \dot{x}(t)
+    \end{align}
+    Por otro lado tenemos que para la parte electrica se cumple que:
+    \begin{align}
+      e(t) = R i(t) + V_{bobina} 
+    \end{align}
+\end{solution}
 \end{document}
