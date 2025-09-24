@@ -232,9 +232,9 @@
     1 & $\pi/2$ & 1 & 10 & 0.7 & 9.3 \\
     2 & $5\pi/6$ & 1/2 & 5 & 0.7 & 4.3 \\
     3 & $\pi$ & 0 & 0 & 0 & 0 \\
-    4 & $7\pi/6$ & -1/2 & -5 & -5 & $-I_s$ \\
-    5 & $3\pi/6$ & 1 & 10 & -10 & $-I_s$ \\
-    4 & $11\pi/6$ & -1/2 & -5 & -5 & $-I_s$ \\
+    4 & $7\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
+    5 & $3\pi/2$ & -1 & -10 & -10 & $\approx -I_s$ \\
+    4 & $11\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
     3 & $2\pi$ & 0 & 0 & 0 & 0 \\
     \hline
   \end{tabular}
@@ -272,15 +272,7 @@
   \label{fig:diodo-operacion-casos}
 \end{figure}
 \end{frame}
-%------------------------
-\begin{frame}{Pregunta \#3}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.55\textwidth]{Auxiliar_4_15}
-  \caption{Gráfico de voltaje vs $\omega t$. Cuando el voltaje en la entrada es positivo, el voltaje medido en el diodo llega hasta un máximo de $V_f$. Cuando el voltaje en la entrada es negativo, el voltaje en la salida es igual al voltaje en la entrada por las razones descritas anteriormente.}
-    \label{fig:voltaje-corriente-diodo}
-\end{figure}
-\end{frame}
+
 %------------------------
 \begin{frame}{Pregunta \#3}
 \begin{figure}[H]
@@ -288,6 +280,32 @@
     \includegraphics[width=0.55\textwidth]{Auxiliar_4_16}
   \caption{Sólo pasa corriente por el diodo cuando el voltaje es positivo (polarización directa en el diodo), porque cuando es negativo (polarización inversa en este diodo), el diodo actúa como un circuito abierto.}
     \label{fig:voltaje-corriente-diodo-detalle}
+\end{figure}
+\end{frame}
+%------------------------
+\begin{frame}{Pregunta \#4}
+  \begin{block}{Enunciado Pregunta \#4}
+   Sea el esquema visto en la Figura~\ref{fig:P2_17}, responda lo siguiente, considerando la fuente de voltaje que ahí aparece.
+\begin{enumerate}
+    \item Represente (bosqueje) $v_o$ en función del tiempo para el circuito de la Figura~\ref{fig:P2_17} (lado izquierdo) con la entrada mostrada. Suponga $V_\gamma = 0$.
+    \item Represente (bosqueje) $v_o$ en función del tiempo para el circuito de la Figura~\ref{fig:P2_17} (lado derecho). La entrada es senoidal y está dada por $v_i(t) = 10 \sin(\omega t)\,\text{V}$. Suponga $V_\gamma = 0$.
+\end{enumerate}
+  \end{block}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Auxiliar_4_18}
+  \caption{Esquema del circuito con diodos.}
+    \label{fig:P2_17}
+\end{figure}
+\end{frame}
+%------------------------
+\begin{frame}{Pregunta \#4}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Auxiliar_4_21}
+  \caption{Sólo pasa corriente por el diodo cuando el voltaje es positivo (polarización directa en el diodo), porque cuando es negativo (polarización inversa en este diodo), el diodo actúa como un circuito abierto.}
+    \label{fig:voltaje-corriente-diodo-detalle}
+
 \end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%

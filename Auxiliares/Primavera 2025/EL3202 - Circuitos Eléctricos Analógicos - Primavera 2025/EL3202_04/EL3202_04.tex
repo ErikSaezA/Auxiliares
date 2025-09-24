@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   answers
+   %answers
   ]{exam}
 \usepackage{../exercise-preamble}
 \usepackage{float}
@@ -40,13 +40,13 @@ Para el circuito de la Figura~\ref{fig:1}, si utiliza la expresión exacta $I(v_
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{Auxiliar_4_1}
+    \includegraphics[width=0.8\textwidth]{Auxiliar_4_1}
     \caption{Circuito con diodo.}
     \label{fig:1}
 \end{figure}
 %----------------------------
 \begin{solution}
-Por enunciado tenemos que utilizar la expresión exacta del diodo para el cual consideramos temperatura ambiente por lo tanto tendremos que $V_{T}=25[mV]$. La ecuación exacta que describe el comportamiento del diodo es:
+Por enunciado, debemos utilizar la expresión exacta del diodo, considerando temperatura ambiente. Por lo tanto, tenemos que $V_{T}=25\,\mathrm{mV}$. La ecuación exacta que describe el comportamiento del diodo es:
 \begin{align}
     i_D &= I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) \label{eq:shockley}\\
     &= 10^{-5}mA\left(e^{\frac{v_D}{2 \cdot 25[mV]}} - 1\right)\\
@@ -57,20 +57,20 @@ donde $I_s$ es la corriente de saturación y $\eta$ el factor de idealidad ($1 \
     i_1 &= i_2 + i_3 \\
 \frac{V_i - v_D}{R_1} &= \frac{v_D}{R_2} + I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) \label{eq:kcl}
 \end{align}
-
- Si suponemos que $v_D = 0{,}7\,\mathrm{V}$ el cual es un valor comun para un diodo de silicio en conducción, tenemos:
-    \begin{align*}
-        i_1 &= \frac{V_i - v_D}{R_1} = \frac{12 - 0{,}7}{10\,000}\ \mathrm{A} = 1{,}13\ \mathrm{mA} \\
-        i_2 &= \frac{v_D}{R_2} = \frac{0{,}7}{10\,000}\ \mathrm{A} = 70\ \mu\mathrm{A} \\
-        i_3 &= i_1 - i_2 = 1{,}06\ \mathrm{mA}
-    \end{align*}
-    Si en vez de $v_D = 0{,}7\,\mathrm{V}$ usamos $v_D = 0{,}6\,\mathrm{V}$:
-    \begin{align*}
-        i_1 &= \frac{12 - 0{,}6}{10\,000} = 1{,}14\ \mathrm{mA} \\
-        i_2 &= \frac{0{,}6}{10\,000} = 60\ \mu\mathrm{A} \\
-        i_3 &= i_1 - i_2 = 1{,}08\ \mathrm{mA}
-    \end{align*}
-Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo que puede parecer contradictorio, pero esto es debido al punto de operacion en el cual operamos el diodo, ahora que analizar dos situaciones límite para el diodo:
+ 
+ Si suponemos que $v_D = 0{,}7\,\mathrm{V}$, el cual es un valor común para un diodo de silicio en conducción, tenemos:
+  \begin{align*}
+    i_1 &= \frac{V_i - v_D}{R_1} = \frac{12 - 0{,}7}{10\,000}\ \mathrm{A} = 1{,}13\ \mathrm{mA} \\
+    i_2 &= \frac{v_D}{R_2} = \frac{0{,}7}{10\,000}\ \mathrm{A} = 70\ \mu\mathrm{A} \\
+    i_3 &= i_1 - i_2 = 1{,}06\ \mathrm{mA}
+  \end{align*}
+  Si en vez de $v_D = 0{,}7\,\mathrm{V}$ usamos $v_D = 0{,}6\,\mathrm{V}$:
+  \begin{align*}
+    i_1 &= \frac{12 - 0{,}6}{10\,000} = 1{,}14\ \mathrm{mA} \\
+    i_2 &= \frac{0{,}6}{10\,000} = 60\ \mu\mathrm{A} \\
+    i_3 &= i_1 - i_2 = 1{,}08\ \mathrm{mA}
+  \end{align*}
+Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo que puede parecer contradictorio, pero esto se debe al punto de operación en el que se encuentra el diodo. Ahora analizaremos dos situaciones límite para el diodo:
 \begin{itemize}
     \item \textbf{Caso 1: Diodo en corte ($i_D = 0$)}. El diodo no conduce corriente y se comporta como un circuito abierto:
     \begin{figure}[H]
@@ -79,7 +79,7 @@ Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo q
       \caption{Circuito con diodo abierto.}
       \label{fig:th_norton_2}
     \end{figure}
-    El voltaje en el diodo será:
+  El voltaje en el diodo será:
     \begin{align*}
         12 &= (R_1 + R_2)i \\
         i &= \frac{12}{20\,000} = 0{,}6\ \mathrm{mA} \\
@@ -92,7 +92,7 @@ Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo q
       \caption{Circuito con diodo en corto circuito.}
       \label{fig:th_norton_3}
     \end{figure}
-    En este caso, por la resistencia $R_2$ no circula corriente:
+  En este caso, por la resistencia $R_2$ no circula corriente alguna:
     \begin{align*}
         12 &= R_1 i \\
         i &= \frac{12}{10\,000} = 1{,}2\ \mathrm{mA}
@@ -111,7 +111,7 @@ La recta de carga representa la relación entre voltaje y corriente impuesta por
 
 
 \end{solution}
-
+\newpage
 %----------------------------
     \question Un diodo Zener con característica $v$--$i$, como la mostrada en la Figura 5a), tiene un voltaje de Zener
     $V_{ZK}=3\ \mathrm{V}$. Determine la corriente $i_X$ en los dos circuitos mostrados en la figura \ref{fig:ex4c}. Sea explícito en los modelos y supuestos utilizados.  
@@ -172,9 +172,9 @@ i_X \;=\; \frac{6 - 0{,}7}{1000} \;=\; 5{,}3~\text{mA}.
   \label{fig:carac-v-i}
 \end{figure}
 % --- Fragmento listo para pegar en tu documento ---
-% (deja un espacio para la figura y su leyenda)
 
-Luego tenemos que para el circuito de la derecha se cumplira que:
+
+Luego, para el circuito de la derecha, se cumplirá que:
 \begin{align*}
 &\text{Cuando } v_X > 3~\text{V} \;\Rightarrow\; v_Z = -3~\text{V},\\
 &\text{Cuando } v_X < 0.7~\text{V} \;\Rightarrow\; v_Z = 0.7~\text{V}.
@@ -193,6 +193,7 @@ i_X \;=\; \frac{6 -3 }{1000} \;=\; 3~\text{mA}.
 \end{align}
 \end{solution}
 %----------------------------
+\newpage
 \question Para el circuito de la figura \ref{fig:3}, bosqueje el voltaje en el diodo y la corriente en el diodo como función del tiempo. Sea explícito en los valores de las gráficas, así como en los modelos y supuestos utilizados.
 \begin{figure}[H]
   \centering
@@ -201,7 +202,7 @@ i_X \;=\; \frac{6 -3 }{1000} \;=\; 3~\text{mA}.
   \label{fig:3}
 \end{figure}
 \begin{solution}
-Para poder entender cómo funciona el diodo en presencia de una fuente de voltaje senoidal, primero deberemos analizar diferentes puntos, los cuales se visualizan en la tabla \ref{tab:diodo-operacion}:
+Para poder entender cómo funciona el diodo en presencia de una fuente de voltaje senoidal, primero debemos analizar diferentes puntos, los cuales se visualizan en la tabla \ref{tab:diodo-operacion}:
 
 \begin{table}[H]
   \centering
@@ -214,16 +215,16 @@ Para poder entender cómo funciona el diodo en presencia de una fuente de voltaj
     1 & $\pi/2$ & 1 & 10 & 0.7 & 9.3 \\
     2 & $5\pi/6$ & 1/2 & 5 & 0.7 & 4.3 \\
     3 & $\pi$ & 0 & 0 & 0 & 0 \\
-    4 & $7\pi/6$ & -1/2 & -5 & -5 & $-I_s$ \\
-    5 & $3\pi/6$ & 1 & 10 & -10 & $-I_s$ \\
-    4 & $11\pi/6$ & -1/2 & -5 & -5 & $-I_s$ \\
+    4 & $7\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
+    5 & $3\pi/2$ & -1 & -10 & -10 & $\approx -I_s$ \\
+    4 & $11\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
     3 & $2\pi$ & 0 & 0 & 0 & 0 \\
     \hline
   \end{tabular}
   \caption{Valores de voltaje y corriente en el diodo para distintos puntos de operación durante un ciclo senoidal.}
   \label{tab:diodo-operacion}
 \end{table}
-Luego tenemos que el punto de operacion del diodo se ve modificado continuamente debido a la naturaleza senoidal de la fuente de voltaje, esto se visualiza en:
+Luego, el punto de operación del diodo se ve modificado continuamente debido a la naturaleza senoidal de la fuente de voltaje; esto se observa en:
 \begin{figure}[H]
     \centering
 \includegraphics[width=0.7\textwidth]{Auxiliar_4_17}
@@ -262,44 +263,85 @@ Luego tenemos que el punto de operacion del diodo se ve modificado continuamente
 \end{figure}
 \end{solution}
 %----------------------------
-%\question Sea el esquema visto en \ref{fig:P2_17} responda lo siguiente, considerando la fuente de voltaje que ahi aparece.
-%\begin{enumerate}
-%    \item Represente (bosqueje) \(v_o\) en función del tiempo para el circuito de la Figura~\ref{fig:P2_17} (Lado izquierdo)
-%con la entrada mostrada. Suponga \(V_\gamma = 0\).
-%    \item Represente (bosqueje) \(v_o\) en función del tiempo para el circuito de la
- % Figura~\ref{fig:P2_17} (Lado derecho). La entrada es senoidal y está dada por
-  %\(v_i(t) = 10 \sin(\omega t)\,\text{V}\). Suponga \(V_\gamma = 0\).
-%\end{enumerate}
+\question Sea el esquema visto en \ref{fig:P2_17} responda lo siguiente, considerando la fuente de voltaje que ahi aparece.
+\begin{enumerate}
+    \item Represente (bosqueje) \(v_o\) en función del tiempo para el circuito de la Figura~\ref{fig:P2_17} (Lado izquierdo)
+    con la entrada mostrada. Suponga \(V_\gamma = 0\).
+    \item \textbf{[Propuesto:]} Represente (bosqueje) \(v_o\) en función del tiempo para el circuito de la
+  Figura~\ref{fig:P2_17} (Lado derecho). La entrada es senoidal y está dada por
+  \(v_i(t) = 10 \sin(\omega t)\,\text{V}\). Suponga \(V_\gamma = 0\).
+\end{enumerate}
 
-%\begin{figure}[H]
- %   \centering
-  %  \includegraphics[width=1\textwidth]{Auxiliar_4_18}
- % \caption{Esquema del circuito con diodos.}
-  %  \label{fig:P2_17}
-%\end{figure}
-%\end{questions}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Auxiliar_4_18}
+  \caption{Esquema del circuito con diodos.}
+    \label{fig:P2_17}
+\end{figure}
 %----------------------------
-%\begin{solution}
- %   \subsection*{Resolucion 4.1}
-  %  Se busca el voltaje \(v_o(t)\) en función del tiempo. Para esto, se analiza el circuito en dos casos: cuando la fuente de voltaje es positiva y cuando es negativa, es decir tenemos esto:
+\begin{solution}
+    \subsection*{Resolucion 4.1}
+    Se busca el voltaje \(v_o(t)\) en función del tiempo. Para esto, se analiza el circuito en dos casos: cuando la fuente de voltaje es positiva y cuando es negativa, es decir tenemos esto:
 
-  %\begin{figure}[H]
-  %  \centering
-  %  \begin{subfigure}[b]{0.48\textwidth}
- %     \centering
-  %    \includegraphics[width=1\linewidth]{Auxiliar_4_19}
-  %    \caption{Caso 1: Fuente positiva. El diodo $D_1$ conduce cuando $v_i > 0$, permitiendo el paso de corriente hacia la carga.}
- %     \label{fig:resolucion4.1a}
-%    \end{subfigure}\hfill
-  %  \begin{subfigure}[b]{0.48\textwidth}
-    %  \centering
-    %  \includegraphics[width=1\linewidth]{Auxiliar_4_20}
-   %   \caption{Caso 2: Fuente negativa. El diodo $D_2$ conduce cuando $v_i < 0$, permitiendo el paso de corriente hacia la carga en sentido opuesto.}
-  %    \label{fig:resolucion4.1b}
-  %  \end{subfigure}
-  %  \caption{Análisis de los dos casos para el circuito: (a) fuente positiva y conducción por $D_1$, (b) fuente negativa y conducción por $D_2$.}
-  %  \label{fig:resolucion4.1}
- % \end{figure}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+    \includegraphics[width=1\linewidth]{Auxiliar_4_19}
+     \caption{Caso 1: Fuente positiva. El diodo $D_1$ conduce cuando $v_i > 0$, permitiendo el paso de corriente hacia la carga.}
+      \label{fig:resolucion4.1a}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+      \centering
+      \includegraphics[width=1\linewidth]{Auxiliar_4_20}
+     \caption{Caso 2: Fuente negativa. El diodo $D_2$ conduce cuando $v_i < 0$, permitiendo el paso de corriente hacia la carga en sentido opuesto.}
+      \label{fig:resolucion4.1b}
+    \end{subfigure}
+    \caption{Análisis de los dos casos para el circuito: (a) fuente positiva y conducción por $D_1$, (b) fuente negativa y conducción por $D_2$.}
+  \label{fig:resolucion4.1}
+  \end{figure}
+Luego tenemos que al bosquejar se obtiene lo siguiente:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Auxiliar_4_21}
+  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
+  \label{fig:voltaje-salida-4.1}
+\end{figure}
+Vemos que la amplitud del voltaje disminuye a la mitad, lo cual se puede comprobar si se realiza el circuito, es decir
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Auxiliar_4_22}
+  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
+  \label{fig:voltaje-salida-4.1-2}
+\end{figure}
+Esto se debe a que el circuito actúa como un divisor de voltaje.
+    \subsection*{Resolucion 4.2}
+  De manera similar a lo anterior, se analiza el circuito en dos casos: cuando la fuente de voltaje es positiva y cuando es negativa, es decir, tenemos esto:
 
-%\end{solution}
+    \begin{figure}[H]
+      \centering
+      \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Auxiliar_4_23}
+        \caption{Caso 1: Fuente positiva. El diodo $D_2$ conduce cuando $v_i > 0$, permitiendo el paso de corriente hacia la carga.}
+        \label{fig:resolucion4.2a}
+      \end{subfigure}\hfill
+      \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{Auxiliar_4_24}
+        \caption{Caso 2: Fuente negativa. El diodo $D_1$ conduce cuando $v_i < 0$, permitiendo el paso de corriente hacia la carga en sentido opuesto.}
+        \label{fig:resolucion4.2b}
+      \end{subfigure}
+      \caption{Análisis de los dos casos para el circuito: (a) fuente positiva y conducción por $D_2$, (b) fuente negativa y conducción por $D_1$.}
+      \label{fig:resolucion4.2}
+    \end{figure}
+Luego tenemos que al bosquejar se obtiene lo siguiente:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Auxiliar_4_26}
+  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
+  \label{fig:voltaje-salida-4.2}
+\end{figure}
+\end{solution}
+\end{questions}
 \end{document}
