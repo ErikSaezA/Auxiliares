@@ -80,11 +80,11 @@ Podemos ver que el polinomio del denominador se puede factorizar como $(z+2)^{2}
 \begin{equation}
 H(z)=\frac{1}{(z+2)^{2}},
 \end{equation}
-lo que indica que el sistema posee un polo en $-2$ de multiplicidad algebraica $2$. Para formular el sistema en variables de estado, es útil expresar la función de transferencia en fracciones parciales. Sin embargo, en el caso de polos repetidos, no es correcto escribir
+lo que indica que el sistema posee un polo en $-2$ de multiplicidad algebraica $2$. Para formular el sistema en variables de estado, es útil expresar la función de transferencia en fracciones parciales. Sin embargo, en el caso de polos repetidos, no es correcto el escribir
 \begin{equation}
 H(z)=\frac{\alpha}{z+2}+\frac{\beta}{z+2},
 \end{equation}
-ya que ambos términos tendrían el mismo denominador y, por lo tanto, no reflejarían la presencia del polo doble. En su lugar, la descomposición adecuada para un polo repetido es de la forma
+ya que ambos términos tendrían el mismo denominador y, por lo tanto, no reflejarían la presencia del polo doble. En su lugar, la descomposición adecuada para un \textbf{polo repetido} es de la forma
 \begin{equation}
 H(z)=\frac{\alpha}{(z+2)^{2}}+\frac{\beta}{z+2},
 \end{equation}
@@ -117,7 +117,7 @@ Para el segundo término sí podemos hacer el procedimiento usual, de donde obte
 \begin{equation}
 x_{2}(k+1)=-2x_{2}(k)+u(k).
 \end{equation}
-Por lo que, escribiendo todas las ecuaciones en forma matricial, tenemos que el sistema formulado en variables de estado está dado por
+Por lo que, escribiendo todas las ecuaciones en forma matricial, tenemos que el sistema formulado en variables de estado está dado por:
 \begin{align}
 x(k+1) &=
 \begin{pmatrix}
@@ -131,6 +131,8 @@ y(k) &= \begin{pmatrix}1 & 0\end{pmatrix}x(k).
 \end{align}
 
 Algo interesante que podemos notar es que, si bien típicamente este método nos entregaba un sistema cuya matriz $A$ es diagonal, en este caso esto no se cumple. En cambio, podemos ver que $A$ ahora tiene forma canónica de Jordan: esto es causado por el hecho de que la función de transferencia tiene polos repetidos, lo que lleva a que la matriz no sea diagonalizable.
+
+Esto se relaciona con los conceptos de \textbf{multiplicidad algebraica} y \textbf{multiplicidad geométrica} de los autovalores. La multiplicidad algebraica corresponde al número de veces que un autovalor aparece como raíz del polinomio característico, mientras que la multiplicidad geométrica es la cantidad de vectores propios linealmente independientes asociados a ese autovalor (es decir, la dimensión del subespacio propio). Si la multiplicidad geométrica es menor que la algebraica, la matriz no es diagonalizable y, en su lugar, sólo puede llevarse a forma canónica de Jordan, como ocurre en este ejemplo.
 
 
 \subsection*{Resolución 1.2}
@@ -186,8 +188,16 @@ k(-2)^{k-1}
 \subsection*{Resolución 1.3}
 
 
-Analicemos primero la estabilidad BIBS (Bounded-Input Bounded-State). En sistemas discretos, el criterio de estabilidad BIBS establece que el sistema es estable si y solo si todos los autovalores de la matriz $A$ cumplen $|\lambda| < 1$. Si existen polos simples en la frontera ($|\lambda| = 1$), se requiere además que sean singulares (no repetidos) y que el sistema sea completamente observable y controlable en esos modos.
+Analicemos primero la estabilidad BIBS (Bounded-Input Bounded-State). En sistemas discretos, un sistema es BIBS estable si y solo si todos los autovalores de la matriz $A$ se encuentran estrictamente dentro del círculo unitario del plano complejo, es decir, $|\lambda| < 1$ para todo autovalor $\lambda$. Si algún autovalor está exactamente en la frontera ($|\lambda| = 1$), la estabilidad sólo se mantiene si dicho autovalor es simple (no repetido) y el sistema es completamente observable y controlable en ese modo.
 
+\textbf{Es importante no confundir las regiones de estabilidad entre el caso discreto y el caso continuo:} en sistemas continuos, la estabilidad requiere que los polos estén en el semiplano izquierdo ($\operatorname{Re}(s) < 0$), mientras que en sistemas discretos la condición es que los autovalores estén dentro del círculo unitario ($|\lambda| < 1$). Esta diferencia es fundamental al analizar la dinámica y la respuesta de cada tipo de sistema esto se puede observar de mejor manera en la Figura \ref{fig:stability_regions}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Auxiliar_5_2}
+    \caption{Regiones de estabilidad en el plano complejo para sistemas continuos y discretos.}
+    \label{fig:stability_regions}
+\end{figure}
 En nuestro caso, la matriz $A$ tiene un único autovalor $\lambda = -2$ con multiplicidad $2$. Como $|-2| = 2 > 1$, este valor propio se encuentra fuera de la circunferencia unitaria en el plano $Z$, lo que implica que el sistema es inestable en el sentido BIBS: cualquier perturbación o condición inicial crecerá sin acotación a medida que $k$ aumenta.
 
 Ahora, consideremos la estabilidad BIBO (Bounded-Input Bounded-Output). Un sistema discreto es BIBO estable si la suma absoluta de la respuesta al impulso es finita:
@@ -261,13 +271,12 @@ Si estos términos se reordenan, considerando que $y(k)=Cx(k)$ y $\hat{y}(k)=C\h
 \begin{equation}
 e(k+1)=(A-FC)\,e(k).
 \end{equation}
-Como podemos ver, esta nueva expresión corresponde a una ecuación para la dinámica del error, y en particular nos indica que el error se comporta como otro sistema LTI, donde la matriz que determina la dinámica del error es $A-FC$. Esto nos dice que, si bien no podemos encontrar $F$ que haga que el error se anule, sí podemos establecer un $F$ tal que el error converja a $0$.
 
-Esta expresión muestra que la dinámica del error de estimación está gobernada por un sistema LTI cuya matriz característica es $A-FC$. Esto implica que, aunque no es posible elegir $F$ para que el error se anule instantáneamente, sí podemos seleccionar $F$ de modo que el error tienda a cero conforme avanza el tiempo.
+Esta expresión nos muestra que la dinámica del error de estimación está gobernada por un sistema LTI cuya matriz característica es $A-FC$. Aunque no es posible elegir $F$ para que el error se anule instantáneamente, sí podemos seleccionar $F$ de modo que el error tienda a cero a medida que avanza el tiempo.
 
-Para lograr una estimación eficiente, es conveniente ubicar los polos de la dinámica del error de manera que este converja más rápido que el sistema original. En sistemas continuos, esto se traduce en situar los polos más a la izquierda en el plano complejo; en sistemas discretos, corresponde a acercarlos más al centro del círculo unitario. Usualmente, se recomienda que los polos del observador sean al menos tres veces más rápidos que los del sistema, pero para simplificar los cálculos, en este caso los ubicaremos cinco veces más rápidos.
+Para lograr una estimación eficiente, es recomendable ubicar los polos de la dinámica del error de manera que este converja más rápido que el sistema original. En sistemas continuos, esto significa situar los polos del observador más a la izquierda en el plano complejo; en sistemas discretos, corresponde a acercarlos más al centro del círculo unitario. Una regla práctica es que los polos del observador sean al menos tres veces más rápidos que los del sistema, aunque para simplificar los cálculos, en este caso los ubicaremos cinco veces más rápidos.
 
-Así, dado que los polos del sistema controlado están en $-0.5$ y $0.5$, seleccionaremos los polos del error en $-0.1$ y $0.1$, respectivamente. El procedimiento para ubicarlos es análogo al utilizado en el diseño de controladores. Considerando que $F$ es un vector columna, los polos de la dinámica del error están dados por
+Por lo tanto, si los polos del sistema controlado están en $-0.5$ y $0.5$, elegiremos los polos del error en $-0.1$ y $0.1$, respectivamente. El procedimiento para ubicarlos es análogo al utilizado en el diseño de controladores. Considerando que $F$ es un vector columna, los polos de la dinámica del error están dados por
 \begin{align}
 \lvert A-FC-\lambda I\rvert
 &=
@@ -313,8 +322,12 @@ donde la salida es $\theta$ y el estado está dado por
 %---------------------------
 \begin{solution}
 
-\subsection*{Resolución 2.1}
-Consideremos el sistema con estado $\mathbf{x} = \begin{pmatrix} \theta \\ \dot{\theta} \end{pmatrix}$ y salida $y = \theta$. Luego los estados cero Son aquellos en los que la salida es nula. Como $y = \theta$, basta imponer $\theta = 0$, sin restricción sobre $\dot{\theta}$. Por lo tanto, existen infinitos estados cero de la forma:
+\subsection*{Resolución 2.1}]
+Recalcularemos todos los datos solicitados, pero nos interesara centrarnos en el ZOH, dado que este problema ya se vio con anterioridad. Consideremos el sistema con estado 
+\begin{align}
+\mathbf{x} = \begin{pmatrix} \theta \\ \dot{\theta} \end{pmatrix}
+\end{align}
+y la salida la definiremos como $y = \theta$. Luego los estados cero Son aquellos en los que la salida es nula. Como $y = \theta$, basta imponer $\theta = 0$, sin restricción sobre $\dot{\theta}$. Por lo tanto, existen infinitos estados cero de la forma:
 \begin{equation}
 \mathbf{x}_0 = \begin{pmatrix} 0 \\ \dot{\theta} \end{pmatrix}.
 \end{equation}
@@ -447,8 +460,8 @@ H(s)
 \begin{pmatrix}
 s&1\\[2pt]\frac{g}{l}&s
 \end{pmatrix}
-\begin{pmatrix}0\\[2pt]\frac{1}{l}\end{pmatrix}
-&=\frac{1/l}{s^{2}-\omega_{0}^{2}}
+\begin{pmatrix}0\\[2pt]\frac{1}{l}\end{pmatrix}\\
+&=\frac{1/l}{s^{2}-\omega_{0}^{2}}\\
 &=\frac{1/l}{(s+\omega_0)(s-\omega_0)}.
 \end{align}
 
@@ -462,15 +475,15 @@ H(s)=\frac{1/l}{(s+\omega_0)(s-\omega_0)}
 donde buscamos encontrar los valores que deben tener $\alpha$ y $\beta$, para lo cual utilizaremos el procedimiento ya visto. Evaluando para encontrar $\alpha$, tenemos
 \begin{align}
 \alpha
-&=H(s)\,(s+\omega_0)\big|_{s=-\omega_0}
-&=\frac{1/l}{s-\omega_0}\Big|_{s=-\omega_0}
+&=H(s)\,(s+\omega_0)\big|_{s=-\omega_0}\\
+&=\frac{1/l}{s-\omega_0}\Big|_{s=-\omega_0}\\
 &=-\frac{1}{2\omega_0 l}.
 \end{align}
 Por otra parte, para $\beta$ tenemos
 \begin{align}
 \beta
-&=H(s)\,(s-\omega_0)\big|_{s=\omega_0}
-&=\frac{1/l}{s+\omega_0}\Big|_{s=\omega_0}
+&=H(s)\,(s-\omega_0)\big|_{s=\omega_0}\\
+&=\frac{1/l}{s+\omega_0}\Big|_{s=\omega_0}\\
 &=\frac{1}{2\omega_0 l}.
 \end{align}
 Así, podemos expresar la función de transferencia como
@@ -513,7 +526,7 @@ Notemos que lo que nos interesa es obtener las ecuaciones diferenciales para cad
 
 Para $X_1$ tenemos
 \begin{align}
-X_1(s)&=\frac{U(s)}{s-\omega_0}
+X_1(s)&=\frac{U(s)}{s-\omega_0}\\
 \Leftrightarrow\; sX_1(s)-\omega_0 X_1(s)&=U(s).
 \end{align}
 Si aplicamos transformada inversa, podemos notar que el término $sX_1(s)$ corresponderá a la derivada de $x_1$, por lo que tenemos
@@ -565,6 +578,13 @@ e^{\omega_0 t}&0\\[2pt]
 \subsection*{Resolución 2.5}
 
 Para obtener el equivalente discreto, notemos que un ZOH tiene la función de retener el último valor de la señal. Este retenedor se puede modelar a través de una cierta función de transferencia, la cual, al aplicarla sobre el sistema original con función de transferencia $H(s)$, permite obtener la función de transferencia equivalente en dominio $Z$, a través de la siguiente expresión
+En la Figura~\ref{fig:2_5} se muestra el diagrama de bloques que ilustra el proceso de obtención del sistema discreto equivalente a partir del sistema continuo, considerando la acción de un Zero-Order Hold (ZOH). El ZOH es responsable de mantener constante el valor de la señal de entrada durante cada período de muestreo, permitiendo así la conversión de una señal continua en una secuencia de valores discretos que pueden ser procesados por el sistema digital.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Auxiliar_5_1}
+  \caption{Diagrama de bloques del proceso de discretización de un sistema continuo mediante un Zero-Order Hold (ZOH). El ZOH toma la señal continua y la convierte en una señal escalonada que mantiene el último valor muestreado hasta el siguiente instante de muestreo. Este bloque es fundamental para obtener el modelo discreto equivalente, ya que su acción, junto con la función de transferencia original $H(s)$, determina la función de transferencia en el dominio $Z$ que describe el comportamiento del sistema bajo muestreo y retención.}
+  \label{fig:2_5}
+\end{figure}
 \begin{equation}
 \tilde{H}(z)=\big(1-z^{-1}\big)\,\mathcal{Z}\!\left\{\mathcal{L}^{-1}\!\left\{\frac{H(s)}{s}\right\}\right\}.
 \end{equation}
@@ -599,7 +619,11 @@ por lo que tenemos
 \frac{1}{s-\omega_0}+\frac{1}{s+\omega_0}-\frac{2}{s}
 \right).
 \end{align}
-Luego, aplicando transformada inversa a $H(s)/s$ tenemos
+Luego, aplicando transformada inversa a $H(s)/s$, ademas considerando que:
+\begin{align}
+\mathcal{L}^{-1}\!\left\{\frac{1}{s-a}\right\}&=e^{at},
+\end{align}
+  la transformada inversa queda:
 \begin{align}
 \mathcal{L}^{-1}\!\left\{\frac{H(s)}{s}\right\}
 &=\frac{1}{2\omega_0^{2} l}
@@ -607,7 +631,7 @@ Luego, aplicando transformada inversa a $H(s)/s$ tenemos
 \mathcal{L}^{-1}\!\left\{\frac{1}{s-\omega_0}\right\}
 +\mathcal{L}^{-1}\!\left\{\frac{1}{s+\omega_0}\right\}
 -2\,\mathcal{L}^{-1}\!\left\{\frac{1}{s}\right\}
-\right)
+\right)\\
 &=\frac{1}{2\omega_0^{2} l}\left(e^{\omega_0 t}+e^{-\omega_0 t}-2u(t)\right),
 \end{align}
 donde es importante notar que, en el último término, $u(t)$ corresponde al escalón unitario, no a la entrada. Luego, para poder aplicar la transformada $Z$ debemos discretizar la señal, para lo cual consideramos $t=nT$ con $T$ el período de muestreo. Así, tenemos
@@ -658,17 +682,11 @@ En forma compacta,
 -2
 \right).}
 \end{equation}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Auxiliar_5_1}
-    \caption{Diagrama de bloques del sistema discreto equivalente al sistema continuo, considerando un ZOH.}
-    \label{fig:2_5}
-\end{figure}
 \subsection*{Resolución 2.6}
 
 Obtener la respuesta al impulso de un sistema discreto es análogo a obtenerla para un sistema continuo: dado que $H(z)=Y(z)/U(z)$, y dado que $\mathcal{Z}\{\delta(n)\}=1$, podemos ver que la respuesta al impulso corresponde a la antitransformada de la función de transferencia. Así, basta aplicar $\mathcal{Z}^{-1}$ al resultado obtenido de $\tilde{H}(z)$ para tener la respuesta al impulso. Haciendo esto, tenemos
 \begin{align}
-h(n)&=\mathcal{Z}^{-1}\{\tilde{H}(z)\}
+h(n)&=\mathcal{Z}^{-1}\{\tilde{H}(z)\}\\
 &=\frac{1}{2\omega_0^{2} l}\left(
 \mathcal{Z}^{-1}\!\left\{\frac{z-1}{z-e^{\omega_0 T}}\right\}
 +\mathcal{Z}^{-1}\!\left\{\frac{z-1}{z-e^{-\omega_0 T}}\right\}

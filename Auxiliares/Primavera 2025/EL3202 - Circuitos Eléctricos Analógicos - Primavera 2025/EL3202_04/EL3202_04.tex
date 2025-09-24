@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   %answers
+   answers
   ]{exam}
 \usepackage{../exercise-preamble}
 \usepackage{float}
@@ -45,7 +45,29 @@ Para el circuito de la Figura~\ref{fig:1}, si utiliza la expresión exacta $I(v_
     \label{fig:1}
 \end{figure}
 %----------------------------
+\newpage
 \begin{solution}
+Un diodo es un dispositivo semiconductor que permite el paso de corriente en una sola dirección y presenta caracteristicas no lineales. La curva $v$ -- $i$ se puede visualizar en la figura \ref{fig:th_norton_1}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Auxiliar_4_27}
+  \caption{Característica $v$--$i$ del diodo. Se observa la zona directa, donde para $v_D > 0{,}7\,$V (diodo de silicio) la corriente $i_D$ crece rápidamente y el diodo conduce; el umbral de conducción cerca de $0{,}7\,$V; la zona inversa, donde para $v_D < 0$ la corriente es muy pequeña (corriente inversa de saturación); y la zona de ruptura, donde si el voltaje inverso supera un valor crítico, la corriente inversa aumenta bruscamente. Estas regiones son fundamentales para el análisis de circuitos con diodos.}
+    \label{fig:th_norton_1}
+\end{figure}
+Ademas tenemos que la curva $v$ -- $i$ depende fuertemente de la temperatura a la cual estemos operando. Por otro lado la curva que modela el comportamiento del diodo viene dado por la ecuación de Shockley,
+\begin{align}
+    i_D &= I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) 
+\end{align}
+Donde cada termino corresponde a:
+\begin{itemize}
+    \item $i_D$: corriente a través del diodo.
+    \item $I_s$: corriente de saturación del diodo.
+    \item $v_D$: voltaje a través del diodo.
+    \item $\eta$: factor de idealidad del diodo el cual toma en cuenta las propiedades del material y para un caso ideal $\eta = 1$.
+    \item $V_T$: voltaje térmico, que depende de la temperatura.
+\end{itemize}
+Ademas existe el denominado punto de operacion, el cual describe el estado en el cual se encuentra el diodo, y este depende de la corriente y voltaje que lo atraviesan. El punto de operación se determina por la intersección entre la característica $v$--$i$ del diodo y la recta de carga del circuito externo al diodo. La recta de carga representa la relación entre voltaje y corriente impuesta por el circuito externo al diodo. La intersección con la característica $v$–$i$ del diodo determina el punto de operación.
+Volviendo sobre el problema se tiene enunciado, debemos utilizar la expresión exacta del diodo, considerando temperatura ambiente. Por lo tanto, tenemos que $V_{T}=25\,\mathrm{mV}$. La ecuación exacta que describe el comportamiento del diodo es:
 Por enunciado, debemos utilizar la expresión exacta del diodo, considerando temperatura ambiente. Por lo tanto, tenemos que $V_{T}=25\,\mathrm{mV}$. La ecuación exacta que describe el comportamiento del diodo es:
 \begin{align}
     i_D &= I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) \label{eq:shockley}\\
