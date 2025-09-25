@@ -66,74 +66,96 @@ Donde cada termino corresponde a:
     \item $\eta$: factor de idealidad del diodo el cual toma en cuenta las propiedades del material y para un caso ideal $\eta = 1$.
     \item $V_T$: voltaje térmico, que depende de la temperatura.
 \end{itemize}
-Ademas existe el denominado punto de operacion, el cual describe el estado en el cual se encuentra el diodo, y este depende de la corriente y voltaje que lo atraviesan. El punto de operación se determina por la intersección entre la característica $v$--$i$ del diodo y la recta de carga del circuito externo al diodo. La recta de carga representa la relación entre voltaje y corriente impuesta por el circuito externo al diodo. La intersección con la característica $v$–$i$ del diodo determina el punto de operación.
-Volviendo sobre el problema se tiene enunciado, debemos utilizar la expresión exacta del diodo, considerando temperatura ambiente. Por lo tanto, tenemos que $V_{T}=25\,\mathrm{mV}$. La ecuación exacta que describe el comportamiento del diodo es:
-Por enunciado, debemos utilizar la expresión exacta del diodo, considerando temperatura ambiente. Por lo tanto, tenemos que $V_{T}=25\,\mathrm{mV}$. La ecuación exacta que describe el comportamiento del diodo es:
+% Explicación adicional sobre el factor de idealidad
+El factor de idealidad $\eta$ toma valores típicos entre 1 y 2. Un valor \(\eta\approx 1\) corresponde a un comportamiento cercano al ideal (dominancia de difusión), mientras que \(\eta\approx 2\) indica efectos no ideales —por ejemplo, recombinación de portadores en la región de agotamiento— que hacen que la corriente crezca menos rápidamente con el voltaje aplicado. En este ejercicio se considera \(\eta=2\) según el enunciado.
+El denominado punto de operación del diodo corresponde al estado definido por la corriente y el voltaje que lo atraviesan. Este punto se determina por la intersección entre la curva característica $v$--$i$ del diodo y la recta de carga del circuito externo. La recta de carga expresa la relación entre voltaje y corriente impuesta por el resto del circuito, y su intersección con la característica del diodo establece el punto de operación, es decir, las condiciones reales de funcionamiento del dispositivo.
+
+Volviendo al enunciado en este ejercicio se empleará la expresión exacta del diodo (ecuación de Shockley) evaluada a temperatura ambiente. Tomamos el voltaje térmico $V_T=25\,\mathrm{mV}$, por lo que la ecuación que describe el comportamiento del diodo es:
 \begin{align}
     i_D &= I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) \label{eq:shockley}\\
-    &= 10^{-5}mA\left(e^{\frac{v_D}{2 \cdot 25[mV]}} - 1\right)\\
-    &=10^{-5}mA(e^{20v_{D}}-1)
+    &= 10^{-5}\,\mathrm{mA}\left(e^{\frac{v_D}{2 \cdot 25\,\mathrm{mV}}} - 1\right)\\
+    &=10^{-5}\,\mathrm{mA}\big(e^{20\,v_{D}}-1\big)
 \end{align}
-donde $I_s$ es la corriente de saturación y $\eta$ el factor de idealidad ($1 \leq \eta \leq 2$). En este ejercicio se considera $\eta = 2$ según el enunciado. Por la Ley de Corriente de Kirchhoff (LCK) en el nodo del diodo:
+donde $I_s$ es la corriente de saturación. En este ejercicio se considera $\eta = 2$ según el enunciado. Por la Ley de Corriente de Kirchhoff (LCK) en el nodo del diodo:
 \begin{align}
     i_1 &= i_2 + i_3 \\
 \frac{V_i - v_D}{R_1} &= \frac{v_D}{R_2} + I_s\left(e^{\frac{v_D}{\eta V_T}} - 1\right) \label{eq:kcl}
 \end{align}
- 
- Si suponemos que $v_D = 0{,}7\,\mathrm{V}$, el cual es un valor común para un diodo de silicio en conducción, tenemos:
-  \begin{align*}
+
+\textbf{Si suponemos que $v_D = 0{,}7\,\mathrm{V}$}, el cual es un valor común para un diodo de silicio en conducción, tenemos:
+\begin{align*}
     i_1 &= \frac{V_i - v_D}{R_1} = \frac{12 - 0{,}7}{10\,000}\ \mathrm{A} = 1{,}13\ \mathrm{mA} \\
     i_2 &= \frac{v_D}{R_2} = \frac{0{,}7}{10\,000}\ \mathrm{A} = 70\ \mu\mathrm{A} \\
     i_3 &= i_1 - i_2 = 1{,}06\ \mathrm{mA}
-  \end{align*}
-  Si en vez de $v_D = 0{,}7\,\mathrm{V}$ usamos $v_D = 0{,}6\,\mathrm{V}$:
-  \begin{align*}
+\end{align*}
+Si en vez de $v_D = 0{,}7\,\mathrm{V}$ usamos $v_D = 0{,}6\,\mathrm{V}$:
+\begin{align*}
     i_1 &= \frac{12 - 0{,}6}{10\,000} = 1{,}14\ \mathrm{mA} \\
     i_2 &= \frac{0{,}6}{10\,000} = 60\ \mu\mathrm{A} \\
     i_3 &= i_1 - i_2 = 1{,}08\ \mathrm{mA}
-  \end{align*}
-Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo que puede parecer contradictorio, pero esto se debe al punto de operación en el que se encuentra el diodo. Ahora analizaremos dos situaciones límite para el diodo:
+\end{align*}
+Vemos que obtenemos valores bastante pequeños para la corriente del diodo, lo que puede parecer contradictorio, pero esto se debe al punto de operación en el que se encuentra el diodo. En efecto, como $i_D$ depende de $v_D$, al fijar a priori un valor (p.\,ej., $0{,}6$–$0{,}7\,\mathrm{V}$) estamos usando un \emph{modelo de caída constante}; así, $i_3=i_1-i_2$ es consistente con esa suposición, pero no necesariamente con la ecuación de Shockley. Para hallar el punto de operación coherente con el modelo exacto debe resolverse por $v_D$ la ecuación no lineal
+\[
+g(v_D)\equiv \frac{V_i-v_D}{R_1}-\frac{v_D}{R_2}-I_s\!\left(e^{\frac{v_D}{\eta V_T}}-1\right)=0,
+\]
+y luego calcular $i_1$, $i_2$ e $i_D$ con ese $v_D^\star$, cumpliéndose exactamente $i_D=i_1-i_2$. En este circuito se obtiene numéricamente $v_D^\star\approx 0{,}58\,\mathrm{V}$, $i_1\approx 1{,}142\,\mathrm{mA}$, $i_2\approx 0{,}058\,\mathrm{mA}$ e $i_D\approx 1{,}084\,\mathrm{mA}$, lo que explica por qué imponer $v_D=0{,}6$–$0{,}7\,\mathrm{V}$ sobrestima el voltaje directo o no cuadra con la recta de carga. Ahora analizaremos dos situaciones límite para el diodo:
 \begin{itemize}
-    \item \textbf{Caso 1: Diodo en corte ($i_D = 0$)}. El diodo no conduce corriente y se comporta como un circuito abierto:
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.4\textwidth]{Auxiliar_4_10}
-      \caption{Circuito con diodo abierto.}
-      \label{fig:th_norton_2}
-    \end{figure}
-  El voltaje en el diodo será:
-    \begin{align*}
-        12 &= (R_1 + R_2)i \\
-        i &= \frac{12}{20\,000} = 0{,}6\ \mathrm{mA} \\
-        v_D &= R_2 i = 10\,000 \times 0{,}6\ \mathrm{mA} = 6\ \mathrm{V}
-    \end{align*}
-    \item \textbf{Caso 2: Diodo en conducción (cortocircuito ideal)}. El diodo conduce y se comporta como un corto:
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=0.4\textwidth]{Auxiliar_4_11}
-      \caption{Circuito con diodo en corto circuito.}
-      \label{fig:th_norton_3}
-    \end{figure}
-  En este caso, por la resistencia $R_2$ no circula corriente alguna:
-    \begin{align*}
-        12 &= R_1 i \\
-        i &= \frac{12}{10\,000} = 1{,}2\ \mathrm{mA}
-    \end{align*}
-    Cuando $v_D = 0$, la corriente es $1{,}2\ \mathrm{mA}$.
+  \item \textbf{Caso 1: diodo en corte ($i_D=0$).} El diodo no conduce y equivale a un circuito abierto; sólo circula corriente por $R_1$ y $R_2$ en serie:
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Auxiliar_4_10}
+    \caption{Circuito con el diodo abierto.}
+    \label{fig:th_norton_2}
+  \end{figure}
+  \vspace{-0.6em}
+  \[
+    12 = (R_1+R_2)\,i
+    \;\;\Rightarrow\;\;
+    i=\frac{12}{20\,000}=0{,}6~\mathrm{mA},
+    \qquad
+    v_D = i\,R_2 = 6~\mathrm{V}.
+  \]
+  Es decir, el eje $v_D$ corta a la recta de carga en $v_D=6~\mathrm{V}$ cuando $i_D=0$.
+
+  \item \textbf{Caso 2: diodo en conducción (cortocircuito ideal).} El diodo se modela como un corto; el nodo queda forzado a $v_D=0$ y por $R_2$ no circula corriente:
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Auxiliar_4_11}
+    \caption{Circuito con el diodo en cortocircuito.}
+    \label{fig:th_norton_3}
+  \end{figure}
+  \vspace{-0.6em}
+  \[
+    12 = R_1\,i
+    \;\;\Rightarrow\;\;
+    i=\frac{12}{10\,000}=1{,}2~\mathrm{mA},
+    \qquad
+    v_D=0.
+  \]
+  Así, el eje $i_D$ corta a la recta de carga en $i_D=1{,}2~\mathrm{mA}$ cuando $v_D=0$.
 \end{itemize}
 
-La recta de carga representa la relación entre voltaje y corriente impuesta por el circuito externo al diodo. La intersección con la característica $v$–$i$ del diodo dada por \eqref{eq:shockley} determina el punto de operación. En este caso, el voltaje de intersección resulta menor que $0{,}6\,\mathrm{V}$ y, por la forma exponencial de \eqref{eq:shockley}, la corriente del diodo queda del orden de miliamperes. Para aumentar la corriente de operación, habría que modificar la recta de carga (por ejemplo, disminuyendo las resistencias o aumentando $V_i$).
+Los dos casos límite anteriores fijan los \emph{interceptos} de la recta de carga del circuito externo en el plano $(v_D,i_D)$. Para cualquier $v_D\in[0,6]~\mathrm{V}$, la relación impuesta por $R_1$ y $R_2$ viene dada por
+\[
+  i_D \;=\; \frac{V_i - v_D}{R_1} \;-\; \frac{v_D}{R_2},
+\]
+que es precisamente la \emph{recta de carga} (pasa por los puntos $(v_D,i_D)=(0,1{,}2~\mathrm{mA})$ y $(6~\mathrm{V},0)$).
+La intersección entre esta recta y la característica no lineal del diodo \eqref{eq:shockley} determina el \emph{punto de operación}. En este circuito, dicha intersección ocurre para un voltaje directo algo menor que $0{,}6~\mathrm{V}$ (numéricamente, $\approx 0{,}58~\mathrm{V}$), por lo que, debido al crecimiento exponencial de \eqref{eq:shockley}, la corriente de operación resulta del orden de los miliamperes. Para desplazar el punto de operación hacia corrientes mayores sería necesario \emph{endurecer} la recta de carga (por ejemplo, disminuyendo $R_1$ y/o $R_2$ o aumentando $V_i$).
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{Auxiliar_4_2}
-  \caption{Intersección entre la característica $v$–$i$ del diodo y la recta de carga del equivalente de Thévenin.}
+  \caption{Punto de operación: intersección entre la característica $v$–$i$ del diodo y la recta de carga del circuito.}
   \label{fig:th_norton_6}
 \end{figure}
-
-
+Entonces, de manera visual, el punto de intersección (punto de operación) queda aproximadamente en:
+\begin{align}
+  v_D^\star &\approx 0{,}58~\mathrm{V}, &
+  i_D^\star &\approx 1{,}08~\mathrm{mA}.
+\end{align}
+Los cuales son los mismos obtenidos con anterioridad.
 \end{solution}
-\newpage
+
 %----------------------------
     \question Un diodo Zener con característica $v$--$i$, como la mostrada en la Figura 5a), tiene un voltaje de Zener
     $V_{ZK}=3\ \mathrm{V}$. Determine la corriente $i_X$ en los dos circuitos mostrados en la figura \ref{fig:ex4c}. Sea explícito en los modelos y supuestos utilizados.  
@@ -159,63 +181,67 @@ La recta de carga representa la relación entre voltaje y corriente impuesta por
   \label{fig:ex4ab}
 \end{figure}
 
-% --- Hueco para la figura de detalle v-i ---
+
 \begin{figure}[H]
-  \centering  \includegraphics[width=0.8\textwidth]{Auxiliar_4_7}
+  \centering  \includegraphics[width=0.9\textwidth]{Auxiliar_4_7}
   \caption{Detalle: (izquierda) símbolo del diodo Zener con convención de corriente $i_Z$ y polaridad de $v_Z$; (derecha) característica $v$--$i$ esquemática del diodo (ruptura inversa alrededor de $-V_{ZK}$).}
   \label{fig:ex4c}
 \end{figure}
 
+
 %----------------------------
+
 \begin{solution}
-
-Similar a lo anterior, tenemos que el primer paso en este problema es encontrar la recta de carga que describe a la fuente de voltaje y a la resistencia de Thévenin. Para esto notemos que cuando la corriente \(i_X\) es igual a cero, entonces no hay una caída de voltaje en la resistencia, por lo que el voltaje \(v_X\) es igual al voltaje de la fuente, es decir, \(6~\text{V}\). Si el voltaje \(v_X\) es cero, entonces el diodo actúa como un cortocircuito y tenemos que la corriente \(i_X\) está dada por \(6~\text{V}/1~\text{k}\Omega = 6~\text{mA}\). Con estos dos puntos podemos graficar la recta de carga para ambos circuitos.
-
-\medskip
-En el circuito de la Figura~\ref{fig:carac-v-i}, se cumple aproximadamente que:
+Similar a lo anterior, el primer paso es trazar la \emph{recta de carga} del equivalente de Thévenin (fuente de $6~\text{V}$ en serie con $R_{\text{Th}}=1~\text{k}\Omega$). Por lo que primeramente nos centramos en sus interceptos se obtienen de:
+\begin{align}
+i_X&=0 \;\Rightarrow\; v_X=6~\text{V},\\
+v_X&=0 \;\Rightarrow\; i_X=\frac{6}{1\,000}=6~\text{mA}.
+\end{align}
+Luego obtenemos mediante los dos puntos anteriores la recta de carga del circuito externo:
+\begin{align}
+i_X \;=\; \frac{6-v_X}{R_{\text{Th}}}
+\;=\; \frac{6-v_X}{1\,000}.
+\end{align}
+En el circuito de la Figura~\ref{fig:carac-v-i}, aproximamos la característica del diodo por tramos:
 \begin{align*}
-&\text{Cuando } v_X > 0{,}7~\text{V} \;\Rightarrow\; v_Z = 0{,}7~\text{V},\\
-&\text{Cuando } v_X < -3~\text{V} \;\Rightarrow\; v_Z = -3~\text{V}.
+&\text{Directa:}\quad v_X>0{,}7~\text{V}\;\Rightarrow\; v_Z \approx 0{,}7~\text{V},\\
+&\text{Ruptura:}\quad v_X<-3~\text{V}\;\Rightarrow\; v_Z \approx -3~\text{V}.
 \end{align*}
-
-Si usamos el modelo de fuente de voltaje con \(v_Z = 0{,}7~\text{V}\), tenemos que la corriente es:
-\[
-i_X \;=\; \frac{6 - 0{,}7}{1000} \;=\; 5{,}3~\text{mA}.
-\]
+Bajo la hipótesis de que la fuente tiene un valor de  $0{,}7$ V en directa, la corriente de operación resulta 
+\begin{align}
+i_X \;=\; \frac{6-0{,}7}{1\,000} \;=\; 5{,}3~\text{mA},
+\end{align}
+valor que coincide, dentro de la aproximación, con el cruce visual entre la recta de carga y la curva del diodo.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{Auxiliar_4_8}
-  \caption{Curva característica \(v\)-\(i\) del voltaje \(v_X\) (curva azul). 
-  Se intersecta la recta de carga (curva verde) con esta curva exponencial, para encontrar el punto de operación. 
-  Los puntos verdes de los extremos de la recta corresponden a los puntos usados para generarla. 
-  El punto verde del medio es el punto de operación del diodo si asumimos que el voltaje máximo es de \(0{,}7~\text{V}\). 
-  Notemos que este punto está suficientemente cerca de la intersección real entre ambas curvas, por lo que el modelo de fuente de voltaje es una aproximación razonable.}
+  \includegraphics[width=0.5\textwidth]{Auxiliar_4_8}
+  \caption{Curva $v$--$i$ del voltaje $v_X$ (azul) y recta de carga del equivalente (verde). Ejes: $v_X$ (V) horizontal e $i_X$ (mA) vertical. Los interceptos de la recta en este ejemplo son $v_X=6\,$V e $i_X=6\,$mA. La intersección curva/recta fija el punto de operación: en la región directa $v\approx V_f\simeq0{,}7\,$V, en la región de ruptura el voltaje queda próximo a $-V_{ZK}$. Cambiar $R_{\text{Th}}$ o la fuente desplaza la recta y, por tanto, el punto de operación.}
   \label{fig:carac-v-i}
 \end{figure}
-% --- Fragmento listo para pegar en tu documento ---
 
 
-Luego, para el circuito de la derecha, se cumplirá que:
+Para el circuito de la derecha (Figura~\ref{fig:iv-diodo}), con el Zener invertido, la región relevante es la de \emph{ruptura inversa}:
 \begin{align*}
-&\text{Cuando } v_X > 3~\text{V} \;\Rightarrow\; v_Z = -3~\text{V},\\
-&\text{Cuando } v_X < 0.7~\text{V} \;\Rightarrow\; v_Z = 0.7~\text{V}.
+&\text{Ruptura:}\quad v_X>3~\text{V}\;\Rightarrow\; v_Z \approx -3~\text{V},\\
+&\text{Directa:}\quad v_X<0{,}7~\text{V}\;\Rightarrow\; v_Z \approx 0{,}7~\text{V}.
 \end{align*}
+Adoptando el modelo de \emph{fuente de \(-3\) V} en ruptura,
+\begin{align}
+i_X \;=\; \frac{6-3}{1\,000} \;=\; 3~\text{mA},
+\end{align}
+en concordancia con el punto de intersección observado en la gráfica (tener presente la convención de signos: el Zener está invertido, por lo que en la figura la región de ruptura aparece hacia $+v_X$ y la corriente cambia de signo).
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{Auxiliar_4_9}
-  \caption{Característica $v$--$i$ del voltaje $v_X$ (recordar que el diodo Zener está invertido, por lo que la región de polarización inversa, que corresponde a voltajes negativos para el diodo Zener, en este gráfico está como voltajes positivos. Notar que la corriente también cambia de signo por la misma razón). Se intersecta la recta de carga con esta curva exponencial, para encontrar el punto de operación.}
-
+  \includegraphics[width=0.5\textwidth]{Auxiliar_4_9}
+  \caption{Característica $v$--$i$ de $v_X$ (azul) y recta de carga (verde) para el circuito con Zener invertido. Ejes: $v_X$ (V) horizontal e $i_X$ (mA) vertical. En ruptura inversa el diodo mantiene $v_X\approx -V_{ZK}$ (aquí $V_{ZK}=3\,$V) y la recta de carga intersecta dicha rama dando $i_X\approx3\,$mA en el ejemplo mostrado.}
   \label{fig:iv-diodo}
 \end{figure}
-Si usamos el modelo de fuente de voltaje con \(v_Z = -3~\text{V}\), tenemos que la corriente es:
-\begin{align}
-i_X \;=\; \frac{6 -3 }{1000} \;=\; 3~\text{mA}.
-\end{align}
 \end{solution}
+
 %----------------------------
-\newpage
+
 \question Para el circuito de la figura \ref{fig:3}, bosqueje el voltaje en el diodo y la corriente en el diodo como función del tiempo. Sea explícito en los valores de las gráficas, así como en los modelos y supuestos utilizados.
 \begin{figure}[H]
   \centering
@@ -223,68 +249,86 @@ i_X \;=\; \frac{6 -3 }{1000} \;=\; 3~\text{mA}.
   \caption{Circuito con diodo y fuente de voltaje senoidal.}
   \label{fig:3}
 \end{figure}
-\begin{solution}
-Para poder entender cómo funciona el diodo en presencia de una fuente de voltaje senoidal, primero debemos analizar diferentes puntos, los cuales se visualizan en la tabla \ref{tab:diodo-operacion}:
+%----------------------------
 
+\begin{solution}
+Para clarificar el funcionamiento con $v_{\text{Th}}(t)=10\sin(\omega t)\,[\text{V}]$ y $R_{\text{Th}}=1~\text{k}\Omega$, usaremos el modelo por tramos del diodo:
+\begin{align}
+\text{Directa (ON):}\quad &v_D(t)\approx V_f\simeq 0{,}7~\text{V}, & i_D(t)\approx \frac{v_{\text{Th}}(t)-V_f}{R_{\text{Th}}}\ \ (\ge 0),\\
+\text{Inversa (OFF):}\quad &i_D(t)\approx -I_s\approx 0, & v_D(t)\approx v_{\text{Th}}(t),
+\end{align}
+El diodo entra en conducción cuando $v_{\text{Th}}(t)\ge V_f$. Con este criterio, evaluamos algunos instantes clave del ciclo (nótese que en inversa hemos dejado $\approx -I_s$ para resaltar que es \emph{muy} pequeña frente a los mA en directa):
 \begin{table}[H]
   \centering
   \begin{tabular}{c c c c c c}
     \hline
-    Punto de operación & $\omega t$ & $\sin(\omega t)$ & $v_{Th}(t)$ (V) & $v_D$ (V) & $i_D$ (mA) \\
+    Punto de operación & $\omega t$ & $\sin(\omega t)$ & $v_{\text{Th}}(t)$ (V) & $v_D$ (V) & $i_D$ (mA) \\
     \hline
-    3 & 0 & 0 & 0 & 0 & 0 \\
-    2 & $\pi/6$ & 1/2 & 5 & 0.7 & 4.3 \\
-    1 & $\pi/2$ & 1 & 10 & 0.7 & 9.3 \\
-    2 & $5\pi/6$ & 1/2 & 5 & 0.7 & 4.3 \\
-    3 & $\pi$ & 0 & 0 & 0 & 0 \\
-    4 & $7\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
-    5 & $3\pi/2$ & -1 & -10 & -10 & $\approx -I_s$ \\
-    4 & $11\pi/6$ & -1/2 & -5 & -5 & $\approx -I_s$ \\
-    3 & $2\pi$ & 0 & 0 & 0 & 0 \\
+    3 & $0$ & $0$ & $0$ & $0$ & $0$ \\
+    2 & $\pi/6$ & $1/2$ & $5$ & $0.7$ & $\dfrac{5-0.7}{1000}=4.3$ \\
+    1 & $\pi/2$ & $1$ & $10$ & $0.7$ & $\dfrac{10-0.7}{1000}=9.3$ \\
+    2 & $5\pi/6$ & $1/2$ & $5$ & $0.7$ & $4.3$ \\
+    3 & $\pi$ & $0$ & $0$ & $0$ & $0$ \\
+    4 & $7\pi/6$ & $-1/2$ & $-5$ & $-5$ & $\approx -I_s\ (\approx 0)$ \\
+    5 & $3\pi/2$ & $-1$ & $-10$ & $-10$ & $\approx -I_s\ (\approx 0)$ \\
+    4 & $11\pi/6$ & $-1/2$ & $-5$ & $-5$ & $\approx -I_s\ (\approx 0)$ \\
+    3 & $2\pi$ & $0$ & $0$ & $0$ & $0$ \\
     \hline
   \end{tabular}
   \caption{Valores de voltaje y corriente en el diodo para distintos puntos de operación durante un ciclo senoidal.}
   \label{tab:diodo-operacion}
 \end{table}
-Luego, el punto de operación del diodo se ve modificado continuamente debido a la naturaleza senoidal de la fuente de voltaje; esto se observa en:
+a variación del punto de operación con el tiempo se visualiza en:
 \begin{figure}[H]
     \centering
-\includegraphics[width=0.7\textwidth]{Auxiliar_4_17}
-    \caption{Voltaje de Thévenin $v_{Th}(t)$ como función del tiempo.}
+    \includegraphics[width=0.5\textwidth]{Auxiliar_4_17}
+    \caption{Voltaje de Thévenin $v_{\text{Th}}(t)=10\sin(\omega t)$ como función del tiempo.}
     \label{fig:voltaje-th}
 \end{figure}
 
+\noindent Dependiendo del signo y magnitud instantánea de $v_{\text{Th}}(t)$, el circuito se reduce a:
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Auxiliar_4_13}
+    \caption{Diodo abierto ($i_D(t)\approx 0$) cuando $v_{\text{Th}}(t)<V_f$.}
+    \label{fig:diodo-abierto}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{Auxiliar_4_14}
+    \caption{Diodo conduciendo ($v_D\approx V_f$) cuando $v_{\text{Th}}(t)\ge V_f$.}
+    \label{fig:diodo-conduce}
+  \end{subfigure}
+  \caption{Modelos instantáneos del circuito con diodo.}
+  \label{fig:diodo-operacion-casos}
+\end{figure}
+Gráficamente:
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=0.9\linewidth]{Auxiliar_4_13}
-    \caption{Circuito equivalente cuando el diodo no conduce ($i_D(t) = 0$).}
-    \label{fig:diodo-abierto}
+    \includegraphics[width=\linewidth]{Auxiliar_4_15}
+    \caption{Forma de $v_D(t)$: durante cada semionda positiva, cuando $v_{\text{Th}}(t)\ge V_f$, el diodo entra en polarización directa y el voltaje queda "recortado" cerca de la caída de conducción $V_f$ (modelo por tramos $v_D\approx V_f$); en los intervalos donde $v_{\text{Th}}(t)<V_f$ (polarización inversa) el diodo está esencialmente abierto y $v_D(t)$ sigue la tensión de la fuente $v_{\text{Th}}(t)$. En términos angulares, la conducción ocurre entre los instantes en que $10\sin(\omega t)=V_f$, y el resto del ciclo el diodo permanece bloqueado.}
+    \label{fig:voltaje-corriente-diodo}
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.48\textwidth}
     \centering
-    \includegraphics[width=0.9\linewidth]{Auxiliar_4_14}
-    \caption{Circuito equivalente cuando el diodo conduce ($i_D(t) > 0$).}
-    \label{fig:diodo-conduce}
-  \end{subfigure}
-  \caption{Modelos de operación del circuito con diodo: (a) abierto, (b) conduciendo.}
-  \label{fig:diodo-operacion-casos}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.55\textwidth]{Auxiliar_4_15}
-  \caption{Gráfico de voltaje vs $\omega t$. Cuando el voltaje en la entrada es positivo, el voltaje medido en el diodo llega hasta un máximo de $V_f$. Cuando el voltaje en la entrada es negativo, el voltaje en la salida es igual al voltaje en la entrada por las razones descritas anteriormente.}
-    \label{fig:voltaje-corriente-diodo}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.55\textwidth]{Auxiliar_4_16}
-  \caption{Sólo pasa corriente por el diodo cuando el voltaje es positivo (polarización directa en el diodo), porque cuando es negativo (polarización inversa en este diodo), el diodo actúa como un circuito abierto.}
+    \includegraphics[width=\linewidth]{Auxiliar_4_16}
+    \caption{Forma de $i_D(t)$: la corriente es apreciable sólo durante los intervalos en que la fuente supera el umbral de conducción $V_f$ (polarización directa), quedando prácticamente nula en polarización inversa (solo circula la pequeña corriente de saturación $I_s$). El pulso de corriente durante cada semionda positiva tiene forma aproximadamente parabólica cuando se considera la dependencia con $\sin(\omega t)$; su máximo se alcanza en $\omega t=\pi/2$ y, con los datos del ejercicio, valdría $i_{D,\max}=9{,}3\,$mA.}
     \label{fig:voltaje-corriente-diodo-detalle}
+  \end{subfigure}
+  \caption{(a) Voltaje instantáneo en el diodo $v_D(t)$ y (b) corriente en el diodo $i_D(t)$ durante un ciclo de $v_{\text{Th}}(t)=10\sin(\omega t)$. En (a) se aprecia el recorte a $V_f$ durante la conducción; en (b) se muestra el pulso de corriente correspondiente y su valor máximo.}
+  \label{fig:voltaje-corriente-diodo-combined}
 \end{figure}
+
+Esta construcción coincide con el método gráfico de \emph{rectas de carga instantáneas}:
+la pendiente es constante $-1/R_{\text{Th}}$ y la ordenada varía con $v_{\text{Th}}(t)$, generando los puntos de operación mostrados en la figura de referencia.
+
 \end{solution}
 %----------------------------
+
 \question Sea el esquema visto en \ref{fig:P2_17} responda lo siguiente, considerando la fuente de voltaje que ahi aparece.
 \begin{enumerate}
     \item Represente (bosqueje) \(v_o\) en función del tiempo para el circuito de la Figura~\ref{fig:P2_17} (Lado izquierdo)
@@ -301,69 +345,94 @@ Luego, el punto de operación del diodo se ve modificado continuamente debido a 
     \label{fig:P2_17}
 \end{figure}
 %----------------------------
+
 \begin{solution}
     \subsection*{Resolucion 4.1}
-    Se busca el voltaje \(v_o(t)\) en función del tiempo. Para esto, se analiza el circuito en dos casos: cuando la fuente de voltaje es positiva y cuando es negativa, es decir tenemos esto:
+   
+Se desea bosquejar \(v_o(t)\). Con diodos ideales (\(V_\gamma=0\)), el análisis se hace por casos según el signo de \(v_i\). En cada caso, el diodo se reemplaza por su modelo ON (corto) u OFF (abierto), como se muestra en las Figuras~\ref{fig:resolucion4.1a} y \ref{fig:resolucion4.1b}.
 
-  \begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-      \centering
-    \includegraphics[width=1\linewidth]{Auxiliar_4_19}
-     \caption{Caso 1: Fuente positiva. El diodo $D_1$ conduce cuando $v_i > 0$, permitiendo el paso de corriente hacia la carga.}
-      \label{fig:resolucion4.1a}
-    \end{subfigure}\hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-      \centering
-      \includegraphics[width=1\linewidth]{Auxiliar_4_20}
-     \caption{Caso 2: Fuente negativa. El diodo $D_2$ conduce cuando $v_i < 0$, permitiendo el paso de corriente hacia la carga en sentido opuesto.}
-      \label{fig:resolucion4.1b}
-    \end{subfigure}
-    \caption{Análisis de los dos casos para el circuito: (a) fuente positiva y conducción por $D_1$, (b) fuente negativa y conducción por $D_2$.}
-  \label{fig:resolucion4.1}
-  \end{figure}
-Luego tenemos que al bosquejar se obtiene lo siguiente:
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Auxiliar_4_21}
-  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_4_19}
+    \caption{\textbf{Caso A:} \(v_i>0\) $\Rightarrow$ \(D_1\) está OFF y \(D_2\) está ON.}
+    \label{fig:resolucion4.1a}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_4_20}
+    \caption{\textbf{Caso B:} \(v_i<0\) $\Rightarrow$ \(D_1\) está ON y \(D_2\) está OFF.}
+    \label{fig:resolucion4.1b}
+  \end{subfigure}
+  \caption{Modelo ON/OFF del diodo para cada semiciclo. En ambos casos, visto desde \(v_o\) el diagrama reducido es del mismo tipo: o bien \(v_o\) queda \emph{fijado} por la fuente (diodo ON) o bien queda \emph{aislado} de la fuente (diodo OFF) y conectado a tierra por las resistencias.}
+  \label{fig:resolucion4.1}
+\end{figure}
+
+Para facilitar el equivalente, conviene \emph{etiquetar nodos} y reordenar el circuito (sin cambiar conexiones). Así se obtiene el esquema de la Figura~\ref{fig:equivalente-vo}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.30\textwidth]{Auxiliar_4_22}
+  \caption{Esquema equivalente “visto” desde \(v_o\), \textbf{idéntico en ambos semiciclos}. Con el diodo ON, \(v_o\) queda fijado por la fuente (corto ideal); con el diodo OFF, \(v_o\) queda aislado de la fuente y desciende a \(0\) a través de las ramas resistivas.}
+  \label{fig:equivalente-vo}
+\end{figure}
+
+La consecuencia importante es que, por simetría, la forma del circuito \emph{desde \(v_o\)} es equivalente para \(v_i>0\) y \(v_i<0\). Por ello, el nodo \(v_o\) resulta siempre no negativo: en el semiciclo positivo sigue a la fuente; en el semiciclo negativo el arreglo con el diodo opuesto produce el mismo efecto visto desde \(v_o\). Con diodos ideales y fuente ideal, esto se traduce en una \textbf{rectificación de onda completa}:
+\[
+v_o(t)=|\,v_i(t)\,|.
+\]
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.70\textwidth]{Auxiliar_4_21}
+  \caption{Bosquejo de \(v_o(t)\): rectificación de onda completa. Para \(v_i(t)=10\sin(\omega t)\,\text{V}\) ideal, los máximos de \(v_o\) alcanzan \(10\,\text{V}\) y los semiciclos negativos se reflejan hacia arriba.}
   \label{fig:voltaje-salida-4.1}
 \end{figure}
-Vemos que la amplitud del voltaje disminuye a la mitad, lo cual se puede comprobar si se realiza el circuito, es decir
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.4\textwidth]{Auxiliar_4_22}
-  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
-  \label{fig:voltaje-salida-4.1-2}
-\end{figure}
-Esto se debe a que el circuito actúa como un divisor de voltaje.
-    \subsection*{Resolucion 4.2}
-  De manera similar a lo anterior, se analiza el circuito en dos casos: cuando la fuente de voltaje es positiva y cuando es negativa, es decir, tenemos esto:
 
-    \begin{figure}[H]
-      \centering
-      \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{Auxiliar_4_23}
-        \caption{Caso 1: Fuente positiva. El diodo $D_2$ conduce cuando $v_i > 0$, permitiendo el paso de corriente hacia la carga.}
-        \label{fig:resolucion4.2a}
-      \end{subfigure}\hfill
-      \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{Auxiliar_4_24}
-        \caption{Caso 2: Fuente negativa. El diodo $D_1$ conduce cuando $v_i < 0$, permitiendo el paso de corriente hacia la carga en sentido opuesto.}
-        \label{fig:resolucion4.2b}
-      \end{subfigure}
-      \caption{Análisis de los dos casos para el circuito: (a) fuente positiva y conducción por $D_2$, (b) fuente negativa y conducción por $D_1$.}
-      \label{fig:resolucion4.2}
-    \end{figure}
-Luego tenemos que al bosquejar se obtiene lo siguiente:
+
+    \subsection*{Resolucion 4.2}
+  De manera análoga al caso anterior, analizamos el circuito con diodos ideales (\(V_\gamma=0\)) por casos según el signo de \(v_i\). En cada semiciclo, cada diodo se reemplaza por su modelo ON (corto) u OFF (abierto), como se muestra en las Figuras~\ref{fig:resolucion4.2a} y \ref{fig:resolucion4.2b}.
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.7\textwidth]{Auxiliar_4_26}
-  \caption{Voltaje de salida \(v_o(t)\) en función del tiempo, mostrando la forma de onda resultante del circuito con diodos.}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_4_23}
+    \caption{\textbf{Caso 1:} \(v_i>0\). Conduce \(D_2\) (ON) y el otro diodo queda en OFF. El nodo \(v_o\) queda fijado por la fuente a través del corto ideal.}
+    \label{fig:resolucion4.2a}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_4_24}
+    \caption{\textbf{Caso 2:} \(v_i<0\). Conduce \(D_1\) (ON) y el otro diodo queda en OFF. Por simetría, el nodo \(v_o\) vuelve a quedar fijado por la fuente (con polaridad reflejada por el diodo).}
+    \label{fig:resolucion4.2b}
+  \end{subfigure}
+  \caption{Modelo ON/OFF en cada semiciclo. En ambos casos, visto desde \(v_o\), el diagrama reducido es del mismo tipo: el diodo conductor “pega” \(v_o\) a la fuente; el diodo bloqueado aísla la rama opuesta.}
+  \label{fig:resolucion4.2}
+\end{figure}
+
+Para facilitar el análisis, es útil \emph{etiquetar nodos} y reordenar el circuito sin cambiar conexiones. Con lo que se obtiene lo visto en \ref{fig:equivalente-vo-2}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.44\textwidth]{Auxiliar_4_25}
+  \caption{Esquema equivalente desde \(v_o\) (válido en ambos semiciclos). El diodo que conduce fija \(v_o\) al valor instantáneo de la fuente; la rama opuesta queda aislada.}
+  \label{fig:equivalente-vo-2}
+\end{figure}
+
+Por lo que por la simetría de la red y el modelo ideal de los diodos, el circuito realiza una \textbf{rectificación de onda completa}:
+\[
+  v_o(t)=|\,v_i(t)\,|.
+\]
+Es decir, \(v_o\) sigue el valor absoluto de la fuente: los semiciclos negativos se reflejan hacia arriba.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.80\textwidth]{Auxiliar_4_26}
+  \caption{Bosquejo/simulación de \(v_o(t)\): rectificación de onda completa (picos iguales a los de \(v_i\) si el diodo es ideal).}
   \label{fig:voltaje-salida-4.2}
 \end{figure}
+
 \end{solution}
 \end{questions}
 \end{document}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  25 SEP 2025 12:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  25 SEP 2025 16:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex"
-(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Ejercicio_01/Ejercicio_01.tex
+**"c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_04/EL3202_04.tex"
+(c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_04/EL3202_04.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -105,12 +105,8 @@ File: size11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 \exam@FrameRule=\dimen143
 \exam@FrameSep=\dimen144
 ) (../exercise-preamble.sty
-
-LaTeX Warning: You have requested package `',
-               but the package provides `../exercise-preamble'.
-
-Package: ../exercise-preamble 2023/04/30 Prof. Cassanelli custom LaTeX style
-(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: ../exercise-preamble 2023/01/01 v1.0 Exercise preamble
+ (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -859,64 +855,51 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box103
 \@float@everytoks=\toks59
 \@floatcapt=\box104
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen348
-\lightrulewidth=\dimen349
-\cmidrulewidth=\dimen350
-\belowrulesep=\dimen351
-\belowbottomsep=\dimen352
-\aboverulesep=\dimen353
-\abovetopsep=\dimen354
-\cmidrulesep=\dimen355
-\cmidrulekern=\dimen356
-\defaultaddspace=\dimen357
-\@cmidla=\count392
-\@cmidlb=\count393
-\@aboverulesep=\dimen358
-\@belowrulesep=\dimen359
-\@thisruleclass=\count394
-\@lastruleclass=\count395
-\@thisrulewidth=\dimen360
+) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count392
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count393
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 18.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 14.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count396
+\l__color_backend_stack_int=\count394
 \l__pdf_internal_box=\box105
-) (Ejercicio_01.aux)
-\openout1 = `Ejercicio_01.aux'.
+) (EL3202_04.aux)
+\openout1 = `EL3202_04.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count397
-\scratchdimen=\dimen361
+\scratchcounter=\count395
+\scratchdimen=\dimen348
 \scratchbox=\box106
-\nofMPsegments=\count398
-\nofMParguments=\count399
+\nofMPsegments=\count396
+\nofMParguments=\count397
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count400
-\MPscratchDim=\dimen362
-\MPnumerator=\count401
-\makeMPintoPDFobject=\count402
+\MPscratchCnt=\count398
+\MPscratchDim=\dimen349
+\MPnumerator=\count399
+\makeMPintoPDFobject=\count400
 \everyMPtoPDFconversion=\toks61
 ) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -968,92 +951,204 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 18.
-Package hyperref Info: Link coloring ON on input line 18.
- (Ejercicio_01.out) (Ejercicio_01.out)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 14.
+Package hyperref Info: Link coloring ON on input line 14.
+ (EL3202_04.out) (EL3202_04.out)
 \@outlinefile=\write4
-\openout4 = `Ejercicio_01.out'.
+\openout4 = `EL3202_04.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 22.
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 18.
 (pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 23.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 23.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 20--32
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 16--28
 $[]$ $[]$ 
  []
 
+<../figures/Auxiliar_4_1.png, id=8, 971.12813pt x 452.4403pt>
+File: ../figures/Auxiliar_4_1.png Graphic file (type png)
+<use ../figures/Auxiliar_4_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_1.png  used on input line 43.
+(pdftex.def)             Requested size: 423.151pt x 197.14133pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-<../figures/Ejercicio_1_1.png, id=8, 942.52126pt x 612.03656pt>
-File: ../figures/Ejercicio_1_1.png Graphic file (type png)
-<use ../figures/Ejercicio_1_1.png>
-Package pdftex.def Info: ../figures/Ejercicio_1_1.png  used on input line 49.
-(pdftex.def)             Requested size: 423.151pt x 274.77885pt.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 68.
-(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
 
 [1
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Ejercicio_1_1.png>]
-<../figures/Ejercicio_1_2.png, id=27, 1092.33093pt x 383.93437pt>
-File: ../figures/Ejercicio_1_2.png Graphic file (type png)
-<use ../figures/Ejercicio_1_2.png>
-Package pdftex.def Info: ../figures/Ejercicio_1_2.png  used on input line 90.
-(pdftex.def)             Requested size: 449.59946pt x 158.02338pt.
+{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_4_1.png>]
+<../figures/Auxiliar_4_27.png, id=31, 513.117pt x 254.75175pt>
+File: ../figures/Auxiliar_4_27.png Graphic file (type png)
+<use ../figures/Auxiliar_4_27.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_27.png  used on input line 53.
+(pdftex.def)             Requested size: 392.53755pt x 194.89221pt.
+<../figures/Auxiliar_4_10.png, id=32, 580.41844pt x 382.42876pt>
+File: ../figures/Auxiliar_4_10.png Graphic file (type png)
+<use ../figures/Auxiliar_4_10.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_10.png  used on input line 106.
+(pdftex.def)             Requested size: 196.26503pt x 129.31796pt.
+<../figures/Auxiliar_4_11.png, id=33, 614.295pt x 399.74344pt>
+File: ../figures/Auxiliar_4_11.png Graphic file (type png)
+<use ../figures/Auxiliar_4_11.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_11.png  used on input line 123.
+(pdftex.def)             Requested size: 196.26503pt x 127.71312pt.
+<../figures/Auxiliar_4_2.png, id=36, 407.24146pt x 284.7438pt>
+File: ../figures/Auxiliar_4_2.png Graphic file (type png)
+<use ../figures/Auxiliar_4_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_2.png  used on input line 147.
+(pdftex.def)             Requested size: 294.40503pt x 205.85828pt.
 
 
-[2 <../figures/Ejercicio_1_2.png>]
+[2 <../figures/Auxiliar_4_27.png>]
 
 [3]
 
-[4]
+[4 <../figures/Auxiliar_4_10.png> <../figures/Auxiliar_4_11.png>]
 
-[5]
+[5 <../figures/Auxiliar_4_2.png>]
+<../figures/Auxiliar_4_5.png, id=76, 647.41875pt x 472.01344pt>
+File: ../figures/Auxiliar_4_5.png Graphic file (type png)
+<use ../figures/Auxiliar_4_5.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_5.png  used on input line 169.
+(pdftex.def)             Requested size: 253.88737pt x 185.10002pt.
+<../figures/Auxiliar_4_6.png, id=77, 280.04625pt x 389.20406pt>
+File: ../figures/Auxiliar_4_6.png Graphic file (type png)
+<use ../figures/Auxiliar_4_6.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_6.png  used on input line 175.
+(pdftex.def)             Requested size: 126.94368pt x 176.42297pt.
+<../figures/Auxiliar_4_7.png, id=78, 1116.42094pt x 352.31625pt>
+File: ../figures/Auxiliar_4_7.png Graphic file (type png)
+<use ../figures/Auxiliar_4_7.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_7.png  used on input line 186.
+(pdftex.def)             Requested size: 476.03984pt x 150.22432pt.
 
-[6]
 
-[7]
-This exam contains 6 questions with 0 parts, 0 subparts, and 0 subsubparts.
+[6 <../figures/Auxiliar_4_5.png> <../figures/Auxiliar_4_6.png> <../figures/Auxiliar_4_7.png>]
+<../figures/Auxiliar_4_8.png, id=91, 858.20625pt x 621.82312pt>
+File: ../figures/Auxiliar_4_8.png Graphic file (type png)
+<use ../figures/Auxiliar_4_8.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_8.png  used on input line 218.
+(pdftex.def)             Requested size: 392.53755pt x 284.41962pt.
+<../figures/Auxiliar_4_9.png, id=93, 862.72313pt x 567.62062pt>
+File: ../figures/Auxiliar_4_9.png Graphic file (type png)
+<use ../figures/Auxiliar_4_9.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_9.png  used on input line 238.
+(pdftex.def)             Requested size: 392.53755pt x 258.25911pt.
+
+
+[7 <../figures/Auxiliar_4_8.png>]
+
+[8 <../figures/Auxiliar_4_9.png>]
+<../figures/Auxiliar_4_12.png, id=113, 968.11688pt x 436.63126pt>
+File: ../figures/Auxiliar_4_12.png Graphic file (type png)
+<use ../figures/Auxiliar_4_12.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_12.png  used on input line 249.
+(pdftex.def)             Requested size: 370.2541pt x 166.9876pt.
+
+
+[9 <../figures/Auxiliar_4_12.png>]
+
+LaTeX Warning: Reference `fig:voltaje-th' on page 10 undefined on input line 327.
+
+
+LaTeX Warning: Reference `fig:voltaje-corriente-diodo-detalle' on page 10 undefined on input line 327.
+
+
+
+[10]
+<../figures/Auxiliar_4_18.png, id=136, 973.38657pt x 218.31563pt>
+File: ../figures/Auxiliar_4_18.png Graphic file (type png)
+<use ../figures/Auxiliar_4_18.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_18.png  used on input line 342.
+(pdftex.def)             Requested size: 528.93675pt x 118.63153pt.
+
+
+[11 <../figures/Auxiliar_4_18.png>]
+<../figures/Auxiliar_4_19.png, id=148, 1003.49907pt x 522.45187pt>
+File: ../figures/Auxiliar_4_19.png Graphic file (type png)
+<use ../figures/Auxiliar_4_19.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_19.png  used on input line 357.
+(pdftex.def)             Requested size: 235.51953pt x 122.61676pt.
+<../figures/Auxiliar_4_20.png, id=149, 827.34094pt x 451.6875pt>
+File: ../figures/Auxiliar_4_20.png Graphic file (type png)
+<use ../figures/Auxiliar_4_20.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_20.png  used on input line 363.
+(pdftex.def)             Requested size: 235.51953pt x 128.58064pt.
+<../figures/Auxiliar_4_22.png, id=151, 354.57469pt x 519.44063pt>
+File: ../figures/Auxiliar_4_22.png Graphic file (type png)
+<use ../figures/Auxiliar_4_22.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_22.png  used on input line 375.
+(pdftex.def)             Requested size: 147.20251pt x 215.65103pt.
+<../figures/Auxiliar_4_21.png, id=152, 1923.185pt x 902.37125pt>
+File: ../figures/Auxiliar_4_21.png Graphic file (type png)
+<use ../figures/Auxiliar_4_21.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_21.png  used on input line 387.
+(pdftex.def)             Requested size: 343.46754pt x 161.15306pt.
+<../figures/Auxiliar_4_23.png, id=155, 743.77875pt x 517.18219pt>
+File: ../figures/Auxiliar_4_23.png Graphic file (type png)
+<use ../figures/Auxiliar_4_23.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_23.png  used on input line 400.
+(pdftex.def)             Requested size: 235.51953pt x 163.76553pt.
+<../figures/Auxiliar_4_24.png, id=156, 727.96968pt x 505.89pt>
+File: ../figures/Auxiliar_4_24.png Graphic file (type png)
+<use ../figures/Auxiliar_4_24.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_24.png  used on input line 406.
+(pdftex.def)             Requested size: 235.51953pt x 163.67125pt.
+<../figures/Auxiliar_4_25.png, id=158, 414.79968pt x 296.60812pt>
+File: ../figures/Auxiliar_4_25.png Graphic file (type png)
+<use ../figures/Auxiliar_4_25.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_25.png  used on input line 418.
+(pdftex.def)             Requested size: 215.89603pt x 154.37741pt.
+<../figures/Auxiliar_4_26.png, id=159, 937.5025pt x 403.5075pt>
+File: ../figures/Auxiliar_4_26.png Graphic file (type png)
+<use ../figures/Auxiliar_4_26.png>
+Package pdftex.def Info: ../figures/Auxiliar_4_26.png  used on input line 431.
+(pdftex.def)             Requested size: 392.53755pt x 168.94864pt.
+
+
+[12 <../figures/Auxiliar_4_19.png> <../figures/Auxiliar_4_20.png> <../figures/Auxiliar_4_22.png>]
+
+[13 <../figures/Auxiliar_4_21.png (PNG copy)> <../figures/Auxiliar_4_23.png> <../figures/Auxiliar_4_24.png>]
+
+[14 <../figures/Auxiliar_4_25.png> <../figures/Auxiliar_4_26.png (PNG copy)>]
+This exam contains 4 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(Ejercicio_01.aux)
+(EL3202_04.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `Ejercicio_01.out' has not changed.
+
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `EL3202_04.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60569 strings out of 473903
- 1561019 string characters out of 5727051
- 2321907 words of memory out of 5000000
- 82654 multiletter control sequences out of 15000+600000
- 570533 words of font info for 87 fonts, out of 8000000 for 9000
+ 60884 strings out of 473903
+ 1569825 string characters out of 5727051
+ 2331944 words of memory out of 5000000
+ 82967 multiletter control sequences out of 15000+600000
+ 571764 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,90p,976b,1164s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb>
-Output written on Ejercicio_01.pdf (7 pages, 493825 bytes).
+ 99i,17n,101p,891b,1134s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on EL3202_04.pdf (14 pages, 1415789 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 286 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
