@@ -212,8 +212,21 @@ Por lo tanto, la suma relevante es
 \begin{equation}
 \sum_{k=0}^{\infty} |h(k)| = \sum_{k=0}^{\infty} k\,2^{k-1}.
 \end{equation}
-Esta serie diverge rápidamente, ya que el término general crece exponencialmente con $k$. Por lo tanto, $\sum_{k=0}^{\infty} |h(k)| = \infty$, lo que indica que el sistema tampoco es BIBO estable: existen entradas acotadas que pueden producir salidas no acotadas.
+Esta serie diverge rápidamente, ya que el término general crece exponencialmente con $k$. Por lo tanto, $\sum_{k=0}^{\infty} |h(k)| = \infty$, lo que indica que el sistema tampoco es BIBO estable: existen entradas acotadas que pueden producir salidas no acotadas.\\
 
+\begin{center}
+\fbox{\parbox{0.95\linewidth}{
+En el caso de que la sumatoria no considerara el factor $k$ multiplicando, el término relevante sería simplemente $|(-2)^{k-1}| = 2^{k-1}$. Así, la sumatoria se reduce a:
+\[
+\sum_{k=0}^{\infty} |h(k)| = \sum_{k=0}^{\infty} |C\,\Phi(k)\,B| = \sum_{k=0}^{\infty} 2^{k-1}.
+\]
+Esta es una serie geométrica de razón $2$, pero comenzando en $2^{-1}$:
+\[
+\sum_{k=0}^{\infty} 2^{k-1} = 2^{-1} + 2^{0} + 2^{1} + 2^{2} + \cdots = \frac{1}{2} + 1 + 2 + 4 + \cdots = \infty.
+\]
+Como $2 > 1$, la serie diverge rápidamente. Por lo tanto, incluso sin el factor $k$, la suma sigue siendo infinita y el sistema no sería BIBO estable.
+}}
+\end{center}
 \subsection*{Resolución 1.4}
 
 Si bien no se pide explícitamente, es importante recordar que, siempre, antes de diseñar un controlador u observador es importante verificar que el sistema efectivamente sea controlable u observable, respectivamente. Verificando la controlabilidad, vemos que la matriz asociada está dada por

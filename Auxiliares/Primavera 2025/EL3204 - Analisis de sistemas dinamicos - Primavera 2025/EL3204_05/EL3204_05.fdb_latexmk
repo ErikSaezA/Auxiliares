@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1758717542.05194 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_05/EL3204_05.tex" "EL3204_05.pdf" "EL3204_05" 1758717546.69998 0
+["pdflatex"] 1758803655.76465 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_05/EL3204_05.tex" "EL3204_05.pdf" "EL3204_05" 1758803660.45202 0
   "../aas_macros.sty" 1757910389 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1757910389 2282 67423f5bf846307bd339f448d9ebb19d ""
   "../fcfm_die.pdf" 1757910389 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -290,10 +290,10 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1742126431 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "EL3204_05.aux" 1758717546 2875 cac8564af40290d5706336b746c96a27 "pdflatex"
-  "EL3204_05.out" 1758717545 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3204_05.tex" 1758717536 43692 8cbc3b44edad8053881b6f1151bbf046 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_05/EL3204_05.tex" 1758717536 43692 8cbc3b44edad8053881b6f1151bbf046 ""
+  "EL3204_05.aux" 1758803659 2875 ef39a6b061332dae3e02b9d8b9e03bab "pdflatex"
+  "EL3204_05.out" 1758803659 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3204_05.tex" 1758803653 44393 d828841b30ea87ab5e505774cb6b80c7 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_05/EL3204_05.tex" 1758803653 44393 d828841b30ea87ab5e505774cb6b80c7 ""
   (generated)
   "EL3204_05.aux"
   "EL3204_05.log"
