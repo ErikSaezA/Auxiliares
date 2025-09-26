@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  22 SEP 2025 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  26 SEP 2025 03:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis senales - Primavera 2025/EL3203-03/EL3203_03.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis senales - Primavera 2025/EL3203-03/EL3203_03.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-03/EL3203_03.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-03/EL3203_03.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
@@ -862,48 +862,66 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box103
 \@float@everytoks=\toks61
 \@floatcapt=\box104
+) (C:\Program Files\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count394
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count395
 ) (C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 16.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 17.
  (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count394
+\l__color_backend_stack_int=\count396
 \l__pdf_internal_box=\box105
+) (EL3203_03.aux
+
+LaTeX Warning: Label `fig:mag_XF' multiply defined.
+
+
+LaTeX Warning: Label `fig:mag_XF@cref' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:mag_XF' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:mag_XF@cref' multiply defined.
+
 )
-No file EL3203_03.aux.
 \openout1 = `EL3203_03.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-(C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+ (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count395
+\scratchcounter=\count397
 \scratchdimen=\dimen348
 \scratchbox=\box106
-\nofMPsegments=\count396
-\nofMParguments=\count397
+\nofMPsegments=\count398
+\nofMParguments=\count399
 \everyMPshowfont=\toks62
-\MPscratchCnt=\count398
+\MPscratchCnt=\count400
 \MPscratchDim=\dimen349
-\MPnumerator=\count399
-\makeMPintoPDFobject=\count400
+\MPnumerator=\count401
+\makeMPintoPDFobject=\count402
 \everyMPtoPDFconversion=\toks63
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -955,74 +973,82 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Program Files\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 16.
-Package hyperref Info: Link coloring ON on input line 16.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 17.
+Package hyperref Info: Link coloring ON on input line 17.
+ (EL3203_03.out) (EL3203_03.out)
 \@outlinefile=\write4
 \openout4 = `EL3203_03.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 20.
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 21.
 (pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 21.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 22.
  (C:\Program Files\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 18--30
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 19--31
 $[]$ $[]$ 
  []
 
 
-LaTeX Warning: Reference `fig:aux3_1' on page 1 undefined on input line 75.
-
-<../figures/Auxiliar_3_1.png, id=7, 884.55469pt x 332.74312pt>
-File: ../figures/Auxiliar_3_1.png Graphic file (type png)
-<use ../figures/Auxiliar_3_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_1.png  used on input line 78.
-(pdftex.def)             Requested size: 317.36526pt x 119.38124pt.
-
 
 [1
 
-{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_3_1.png>]
-
-c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis senales - Primavera 2025/EL3203-03/EL3203_03.tex:109: LaTeX Error: Command \end{questions} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.109 \end{questions}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis senales - Primavera 2025/EL3203-03/EL3203_03.tex:109: Missing $ inserted.
-<inserted text> 
-                $
-l.109 \end{questions}
-                     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
+{C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
 
 [2]
+<../figures/Auxiliar_3_2.png, id=61, 613.5723pt x 413.3844pt>
+File: ../figures/Auxiliar_3_2.png Graphic file (type png)
+<use ../figures/Auxiliar_3_2.png>
+Package pdftex.def Info: ../figures/Auxiliar_3_2.png  used on input line 204.
+(pdftex.def)             Requested size: 235.51953pt x 158.67725pt.
+<../figures/Auxiliar_3_3.png, id=63, 610.32014pt x 413.3844pt>
+File: ../figures/Auxiliar_3_3.png Graphic file (type png)
+<use ../figures/Auxiliar_3_3.png>
+Package pdftex.def Info: ../figures/Auxiliar_3_3.png  used on input line 211.
+(pdftex.def)             Requested size: 235.51953pt x 159.52248pt.
+<../figures/Auxiliar_3_4.png, id=64, 621.16064pt x 415.5525pt>
+File: ../figures/Auxiliar_3_4.png Graphic file (type png)
+<use ../figures/Auxiliar_3_4.png>
+Package pdftex.def Info: ../figures/Auxiliar_3_4.png  used on input line 253.
+(pdftex.def)             Requested size: 235.51953pt x 157.5565pt.
+<../figures/Auxiliar_3_5.png, id=65, 610.32014pt x 415.5525pt>
+File: ../figures/Auxiliar_3_5.png Graphic file (type png)
+<use ../figures/Auxiliar_3_5.png>
+Package pdftex.def Info: ../figures/Auxiliar_3_5.png  used on input line 260.
+(pdftex.def)             Requested size: 235.51953pt x 160.35915pt.
+
+
+[3]
+
+[4 <../figures/Auxiliar_3_2.png> <../figures/Auxiliar_3_3.png>]
+
+[5 <../figures/Auxiliar_3_4.png> <../figures/Auxiliar_3_5.png>]
+<../figures/Auxiliar_3_1.png, id=123, 884.55469pt x 332.74312pt>
+File: ../figures/Auxiliar_3_1.png Graphic file (type png)
+<use ../figures/Auxiliar_3_1.png>
+Package pdftex.def Info: ../figures/Auxiliar_3_1.png  used on input line 321.
+(pdftex.def)             Requested size: 317.36526pt x 119.38124pt.
+
+
+[6 <../figures/Auxiliar_3_1.png>]
+
+[7]
+
+[8]
 This exam contains 4 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-
-Class exam Warning: Point totals have changed. Rerun to get point totals right.
-
 (EL3203_03.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -1030,32 +1056,23 @@ L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `EL3203_03.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `EL3203_03.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `EL3203_03.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61447 strings out of 473523
- 1577399 string characters out of 5724698
- 2362145 words of memory out of 5000000
- 83937 multiletter control sequences out of 15000+600000
- 565847 words of font info for 64 fonts, out of 8000000 for 9000
+ 61753 strings out of 473523
+ 1583130 string characters out of 5724698
+ 2379144 words of memory out of 5000000
+ 84141 multiletter control sequences out of 15000+600000
+ 571229 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,101p,888b,1225s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3203_03.pdf (2 pages, 265757 bytes).
+ 99i,14n,101p,889b,1248s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3203_03.pdf (8 pages, 633848 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 20 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 43 words of extra memory for PDF output out of 10000 (max. 10000000)
 

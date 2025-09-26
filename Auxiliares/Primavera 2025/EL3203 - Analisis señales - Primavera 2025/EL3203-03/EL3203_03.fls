@@ -1,6 +1,6 @@
-PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3203 - Analisis senales - Primavera 2025\EL3203-03
+PWD c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3203 - Analisis señales - Primavera 2025\EL3203-03
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3203 - Analisis senales - Primavera 2025\EL3203-03\EL3203_03.tex
+INPUT c:\Users\eriks\OneDrive\Escritorio\Universidad\Auxiliares\Auxiliares\Primavera 2025\EL3203 - Analisis señales - Primavera 2025\EL3203-03\EL3203_03.tex
 OUTPUT EL3203_03.log
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\exam\exam.cls
@@ -404,11 +404,16 @@ INPUT C:\Program Files\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\cleveref\cleveref.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\caption\subcaption.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\caption\subcaption.sty
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
 INPUT C:\Program Files\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarypositioning.code.tex
 INPUT C:\Program Files\MiKTeX\tex\latex\graphics\color.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT .\EL3203_03.aux
+INPUT .\EL3203_03.aux
+INPUT EL3203_03.aux
 OUTPUT EL3203_03.aux
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -421,6 +426,12 @@ INPUT C:\Program Files\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
 INPUT C:\Program Files\MiKTeX\tex\latex\translations\dicts\translations-basic-dictionary-english.trsl
+INPUT .\EL3203_03.out
+INPUT .\EL3203_03.out
+INPUT EL3203_03.out
+INPUT EL3203_03.out
+INPUT .\EL3203_03.out
+INPUT .\EL3203_03.out
 OUTPUT EL3203_03.out
 OUTPUT EL3203_03.pdf
 INPUT ..\fcfm_die.pdf
@@ -463,13 +474,60 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm7.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
-INPUT ..\figures\Auxiliar_3_1.png
-INPUT ..\figures\Auxiliar_3_1.png
-INPUT ..\figures\Auxiliar_3_1.png
-INPUT ..\figures\Auxiliar_3_1.png
-INPUT ..\figures\Auxiliar_3_1.png
-INPUT ..\figures\Auxiliar_3_1.png
 INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT ..\figures\Auxiliar_3_2.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi9.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy9.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex9.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs5.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm5.tfm
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT ..\figures\Auxiliar_3_3.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
+INPUT C:\Users\eriks\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs7.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm7.tfm
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_4.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_5.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT ..\figures\Auxiliar_3_1.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT EL3203_03.aux
 INPUT .\EL3203_03.out
 INPUT .\EL3203_03.out
@@ -483,19 +541,35 @@ INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi7.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi9.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi9.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr5.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr6.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr9.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy9.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msam10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
