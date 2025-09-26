@@ -32,7 +32,92 @@
 \vspace{0.5cm}
 \noindent
 \vspace{.85cm}
+%----------------------------
+\noindent\rule{\textwidth}{0.4pt}
+\subsection*{Serie de Fourier de una señal $T$-periódica}
+La serie de Fourier permite descomponer cualquier señal periódica en una suma de funciones sinusoidales (armónicos) de distintas frecuencias, amplitudes y fases. Cada armónico tiene una frecuencia múltiplo de la fundamental $\omega_0=\tfrac{2\pi}{T}$, donde $T$ es el período de la señal. Así, cualquier señal $T$-periódica se puede escribir como:
+\begin{equation}
+  x(t) = \sum_{k=-\infty}^{\infty} c_k\,e^{jk\omega_0 t}
+\end{equation}
+Los coeficientes $c_k$ indican el peso (amplitud y fase) de cada armónico en la señal.
 
+\subsubsection*{Base armónica y ortogonalidad}
+Las funciones $\psi_k(t)=e^{jk\omega_0 t}$ forman una base ortogonal en el intervalo de un período. Esto significa que cada armónico es independiente de los demás y se puede calcular por separado:
+\begin{equation}
+  \frac{1}{T}\int_{t_0}^{t_0+T}\psi_k(t)\,\psi_m^{*}(t)\,dt = \begin{cases} 1,& k=m,\\ 0,& k\neq m. \end{cases}
+\end{equation}
+Esta propiedad facilita el cálculo de los coeficientes de Fourier.
+
+\subsubsection*{Ecuaciones de análisis y síntesis}
+	\textbf{Síntesis:} reconstruye la señal a partir de los coeficientes:
+\begin{equation}
+  x(t) = \sum_{k=-\infty}^{\infty} c_k\,e^{jk\omega_0 t}
+\end{equation}
+	\textbf{Análisis:} permite calcular cada coeficiente a partir de la señal:
+\begin{equation}
+  c_k = \frac{1}{T}\int_{t_0}^{t_0+T} x(t)\,e^{-jk\omega_0 t}\,dt
+\end{equation}
+El intervalo $[t_0, t_0+T]$ puede elegirse arbitrariamente, siempre que cubra un período completo.
+
+\subsubsection*{Simetrías para señales reales}
+Si la señal $x(t)$ es real, los coeficientes cumplen $c_{-k}=c_k^{*}$ (simetría conjugada), lo que implica que la magnitud es igual y la fase opuesta para $k$ y $-k$. Si la señal es par, sólo aparecen cosenos; si es impar, sólo senos.
+
+\subsection*{Aproximación finita (truncada)}
+En la práctica, se usan sólo los primeros $K$ armónicos para aproximar la señal:
+\begin{equation}
+  x_K(t) = \sum_{k=-K}^{K} c_k\,e^{jk\omega_0 t}
+\end{equation}
+Esto es útil para análisis numérico y simulaciones. Cerca de discontinuidades pueden aparecer oscilaciones (efecto Gibbs). El valor de $K$ depende de la precisión deseada y la naturaleza de la señal.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_3_6}
+    \caption{Aproximación con $K=1$ armónico impar.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_3_7}
+    \caption{Aproximación con $K=2$ armónicos impares.}
+  \end{subfigure}
+    
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_3_8}
+    \caption{Aproximación con $K=5$ armónicos impares.}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[t]{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{Auxiliar_3_9}
+    \caption{Aproximación con $K=15$ armónicos impares.}
+  \end{subfigure}
+  \caption{Aproximación de una onda cuadrada mediante la suma de los primeros $K$ armónicos impares (serie de senos). Se observa cómo la aproximación mejora al aumentar $K$, pero aparecen oscilaciones cerca de las discontinuidades (efecto Gibbs).}
+  \label{fig:aprox_cuadrada}
+\end{figure}
+
+\subsection*{Energía y potencia}
+La energía de una señal mide el "contenido total" a lo largo del tiempo:
+\begin{equation}
+  E_x = \int_{-\infty}^{\infty} |x(t)|^2\,dt
+\end{equation}
+Para señales periódicas, la energía es infinita, pero se define la potencia promedio en un período:
+\begin{equation}
+  P_x = \frac{1}{T}\int_{t_0}^{t_0+T} |x(t)|^2\,dt
+\end{equation}
+La potencia indica cuánta energía se transfiere en promedio por unidad de tiempo.
+
+\subsection*{Relación de Parseval (señales periódicas)}
+La relación de Parseval conecta el dominio temporal y el de frecuencias:
+\begin{equation}
+  P_x = \frac{1}{T}\int_{t_0}^{t_0+T} |x(t)|^2\,dt = \sum_{k=-\infty}^{\infty} |c_k|^2
+\end{equation}
+Esto permite calcular la potencia directamente a partir de los coeficientes de Fourier, sin necesidad de integrar en el tiempo.\\
+\noindent\rule{\textwidth}{0.4pt}
+\newpage
+%----------------------------
 \begin{questions}
 %----------------------------
 \question
@@ -324,81 +409,69 @@ Obsérvese que, al ser \(x(t)\) real, se cumple la simetría conjugada \(c_{-k}=
 \end{figure}
 %----------------------------
 \begin{solution}
-\subsection*{Resolución 3.1}
-Sea la \emph{sinusoidal rectificada} de período \(\tau\) mostrada en la figura. En un período puede describirse como
+  \subsection*{Resolución 3.1}
+
+Sea la sinusoidal rectificada de período \(\tau\) (se extiende periódicamente):
 \begin{equation}
-x(t)=A\sin\!\left(\frac{\pi t}{\tau}\right),\qquad 0\le t<\tau,
+x(t)=A\,\sin\!\left(\frac{\pi t}{\tau}\right),\qquad 0\le t<\tau,
 \end{equation}
-y se extiende periódicamente con período \(\tau\). Por tanto, su frecuencia fundamental y pulsación son
+con frecuencia fundamental \(f_0=\tfrac{1}{\tau}\) y pulsación \(\omega_0=\tfrac{2\pi}{\tau}\).
+Los coeficientes complejos de Fourier se obtienen con la ecuación de análisis:
 \begin{equation}
-f_0=\frac{1}{\tau}, \qquad \omega_0=\frac{2\pi}{\tau}.
+c_k=\frac{1}{\tau}\int_{0}^{\tau} x(t)\,e^{-jk\omega_0 t}\,dt.
 \end{equation}
-Los coeficientes complejos de la serie de Fourier se obtienen con
-\begin{equation}
-c_k=\frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-jk\omega_0 t}\,dt
-=\frac{1}{\tau}\int_{0}^{\tau}A\sin\!\left(\frac{\pi t}{\tau}\right)e^{-j\frac{2\pi}{\tau}kt}\,dt.
-\end{equation}
-Usando las identidades de Euler,
-\begin{equation}
-\sin(\theta)=\frac{e^{j\theta}-e^{-j\theta}}{2j},
-\end{equation}
-quedando
+Sustituyendo \(x(t)\) y usando las identidades de Euler,
+\(\sin\theta=\tfrac{e^{j\theta}-e^{-j\theta}}{2j}\), resulta
 \begin{align}
 c_k
-&=\frac{A}{\tau}\int_{0}^{\tau}\frac{e^{j\frac{\pi}{\tau}t}-e^{-j\frac{\pi}{\tau}t}}{2j}\,
-e^{-j\frac{2\pi}{\tau}kt}\,dt \\
-&=\frac{A}{2j\,\tau}\int_{0}^{\tau}
-\Big(e^{\,j\frac{\pi}{\tau}(1-2k)t}-e^{-\,j\frac{\pi}{\tau}(1+2k)t}\Big)\,dt \\
+&=\frac{A}{\tau}\int_{0}^{\tau}\sin\!\left(\frac{\pi t}{\tau}\right)e^{-j\frac{2\pi}{\tau}kt}\,dt\\
+&=\frac{A}{2j\,\tau}\int_{0}^{\tau}\Big(e^{\,j\frac{\pi}{\tau}(1-2k)t}-e^{-\,j\frac{\pi}{\tau}(1+2k)t}\Big)\,dt\\
 &=\frac{A}{2j\,\tau}\left[
 \frac{e^{\,j\frac{\pi}{\tau}(1-2k)t}}{j\frac{\pi}{\tau}(1-2k)}
 -\frac{e^{-\,j\frac{\pi}{\tau}(1+2k)t}}{-j\frac{\pi}{\tau}(1+2k)}
-\right]_{t=0}^{t=\tau}.
+\right]_{0}^{\tau}.
 \end{align}
-Como \(e^{j\pi(1-2k)}=e^{-j\pi(1+2k)}=-1\) para todo \(k\in\mathbb{Z}\), se obtiene
+Como \(e^{j\pi(1-2k)}=e^{-j\pi(1+2k)}=-1\) para todo \(k\in\mathbb{Z}\),
 \begin{align}
 c_k
 &=\frac{A}{2j\,\tau}\left[
-\frac{-1-1}{j\frac{\pi}{\tau}(1-2k)}
-+\frac{-1-1}{j\frac{\pi}{\tau}(1+2k)}
-\right]
-=\frac{A}{2j\,\tau}\left[
 \frac{-2}{j\frac{\pi}{\tau}(1-2k)}+\frac{-2}{j\frac{\pi}{\tau}(1+2k)}
-\right] \\
-&=\frac{A}{\pi}\left[\frac{1}{1-2k}+\frac{1}{1+2k}\right]
-=\frac{A}{\pi}\left(\frac{(1+2k)+(1-2k)}{1-4k^2}\right)
-=\boxed{\;\frac{2A}{\pi\,(1-4k^{2})}\;}.
+\right]
+=\frac{A}{\pi}\left(\frac{1}{1-2k}+\frac{1}{1+2k}\right)\\
+&=\frac{A}{\pi}\,\frac{(1+2k)+(1-2k)}{1-4k^2}
+=\boxed{\;\frac{2A}{\pi\,(1-4k^2)}\;}.
 \end{align}
 En particular,
 \begin{equation}
-c_0=\frac{2A}{\pi},\qquad c_{-k}=c_k\ \ \text{(coeficientes reales y pares)}.
+c_0=\frac{2A}{\pi},\qquad c_{-k}=c_k\quad(\text{coeficientes reales y pares}).
 \end{equation}
-
-\paragraph{Verificación de Parseval.}
-La potencia promedio en el tiempo es
+Por otro lado buscamos realizar la verificacion de Parseval, por lo que la potencia promedio en el tiempo es
 \begin{align}
-P_x &= \frac{1}{\tau}\int_{0}^{\tau}x^2(t)\,dt
-= \frac{A^2}{\tau}\int_{0}^{\tau}\sin^2\!\left(\frac{\pi t}{\tau}\right)\,dt
-= \frac{A^2}{2}.
+P_x
+=\frac{1}{\tau}\int_{0}^{\tau}x^2(t)\,dt
+=\frac{A^2}{\tau}\int_{0}^{\tau}\sin^2\!\left(\frac{\pi t}{\tau}\right)\,dt
+=\frac{A^2}{2}.
 \end{align}
 En frecuencia,
 \begin{align}
 \sum_{k=-\infty}^{\infty}|c_k|^2
-&= \frac{4A^2}{\pi^2}\sum_{k=-\infty}^{\infty}\frac{1}{(1-4k^2)^2}
-= \frac{4A^2}{\pi^2}\left[1+2\sum_{k=1}^{\infty}\frac{1}{(1-4k^2)^2}\right].
+=\frac{4A^2}{\pi^2}\sum_{k=-\infty}^{\infty}\frac{1}{(1-4k^2)^2}
+=\frac{4A^2}{\pi^2}\!\left[\,1+2\sum_{k=1}^{\infty}\frac{1}{(1-4k^2)^2}\right].
 \end{align}
-Usando la identidad conocida
+Usando la identidad
 \begin{equation}
-\sum_{k=1}^{\infty}\frac{1}{(1-4k^2)^2}=\frac{1}{2}\!\left(\frac{\pi^2}{8}-1\right),
+\sum_{k=1}^{\infty}\frac{1}{(1-4k^2)^2}
+=\frac{\pi^2}{16}-\frac{1}{2},
 \end{equation}
-se concluye que
+se obtiene
 \begin{align}
 \sum_{k=-\infty}^{\infty}|c_k|^2
-&= \frac{4A^2}{\pi^2}\left[1+\left(\frac{\pi^2}{8}-1\right)\right]
-= \frac{4A^2}{\pi^2}\cdot\frac{\pi^2}{8}
-= \frac{A^2}{2}
-= P_x,
+&=\frac{4A^2}{\pi^2}\left[\,1+2\!\left(\frac{\pi^2}{16}-\frac{1}{2}\right)\right]
+=\frac{4A^2}{\pi^2}\cdot\frac{\pi^2}{8}
+=\frac{A^2}{2}
+=P_x,
 \end{align}
-verificando así la relación de Parseval para esta señal.
+con lo que queda verificada la relación de Parseval.
 \end{solution}
 %----------------------------
 \question Dadas dos señales $f(t)$ y $g(t)$ con coeficientes de Fourier $c_k$ y $d_k$, respectivamente, encuentre los coeficientes de Fourier de la señal $y(t) = f(t)$
