@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1759155167.00452 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex" "EL3203_04.pdf" "EL3203_04" 1759155179.3214 0
+["pdflatex"] 1759156235.388 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex" "EL3203_04.pdf" "EL3203_04" 1759156247.66625 0
   "../aas_macros.sty" 1757910389 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1757910389 2199 9b25845e8203035cc171b20549e028e1 ""
   "../fcfm_die.pdf" 1757910389 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -294,10 +294,10 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1742126431 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "EL3203_04.aux" 1759155178 3129 ef252b61358a96f08b7459a29a696a6b "pdflatex"
-  "EL3203_04.out" 1759155170 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3203_04.tex" 1759155165 33876 ba0233ee2b5c1811e9faf072f4db0fe8 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex" 1759155165 33876 ba0233ee2b5c1811e9faf072f4db0fe8 ""
+  "EL3203_04.aux" 1759156247 3129 a0428dc1ee4c4b03fc273f943c5251d0 "pdflatex"
+  "EL3203_04.out" 1759156238 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3203_04.tex" 1759156221 32745 2dbfb3c1cd4ed4eeec2490c38e2d3e3f ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex" 1759156221 32745 2dbfb3c1cd4ed4eeec2490c38e2d3e3f ""
   (generated)
   "EL3203_04.aux"
   "EL3203_04.log"

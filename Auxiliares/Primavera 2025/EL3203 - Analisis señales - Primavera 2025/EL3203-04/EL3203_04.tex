@@ -658,26 +658,7 @@ Luego separaremos en dos partes tal que:
 \[
 X(\omega) = \frac{\left(e^{j\omega(M+1)}-e^{-j\omega(M+1)}\right) + \left(e^{-j\omega}-1\right)}{e^{j\omega}-1}
 \]
-Usamos la identidad $e^{j\alpha}-e^{-j\alpha}=2j\sin(\alpha)$ 
-\[
-X(\omega) = \frac{2j\sin\left((M+1)\omega\right) + \left(e^{-j\omega}-1\right)}{e^{j\omega}-1}
-\]
-Multiplicamos numerador y denominador por $e^{-j\omega/2}$ para simetrizar
-\[
-X(\omega) = \frac{2j\sin\left((M+1)\omega\right)e^{-j\omega/2} - (e^{j\omega} - 1)e^{-j\omega/2}}{(e^{j\omega}-1)e^{-j\omega/2}}
-\]
-Se tiene que:
-\[
-2j\sin\left((M+1)\omega\right)e^{-j\omega/2} = e^{j\omega(M+1/2)} - e^{-j\omega(M+1/2)}
-\]
-\[
-(e^{j\omega} - 1)e^{-j\omega/2} = e^{j\omega/2} - e^{-j\omega/2}
-\]
-Por lo tanto, el numerador queda:
-\[
-e^{j\omega(M+1/2)} - e^{-j\omega(M+1/2)} - (e^{j\omega/2} - e^{-j\omega/2})
-\]
-Agrupamos y separamos en dos fracciones
+Multiplicamos numerador y denominador por $e^{-j\omega/2}$ para simetrizar.Luego agrupamos y separamos en dos fracciones
 \[
 X(\omega) = \frac{e^{j\omega(M+1/2)} - e^{-j\omega(M+1/2)}}{e^{j\omega/2} - e^{-j\omega/2}} - \frac{e^{j\omega/2} - e^{-j\omega/2}}{e^{j\omega/2} - e^{-j\omega/2}}
 \]
@@ -695,14 +676,6 @@ X(\omega) = \frac{2j\sin\left((M+\tfrac{1}{2})\omega\right)}{2j\sin(\omega/2)}
 Luego simplificamos los factores comunes
 \[
 X(\omega) = \frac{\sin\left((M+\tfrac{1}{2})\omega\right)}{\sin(\omega/2)}
-\]
-Multiplicamos numerador y denominador por $e^{j\omega(M+1)/2}$ para simetrizar el numerador
-\[
-X(\omega) = \frac{2j\sin\left((M+1)\omega\right)}{e^{j\omega}-1} = \frac{e^{j\omega(M+1)}-e^{-j\omega(M+1)}}{e^{j\omega}-1}
-\]
-Multiplicamos numerador y denominador por $e^{-j\omega/2}$ para obtener la forma seno sobre seno
-\[
-X(\omega) = \frac{e^{j\omega(M+1)}-e^{-j\omega(M+1)}}{e^{j\omega}-1} \cdot \frac{e^{-j\omega/2}}{e^{-j\omega/2}} = \frac{e^{j\omega(M+1/2)}-e^{-j\omega(M+1/2)}}{e^{j\omega/2}-e^{-j\omega/2}}
 \]
 Usamos la identidad $e^{j\alpha}-e^{-j\alpha}=2j\sin(\alpha)$ en numerador y denominador
 \[
