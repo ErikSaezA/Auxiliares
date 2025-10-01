@@ -25,7 +25,7 @@
 \end{minipage}
 
 \begin{tcolorbox}[colback=yellow!10!white,colframe=black!80!white,title=Instrucciones]
-Dispone de 2 horas para contestar el control. No se permite el uso de calculadoras ni teléfonos. Recuerde escribir su nombre en todas las hojas. La sospecha de copia será sancionada.
+Dispone de 2 horas para contestar el control. Se permite el uso de calculadoras cientifica, pero no teléfonos. Recuerde escribir su nombre en todas las hojas. La sospecha de copia será sancionada.
 \end{tcolorbox}
 
 \begin{questions}
@@ -212,7 +212,6 @@ Por lo tanto, el sistema linealizado alrededor del punto de operación $\left(\v
 \end{align}
 
 \subsection*{Resolución 1.5}
-
 A partir de la linealización realizada, identificamos los siguientes elementos del sistema en espacio de estados:
 
 \begin{itemize}
@@ -244,6 +243,284 @@ A partir de la linealización realizada, identificamos los siguientes elementos 
 
 Así, el sistema linealizado queda completamente caracterizado en términos de sus matrices y variables principales.
 \end{solution}
+%--------------------------
 
+\question
+Sea el siguiente sistema en espacio de estados discretos:
+\begin{equation}
+  \vec{X}[n+1] = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & \frac{1}{2} \end{pmatrix} \vec{X}[n] + \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} u[n]
+\end{equation}
+\begin{equation}
+  y[n] = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix} \vec{X}[n],
+\end{equation}
+Determine:
+\begin{enumerate}
+  \item Determine la matriz de transición de estados y funciones base.
+
+  \item Determine la respuesta al impulso del sistema
+
+  \item   Analice la estabilidades BIBO y BIBS del sistema.
+
+  \item Verifique la controlabilidad y observabilidad del sistema.
+
+  \item Mediante retroalimentación de estados ubique los polos en $\{0.2,\;0.3\pm 0.2j\}$.
+
+  \item  Discuta si el control anterior es implementable cuando no se mide el estado
+  y el sistema no es completamente observable.
+\end{enumerate}
+%--------------------------
+\begin{solution}
+\subsection*{Resolución 2.1}
+Se busca obtener la matriz de transición de estados $\Phi[n]$ y las funciones base del sistema. Podemos reconocer que es una matriz de Jordan, por lo tanto:
+\begin{equation}
+  \vec{X}[n+1] =
+  \left(
+    \begin{array}{c|c}
+      \fbox{$\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}$} & \begin{array}{c} 0 \\ 0 \end{array} \\
+      \hline
+      \begin{array}{cc} 0 & 0 \end{array} & \boxed{\frac{1}{2}}
+    \end{array}
+  \right)
+  \vec{X}[n] + \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} u[n]
+\end{equation}
+Lo cual reconocemos por un lado que el primer bloque sera:
+\begin{equation}
+  \Phi_1[n] = \begin{pmatrix} \cos\left(\frac{\pi}{2} n\right) & -\sin\left(\frac{\pi}{2} n\right) \\ \sin\left(\frac{\pi}{2} n\right) & \cos\left(\frac{\pi}{2} n\right) \end{pmatrix}
+\end{equation}
+Y el segundo bloque sera:
+\begin{equation}
+  \Phi_2[n] = \left(\frac{1}{2}\right)^n
+\end{equation}
+Por lo tanto la matriz de transición de estados sera:
+\begin{equation}
+  \Phi[n] = \begin{pmatrix} \cos\left(\frac{\pi}{2} n\right) & -\sin\left(\frac{\pi}{2} n\right) & 0 \\ \sin\left(\frac{\pi}{2} n\right) & \cos\left(\frac{\pi}{2} n\right) & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix}
+\end{equation}
+Las funciones base las obtenemos mediante la respuesta a entrada cero, es decir:
+\begin{align}
+  y_{0}[n] = C \Phi[n] \vec{X}[0] &= \begin{pmatrix} 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \cos\left(\frac{\pi}{2} n\right
+) & -\sin\left(\frac{\pi}{2} n\right) & 0 \\ \sin\left(\frac{\pi}{2} n\right) & \cos\left(\frac{\pi}{2} n\right) & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} x_1[0] \\ x_2[0] \\ x_3[0] \end{pmatrix}\\
+    &= \begin{pmatrix} 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} x_1[0] \\ x_2[0] \\ x_3[0] \end{pmatrix}\\
+     &= x_3[0] \left(\frac{1}{2}\right)^n
+\end{align}
+Con lo que tenemos que la función base es:
+\begin{equation}
+  h_0[n] = \left(\frac{1}{2}\right)^n
+\end{equation}
+Otro metodo de Resolución seria el diagonalizar la matriz entera, por lo tanto se tendria que:
+\begin{equation}
+  A = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & \frac{1}{2} \end{pmatrix}
+\end{equation}
+Calculando los autovalores:
+\begin{align}
+  \det(A - \lambda I) &= \det\begin{pmatrix} -\lambda & -1 & 0 \\ 1 & -\lambda & 0 \\ 0 & 0 & \frac{1}{2} - \lambda \end{pmatrix}\\
+  &= (-\lambda)(-\lambda)(\frac{1}{2} - \lambda) - (-1)(1)(\frac{1}{2} - \lambda)\\
+  &= (\lambda^2 + 1)(\frac{1}{2} - \lambda)
+\end{align}
+Igualando a cero, los autovalores son:
+\begin{equation}
+  \lambda_1 = j, \quad \lambda_2 = -j, \quad \lambda_3 = \frac{1}{2}
+\end{equation}
+Calculando los autovectores:
+\begin{itemize}
+  \item Para $\lambda_1 = j$:
+  \begin{align}
+    (A - jI)\vec{v}_1 &= 0 \\
+    \begin{pmatrix} -j & -1 & 0 \\ 1 & -j & 0 \\ 0 & 0 & \frac{1}{2} - j \end{pmatrix} \begin{pmatrix} v_{11} \\ v_{12} \\ v_{13} \end{pmatrix} &= 0
+  \end{align}
+  De la tercera fila, $v_{13} = 0$. De las primeras dos filas, obtenemos $v_{12} = -j v_{11}$. Tomando $v_{11} = 1$, entonces:
+  \begin{equation}
+    \vec{v}_1 = \begin{pmatrix} 1 \\ -j \\ 0 \end{pmatrix}
+  \end{equation}
+
+  \item Para $\lambda_2 = -j$:
+  \begin{align}
+    (A + jI)\vec{v}_2 &= 0 \\
+    \begin{pmatrix} j & -1 & 0 \\ 1 & j & 0 \\ 0 & 0 & \frac{1}{2} + j \end{pmatrix} \begin{pmatrix} v_{21} \\ v_{22} \\ v_{23} \end{pmatrix} &= 0
+  \end{align}
+  De la tercera fila, $v_{23} = 0$. De las primeras dos filas, obtenemos $v_{22} = j v_{21}$. Tomando $v_{21} = 1$, entonces:
+  \begin{equation}
+    \vec{v}_2 = \begin{pmatrix} 1 \\ j \\ 0 \end{pmatrix}
+  \end{equation}
+
+  \item Para $\lambda_3 = \frac{1}{2}$:
+  \begin{align}
+    (A - \frac{1}{2}I)\vec{v}_3 &= 0 \\
+    \begin{pmatrix} -\frac{1}{2} & -1 & 0 \\ 1 & -\frac{1}{2} &
+  0 \\ 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} v_{31} \\ v_{32} \\ v_{33} \end{pmatrix} &= 0
+  \end{align}
+  De la tercera fila, no hay restricción sobre $v_{33}$. De las primeras dos filas, obtenemos $v_{32} = -\frac{1}{2} v_{31}$. Tomando $v_{31} = 1$, entonces:
+  \begin{equation}
+    \vec{v}_3 = \begin{pmatrix} 1 \\ -\frac{1}{2} \\ 1 \end{pmatrix}
+  \end{equation}
+\end{itemize}
+Formando la matriz de autovectores:
+\begin{equation}
+  V = \begin{pmatrix} 1 & 1 & 1 \\ -j & j & -\frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix}
+\end{equation}
+Calculando la inversa de $T$:
+\begin{equation}
+  V^{-1} = \begin{pmatrix} \frac{1}{2} & \frac{j}{2} & \frac{1}{2} \\ \frac{1}{2} & -\frac{j}{2} & \frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix}
+\end{equation}
+La matriz diagonal de autovalores es:
+\begin{equation}
+  D = \begin{pmatrix} j & 0 & 0 \\ 0 & -j & 0 \\ 0 & 0 & \frac{1}{2} \end{pmatrix}
+\end{equation}
+La matriz de transición de estados se calcula como:
+\begin{align}
+  \Phi[n] &= T D^n T^{-1} \\
+  &= \begin{pmatrix} 1 & 1 & 1 \\ -j & j & -\frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} j^n & 0 & 0 \\ 0 & (-j)^n & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} \frac{1}{2} & \frac{j}{2} & \frac{1}{2} \\ \frac{1}{2} & -\frac{j}{2} & \frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix}
+\end{align}
+
+Primero multiplicamos $T \cdot D^n$:
+\begin{align}
+  T D^n &= \begin{pmatrix} 1 & 1 & 1 \\ -j & j & -\frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} j^n & 0 & 0 \\ 0 & (-j)^n & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \\
+  &= \begin{pmatrix} j^n & (-j)^n & \left(\frac{1}{2}\right)^n \\ -j \cdot j^n & j \cdot (-j)^n & -\frac{1}{2} \cdot \left(\frac{1}{2}\right)^n \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \\
+  &= \begin{pmatrix} j^n & (-j)^n & \left(\frac{1}{2}\right)^n \\ -j^{n+1} & j(-j)^n & -\frac{1}{2^{n+1}} \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix}
+\end{align}
+
+Luego multiplicamos $(T D^n) \cdot T^{-1}$:
+\begin{align}
+  \Phi[n] &= (T D^n) T^{-1} \\
+  &= \begin{pmatrix} j^n & (-j)^n & \left(\frac{1}{2}\right)^n \\ -j^{n+1} & j(-j)^n & -\frac{1}{2^{n+1}} \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} \frac{1}{2} & \frac{j}{2} & \frac{1}{2} \\ \frac{1}{2} & -\frac{j}{2} & \frac{1}{2} \\ 0 & 0 & 1 \end{pmatrix}\\
+  &= \begin{pmatrix} \frac{1}{2}j^n + \frac{1}{2}(-j)^n & \frac{j}{2}(j^n - (-j)^n) & \frac{1}{2}\left(\frac{1}{2}\right)^n \\ -\frac{1}{2}j^{n+1} + \frac{1}{2^{n+1}} & -\frac{j}{2}j(-j)^n + \frac{1}{2^{n+1}} & -\frac{1}{2^{n+1}} \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix}
+\end{align}
+
+Recordando que $j = e^{j\pi/2}$ y $-j = e^{-j\pi/2}$, entonces:
+\begin{align}
+j^n &= (e^{j\pi/2})^n = e^{jn\pi/2} \\
+(-j)^n &= (e^{-j\pi/2})^n = e^{-jn\pi/2}
+\end{align}
+
+Usando las fórmulas de Euler: $e^{j\theta} + e^{-j\theta} = 2\cos(\theta)$ y $e^{j\theta} - e^{-j\theta} = 2j\sin(\theta)$:
+\begin{align}
+j^n + (-j)^n &= e^{jn\pi/2} + e^{-jn\pi/2} = 2\cos\left(\frac{n\pi}{2}\right) \\
+j^n - (-j)^n &= e^{jn\pi/2} - e^{-jn\pi/2} = 2j\sin\left(\frac{n\pi}{2}\right)
+\end{align}
+
+Calculando el producto, obtenemos:
+\begin{equation}
+  \Phi[n] = \begin{pmatrix} \cos\left(\frac{\pi}{2} n\right) & -\sin\left(\frac{\pi}{2} n\right) & 0 \\ \sin\left(\frac{\pi}{2} n\right) & \cos\left(\frac{\pi}{2} n\right) & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix}
+\end{equation}
+
+\subsection*{Resolución 2.2}
+Se busca determinar la respuesta al impulso, dado que anteriormente obtuvimos la matriz de transición de estados, podemos usar la siguiente ecuación:
+\begin{align}
+  h[n]&= C\Phi[n] B\\
+  &= \begin{pmatrix} 0 & 0 & 1 \end{pmatrix} \begin{pmatrix} \cos\left(\frac{\pi}{2} n\right) & -\sin\left(\frac{\pi}{2} n\right) & 0 \\ \sin\left(\frac{\pi}{2} n\right) & \cos\left(\frac{\pi}{2} n\right) & 0 \\ 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\\
+  &= \begin{pmatrix} 0 & 0 & \left(\frac{1}{2}\right)^n \end{pmatrix} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\\
+  &= \left(\frac{1}{2}\right)^n
+\end{align}
+Con lo que se obtiene la respuesta al impulso del sistema.
+\subsection*{Resolución 2.3}
+Se busca obtener la estabilidad BIBO y BIBS del sistema, por lo tanto:
+\begin{itemize}
+
+  \item \textbf{Estabilidad BIBS:} Dado que estamos considerando un sistema discreto, luego para que sea BIBS se debe cumplir que todos los polos del sistema estén dentro del círculo unitario, dado que nuestros polos son:
+
+  \begin{itemize}
+    \item El bloque $\begin{pmatrix}0 & 1 \\ -1 & 0\end{pmatrix}$ tiene autovalores $j$ y $-j$ (módulo 1).
+    \item El bloque $1/2$ tiene autovalor $1/2$ (módulo $<1$).
+  \end{itemize}
+  Como hay autovalores en el borde del círculo unitario, el sistema es estable pero no asintóticamente estable. Es decir, para entradas acotadas, el estado no diverge, pero puede oscilar indefinidamente (no decae a cero).
+
+  Por lo tanto, el sistema es BIBS estable, pero no asintóticamente estable, ya que tiene autovalores en el borde del círculo unitario. Si la entrada es acotada, el estado permanece acotado, pero puede haber oscilaciones persistentes.
+
+  \item \textbf{Estabilidad BIBO:} Como la salida depende sólo del tercer estado ($y[n] = [0\ 0\ 1] \vec{X}[n]$), y el modo asociado a $1/2$ es asintóticamente estable, la salida será asintóticamente estable para entradas acotadas. Por lo tanto, el sistema es BIBO estable.
+\end{itemize}
+\subsection*{Resolución 2.4}
+Luego buscamos verificar la controlabilidad y observabilidad del sistema, para ello utilizamos las matrices de controlabilidad y observabilidad para el caso de n=3:
+\begin{itemize}
+  \item \textbf{Controlabilidad:} La matriz de controlabilidad se define como:
+  \begin{equation}
+    \mathcal{C} = \begin{pmatrix} B & AB & A^2B \end{pmatrix}
+  \end{equation}
+  Calculando $AB$ y $A^2B$:
+  \begin{align}
+    AB &= A \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \\ \frac{1}{2} \end{pmatrix} \\
+    A^2B &= A(AB) = A\begin{pmatrix} -1 \\ 1 \\ \frac{1}{2} \end{pmatrix} = \begin{pmatrix} -1 \\ -1 \\ \frac{1}{4} \end{pmatrix}
+  \end{align}
+  Por lo tanto, la matriz de controlabilidad es:
+  \begin{equation}
+    \mathcal{C} = \begin{pmatrix} 1 & -1 & -1 \\ 1 & 1 & -1 \\ 1 & \frac{1}{2} & \frac{1}{4} \end{pmatrix}
+  \end{equation}
+  Calculando el rango de $\mathcal{C}$:
+  \begin{align}
+    Rango(\mathcal{C}) &= 3
+  \end{align}
+  Dado que el rango es igual a la dimensión del estado (3), el sistema es completamente controlable. Tambien se verifica que el determinante de la matriz es diferente de cero, por lo tanto es invertible o viendo que las filas son linealmente independientes.
+
+  \item \textbf{Observabilidad:} La matriz de observabilidad se define como:
+  \begin{equation}
+    \mathcal{O} = \begin{pmatrix} C \\ CA \\ CA^2 \end{pmatrix}
+  \end{equation}
+  Calculando $CA$ y $CA^2$:
+  \begin{align}
+    CA &= C A = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix} A = \begin{pmatrix} 0 & 0 & \frac{1}{2} \end{pmatrix} \\
+    CA^2 &= C A^2 = C (AA) = \begin{pmatrix} 0 & 0 & \frac{1}{4} \end{pmatrix}
+  \end{align}
+  Por lo tanto, la matriz de observabilidad es:
+  \begin{equation}
+    \mathcal{O} = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & \frac{1}{2} \\ 0 & 0 & \frac{1}{4} \end{pmatrix}
+  \end{equation}
+  Calculando el rango de $\mathcal{O}$:
+  \begin{align}
+    Rango(\mathcal{O}) &= 1
+  \end{align}
+  Dado que el rango es menor que la dimensión del estado (3), el sistema no es completamente observable.
+\end{itemize}
+Con lo que finalmente tenemos que el sistema es completamente controlable pero no completamente observable.
+\subsection*{Resolución 2.5}
+Se busca ubicar los polos del sistema en $\{0.2, 0.3 \pm 0.2j\}$ mediante retroalimentación de estados. La ecuación del sistema con retroalimentación de estados es:
+\begin{equation}
+  \vec{X}[n+1] = (A - BK)\vec{X}[n] + Bu[n]
+\end{equation}
+Donde $K$ es la ganancia de retroalimentación de estados que queremos determinar. La matriz $A - BK$ debe tener los polos deseados. Primero, calculamos la matriz $A - BK$:
+\begin{align}
+  A - BK &= \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & \frac{1}{2} \end{pmatrix} - \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \begin{pmatrix} k_1 & k_2 & k_3 \end{pmatrix} \\
+  &= \begin{pmatrix} -k_1 & -1 - k_2 & -k_3 \\ 1 - k_1 & -k_2 & -k_3 \\ -k_1 & -k_2 & \frac{1}{2} - k_3 \end{pmatrix}
+\end{align}
+El polinomio característico de $A - BK$ es:
+\begin{align}
+  \det(zI - (A - BK)) &= \det\begin{pmatrix} z + k_1 & 1 + k_2 & k_3 \\ -1 + k_1 & z + k_2 & k_3 \\ k_1 & k_2 & z - \frac{1}{2} + k_3 \end{pmatrix}
+\end{align}
+Calculando el determinante:
+\begin{align}
+  \det(zI - (A - BK)) &= (z + k_1)\left((z + k_2)(z - \frac{1}{2} + k_3) - k_3 k_2\right) \\
+  &\quad - (1 + k_2)\left((-1 + k_1)(z - \frac{1}{2} + k_3) - k_3 k_1\right) \\
+  &\quad + k_3\left((-1 + k_1)k_2 - (z + k_2)k_1\right)
+\end{align}
+Luego tenemos que factorizando se obtiene que:
+{\normalsize
+\begin{align}
+ \begin{split}
+ z^3 &+ (k_1 + k_2 - \frac{1}{2})z^2 \\
+ &+ (k_1 k_2 + k_1 k_3 + k_2 k_3 - k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3 + 1)z \\
+ &+ (-\frac{1}{2}k_1 k_2 + k_1 k_3 + \frac{1}{2}k_2 k_3 - k_3) = 0
+ \end{split}
+\end{align}}
+
+Expandiendo y simplificando, obtenemos el polinomio característico en función de $k_1$, $k_2$ y $k_3$. Queremos que este polinomio sea igual al polinomio característico deseado:
+\begin{equation}
+  (z - 0.2)(z - (0.3 + 0.2j))(z - (0.3 - 0.2j)) = z^3 - 0.8z^2 + 0.17z - 0.02
+\end{equation}
+Igualando los coeficientes, obtenemos un sistema de ecuaciones para $k_1$, $k_2$ y $k_3$, el cual viene dado por:
+\begin{align}
+  k_1 + k_2 - \frac{1}{2} &= -0.8 \\
+  k_1 k_2 + k_1 k_3 + k_2 k_3 - k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3 + 1 &= 0.17 \\
+  -\frac{1}{2}k_1 k_2 + k_1 k_3 + \frac{1}{2}k_2 k_3 - k_3 &= -0.02
+\end{align}
+Resolviendo este sistema, encontramos:
+\begin{align}
+  k_1 &= 0.7 \\
+  k_2 &= 0.5 \\
+  k_3 &= 0.3
+\end{align}
+Por lo tanto, la ganancia de retroalimentación de estados que ubica los polos en los valores deseados es:
+\begin{equation}
+  K = \begin{pmatrix} 0.7 & 0.5 & 0.3 \end{pmatrix}
+\end{equation}
+\subsection*{Resolución 2.6}
+Buscamos el analizar si el control anterior es implementable cuando no se mide el estado y el sistema no es completamente observable. Dado que el sistema no es completamente observable, no podemos reconstruir todos los estados del sistema a partir de la salida medida. En particular, en este caso, sólo se mide el tercer estado ($y[n] = [0\ 0\ 1] \vec{X}[n]$), lo que significa que los dos primeros estados no son observables. 
+\end{solution}
 \end{questions}
 \end{document}

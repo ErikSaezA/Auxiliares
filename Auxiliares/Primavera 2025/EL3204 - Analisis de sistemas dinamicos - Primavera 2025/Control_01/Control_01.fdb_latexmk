@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1759097119.64346 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Control_01/EL3204_01.tex" "EL3204_01.pdf" "EL3204_01" 1759097124.29338 0
+["pdflatex"] 1759281735.35767 "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Control_01/Control_01.tex" "Control_01.pdf" "Control_01" 1759281741.74532 0
   "../aas_macros.sty" 1757910389 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1757910389 2282 67423f5bf846307bd339f448d9ebb19d ""
   "../fcfm_die.pdf" 1757910389 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -37,8 +37,10 @@
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Program Files/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Program Files/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Program Files/MiKTeX/tex/generic/bigintcalc/bigintcalc.sty" 1576433602 40635 c40361e206be584d448876bba8a64a3b ""
@@ -310,13 +312,13 @@
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1733946707 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/eriks/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1733946710 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/eriks/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1743987830 12026021 66a387d35e9f7c9eef383fa2ff140f02 ""
-  "EL3204_01.aux" 1759097123 1657 96df1380f0035735f98e4f515279fc40 "pdflatex"
-  "EL3204_01.out" 1759097123 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "EL3204_01.tex" 1759097113 11015 a03a758b7748f685da64ad492937b172 ""
-  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Control_01/EL3204_01.tex" 1759097113 11015 a03a758b7748f685da64ad492937b172 ""
+  "Control_01.aux" 1759281740 1868 7b52c7dad1166854f46909deccc44ade "pdflatex"
+  "Control_01.out" 1759281740 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Control_01.tex" 1759281734 26582 8d36524d1eb29cffb3606e70fa512338 ""
+  "c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/Control_01/Control_01.tex" 1759281734 26582 8d36524d1eb29cffb3606e70fa512338 ""
   (generated)
-  "EL3204_01.aux"
-  "EL3204_01.log"
-  "EL3204_01.out"
-  "EL3204_01.pdf"
+  "Control_01.aux"
+  "Control_01.log"
+  "Control_01.out"
+  "Control_01.pdf"
   (rewritten before read)
