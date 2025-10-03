@@ -1,0 +1,296 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{cancel} % Para mostrar la sustitución sin(theta) -> theta
+\usetikzlibrary{decorations.pathmorphing}
+
+\begin{document}
+\pagestyle{headandfoot}
+\firstpagefooter{ }{Página \thepage\ de \numpages}{ }
+\runningfooter{ }{Página \thepage\ de \numpages}{ }
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die.png}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Introducción a la Física Moderna} (F1100) \\
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+%--------------------------
+\question Un buque en reposo sobre aguas profundas está equipado con un sonar que envía pulsos de sonido de $20\,\mathrm{MHz}$. Los pulsos reflejados en la superficie de un submarino ubicado directamente debajo del barco se demoran $0{,}06\,\mathrm{s}$ en regresar al barco y tienen una frecuencia de $19{,}979\,\mathrm{MHz}$. Considere que la velocidad del sonido en el agua de mar es $1{,}48\,\mathrm{km/s}$.
+
+\begin{parts}
+\part Encuentre la profundidad del submarino.
+\part Encuentre la velocidad vertical del submarino.
+\end{parts}
+%--------------------------
+\begin{solution}
+\subsection*{Resolución 1.1 }
+
+Para encontrar la profundidad del submarino, utilizamos la información del tiempo que tarda el pulso de sonar en regresar al barco.
+
+\begin{itemize}
+    \item Tiempo total de ida y vuelta: $t = 0{,}06\,\mathrm{s}$
+    \item Velocidad del sonido en agua de mar: $v = 1{,}48\,\mathrm{km/s} = 1480\,\mathrm{m/s}$
+\end{itemize}
+
+
+El pulso de sonar debe viajar desde el barco hasta el submarino y luego regresar al barco. Por lo tanto, el pulso recorre una distancia total de $2d$, donde $d$ es la profundidad del submarino.
+
+La relación entre distancia, velocidad y tiempo es:
+\begin{equation}
+\text{distancia total} = \text{velocidad} \times \text{tiempo total}
+\end{equation}
+
+Sustituyendo los valores conocidos:
+\begin{align}
+2d &= v \times t \\
+2d &= 1480\,\mathrm{m/s} \times 0{,}06\,\mathrm{s} \\
+2d &= 88{,}8\,\mathrm{m}
+\end{align}
+
+Despejando la profundidad $d$:
+\begin{align}
+d &= \frac{88{,}8\,\mathrm{m}}{2} \\
+d &= 44{,}4\,\mathrm{m}
+\end{align}
+
+Por lo que finalmente la profundidad del submarino es $\boxed{44{,}4\,\mathrm{m}}$.
+
+\subsection*{Resolución 1.2 }
+
+Para encontrar la velocidad vertical del submarino, utilizamos el efecto Doppler observado en la frecuencia del pulso reflejado.
+
+\begin{itemize}
+    \item Frecuencia emitida: $f_0 = 20\,\mathrm{MHz} = 20 \times 10^6\,\mathrm{Hz}$
+    \item Frecuencia recibida: $f = 19{,}979\,\mathrm{MHz} = 19{,}979 \times 10^6\,\mathrm{Hz}$
+    \item Velocidad del sonido: $v = 1480\,\mathrm{m/s}$
+\end{itemize}
+
+
+En este caso tenemos un doble efecto Doppler:
+\begin{enumerate}
+    \item Del barco (fuente en reposo) al submarino (observador en movimiento)
+    \item Del submarino (fuente en movimiento) de vuelta al barco (observador en reposo)
+\end{enumerate}
+
+Para una fuente y observador que se alejan, la frecuencia observada después del doble efecto Doppler es:
+\begin{equation}
+f = f_0 \left(\frac{v - v_s}{v + v_s}\right)
+\end{equation}
+
+donde $v_s$ es la velocidad del submarino (positiva si se aleja del barco).
+
+Despejando $v_s$:
+\begin{align}
+\frac{f}{f_0} &= \frac{v - v_s}{v + v_s} \\
+\frac{f}{f_0}(v + v_s) &= v - v_s \\
+\frac{f}{f_0} \cdot v + \frac{f}{f_0} \cdot v_s &= v - v_s \\
+\frac{f}{f_0} \cdot v_s + v_s &= v - \frac{f}{f_0} \cdot v \\
+v_s\left(\frac{f}{f_0} + 1\right) &= v\left(1 - \frac{f}{f_0}\right) \\
+v_s &= v \cdot \frac{1 - \frac{f}{f_0}}{\frac{f}{f_0} + 1}
+\end{align}
+
+Calculando la relación de frecuencias:
+\begin{align}
+\frac{f}{f_0} &= \frac{19{,}979 \times 10^6}{20 \times 10^6} = \frac{19{,}979}{20} = 0{,}99895
+\end{align}
+
+Sustituyendo en la ecuación:
+\begin{align}
+v_s &= 1480 \cdot \frac{1 - 0{,}99895}{0{,}99895 + 1} \\
+v_s &= 1480 \cdot \frac{0{,}00105}{1{,}99895} \\
+v_s &= 1480 \cdot 0{,}000525 \\
+v_s &= 0{,}777\,\mathrm{m/s}
+\end{align}
+
+Por lo que finalmente la velocidad vertical del submarino es $\boxed{0{,}78\,\mathrm{m/s}}$ alejándose del barco.
+
+\end{solution}
+%--------------------------
+\question Se realiza un experimento de doble rendija usando un láser de He-Ne ($\lambda = 633\,\mathrm{nm}$). Luego, se coloca una placa muy delgada de vidrio ($n = 1{,}5$) sobre una de las ranuras. Se observa que el punto central en la pantalla está ahora ocupado por la que había sido la franja oscura correspondiente a $m = 10$. ¿Cuán grueso es el vidrio?
+
+Considere que la pantalla está ubicada muy lejos, de manera que vale la aproximación paraxial (todos los ángulos son muy pequeños).
+%--------------------------
+\begin{solution}
+\subsection*{Resolución 2.1 - Grosor del vidrio en doble rendija}
+
+En el experimento de doble rendija original, sin la placa de vidrio, el patrón de interferencia se debe a la diferencia de camino óptico entre la luz que pasa por cada rendija. Las franjas brillantes aparecen cuando la diferencia de camino es un múltiplo entero de la longitud de onda, y las franjas oscuras aparecen cuando la diferencia es un múltiplo impar de media longitud de onda.
+
+La condición para una franja oscura en el experimento original es:
+\begin{equation}
+\Delta = d \sin \theta = \left(m + \frac{1}{2}\right) \lambda
+\end{equation}
+donde $d$ es la separación entre rendijas, $\theta$ es el ángulo respecto al centro, y $m$ es un número entero.
+
+Para la franja oscura correspondiente a $m = 10$, la diferencia de camino original era:
+\begin{equation}
+\Delta_{original} = \left(10 + \frac{1}{2}\right) \lambda = 10{,}5 \lambda
+\end{equation}
+
+Cuando se coloca la placa de vidrio de grosor $t$ sobre una de las rendijas, se introduce una diferencia de camino óptico adicional. La luz que pasa por la rendija con vidrio viaja una distancia $t$ en vidrio en lugar de aire. El camino óptico en vidrio es $nt$, mientras que en aire sería $t$, por lo que la diferencia de camino óptico introducida por el vidrio es:
+\begin{equation}
+\Delta_{vidrio} = nt - t = t(n - 1)
+\end{equation}
+
+Después de colocar el vidrio, el punto que antes correspondía a la franja oscura $m = 10$ ahora aparece en el centro de la pantalla. En el centro, el ángulo $\theta = 0$, por lo que la diferencia de camino geométrica es cero ($d \sin \theta = 0$). Para que este punto sea brillante (interferencia constructiva), la diferencia de camino óptica total debe ser un múltiplo entero de la longitud de onda.
+
+La diferencia de camino óptica total en el centro es únicamente la introducida por el vidrio:
+\begin{equation}
+\Delta_{total} = \Delta_{vidrio} = t(n - 1)
+\end{equation}
+
+Para interferencia constructiva en el centro:
+\begin{equation}
+t(n - 1) = k\lambda
+\end{equation}
+donde $k$ es un número entero.
+
+El desplazamiento del patrón se debe a que la diferencia de camino que antes producía la franja oscura $m = 10$ ahora se compensa exactamente con la diferencia introducida por el vidrio. Por lo tanto:
+\begin{equation}
+t(n - 1) = 10{,}5 \lambda
+\end{equation}
+
+Despejando el grosor $t$:
+\begin{align}
+t &= \frac{10{,}5 \lambda}{n - 1} \\
+t &= \frac{10{,}5 \times 633 \times 10^{-9}\,\mathrm{m}}{1{,}5 - 1} \\
+t &= \frac{10{,}5 \times 633 \times 10^{-9}\,\mathrm{m}}{0{,}5} \\
+t &= \frac{6{,}6465 \times 10^{-6}\,\mathrm{m}}{0{,}5} \\
+t &= 1{,}3293 \times 10^{-5}\,\mathrm{m} \\
+t &= 13{,}3\,\mathrm{\mu m}
+\end{align}
+
+El grosor de la placa de vidrio es $\boxed{13{,}3\,\mathrm{\mu m}}$.
+
+\end{solution}
+%--------------------------
+\question Una pompa de jabón tiene un espesor variable que aumenta linealmente con la posición horizontal según $h(x) = ax$, donde $a = 0{,}8$ y $x$ se mide en milímetros. Cuando se ilumina con luz roja de longitud de onda $\lambda = 650\,\mathrm{nm}$ en el aire, se observan franjas de interferencia debido a la reflexión en las superficies anterior y posterior de la pompa. El índice de refracción del jabón es $n = 1{,}33$.
+
+Determine la distancia horizontal entre dos franjas brillantes consecutivas. Considere que la luz incide perpendicularmente a la superficie de la pompa.
+
+\question Un tren se aproxima a una estación con velocidad constante $v = 30\,\mathrm{m/s}$ mientras hace sonar su silbato con una frecuencia de $f_0 = 440\,\mathrm{Hz}$. Un observador en la estación registra la frecuencia del sonido. Considere que la velocidad del sonido en el aire es $v_s = 340\,\mathrm{m/s}$.
+
+\begin{parts}
+\part Calcule la frecuencia que escucha el observador cuando el tren se acerca.
+\part Utilizando un diagrama de trayectorias $x$-$t$, explique gráficamente cómo se relaciona el período medido por el observador con el período de emisión del silbato. Dibuje al menos dos frentes de onda consecutivos y muestre cómo el movimiento de la fuente afecta el tiempo entre llegadas.
+\end{parts}
+%--------------------------
+\begin{solution}
+\subsection*{Resolución 3.1 - Interferencia en pompa de jabón con espesor variable}
+
+En una pompa de jabón, la interferencia se produce cuando la luz se refleja tanto en la superficie anterior como en la posterior de la película delgada. Para obtener las condiciones de interferencia, debemos considerar la diferencia de camino óptico entre estos dos rayos reflejados.
+
+Cuando la luz incide perpendicularmente sobre una película delgada de espesor $h$ y índice de refracción $n$, la diferencia de camino óptico entre el rayo reflejado en la superficie anterior y el reflejado en la superficie posterior es $2nh$. Sin embargo, también debemos considerar el cambio de fase que ocurre en las reflexiones.
+
+En el caso de la pompa de jabón (índice $n = 1{,}33$) rodeada de aire (índice $n = 1$), ambas reflexiones (aire-jabón y jabón-aire) introducen un cambio de fase de $\pi$ radianes, o equivalentemente, $\lambda/2$. Como ambas reflexiones tienen el mismo cambio de fase, estos se cancelan mutuamente.
+
+La condición para interferencia constructiva (franjas brillantes) es:
+\begin{equation}
+2nh = m\lambda
+\end{equation}
+donde $m$ es un número entero positivo y $\lambda$ es la longitud de onda en el aire.
+
+Para nuestro problema, $h(x) = ax = 0{,}8x$ (con $x$ en mm), por lo que:
+\begin{equation}
+2n(ax) = m\lambda
+\end{equation}
+
+Despejando la posición para cada franja brillante:
+\begin{equation}
+x_m = \frac{m\lambda}{2na}
+\end{equation}
+
+La distancia entre dos franjas brillantes consecutivas es:
+\begin{align}
+\Delta x &= x_{m+1} - x_m \\
+&= \frac{(m+1)\lambda}{2na} - \frac{m\lambda}{2na} \\
+&= \frac{\lambda}{2na}
+\end{align}
+
+Sustituyendo los valores dados:
+\begin{align}
+\Delta x &= \frac{650 \times 10^{-9}\,\mathrm{m}}{2 \times 1{,}33 \times 0{,}8 \times 10^{-3}\,\mathrm{m}} \\
+&= \frac{650 \times 10^{-9}}{2{,}128 \times 10^{-3}} \\
+&= 3{,}05 \times 10^{-4}\,\mathrm{m} \\
+&= 0{,}305\,\mathrm{mm}
+\end{align}
+
+La distancia horizontal entre dos franjas brillantes consecutivas es $\boxed{0{,}31\,\mathrm{mm}}$.
+
+\subsection*{Resolución 4.1 - Frecuencia observada con efecto Doppler}
+
+Cuando una fuente de sonido se mueve hacia un observador en reposo, la frecuencia observada es mayor que la frecuencia emitida debido al efecto Doppler. Esto ocurre porque los frentes de onda se "comprimen" en la dirección del movimiento de la fuente.
+
+La fórmula para el efecto Doppler cuando la fuente se mueve hacia un observador en reposo es:
+\begin{equation}
+f = f_0 \left(\frac{v_s}{v_s - v}\right)
+\end{equation}
+donde $f$ es la frecuencia observada, $f_0$ es la frecuencia emitida, $v_s$ es la velocidad del sonido, y $v$ es la velocidad de la fuente (positiva cuando se acerca al observador).
+
+Sustituyendo los valores dados:
+\begin{align}
+f &= 440\,\mathrm{Hz} \left(\frac{340\,\mathrm{m/s}}{340\,\mathrm{m/s} - 30\,\mathrm{m/s}}\right) \\
+&= 440\,\mathrm{Hz} \left(\frac{340}{310}\right) \\
+&= 440\,\mathrm{Hz} \times 1{,}097 \\
+&= 482{,}6\,\mathrm{Hz}
+\end{align}
+
+La frecuencia que escucha el observador es $\boxed{483\,\mathrm{Hz}}$.
+
+\subsection*{Resolución 4.2 - Análisis gráfico con diagramas x-t}
+
+El método gráfico de trayectorias $x$-$t$ permite visualizar cómo el movimiento de la fuente afecta el tiempo entre llegadas de los frentes de onda consecutivos al observador.
+
+En un diagrama $x$-$t$, el eje horizontal representa el tiempo y el eje vertical representa la posición. Las líneas rectas con pendiente constante representan el movimiento de los frentes de onda, mientras que una línea con pendiente diferente representa el movimiento de la fuente.
+
+Consideremos dos frentes de onda consecutivos emitidos por el tren:
+- El primer frente se emite en el tiempo $t = 0$ cuando el tren está en la posición $x_0$
+- El segundo frente se emite en el tiempo $t = T_0$ cuando el tren está en la posición $x_0 + vT_0$
+
+Donde $T_0 = 1/f_0$ es el período de emisión.
+
+Los frentes de onda viajan hacia el observador (ubicado en $x = 0$) con velocidad $v_s$:
+- El primer frente llega al observador en el tiempo $t_1 = x_0/v_s$
+- El segundo frente, que fue emitido desde una posición más cercana, llega en el tiempo $t_2 = T_0 + (x_0 + vT_0)/v_s$
+
+El período medido por el observador es:
+\begin{align}
+T &= t_2 - t_1 \\
+&= T_0 + \frac{x_0 + vT_0}{v_s} - \frac{x_0}{v_s} \\
+&= T_0 + \frac{vT_0}{v_s} \\
+&= T_0\left(1 + \frac{v}{v_s}\right) \\
+&= T_0\left(\frac{v_s + v}{v_s}\right)
+\end{align}
+
+Pero como la fuente se acerca al observador, la distancia recorrida por el segundo frente es menor, por lo que:
+\begin{equation}
+T = T_0\left(\frac{v_s - v}{v_s}\right)
+\end{equation}
+
+La frecuencia observada es:
+\begin{equation}
+f = \frac{1}{T} = \frac{f_0}{\left(\frac{v_s - v}{v_s}\right)} = f_0\left(\frac{v_s}{v_s - v}\right)
+\end{equation}
+
+Esto confirma la fórmula utilizada en la parte anterior y muestra gráficamente por qué la frecuencia aumenta cuando la fuente se acerca al observador.
+
+\end{solution}
+%--------------------------
+\end{questions}
+\end{document}
