@@ -10,9 +10,6 @@
 \usepackage{float}
 \usepackage{subcaption}
 % TikZ libraries needed for `right=.. of ..` and coordinate math
-\usetikzlibrary{positioning,calc,arrows,arrows.meta}
-% Alias de seguridad por si se escribe 'ikzstyle' por error
-\let\ikzstyle\tikzstyle
 
 \begin{document}
 
@@ -234,171 +231,167 @@ y(n) = \sum_{k \in \mathbb{Z}} x(k)\,\big[g(n-k) - a\,g(n-k-1)\big].
 \end{solution}
 
 %----------------------------
-\question
+\question Responda lo siguiente:
 \begin{enumerate}
-  \item Determine la transformada de Fourier de las siguientes señales y gráfiquela en magnitud y fase:
-\begin{align*}
-  &\bullet\quad x(t) = \begin{cases}
-    A \cdot e^{-a t} & t \geq 0 \\
-    0 & t < 0
-  \end{cases} \\
-  &\bullet\quad x(t) = A \cdot e^{-a|t|}
-\end{align*}
+  \item Demuestre que
+  \begin{equation}
+    \frac{1}{T_0} \int_{t_0}^{t_0+T_0} e^{-j 2\pi F_0 \cdot k t} \, dt = 0, \quad \text{si } k \neq 0
+  \end{equation}
+  siendo $T_0$ el periodo fundamental.
 
-\item Determine los coeficientes de la serie de Fourier para la siguiente señal:
-\begin{equation}
-  x(t) = 1 + \sin(\omega_0 t) + 2\cos(\omega_0 t) + \cos\left(2\omega_0 t + \frac{\pi}{4}\right)
-\end{equation}
+  \item En base a lo anterior demuestre que una señal $x(t)$ periódica de periodo $T_0$, escrita como:
+  \begin{equation}
+    x(t) = \sum_{k=-\infty}^{\infty} c_k \phi_{k}(t)
+  \end{equation}
+Los valores de los coeficientes $c_k$ vendrán dados por:
+\begin{align}
+  c_{k} = \frac{1}{T_0} \langle x(t), \phi_k(t) \rangle &= \frac{1}{T_0} \int_{t_0}^{t_0+T_0} x(t) \phi_k^{*}(t) \, dt
+\end{align}
+  siendo $\phi_k(t)$ la familia de funciones ortogonales:
+  \begin{equation}
+    \phi_k(t) = e^{j \frac{2\pi}{T_0} k t}
+  \end{equation}
+  \item \textbf{[Propuesto]} Finalmente demuestre que:
+  \begin{equation}
+    \lim_{N \to \infty} \| x(t) - x_N(t) \| = 0 \quad \forall t \in (t_0 , t_0+T_0)
+  \end{equation}
+  siendo $x_N(t)$ la aproximación de $x(t)$ con $2N+1$ armónicos.
 \end{enumerate}
 %----------------------------
 \begin{solution}
 \subsection*{Resolución 2.1}
-Se pide la transformada de Fourier de las funciones dadas, luego por definición:
+Se pide el demostrar que:
+\begin{equation}
+\frac{1}{T_0} \int_{t_0}^{t_0+T_0} e^{-j 2\pi F_0 \cdot k t} \, dt = 0, \quad \text{si } k \neq 0
+\end{equation}
+Recordando la primitiva de la exponencial compleja, 
 \begin{align}
-  X(F) &= \int_{-\infty}^{\infty} x(t)\,e^{-j2\pi F t}\,dt
-\end{align}
-Luego se tiene que la primera función se puede expresar en funcion del escalón unitario \(u(t)\):
-\[
-x(t)=A\,e^{-a t}\,u(t),\qquad a>0.
-\]
-Por definición,
+\int e^{at} dt &= \frac{e^{at}}{a} + C, \quad a \neq 0,
+\end{align} 
+se puede luego demostrar fácilmente evaluando la integral:
 \begin{align}
-X(F)
-  &= \int_{-\infty}^{\infty} x(t)\,e^{-j2\pi F t}\,dt \\
-  &= \int_{0}^{\infty} A e^{-a t}\,e^{-j2\pi F t}\,dt \\
-  &= A\int_{0}^{\infty} e^{-(a+j2\pi F)t}\,dt \\
-  &= A\left[\frac{-1}{a+j2\pi F}\,e^{-(a+j2\pi F)t}\right]_{0}^{\infty} \\
-  &= \frac{A}{a+j2\pi F}.
+\frac{1}{T_0} \int_{t_0}^{t_0+T_0} e^{-j 2\pi F_0 \cdot k t} \, dt
+&= \frac{1}{T_0} \left[ \frac{e^{-j 2\pi F_0 k t}}{-j 2\pi F_0 k} \right]_{t_0}^{t_0+T_0} \\
+&= \frac{1}{T_0} \cdot \frac{1}{-j 2\pi F_0 k} \left( e^{-j 2\pi F_0 k (t_0 + T_0)} - e^{-j 2\pi F_0 k t_0} \right) \\
+&= \frac{1}{T_0} \cdot \frac{1}{-j 2\pi F_0 k} e^{-j 2\pi F_0 k t_0} \left( e^{-j 2\pi F_0 k T_0} - 1 \right)
 \end{align}
-
-Luego tenemos que el modulo y fase vienen dados por:
+Dado que \(F_0 = \frac{1}{T_0}\), tenemos:
 \begin{align}
-|X(F)|
-  &= \frac{A}{\sqrt{a^{2}+(2\pi F)^{2}}},\\
-\angle X(F)
-  &= \angle\big((a+j2\pi F)^{-1}\big)
-   = -\arctan\!\left(\frac{2\pi F}{a}\right),
+e^{-j 2\pi F_0 k T_0} &= e^{-j 2\pi k} = 1
 \end{align}
-Luego gráficamente tenemos que: 
-
-\begin{figure}[H]
-  \centering
-
-  \begin{subfigure}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=1\linewidth]{Auxiliar_3_2} % <-- pon la extensión si hace falta
-    \caption{Magnitud $|X(F)|$ para $X(F)=\frac{A}{a+j2\pi F}$. Se observa un máximo en $F=0$ igual a $A/a$, y la magnitud decae rápidamente para frecuencias altas, mostrando el comportamiento típico de un filtro pasabajo exponencial.}
-    \label{fig:mag_XF}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=1\linewidth]{Auxiliar_3_3}
-    \caption{Fase $\angle X(F)$ para $X(F)=\frac{A}{a+j2\pi F}$. La fase parte en $0$ para $F=0$ y varía suavemente desde $+\pi/2$ a $-\pi/2$ al aumentar $|F|$, indicando el retardo de fase introducido por el sistema.}
-    \label{fig:fase_XF}
-  \end{subfigure}
-
-  \caption{Magnitud y fase de la transformada de Fourier para $x(t)=A e^{-a t}u(t)$. La magnitud tiene máximo en $F=0$ y la fase varía de $+\pi/2$ a $-\pi/2$ según la frecuencia, mostrando el efecto de la exponencial sobre el espectro.}
-  \label{fig:mag_fase_XF}
-\end{figure}
-
-
-Sea ahora la siguiente funcion:
-\[
-x(t)=A\,e^{-a|t|},\qquad a>0,
-\]
-que es par. Separando para \(t\ge 0\) y \(t<0\),
+Por lo tanto:
 \begin{align}
-X(F)
- &= \int_{-\infty}^{\infty} A e^{-a|t|} e^{-j2\pi F t}\,dt \\
- &= \int_{-\infty}^{0} A e^{+a t} e^{-j2\pi F t}\,dt
-   + \int_{0}^{\infty} A e^{-a t} e^{-j2\pi F t}\,dt \\
- &= A\int_{-\infty}^{0} e^{(a-j2\pi F)t}\,dt
-   +A\int_{0}^{\infty} e^{-(a+j2\pi F)t}\,dt \\
- &= A\left[\frac{1}{a-j2\pi F}e^{(a-j2\pi F)t}\right]_{-\infty}^{0}
-   +A\left[\frac{-1}{a+j2\pi F}e^{-(a+j2\pi F)t}\right]_{0}^{\infty} \\
- &= \frac{A}{a-j2\pi F}+\frac{A}{a+j2\pi F}
-  = \frac{A\big((a+j2\pi F)+(a-j2\pi F)\big)}{a^{2}+(2\pi F)^{2}} \\
- &= \frac{2A a}{a^{2}+(2\pi F)^{2}}.
+\frac{1}{T_0} \int_{t_0}^{t_0+T_0} e^{-j 2\pi F_0 \cdot k t} \, dt &= \frac{1}{T_0} \cdot \frac{1}{-j 2\pi F_0 k} e^{-j 2\pi F_0 k t_0} (1 - 1) = 0
 \end{align}
-
-Como \(x(t)\) es par, \(X(F)\) es real y par:
-\begin{align}
-|X(F)|
-  &= \frac{2A a}{a^{2}+(2\pi F)^{2}},\\
-\angle X(F)
-  &= 0\quad \text{(para todo \(F\), salvo el signo en \(F\) donde \(X(F)>0\))}.
-\end{align}
-Luego gráficamente tenemos lo siguiente:
-\begin{figure}[H]
-  \centering
-
-  \begin{subfigure}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=1\linewidth]{Auxiliar_3_4} % <-- pon la extensión si hace falta
-    \caption{Magnitud $|X(F)|$ para $X(F)=\frac{2Aa}{a^2+(2\pi F)^2}$. Se observa un máximo en $F=0$ igual a $2A/a$, y la magnitud es real, par y decae para frecuencias altas, mostrando el espectro de una exponencial simétrica.}
-    \label{fig:mag_XF}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{0.48\textwidth}
-    \centering
-    \includegraphics[width=1\linewidth]{Auxiliar_3_5}
-    \caption{Fase $\angle X(F)$ para $X(F)=\frac{2Aa}{a^2+(2\pi F)^2}$. La fase es cero para todo $F$, lo que indica que la señal original es par y su transformada es completamente real.}
-    \label{fig:fase_XF2}
-  \end{subfigure}
-
-  \caption{Magnitud y fase de la transformada de Fourier para $x(t)=A e^{-a|t|}$. La magnitud es real y par, con máximo en $F=0$, y la fase es cero en todo el dominio de frecuencias.}
-  \label{fig:mag_fase_XF2}
-\end{figure}
-
+para \(k \neq 0\), como se quería demostrar.
 \subsection*{Resolución 2.2}
-Los coeficientes de la serie de Fourier \( \{c_k\}_{k\in\mathbb{Z}} \) permiten expresar una señal periódica como combinación lineal de sinusoides complejas. En la forma compleja,
+Dado que podemos escribir la función periódica \(x(t)\) como:
 \begin{equation}
-x(t)=\sum_{k=-\infty}^{\infty} c_k\,e^{jk\omega_0 t}, 
-\qquad \omega_0=\frac{2\pi}{T},
+x(t) = \sum_{k=-\infty}^{\infty} c_k \phi_{k}(t)
 \end{equation}
-donde \(T\) es el período fundamental. Los coeficientes se obtienen (sobre cualquier intervalo de longitud \(T\)) como
-\begin{equation}
-c_k=\frac{1}{T}\int_{t_0}^{t_0+T} x(t)\,e^{-jk\omega_0 t}\,dt .
-\end{equation}
-Para convertir senos y cosenos a exponenciales usamos las identidades de Euler:
+Luego tenemos que el producto interno entre \(x(t)\) y \(\phi_k(t)\) es:
 \begin{align}
-\cos(\theta) &= \frac{e^{j\theta}+e^{-j\theta}}{2}, &
-\sin(\theta) &= \frac{e^{j\theta}-e^{-j\theta}}{2j}.
+\langle x(t), \phi_k(t) \rangle &= \int_{t_0}^{t_0+T_0} x(t) \phi_k^{*}(t) \, dt \\
+&= \int_{t_0}^{t_0+T_0} x(t) e^{-j 2\pi F_{0} k t} \, dt \\
+&= \int_{t_0}^{t_0+T_0} \left( \sum_{k'=-\infty}^{\infty} c_{k'} \phi_{k'}(t) \right) e^{-j 2\pi F_{0} k t} \, dt \\
+&= \sum_{k'=-\infty}^{\infty} c_{k'} \int_{t_0}^{t_0+T_0} e^{j 2\pi F_{0} k' t} \cdot e^{-j 2\pi F_{0} k t} \, dt\\
+&= \sum_{k'=-\infty}^{\infty} c_{k'} \int_{t_0}^{t_0+T_0} e^{j 2\pi F_{0} (k' - k) t} \, dt
+\end{align}
+Como vimos en la resolución 2.1, la integral es cero para \(k' \neq k\) y \(T_0\) para \(k' = k\). Por lo tanto, el producto interno lo podemos escribir en base al impulso como:
+\begin{align}
+  \sum_{k'=-\infty}^{\infty} c_{k'} \int_{t_0}^{t_0+T_0} e^{j 2\pi F_{0} (k' - k) t} \, dt = \sum_{k'=-\infty}^{\infty} c_{k'} \, \delta(k'-k) T_{0} = c_{k} T_0
+\end{align}
+Con lo que finalmente tenemos que:
+\begin{align}
+  \langle x(t), \phi_k(t) \rangle &= c_k T_0 \\
+  \Rightarrow \quad c_k &= \frac{1}{T_0} \langle x(t), \phi_k(t) \rangle
+\end{align}
+De donde se obtiene la expresión buscada para los coeficientes \(c_k\):
+\begin{align}
+  c_{k} = \frac{1}{T_0} \langle x(t), \phi_k(t) \rangle &= \frac{1}{T_0} \int_{t_0}^{t_0+T_0} x(t) \phi_k^{*}(t) \, dt
+\end{align}
+\subsection*{Resolución 2.3}
+Se pide demostrar que la aproximación por serie de Fourier converge en norma:
+\begin{equation}
+\lim_{N \to \infty} \| x(t) - x_N(t) \| = 0 \quad \forall t \in (t_0 , t_0+T_0)
+\end{equation}
+
+Esta ecuación establece que al incluir más armónicos en la serie de Fourier, el error entre la señal original \(x(t)\) y su aproximación \(x_N(t)\) tiende a cero. Esto garantiza que podemos reconstruir perfectamente cualquier señal usando infinitos armónicos.
+
+La aproximación \(x_N(t)\) usa los primeros \(2N+1\) armónicos (desde \(k=-N\) hasta \(k=N\)):
+\begin{equation}
+x_N(t) = \sum_{k=-N}^{N} c_k \phi_k(t)
+\end{equation}
+
+Para demostrar la convergencia, calculamos la norma \(L^2\) del error en el intervalo \([t_0, t_0+T_0]\):
+\begin{align}
+\| x(t) - x_N(t) \| &= \sqrt{\langle x(t) - x_N(t), x(t) - x_N(t) \rangle} \\
+&= \sqrt{\int_{t_0}^{t_0+T_0} |x(t) - x_N(t)|^2 \, dt}
 \end{align}
 
-Dada la señal
-\begin{equation}
-x(t)=1+\sin(\omega_0 t)+2\cos(\omega_0 t)+\cos\!\left(2\omega_0 t+\frac{\pi}{4}\right),
-\end{equation}
-la escribimos en forma exponencial y agrupamos por armónicos \(e^{jk\omega_0 t}\):
+La clave está en evaluar la integral \(\int_{t_0}^{t_0+T_0} |x(t) - x_N(t)|^2 \, dt\). Usando la identidad \(|a-b|^2 = |a|^2 - 2\text{Re}(ab^*) + |b|^2\), expandimos:
 \begin{align}
-x(t)
-&= 1
-+ \frac{1}{2j}e^{j\omega_0 t}-\frac{1}{2j}e^{-j\omega_0 t}
-+ \left(e^{j\omega_0 t}+e^{-j\omega_0 t}\right)
-+ \frac{1}{2}e^{j\frac{\pi}{4}}e^{j2\omega_0 t}
-+ \frac{1}{2}e^{-j\frac{\pi}{4}}e^{-j2\omega_0 t} \\
-&= 1
-+ \Big(1+\tfrac{1}{2j}\Big)e^{j\omega_0 t}
-+ \Big(1-\tfrac{1}{2j}\Big)e^{-j\omega_0 t}
-+ \frac{1}{2}e^{j\frac{\pi}{4}}e^{j2\omega_0 t}
-+ \frac{1}{2}e^{-j\frac{\pi}{4}}e^{-j2\omega_0 t}.
+|x(t) - x_N(t)|^2 &= |x(t)|^2 - 2\text{Re}\{x(t)x_N^*(t)\} + |x_N(t)|^2
 \end{align}
-Identificando término a término con \(x(t)=\sum_k c_k e^{jk\omega_0 t}\), los coeficientes complejos son:
-\begin{align}
-c_0 &= 1, \\
-c_{1} &= 1+\frac{1}{2j}=1-\frac{j}{2}, \\
-c_{-1} &= 1-\frac{1}{2j}=1+\frac{j}{2}, \\
-c_{2} &= \frac{1}{2}e^{j\frac{\pi}{4}}=\frac{\sqrt{2}}{4}(1+j), \\
-c_{-2} &= \frac{1}{2}e^{-j\frac{\pi}{4}}=\frac{\sqrt{2}}{4}(1-j), \\
-c_k &= 0 \quad \text{para } |k|\ge 3.
-\end{align}
-Obsérvese que, al ser \(x(t)\) real, se cumple la simetría conjugada \(c_{-k}=c_k^{*}\).
 
+Integrando término a término en el intervalo \([t_0, t_0+T_0]\):
+\begin{align}
+\int_{t_0}^{t_0+T_0} |x(t) - x_N(t)|^2 \, dt &= \int_{t_0}^{t_0+T_0} |x(t)|^2 \, dt - 2\text{Re}\left\{\int_{t_0}^{t_0+T_0} x(t)x_N^*(t) \, dt\right\} + \int_{t_0}^{t_0+T_0} |x_N(t)|^2 \, dt
+\end{align}
+
+Ahora analizamos cada integral. Para la integral cruzada, sustituyendo la definición \(x_N(t) = \sum_{k=-N}^{N} c_k \phi_k(t)\):
+\begin{align}
+\int_{t_0}^{t_0+T_0} x(t)x_N^*(t) \, dt &= \int_{t_0}^{t_0+T_0} x(t) \left( \sum_{k=-N}^{N} c_k^* \phi_k^*(t) \right) dt \\
+&= \sum_{k=-N}^{N} c_k^* \int_{t_0}^{t_0+T_0} x(t) \phi_k^*(t) \, dt \\
+&= \sum_{k=-N}^{N} c_k^* \cdot c_k T_0 \quad \text{(por la fórmula de análisis: } c_k = \frac{1}{T_0}\int x(t)\phi_k^*(t)dt\text{)} \\
+&= T_0 \sum_{k=-N}^{N} |c_k|^2
+\end{align}
+
+Para la integral de \(|x_N(t)|^2\), utilizamos la propiedad clave de ortogonalidad de las funciones \(\phi_k(t)\):
+\begin{align}
+\int_{t_0}^{t_0+T_0} |x_N(t)|^2 \, dt &= \int_{t_0}^{t_0+T_0} \left| \sum_{k=-N}^{N} c_k \phi_k(t) \right|^2 dt \\
+&= \sum_{k=-N}^{N} |c_k|^2 T_0 \quad \text{(los términos cruzados se anulan por ortogonalidad)}
+\end{align}
+
+Combinando estos resultados en la expresión del error:
+\begin{align}
+\int_{t_0}^{t_0+T_0} |x(t) - x_N(t)|^2 \, dt &= \int_{t_0}^{t_0+T_0} |x(t)|^2 \, dt - 2 T_0 \sum_{k=-N}^{N} |c_k|^2 + T_0 \sum_{k=-N}^{N} |c_k|^2 \\
+&= \int_{t_0}^{t_0+T_0} |x(t)|^2 \, dt - T_0 \sum_{k=-N}^{N} |c_k|^2
+\end{align}
+
+Observemos que el término \(-2T_0\sum|c_k|^2 + T_0\sum|c_k|^2 = -T_0\sum|c_k|^2\) muestra que incluir más armónicos efectivamente reduce el error.
+
+Ahora aplicamos la relación de Parseval, que establece que la energía en el dominio temporal es igual a la energía en el dominio de frecuencias:
+\begin{equation}
+\int_{t_0}^{t_0+T_0} |x(t)|^2 \, dt = T_0 \sum_{k=-\infty}^{\infty} |c_k|^2
+\end{equation}
+
+Sustituyendo esta relación en la expresión del error:
+\begin{align}
+\int_{t_0}^{t_0+T_0} |x(t) - x_N(t)|^2 \, dt &= T_0 \sum_{k=-\infty}^{\infty} |c_k|^2 - T_0 \sum_{k=-N}^{N} |c_k|^2 \\
+&= T_0 \sum_{|k|>N} |c_k|^2
+\end{align}
+
+Este resultado es fundamental: el error al cuadrado es exactamente \(T_0\) veces la suma de los coeficientes que \textit{no} incluimos en la aproximación (aquellos con \(|k|>N\)). Por tanto, la norma del error viene dada por:
+\begin{equation}
+\| x(t) - x_N(t) \|^2 = T_0 \sum_{|k|>N} |c_k|^2
+\end{equation}
+
+Para que la demostración sea completa, necesitamos que la señal \(x(t)\) tenga energía finita en un período, es decir, que se cumpla \(\sum_{k=-\infty}^{\infty} |c_k|^2 < \infty\). Esta condición es razonable para señales físicamente realizables. Bajo esta hipótesis:
+\begin{equation}
+\lim_{N \to \infty} \sum_{|k|>N} |c_k|^2 = 0
+\end{equation}
+
+puesto que cuando \(N \to \infty\), la suma de los términos "cola" de una serie convergente tiende a cero.
+
+Finalmente, tomando la raíz cuadrada en ambos lados y aplicando el límite:
+\begin{equation}
+\lim_{N \to \infty} \| x(t) - x_N(t) \| = \lim_{N \to \infty} \sqrt{T_0 \sum_{|k|>N} |c_k|^2} = 0 \quad \forall t \in (t_0, t_0+T_0)
+\end{equation}
+
+Esto completa la demostración de que la serie de Fourier converge en norma \(L^2\) hacia la función original. El resultado es poderoso: nos asegura que cualquier señal de energía finita puede ser aproximada arbitrariamente bien mediante una suma finita de armónicos.
 
 \end{solution}
-
 %----------------------------
 \question Para la función sinusoidal rectificada mostrada en la figura \ref{fig:aux3_1}, calcule los coeficientes de la serie de Fourier , ademas verifique el cumplimiento del teorema de Parseval.
 \begin{figure}[H]
@@ -441,11 +434,11 @@ c_k
 &=\frac{A}{\pi}\,\frac{(1+2k)+(1-2k)}{1-4k^2}
 =\boxed{\;\frac{2A}{\pi\,(1-4k^2)}\;}.
 \end{align}
-En particular,
+En particular como se tiene que,
 \begin{equation}
 c_0=\frac{2A}{\pi},\qquad c_{-k}=c_k\quad(\text{coeficientes reales y pares}).
 \end{equation}
-Por otro lado buscamos realizar la verificacion de Parseval, por lo que la potencia promedio en el tiempo es
+Dado que los coeficientes son reales, se cumple que \(c_{-k} = c_k^*\). Por otro lado buscamos realizar la verificacion de Parseval, por lo que la potencia promedio en el tiempo es
 \begin{align}
 P_x
 =\frac{1}{\tau}\int_{0}^{\tau}x^2(t)\,dt
@@ -474,31 +467,47 @@ se obtiene
 con lo que queda verificada la relación de Parseval.
 \end{solution}
 %----------------------------
-\question Dadas dos señales $f(t)$ y $g(t)$ con coeficientes de Fourier $c_k$ y $d_k$, respectivamente, encuentre los coeficientes de Fourier de la señal $y(t) = f(t)$
+\question Dadas dos señales $f(t)$ y $g(t)$ con coeficientes de Fourier $c_k$ y $d_k$, respectivamente, encuentre los coeficientes de Fourier de la señal $y(t) = f(t) \cdot g(t)$.
 %----------------------------
 \begin{solution}
 \subsection*{Resolución 4.1}
-Sea \(f(t)\) y \(g(t)\) dos señales \(T\)-periódicas con series de Fourier complejas
+
+Este problema aborda una propiedad fundamental de las series de Fourier el cual es el comportamiento de los coeficientes cuando multiplicamos dos señales periódicas.
+
+Consideremos dos señales \(T\)-periódicas \(f(t)\) y \(g(t)\), cada una con su respectiva expansión en serie de Fourier compleja:
 \begin{align}
 f(t) &= \sum_{k=-\infty}^{\infty} c_k\,e^{jk\omega_0 t}, &
 g(t) &= \sum_{m=-\infty}^{\infty} d_m\,e^{jm\omega_0 t}, \qquad \omega_0=\frac{2\pi}{T}.
 \end{align}
-Definimos \(y(t)=f(t)\,g(t)\). El \(n\)-ésimo coeficiente complejo de \(y\) es
+
+Aquí \(c_k\) y \(d_m\) son los coeficientes de Fourier de \(f(t)\) y \(g(t)\) respectivamente, y \(\omega_0\) es la frecuencia fundamental. Nuestro objetivo es encontrar los coeficientes de Fourier \(\beta_n\) de la señal producto \(y(t)=f(t)\,g(t)\).
+
+Para calcular estos coeficientes, aplicamos la fórmula estándar de análisis de Fourier:
 \begin{equation}
 \beta_n=\frac{1}{T}\int_{0}^{T} y(t)\,e^{-jn\omega_0 t}\,dt
 = \frac{1}{T}\int_{0}^{T} f(t)\,g(t)\,e^{-jn\omega_0 t}\,dt .
 \end{equation}
-Sustituyendo las expansiones y permutando suma e integral,
+
+La clave del desarrollo está en sustituir las expansiones en serie de Fourier de \(f(t)\) y \(g(t)\) directamente en esta integral. Al hacerlo, obtenemos un producto de dos sumas infinitas:
 \begin{align}
 \beta_n
 &= \frac{1}{T}\int_{0}^{T} 
 \left(\sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}\right)
 \left(\sum_{m=-\infty}^{\infty} d_m e^{jm\omega_0 t}\right)
 e^{-jn\omega_0 t}\,dt \\
+&= \frac{1}{T}\int_{0}^{T} 
+\sum_{k=-\infty}^{\infty}\sum_{m=-\infty}^{\infty} 
+c_k d_m e^{j(k+m)\omega_0 t} e^{-jn\omega_0 t}\,dt.
+\end{align}
+
+Bajo condiciones apropiadas de convergencia, podemos intercambiar el orden de integración y suma, factorizando los coeficientes constantes:
+\begin{align}
+\beta_n
 &= \sum_{k=-\infty}^{\infty}\sum_{m=-\infty}^{\infty} 
 c_k d_m \left(\frac{1}{T}\int_{0}^{T} e^{j(k+m-n)\omega_0 t}\,dt\right).
 \end{align}
-Usando la ortogonalidad
+
+Ahora aparece la propiedad fundamental de ortogonalidad de las exponenciales complejas. La integral que aparece en paréntesis es:
 \begin{equation}
 \frac{1}{T}\int_{0}^{T} e^{j\ell\omega_0 t}\,dt
 =\begin{cases}
@@ -506,17 +515,103 @@ Usando la ortogonalidad
 0, & \ell\neq 0,
 \end{cases}
 \end{equation}
-sólo sobreviven los términos con \(k+m-n=0\), i.e., \(m=n-k\). Por tanto,
+donde \(\ell = k+m-n\). Esta propiedad es crucial porque actúa como un "filtro" que elimina todos los términos excepto aquellos donde \(k+m-n=0\).
+
+La condición \(k+m-n=0\) se puede reescribir como \(m=n-k\). Esto significa que en la doble suma, solo contribuyen los pares \((k,m)\) donde \(m\) tiene esta relación específica con \(k\) y \(n\). Por tanto, la suma sobre \(m\) colapsa y obtenemos:
 \begin{align}
 \beta_n
 &= \sum_{k=-\infty}^{\infty} c_k\, d_{\,n-k}.
 \end{align}
-Es decir, los coeficientes de Fourier de \(y(t)=f(t)g(t)\) son la \emph{convolución discreta} (en el índice) de \(\{c_k\}\) y \(\{d_k\}\):
+
+En resumen, se demuestra que:
 \begin{equation}
 \boxed{\;\beta_n=(c*d)_n=\displaystyle\sum_{k=-\infty}^{\infty} c_k\,d_{\,n-k}\;}.
 \end{equation}
 
 \end{solution}
 
+%----------------------------
+\question Encuentre los coeficientes de Fourier y la serie de Fourier de la función onda cuadrada $f(x)$ definida por:
+\begin{equation}
+f(x) = \begin{cases}
+0 & \text{si } -\pi \leq x < 0 \\
+1 & \text{si } 0 \leq x < \pi
+\end{cases} \quad \text{y} \quad f(x + 2\pi) = f(x)
+\end{equation}
+%----------------------------
+\begin{solution}
+\subsection*{Resolución 5.1}
+Buscamos los coeficientes complejos de Fourier \(c_k\) para la función onda cuadrada periódica \(f(x)\) definida por:
+\begin{equation}
+f(x) = \begin{cases}
+0 & \text{si } -\pi \leq x < 0 \\
+1 & \text{si } 0 \leq x < \pi
+\end{cases} \quad \text{y} \quad f(x + 2\pi) = f(x).
+\end{equation}
+
+La función tiene período \(T = 2\pi\), por lo que la frecuencia fundamental es \(\omega_0 = \frac{2\pi}{T} = \frac{2\pi}{2\pi} = 1\).
+
+Los coeficientes complejos de Fourier se calculan usando la fórmula de análisis:
+\begin{equation}
+c_k = \frac{1}{T}\int_{-\pi}^{\pi} f(x)\,e^{-jkx}\,dx = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)\,e^{-jkx}\,dx
+\end{equation}
+
+Dado que \(f(x) = 0\) para \(x \in [-\pi, 0)\) y \(f(x) = 1\) para \(x \in [0, \pi)\), tenemos:
+\begin{align}
+c_k &= \frac{1}{2\pi}\left(\int_{-\pi}^{0} 0 \cdot e^{-jkx}\,dx + \int_{0}^{\pi} 1 \cdot e^{-jkx}\,dx\right) \\
+&= \frac{1}{2\pi}\int_{0}^{\pi} e^{-jkx}\,dx
+\end{align}
+
+Evaluamos la integral considerando dos casos:
+\begin{itemize}
+\item Caso 1: \(k = 0\)
+\begin{equation}
+c_0 = \frac{1}{2\pi}\int_{0}^{\pi} 1\,dx = \frac{1}{2\pi} \cdot \pi = \frac{1}{2}
+\end{equation}
+
+\item Caso 2: \(k \neq 0\)
+\begin{align}
+c_k &= \frac{1}{2\pi}\int_{0}^{\pi} e^{-jkx}\,dx \\
+&= \frac{1}{2\pi}\left[\frac{e^{-jkx}}{-jk}\right]_{0}^{\pi} \\
+&= \frac{1}{2\pi} \cdot \frac{1}{-jk}\left(e^{-jk\pi} - e^{0}\right) \\
+&= \frac{1}{2\pi jk}\left(1 - e^{-jk\pi}\right)
+\end{align}
+\end{itemize}
+Usando la identidad de Euler \(e^{-jk\pi} = \cos(k\pi) - j\sin(k\pi)\), y notando que para \(k\) entero, \(\sin(k\pi) = 0\) y \(\cos(k\pi) = (-1)^k\):
+\begin{align}
+c_k &= \frac{1}{2\pi jk}\left(1 - (-1)^k\right) \\
+&= \begin{cases}
+0, & k \text{ par} \\
+\frac{1}{\pi jk}, & k \text{ impar}
+\end{cases}
+\end{align}
+
+Para \(k\) impar, podemos reescribir:
+\begin{equation}
+c_k = \frac{1}{\pi jk} = -\frac{j}{\pi k} \quad \text{para } k \text{ impar}
+\end{equation}
+
+Por tanto, los coeficientes de Fourier son:
+\begin{equation}
+\boxed{c_k = \begin{cases}
+\frac{1}{2}, & k = 0 \\
+0, & k \text{ par, } k \neq 0 \\
+-\frac{j}{\pi k}, & k \text{ impar}
+\end{cases}}
+\end{equation}
+
+La serie de Fourier de la onda cuadrada es:
+\begin{equation}
+\boxed{f(x) = \frac{1}{2} + \sum_{\substack{k=-\infty \\ k \text{ impar}}}^{\infty} \left(-\frac{j}{\pi k}\right)e^{jkx}}
+\end{equation}
+
+Alternativamente, usando solo términos positivos y la forma trigonométrica:
+\begin{equation}
+\boxed{f(x) = \frac{1}{2} + \frac{2}{\pi}\sum_{n=0}^{\infty} \frac{\sin((2n+1)x)}{2n+1}}
+\end{equation}
+
+\end{solution}
+
+%----------------------------
 \end{questions}
 \end{document}
