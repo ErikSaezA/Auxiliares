@@ -1,0 +1,715 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+% TikZ libraries needed for `right=.. of ..` and coordinate math
+\usetikzlibrary{positioning,calc,arrows,arrows.meta}
+
+% Configuración de numeración de páginas
+\makeatletter
+\def\@oddfoot{\hfil Página \thepage \hfil}
+\def\@evenfoot{\hfil Página \thepage \hfil}
+\def\@oddhead{}
+\def\@evenhead{}
+\makeatother
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Análisis de señales} (EL3203-2) \\
+\large\textbf{Clase auxiliar 5} \\
+\normalsize Prof.~Jorge Silva.\\
+\normalsize Prof.~Aux.~Erik Sáez
+\end{center}
+\end{minipage}
+ 
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%----------------------------
+\noindent\rule{\textwidth}{0.4pt}
+\subsection*{Análisis de Fourier: para Señales Continuas y Discretas}
+
+El análisis de Fourier constituye el fundamento teórico para la descomposición espectral de señales, abarcando tanto el dominio continuo como el discreto. Las cuatro herramientas principales \textit{(Serie de Fourier, Transformada de Fourier, Serie de Fourier Discreta y Transformada de Fourier Discreta)} abordan diferentes combinaciones de periodicidad y naturaleza temporal, proporcionando una base completa para el análisis frecuencial.
+
+\subsubsection*{Serie de Fourier: Señales Continuas Periódicas}
+La serie de Fourier descompone señales continuas y periódicas de período \(T\) en una suma discreta de armónicos:
+\begin{equation}
+x(t) = \sum_{k=-\infty}^{\infty} c_k\,e^{jk\omega_0 t}, \qquad \omega_0 = \frac{2\pi}{T}
+\end{equation}
+Los coeficientes complejos se calculan mediante:
+\begin{equation}
+c_k = \frac{1}{T}\int_{t_0}^{t_0+T} x(t)\,e^{-jk\omega_0 t}\,dt
+\end{equation}
+
+Características principales:
+\begin{itemize}
+\item \textit{Dominio temporal}: Señales continuas y periódicas (potencia finita, energía infinita)
+\item \textit{Dominio frecuencial}: Espectro discreto con componentes en \(k\omega_0\)
+\item \textit{Coeficientes}: \(\{c_k\}_{k \in \mathbb{Z}}\) representan amplitud y fase de cada armónico
+\item \textit{Aplicaciones}: Análisis armónico, síntesis de ondas, respuesta de sistemas LTI a entradas periódicas
+\end{itemize}
+
+\subsubsection*{Transformada de Fourier (FT): Señales Continuas Aperiódicas}
+La transformada de Fourier extiende el análisis a señales continuas no periódicas mediante representación espectral continua:
+\begin{equation}
+X(\omega) = \int_{-\infty}^{\infty} x(t)\,e^{-j\omega t}\,dt \quad \text{(Análisis)}
+\end{equation}
+\begin{equation}
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(\omega)\,e^{j\omega t}\,d\omega \quad \text{(Síntesis)}
+\end{equation}
+
+Características principales:
+\begin{itemize}
+\item \textit{Dominio temporal}: Señales continuas aperiódicas (energía finita)
+\item \textit{Dominio frecuencial}: Espectro continuo de frecuencias
+\item \textit{Densidad espectral}: \(X(\omega)\) representa densidad espectral de amplitud
+\item \textit{Aplicaciones}: Diseño de filtros analógicos, modulación, análisis de sistemas con entradas transitorias
+\end{itemize}
+
+\subsubsection*{Transformada de Fourier de Tiempo Discreto (DTFT): Señales Discretas Aperiódicas}
+Para señales discretas aperiódicas \(x[n]\), la DTFT proporciona una representación espectral continua en frecuencia:
+\begin{equation}
+X(\omega) = \sum_{n=-\infty}^{\infty} x[n]\,e^{-j\omega n} \quad \text{(Análisis)}
+\end{equation}
+\begin{equation}
+x[n] = \frac{1}{2\pi}\int_{-\pi}^{\pi} X(\omega)\,e^{j\omega n}\,d\omega \quad \text{(Síntesis)}
+\end{equation}
+
+\textbf{Nota importante:} En este contexto, $X(\omega)$ representa la DTFT (señales discretas) que es periódica con período $2\pi$, a diferencia de la Transformada de Fourier continua que también usa $X(\omega)$ pero para señales continuas.
+
+Características principales:
+\begin{itemize}
+\item \textit{Dominio temporal}: Señales discretas aperiódicas (energía finita: \(\sum_{n} |x[n]|^2 < \infty\))
+\item \textit{Dominio frecuencial}: Espectro continuo y periódico con período \(2\pi\)
+\item \textit{Frecuencia normalizada}: \(\omega\) representa frecuencia digital (\(\omega = 2\pi f T_s\))
+\item \textit{Aplicaciones}: Diseño de filtros digitales, análisis espectral, procesamiento digital de señales
+\end{itemize}
+
+\subsubsection*{Transformada Discreta de Fourier (DFT): Señales Discretas Periódicas}
+La DFT maneja señales discretas y periódicas (o de duración finita), produciendo espectros discretos:
+\begin{equation}
+X[k] = \sum_{n=0}^{N-1} x[n]\,e^{-j\frac{2\pi kn}{N}} \quad \text{(Análisis)}
+\end{equation}
+\begin{equation}
+x[n] = \frac{1}{N}\sum_{k=0}^{N-1} X[k]\,e^{j\frac{2\pi kn}{N}} \quad \text{(Síntesis)}
+\end{equation}
+
+Características principales:
+\begin{itemize}
+\item \textit{Dominio temporal}: Señales discretas periódicas o de duración finita (\(N\) muestras)
+\item \textit{Dominio frecuencial}: Espectro discreto con \(N\) componentes frecuenciales
+\item \textit{Implementación}: Algoritmo FFT para cálculo eficiente (\(O(N \log N)\))
+\item \textit{Aplicaciones}: Análisis espectral computacional, convolución rápida, procesamiento en bloque
+\end{itemize}
+
+\subsubsection*{Relaciones y Transiciones Fundamentales}
+Las cuatro transformadas están interconectadas mediante procesos límite y muestreo:
+
+\textit{Periodicización temporal} (\(T \to \infty\)): La Serie de Fourier converge a la Transformada de Fourier
+\begin{equation}
+\lim_{T \to \infty} \sum_{k} c_k \delta(\omega - k\omega_0) \to X(\omega)
+\end{equation}
+
+\textit{Muestreo temporal}: La Transformada de Fourier se relaciona con la DTFT mediante
+\begin{equation}
+X(\omega) = \frac{1}{T_s}\sum_{k=-\infty}^{\infty} X_c\left(\frac{\omega - 2\pi k}{T_s}\right)
+\end{equation}
+
+\textit{Periodicización frecuencial}: La DTFT se aproxima por la DFT mediante ventaneo
+\begin{equation}
+X[k] \approx X(\omega)\big|_{\omega = \frac{2\pi k}{N}}
+\end{equation}
+
+\subsubsection*{Tabla Comparativa de Propiedades}
+
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Transformada} & \textbf{Señal} & \textbf{Espectro} & \textbf{Dominio \(\omega\)} & \textbf{Aplicación Principal} \\
+\hline
+Serie de Fourier & Continua periódica & Discreto & \(k\omega_0\) & Análisis armónico \\
+Transformada de Fourier & Continua aperiódica & Continuo & \(\mathbb{R}\) & Sistemas analógicos \\
+DTFT & Discreta aperiódica & Continuo periódico & \([-\pi, \pi]\) & Filtros digitales \\
+DFT & Discreta periódica & Discreto & \(\frac{2\pi k}{N}\) & Procesamiento computacional \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection*{Dualidad Tiempo-Frecuencia y Principios Unificadores}
+Todas las herramientas de Fourier manifiestan la \textit{dualidad tiempo-frecuencia}: la concentración temporal implica dispersión espectral y viceversa. Este principio se formaliza en desigualdades de incertidumbre y es fundamental para:
+
+\begin{itemize}
+\item \textit{Diseño de ventanas}: Compromiso entre resolución temporal y frecuencial
+\item \textit{Análisis tiempo-frecuencia}: Transformadas cortas (STFT), wavelets
+\item \textit{Teoría de muestreo}: Relación entre ancho de banda y frecuencia de Nyquist
+\item \textit{Compresión de señales}: Representaciones esparsas en dominios conjugados
+\end{itemize}
+\noindent\rule{\textwidth}{0.4pt}
+\newpage
+%----------------------------
+\begin{questions}
+
+\question 
+Como hemos visto a lo largo de los auxiliares, el concepto de una eigenfunción es una herramienta extremadamente importante en el estudio de sistemas LTI. Lo mismo puede decirse de los sistemas lineales pero variantes en el tiempo. Considere tal sistema con entrada $x(t)$ y salida $y(t)$. Decimos que una señal $\phi(t)$ es una \textit{eigenfunción} del sistema si
+$$\phi(t) \to \lambda\phi(t)$$
+
+Es decir, si $x(t) = \phi(t)$, entonces $y(t) = \lambda\phi(t)$, donde la constante compleja $\lambda$ se llama el \textit{eigenvalor asociado con} $\phi(t)$.
+\begin{enumerate}
+  \item  Suponga que podemos representar la entrada $x(t)$ al sistema como una combinación lineal de eigenfunciones $\phi_k(t)$, cada una de las cuales tiene un eigenvalor correspondiente $\lambda_k$.
+$$x(t) = \sum_{k=-\infty}^{+\infty} c_k\phi_k(t)$$
+
+Exprese la salida $y(t)$ del sistema en términos de $\{c_k\}$, $\{\phi_k(t)\}$, y $\{\lambda_k\}$.
+
+\item Demuestre que las funciones $\phi_k(t) = t^k$ son eigenfunciones del sistema caracterizado por la ecuación diferencial
+$$y(t) = t^2 \frac{d^2x(t)}{dt^2} + t \frac{dx(t)}{dt}$$
+
+Para cada $\phi_k(t)$, determine el eigenvalor correspondiente $\lambda_k$.
+\end{enumerate}
+%----------------------------
+\begin{solution}
+\subsection*{Resolución 1.1}
+Primero recordemos que un sistema invariante en el tiempo cumple con la propiedad de que si la entrada se desplaza en el tiempo, la salida se desplaza en la misma cantidad, es decir, si $x(t) \to y(t)$, entonces $x(t-t_0) \to y(t-t_0)$. 
+
+Sin embargo, ahora estamos considerando un sistema variante en el tiempo, es decir, un sistema cuyas características pueden cambiar con el tiempo, pero que sigue siendo lineal. En este caso, la salida no se desplaza la misma cantidad que la entrada cuando hay un desplazamiento temporal. Esto significa que si $x(t) \to y(t)$, entonces $x(t-t_0) \to y'(t)$ donde $y'(t) \neq y(t-t_0)$. 
+
+Las implicancias de esto son significativas: en sistemas LTI podemos usar la respuesta al impulso $h(t)$ y la convolución para caracterizar completamente el sistema, pero en sistemas variantes en el tiempo necesitamos una función de dos variables $h(t,\tau)$ que depende tanto del tiempo de observación como del momento de aplicación del impulso. Además, las funciones exponenciales complejas $e^{j\omega t}$ ya no son eigenfunciones universales, y el concepto de respuesta en frecuencia $H(\omega)$ no aplica directamente.
+
+Para resolver esta parte, utilizamos la propiedad fundamental de linealidad de los sistemas. Cuando la entrada del sistema es una combinación lineal de eigenfunciones, podemos aplicar el principio de superposición.
+
+Dado que cada función $\phi_k(t)$ es una eigenfunción del sistema con eigenvalor asociado $\lambda_k$, esto significa que:
+$$\phi_k(t) \to \lambda_k \phi_k(t)$$
+
+Es decir, cuando la entrada es $\phi_k(t)$, la salida correspondiente es $\lambda_k \phi_k(t)$.
+
+Ahora, si la entrada total es:
+$$x(t) = \sum_{k=-\infty}^{+\infty} c_k\phi_k(t)$$
+
+Por la propiedad de linearidad del sistema, la salida será la suma de las respuestas individuales a cada componente:
+$$y(t) = \sum_{k=-\infty}^{+\infty} c_k \cdot (\lambda_k \phi_k(t)) = \sum_{k=-\infty}^{+\infty} \lambda_k c_k \phi_k(t)$$
+
+Por lo tanto, la salida del sistema es:
+$$\boxed{y(t) = \sum_{k=-\infty}^{+\infty} \lambda_k c_k \phi_k(t)}$$
+
+\subsection*{Resolución 1.2}
+Para demostrar que $\phi_k(t) = t^k$ son eigenfunciones del sistema dado, necesitamos verificar que cuando $x(t) = t^k$, la salida $y(t)$ sea un múltiplo escalar de $t^k$. El sistema está caracterizado por la ecuación diferencial:
+$$y(t) = t^2 \frac{d^2x(t)}{dt^2} + t \frac{dx(t)}{dt}$$
+
+Para proceder con la demostración, primero calculamos las derivadas necesarias de $\phi_k(t) = t^k$. La primera derivada nos da $\frac{d\phi_k(t)}{dt} = kt^{k-1}$, mientras que la segunda derivada resulta en $\frac{d^2\phi_k(t)}{dt^2} = k(k-1)t^{k-2}$.
+
+Ahora sustituimos estas expresiones en la ecuación del sistema. Si consideramos $x(t) = \phi_k(t) = t^k$, entonces:
+\begin{align}
+y(t) &= t^2 \cdot k(k-1)t^{k-2} + t \cdot kt^{k-1} \\
+&= k(k-1)t^{k-2+2} + kt^{k-1+1} \\
+&= k(k-1)t^k + kt^k \\
+&= kt^k(k-1) + kt^k \\
+&= kt^k[(k-1) + 1] \\
+&= kt^k \cdot k = k^2t^k
+\end{align}
+
+El resultado final muestra que $y(t) = k^2t^k = k^2\phi_k(t)$, lo cual confirma que cuando la entrada es $\phi_k(t) = t^k$, la salida es exactamente $k^2$ veces la entrada. Esto establece que $\phi_k(t) = t^k$ son efectivamente eigenfunciones del sistema diferencial dado.
+
+Por lo tanto, el eigenvalor correspondiente a cada eigenfunción $\phi_k(t) = t^k$ es $\boxed{\lambda_k = k^2}$. Este resultado nos indica que cada potencia de $t$ es amplificada por el cuadrado de su exponente cuando pasa a través de este sistema diferencial específico.
+\end{solution}
+%----------------------------
+\question 
+El propósito de este problema es mostrar que la representación de una señal periódica arbitraria por una serie de Fourier, o más generalmente por una combinación lineal de cualquier conjunto de funciones ortogonales, es computacionalmente eficiente y de hecho es muy útil para obtener buenas aproximaciones de señales.
+
+Específicamente, sea $\phi_0(t)$, $\phi_1(t)$, $\phi_{-1}(t)$, $\phi_2(t)$, ..., un conjunto de funciones ortonormales en el intervalo $a \leq t \leq b$, y sea $x(t)$ una señal dada. Considere la siguiente aproximación de $x(t)$ sobre el intervalo $a \leq t \leq b$:
+$$\hat{x}(t) = \sum_{i=-N}^{N} a_i\phi_i(t), \qquad \text{(P7.10-1)}$$
+
+donde los $a_i$ son constantes (en general, complejas). Para medir la desviación entre $x(t)$ y la aproximación en serie $\hat{x}(t)$, consideramos el error $e_N(t)$ definido como
+$$e_N(t) = x(t) - \hat{x}(t) \qquad \text{(P7.10-2)}$$
+
+Un criterio razonable y ampliamente usado para medir la calidad de la aproximación es la energía en la señal de error sobre el intervalo de interés, es decir, la integral de la magnitud del error al cuadrado sobre el intervalo $a \leq t \leq b$:
+$$E = \int_a^b |e_N(t)|^2 \, dt \qquad \text{(P7.10-3)}$$
+\begin{enumerate}
+  \item  Muestre que $E$ se minimiza al elegir $$a_i = \int_a^b x(t)\phi_i^*(t) \, dt \qquad \text{(P7.10-4)}$$
+
+\textit{Hint:} Use las ecuaciones (P7.10-1) a (P7.10-3) para expresar $E$ en términos de $a_i$, $\phi_i(t)$, y $x(t)$. Luego exprese $a_i$ en coordenadas rectangulares como $a_i = b_i + jc_i$, y muestre que las ecuaciones
+$$\frac{\partial E}{\partial b_i} = 0 \quad \text{y} \quad \frac{\partial E}{\partial c_i} = 0, \quad i = 0, \pm 1, \pm 2, \ldots, \pm N,$$
+se satisfacen por los $a_i$ dados en la ecuación (P7.10-4).
+
+\item Determine cómo cambia el resultado de la parte (a) si los $\{\phi_i(t)\}$ son ortogonales pero no ortonormales, con
+$$A_i = \int_a^b |\phi_i(t)|^2 \, dt$$
+
+\item Sea $\phi_k(t) = e^{jk\omega_0t}$ y elija cualquier intervalo de longitud $T_0 = 2\pi/\omega_0$. Muestre que los $a_i$ que minimizan $E$ están dados en la ecuación (4.45) del texto (página 180).
+\end{enumerate}
+%----------------------------
+\begin{solution}
+\subsection*{Resolución 2.1}
+Para demostrar que $E$ se minimiza con la elección dada de coeficientes, comenzamos expresando la aproximación como:
+$$\hat{x}_N(t) = \sum_{k=-N}^{N} a_k\phi_k(t)$$
+
+La señal de error correspondiente es:
+$$e_N(t) = x(t) - \hat{x}_N(t) = x(t) - \sum_{k=-N}^{N} a_k\phi_k(t)$$
+
+Para encontrar la energía del error, recordamos que el cuadrado de la magnitud se calcula como el producto de la señal con su conjugada compleja:
+$$|e_N(t)|^2 = \left[x(t) - \sum_k a_k\phi_k(t)\right]\left[x^*(t) - \sum_l a_l^*\phi_l^*(t)\right]$$
+
+Expandiendo esta expresión obtenemos:
+$$|e_N(t)|^2 = |x(t)|^2 - \sum_k a_k^*x(t)\phi_k^*(t) - \sum_l a_l x^*(t)\phi_l(t) + \sum_k \sum_l a_k a_l^*\phi_k(t)\phi_l^*(t)$$
+
+Integrando sobre el intervalo $[a,b]$ y usando la propiedad de ortonormalidad de las funciones $\phi_k(t)$:
+$$\int_a^b \phi_k(t)\phi_l^*(t) dt = \begin{cases} 1, & k = l \\ 0, & \text{en otro caso} \end{cases}$$
+
+Obtenemos la energía total del error:
+$$E = \int_a^b |x(t)|^2 dt - \sum_k a_k^* \int_a^b x(t)\phi_k^*(t) dt - \sum_k a_k \int_a^b x^*(t)\phi_k(t) dt + \sum_k |a_k|^2$$
+
+Para minimizar $E$, expresamos $a_k = b_k + jc_k$ donde $b_k$ y $c_k$ son reales. Primero, notemos que:
+$$a_k^* = (b_k + jc_k)^* = b_k - jc_k$$
+$$|a_k|^2 = a_k a_k^* = (b_k + jc_k)(b_k - jc_k) = b_k^2 + c_k^2$$
+
+Sustituyendo en la expresión para $E$:
+$$E = \int_a^b |x(t)|^2 dt - \sum_k (b_k - jc_k) \int_a^b x(t)\phi_k^*(t) dt - \sum_k (b_k + jc_k) \int_a^b x^*(t)\phi_k(t) dt + \sum_k (b_k^2 + c_k^2)$$
+
+Para simplificar la notación, definamos:
+$$I_k = \int_a^b x(t)\phi_k^*(t) dt \quad \text{y} \quad J_k = \int_a^b x^*(t)\phi_k(t) dt$$
+
+Entonces:
+$$E = \int_a^b |x(t)|^2 dt - \sum_k (b_k - jc_k)I_k - \sum_k (b_k + jc_k)J_k + \sum_k (b_k^2 + c_k^2)$$
+
+Expandiendo los términos:
+$$E = \int_a^b |x(t)|^2 dt - \sum_k (b_k I_k - jc_k I_k + b_k J_k + jc_k J_k) + \sum_k (b_k^2 + c_k^2)$$
+$$= \int_a^b |x(t)|^2 dt - \sum_k b_k(I_k + J_k) - \sum_k jc_k(J_k - I_k) + \sum_k (b_k^2 + c_k^2)$$
+
+Ahora calculamos las derivadas parciales. Para $\frac{\partial E}{\partial b_k}$:
+$$\frac{\partial E}{\partial b_k} = \frac{\partial}{\partial b_k}\left[\int_a^b |x(t)|^2 dt - \sum_l b_l(I_l + J_l) - \sum_l jc_l(J_l - I_l) + \sum_l (b_l^2 + c_l^2)\right]$$
+
+Como solo el término con índice $l = k$ contribuye a la derivada parcial respecto a $b_k$:
+$$\frac{\partial E}{\partial b_k} = 0 - (I_k + J_k) - 0 + 2b_k = 2b_k - (I_k + J_k)$$
+
+Sustituyendo las definiciones de $I_k$ y $J_k$:
+$$\boxed{\frac{\partial E}{\partial b_k} = 2b_k - \int_a^b x(t)\phi_k^*(t) dt - \int_a^b x^*(t)\phi_k(t) dt}$$
+
+Para $\frac{\partial E}{\partial c_k}$:
+$$\frac{\partial E}{\partial c_k} = \frac{\partial}{\partial c_k}\left[\int_a^b |x(t)|^2 dt - \sum_l b_l(I_l + J_l) - \sum_l jc_l(J_l - I_l) + \sum_l (b_l^2 + c_l^2)\right]$$
+
+Como solo el término con índice $l = k$ contribuye a la derivada parcial respecto a $c_k$:
+$$\frac{\partial E}{\partial c_k} = 0 - 0 - j(J_k - I_k) + 2c_k = 2c_k - j(J_k - I_k)$$
+
+Sustituyendo las definiciones:
+$$\boxed{\frac{\partial E}{\partial c_k} = 2c_k - j\left(\int_a^b x^*(t)\phi_k(t) dt - \int_a^b x(t)\phi_k^*(t) dt\right)}$$
+$$= 2c_k + j\int_a^b x(t)\phi_k^*(t) dt - j\int_a^b x^*(t)\phi_k(t) dt$$
+
+Igualando ambas derivadas a cero, obtenemos el siguiente sistema de ecuaciones:
+
+De $\frac{\partial E}{\partial b_k} = 0$:
+$$2b_k - \int_a^b x(t)\phi_k^*(t) dt - \int_a^b x^*(t)\phi_k(t) dt = 0$$
+
+De $\frac{\partial E}{\partial c_k} = 0$:
+$$2c_k + j\int_a^b x(t)\phi_k^*(t) dt - j\int_a^b x^*(t)\phi_k(t) dt = 0$$
+
+Para simplificar la notación, definamos:
+$$\alpha_k = \int_a^b x(t)\phi_k^*(t) dt \quad \text{y} \quad \beta_k = \int_a^b x^*(t)\phi_k(t) dt$$
+
+Observemos que $\beta_k = \left(\int_a^b x(t)\phi_k^*(t) dt\right)^* = \alpha_k^*$ debido a que:
+$$\beta_k = \int_a^b x^*(t)\phi_k(t) dt = \left(\int_a^b [x^*(t)\phi_k(t)]^* dt\right)^* = \left(\int_a^b x(t)\phi_k^*(t) dt\right)^* = \alpha_k^*$$
+
+Sustituyendo en nuestras ecuaciones:
+
+De la primera ecuación:
+$$2b_k - \alpha_k - \alpha_k^* = 0$$
+$$b_k = \frac{\alpha_k + \alpha_k^*}{2} = \text{Re}(\alpha_k)$$
+
+De la segunda ecuación:
+$$2c_k + j\alpha_k - j\alpha_k^* = 0$$
+$$c_k = \frac{j(\alpha_k^* - \alpha_k)}{2} = \frac{j(-2j\text{Im}(\alpha_k))}{2} = \text{Im}(\alpha_k)$$
+
+Por lo tanto:
+$$a_k = b_k + jc_k = \text{Re}(\alpha_k) + j\text{Im}(\alpha_k) = \alpha_k$$
+
+Concluyendo que:
+$$a_k = \int_a^b x(t)\phi_k^*(t) dt$$
+
+Por lo tanto, los coeficientes que minimizan el error son:
+$$\boxed{a_k = \int_a^b x(t)\phi_k^*(t) dt}$$
+
+\subsection*{Resolución 2.2}
+Cuando las funciones $\{\phi_k(t)\}$ son ortogonales pero no ortonormales, la única diferencia en el resultado de la parte (a) es que la propiedad de ortogonalidad ahora se expresa como:
+$$\int_a^b \sum_k \sum_l a_k a_l^*\phi_k(t)\phi_l^*(t) dt = \sum_k |a_k|^2 A_k$$
+
+donde $A_k = \int_a^b |\phi_k(t)|^2 dt$ es la norma al cuadrado de cada función.
+
+Siguiendo el mismo procedimiento de minimización que en la parte anterior, es fácil ver que ahora obtenemos:
+$$\boxed{a_k = \frac{1}{A_k} \int_a^b x(t)\phi_k^*(t) dt}$$
+
+El factor adicional $\frac{1}{A_k}$ surge debido a la normalización necesaria cuando las funciones no son ortonormales.
+
+\subsection*{Resolución 2.3}
+Para el caso específico donde $\phi_k(t) = e^{jk\omega_0 t}$, primero verificamos la ortogonalidad:
+$$\int_{T_0} e^{jk\omega_0 t} e^{-jl\omega_0 t} dt = \int_{T_0} e^{j(k-l)\omega_0 t} dt = T_0 \delta_{kl}$$
+
+donde $T_0 = \frac{2\pi}{\omega_0}$ es el período fundamental.
+
+Usando los resultados de las partes (a) y (b), y dado que $A_k = T_0$ para todas las funciones exponenciales, podemos escribir:
+$$a_k = \frac{1}{T_0} \int_{T_0} x(t)e^{-jk\omega_0 t} dt$$
+
+Esta expresión se puede escribir sobre cualquier intervalo de longitud $T_0$:
+$$\boxed{a_k = \frac{1}{T_0} \int_{-T_0/2}^{T_0/2} x(t)e^{-jk\omega_0 t} dt}$$
+
+Esta es precisamente la fórmula para los coeficientes de la serie de Fourier dada en la ecuación (4.45) del texto, demostrando así que los coeficientes de Fourier son aquellos que minimizan la energía del error en la aproximación por series de Fourier.
+\end{solution}
+%----------------------------
+\question 
+Considere dos secuencias periódicas específicas $\tilde{x}[n]$ y $\tilde{g}[n]$. $\tilde{x}[n]$ tiene período $N$ y $\tilde{g}[n]$ tiene período $M$. La secuencia $\tilde{w}[n]$ se define como $\tilde{w}[n] = \tilde{x}[n] + \tilde{g}[n]$.
+
+\begin{enumerate}
+\item Muestre que $\tilde{w}[n]$ es periódica con período $MN$.
+
+\item Dado que $\tilde{x}[n]$ tiene período $N$, sus coeficientes de la serie de Fourier discreta $a_k$ también tienen período $N$. De manera similar, dado que $\tilde{g}[n]$ tiene período $M$, sus coeficientes de la serie de Fourier discreta $b_k$ también tienen período $M$. Los coeficientes de la serie de Fourier discreta de $\tilde{w}[n]$, $c_k$, tienen período $MN$. Determine $c_k$ en términos de $a_k$ y $b_k$.
+\end{enumerate}
+
+%----------------------------
+\begin{solution}
+\subsection*{Resolución 3.1}
+Para demostrar que $\tilde{w}[n]$ es periódica con período $MN$, necesitamos mostrar que $\tilde{w}[n + MN] = \tilde{w}[n]$ para todos los valores de $n$.
+
+Por definición, tenemos:
+$$\tilde{w}[n] = \tilde{x}[n] + \tilde{g}[n]$$
+
+Evaluando la secuencia en $n + MN$:
+$$\tilde{w}[n + MN] = \tilde{x}[n + MN] + \tilde{g}[n + MN]$$
+
+Dado que $\tilde{x}[n]$ tiene período $N$, se cumple que $\tilde{x}[n + N] = \tilde{x}[n]$. Como $MN$ es un múltiplo entero de $N$ (específicamente $MN = M \cdot N$), tenemos:
+$$\tilde{x}[n + MN] = \tilde{x}[n]$$
+
+De manera similar, dado que $\tilde{g}[n]$ tiene período $M$, se cumple que $\tilde{g}[n + M] = \tilde{g}[n]$. Como $MN$ es un múltiplo entero de $M$ (específicamente $MN = N \cdot M$), tenemos:
+$$\tilde{g}[n + MN] = \tilde{g}[n]$$
+
+Por lo tanto:
+$$\tilde{w}[n + MN] = \tilde{x}[n] + \tilde{g}[n] = \tilde{w}[n]$$
+
+Esto demuestra que $\tilde{w}[n]$ es periódica con período $MN$.
+
+\subsection*{Resolución 3.2}
+Para encontrar los coeficientes $c_k$ de la serie de Fourier discreta de $\tilde{w}[n]$, utilizamos la fórmula de análisis. Recordemos que para una secuencia periódica de período $N$, la fórmula de análisis de la DFT viene dada por:
+$$X[k] = \frac{1}{N}\sum_{n=0}^{N-1} x[n]e^{-j\frac{2\pi kn}{N}}$$
+
+En nuestro caso específico, $\tilde{w}[n]$ tiene período $MN$, por lo que aplicando esta fórmula:
+
+
+$$c_k = \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{w}[n]e^{-jk(2\pi/MN)n} = \frac{1}{MN} \sum_{n=0}^{MN-1} [\tilde{x}[n] + \tilde{g}[n]]e^{-jk(2\pi/MN)n}$$
+
+Separando la suma:
+$$c_k = \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{x}[n]e^{-jk(2\pi/MN)n} + \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{g}[n]e^{-jk(2\pi/MN)n}$$
+
+Para el primer término, reorganizamos la suma considerando que $\tilde{x}[n]$ se repite cada $N$ muestras. 
+
+La clave está en reorganizar el índice de suma único $m \in [0, MN-1]$ usando dos índices anidados. 
+
+Como $\tilde{x}[n]$ tiene período $N$, cuando sumamos sobre $MN$ términos, estamos efectivamente sumando $M$ bloques completos de $N$ muestras cada uno. Cada bloque contiene exactamente los mismos valores debido a la periodicidad.
+
+Matemáticamente, escribimos cualquier índice $m$ en el rango $[0, MN-1]$ como:
+$$m = n + lN$$
+donde:
+\begin{itemize}
+\item $n \in [0, N-1]$: posición \textit{relativa} dentro de un período de longitud $N$
+\item $l \in [0, M-1]$: identifica cuál de los $M$ bloques/períodos estamos considerando
+\end{itemize}
+
+\textbf{Ejemplo detallado} con $M=3, N=4$ (entonces $MN=12$):
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$m$ & $n$ & $l$ & Bloque & Interpretación \\
+\hline
+0 & 0 & 0 & 1er bloque & $\tilde{x}[0]$ del período base \\
+1 & 1 & 0 & 1er bloque & $\tilde{x}[1]$ del período base \\
+2 & 2 & 0 & 1er bloque & $\tilde{x}[2]$ del período base \\
+3 & 3 & 0 & 1er bloque & $\tilde{x}[3]$ del período base \\
+\hline
+4 & 0 & 1 & 2do bloque & $\tilde{x}[4] = \tilde{x}[0]$ (periodicidad) \\
+5 & 1 & 1 & 2do bloque & $\tilde{x}[5] = \tilde{x}[1]$ (periodicidad) \\
+6 & 2 & 1 & 2do bloque & $\tilde{x}[6] = \tilde{x}[2]$ (periodicidad) \\
+7 & 3 & 1 & 2do bloque & $\tilde{x}[7] = \tilde{x}[3]$ (periodicidad) \\
+\hline
+8 & 0 & 2 & 3er bloque & $\tilde{x}[8] = \tilde{x}[0]$ (periodicidad) \\
+9 & 1 & 2 & 3er bloque & $\tilde{x}[9] = \tilde{x}[1]$ (periodicidad) \\
+10 & 2 & 2 & 3er bloque & $\tilde{x}[10] = \tilde{x}[2]$ (periodicidad) \\
+11 & 3 & 2 & 3er bloque & $\tilde{x}[11] = \tilde{x}[3]$ (periodicidad) \\
+\hline
+\end{tabular}
+\end{center}
+En lugar de sumar 12 términos diferentes, sumamos 3 bloques de 4 términos idénticos cada uno, lo que nos permite factorizar y simplificar las expresiones.
+
+Ahora aplicamos esta reorganización a nuestro problema:
+
+$$c_k = \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{w}[n]e^{-jk(2\pi/MN)n} = \frac{1}{MN} \sum_{n=0}^{MN-1} [\tilde{x}[n] + \tilde{g}[n]]e^{-jk(2\pi/MN)n}$$
+
+$$= \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{x}[n]e^{-jk(2\pi/MN)n} + \frac{1}{MN} \sum_{n=0}^{MN-1} \tilde{g}[n]e^{-jk(2\pi/MN)n}$$
+
+$$= \frac{1}{MN} \sum_{n=0}^{N-1} \tilde{x}[n] \sum_{l=0}^{M-1} e^{-jk(2\pi/MN)(n+lN)} + \frac{1}{MN} \sum_{n=0}^{M-1} \tilde{g}[n] \sum_{l=0}^{N-1} e^{-jk(2\pi/MN)(n+lM)}$$
+
+Ahora desarrollamos cada exponencial y separamos términos:
+
+$$= \frac{1}{MN} \sum_{n=0}^{N-1} \tilde{x}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{M-1} e^{-jk(2\pi/MN)lN} + \frac{1}{MN} \sum_{n=0}^{M-1} \tilde{g}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{N-1} e^{-jk(2\pi/MN)lM}$$
+
+Luego podemos simplificar los expoenentes como: 
+\begin{itemize}
+  \item Primer término: $e^{-jk(2\pi/MN)lN} = e^{-jk(2\pi/M)l}$
+  \item Segundo término: $e^{-jk(2\pi/MN)lM} = e^{-jk(2\pi/N)l}$
+\end{itemize}
+
+$$= \frac{1}{MN} \sum_{n=0}^{N-1} \tilde{x}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{M-1} e^{-jk(2\pi/M)l} + \frac{1}{MN} \sum_{n=0}^{M-1} \tilde{g}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{N-1} e^{-jk(2\pi/N)l}$$
+
+Recordemos que los coeficientes DFT se definen como:
+\begin{itemize}
+\item Para $\tilde{x}[n]$ (período $N$): $a_k = \frac{1}{N}\sum_{n=0}^{N-1} \tilde{x}[n]e^{-jk(2\pi/N)n}$
+\item Para $\tilde{g}[n]$ (período $M$): $b_k = \frac{1}{M}\sum_{n=0}^{M-1} \tilde{g}[n]e^{-jk(2\pi/M)n}$
+\end{itemize}
+
+Para evaluar las sumas geométricas internas, recordemos la suma geométrica:
+$$\sum_{l=0}^{L-1} r^l = \frac{1-r^L}{1-r}$$
+
+\textbf{Primera suma geométrica:} $\sum_{l=0}^{M-1} e^{-jk(2\pi/M)l}$, donde $r = e^{-jk(2\pi/M)}$.
+
+\textbf{Caso 1:} Si $k = mM$ (múltiplo de $M$): $e^{-jk(2\pi/M)l} = e^{-j2\pi ml} = 1$, entonces $\sum_{l=0}^{M-1} 1 = M$
+
+\textbf{Caso 2:} Si $k$ no es múltiplo de $M$: $\sum_{l=0}^{M-1} r^l = \frac{1-r^M}{1-r} = \frac{1-e^{-j2\pi k}}{1-e^{-j2\pi k/M}} = \frac{1-1}{1-e^{-j2\pi k/M}} = 0$
+
+\textbf{Segunda suma geométrica:} $\sum_{l=0}^{N-1} e^{-jk(2\pi/N)l}$
+
+\textbf{Caso 1:} Si $k = nN$ (múltiplo de $N$): $\sum_{l=0}^{N-1} e^{-jk(2\pi/N)l} = N$
+
+\textbf{Caso 2:} Si $k$ no es múltiplo de $N$: $\sum_{l=0}^{N-1} e^{-jk(2\pi/N)l} = 0$
+
+
+Ahora sustituimos estos resultados en nuestra expresión:
+
+$$c_k = \frac{1}{MN} \sum_{n=0}^{N-1} \tilde{x}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{M-1} e^{-jk(2\pi/M)l} + \frac{1}{MN} \sum_{n=0}^{M-1} \tilde{g}[n] e^{-jk(2\pi/MN)n} \sum_{l=0}^{N-1} e^{-jk(2\pi/N)l}$$
+
+
+\textbf{Primer término:} Cuando $k$ es múltiplo de $M$ (es decir, $k = mM$):
+$$\frac{1}{MN} \sum_{n=0}^{N-1} \tilde{x}[n] e^{-jmM(2\pi/MN)n} \cdot M = \frac{1}{N} \sum_{n=0}^{N-1} \tilde{x}[n] e^{-jm(2\pi/N)n}$$
+
+Reconocemos que esto es exactamente $a_m = a_{k/M}$ (coeficiente DFT de $\tilde{x}[n]$ con período $N$).
+
+\textbf{Segundo término:} Cuando $k$ es múltiplo de $N$ (es decir, $k = nN$):
+$$\frac{1}{MN} \sum_{n=0}^{M-1} \tilde{g}[n] e^{-jnN(2\pi/MN)n} \cdot N = \frac{1}{M} \sum_{n=0}^{M-1} \tilde{g}[n] e^{-jn(2\pi/M)n}$$
+
+Reconocemos que esto es exactamente $b_n = b_{k/N}$ (coeficiente DFT de $\tilde{g}[n]$ con período $M$).
+
+Por lo tanto:
+
+$$c_k = \begin{cases}
+\frac{1}{N} a_{k/M} + \frac{1}{M} b_{k/N}, & \text{para } k \text{ múltiplo de } M \text{ y } N \\[0.3em]
+\frac{1}{N} a_{k/M}, & \text{para } k \text{ múltiplo de } M \text{ solamente} \\[0.3em]
+\frac{1}{M} b_{k/N}, & \text{para } k \text{ múltiplo de } N \text{ solamente} \\[0.3em]
+0, & \text{en caso contrario}
+\end{cases}$$
+
+Por lo tanto, los coeficientes $c_k$ están dados por:
+
+$$c_k = \begin{cases}
+\frac{1}{N} a_{k/M} + \frac{1}{M} b_{k/N}, & \text{para } k \text{ múltiplo de } M \text{ y } N \\
+\frac{1}{N} a_{k/M}, & \text{para } k \text{ múltiplo de } M \text{ solamente} \\
+\frac{1}{M} b_{k/N}, & \text{para } k \text{ múltiplo de } N \text{ solamente} \\
+0, & \text{en caso contrario}
+\end{cases}$$
+
+donde $a_k$ y $b_k$ son los coeficientes de la serie de Fourier discreta de $\tilde{x}[n]$ y $\tilde{g}[n]$, respectivamente.
+\end{solution}
+%----------------------------
+%\question 
+%Considere una secuencia de tiempo discreto $\tilde{x}[n]$ que es periódica con período $N$. Sabemos que $\tilde{x}[n]$ se puede escribir como
+%$$\tilde{x}[n] = \sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n}$$
+%
+%\begin{enumerate}
+%\item Muestre que al multiplicar ambos lados de la ecuación por $e^{-jl(2\pi/N)n}$ y sumar sobre un período, los coeficientes de la serie de Fourier de tiempo discreto $a_k$ se obtienen como
+%$$a_k = \frac{1}{N} \sum_{n=\langle N \rangle} \tilde{x}[n]e^{-jk(2\pi/N)n}$$
+%
+%\item La ecuación de síntesis para una señal aperiódica de tiempo discreto se puede escribir como
+%$$x[n] = \frac{1}{2\pi} \int_{2\pi} X(\Omega)e^{j\Omega n} d\Omega$$
+%
+%\begin{enumerate}
+%\item Muestre que al multiplicar ambos lados por $e^{-j\Omega_1 n}$ y sumar sobre $n = -\infty$ a $n = +\infty$,
+%$$\sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega_1 n} = \frac{1}{2\pi} \int_{2\pi} X(\Omega) \sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} d\Omega$$
+%
+%\item Muestre que
+%$$\sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} = 2\pi \sum_{n=-\infty}^{\infty} \delta(\Omega - \Omega_1 + 2\pi n)$$
+%
+%\textit{Hint:} Considere $\sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n}$ como la representación en serie de Fourier de alguna función periódica continua en el tiempo.
+%
+%\item Al combinar los resultados de las partes (i) y (ii), establezca que
+%$$\sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega n} = X(\Omega)$$
+%\end{enumerate}
+%\end{enumerate}
+%----------------------------
+%\begin{solution}
+%\subsection*{Resolución 4.1}
+%Para demostrar cómo se obtienen los coeficientes de la serie de Fourier discreta, partimos de la representación en serie:
+%$$\tilde{x}[n] = \sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n}$$
+%
+%Si multiplicamos ambos lados de esta ecuación por $e^{-jl(2\pi/N)n}$ y sumamos sobre $\langle N \rangle$, obtenemos:
+%$$\sum_{n=\langle N \rangle} \tilde{x}[n]e^{-jl(2\pi/N)n} = \sum_{n=\langle N \rangle} \sum_{k=\langle N \rangle} a_k e^{j(k-l)(2\pi/N)n}$$
+%
+%Si $k$ se mantiene fijo, la sumatoria sobre $\langle N \rangle$ es cero a menos que $k = l$, lo cual produce $Na_l$. Por lo tanto:
+%$$a_l = \frac{1}{N} \sum_{n=\langle N \rangle} \tilde{x}[n]e^{-jl(2\pi/N)n}$$
+%
+%\subsection*{Resolución 4.2}
+%Se nos da que $x[n]$ es una señal aperiódica:
+%$$x[n] = \frac{1}{2\pi} \int_{2\pi} X(\Omega)e^{j\Omega n} d\Omega$$
+%
+%\textbf{(i)} Multiplicando ambos lados por $e^{-j\Omega_1 n}$ y sumando sobre todos los $n$, tenemos:
+%$$\sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega_1 n} = \frac{1}{2\pi} \int_{2\pi} X(\Omega) \sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} d\Omega$$
+%
+%\textbf{(ii)} $\sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n}$ necesita ser evaluada. Podemos reconocer que esta sumatoria es una representación en serie de Fourier:
+%$$\sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} = \sum_{n=-\infty}^{\infty} a_n e^{j(2\pi n(\Omega-\Omega_1))/T},$$
+%
+%donde $T = 2\pi$ y $a_n = 1$. La función periódica representada por esta serie es un tren de impulsos periódico con período $T = 2\pi$, por lo que:
+%$$\sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} = 2\pi \sum_{n=-\infty}^{\infty} \delta(\Omega - \Omega_1 + 2\pi n)$$
+%
+%\textbf{(iii)} Solo un único impulso en el tren aparece en el intervalo de integración de un período. Por lo tanto:
+%$$\frac{1}{2\pi} \int_{2\pi} X(\Omega) \sum_{n=-\infty}^{\infty} e^{j(\Omega-\Omega_1)n} d\Omega = X(\Omega_1 + 2\pi n) = X(\Omega_1)$$
+%
+%Por consiguiente, la fórmula de análisis para señales discretas aperiódicas ha sido verificada para ser análoga a la fórmula de análisis en la parte (a):
+%$$X(\Omega) = \sum_{n=-\infty}^{\infty} x[n]e^{-j\Omega n}$$
+%\end{solution}
+%----------------------------
+%\question 
+%La transformada de Fourier de una señal periódica de tiempo discreto se basa en el hecho de que tal serie se puede escribir como
+%$$\tilde{x}[n] = \sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n}$$
+%
+%\begin{enumerate}
+%\item Establezca que la transformada de Fourier de $e^{jk(2\pi/N)n}$ es
+%$$\sum_{n=-\infty}^{\infty} 2\pi\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi n\right)$$
+%
+%\item Establezca que la transformada de Fourier de 
+%$$\sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n}$$
+%es
+%$$\sum_{n=-\infty}^{\infty} 2\pi \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi n\right)$$
+%
+%\item Establezca que
+%$$\sum_{n=-\infty}^{\infty} 2\pi \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi n\right) = 2\pi \sum_{k=-\infty}^{\infty} a_k\delta\left(\Omega - \frac{2\pi k}{N}\right),$$
+%lo cual muestra que
+%$$\tilde{X}(\Omega) \stackrel{\mathcal{F}}{\longleftrightarrow} 2\pi \sum_{k=-\infty}^{\infty} a_k\delta\left(\Omega - \frac{2\pi k}{N}\right)$$
+%
+%\item Use el resultado de la parte (c) para verificar que los coeficientes de la serie de Fourier
+%$$a_k = \frac{1}{N}X(\Omega)\bigg|_{\Omega=(2\pi k)/N}$$
+%donde $X(\Omega)$ es la transformada de Fourier de $x[n]$, que consiste en un solo período de $\tilde{x}[n]$.
+%\end{enumerate}
+%
+%----------------------------
+%\begin{solution}
+%\subsection*{Resolución 5.1}
+%La transformada de Fourier de $e^{jk(2\pi/N)n}$ se puede realizar utilizando la fórmula de síntesis:
+%$$e^{jk(2\pi/N)n} = \frac{1}{2\pi} \int_{2\pi} X(\Omega)e^{j\Omega n} d\Omega$$
+%
+%Dado que sabemos que $X(\Omega)$ es periódica en $\Omega = 2\pi$, tenemos:
+%$$e^{jk(2\pi/N)n} \stackrel{\mathcal{F}}{\longleftrightarrow} 2\pi \sum_{m=-\infty}^{\infty} \delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right)$$
+%
+%Por lo tanto:
+%$$\boxed{\mathcal{F}\{e^{jk(2\pi/N)n}\} = \sum_{m=-\infty}^{\infty} 2\pi\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right)}$$
+%
+%\subsection*{Resolución 5.2}
+%Utilizando superposición y el resultado de la parte (a), tenemos:
+%$$\sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n} \stackrel{\mathcal{F}}{\longleftrightarrow} \sum_{m=-\infty}^{\infty} 2\pi \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right)$$
+%
+%Por la linealidad de la transformada de Fourier:
+%$$\boxed{\mathcal{F}\left\{\sum_{k=\langle N \rangle} a_k e^{jk(2\pi/N)n}\right\} = \sum_{m=-\infty}^{\infty} 2\pi \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right)}$$
+%
+%\subsection*{Resolución 5.3}
+%Podemos cambiar la doble sumatoria a una sola sumatoria ya que $a_k$ es periódica:
+%$$\sum_{m=-\infty}^{\infty} \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right) = \sum_{k=-\infty}^{\infty} a_k\delta\left(\Omega - \frac{2\pi k}{N}\right)$$
+%
+%Esto se debe a que para cada valor de $k$ en el rango $\langle N \rangle$ y cada valor de $m$, el argumento del delta $\frac{2\pi k}{N} - 2\pi m$ puede escribirse como $\frac{2\pi k'}{N}$ para algún $k'$ entero. Como $a_k$ es periódica con período $N$, tenemos $a_{k'} = a_{k' \bmod N}$.
+%
+%Por lo tanto:
+%$$\boxed{\sum_{m=-\infty}^{\infty} 2\pi \sum_{k=\langle N \rangle} a_k\delta\left(\Omega - \frac{2\pi k}{N} + 2\pi m\right) = 2\pi \sum_{k=-\infty}^{\infty} a_k\delta\left(\Omega - \frac{2\pi k}{N}\right)}$$
+%
+%Estableciendo así que:
+%$$\boxed{\tilde{X}(\Omega) = 2\pi \sum_{k=-\infty}^{\infty} a_k\delta\left(\Omega - \frac{2\pi k}{N}\right)}$$
+%
+%\subsection*{Resolución 5.4}
+%Tenemos:
+%$$\tilde{x}[n] = \sum_{k=-\infty}^{\infty} x[n - kN] \stackrel{\mathcal{F}}{\longleftrightarrow} \sum_{k=-\infty}^{\infty} X(\Omega)e^{-j\Omega kN}$$
+%
+%Como en la ecuación del problema 4.2(ii), podemos demostrar que:
+%$$\sum_{k=-\infty}^{\infty} e^{-j\Omega kN} = \frac{2\pi}{N} \sum_{k=-\infty}^{\infty} \delta\left(\Omega - \frac{2\pi k}{N}\right)$$
+%
+%Por lo tanto:
+%$$\tilde{x}[n] \stackrel{\mathcal{F}}{\longleftrightarrow} 2\pi \sum_{k=-\infty}^{\infty} \frac{1}{N}X(\Omega)\delta\left(\Omega - \frac{2\pi k}{N}\right)$$
+%$$= 2\pi \sum_{k=-\infty}^{\infty} \frac{1}{N}X\left(\frac{2\pi k}{N}\right)\delta\left(\Omega - \frac{2\pi k}{N}\right)$$
+%
+%Comparando con el resultado de la parte (c), vemos que:
+%$$\boxed{a_k = \frac{1}{N}X(\Omega)\bigg|_{\Omega=(2\pi k)/N}}$$
+%
+%donde $X(\Omega)$ es la transformada de Fourier de $x[n]$, que consiste en un solo período de $\tilde{x}[n]$.
+%\end{solution}
+%----------------------------
+\question 
+Use propiedades de la transformada de Fourier para mostrar por inducción que la transformada de Fourier de
+$$x(t) = \frac{t^{n-1}}{(n-1)!}e^{-at}u(t), \qquad a > 0$$
+es
+$$X(\omega) = \frac{1}{(a + j\omega)^n}$$
+
+%----------------------------
+\begin{solution}
+\subsection*{Resolución 6.1}
+
+Demostraremos por inducción que para la señal dada:
+$$x(t) = \frac{t^{n-1}}{(n-1)!}e^{-at}u(t), \qquad a > 0$$
+su transformada de Fourier es:
+$$X(\omega) = \frac{1}{(a + j\omega)^n}$$
+
+\textbf{Para $n = 1$:}
+$$x(t) = e^{-at}u(t), \qquad a > 0$$
+$$X(\omega) = \frac{1}{a + j\omega}$$
+
+Este es un resultado fundamental conocido de las tablas de transformadas de Fourier.
+
+\textbf{Para $n = 2$:}
+$$x(t) = te^{-at}u(t)$$
+
+Utilizando la propiedad de diferenciación en frecuencia:
+$$tx(t) \stackrel{\mathcal{F}}{\longleftrightarrow} j\frac{d}{d\omega}X(\omega)$$
+
+Por lo tanto:
+$$X(\omega) = j\frac{d}{d\omega}\left[\frac{1}{a + j\omega}\right] = j\frac{d}{d\omega}(a + j\omega)^{-1}$$
+$$= j \cdot (-1)(a + j\omega)^{-2} \cdot j = -j^2(a + j\omega)^{-2} = \frac{1}{(a + j\omega)^2}$$
+
+\textbf{Hipótesis de inducción para $n$:}
+Asumimos que es verdadero para $n$:
+$$x(t) = \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)$$
+$$X(\omega) = \frac{1}{(a + j\omega)^n}$$
+
+\textbf{Consideramos el caso para $n + 1$:}
+$$x(t) = \frac{t^n}{n!}e^{-at}u(t)$$
+
+Podemos escribir:
+$$\frac{t^n}{n!}e^{-at}u(t) = \frac{t}{n} \cdot \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)$$
+
+Aplicando la propiedad de diferenciación en frecuencia:
+$$X(\omega) = \frac{j}{n}\frac{d}{d\omega}\left[\frac{1}{(a + j\omega)^n}\right]$$
+$$= \frac{j}{n}\frac{d}{d\omega}(a + j\omega)^{-n}$$
+$$= \frac{j}{n} \cdot (-n)(a + j\omega)^{-n-1} \cdot j$$
+$$= \frac{j}{n} \cdot (-n)j(a + j\omega)^{-n-1}$$
+$$= \frac{(-n)j^2}{n}(a + j\omega)^{-n-1}$$
+$$= \frac{(-n)(-1)}{n}(a + j\omega)^{-n-1}$$
+$$= \frac{1}{(a + j\omega)^{n+1}}$$
+
+\textbf{Por lo tanto, es verdadero para todo $n$.}
+
+Hemos demostrado por inducción que:
+$$\boxed{\mathcal{F}\left\{\frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\right\} = \frac{1}{(a + j\omega)^n}}$$
+\end{solution}
+%----------------------------
+\end{questions}
+\end{document}

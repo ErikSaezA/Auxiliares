@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  6 OCT 2025 00:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.6)  6 OCT 2025 11:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex"
-(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-04/EL3203_04.tex
+**"c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-05/EL3203_05.tex"
+(c:/Users/eriks/OneDrive/Escritorio/Universidad/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-05/EL3203_05.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (C:\Program Files\MiKTeX\tex/latex/exam\exam.cls
@@ -880,8 +880,8 @@ Package translations Info: No language package found. I am going to use `english
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count399
 \l__pdf_internal_box=\box105
-) (EL3203_04.aux)
-\openout1 = `EL3203_04.aux'.
+) (EL3203_05.aux)
+\openout1 = `EL3203_05.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
@@ -966,9 +966,9 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 26.
 Package hyperref Info: Link coloring ON on input line 26.
- (EL3203_04.out) (EL3203_04.out)
+ (EL3203_05.out) (EL3203_05.out)
 \@outlinefile=\write4
-\openout4 = `EL3203_04.out'.
+\openout4 = `EL3203_05.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -1001,7 +1001,7 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 42--46
 [1
 
 {C:/Users/eriks/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
-Overfull \hbox (40.58524pt too wide) in paragraph at lines 140--150
+Overfull \hbox (40.58524pt too wide) in paragraph at lines 142--152
  [] 
  []
 
@@ -1010,41 +1010,12 @@ Overfull \hbox (40.58524pt too wide) in paragraph at lines 140--150
 [2]
 
 [3]
-<../figures/Auxiliar_3_2.png, id=56, 613.5723pt x 413.3844pt>
-File: ../figures/Auxiliar_3_2.png Graphic file (type png)
-<use ../figures/Auxiliar_3_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_2.png  used on input line 242.
-(pdftex.def)             Requested size: 235.51953pt x 158.67725pt.
-<../figures/Auxiliar_3_3.png, id=58, 610.32014pt x 413.3844pt>
-File: ../figures/Auxiliar_3_3.png Graphic file (type png)
-<use ../figures/Auxiliar_3_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_3.png  used on input line 249.
-(pdftex.def)             Requested size: 235.51953pt x 159.52248pt.
-<../figures/Auxiliar_3_4.png, id=59, 621.16064pt x 415.5525pt>
-File: ../figures/Auxiliar_3_4.png Graphic file (type png)
-<use ../figures/Auxiliar_3_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_4.png  used on input line 291.
-(pdftex.def)             Requested size: 235.51953pt x 157.5565pt.
-<../figures/Auxiliar_3_5.png, id=60, 610.32014pt x 415.5525pt>
-File: ../figures/Auxiliar_3_5.png Graphic file (type png)
-<use ../figures/Auxiliar_3_5.png>
-Package pdftex.def Info: ../figures/Auxiliar_3_5.png  used on input line 298.
-(pdftex.def)             Requested size: 235.51953pt x 160.35915pt.
-
 
 [4]
 
-[5 <../figures/Auxiliar_3_2.png> <../figures/Auxiliar_3_3.png>]
-Underfull \vbox (badness 1077) detected at line 353
- []
+[5]
 
-
-Underfull \vbox (badness 1077) detected at line 353
- []
-
-
-
-[6 <../figures/Auxiliar_3_4.png> <../figures/Auxiliar_3_5.png>]
+[6]
 
 [7]
 
@@ -1063,43 +1034,29 @@ Underfull \vbox (badness 1077) detected at line 353
 [14]
 
 [15]
-
-[16]
-
-[17]
-
-[18]
-
-[19]
-
-[20]
-
-[21]
-
-[22]
-This exam contains 7 questions with 0 parts, 0 subparts, and 0 subsubparts.
+This exam contains 4 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3203_04.aux)
+(EL3203_05.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `EL3203_04.out' has not changed.
+Package rerunfilecheck Info: File `EL3203_05.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 63057 strings out of 473523
- 1616790 string characters out of 5724698
- 2686599 words of memory out of 5000000
- 85382 multiletter control sequences out of 15000+600000
- 573265 words of font info for 95 fonts, out of 8000000 for 9000
+ 61739 strings out of 473523
+ 1586197 string characters out of 5724698
+ 2384145 words of memory out of 5000000
+ 84176 multiletter control sequences out of 15000+600000
+ 566534 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,25n,101p,889b,2912s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on EL3203_04.pdf (22 pages, 744835 bytes).
+ 99i,11n,101p,889b,1223s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\eriks\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3203_05.pdf (15 pages, 314076 bytes).
 PDF statistics:
- 413 PDF objects out of 1000 (max. 8388607)
- 163 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
