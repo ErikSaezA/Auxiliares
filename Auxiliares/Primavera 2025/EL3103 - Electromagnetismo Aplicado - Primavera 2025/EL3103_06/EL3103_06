@@ -1,0 +1,673 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 6} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux.~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\section{Resumen:}
+\subsection*{Ondas electromagnéticas}
+En un medio material lineal, homogéneo e isotrópico, las ecuaciones de Maxwell permiten obtener que los campos eléctricos y magnéticos obedecen las siguientes \textbf{ecuaciones de onda}:
+
+\[
+\nabla^2 \vec{E} - \mu \, \epsilon \, \frac{\partial^2 \vec{E}}{\partial t^2} = 0,
+\qquad
+\nabla^2 \vec{H} - \mu \, \epsilon \, \frac{\partial^2 \vec{H}}{\partial t^2} = 0.
+\]
+Donde $c= \frac{1}{\sqrt{\mu \epsilon}}$ corresponde a la velocidad de propagación de la onda.
+\\
+\\
+Además, es posible relacionar ambos campos mediante la siguiente expresión:
+\begin{align}
+    \bvec{H} &= Y \hat{n} \times \bvec{E}
+\end{align}
+donde:
+\begin{align}
+    Y = \frac{1}{\eta} = \sqrt{\frac{\epsilon}{\mu}}
+\end{align}
+
+\subsubsection*{Coeficiente de reflexión} El coeficiente de reflexión ($\Gamma$) se calcula como la razón entre la amplitud de la onda reflejada y la incidente, es decir:
+\begin{align}
+    \Gamma (z) &= \frac{E^- (z)}{E^+ (z)}
+\end{align}
+\subsection*{Ondas con campos armónicos}
+En el caso de ondas armónicas en el tiempo (dependencia \(e^{j\omega t}\)), se introduce la \textbf{constante de propagación}:
+\[
+\gamma = \alpha + j\beta,
+\]
+donde:
+\begin{itemize}
+    \item \(\alpha\): constante de atenuación \([{\rm Np/m}]\).
+    \item \(\beta\): constante de fase \([{\rm rad/m}]\).
+\end{itemize}
+
+En un medio sin pérdidas (\(\sigma = 0\)):
+\[
+\alpha = 0, 
+\qquad 
+\beta = \omega \sqrt{\mu \epsilon}.
+\]
+
+En un medio con pérdidas (\(\sigma \neq 0\)):
+\begin{align}
+    \gamma &= \alpha + j \beta = \sqrt{j \omega \mu (\sigma + j \omega \epsilon)}
+\end{align}
+
+\subsection*{Potencia promedio}
+\begin{align}
+    \langle \mathbf{S} \rangle &= \frac{1}{2} \text{Re} \sbr{\mathbf{E} \times \mathbf{H^*}}
+\end{align}
+
+\subsection*{Polarización de ondas}
+Para ondas de la forma:
+\begin{align}
+    \bvec{E}_i &= \mathbf{E_x} + \mathbf{E_y} = E_0 \hat{x} e^{- j \beta z} e^{j( \omega t- \delta_x)} + E_0 \hat{y} e^{- j \beta z} e^{j( \omega t - \delta_y)}
+\end{align}
+Se tiene que para polarización lineal:
+\begin{align}
+    \delta = \delta_x - \delta_y = 0 = k \pi, k \in \mathbb{Z}
+\end{align}
+Para polarización circular:
+\begin{align}
+    \delta = \delta_x - \delta_y = \frac{\pi}{2} + 2k\pi, k \in \mathbb{Z}
+\end{align}
+Y ademas se debe cumplir que:
+\begin{align}
+    E_{0x} = E_{0y}
+\end{align}
+Para polarización elíptica, se tiene cualquier $\delta$ que no cumpla alguna de las condiciones anteriores.
+
+\subsection*{Parámetros de Stokes}
+Permiten definir el estado completo de polarización de una onda electromagnética. Estos son:
+\begin{align}
+    I = \langle A_x ^2 + A_y ^2 \rangle, && Q= \langle A_x ^2 - A_y ^2 \rangle, && U = \langle 2 A_x A_y \cos{(\delta)} \rangle, && V= \langle2 A_x A_y \sin{(\delta)} \rangle
+\end{align}
+Donde $A_x$ y $A_y$ son las amplitudes de los campos en $\hat{x}$ e $\hat{y}$, respectivamente. Estos parámetros representan:
+\begin{itemize}
+    \item $I$ representa la intensidad total de la luz.
+    \item $Q$ representa la diferencia de intensidades entre entre la componente horizontal y la vertical.
+    \item $U$ representa qué tanta polarización lineal sufre la onda.
+    \item $V$ representa qué tanta polarización circular sufre la onda. 
+\end{itemize} 
+
+\subsection*{Potencia de polarización}
+Se calcula mediante:
+\begin{align}
+    I_p &= \sqrt{Q^2 + U^2 + V^2}
+\end{align}
+\subsection*{Expresiones matemáticas útiles}
+Se utilizarán las siguientes identidades del cálculo complejo:
+
+\begin{align}
+    \sin{(z)} = \frac{e^{jz}-e^{-jz}}{2j} && \cos{(z)}= \frac{e^{jz} + e^{-jz}}{2}
+\end{align}
+Además se tiene que:
+\begin{align}
+    e^{j\theta} &= \cos{(\theta)} + j \sin{(\theta)}
+\end{align}
+\newpage
+\section{Ejercicios:}
+\begin{questions}
+    
+\question \label{q:Ondas}
+
+Considere una onda plana viajando a través de distintos medios, tal como se evidencia en la figura. El campo eléctrico tiene una magnitud $E_{0}$ (refiriendose a la amplitud $E_0 = E_1^{+} $) y dirección $\uvecs{i}$, incidiendo normalmente en una placa dieléctrica perfecta adosada a un plano perfectamente conductor, como se indica la figura. Además considere que la frecuencia de operación es $f_{0}$ y el espesor de la placa dieléctrica es d = $\lambda/4$, donde $\lambda$ es la longitud de onda dentro del dieléctrico.
+\begin{parts}
+    \part{Determine los campos totales $\bvec{E}(z)$ y $\bvec{H}(z)$ en todas partes.}
+    \part{Determine el coeficiente de reflexión $\Gamma(z)$ en $z=-d$ e interprete el valor obtenido.}
+    \part{Determine la densidad de potencia (Por unidad de área en el plano xy) incidente y reflejada para cualquier z$<$-d.}
+\end{parts}
+ \begin{center}
+ \begin{tikzpicture}[scale=1]
+
+  % Región 1 (medio 1)
+  \fill[pattern=north east lines,pattern color=black!70] (-4,-2) rectangle (0,2);
+  \node at (-2,1.3) {Medio 1};
+  \node at (-2,0.7) {$\epsilon_1, \mu_0$};
+  \draw[->,thick] (-3,0) -- (-1.5,0) node[midway,below] {$\vec{k}$};
+  \node at (-3.2,0.6) {$E_0$};
+
+  % Región 2 (dieléctrico)
+  \fill[pattern=north west lines,pattern color=black!70] (0,-2) rectangle (3,2);
+  \node at (1.5,1.3) {Medio 2};
+  \node at (1.5,0.7) {$\epsilon_2, \mu_0$};
+
+  % Región 3 (conductor perfecto)
+  \fill[pattern=dots,pattern color=black!70] (3,-2) rectangle (4,2);
+  \node[rotate=90] at (3.7,0) {$\sigma = \infty$};
+
+  % Ejes
+  \draw[->] (-4,-2.2) -- (4,-2.2) node[right] {$z$};
+  \draw (0,-2.2) -- (0,-2.4) node[below] {$-d$};
+  \draw (3,-2.2) -- (3,-2.4) node[below] {$0$};
+
+  % Regiones numeradas
+  \node at (-2,-1.2) {(1)};
+  \node at (1.5,-1.2) {(2)};
+
+\end{tikzpicture}
+\captionof{figure}{Diagrama para la \cref{q:Ondas}}
+
+  \end{center}
+\begin{solution}
+\begin{parts}
+    
+\part{Se busca el obtener los campos $\bvec{E}(z)$ y $\bvec{H}(z)$ en todos los medios, se tendrá que analizar en cada uno de estos, además de analizar sus condiciones de borde:}
+
+\uline{Campo eléctrico Medio 1}
+\begin{align}
+    \bvec{E}_{1}(z) = ( E_{1}^{+}e^{jw_{o}t}e^{-jk_{0}z} +E_{1}^{-}e^{jw_{o}t}e^{jk_{0}z})\uvecs{i}
+\end{align}
+\uline{Campo eléctrico Medio 2}
+
+\begin{align}
+    \bvec{E}_{2}(z) = ( E_{2}^{+}e^{jw_{o}t}e^{-jk_{1}z} +E_{2}^{-}e^{jw_{o}t}e^{jk_{1}z})\uvecs{i}
+\end{align}
+Luego buscamos analizar las condiciones de borde, por tanto, se considera los casos en que z = -d y z = 0.
+
+\uline{Caso 1 $\bvec{E}_{1}(z=-d)=\bvec{E}_{2}(z=-d)$}
+
+Sabemos por condiciones de borde, que dichos campos eléctricos en la interfaz deberán ser iguales, por lo que igualando se tiene que:
+\begin{align}
+    ( E_{1}^{+}e^{jw_{o}t}e^{jk_{0}d} +E_{1}^{-}e^{jw_{o}t}e^{-jk_{0}d})=( E_{2}^{+}e^{jw_{o}t}e^{jk_{1}d} +E_{2}^{-}e^{jw_{o}t}e^{-jk_{1}d})
+\end{align}
+Notamos que la componente asociada a la frecuencia puede ser eliminada, por lo que se reduce la expresión. (Muchas veces la omitiremos por el mismo motivo dado que entre medios su variante temporal debe ser la misma).
+\begin{align}\label{eq:2}
+    ( E_{1}^{+}e^{jk_{0}d} +E_{1}^{-}e^{-jk_{0}d})=( E_{2}^{+}e^{jk_{1}d} +E_{2}^{-}e^{-jk_{1}d})
+\end{align}
+Esta expresión, la ocuaremos luego para obtener las relaciones entre las amplitudes de los campos eléctricos, primero ocuparemos la condición de borde en z=0.
+
+\uline{Caso 2 $\bvec{E}_{2}(z=0)=\bvec{E}_{3}(z=0)$}
+
+Se tendrá una condición de conductividad infinita, eso implicará que no existirá onda transmitida y por lo tanto se tendrá directamente que $E_{3} = 0$, es decir:
+\begin{align}
+    ( E_{2}^{+}e^{jw_{o}t}e^{-jk_{1}\cdot 0} +E_{2}^{-}e^{jw_{o}t}e^{jk_{1}\cdot 0})= E_{3} &= 0 \\
+    E_{2}^{+} + E_{2}^{-} &= 0 \\
+    E_{2}^{+} &=  -  E_{2}^{-}
+\end{align}
+Lo cual es consistente con el hecho de que no se está transmitiendo campo eléctrico en el medio 3, por lo que las amplitudes incidente y reflejada deben ser iguales y por tanto no existe pérdida. Luego debemos obtener más ecuaciones para poder encontrar las expresiones particulares de los campos eléctricos, esto se logra relacionando las ecuaciones de intensidad magnética, y teniendo en consideración que son perpendiculares:
+
+\uline{Intensidad de campo magnético para ambos medios}
+
+\begin{align}
+    \bvec{H}_{1} = Y_{0}(\uvecs{k}) \times ( E_{1}^{+}e^{jw_{o}t}e^{-jk_{0}z}) (\uvecs{i}) + Y_{0}(-\uvecs{k}) \times ( E_{1}^{-}e^{jw_{o}t}e^{jk_{0}z})(\uvecs{i}) 
+\end{align}
+Dado que sabemos que la propagación va en $\uvecs{z}$, luego se tendrá que H deberá ir en $\uvecs{j}$, lo cual es consistente con la expresión anterior:
+\begin{align}
+    \bvec{H}_{1}= ( Y_{0}E_{1}^{+}e^{jw_{o}t}e^{-jk_{0}z} - Y_{0} E_{1}^{{-}}e^{jw_{o}t}e^{jk_{0}z})(\uvecs{j})
+\end{align}
+Análogamente se tiene que para el medio 2 
+\begin{align}
+    \bvec{H}_{2}= ( Y_{1}E_{2}^{+}e^{jw_{o}t}e^{-jk_{1}z} - Y_{1} E_{2}^{-}e^{jw_{o}t}e^{jk_{1}z})(\uvecs{j})
+\end{align}
+Bajo el mismo argumento anterior tendremos que las intensidades de campo magnético deberán ser iguales y por lo tanto:
+
+\uline{Caso 3 $\bvec{H}_{1}(z=-d)=\bvec{H}_{2}(z=-d)$}
+Utilizando la igualdad se obtiene que:
+\begin{align}
+      ( Y_{0}E_{1}^{+}e^{jk_{0}d} - Y_{0} E_{1}^{-}e^{-jk_{0}d}) &= ( Y_{1}E_{2}^{+}e^{jk_{1}d} - Y_{1} E_{2}^{-}e^{-jk_{1}d})
+\end{align}
+\begin{align}
+       Y_{0}(E_{1}^{+}e^{jk_{0}d}-E_{1}^{-}e^{-jk_{0}d}) - Y_{1}(E_{2}^{+}e^{jk_{1}d} - E_{2}^{-}e^{-jk_{1}d})&=0
+\end{align}
+Dada la expresión general, nos enfocaremos en el caso particular  d= $\lambda/4$, por lo que reemplazando sobre las ecuaciones anteriores y recordando que:
+\begin{align}
+    k=\beta = \frac{2\pi}{\lambda}
+\end{align}
+Luego
+\begin{align}
+    d\cdot k = \frac{\lambda}{4} \cdot  \frac{2\pi}{\lambda}
+     = \frac{\pi}{2}
+\end{align}
+Por lo que tenemos que:
+\begin{align}
+    e^{\pm j k d} = e^{\pm j\frac{\pi}{2}} = \pm j
+\end{align}
+Por lo que reemplazando en la \cref{eq:2} (con la relación de los campos eléctricos) se obtiene:
+\begin{align}
+    E_{1}^{+}j - E^{-}j =& E_{2}^{+}j - E_{2}^{-}j\\
+     E_{1}^{+} - E^{-} =& E_{2}^{+} - E_{2}^{-}
+\end{align}
+Pero anteriormente se verificó que $E_{2}^{-} = -E_{2}^{+}$, por lo que reemplazando tenemos:
+\begin{align}
+    E_{1}^{+} - E_{1}^{-} = 2E_{2}^{+}
+\end{align}
+Por otro lado tenemos que para la intensidad de campo magnético y evaluando el valor obtenido para las exponenciales complejas en z = d, se tiene que:
+\begin{align}
+     Y_{0}(E_{1}^{+}e^{jk_{0}d}-E_{1}^{-}e^{-jk_{0}d}) &= Y_{1}(E_{2}^{+}e^{jk_{1}d} - E_{2}^{-}e^{-jk_{1}d})\\
+    Y_{0}(E_{1}^{+}j+E_{1}^{-}j) &= Y_{1}(E_{2}^{+}j +E_{2}^{-}j)\\
+    Y_{0}(E_{1}^{+}+E_{1}^{-}) &= Y_{1}(E_{2}^{+} +E_{2}^{-})\\
+    Y_{0}(E_{1}^{+}+E_{1}^{-})&= Y_{1}(E_{2}^{+} +E_{2}^{-})=0\\
+    E_{1}^{+} &= -E_{1}^{-}
+\end{align}
+Tenemos además que $E_{1}^{+}=E_{0}$ por lo tanto:
+\begin{align}
+    E_{0}= -E_{1}^{-} 
+\end{align}
+De esta forma,
+\begin{align}
+    E_{1}^{+} - E_{1}^{-} &= 2E_{2}^{+}\\
+    E_{0} + E_{0} &= 2E_{2}^{+}\\
+    E_{0} &= E_{2}^{+}
+\end{align}
+Finalmente los campos serán de la siguiente forma (utilizaremos las expresiones de seno y coseno vistas en el resumen):
+\begin{align}
+    \bvec{E}_{1}(z) &= E_{0}e^{-jk_{0}z} + E_{1}^{-}e^{jk_{0}z}\\
+      &=E_{0}e^{-jk_{0}z} - E_{0}^{-}e^{jk_{0}z}\\
+      &= E_{0}(e^{-jk_{0}z} - e^{jk_{0}z})\\
+      &= -2jE_{0} \sin(k_{0}z)
+\end{align}
+\begin{align}
+    \bvec{E}_{2}(z) &= E_{2}^{+}e^{-jk_{1}z} + E_{2}^{-}e^{jk_{1}z}\\
+      &=E_{2}^{+}e^{-jk_{1}z} - E_{2}^{+}e^{jk_{1}z}\\
+      &= E_{2}^{+}(e^{-jk_{1}z} - e^{jk_{1}z})\\
+      &= -2jE_{0} \sin(k_{1}z)
+\end{align}
+Por otro lado para la intensidad de campo magnético tenemos que:
+\begin{align}
+    \bvec{H}_{1}(z) &= Y_{0}E_{1}^{+}e^{-jk_{0}z} - Y_{0}E_{1}^{^{-}}e^{jk_{0}z}\\
+    &= Y_{0}E_{0}^{+}e^{-jk_{0}z} + Y_{0}E_{0}^{-}e^{jk_{0}z}\\
+    &= Y_{0}E_{0}(e^{-jk_{0}z} + e^{jk_{0}z} )\\
+    &=2Y_{0}E_{0}\cos(k_{0}z)
+\end{align}
+\begin{align}
+    \bvec{H}_{2}(z) &= Y_{1}E_{2}^{+}e^{-jk_{1}z} - Y_{1}E_{2}^{-}e^{jk_{1}z}\\
+    &= Y_{1}E_{2}^{+}e^{-jk_{0}z} + Y_{1}E_{2}^{-}e^{jk_{0}z}\\
+    &= Y_{1}E_{0}(e^{-jk_{0}z} + e^{jk_{0}z} )\\
+    &=2Y_{1}E_{0}\cos(k_{1}z)
+\end{align}
+Con lo que se obtienen finalmente los campos $\bvec{E}(z,t)$ y $\bvec{E}(z,t)$ para ambos medios.
+
+\part Buscamos el coeficiente de reflexión $\Gamma$ evaluado en $z = -d$. Para esto, partimos de la continuidad del campo en el punto $z= - d$, y se tiene que:
+\begin{align}
+\bvec{E}_1 (z=-d) &= \bvec{E}_2 (z=-d) \\
+    (E_{1}^{+}e^{jk_{0}d} +E_{1}^{-}e^{-jk_{0}d})&=( E_{2}^{+}e^{jk_{1}d} +E_{2}^{-}e^{-jk_{1}d})
+\end{align}
+De las relaciones anteriores se obtiene $(E_{2}^{-} = E_{2}^{+}$),
+\begin{align}
+    ( E_{1}^{+}e^{jk_{0}d} +E_{1}^{-}e^{-jk_{0}d})&=( E_{2}^{+}e^{jk_{1}d} +E_{2}^{-}e^{-jk_{1}d}) \\&= 2jE_{2}^{+}\sin(k_{1}d)\\
+    ( E_{1}^{+}e^{jk_{0}d} +E_{1}^{^{-}}e^{-jk_{0}d})&= 2jE_{2}^{+}\sin(k_{1}d)
+\end{align}
+En relación a la intensidad de campo magnético.
+\begin{align}
+    Y_{0}E_{0}e^{jk_{0}d} - Y_{0}E_{1}^{-}e^{-jk_{o}d}= 2Y_1E_{2}^{+}\cos(k_{1}d)
+\end{align}
+Recordemos que el coeficiente de reflexión vendrá dado por 
+\begin{align}
+    \Gamma(z) &= \frac{E_{1}^{-}e^{-jk_{o}z}}{E_{1}^{+}e^{jk_{o}z}}\\
+              &= \frac{E_{1}^{-}}{E_{1}^{+}} e^{-j2k_{0}d}
+\end{align}
+Para esto, buscamos despejar $E_1^{-}$ en función de $E_1^{+}$. Para esto, dividimos las dos ecuaciones de arriba y se obtiene lo siguiente:
+\begin{align}
+\frac{E_{1}^{+}e^{jk_{0}d} +E_{1}^{-}e^{-jk_{0}d}}{ Y_{0}(E_{0}e^{jk_{0}d} - E_{1}^{-}e^{-jk_{o}d})}&= \frac{2jE_{2}^{+}\sin(k_{1}d)}{2YE_{2}^{+}\cos(k_{1}d)}  \\
+    \frac{E_{1}^{+}e^{jk_{0}d} +E_{1}^{-}e^{-jk_{0}d}}{ Y_{0}(E_{0}e^{jk_{0}d} - E_{1}^{-}e^{-jk_{o}d})}&= \frac{1}{Y_{1}}jtan(k_{1}d)
+\end{align}
+Luego despejando $E_{1}^{-}$ tendremos la siguiente expresión:
+\begin{align}
+    E_{1}^{-} = E_{0}e^{j2k_{0}d}\frac{\left(\frac{Y_{0}}{Y_{1}} jtg(k_{1}d) -1\right)}{\left(\frac{Y_{0}}{Y_{1}}jtg(k_{1}d) + 1\right)}
+\end{align}
+Que reemplazando sobre la ecuación del coeficiente de reflexión:
+\begin{align}
+    \Gamma(z=d) =  \frac{\left(\frac{Y_{0}}{Y_{1}} jtg(k_{1}d) -1\right)}{\left(\frac{Y_{0}}{Y_{1}}jtg(k_{1}d) + 1\right)}
+\end{align}
+Donde utilizando la siguiente relación:
+\begin{align}
+    Y_{0}&= \frac{1}{Z_{0}} & Y_{1}= \frac{1}{Z_{1}}
+\end{align}
+Tal que la expresión:
+\begin{align}
+    \Gamma(z = d) = \frac{jZ_{1}tg(k_{1}d)-Z_{0}}{jZ_{1}tg(k_{1}d) + Z_{0}} 
+\end{align}
+Se obtiene una expresión muy útil que se utilizara más adelante \textit{(en la siguiente unidad)}, y nos da una expresión que permite obtener el coeficiente de reflexión en cualquier punto que sea de interés, por ahora nos reduciremos a evaluarla en  $d=\lambda/4$ por lo que se obtiene:
+\begin{align}
+     \Gamma(z = \frac{\lambda}{4}) &= \frac{jZ_{1}tg(k_{1}\frac{\lambda}{4})-Z_{0}}{jZ_{1}tg(k_{1}\frac{\lambda}{4}) + Z_{0}} \\
+     &= \frac{jZ_{1}tg(\frac{2 \pi}{\lambda}\frac{\lambda}{4})-Z_{0}}{jZ_{1}tg(\frac{2 \pi}{\lambda}\frac{\lambda}{4}) + Z_{0}} \\
+     &= \frac{jZ_{1}tg(\frac{\pi}{2})-Z_{0}}{jZ_{1}tg(\frac{\pi}{2}) + Z_{0}}
+\end{align}
+Y recordando que $tg(\frac{\pi}{2}) \rightarrow \infty$, se obtiene que:
+\begin{align}
+    \Gamma(z = \frac{\lambda}{4}) &= 1
+\end{align}
+Es decir, la onda se refleja en su totalidad, pero sin cambio de fase (notar que si existiera cambio de fase, el resultado sería $\Gamma = -1$).
+\part{Se busca obtener la densidad de potencia (Por unidad de área en plano \textit{xy}) por tanto se utilizara el vector de Poynting tal que:}
+\begin{align}
+    P_{1}^{+}&= \frac{1}{2}Re(E_{1}^{+} \times {H_{1}^{+}}^{*} )\hat{k}\\
+             &=\frac{1}{2}Re( E_{0}e^{-jk_{0}z} \times Y_{0}E_{0}e^{jk_{0}z})\\
+             &= \frac{1}{2}Re(E_{0}^{2}Y_{0})\\
+             &= \frac{1}{2}E_{0}^{2}Y_{0}
+\end{align}
+De manera similar tenemos que para la potencia reflejada:
+\begin{align}
+    P_{1}^{-} = \frac{1}{2}Re(E_{1}^{-} \times {H_{1}^{-}}^*) (-\hat{k})= \frac{1}{2}Y_{0}E_{0}^{2}
+\end{align}
+\end{parts}
+\end{solution}
+
+\question \label{q:Ondas_2}
+
+Considere una onda plana cuyo campo eléctrico tiene una magnitud \(E_0\) (donde $E_0 = E_1^{+}$) y dirección $\uvecs{x}$, incidiendo normalmente en una sección de tres medios diferentes, siendo este último una placa dieléctrica perfecta adosada a un plano perfectamente conductor (\(\sigma = \infty\)), como se indica en la \cref{fig:12}.
+\begin{parts}
+    \part{Obtenga una relación entre los campos \(E^{-}_{2}\) y \(E^{+}_{2}\) en función de \(d_2\).}
+    \part{Una vez determinada la expresión anterior, analice cuando \(d_{2} = \frac{\lambda}{2}\) y explique en términos del módulo del coeficiente de reflexión.}
+    \part{Considerando que \(d_{2} = \frac{\lambda}{2}\), determine una expresión para las amplitudes de los campos \(E^{-}_{1}\) y \(E^{+}_{1}\) y analice el caso cuando \(d_{1} = \frac{\lambda}{2}\).}
+    \part{Considerando que \(d_{1} = d_{2} = \frac{\lambda}{2}\), calcule el valor de potencia por unidad de área en el Medio 1 tanto para la onda incidente como para la reflejada. ¿Son las potencias para la onda incidente y reflejada, obtenidas con anterioridad, diferentes? Argumente su respuesta.}
+    \part{Calcule la constante de propagación $\gamma$ para el medio 3. ¿Cómo se pueden obtener las constantes de atenuación y de fase? Luego, asuma que el medio 3 es sin pérdidas y vuelva a calcular $\gamma$.}
+\end{parts}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.2]
+
+% --- Medio 1 ---
+\fill[pattern=grid,pattern color=gray!50] (-9,0) rectangle (-5,3);
+\draw (-9,0) rectangle (-5,3);
+\node at (-7,2.0) {\Large Medio 1};
+\node at (-7,1.3) {\large $\varepsilon_1,\mu_1$};
+
+% --- Medio 2 ---
+\fill[pattern=dots,pattern color=gray!50] (-5,0) rectangle (-2,3);
+\draw (-5,0) rectangle (-2,3);
+\node at (-3.5,2.0) {\Large Medio 2};
+\node at (-3.5,1.3) {\large $\varepsilon_2,\mu_2$};
+
+% --- Medio 3 ---
+\fill[pattern=horizontal lines,pattern color=gray!50] (-2,0) rectangle (0,3);
+\draw (-2,0) rectangle (0,3);
+\node at (-1,2.0) {\Large Medio 3};
+\node at (-1,1.3) {\large $\varepsilon_3,\mu_3$};
+
+
+% --- Eje x ---
+\draw[->,thick] (-9,-0.7) -- (1,-0.7) node[below] {\Large $x$};
+
+% --- Marcas d1, d2 y 0 ---
+\draw[thin] (-5,-0.7) -- (-5,-0.5) node[below,yshift=-6pt] {\Large $d_1$};
+\draw[thin] (-2,-0.7) -- (-2,-0.5) node[below,yshift=-6pt] {\Large $d_2$};
+\node[below] at (0,-0.7) {\Large $0$};
+
+\end{tikzpicture}
+\captionof{figure}{Sección de tres medios distintos, \cref{q:Ondas_2}.}
+\label{fig:12}
+\end{center}
+ 
+\begin{solution}
+\begin{parts}
+\part{Se busca obtener una relación para los campos $E_{2}^{-}$ y  $E_{2}^{+}$ en función de $d_{2}$, por tanto las expresiones de los campos eléctricos y magnéticos en general para los diferentes medios corresponden:}
+\\
+\\
+\uline{Medio 1: z $\leq$ d1}
+\begin{align}
+    \bvec{E}_{1}(z,t) &= (E_{1}^{+}e^{jwt}e^{-jk_{1} z} + E_{1}^{-}e^{jwt}e^{jk_{1} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{1}&= Y_{1}(\uvecs{z}) \times \bvec{E}_{1}\uvecs{x}\\
+    \bvec{H}_{1} &= Y_{1}(E_{1}^{+}e^{jwt}e^{-jk_{1} z} - E_{1}^{-}e^{jwt}e^{jk_{1} z}) \uvecs{y}
+\end{align}
+\uline{Medio 2: $d_{1}$ $\leq$ z $\leq$ $d_{2}$}
+\begin{align}
+    \bvec{E}_{2}(z,t) &= (E_{2}^{+}e^{jwt}e^{-jk_{2} z} + E_{2}^{-}e^{jwt}e^{jk_{2} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{2}&= Y_{2}(\uvecs{z}) \times \bvec{E}_{2}\uvecs{x}\\
+    \bvec{H}_{2} &= Y_{2}(E_{2}^{+}e^{jwt}e^{-jk_{2} z} - E_{2}^{-}e^{jwt}e^{jk_{2} z}) \uvecs{y}
+\end{align}
+\uline{Medio 3: d2 $\leq$ z  $\leq$ 0 }
+\begin{align}
+    \bvec{E}_{3}(z,t) &= (E_{3}^{+}e^{jwt}e^{-jk_{3} z} + E_{3}^{-}e^{jwt}e^{jk_{3} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{3}&= Y_{3}(\uvecs{z}) \times \bvec{E}_{3}\uvecs{x}\\
+    \bvec{H}_{3} &= Y_{3}(E_{3}^{+}e^{jwt}e^{-jk_{3} z} - E_{3}^{-}e^{jwt}e^{jk_{3} z}) \uvecs{y}
+\end{align}
+Con lo que finalmente se obtienen las expresiones de campo eléctrico e intensidad magnetica para los tres medios. Para el medio 4, las expresiones son despreciables debido a la presencia de una pared con conductividad infinita (Reflexión total, campos inexistentes). Luego queremos relacionar $E_{2}^{+}$ y $E_{2}^{-}$, es por esto que evaluaremos en la interfaz de los medios 2 y 3:
+
+\uline{Interfaz medio 2 y 3 (campo eléctrico)}
+\begin{align}
+    \bvec{E}_{2}(z=-d_{2}) = \bvec{E}_{3}(z=-d_{2})
+\end{align}
+Reemplazando y teniendo la consideración con los signos se tendrá que:
+\begin{align}
+    (E_{2}^{+}e^{jwt}e^{jk_{2} d_{2}} + E_{2}^{-}e^{jwt}e^{-jk_{2} d_{2}})=(E_{3}^{+}e^{jwt}e^{jk_{3} d_{2}} + E_{3}^{-}e^{jwt}e^{-jk_{3} d_{2}})
+\end{align}
+A partir de ahora omitiremos en todas las expresiones los términos fasoriales asociados al tiempo $e^{jwt}$ dado que estas no cambian al pasar de un medio a otro, por lo que no será relevante.
+\begin{align}
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})=(E_{3}^{+}e^{jk_{3} d_{2}} + E_{3}^{-}e^{-jk_{3} d_{2}})
+\end{align}
+Necesitamos eliminar la dependencia de las amplitudes asociadas al medio 3, por lo que evaluando en z=0, tenemos que:
+\begin{align}
+    \bvec{E}_{3}(z=0,t) &= (E_{3}^{+}e^{-jk_{3} \cdot 0} + E_{3}^{-}e^{jk_{3} \cdot 0}) = 0\\
+    &= E_{3}^{+} + E_{3}^{-} = 0\\
+    &E_{3}^{+} = -E_{3}^{-}
+\end{align}
+Recordemos que lo igualamos a 0, debido a la conductividad infinita de la interfaz y por tanto la no existencia de onda en el otro medio. Reemplazando esta condición sobre lo anterior:
+\begin{align}
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=(E_{3}^{+}e^{jk_{3} d_{2}} + E_{3}^{-}e^{-jk_{3} d_{2}})\\
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=E_{3}^{+}(e^{jk_{3} d_{2}}- e^{-jk_{3} d_{2}})\\
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=2 E_{3}^{+}j\sin(k_{3} d_{2})
+\end{align}
+Con lo que reducimos a solo tener un $E_{3}^{+}$. De esta forma, debemos relacionar alguna otra expresión para reducirlo. Usando la intensidad de campo magnético de la siguiente manera:
+
+\uline{Interfaz medio 2 y 3 (campo magnético)}
+\begin{align}
+    \bvec{H}_{2}(z=-d_{2}) &= \bvec{H}_{3}(z = - d_{2})\\
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= Y_{3} (E_{3}^{+}e^{-jk_{3} z} - E_{3}^{-}e^{jk_{3} z})
+\end{align}
+Utilizamos la misma condición que obtuvimos antes (es decir que $E_{3}^{+} = -E_{3}^{-}$):
+\begin{align}
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= Y_{3} E_{3}^{+}(e^{-jk_{3} z} + e^{jk_{3} z})\\
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= Y_{3} 2E_{3}^{+}\cos(k_{3} d_{2})
+\end{align}
+Luego realizando la división se observa que queda expresada solo en términos de $E_{2}^{+} $ y $E_{2}^{-}$ con lo que podemos relacionarlos en función de parámetros conocidos, es decir:
+\begin{align}
+    \frac{(E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})}{Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z})}= \frac{j \tan(k_{3} d_{2})}{Y_{3}}
+\end{align}
+Luego, despejando se logra obtener que: 
+\begin{align}
+    E_{2}^{-} = E_{2}^{+} \frac{e^{jk_{2} d_{2}} \left( \frac{Y_{2}}{Y_{3}} j\tan(k_{3} d_{2}) -1\right)}{ e^{-jk_{2} d_{2}} \left( 1+ \frac{Y_{2}}{Y_{3}} j \tan(k_{3} d_{2})\right)}
+\end{align}
+Con lo que finalmente se obtiene una expresión que relaciona los campos solo en función de la distancia $d_{2}$.
+
+\part{Se desea analizar la expresión anterior cuando $d_{2} = \frac{\lambda}{2}$, por lo que evaluando de manera directa se tendrá:}
+\begin{align}
+    E_{2}^{-}=& E_{2}^{+} \frac{e^{jk_{2}\cdot \frac{\lambda}{2}} \left( \frac{Y_{2}}{Y_{3}} j\tan(k_{3}\cdot \frac{\lambda}{2} )-1\right)}{ e^{-jk_{2}\cdot \frac{\lambda}{2}} \left( 1+ \frac{Y_{2}}{Y_{3}} j \tan(k_{3}\cdot \frac{\lambda}{2})\right)}
+\end{align}
+Luego, teniendo en consideración que:
+\begin{align}
+    e^{\pm jk_{2} d_{2}} =  e^{\pm j \frac{2\pi}{\lambda} \cdot \frac{\lambda}{2}} = e^{\pm j \pi} = (-1)\\
+    j\tan(k_{3} d_{2}) = j\tan(\pi) = 0
+\end{align}
+Relacionándolo con lo anterior sigue que:
+\begin{align}
+    E_{2}^{-} &= E_{2}^{+} \frac{-1 \left( \frac{Y_{2}}{Y_{3}} \cdot 0 - 1\right)}{ -1 \left( 1+ \frac{Y_{2}}{Y_{3}} \cdot 0\right)}\\
+    E_{2}^{-} &= - E_{2}^{+}
+\end{align}
+Con lo que tenemos un efecto similar al de una pared con conductividad infinita. Así, podemos calcular el coeficiente de reflexión:
+\begin{align}
+    \Gamma =& \frac{E_{2}^{-}}{E_{2}^{+}} e^{-2jk_{2} d_{2} }\\
+    =& (-1)
+\end{align}
+Donde si evaluamos obtenemos a priori lo que se esperaba de tener el efecto de una pared con conductividad infinita, esto principalmente porque tenemos amplitudes iguales solo con signos opuestos, y por lo tanto tendremos además una reflexión con un desfase de $\pm$ $\pi$.
+\part{Se busca relacionar las amplitudes para el medio 1 considerando la misma distancia para ($d_{2} = \lambda/4$) y relacionarlo con lo obtenido con anterioridad. Es directo ver que tenemos el mismo análisis anterior (un error común es volver a calcularlo y perder mucho tiempo), por lo que directamente tenemos que:}
+\begin{align}
+    E_{1}^{-} = E_{1}^{+} \frac{e^{jk_{1} d_{1}} \left( \frac{Y_{1}}{Y_{2}} j\tan(k_{2} d_{1}) -1\right)}{ e^{-jk_{1} d_{1}} \del{1+ \frac{Y_{1}}{Y_{2}} j \tan(k_{2} d_{1})}}
+\end{align}
+Con lo que tenemos para $d_{1} = d_{2} = \frac{\lambda}{2}$
+\begin{align}
+    E_{1}^{-} = - E_{1}^{+} = - E_{0}
+\end{align}
+Recordando que la amplitud de la onda incidente ($E_0$) es conocida.\\
+\part{Luego buscamos obtener si las potencias de la onda incidente y reflejada son iguales bajo las condiciones anteriores, por lo que tenemos lo siguiente:}
+\begin{align}
+    \langle \mathbf{S}_{1}^{+} \rangle &= \frac{1}{2} Re( \mathbf{E}_{1} \times \mathbf{H}_{1}^{*})= \frac{1}{2}(E_{1}^{+})^{2}Y_{1} \uvecs{z} \\
+    \langle \mathbf{S}_{1}^{-} \rangle &= \frac{1}{2} Re( \mathbf{E}_{1} \times \mathbf{H}_{1}^{*})= \frac{1}{2}(E_{1}^{-})^{2}Y_{1} \uvecs{z}
+\end{align}
+En base a lo anterior se tendrá que $E_{1}^{+} = -E_{1}^{-} = - E_{0} $, pero dado que tenemos la expresión al cuadrado, se observa finalmente lo siguiente:
+\begin{align}
+    \langle \mathbf{S}_{1}^{+} \rangle = \langle \mathbf{S}_{1}^{-} \rangle
+\end{align}
+Lo cual es consistente con la intuición.
+
+\part Se busca calcular $\gamma$ para el medio 3. Para esto, consideramos $\epsilon_3$ y $\mu_3$. Usando la fórmula del resumen se tiene:
+\begin{align}
+    \gamma_3=\alpha_3+j\beta_3= \sqrt{\,j\omega\mu_3\Bigl(\sigma_3+j\omega\varepsilon_3\Bigr)\,}
+\end{align}
+
+Donde:
+\[
+\begin{aligned}
+\alpha_3 &=\Re\{\gamma_3\}\quad \text{(coeficiente de atenuación [Np/m])},\\[4pt]
+\beta_3 &=\Im\{\gamma_3\}\quad \text{(constante de fase [rad/m])}.
+\end{aligned}
+\]
+
+Si el medio 3 no tuviera pérdidas ($\sigma = 0$) se tiene: 
+\begin{align}
+\gamma_3 &= \sqrt{j \omega \mu_3 (0+j \omega \epsilon_3)} \\
+\gamma_3 &= \sqrt{j \omega \mu_3j \omega \epsilon_3} \\
+\gamma_3 &= \sqrt{j^2 \omega^2 \mu_3 \epsilon_3} \\
+\gamma_3 &= j \omega\sqrt{ \mu_3 \epsilon_3} \rightarrow \gamma_3 = j \beta_3 \text{  con  } \beta_3 = \omega \sqrt{\mu_3 \epsilon_3}
+\end{align}
+Es decir, en un medio sin pérdidas la onda no se atenúa ($\alpha = 0)$.
+\end{parts}
+\end{solution}
+\newpage
+\question \label{q:Polarización}
+
+Se considera una onda electromagnética incidente que es monocromática y tiene frecuencia angular $\omega$. Esta está polarizada linealmente y tiene un campo eléctrico de amplitud $E_i = \sqrt{2}E_0$ orientado en la dirección $(\hat{x}, \hat{y})$ = $(1, -1)$, mientras se propaga en la dirección $\hat{z}$.  Esta onda incide normal a una placa retardadora de cuarto de onda ubicada en el plano $z = 0$, la cual modifica el estado de polarización de la señal conforme a sus propiedades ópticas. La figura incluida a continuación representa esquemáticamente el fenómeno de propagación y cambio de polarización en el espacio tridimensional. Se muestran:
+\begin{itemize}
+    \item La onda incidente con polarización lineal en azul, con polarización orientada a lo largo de la diagonal.
+    \item La onda que se polariza circularmente tras atravesar la placa en $z= 0$ (en naranjo).
+    \item Considere que la placa tiene un espesor despreciable, y el retardo de fase solo afecta la componente en $\hat{y}$ (no afectará la componente en $\hat{x}$).
+\end{itemize}
+\begin{figure} [h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Polarización.png}
+    \caption{Polarización de onda tras atravesar una placa delgada, \cref{q:Polarización}.}
+    \label{fig:polarizacion}
+\end{figure}
+A partir de lo anterior:
+\begin{parts}
+    \part Demuestre que para $z > 0$, la onda se puede expresar como:
+    \begin{align}
+        \bvec{E} &= E_0 (\hat{x} + j \hat{y})e^{-j \beta z} e^{j \omega t}
+    \end{align}
+
+\part Determine la expresión del campo magnético $\bvec{H}$ para $z > 0$ (asumiendo propagación en el vacío) y calcule el
+número de onda $\beta$. 
+
+\part Calcule los parámetros de Stokes para la onda en ambas regiones, $z < 0$ y $z > 0$. Exprese también la potencia de polarización en función de $E_i$ en cada región y realice un análisis comparativo de los resultados obtenidos.
+\end{parts}
+\begin{solution}
+    \begin{parts}
+        \part Sabemos que la onda incidente se puede descomponer tal que:
+        \begin{align}
+            \bvec{E} &= E_x + E_y
+        \end{align}
+        La onda incidente tiene polarización lineal, así, $\delta_x - \delta_y = 0$. Además, por enunciado sabemos que la onda incidente está orientada tal que $(\hat{x}, \hat{y}) = (1, -1)$, esto implica que $E_x$ tendrá signo distinto a $E_y$. Así, podemos expresar $E_x$ y $E_y$ de la siguiente manera:
+        \begin{align}
+            E_x = E_0 \hat{x} e^{-j \beta z} e^{j \omega t}, && E_y = -E_0 \hat{y} e^{e-j \beta z} e^{j \omega t}
+        \end{align}
+Al atravesar la placa, se genera una polarización de $\delta = \delta_x - \delta_y = \pi /2$ que solo afecta la componente en $\hat{y}$. Así, para $z>0$ se tiene que:
+\begin{align}
+    E_x^* = E_0 \hat{x} e^{-j \beta z} e^{j \omega t}, && E_y^* = -E_0 \hat{y} e^{-j \beta z} e^{j( \omega t - \pi/2)}
+\end{align}
+Desarrollando $E_y$ obtenemos:
+\begin{align}
+    E_y^* &= -E_0 \hat{y} e^{-j \beta z} e^{j( \omega t - \pi/2)} \\
+ E_y^* &= -E_0 \hat{y} e^{-j \beta z} e^{j \omega t} \cdot e^{-j \pi/2}
+\end{align}
+Recordemos que:
+\begin{align}
+    e^{-j \pi/2} &= \cos{(-\pi /2)} + j\sin{(-\pi /2)} \\
+    &= 0 + j (-1) \\
+    &= -j
+\end{align}
+Así, reemplazando en la ecuación para $E_y$ se obtiene:
+\begin{align}
+    E_y^* &= -E_0 \hat{y} e^{-j \beta z} e^{j \omega t} \cdot (-j) \\
+    E_y^* &= j E_0 \hat{y} e^{-j \beta z} e^{j \omega t}
+\end{align}
+Así, el campo total para $z > 0$ será:
+\begin{align}
+    \bvec{E}^* &= E_x^* + E_y^* =  E_0 \hat{x} e^{-j \beta z} e^{j \omega t} + j E_0 \hat{y} e^{-j \beta z} e^{j \omega t} \\
+    \bvec{E}^* &= E_0 (\hat{x} + j \hat{y}) e^{-j \beta z} e^{j \omega t}
+\end{align}
+
+Y se demuestra lo pedido.
+
+\part En el vacío, el campo magnético $\bvec{H}$ se puede calcular como:
+\begin{align}
+    \bvec{H} &= \frac{1}{\eta_0} \hat{z} \times \bvec{E} \\
+    \bvec{H} &= \frac{1}{\sqrt{\frac{\mu_0}{\epsilon_0}}} \hat{z} \times \bvec{E}^* \\
+    \bvec{H} &= \sqrt{\frac{\epsilon_0}{\mu_0}} \hat{z} \times E_0 (\hat{x} + j \hat{y}) e^{-j \beta z} e^{j \omega t} \\
+    \bvec{H} &= \sqrt{\frac{\epsilon_0}{\mu_0}} (\hat{y} - j \hat{x}) e^{-j \beta z} e^{j \omega t}
+\end{align}
+Por otro lado, en el vacío el número de onda $\beta$ se puede calcular como:
+\begin{align}
+    \beta = \frac{\omega}{c}
+\end{align}
+\part \uline{Para $z<0$ (polarización lineal):}
+\\
+\\
+Se tiene:
+\begin{align}
+     E_x = E_0 \hat{x} e^{-j \beta z} e^{j \omega t}, && E_y = -E_0 \hat{y} e^{e-j \beta z} e^{j \omega t}, && \delta = 0
+\end{align}
+Y los parámetros de Stokes se calculan con:
+\begin{align}
+    I &= \langle A_x^2 + A_y^2 \rangle = \langle (E_0)^2 + (-E_0)^2 \rangle = \langle 2E_0^2 \rangle = 2 E_0^2 \\
+    Q &= \langle A_x^2 - A_y^2 \rangle = 0 \\
+    U &= \langle 2 A_x A_y \cos{(\delta)} \rangle = \langle 2 A_x A_y \cos{(0)} \rangle = -2E_0^2 \\
+    V &= \langle 2 A_x A_y \sin{(\delta)} \rangle = \langle 2 A_x A_y \sin{(0)} \rangle = 0
+    \end{align}
+Y la potencia de polarización $I_p$ se obtiene con:
+\begin{align}
+    I_p &= \sqrt{Q^2 + U^2 + V^2} = \sqrt{0 + (-2E_0^2)^2 + 0} = \sqrt{4E_0^4} = 2E_0^2 = E_i
+\end{align}
+
+\uline{Para $z>0$ (polarización circular):}
+\\
+\\
+Se tiene:
+\begin{align}
+    E_x^* = E_0 \hat{x} e^{-j \beta z} e^{j \omega t}, && E_y^* &= j E_0 \hat{y} e^{-j \beta z} e^{j \omega t}, && \delta = -\pi/2
+\end{align}
+Y obtenemos los parámetros de Stokes de manera análoga al caso anterior:
+\begin{align}
+    I &= \langle A_x^2 + A_y^2 \rangle = \langle (E_0)^2 + (-E_0)^2 \rangle = \langle 2E_0^2 \rangle = 2 E_0^2 \\
+    Q &= \langle A_x^2 - A_y^2 \rangle = 0 \\
+    U &= \langle 2 A_x A_y \cos{(\delta)} \rangle = \langle 2 A_x A_y \cos{(-\pi/2)} \rangle = 0 \\
+    V &= \langle 2 A_x A_y \sin{(\delta)} \rangle = \langle 2 E_0 E_0 \sin{(-\pi/2)} \rangle = \langle 2 E_0 E_0 (-1) \rangle = -2E_0^2
+\end{align}
+
+Y se calcula $I_p$ con:
+\begin{align}
+    I_p &= \sqrt{Q^2 + U^2 + V^2} = \sqrt{0 + 0 + (-2E_0^2)^2} = 2E_0^2 = E_i
+\end{align}
+Por ende, el valor de $I_p$ es igual en ambas regiones. Esto implica que a pesar de que la forma de polarización cambia de lineal a circular al atravesar la placa, la potencia de la onda electromagnética se mantiene. Por ende, la placa afecta únicamente el estado de polarización, pero no cambia la energía que transporta la onda.
+    \end{parts}
+\end{solution}
+\end{questions}
+\end{document}

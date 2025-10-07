@@ -1,0 +1,439 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{graphicx}
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 7} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux. ~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Resumen}
+\subsection*{Líneas de transmisión}
+Las líneas de transmisión (LTs) son sistemas que pueden guiar ondas electromagnéticas, y de esta forma transmitir energía y potencia, señales o información a través de largas distancias, buscando disminuir la pérdida. Estas se componen de al menos dos conductores y un material dieléctrico.
+
+\subsection*{Tipos de líneas de transmisión}
+Se tienen distintos tipos de líneas de transmisión dependiendo del uso que se le da a cada una. Estas son:
+\begin{itemize}
+    \item Líneas de transmisión bifilares (con las que trabajaremos).
+    \item Líneas de transmisión coaxiales.
+    \item Líneas de transmisión de placas paralelas.
+    \item Guías de onda (las veremos después).
+\end{itemize}
+\vspace{0.5cm}
+\begin{center}
+\begin{figure}[H]
+    \includegraphics[width=0.75\linewidth]{Tipos de LTs.png}
+    \caption{Tipos de líneas de transmisión, de izquierda a derecha: bifilar, coaxial, placas paralelas, guía de onda.}
+    \label{fig:LT_Types}
+\end{figure}
+\end{center}
+
+\subsection*{Ondas TEM}
+Las ondas que se desplazan por líneas de transmisión son en su mayoría ondas electromagnéticas transversales (u ondas TEM por sus siglas en inglés). Estas no tienen componentes de campo eléctrico ni magnético en la dirección en la que se desplaza la onda. Es decir, asumiendo que la dirección de propagación de la onda es
+en $\hat{z}$, se cumple lo siguiente:
+\begin{align}
+    E_z = H_z = 0
+\end{align}
+De esta forma, al no haber componentes de campos en la dirección de propagación, se minimizan las reflexiones.
+\subsection*{LTs bifilares}
+
+Las ecuaciones de voltaje y corriente vienen caracterizadas por una ecuación de onda:
+\begin{align}
+    \frac{\partial^{2} V(z)}{\partial z^{2}} -\gamma^{2}V(z)=& 0\\
+    \frac{\partial^{2} I(z)}{\partial z^{2}} -\gamma^{2}I(z)=& 0
+\end{align}
+Lo que permite mediante notación fasorial ser expresadas como:
+\begin{align}
+    V(z) &= V_{0}^{+}e^{-\gamma z} + V_{0}^{-}e^{\gamma z}\\ 
+    I(z) &= I_{0}^{+}e^{-\gamma z} + I_{0}^{-}e^{\gamma z}
+\end{align}
+Donde el parámetro $\gamma$ viene caracterizado por:
+\begin{align}
+    \gamma = \alpha + j\beta = \sqrt{(R+ j\omega L) (G+ j\omega C)}
+\end{align}
+Se logra relacionar la corriente con el voltaje como:
+\begin{align}
+    V(z) &= V_{0}^{+}e^{-\gamma z} + V_{0}^{-}e^{\gamma z}\\ 
+    I(z) &= \frac{1}{Z_{0}}\del{V_{0}^{+}e^{-\gamma z} - V_{0}^{-}e^{\gamma z}} 
+\end{align}
+Donde $Z_{0}$ (o $Z_C$) corresponde a la impedancia intrínseca del medio, vendrá caracterizada por:
+\begin{align}
+    Z_{0} &= \frac{R+j\omega L}{\gamma} = \sqrt{\frac{R+ j\omega L}{G + j\omega C}}
+\end{align}
+Para el caso sin pérdidas notamos que:
+\begin{align}
+    Z_{0}= \sqrt{\frac{L}{C}}
+\end{align}
+También se tiene la impedancia de la carga ($Z_L$) que se calcula de la siguiente manera:
+\begin{align}
+    Z_L = Z_0 \frac{V_0^+ + V_0^-}{V_0^+ - V_0^-}
+\end{align}
+\subsection*{Coeficiente de reflexión}
+El coeficiente de reflexión ($\Gamma$) permite representar qué tanta reflexión existe, donde $\Gamma = 0$ es el ideal (no existe reflexión), y $\Gamma = 1$ implica que hay reflexión total. El coeficiente de reflexión se puede calcular mediante:
+\begin{align}
+    \Gamma = \frac{V_0^-}{V_0^+} = \frac{Z_L - Z_0}{Z_L + Z_0}
+\end{align}
+
+\subsection*{Coeficiente de razón de onda estacionaria de
+voltaje (VSWR)}
+Representa qué tan bien adaptada está la carga a la línea, y se calcula mediante la siguiente fórmula:
+\begin{align}
+    \mathbf{VSWR} = \frac{1 + |\Gamma|}{1-|\Gamma|}
+\end{align}
+\subsection*{Carta de Smith}
+Es una herramienta gráfica que proporciona una representación visual de las impedancias/admitancias en un sistema de transmisión de radiofrecuencias. 
+
+\begin{center}
+    
+\begin{figure}
+    \includegraphics[width=1\linewidth]{SmithChart.png}
+    \caption{Carta de Smith.}
+    \label{fig:SmithChart}
+\end{figure}
+\end{center}
+\newpage
+\section{Ejercicios}
+\begin{questions}
+\question \label{q:LT_1}
+Usando que para una línea sin pérdidas, la impedancia de entrada $Z_{in}$ es:
+\begin{align}
+    Z_{in}&= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\beta l)}}{Z_C + j Z_L \tan{(\beta l)}}}
+\end{align}
+\begin{parts}
+\part Calcule el valor de $Z_{in}$ para una carga de circuito abierto. También calcule el coeficiente de relfexión $\Gamma$.
+\part Calcule el valor de $Z_{in}$ para una carga de corto circuito. También calcule el coeficiente de relfexión $\Gamma$.
+\part Considerando que $\beta = 2 \pi / \lambda$, calcule $Z_{in}$ y $\Gamma$ cuando $l = \lambda / 4$.
+\part Repita el proceso anterior para $l = \lambda /2$.
+\end{parts}
+\begin{center}
+\begin{circuitikz}[american]
+
+% Línea de transmisión: dos conductores
+\draw
+  (0,0) to[short,o-] (4,0)
+  (0,-2) to[short,o-] (4,-2);
+
+\draw
+  (4,0) to[generic,l=$Z_L$,-o] (4,-2);
+
+
+% Línea de transmisión (Z0, beta) indicación
+\node at (2,0.3) {$Z_0,\ \beta$};
+
+% Entrada Zin a la izquierda
+\draw[-latex] (-1.5,-1) -- (-0.5,-1);
+\node[left] at (-1.5,-1) {$Z_\text{in}$};
+
+% Etiquetas l y 0
+\node[below] at (0,-2.3) {$\ell$};
+\node[below] at (4,-2.3) {$0$};
+
+% Eje z
+\draw[->] (0,-3) -- (4.5,-3) node[below] {$z$};
+\end{circuitikz}
+\captionof{figure}{Línea de transmisión, \cref{q:LT_1}}
+\end{center}
+
+\begin{solution}
+    \begin{parts}
+        \part Cuando la carga es un circuito abierto, significa que no fluye corriente. Por ende, $Z_{L} \rightarrow \infty$. De esta forma:
+        \begin{align}
+            Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\beta l)}}{Z_C + j Z_L \tan{(\beta l)}}} \\
+            Z_{in} &= Z_C \frac{Z_L}{Z_L} \sbr{\frac{\frac{Z_L}{Z_L} + \frac{j Z_C \tan{(\beta l)}}{Z_L}}{\frac{Z_C}{Z_L} + \frac{j Z_L \tan{(\beta l)}}{Z_L}}} \\
+            Z_{in} &= Z_C \sbr{\frac{1 + \frac{j Z_C \tan{(\beta l)}}{Z_L}}{\frac{Z_C}{Z_L} + j \tan{(\beta l)}}} 
+            \end{align}
+        Como $Z_L \rightarrow \infty$, queda lo siguiente:
+        \begin{align}
+            Z_{in} &= Z_C \sbr{\frac{1 + 0}{0 + j \tan{(\beta l)}}} \\
+            Z_{in} &= Z_C \frac{1}{j \tan{(\beta l)}} \\
+            Z_{in} &= -Z_C j \cot{(\beta l)}
+        \end{align}
+        Y para el cálculo de $\Gamma$:
+        \begin{align}
+            \Gamma &= \frac{Z_L - Z_C}{Z_L + Z_C} \\
+            \Gamma &= \frac{\infty - Z_C}{\infty + Z_C} \\
+            \Gamma &= \frac{\infty}{\infty} \\
+            \Gamma &= 1
+        \end{align}
+        Es decir, hay reflexión total de la onda, pero sin cambio de fase.
+        \part Ahora, cuando la carga es un corto circuito, se tiene un flujo de corriente muy grande. Esto implica que $Z_L \rightarrow 0$. De esta forma:
+        \begin{align}
+             Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\beta l)}}{Z_C + j Z_L \tan{(\beta l)}}} \\
+             Z_{in} &= Z_C \sbr{\frac{0 + j Z_C \tan{(\beta l)}}{Z_C +  0}} \\
+             Z_{in} &= Z_C \sbr{\frac{ j Z_C \tan{(\beta l)}}{Z_C}} \\
+             Z_{in} &= Z_C j \tan{(\beta l)}
+        \end{align}
+        Y para calcular $\Gamma$:
+        \begin{align}
+            \Gamma &= \frac{Z_L - Z_C}{Z_L + Z_C} \\
+            \Gamma &= \frac{0 - Z_C}{0 + Z_C} \\
+            \Gamma &= \frac{- Z_C}{ Z_C} \\
+            \Gamma &= -1
+        \end{align}
+        Es decir, hay reflexión total y con cambio de fase.
+
+        \part Cuando $l = \lambda / 4$ y utilizando que $\beta = 2 \pi / \lambda$, se tiene que:
+        \begin{align}
+            Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{4})}}{Z_C + j Z_L \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{4})}}} \\
+        Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\frac{\pi}{2})}}{Z_C + j Z_L \tan{(\frac{\pi}{2})}}}
+        \end{align}
+        Como $\tan{(\pi / 2)} \rightarrow \infty$ se tiene:
+        \begin{align}
+            Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\frac{\pi}{2})}}{Z_C + j Z_L \tan{(\frac{\pi}{2})}}} \\
+            Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \infty}{Z_C + j Z_L \infty}} \\
+            Z_{in} &= Z_C \frac{\infty}{\infty}\sbr{\frac{Z_L/\infty + \frac{j Z_C \infty}{\infty}}{Z_C/\infty + \frac{j Z_L \infty}{\infty}}} \\
+             Z_{in} &= Z_C\sbr{\frac{0 + j Z_C}{0 + j Z_L}} \\
+             Z_{in} &= \frac{Z_C^2}{Z_L}
+        \end{align}
+        Ahora este valor lo podemos usar como conocido cada vez que $l = \lambda /4$.
+        \part Ahora $l = \lambda/2$, de esta forma:
+        \begin{align}
+             Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{2})}}{Z_C + j Z_L \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{2})}}} \\
+             Z_{in} &= Z_C \sbr{\frac{Z_L + j Z_C \tan{(\pi)}}{Z_C + j Z_L \tan{(\pi)}}}
+        \end{align}
+        Sabiendo que $\tan{(\pi)} = 0$, la expresión queda tal que:
+        \begin{align}
+            Z_{in} &= Z_C \sbr{\frac{Z_L + 0}{Z_C + 0}} \\
+            Z_{in} &= Z_L
+        \end{align}
+        Y de esta forma, obtenemos el resultado que podemos considerar como conocido para el caso $l = \lambda /2$.
+    \end{parts}
+\end{solution}
+\newpage
+\question Sea una LT con $Z_L = 40 + 70j$ y $Z_0 = 100$:
+\begin{parts}
+\part Obtenga, de manera analítica, el módulo del coeficiente de relfexión $\Gamma$, el parámetro SWR y la impedancia vista desde la entrada ($Z_{in}$) a una distancia $l = 0.3 \lambda$. 
+\part Repita el proceso anterior mediante el uso de la carta de Smith.
+\part{Se tiene una línea de transmisión la cual tiene una carga con impedancia $Z_{L} = 30 + 60j$, e impedancia característica $Z_{0} = 50$. A esta se le añade un adaptador de largo $ \lambda/4$, tal como se muestra en la figura. Haciendo uso de la carta Smith, encuentre valores para $l$ y para $Z_1$ tal que se eliminen las reflexiones.}
+\end{parts}
+
+
+    \begin{center}
+    \includegraphics[width=0.5\linewidth]{Aux7_p2_c.png}
+    \label{fig:Aux7_P2_c}
+    \end{center}
+\begin{solution}
+    \begin{parts}
+        \part El primer paso siempre será normalizar la impedancia de la carga ($Z_L$). Es decir, debemos dividirla por $Z_0$, tal que:
+        \begin{align}
+            z_L &= Z_L / Z_0 \\
+            z_L &= \frac{40 + 70 j}{100} \\
+            z_L &= 0.4 + 0.7 j
+        \end{align}
+        De esta forma, buscamos el coeficiente de reflexión haciendo uso de las impedancias normalizadas (tanto $Z_L$ como $Z_0$ deben estar normalizadas, $z_0$ normalizada es simplemente $Z_0 / Z_0 = 1$). $\Gamma$ queda:
+        \begin{align}
+            \Gamma &= \frac{Z_L - Z_0}{Z_L + Z_0} = \frac{z_L - 1}{z_L + 1}\\
+            \Gamma &= \frac{0.4 + 0.7 j -1}{0.4 + 0.7 j +1} \\
+            \Gamma &= \frac{-0.6 + 0.7 j }{1.4 + 0.7j} \\
+        \end{align}
+        Multiplicamos por el conjugado del denominador:
+        \begin{align}
+            \Gamma &= \frac{-0.6 + 0.7 j }{1.4 + 0.7j} \frac{1.4 - 0.7 j}{1.4 - 0.7 j} \\
+            \Gamma &= \frac{(-0.6 + 0.7 j)(1.4 - 0.7 j)}{(1.4)^2 - (0.7 j)^2} \\
+            \Gamma &= \frac{(-0.6 + 0.7 j)(1.4 - 0.7 j)}{(1.4)^2 + (0.7)^2} \\
+            \Gamma &= \frac{(-0.6 + 0.7 j)(1.4 - 0.7 j)}{(1.4)^2 + (0.7)^2} \\
+            \Gamma &= \frac{(-0.6 + 0.7 j)(1.4 - 0.7 j)}{2.45} \\
+            \Gamma &= \frac{-0.35 + 1.4 j}{2.45} \\
+            \Gamma &= -0.14 + 0.57 j 
+        \end{align}
+        Pero nos piden el módulo de $\Gamma$, así:
+        \begin{align}
+            |\Gamma| &= \sqrt{(-0.14)^2 + (0.57 )^2} \\
+            |\Gamma| &= \sqrt{0.0196 + 0.3249} \\
+            |\Gamma| &= \sqrt{0.3445} \\
+            |\Gamma| & \approx 0.59
+        \end{align}
+        Para calcular SWR usamos lo siguiente:
+        \begin{align}
+            \mathbf{VSWR} &= \frac{1+|\Gamma|}{1-|\Gamma|} \\
+            \mathbf{VSWR} &= \frac{1+0.59}{1-0.59}\\
+            \mathbf{VSWR} &= \frac{1.59}{0.41} \\
+            \mathbf{VSWR} & \approx 3.88
+        \end{align}
+        Finalmente, nos piden $Z_{in}$, con $l=0.3 \lambda$. Así:
+        \begin{align}
+            Z_{in} &= Z_0 \sbr{\frac{Z_L + j Z_C \tan{(\frac{2 \pi}{\lambda} \cdot 0.3 \lambda)}}{Z_C + j Z_L \tan{(\frac{2 \pi}{\lambda} \cdot 0.3 \lambda)}}} \\
+             Z_{in} &= Z_0 \sbr{\frac{Z_L + j Z_C \tan{(2 \pi \cdot 0.3)}}{Z_C + j Z_L \tan{(2 \pi \cdot 0.3)}}} \\
+              Z_{in} &= Z_0 \sbr{\frac{Z_L + j Z_C \tan{(0.6 \pi)}}{Z_C + j Z_L \tan{(0.6 \pi)}}} = 36.5 - 61.1 j \\
+        \end{align}
+        Y normalizando:
+    \begin{align}
+            z_{in} &= \frac{Z_{in}}{Z_0} \\
+            z_{in} &= \frac{36.5 - 61.1 j}{100} = 0.365 - 0.611 j
+        \end{align}
+        \part Ahora debemos usar la carta de Smith:
+        \\
+        \\
+        El primer paso será ubicar la impedancia normalizada de la carga $z_L$ en la carta de Smith. Para eso, consideramos el eje horizontal como el eje de los reales. Ubicamos $0.4$ en el eje real, y nos desplazamos hacia arriba por la circunferencia imaginaria hasta el $0.7$:
+        \newpage
+        \begin{center}
+        \includegraphics[width=1\linewidth]{Aux7_P2.png}
+        \label{fig:Aux7_P2}
+        \end{center}
+        El segundo paso será utilizar el compás para hacer una circunferencia centrada en el $1$ del eje real y que pase por nuestro $z_L$. Es decir:
+        \newpage
+            \begin{center}
+            \includegraphics[width=1\linewidth]{Aux7_p2_2.png}
+            \label{fig:placeholder}
+            \end{center}
+            Con esto, podemos situarnos en el borde de la circunferencia, y al proyectar una línea hacia abajo se puede obtener una aproximación del módulo de SWR y del coef. de reflexión. Para esto, se hacen uso de los medidores de abajo:
+                    \begin{center}
+                    \includegraphics[width=1\linewidth]{Aux7_P2_3.png}
+                    \label{fig:Aux7_P2_3}
+                    \end{center}
+            Si se fijan, son súper buenas aproximaciones con respecto a los valores teóricos obtenidos con anterioridad.
+            \\
+            \\
+            Falta obtener $Z_{in}$ visto desde una distancia $l = 0.3 \lambda$. Para esto, usamos el borde de la carta de Smith. Vamos a proyectar una línea desde $z_L$ hasta el borde de la carta y girar $0.3 \lambda$ en dirección hacia el generador (ya que estamos trabajando en el plano del generador). Por ende, se tiene que:
+            \begin{center}
+                \includegraphics[width=1\linewidth]{Aux7_P2_4.png}
+                \label{fig:Aux7_P2_4}
+            \end{center}
+            Y se obtiene que $z_{in} \approx 0.35 - 0.6 j$, es decir, una aproximación bastante cercana al valor teórico.
+
+            \part Para adaptar la línea, necesitamos que $Z_{in} = Z_0$. Pero antes, debemos adaptar la impedancia de la carga. Así, el primer paso será normalizar la impedancia de carga:
+            \begin{align}
+                z_L &= Z_L / Z_0 \\
+                z_L &= \frac{30 + 60 j}{50} \\
+                z_L &= 0.6 + 1.2 j
+            \end{align}
+            Ahora, es importante saber que el adaptador de $\lambda / 4$ no funciona con impedancias complejas. Entonces, para poder adaptar la impedancia de carga, debemos eliminar toda la parte imaginaria de $z_L$. Luego, los pasos a seguir son:
+            \begin{itemize}
+                \item Ubicamos la impedancia de carga normalizada $z_L$ en la carta de Smith.
+                \item Con el compás, dibujamos la circunferencia VSWR.
+                \item Dibujamos la proyección desde $z_L$ hasta el borde de la carta (línea roja).
+                \item Giramos en dirección hacia el generador hasta el eje real (hasta $0.25 \lambda$), y así eliminar la parte imaginaria.
+                \item Proyectamos hacia la circunferencia VSWR para obtener la nueva inductancia $z=4.2$ (punto rojo).
+            \end{itemize}
+            \begin{center}
+                \includegraphics[width=0.87\linewidth]{Aux7_P2_5.png}
+                \label{fig:Aux7_P2_5}
+            \end{center}
+Debemos desnormalizar $z$, tal que:
+\begin{align}
+    z = 4.2 \rightarrow Z = 4.2 \cdot Z_0 = 4.2 \cdot 50 = 210 \ohm
+\end{align}
+Este viene a ser nuestro nuevo $Z_L$.
+\\
+\\
+Para terminar de adaptar la línea, necesitamos que $Z_{in} = Z_0$. Sabemos que con adaptadores de $l = \lambda /4$ se tiene lo siguiente (demostrado en la \cref{q:LT_1}):
+\begin{align}
+    Z_{in} &= \frac{Z_1^2}{Z_L} \\
+    Z_1 &= \sqrt{Z_{in} \cdot Z_L}
+\end{align}
+
+Donde dijimos que $Z_{in} = Z_0 = 50\ohm$ para eliminar las reflexiones. Por ende:
+
+\begin{align}
+    Z_1 &= \sqrt{50 \cdot 210} \\
+    Z_1 &\approx 102.5 \ohm
+\end{align}
+Entonces, para adaptar la línea se necesita que $l = 0.099 \lambda$ y que $Z_1 \approx 102.5 \ohm$.
+        \end{parts}
+        \end{solution}
+\newpage
+\question \label{q:LT_stub}
+Se tiene el esquema de la figura, tal que se le adiciona un stub en paralelo de largo $l_s$ a una distancia $l$ de la carga. Si $Z_L = 125 - 166 j$ y $Z_0 = 50$:
+\begin{parts}
+    \part Encuentre la distancia $l$ tal que esta adapte la parte real de la admitancia.
+    \part Para un stub en corto circuito, encuentre el largo $l_s$ tal que este adapte la parte imaginaria de la línea de transmisión.
+    \part Repita lo anterior para un stub en abierto.
+\end{parts}
+
+\begin{figure}[h]
+\centering
+    \includegraphics[width=0.5\linewidth]{Aux7_P3.png}
+    \caption{Línea de transmisión con un stub en paralelo, \cref{q:LT_stub}.}
+    \label{fig:LT_stub}
+\end{figure}
+\begin{solution}
+    \begin{parts}
+        \part Primero, normalizamos la impedancia:
+        \begin{align}
+            z_L &= \frac{125 - 166 j}{50} = 2.5 - 3.32j
+        \end{align}
+Al estar trabajando con un stub en paralelo, será más fácil trabajar con la admitancia (ya que las admitancias en paralelo se suman). Así:
+\begin{align}
+    y_L &= 1/z_L \\
+    y_L &= \frac{1}{2.5 - 3.3 j} \\
+    y_L &= \frac{1}{2.5 - 3.3 j} \cdot \frac{2.5 + 3.3 j}{2.5 + 3.3j} \\
+    y_L &= \frac{2.5 + 3.3 j}{(2.5)^2 - (3.3j)^2} \\
+    y_L &= \frac{2.5 + 3.3 j}{(2.5)^2 + (3.3)^2} \\
+    y_L &= \frac{2.5 + 3.3 j}{17.14} \\
+    y_L &= 0.14 + 0.19 j
+\end{align}
+Ahora, ubicamos $y_L$ en la Carta de Smith:
+
+    \begin{center}
+    \includegraphics[width=0.85\linewidth]{P3_admitancia.png}
+    \label{fig:P3_admitancia}
+    \end{center}
+Además, debemos utilizar la circunferencia unitaria (la que está en azul), y marcamos la intersección entre ambas circunferencias, haciendo la proyección hasta el borde de la carta:
+
+
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{P3_aux7_2.png}
+    \label{fig:P3_aux7_2}
+\end{center}
+\newpage
+Es importante recalcar que se puede elegir cualquiera de los dos puntos de intersección. En este caso se tomó el más cercano considerando que estamos trabajando en el plano del generador (rotación en sentido horario).
+Finalmente, la distancia $l$ la obtenemos restando los valores del borde de la carta Smith:
+\begin{align}
+    l = 0.193 \lambda - 0.03 \lambda = 0.163 \lambda
+\end{align}
+
+\part Es importante saber que para adaptar la línea por completo, se busca que la admitancia equivalete sea $y_{eq} = 1 + 0 j$. Es decir, queremos que la parte real de la admitancia sea 1, y que no tenga parte imaginaria. Nosotros ya adaptamos la parte real, y encontramos que si $l = 0.163 \lambda$ se tendrá una parte real igual a 1. Para eliminar la parte imaginaria, necesitamos restar por la admitancia que teníamos para llegar a que $y_{eq} = y + y_{stub} = 1 + 0j$. Es decir, replicamos lo que teníamos originalmente ($y_L$) en la parte contraria de la carta de Smith (se traslada en $180$ grados para poder restar, como muestra la línea azul). La línea azul no me quedó muy bien, pero asuman que fue una traslación en 180 grados. En la carta se obtiene:
+\newpage
+\begin{center}
+    \centering
+    \includegraphics[width=1\linewidth]{P3_aux7_4.png}
+    \label{fig:placeholder}
+\end{center}
+Nótese que ahora estamos adaptando la parte imaginaria de la admitancia que depende directamente del stub (en paralelo), por ende, trabajamos en dirección de la carga y no del generador. Por eso, no se utiliza el círculo de más afuera, sino que se usa el segundo, y además se rota en dirección antihoraria. Esto lo desplazamos en dirección a la carga hasta el punto del cortocircuito (el lado derecho del eje real), tal como muestra la figura:
+
+\begin{center}
+    \includegraphics[width=0.95\linewidth]{P3_aux7_5.png}
+    \label{fig:placeholder}
+\end{center}
+Y entonces, el largo $l_s$ necesario para adaptar la parte imaginaria con un stub de cortocircuito será:
+\begin{align}
+    l_s = 0.25 \lambda - 0.194 \lambda = 0.056 \lambda
+\end{align}
+
+\part Para un circuito abierto se realiza el mismo procedimiento, pero esta vez hasta el extremo izquierdo del eje real. Es decir:
+
+\newpage
+\begin{center}
+    \includegraphics[width=1\linewidth]{P3_aux7_6.png}
+    \label{fig:P3_aux7_6}
+\end{center}
+Notando que medio círculo equivale a $0.25 \lambda$ se tiene:
+$l_s = 0.25 + 0.056 = 0.306 \lambda$
+
+\end{parts}
+\end{solution}
+        
+\end{questions}
+\end{document}
