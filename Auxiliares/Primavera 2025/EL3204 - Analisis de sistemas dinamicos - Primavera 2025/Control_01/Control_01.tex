@@ -483,41 +483,75 @@ El polinomio característico de $A - BK$ es:
 \begin{align}
   \det(zI - (A - BK)) &= \det\begin{pmatrix} z + k_1 & 1 + k_2 & k_3 \\ -1 + k_1 & z + k_2 & k_3 \\ k_1 & k_2 & z - \frac{1}{2} + k_3 \end{pmatrix}
 \end{align}
-Calculando el determinante:
+El polinomio característico deseado, dados los polos $\{0.2, 0.3 + 0.2j, 0.3 - 0.2j\}$, es:
 \begin{align}
-  \det(zI - (A - BK)) &= (z + k_1)\left((z + k_2)(z - \frac{1}{2} + k_3) - k_3 k_2\right) \\
-  &\quad - (1 + k_2)\left((-1 + k_1)(z - \frac{1}{2} + k_3) - k_3 k_1\right) \\
-  &\quad + k_3\left((-1 + k_1)k_2 - (z + k_2)k_1\right)
+  p_d(z) &= (z - 0.2)(z - (0.3 + 0.2j))(z - (0.3 - 0.2j))\\
+  &= (z - 0.2)((z - 0.3)^2 + 0.04)\\
+  &= (z - 0.2)(z^2 - 0.6z + 0.09 + 0.04)\\
+  &= (z - 0.2)(z^2 - 0.6z + 0.13)\\
+  &= z^3 - 0.6z^2 + 0.13z - 0.2z^2 + 0.12z - 0.026\\
+  &= z^3 - 0.8z^2 + 0.25z - 0.026
 \end{align}
-Luego tenemos que factorizando se obtiene que:
-{\normalsize
-\begin{align}
- \begin{split}
- z^3 &+ (k_1 + k_2 - \frac{1}{2})z^2 \\
- &+ (k_1 k_2 + k_1 k_3 + k_2 k_3 - k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3 + 1)z \\
- &+ (-\frac{1}{2}k_1 k_2 + k_1 k_3 + \frac{1}{2}k_2 k_3 - k_3) = 0
- \end{split}
-\end{align}}
 
-Expandiendo y simplificando, obtenemos el polinomio característico en función de $k_1$, $k_2$ y $k_3$. Queremos que este polinomio sea igual al polinomio característico deseado:
+Dado que el sistema es completamente controlable, podemos usar la fórmula de Ackermann o resolver el sistema de ecuaciones. Calculando el determinante de $\det(zI - (A - BK))$:
+
+\begin{align}
+  \det(zI - (A - BK)) = \det\begin{pmatrix} z + k_1 & 1 + k_2 & k_3 \\ -1 + k_1 & z + k_2 & k_3 \\ k_1 & k_2 & z - \frac{1}{2} + k_3 \end{pmatrix}
+\end{align}
+
+Expandiendo por la tercera fila:
+\begin{align}
+  &= k_1\begin{vmatrix} 1 + k_2 & k_3 \\ z + k_2 & k_3 \end{vmatrix} - k_2\begin{vmatrix} z + k_1 & k_3 \\ -1 + k_1 & k_3 \end{vmatrix} + (z - \frac{1}{2} + k_3)\begin{vmatrix} z + k_1 & 1 + k_2 \\ -1 + k_1 & z + k_2 \end{vmatrix}\\
+  &= k_1(k_3 - k_3 z) - k_2(k_3 z + k_3 k_1 + k_3 - k_3 k_1)\\
+  &\quad + (z - \frac{1}{2} + k_3)((z + k_1)(z + k_2) + (1 + k_2)(1 - k_1))\\
+  &= k_1 k_3 - k_1 k_3 z - k_2 k_3 z - k_2 k_3\\
+  &\quad + (z - \frac{1}{2} + k_3)(z^2 + k_1 z + k_2 z + k_1 k_2 + 1 - k_1 + k_2 - k_1 k_2)\\
+  &= k_1 k_3 - k_1 k_3 z - k_2 k_3 z - k_2 k_3 + (z - \frac{1}{2} + k_3)(z^2 + (k_1 + k_2)z + 1 + k_2 - k_1)
+\end{align}
+
+Expandiendo el último término:
+\begin{align}
+  &= k_1 k_3 - k_1 k_3 z - k_2 k_3 z - k_2 k_3\\
+  &\quad + z^3 + (k_1 + k_2)z^2 + (1 + k_2 - k_1)z\\
+  &\quad - \frac{1}{2}z^2 - \frac{1}{2}(k_1 + k_2)z - \frac{1}{2}(1 + k_2 - k_1)\\
+  &\quad + k_3 z^2 + k_3(k_1 + k_2)z + k_3(1 + k_2 - k_1)
+\end{align}
+
+Agrupando por potencias de $z$:
+\begin{align}
+  \text{Coef. de } z^3&: 1\\
+  \text{Coef. de } z^2&: k_1 + k_2 - \frac{1}{2} + k_3\\
+  \text{Coef. de } z&: 1 + k_2 - k_1 - \frac{1}{2}(k_1 + k_2) + k_3(k_1 + k_2) - k_1 k_3 - k_2 k_3\\
+  &= 1 + k_2 - k_1 - \frac{1}{2}k_1 - \frac{1}{2}k_2 + k_1 k_3 + k_2 k_3 - k_1 k_3 - k_2 k_3\\
+  &= 1 - \frac{3}{2}k_1 + \frac{1}{2}k_2\\
+  \text{Término constante}&: -k_2 k_3 + k_1 k_3 - \frac{1}{2}(1 + k_2 - k_1) + k_3(1 + k_2 - k_1)\\
+  &= -k_2 k_3 + k_1 k_3 - \frac{1}{2} - \frac{1}{2}k_2 + \frac{1}{2}k_1 + k_3 + k_2 k_3 - k_1 k_3\\
+  &= -\frac{1}{2} + \frac{1}{2}k_1 - \frac{1}{2}k_2 + k_3
+\end{align}
+
+Por lo tanto, el polinomio característico es:
 \begin{equation}
-  (z - 0.2)(z - (0.3 + 0.2j))(z - (0.3 - 0.2j)) = z^3 - 0.8z^2 + 0.17z - 0.02
+  z^3 + (k_1 + k_2 + k_3 - \frac{1}{2})z^2 + (1 - \frac{3}{2}k_1 + \frac{1}{2}k_2)z + (-\frac{1}{2} + \frac{1}{2}k_1 - \frac{1}{2}k_2 + k_3)
 \end{equation}
-Igualando los coeficientes, obtenemos un sistema de ecuaciones para $k_1$, $k_2$ y $k_3$, el cual viene dado por:
+
+Igualando coeficiente a coeficiente con el polinomio deseado $z^3 - 0.8z^2 + 0.25z - 0.026$:
+
 \begin{align}
-  k_1 + k_2 - \frac{1}{2} &= -0.8 \\
-  k_1 k_2 + k_1 k_3 + k_2 k_3 - k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3 + 1 &= 0.17 \\
-  -\frac{1}{2}k_1 k_2 + k_1 k_3 + \frac{1}{2}k_2 k_3 - k_3 &= -0.02
+  k_1 + k_2 + k_3 - \frac{1}{2} &= -0.8\\
+  1 - \frac{3}{2}k_1 + \frac{1}{2}k_2 &= 0.25\\
+  -\frac{1}{2} + \frac{1}{2}k_1 - \frac{1}{2}k_2 + k_3 &= -0.026
 \end{align}
-Resolviendo este sistema, encontramos:
+
+Por lo tanto:
 \begin{align}
-  k_1 &= 0.7 \\
-  k_2 &= 0.5 \\
-  k_3 &= 0.3
+  k_1 &\approx 0.2952\\
+  k_2 & \approx -0.6144\\
+  k_3 &\approx 0.0192
 \end{align}
+
 Por lo tanto, la ganancia de retroalimentación de estados que ubica los polos en los valores deseados es:
 \begin{equation}
-  K = \begin{pmatrix} 0.7 & 0.5 & 0.3 \end{pmatrix}
+  K = \begin{pmatrix} 0.2952 & -0.6144 & 0.0192 \end{pmatrix}
 \end{equation}
 \subsection*{Resolución 2.6}
 Buscamos el analizar si el control anterior es implementable cuando no se mide el estado y el sistema no es completamente observable. Dado que el sistema no es completamente observable, no podemos reconstruir todos los estados del sistema a partir de la salida medida. En particular, en este caso, sólo se mide el tercer estado ($y[n] = [0\ 0\ 1] \vec{X}[n]$), lo que significa que los dos primeros estados no son observables. 
