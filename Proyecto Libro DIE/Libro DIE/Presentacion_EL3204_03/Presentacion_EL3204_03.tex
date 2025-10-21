@@ -1,0 +1,448 @@
+\documentclass[
+    10pt,
+    aspectratio=169,
+    xcolor={dvipsnames},
+    spanish,
+    % handout,
+    % notes=only,
+    % notes,
+    ]{beamer}
+
+% BEAMER SETTINGS
+\setbeamerfont{section in toc}{size=\normalsize, shape=\bfseries}
+\mode<presentation>{
+    \usetheme{Antibes}
+    \setbeamercovered{transparent}
+    \usecolortheme{rose}
+    \setbeamertemplate{navigation symbols}{}
+    }
+\useoutertheme{infolines}
+
+% PACKAGES
+% \usepackage[spanish]{babel}  % uncomment for Spanish support
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{calc}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\graphicspath{{figures}}
+\usepackage{booktabs}
+\usepackage{upgreek}
+\usepackage{commath}
+\usepackage{amsmath,amsthm,amssymb,mathtools,mathrsfs}
+\usepackage{cancel}
+\usepackage{fontawesome5}
+\usepackage{enumerate}
+\usepackage{tensor}
+\usepackage[font=footnotesize]{caption}
+\usepackage{wasysym}
+
+\usepackage[skins,theorems]{tcolorbox}
+\tcbset{
+    highlight math style={
+        enhanced,
+        coltext=black,
+        colframe=black,
+        colback=lightgray,
+        arc=0pt,
+        boxrule=.5pt
+        }
+}
+
+% REFERENCES AND OTHERS
+\usepackage{aas_macros}
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{}{,}
+
+\usepackage{siunitx}
+\sisetup{
+    range-phrase=\text{--},
+    range-units=single,
+    separate-uncertainty=true,
+    print-unity-mantissa=false
+    }
+\DeclareSIUnit{\gauss}{G}
+\DeclareSIUnit{\jansky}{Jy}
+\renewcommand{\figurename}{Fig.}
+
+\usepackage{hyperref}
+\hypersetup{
+    % bookmarks=true,
+    unicode=true,
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdffitwindow=false,
+    pdfstartview={FitH},
+    pdftitle={ISI-Free Linear Combination Pulses with Better Performanc},
+    pdfauthor={Erik Saez A.},
+    pdfcreator={Erik Saez A.},
+    pdfnewwindow=true,
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    citecolor=RoyalBlue,
+    urlcolor=RoyalBlue
+    }
+
+\title[Auxiliar \#3]{\bfseries Auxiliar \#3}
+\subtitle{Análisis de sistemas dinámicos y estimación}
+\author[Erik Saez A.]{Erik Saez A.}
+\institute[UChile]{Department of Electrical Engineering \\ Universidad de Chile}
+
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \centering
+  \faIcon{envelope} \href{mailto:erik.saez@ug.uchile.cl}{erik.saez@ug.uchile.cl} \hspace{.2cm}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Contenidos}
+  \centering
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \tableofcontents
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{fcfm_die}
+        \caption{Facultad de Ciencias Físicas y Matemáticas , Universidad de Chile.}
+      \end{figure}
+    \end{column}
+  \end{columns}  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Resumen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Función de transferencia}
+\footnotesize
+\begin{block}{¿Qué es y para qué sirve?}
+  Describe la relación entrada–salida de un sistema LTI con condiciones iniciales nulas:
+  $Y(s)=H(s)\,U(s)$ (o $Y(z)=H(z)\,U(z)$ en discreto). Resume la dinámica en el dominio transformado y permite:
+  \begin{itemize}\itemsep2pt
+    \item identificar polos y ceros (estabilidad y dinámica);
+    \item analizar la respuesta en frecuencia y el desempeño;
+    \item componer sistemas (cascada/paralelo/retroalimentación);
+    \item pasar entre $H(\cdot)$ y realizaciones en variables de estado.
+  \end{itemize}
+\end{block}
+\begin{columns}
+  \begin{column}{0.52\textwidth}
+    \begin{block}{Definición (continuo)}
+      Para $\dot x=Ax+Bu$, $y=Cx+Du$:
+      \[ H(s)=\frac{Y(s)}{U(s)}=C\,(sI-A)^{-1}B + D. \]
+    \end{block}
+  \end{column}
+  \begin{column}{0.46\textwidth}
+    \begin{block}{Discreto}
+      Para $x[k+1]=Ax[k]+Bu[k]$, $y[k]=Cx[k]+Du[k]$:
+      \[ H(z)=C\,(zI-A)^{-1}B + D. \]
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Variables de estado:}
+\begin{block}{¿Qué es y por qué usarlo?}
+  Representa sistemas dinámicos mediante un \textbf{vector de estado} $x$ (memoria/CI) y matrices $(A,B,C,D)$.
+  Ventajas clave:
+  \begin{itemize}\itemsep2pt
+    \item Válido para \textbf{MIMO} (múltiples entradas/salidas) y para interconexiones (cascada, paralelo, realimentación).
+    \item Maneja \textbf{condiciones iniciales} de forma explícita y separa respuesta libre/forzada con la MTE $\Phi(t)=e^{At}$.
+    \item Base del \textbf{análisis estructural}: controlabilidad/observabilidad, Gramianos, descomposiciones.
+  \end{itemize}
+\end{block}
+
+\begin{block}{Modelo LTI continuo (notación)}
+\[
+  \dot{x}=A\,x+B\,u, \qquad y=C\,x+D\,u,
+\]
+\[
+  A\!\in\!\mathbb{R}^{n\times n},\; B\!\in\!\mathbb{R}^{n\times m},\; C\!\in\!\mathbb{R}^{p\times n},\; D\!\in\!\mathbb{R}^{p\times m}.
+\]
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Matriz de transición de estados (MTE)}
+\footnotesize
+\begin{columns}
+  \begin{column}{0.52\textwidth}
+    \begin{block}{Definición y propiedades}
+      	\textbf{Recordemos:} $\Phi(t,t_0)$ (o $\Phi[k,k_0]$) es la \emph{solución fundamental} que propaga estados:
+      \[x(t)=\Phi(t,t_0)\,x(t_0),\qquad \Phi(t_0,t_0)=I.\]
+      	\textbf{Dinámica general}
+      \begin{align}
+        \frac{\partial}{\partial t}\,\Phi(t,t_0)&=A(t)\,\Phi(t,t_0), && \Phi(t_0,t_0)=I, \\[2pt]
+      \Phi[k{+}1,k_0]&=A[k]\,\Phi[k,k_0], && \Phi[k_0,k_0]=I.
+      \end{align}
+    \end{block}
+
+    \begin{block}{Caso LTI}
+      Matrices constantes:
+      \begin{align}
+      \Phi(t,t_0)&=e^{A(t-t_0)}=\mathcal{L}^{-1}\!\{(sI-A)^{-1}\},\\
+      \Phi[k,k_0]&=A^{\,k-k_0}=\mathcal{Z}^{-1}\!\{\,z\,(zI-A)^{-1}\}.
+      \end{align}
+    \end{block}
+  \end{column}
+  \begin{column}{0.46\textwidth}
+    \begin{block}{Variación de parámetros}
+      Entrada no nula (continuo):
+      \[x(t)=\Phi(t,t_0)\,x(t_0)+\int_{t_0}^{t}\!\Phi(t,\tau)\,B(\tau)\,u(\tau)\,d\tau.\]
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Diagonalización}
+\footnotesize
+\begin{block}{Diagonalización}
+  \noindent\textbf{¿Por qué diagonalizar?}
+Escribir $A=TDT^{-1}$ desacopla la dinámica por modos y hace inmediata la MTE:
+$\Phi(t)=e^{At}=T\,e^{Dt}\,T^{-1}$ (con $e^{Dt}$ diagonal). Esto simplifica el cálculo de $f(A)$ (p.\,ej., $A^k$, $e^{At}$), clarifica la interpretación (autovalores $\lambda_i$ como polos/estabilidad) y facilita análisis y diseño por modos (REN(C)/RESC, control y observación) al reducir operaciones
+matriciales a exponenciales escalares.
+
+\end{block}
+\begin{columns}
+  \begin{column}{0.52\textwidth}
+
+    \begin{block}{Condición de diagonalizabilidad}
+      $A$ es diagonalizable $\Longleftrightarrow$ la suma de \emph{multiplicidades geométricas} es $n$ (equiv.: para cada $\lambda$, mult. geom. $=$ mult. alg.).
+    \end{block}
+    \begin{block}{Receta}
+    \begin{enumerate}\itemsep2pt
+      \item Calcular el polinomio característico $p(\lambda)=\det(\lambda I-A)$ y sus raíces $\lambda_i$ (autovalores).
+      \item Para cada $\lambda_i$, resolver $(A-\lambda_i I)v=0$ y obtener una base del subespacio propio $\mathcal N(A-\lambda_i I)$.
+      \item Si se obtienen $n$ autovectores linealmente independientes, formar $T=[\,v_1\;\cdots\;v_n\,]$ y $D=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$.
+    \end{enumerate}
+    \end{block}
+
+  \end{column}
+
+  \begin{column}{0.46\textwidth}
+  
+
+    \begin{block}{Conexión con MTE}
+    Si $A=TDT^{-1}$, entonces $f(A)=Tf(D)T^{-1}$. En particular: $\Phi(t)=e^{At}=Te^{Dt}T^{-1}$ y $e^{Dt}=\operatorname{diag}(e^{\lambda_i t})$.
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Forma canónica de Jordan}
+\footnotesize
+\begin{columns}[T]
+  \begin{column}{0.45\textwidth}
+    \begin{block}{¿Qué es y cuándo aparece?}
+      Toda matriz $A\in\mathbb{C}^{n\times n}$ es similar a una \textbf{forma canónica de Jordan}: $A=PJP^{-1}$, con
+      $J=\operatorname{diag}\big(J_{m_1}(\lambda_1),\dots,J_{m_r}(\lambda_r)\big)$. Un \emph{bloque de Jordan} $J_m(\lambda)$
+      tiene $\lambda$ en la diagonal y $1$ en la superdiagonal.
+      Aparece cuando $A$ \textbf{no es diagonalizable} (multiplicidad geométrica menor que la algébrica).
+    \end{block}
+    \begin{block}{¿Para qué sirve?}
+      \begin{itemize}\itemsep2pt
+        \item Describe la estructura modal cuando faltan autovectores L.I.
+        \item Facilita el cálculo de $f(A)$: $e^{At}$, $A^k$, $(sI{-}A)^{-1}$ a través de $J$.
+        \item Explica términos $t^k e^{\lambda t}$ en las respuestas si hay bloques de tamaño $m$ ($k=0,\dots,m{-}1$).
+      \end{itemize}
+    \end{block}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \begin{block}{Bloque $J_m(\lambda)$}
+      \[
+      J_m(\lambda)=\begin{pmatrix}
+        \lambda & 1 &  & 0\\
+         & \lambda & \ddots & \\
+         &  & \ddots & 1\\
+        0 &  &  & \lambda
+      \end{pmatrix}
+      \]
+    \end{block}
+    \begin{block}{Exponencial de un bloque}
+      \[
+      e^{J_m(\lambda)\,t}=e^{\lambda t}
+      \begin{pmatrix}
+        1 & t & t^2/2! & \cdots & t^{m-1}/(m-1)!\\
+        0 & 1 & t & \cdots & t^{m-2}/(m-2)!\\
+        \vdots &  & \ddots & \ddots & \vdots\\
+        0 & \cdots & 0 & 1 & t\\
+        0 & \cdots & 0 & 0 & 1
+      \end{pmatrix}
+      \]
+    \end{block}
+  \end{column}
+\end{columns}
+\begin{block}{Consecuencia para $e^{At}$}
+  $e^{At}=P\,e^{Jt}P^{-1}$, con $e^{Jt}=\operatorname{diag}\big(e^{J_{m_i}(\lambda_i)t}\big)$. Si existen bloques de tamaño $m$, aparecen términos $t^k e^{\lambda t}$ en la respuesta ($k=0,\dots,m{-}1$).
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Respuesta impulsional y funciones base}
+\footnotesize
+\begin{columns}[T]
+  \begin{column}{0.58\textwidth}
+    \begin{block}{Respuesta impulsional $h$ (qué es)}
+      Es la salida ante una entrada impulso unitario; actúa como \emph{núcleo de convolución}:
+      \[ y_s(t)=(h*u)(t)=\int_{0}^{t} h(t-\tau)\,u(\tau)\,d\tau,\quad Y_s(s)=H(s)\,U(s). \]
+    \end{block}
+    \begin{block}{Cómo calcular $h$ (LTI)}
+      Continuo: 
+      \[ H(s)=C(sI{-}A)^{-1}B+D,\quad h(t)=C\,e^{At}\,B + D\,\delta(t)=\mathcal L^{-1}\!\{H(s)\}. \]
+      Discreto:
+      \[ H(z)=C(zI{-}A)^{-1}B+D,\quad h[0]=D,\; h[k]=C\,A^{k-1}B\ (k\ge1)=\mathcal Z^{-1}\!\{H(z)\}. \]
+    \end{block}
+  \end{column}
+  \begin{column}{0.36\textwidth}
+    \begin{block}{Funciones base (RENC)}
+      Respuesta a entrada cero: $y_0(t)=C\,\Phi(t,t_0)\,x(t_0)$ con $\Phi(t,t_0)=e^{A(t-t_0)}$.
+      Si $A$ tiene autovalores $\lambda_i$ con bloques de Jordan de tamaño $m_i$:
+      \[ \{\, t^{k}e^{\lambda_i t}\;:\; i=1,\dots,r,\ k=0,\dots,m_i{-}1\,\}. \]
+      En discreto (análogo): $\{\, \ell\text{-potencias}\cdot \lambda_i^{\,k}\,\}$, típicamente $\{\, k^{\ell}\lambda_i^{\,k}\,\}$ con $\ell=0,\dots,m_i{-}1$.
+    \end{block}
+    \begin{block}{Uso}
+      \begin{itemize}\itemsep2pt
+        \item $h$ determina la RESC vía convolución y caracteriza la BIBO en SISO.
+        \item Las funciones base describen la RENC; revelan modos ($e^{\lambda t}$) y cadenas de Jordan ($t^k e^{\lambda t}$).
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Estabilidad: BIBS y BIBO}
+\footnotesize
+\begin{columns}[T]
+  \begin{column}{0.56\textwidth}
+    \begin{block}{¿Qué miden?}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS} (bounded–input bounded–state): con entradas y C.I. acotadas, el \emph{estado} permanece acotado (estabilidad interna).
+        \item \textbf{BIBO} (bounded–input bounded–output): con entradas acotadas, la \emph{salida} permanece acotada (estabilidad externa).
+      \end{itemize}
+    \end{block}
+    \begin{block}{Criterios prácticos (LTI)}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS}: continuo $\Rightarrow \mathrm{Re}\{\lambda_i(A)\}<0$;\; discreto $\Rightarrow |\lambda_i(A)|<1$.
+        \item \textbf{BIBO} (SISO): continuo $\int_0^{\infty}|h(t)|\,dt<\infty$ $\Leftrightarrow$ polos de $H(s)$ en $\mathrm{Re}\,s<0$;\\
+        discreto $\sum_{k\ge 0}|h[k]|<\infty$ $\Leftrightarrow$ polos de $H(z)$ dentro del disco unidad.
+      \end{itemize}
+    \end{block}
+  \end{column}
+  \begin{column}{0.42\textwidth}
+    \begin{block}{Relación y matices}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{BIBS $\Rightarrow$ BIBO}. Si la realización es \emph{mínima} (controlable y observable), \textbf{BIBS $\Leftrightarrow$ BIBO}.
+        \item La BIBO depende de $H(\cdot)$ (por $C,D$); la BIBS depende solo de $A$.
+        \item En la \emph{frontera} (autovalores en eje imaginario o $|z|{=}1$) puede haber estabilidad \emph{marginal} (no BIBO si hay polos repetidos).
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Controlabilidad y observabilidad: qué, cómo y para qué}
+\footnotesize
+\begin{columns}[T]
+  \begin{column}{0.52\textwidth}
+    \begin{block}{¿Qué miden?}
+  	\textbf{Controlabilidad}: alcanzar cualquier estado con entradas adecuadas.\\
+  	\textbf{Observabilidad}: reconstruir el estado a partir de $u(\cdot)$ y $y(\cdot)$.
+    \end{block}
+    \begin{block}{Kalman (criterio de rango)}
+      \begin{align}
+        \mathcal C &= [\,B\;AB\;\cdots\;A^{n-1}B\,], & \operatorname{rank}(\mathcal C){=}n &\iff \text{controlable},\\
+        \mathcal O &= \begin{bmatrix} C\\ CA\\ \vdots\\ CA^{n-1}\end{bmatrix}, & \operatorname{rank}(\mathcal O){=}n &\iff \text{observable}.
+      \end{align}
+    \end{block}
+  \end{column}
+  \begin{column}{0.47\textwidth}
+    \begin{block}{Gramianos (continuo, $A$ Hurwitz)}
+      \begin{align}
+        A W_c + W_c A^\top + B B^\top &= 0, & W_c\succ 0 &\iff \text{controlable},\\
+        A^\top W_o + W_o A + C^\top C &= 0, & W_o\succ 0 &\iff \text{observable}.
+      \end{align}
+    \end{block}
+    \begin{block}{Implicancias prácticas}
+      \begin{itemize}\itemsep2pt
+        \item \textbf{Realización mínima}: controlable y observable $\Rightarrow$ sin modos ocultos.
+        \item \textbf{Ubicación de polos} (REN(C)): factible $\iff$ controlable; \textbf{observador} (RENC): factible $\iff$ observable.
+        \item Modos incontrolables no pueden estabilizarse; modos inobservables no aparecen en $y$.
+      \end{itemize}
+    \end{block}
+  \end{column}
+\end{columns}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Pregunta 1}
+\begin{frame}{Pregunta \#1}
+\begin{block}{Enunciado Pregunta \#1}
+Considere un sistema modelado por la siguiente ecuación diferencial:
+  \begin{equation}
+    \ddot y + 2\dot y - 15 y = u.
+  \end{equation}
+
+  \begin{enumerate}
+    \item Encuentre la función de transferencia del sistema.
+    \item Formule el sistema en variables de estado.
+    \item Obtenga la MTE del sistema y encuentre las funciones base.
+    \item Encuentre la respuesta al impulso del sistema.
+    \item Determine la estabilidad BIBS y BIBO del sistema.
+  \end{enumerate}
+\end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Pregunta 2}
+\begin{frame}{Pregunta \#2}
+  \begin{block}{Enunciado Pregunta \#2}
+   Considere el siguiente sistema formulado en variables de estado:
+\begin{equation}
+  \dot{x}(t) =
+  \begin{pmatrix}
+    -2 & 1 & 0 & 0 \\
+     0 & -2 & 1 & 0 \\
+     0 &  0 & -2 & 0 \\
+     0 &  0 &  0 & 1
+  \end{pmatrix} x(t)
+  +
+  \begin{pmatrix}
+    1 \\
+    2 \\
+    3 \\
+    0
+  \end{pmatrix} u(t),
+  \qquad
+  y(t) = \begin{pmatrix} 1 & 0 & 1 & 1 \end{pmatrix} x(t).
+\end{equation}
+
+\begin{enumerate}
+  \item Encuentre la MTE y las funciones base del sistema.
+  \item Encuentre la respuesta al impulso del sistema.
+  \item Determine estabilidad BIBS y BIBO.
+  \item Determine observabilidad y controlabilidad.
+\end{enumerate}
+
+  \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

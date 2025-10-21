@@ -18,107 +18,167 @@
 
 \begin{document}
 
+% Configuración del encabezado usando comandos de la clase exam
+\pagestyle{headandfoot}
+\extraheadheight{0.5in} % Baja el encabezado aumentando el espacio superior
+\firstpageheader{\textit{Análisis de Sistemas Dinámicos y Estimación}}{}{EL3204-1}
+\runningheader{\textit{Análisis de Sistemas Dinámicos y Estimación}}{}{EL3204}
+\firstpagefooter{}{\thepage}{}
+\runningfooter{}{\thepage}{}
+\headrule % Línea debajo del encabezado
+
 % Numeración de página
-\pagestyle{plain}
 \pagenumbering{arabic}
 
-\noindent
-\begin{minipage}{0.47\textwidth}
-\includegraphics[width=\textwidth]{../fcfm_die}
-\end{minipage}
-\begin{minipage}{0.53\textwidth}
-\begin{center} 
-\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3204-1) \\
-\large\textbf{Clase auxiliar 8} \\
-\normalsize Prof.~ Marcos Orchard - Sebastián Espinosa.\\
-\normalsize Prof.~Aux.~Erik Sáez
-\end{center}
-\end{minipage}
+% Portada
+\begin{center}
+    \vspace*{1cm}
+    
+    % Logo superior
+    \includegraphics[width=0.5\textwidth]{../fcfm_die}
+    
+    \vspace{2cm}
+    
+    % Líneas decorativas superiores
+    \begin{tikzpicture}
+        \draw[line width=2pt, black!70] (0,0) -- (10,0);
+        \draw[line width=0.5pt, black!50] (0,0.2) -- (10,0.2);
+    \end{tikzpicture}
+    
+    \vspace{1cm}
+    
+    % Título principal
+    {\fontsize{28}{34}\selectfont\bfseries 
+    Análisis de Sistemas\\[0.3cm]
+    Dinámicos y Estimación}
+    
+    \vspace{0.5cm}
+    
+    {\Large\textbf{EL3204-1}}
+    
+    \vspace{1cm}
+    
+    % Líneas decorativas inferiores
+    \begin{tikzpicture}
+        \draw[line width=0.5pt, black!50] (0,0) -- (10,0);
+        \draw[line width=2pt, black!70] (0,0.2) -- (10,0.2);
+    \end{tikzpicture}
+    
+    \vspace{1.5cm}
+    
+    % Subtítulo
+    {\LARGE\itshape Pauta Auxiliar 8 - Lema de Neyman-Pearson}
+    
+    \vspace{0.5cm}
+    {\large Prof Marcos Orchard - Sebastian Espinoza.}\\
+    {\large Prof Auxiliar Erik Sáez Aravena.}
+    
+    \vfill
+    
 
-\vspace{0.5cm}
-\noindent
-\vspace{.85cm}
+    \vspace{1cm}
+    
+    % Decoración con ecuación diferencial de fondo
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=0.08] at (current page.center) {
+            \begin{tikzpicture}
+                \node[font=\fontsize{120}{140}\selectfont, black!30] at (0,0) {$\dot{\mathbf{x}}$};
+            \end{tikzpicture}
+        };
+    \end{tikzpicture}
+    
+    \vspace{1cm}
+    
+\end{center}
+
+\newpage
 %----------------------------
 \section{Resumen}
+El \textbf{Lema de Neyman-Pearson} es un resultado fundamental en teoría de detección que caracteriza el test óptimo para distinguir entre dos hipótesis simples. Dado un problema de detección binaria:
+\begin{align*}
+\mathcal{H}_0: & \quad X \sim f_{X_1^n}(x_1, ..., x_n|\theta = 0) \\
+\mathcal{H}_1: & \quad X \sim f_{X_1^n}(x_1, ..., x_n|\theta = 1)
+\end{align*}
 
-\subsubsection*{Variables Aleatorias}
+donde $L(x_1^n|\theta)$ representa la \textbf{función de verosimilitud}:
 
-Una \textbf{variable aleatoria} $X$ es una función que asigna un número real a cada resultado de un experimento aleatorio: $X : \Omega \longrightarrow \mathbb{R}$. En la práctica, trabajamos con las distribuciones de estas variables.\\
-
-Las variables continuas tienen una \textbf{función de densidad de probabilidad} $f(x)$ que describe qué tan ``densa'' es la probabilidad alrededor de cada punto. No da probabilidades directas, sino que las probabilidades se calculan integrando: $\mathbb{P}(a \leq X \leq b) = \int_a^b f(x) \, dx$. Debe cumplir $f(x) \geq 0$ y $\int_{-\infty}^{\infty} f(x) \, dx = 1$.\\
-
-Las variables discretas tienen una \textbf{función de probabilidad de masa} $p(x)$ que da directamente la probabilidad de cada valor específico. Debe cumplir $p(x) \geq 0$ y $\sum_{x} p(x) = 1$. Las probabilidades se calculan sumando: $\mathbb{P}(X \in A) = \sum_{x \in A} p(x)$.
-
-\subsubsection*{Distribuciones Importantes}
-
-\textbf{Distribución Uniforme} $X \sim U(a,b)$: Todos los valores en $[a,b]$ son igualmente probables.
+\begin{itemize}
+\item \textbf{Para variables continuas:}
 \begin{equation}
-f(x) = \begin{cases}
-\frac{1}{b-a} & \text{si } x \in [a,b] \\
-0 & \text{en otro caso}
+L(x_1^n|\theta) = f_{X_1^n}(x_1, ..., x_n|\theta)
+\end{equation}
+
+\item \textbf{Para variables discretas:}
+\begin{equation}
+L(x_1^n|\theta) = P_{X_1^n}(X_1 = x_1, ..., X_n = x_n|\theta)
+\end{equation}
+\end{itemize}
+Para un $\nu > 0$ arbitrario y una variable aleatoria binaria $\rho(w)$, se tiene que el test aleatorio de la forma:
+\begin{equation}
+\pi_\nu(w, x) = \begin{cases}
+1 & \text{si } L(x|\theta = 1) > \nu L(x|\theta = 0) \\
+0 & \text{si } L(x|\theta = 1) < \nu L(x|\theta = 0) \\
+\rho(w) & \text{si } L(x|\theta = 1) = \nu L(x|\theta = 0)
 \end{cases}
 \end{equation}
 
-\textbf{Distribución Exponencial} $X \sim \text{Exp}(\lambda)$: Modela tiempos de espera entre eventos. 
+es óptimo para su tamaño entre $[0, 1]$. Dado que $X$ es una variable aleatoria, el test se puede reescribir como una función de variable aleatoria notando que:
 \begin{equation}
-f(x) = \begin{cases}
-\lambda e^{-\lambda x} & \text{si } x \geq 0 \\
-0 & \text{en otro caso}
+\pi_\nu(\rho, X) = \begin{cases}
+1 & \text{si } L(X|\theta = 1) > \nu L(X|\theta = 0) \\
+0 & \text{si } L(X|\theta = 1) < \nu L(X|\theta = 0) \\
+\rho & \text{si } L(X|\theta = 1) = \nu L(X|\theta = 0)
 \end{cases}
 \end{equation}
 
-\textbf{Distribución Normal} $X \sim \mathcal{N}(\mu, \sigma^2)$: La distribución más importante. Curva en forma de campana.
+con $\rho$ independiente de $X$. Además, el test de la forma (haciendo $\nu \to \infty$):
 \begin{equation}
-f(x) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
-\end{equation}
-Propiedad clave: cualquier combinación lineal de variables normales independientes también es normal.
-
-\textbf{Distribución Poisson} $X \sim \text{Poisson}(\lambda)$: Modela el número de eventos raros en un intervalo fijo.
-\begin{equation}
-p(x) = \begin{cases}
-\frac{e^{-\lambda}\lambda^x}{x!} & \text{si } x \in \{0, 1, 2, \ldots\} \\
-0 & \text{en otro caso}
+\pi(x) = \begin{cases}
+1 & \text{si } L(x|\theta = 0) = 0 \\
+0 & \text{si } L(x|\theta = 0) > 0
 \end{cases}
 \end{equation}
 
-\subsubsection*{Vectores Aleatorios}
-
-Un \textbf{vector aleatorio} $\mathbf{X} = (X_1, X_2, \ldots, X_n)$ agrupa múltiples variables aleatorias. Su \textbf{función de densidad conjunta} describe el comportamiento conjunto:
+es óptimo de tamaño 0 y el test de la forma (haciendo $\nu \to 0^+$):
 \begin{equation}
-f_{\mathbf{X}}(\mathbf{x}) = f_{X_1,X_2,\ldots,X_n}(x_1, x_2, \ldots, x_n)
+(\forall x \in \mathbb{X})\pi(x) = 1
 \end{equation}
+es óptimo de tamaño 1.
 
-Para variables \textbf{independientes e idénticamente distribuidas (i.i.d.)}:
-\begin{equation}
-f_{\mathbf{X}}(\mathbf{x}) = \prod_{i=1}^n f_{X_i}(x_i)
-\end{equation}
+Para evaluar un test de detección $\pi: \mathbb{X} \mapsto \{0, 1\}$, usamos dos probabilidades fundamentales:
 
-\subsubsection*{Momentos Estadísticos}
-
-Los \textbf{momentos} caracterizan las propiedades de una distribución:
-
-\textbf{Esperanza} (valor promedio esperado):
+\textbf{Tamaño del test} (probabilidad de falsa alarma):
 \begin{align}
-\mathbb{E}[X] = \begin{cases}
-\int_{-\infty}^{\infty} x \cdot f(x) \, dx & \text{si } X \text{ es continua} \\
-\sum_x x \cdot p(x) & \text{si } X \text{ es discreta}
-\end{cases}
+\alpha_\pi &\triangleq P_{X_1^n}(\pi(X_1^n) = 1|\theta = 0) \nonumber \\
+&= P_{X_1^n}(X_1^n \in \pi^{-1}(\{1\})|\theta = 0) \nonumber \\
+&= \int_{\{(x_1,...,x_n)\in\mathbb{R}^n : \pi(x_1^n)=1\}} f_{X_1^n}(x_1,...,x_n|\theta = 0)dx_1...dx_n \nonumber \\
+&= \mathbb{E}_{X_1^n}(\pi(X_1^n)|\theta = 0)
 \end{align}
 
-\textbf{Varianza} (medida de dispersión):
-\begin{equation}
-\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
-\end{equation}
+\textbf{Poder del test} (probabilidad de correcta detección de la hipótesis alternativa):
+\begin{align}
+\beta_\pi &\triangleq P_{X_1^n}(\pi(X_1^n) = 1|\theta = 1) \nonumber \\
+&= P_{X_1^n}(X_1^n \in \pi^{-1}(\{1\})|\theta = 1) \nonumber \\
+&= \int_{\{(x_1,...,x_n)\in\mathbb{R}^n : \pi(x_1^n)=1\}} f_{X_1^n}(x_1,...,x_n|\theta = 1)dx_1...dx_n \nonumber \\
+&= \mathbb{E}_{X_1^n}(\pi(X_1^n)|\theta = 1)
+\end{align}
 
-\textbf{Covarianza} (dependencia lineal entre dos variables):
-\begin{equation}
-\text{Cov}(X,Y) = \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y]
-\end{equation}
+Notar que $P_{X_1^n}(\pi(X_1^n) = 0|\theta = 1)$ es la probabilidad de no detección o el error de tipo II que corresponde precisamente a $1 - \beta_\pi$. El objetivo del Lema de Neyman-Pearson es \textbf{maximizar $\beta_\pi$ sujeto a que $\alpha_\pi \leq \alpha_0$}, donde $\alpha_0$ es un tamaño máximo permitido.
 
-Para la distribución normal $X \sim \mathcal{N}(\mu, \sigma^2)$: $\mu = \mathbb{E}[X]$ y $\sigma^2 = \text{Var}(X)$.
+
+El cociente de verosimilitud mide qué tan ``favorable'' es la observación para $\mathcal{H}_1$ en comparación con $\mathcal{H}_0$:
+\begin{itemize}
+\item Si $L(x|\theta = 1) > \nu L(x|\theta = 0)$: la observación favorece fuertemente a $\mathcal{H}_1$ → decidimos $\mathcal{H}_1$ ($\pi = 1$)
+\item Si $L(x|\theta = 1) < \nu L(x|\theta = 0)$: la observación favorece a $\mathcal{H}_0$ → decidimos $\mathcal{H}_0$ ($\pi = 0$)
+\item Si $L(x|\theta = 1) = \nu L(x|\theta = 0)$: zona de incertidumbre → se usa aleatorización con $\rho(w)$
+\end{itemize}
+
+Los tests aleatorizados (con $\rho \in (0,1)$) son necesarios cuando las observaciones son discretas y es imposible alcanzar exactamente $\alpha = \alpha_0$ con un test determinístico.
+
 \newpage
 %----------------------------
 \begin{questions}
+  \newpage
   \question  
   
   Considere una variable aleatoria $X$ con distribución Poisson de parámetro $\lambda$.
@@ -149,13 +209,18 @@ Para la distribución normal $X \sim \mathcal{N}(\mu, \sigma^2)$: $\mu = \mathbb
   %- ---------------------------
   \begin{solution}
       \subsection*{Resolución 1.1}
-      
-      La función generadora de momentos se define como:
+      Recordemos que la función generadora de momentos es una herramienta fundamental en probabilidad que permite caracterizar completamente una distribución. Se define como:
       \begin{equation}
       M_X(t) = \mathbb{E}[e^{tX}] = \sum_{k=0}^{\infty} e^{tk} P_X(X = k)
       \end{equation}
       
-      Sustituyendo la función de probabilidad de Poisson:
+      donde $t$ es un parámetro real. Para variables continuas, la suma se reemplaza por una integral:
+      \begin{equation}
+      M_X(t) = \mathbb{E}[e^{tX}] = \int_{-\infty}^{\infty} e^{tx} f_X(x) \, dx
+      \end{equation}
+  
+      
+      Aplicando esta definición a la distribución de Poisson y sustituyendo la función de probabilidad de Poisson:
       \begin{align}
       M_X(t) &= \sum_{k=0}^{\infty} e^{tk} \cdot \frac{\lambda^k e^{-\lambda}}{k!} \\
       &= e^{-\lambda} \sum_{k=0}^{\infty} \frac{e^{tk} \lambda^k}{k!} \\
@@ -266,40 +331,57 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       
       donde debemos determinar $\gamma$ y $\gamma_0$ tal que la probabilidad de falsa alarma bajo $\mathcal{H}_0$ sea exactamente $\alpha = 0.01$:
       \begin{equation}
-      \mathbb{P}_{H_0}(\pi(X) = 1) = \mathbb{P}_{H_0}(X > \gamma) + \gamma_0 \cdot \mathbb{P}_{H_0}(X = \gamma) = 0.01
+      \mathbb{P}(\pi(X) = 1 | \theta = 0) = \mathbb{P}(X > \gamma | \theta = 0) + \gamma_0 \cdot \mathbb{P}(X = \gamma | \theta = 0) = 0.01
       \end{equation}
       
-      Bajo la hipótesis nula, $X \sim \text{Poisson}(2)$, por lo que debemos calcular las probabilidades acumuladas. Calculemos las probabilidades para distintos valores de $k$:
+      La probabilidad de falsa alarma es la probabilidad de rechazar $\mathcal{H}_0$ (decidir 1) cuando $\mathcal{H}_0$ es verdadera. Dado que el test $\pi(X)$ toma diferentes valores según la observación $X$, debemos calcular la esperanza de $\pi(X)$ bajo $\mathcal{H}_0$:
       
       \begin{align}
-      P(X = k) &= \frac{2^k e^{-2}}{k!} \\
-      P(X = 0) &= e^{-2} \approx 0.1353 \\
-      P(X = 1) &= 2e^{-2} \approx 0.2707 \\
-      P(X = 2) &= 2e^{-2} \approx 0.2707 \\
-      P(X = 3) &= \frac{4e^{-2}}{3} \approx 0.1804 \\
-      P(X = 4) &= \frac{2e^{-2}}{3} \approx 0.0902 \\
-      P(X = 5) &= \frac{4e^{-2}}{15} \approx 0.0361 \\
-      P(X = 6) &= \frac{4e^{-2}}{45} \approx 0.0120 \\
-      P(X = 7) &= \frac{8e^{-2}}{315} \approx 0.0034
+      \alpha = \mathbb{P}(\pi(X) = 1 | \theta = 0) &= \mathbb{E}[\pi(X) | \theta = 0] \\
+      &= \sum_{x=0}^{\infty} \pi(x) \cdot P(X = x | \theta = 0)
       \end{align}
       
-      Ahora calculemos las probabilidades acumuladas de cola (tail probabilities):
+      Ahora, sustituyendo la definición del test aleatorizado, separamos la suma en tres regiones:
+      
       \begin{align}
-      P(X \geq 6) &= P(X = 6) + P(X = 7) + \cdots \approx 0.0166 \\
-      P(X \geq 7) &= P(X = 7) + P(X = 8) + \cdots \approx 0.0045
+      \mathbb{E}[\pi(X) | \theta = 0] &= \sum_{x < \gamma} \pi(x) \cdot P(X = x | \theta = 0) + \pi(\gamma) \cdot P(X = \gamma | \theta = 0) + \sum_{x > \gamma} \pi(x) \cdot P(X = x | \theta = 0) \\
+      &= \sum_{x < \gamma} 0 \cdot P(X = x | \theta = 0) + \gamma_0 \cdot P(X = \gamma | \theta = 0) + \sum_{x > \gamma} 1 \cdot P(X = x | \theta = 0) \\
+      &= 0 + \gamma_0 \cdot \mathbb{P}(X = \gamma | \theta = 0) + \mathbb{P}(X > \gamma | \theta = 0) = \alpha
       \end{align}
       
-      Observamos que $P(X \geq 7) \approx 0.0045 < 0.01 < 0.0166 \approx P(X \geq 6)$. Esto significa que un test determinístico puro no puede alcanzar exactamente $\alpha = 0.01$: si usamos $\gamma = 6$, tendríamos una probabilidad de falsa alarma de aproximadamente $0.0166 > 0.01$, mientras que si usamos $\gamma = 7$, tendríamos aproximadamente $0.0045 < 0.01$.
+      Por lo tanto, obtenemos la expresión que queremos igualar a $\alpha = 0.01$.
+      
+      Bajo la hipótesis nula $\mathcal{H}_0: \theta = 0$, tenemos $X \sim \text{Poisson}(\lambda_0) = \text{Poisson}(2)$, por lo que debemos calcular las probabilidades acumuladas. Calculemos las probabilidades para distintos valores de $k$:
+      
+      \begin{align}
+      P_0(X = k) &= \frac{\lambda_0^k e^{-\lambda_0}}{k!} = \frac{2^k e^{-2}}{k!} \\
+      P_0(X = 0) &= e^{-2} \approx 0.1353 \\
+      P_0(X = 1) &= 2e^{-2} \approx 0.2707 \\
+      P_0(X = 2) &= 2e^{-2} \approx 0.2707 \\
+      P_0(X = 3) &= \frac{4e^{-2}}{3} \approx 0.1804 \\
+      P_0(X = 4) &= \frac{2e^{-2}}{3} \approx 0.0902 \\
+      P_0(X = 5) &= \frac{4e^{-2}}{15} \approx 0.0361 \\
+      P_0(X = 6) &= \frac{4e^{-2}}{45} \approx 0.0120 \\
+      P_0(X = 7) &= \frac{8e^{-2}}{315} \approx 0.0034
+      \end{align}
+      
+      Ahora calculemos las probabilidades acumuladas de cola (tail probabilities) bajo $\mathcal{H}_0$:
+      \begin{align}
+      \mathbb{P}(X \geq 6 | \theta = 0) &= P(X = 6 | \theta = 0) + P(X = 7 | \theta = 0) + \cdots \approx 0.0166 \\
+      \mathbb{P}(X \geq 7 | \theta = 0) &= P(X = 7 | \theta = 0) + P(X = 8 | \theta = 0) + \cdots \approx 0.0045
+      \end{align}
+      
+      Observamos que $\mathbb{P}(X \geq 7 | \theta = 0) \approx 0.0045 < 0.01 < 0.0166 \approx \mathbb{P}(X \geq 6 | \theta = 0)$. Esto significa que un test determinístico puro no puede alcanzar exactamente $\alpha = 0.01$: si usamos $\gamma = 6$, tendríamos una probabilidad de falsa alarma de aproximadamente $0.0166 > 0.01$, mientras que si usamos $\gamma = 7$, tendríamos aproximadamente $0.0045 < 0.01$.
       
       Por lo tanto, necesitamos un test aleatorizado con $\gamma = 6$. Debemos encontrar $\gamma_0$ tal que:
       \begin{equation}
-      P(X > 6) + \gamma_0 \cdot P(X = 6) = 0.01
+      \mathbb{P}(X > 6 | \theta = 0) + \gamma_0 \cdot P(X = 6 | \theta = 0) = 0.01
       \end{equation}
       
       Despejando $\gamma_0$:
       \begin{align}
-      \gamma_0 &= \frac{0.01 - P(X > 6)}{P(X = 6)} \\
-      &= \frac{0.01 - P(X \geq 7)}{P(X = 6)} \\
+      \gamma_0 &= \frac{0.01 - \mathbb{P}(X > 6 | \theta = 0)}{P(X = 6 | \theta = 0)} \\
+      &= \frac{0.01 - \mathbb{P}(X \geq 7 | \theta = 0)}{P(X = 6 | \theta = 0)} \\
       &= \frac{0.01 - 0.0045}{0.0120} \\
       &= \frac{0.0055}{0.0120} \\
       &\approx 0.458
@@ -321,7 +403,7 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
             
       Un test determinístico es óptimo cuando el tamaño $\alpha$ deseado coincide exactamente con una probabilidad acumulada de cola de la distribución bajo la hipótesis nula $\mathcal{H}_0$. Matemáticamente, esto ocurre cuando existe un entero $k^*$ tal que:
       \begin{equation}
-      \alpha = \mathbb{P}_{H_0}(X \geq k^*) = \sum_{x = k^*}^{\infty} P_{H_0}(X = x)
+      \alpha = \mathbb{P}(X \geq k^* | \theta = 0) = \sum_{x = k^*}^{\infty} P(X = x | \theta = 0)
       \end{equation}
       
       En este caso, el test óptimo determinístico tiene la forma simple:
@@ -332,16 +414,16 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       \end{cases}
       \end{equation}
       
-      y cumple exactamente $\mathbb{P}_{H_0}(\pi(X) = 1) = \alpha$ sin necesidad de aleatorización.
+      y cumple exactamente $\mathbb{P}(\pi(X) = 1 | \theta = 0) = \alpha$ sin necesidad de aleatorización.
       
       Con $\lambda_0 = 2$ y $\lambda_1 = 4$, utilizando los cálculos de la parte anterior, las probabilidades de cola bajo $\mathcal{H}_0$ son:
       
       \begin{align*}
-      \mathbb{P}_{H_0}(X \geq 4) &\approx 0.1429 \\
-      \mathbb{P}_{H_0}(X \geq 5) &\approx 0.0527 \\
-      \mathbb{P}_{H_0}(X \geq 6) &\approx 0.0166 \\
-      \mathbb{P}_{H_0}(X \geq 7) &\approx 0.0045 \\
-      \mathbb{P}_{H_0}(X \geq 8) &\approx 0.0011
+      \mathbb{P}(X \geq 4 | \theta = 0) &\approx 0.1429 \\
+      \mathbb{P}(X \geq 5 | \theta = 0) &\approx 0.0527 \\
+      \mathbb{P}(X \geq 6 | \theta = 0) &\approx 0.0166 \\
+      \mathbb{P}(X \geq 7 | \theta = 0) &\approx 0.0045 \\
+      \mathbb{P}(X \geq 8 | \theta = 0) &\approx 0.0011
       \end{align*}
       
       Por lo tanto, el test determinístico es óptimo para los siguientes valores de $\alpha$:
@@ -372,12 +454,13 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       
       Luego la condición necesaria y suficiente para que el test determinístico sea óptimo es:
       \begin{equation}
-      \boxed{\alpha \in \left\{ \mathbb{P}_{H_0}(X \geq k) : k \in \mathbb{N} \right\}}
+      \boxed{\alpha \in \left\{ \mathbb{P}(X \geq k | \theta = 0) : k \in \mathbb{N} \right\}}
       \end{equation}
       
       Esta restricción es una consecuencia directa de la naturaleza discreta de la distribución Poisson. En distribuciones continuas, esta limitación no existe y siempre es posible encontrar un test determinístico para cualquier $\alpha \in (0,1)$. Para distribuciones discretas, cuando $\alpha$ no coincide con ninguna probabilidad de cola, la aleatorización es necesaria para alcanzar exactamente el nivel de significancia deseado, como se demostró en la parte 1.4. Sin embargo, con aleatorización es posible alcanzar cualquier tamaño $\alpha \in [0,1]$ (intervalo cerrado), incluyendo los extremos $\alpha = 0$ y $\alpha = 1$.
     \end{solution}
     %----------------------------
+    \newpage
     \question
     Considere el problema clásico de comunicaciones digitales, de la detección de símbolos binarios contaminadas por ruido aditivo Gaussiano. En este caso $\Theta = \{0,1\}$ y la variable aleatoria de observación dado $\theta \in \Theta$ está dada por:
     \begin{equation}
@@ -532,10 +615,18 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       Por lo tanto:
       \begin{align}
       \|x_1^n - \bar{\mu}\|^2 - \|x_1^n + \bar{\mu}\|^2 &= \left(\sum_{i=1}^n x_i^2 - 2\mu \sum_{i=1}^n x_i + n\mu^2\right) - \left(\sum_{i=1}^n x_i^2 + 2\mu \sum_{i=1}^n x_i + n\mu^2\right) \\
-      &= -4\mu \sum_{i=1}^n x_i \\
-      &= -4\mu \bar{\mu}^T \cdot x_1^n / \mu \\
-      &= -4 \bar{\mu}^T \cdot x_1^n
+      &= -4\mu \sum_{i=1}^n x_i
       \end{align}
+      
+      Ahora, notemos que el vector $\bar{\mu} = (\mu, \mu, \ldots, \mu)^T$ tiene todas sus componentes iguales a $\mu$, por lo que el producto punto $\bar{\mu}^T \cdot x_1^n$ se puede expresar como:
+      \begin{equation}
+      \bar{\mu}^T \cdot x_1^n = \sum_{i=1}^n \mu \cdot x_i = \mu \sum_{i=1}^n x_i
+      \end{equation}
+      
+      Sustituyendo esto en la expresión anterior:
+      \begin{equation}
+      \|x_1^n - \bar{\mu}\|^2 - \|x_1^n + \bar{\mu}\|^2 = -4\mu \sum_{i=1}^n x_i = -4 \bar{\mu}^T \cdot x_1^n
+      \end{equation}
       
       Sustituyendo en la expresión del cociente de verosimilitud:
       \begin{equation}
@@ -570,7 +661,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       A_1 &= \left\{ (x_1, x_2) \in \mathbb{R}^2 : x_1 + x_2 < 0 \right\} \quad \text{(Decidir } \mathcal{H}_1: S_1 = -\mu\text{)}
       \end{align}
       
-      \textbf{Observación importante}: En este caso de señalización antipodal con distribuciones Gaussianas, la familia de test óptimos es completamente determinística (sin necesidad de aleatorización). Esto se debe a que la variable aleatoria inducida por el estadístico es absolutamente continua, lo que permite alcanzar cualquier tamaño $\alpha \in [0,1]$ mediante la elección apropiada del umbral $\eta$, sin requerir aleatorización como en el caso discreto (Poisson).
+ En este caso de señalización antipodal con distribuciones Gaussianas, la familia de test óptimos es completamente determinística (sin necesidad de aleatorización). Esto se debe a que la variable aleatoria inducida por el estadístico es absolutamente continua, lo que permite alcanzar cualquier tamaño $\alpha \in [0,1]$ mediante la elección apropiada del umbral $\eta$, sin requerir aleatorización como en el caso discreto (Poisson).
       
       En el plano $(x_1, x_2)$, la frontera de decisión es la recta $x_1 + x_2 = 0$ (la diagonal que pasa por el origen). Esta recta divide el plano en dos semiplanos:
       \begin{itemize}
@@ -631,78 +722,137 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       
       Para resolver esta parte, necesitamos determinar el test óptimo para cada valor de $n$ tal que la probabilidad de falsa alarma sea $\alpha = 0.01$, y luego calcular la potencia del test (probabilidad de detección correcta) $\beta_\eta^*$.
       
-      \textbf{Construcción del test óptimo con señalización antipodal:}
       
-      Del análisis anterior, sabemos que un estadístico suficiente (función de las observaciones que resume toda la información relevante para la decisión) es:
+      En la resolución 2.2, encontramos que el logaritmo del cociente de verosimilitud es:
       \begin{equation}
-      T(X_1^n) = \sum_{i=1}^n X_i
+      \log(L(x_1^n)) = \frac{-2}{\sigma^2} \bar{\mu}^T \cdot x_1^n = \frac{-2\mu}{\sigma^2} \sum_{i=1}^n x_i
       \end{equation}
       
-      Bajo la hipótesis nula ($\theta = 0$, símbolo $+\mu$):
+      Esto nos dice que la regla de decisión óptima solo depende de la suma $\sum_{i=1}^n x_i$, no de los valores individuales de cada $x_i$. 
+      
+      Para el caso particular de $n=2$ y $\eta=0$, obtuvimos la regla:
       \begin{equation}
-      T(X_1^n) | \theta = 0 = \sum_{i=1}^n (\mu + N_i) = n\mu + \sum_{i=1}^n N_i \sim \mathcal{N}(n\mu, n\sigma^2)
+      \text{Decidir } \mathcal{H}_1 \text{ si } x_1 + x_2 < 0
       \end{equation}
       
-      Bajo la hipótesis alternativa ($\theta = 1$, símbolo $-\mu$):
+      Esto se generaliza para cualquier $n$ y cualquier umbral $\eta$. La regla de decisión de Neyman-Pearson es:
+      \begin{equation}
+      \log(L(x_1^n)) > \eta \quad \Leftrightarrow \quad \frac{-2\mu}{\sigma^2} \sum_{i=1}^n x_i > \eta
+      \end{equation}
+      
+      Multiplicando ambos lados por $\frac{-\sigma^2}{2\mu}$ (y cambiando la dirección de la desigualdad porque multiplicamos por un número negativo):
+      \begin{equation}
+      \sum_{i=1}^n x_i < \frac{-\eta \sigma^2}{2\mu} \equiv \gamma
+      \end{equation}
+      
+      donde hemos definido $\gamma = \frac{-\eta \sigma^2}{2\mu}$ como el umbral transformado. Por lo tanto, la regla de decisión óptima es:
+      \begin{equation}
+      \boxed{\text{Decidir } \mathcal{H}_1 \text{ si } \sum_{i=1}^n X_i < \gamma}
+      \end{equation}
+     
+      
+      La notación $X_1^n$ es una forma compacta de escribir la secuencia de observaciones $(X_1, X_2, \ldots, X_n)$. Es decir:
+      \begin{equation}
+      X_1^n \equiv (X_1, X_2, X_3, \ldots, X_n)
+      \end{equation}
+      
+      Cada $X_i$ representa una medición individual. Por ejemplo, si $n=3$, entonces $X_1^3 = (X_1, X_2, X_3)$.
+      
+      El estadístico $T(X_1^n)$ es simplemente la \textbf{suma de todas las observaciones}:
+      \begin{equation}
+      T(X_1^n) = \sum_{i=1}^n X_i = X_1 + X_2 + X_3 + \cdots + X_n
+      \end{equation}
+      
+      Este estadístico es suficiente porque resume toda la información relevante de las $n$ mediciones para tomar la decisión óptima. Bajo la hipótesis nula ($\theta = 0$, símbolo $+\mu$), cada observación es $X_i = \mu + N_i$, donde $N_i \sim \mathcal{N}(0, \sigma^2)$. Entonces:
+      \begin{equation}
+      T(X_1^n) | \theta = 0 = \sum_{i=1}^n X_i = \sum_{i=1}^n (\mu + N_i) = n\mu + \sum_{i=1}^n N_i
+      \end{equation}
+      
+      Como la suma de variables normales independientes es también normal, tenemos:
+      \begin{equation}
+      T(X_1^n) | \theta = 0 \sim \mathcal{N}(n\mu, n\sigma^2)
+      \end{equation}
+      \begin{itemize}
+      \item \textit{Media:} $n\mu$ (porque sumamos $n$ términos iguales a $\mu$, más ruidos que promedian a cero)
+      
+      \item \textit{Varianza:} $n\sigma^2$ (porque sumamos $n$ ruidos independientes, cada uno con varianza $\sigma^2$)
+      \end{itemize}
+      Análogamente, bajo la hipótesis alternativa ($\theta = 1$, símbolo $-\mu$), cada observación es $X_i = -\mu + N_i$:
       \begin{equation}
       T(X_1^n) | \theta = 1 = \sum_{i=1}^n (-\mu + N_i) = -n\mu + \sum_{i=1}^n N_i \sim \mathcal{N}(-n\mu, n\sigma^2)
       \end{equation}
       
-      La regla de decisión óptima para señalización antipodal es:
-      \begin{equation}
-      \text{Decidir } \mathcal{H}_1 \text{ si } T(X_1^n) < \gamma
-      \end{equation}
-      
-      Es decir, decidimos el símbolo $-\mu$ cuando la suma es suficientemente negativa. Notemos que con umbral en cero ($\gamma = 0$), obtenemos una regla de decisión simétrica que es natural para señales antipodales.
-      
-      Para analizar con $\alpha = 0.01$, necesitamos encontrar $\gamma$ tal que:
+      Para analizar con $\alpha = 0.01$, necesitamos encontrar el umbral $\gamma$ tal que:
       \begin{equation}
       \mathbb{P}_{H_0}(T(X_1^n) < \gamma) = \alpha = 0.01
       \end{equation}
+
       
-      Estandarizando bajo $\mathcal{H}_0$:
+      Sabemos que bajo $\mathcal{H}_0$, la suma $T(X_1^n) \sim \mathcal{N}(n\mu, n\sigma^2)$. El problema es que trabajar con distintas medias y varianzas es complicado. La \textbf{estandarización} es un truco matemático que convierte cualquier variable normal en una \textit{normal estándar} $\mathcal{N}(0,1)$ (media 0 y varianza 1), que está tabulada.
+    
+      Si $Y \sim \mathcal{N}(\mu_Y, \sigma_Y^2)$, entonces la variable estandarizada:
       \begin{equation}
-      \mathbb{P}_{H_0}\left(\frac{T(X_1^n) - n\mu}{\sqrt{n\sigma^2}} < \frac{\gamma - n\mu}{\sqrt{n\sigma^2}}\right) = \alpha
+      Z = \frac{Y - \mu_Y}{\sigma_Y} \sim \mathcal{N}(0,1)
       \end{equation}
       
-      Si $Z \sim \mathcal{N}(0,1)$, entonces:
+      En nuestro caso, $Y = T(X_1^n)$ con media $\mu_Y = n\mu$ y desviación estándar $\sigma_Y = \sqrt{n\sigma^2} = \sigma\sqrt{n}$. Entonces:
+      
       \begin{equation}
-      \mathbb{P}(Z < -z_\alpha) = \alpha \quad \Rightarrow \quad \frac{\gamma - n\mu}{\sigma\sqrt{n}} = -z_\alpha
+      Z = \frac{T(X_1^n) - n\mu}{\sigma\sqrt{n}} \sim \mathcal{N}(0,1)
       \end{equation}
       
-      Para $\alpha = 0.01$, tenemos $z_{0.01} \approx 2.326$. Por lo tanto:
-      \begin{equation}
-      \gamma = n\mu - z_\alpha \sigma \sqrt{n}
-      \end{equation}
-      
-      
-      La probabilidad de detección correcta es:
+      Aplicando esta transformación a la desigualdad $T(X_1^n) < \gamma$:
       \begin{align}
-      \beta_\eta^* &= \mathbb{P}_{H_1}(T(X_1^n) < \gamma) \\
-      &= \mathbb{P}_{H_1}\left(\frac{T(X_1^n) + n\mu}{\sqrt{n\sigma^2}} < \frac{\gamma + n\mu}{\sqrt{n\sigma^2}}\right) \\
-      &= \mathbb{P}\left(Z < \frac{n\mu - z_\alpha \sigma\sqrt{n} + n\mu}{\sigma\sqrt{n}}\right) \\
-      &= \mathbb{P}\left(Z < \frac{2n\mu - z_\alpha \sigma\sqrt{n}}{\sigma\sqrt{n}}\right) \\
-      &= \mathbb{P}\left(Z < \frac{2\mu\sqrt{n}}{\sigma} - z_\alpha\right) \\
-      &= \Phi\left(\frac{2\mu\sqrt{n}}{\sigma} - z_\alpha\right)
+      \mathbb{P}_{H_0}(T(X_1^n) < \gamma) &= \mathbb{P}_{H_0}\left(\frac{T(X_1^n) - n\mu}{\sigma\sqrt{n}} < \frac{\gamma - n\mu}{\sigma\sqrt{n}}\right) \\
+      &= \mathbb{P}(Z < \frac{\gamma - n\mu}{\sigma\sqrt{n}}) = \alpha
       \end{align}
       
-      donde en el último paso hemos introducido la notación $\Phi(\cdot)$ para la función de distribución acumulada (CDF) de la normal estándar:
-      \begin{equation}
-      \Phi(x) = \mathbb{P}(Z \leq x) = \int_{-\infty}^x \frac{1}{\sqrt{2\pi}} e^{-t^2/2} \, dt
-      \end{equation}
+      donde $Z \sim \mathcal{N}(0,1)$ es una normal estándar.
 
-      Esta función $\Phi$ nos permite expresar probabilidades de la forma $\mathbb{P}(Z < x)$ de manera compacta. El cambio de notación de $\mathbb{P}(Z < x)$ a $\Phi(x)$ es simplemente una convención: ambas representan exactamente lo mismo, pero $\Phi$ es más conveniente cuando trabajamos con la distribución normal estándar repetidamente. Es importante notar que $\Phi$ es una función conocida y tabulada (o implementada en software estadístico), lo que nos permite calcular numéricamente la potencia del test para cualquier valor de $n$.
+      Sabemos que $\mathbb{P}(Z < -z_\alpha) = \alpha$ donde $z_\alpha$ es el cuantil de la normal estándar. Para $\alpha = 0.01$, tenemos $z_{0.01} \approx 2.326$ (este valor se obtiene de tablas o software estadístico).
       
-      \textbf{Cálculo numérico para los valores dados:}
+      Entonces:
+      \begin{equation}
+      \frac{\gamma - n\mu}{\sigma\sqrt{n}} = -z_\alpha \quad \Rightarrow \quad \gamma = n\mu - z_\alpha \sigma \sqrt{n}
+      \end{equation}
+      
+      El umbral $\gamma$ está $z_\alpha = 2.326$ desviaciones estándar por debajo de la media bajo $\mathcal{H}_0$. Esto garantiza que la probabilidad de error tipo I (falsa alarma) sea exactamente $0.01$.
+    
+      
+      La potencia $\beta_\eta^*$ es la probabilidad de decidir correctamente $\mathcal{H}_1$ cuando $\mathcal{H}_1$ es verdadera:
+      \begin{equation}
+      \beta_\eta^* = \mathbb{P}_{H_1}(T(X_1^n) < \gamma)
+      \end{equation}
+      
+      Bajo $\mathcal{H}_1$, sabemos que $T(X_1^n) \sim \mathcal{N}(-n\mu, n\sigma^2)$. Estandarizamos nuevamente, pero ahora usando la media y varianza bajo $\mathcal{H}_1$:
+      
+      \begin{align}
+      \beta_\eta^* &= \mathbb{P}_{H_1}(T(X_1^n) < \gamma) \\
+      &= \mathbb{P}_{H_1}\left(\frac{T(X_1^n) - (-n\mu)}{\sigma\sqrt{n}} < \frac{\gamma - (-n\mu)}{\sigma\sqrt{n}}\right) \\
+      &= \mathbb{P}_{H_1}\left(\frac{T(X_1^n) + n\mu}{\sigma\sqrt{n}} < \frac{\gamma + n\mu}{\sigma\sqrt{n}}\right) \\
+      &= \mathbb{P}\left(Z < \frac{\gamma + n\mu}{\sigma\sqrt{n}}\right)
+      \end{align}
+      
+      donde $Z \sim \mathcal{N}(0,1)$. Ahora sustituimos $\gamma = n\mu - z_\alpha \sigma\sqrt{n}$:
+      
+      \begin{align}
+      \beta_\eta^* &= \mathbb{P}\left(Z < \frac{(n\mu - z_\alpha \sigma\sqrt{n}) + n\mu}{\sigma\sqrt{n}}\right) \\
+      &= \mathbb{P}\left(Z < \frac{2n\mu - z_\alpha \sigma\sqrt{n}}{\sigma\sqrt{n}}\right) \\
+      &= \mathbb{P}\left(Z < \frac{2n\mu}{\sigma\sqrt{n}} - z_\alpha\right) \\
+      &= \mathbb{P}\left(Z < \frac{2\mu\sqrt{n}}{\sigma} - z_\alpha\right)
+      \end{align}
+      
+      donde $Z \sim \mathcal{N}(0,1)$ es una variable aleatoria normal estándar. Esta probabilidad se puede calcular usando tablas de la distribución normal o software estadístico.
+
 
       
       Con $\mu = 1$, $\sigma^2 = 10$ (por lo tanto $\sigma = \sqrt{10} \approx 3.162$), y $z_{0.01} \approx 2.326$:
       
       \begin{align}
-      n = 1: \quad & \beta^* = \Phi\left(\frac{2 \cdot 1 \cdot 1}{3.162} - 2.326\right) = \Phi(-1.694) \approx 0.045 \\
-      n = 10: \quad & \beta^* = \Phi\left(\frac{2 \cdot 1 \cdot \sqrt{10}}{3.162} - 2.326\right) = \Phi(-0.326) \approx 0.372 \\
-      n = 100: \quad & \beta^* = \Phi\left(\frac{2 \cdot 1 \cdot 10}{3.162} - 2.326\right) = \Phi(3.999) \approx 1.000 \\
-      n = 1000: \quad & \beta^* = \Phi\left(\frac{2 \cdot 1 \cdot \sqrt{1000}}{3.162} - 2.326\right) = \Phi(17.674) \approx 1.000
+      n = 1: \quad & \beta^* = \mathbb{P}\left(Z < \frac{2 \cdot 1 \cdot 1}{3.162} - 2.326\right) = \mathbb{P}(Z < -1.694) \approx 0.045 \\
+      n = 10: \quad & \beta^* = \mathbb{P}\left(Z < \frac{2 \cdot 1 \cdot \sqrt{10}}{3.162} - 2.326\right) = \mathbb{P}(Z < -0.326) \approx 0.372 \\
+      n = 100: \quad & \beta^* = \mathbb{P}\left(Z < \frac{2 \cdot 1 \cdot 10}{3.162} - 2.326\right) = \mathbb{P}(Z < 3.999) \approx 1.000 \\
+      n = 1000: \quad & \beta^* = \mathbb{P}\left(Z < \frac{2 \cdot 1 \cdot \sqrt{1000}}{3.162} - 2.326\right) = \mathbb{P}(Z < 17.674) \approx 1.000
       \end{align}
       
   Algunos aspectos importantes a destacar:
@@ -729,20 +879,24 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \gamma = n\mu - z_\alpha \sigma \sqrt{n}
       \end{equation}
       
-      donde $z_\alpha = \Phi^{-1}(1-\alpha)$ es el cuantil de la distribución normal estándar tal que $\mathbb{P}(Z < -z_\alpha) = \alpha$. La potencia del test correspondiente es:
+      donde $z_\alpha$ es el cuantil de orden $1-\alpha$ de la distribución normal estándar tal que $\mathbb{P}(Z \leq z_\alpha) = 1-\alpha$ (equivalentemente, $\mathbb{P}(Z < -z_\alpha) = \alpha$). La potencia del test correspondiente es:
       \begin{equation}
-      \beta(\alpha) = \mathbb{P}_{H_1}(T(X_1^n) < \gamma) = \Phi\left(\frac{2\mu\sqrt{n}}{\sigma} - z_\alpha\right)
+      \beta(\alpha) = \mathbb{P}_{H_1}(T(X_1^n) < \gamma) = \mathbb{P}\left(Z < \frac{2\mu\sqrt{n}}{\sigma} - z_\alpha\right)
       \end{equation}
       
-      Sustituyendo $z_\alpha = \Phi^{-1}(1-\alpha)$:
+      De esta forma, obtenemos la curva ROC que relaciona $\beta$ y $\alpha$:
       \begin{equation}
-      \beta(\alpha) = \Phi\left(\frac{2\mu\sqrt{n}}{\sigma} - \Phi^{-1}(1-\alpha)\right)
+      \beta(\alpha) = \mathbb{P}\left(Z < \frac{2\mu\sqrt{n}}{\sigma} - z_{1-\alpha}\right)
       \end{equation}
       
-      o equivalentemente:
+      donde $z_{1-\alpha}$ es el cuantil de orden $1-\alpha$ de la distribución normal estándar $Z \sim \mathcal{N}(0,1)$ (es decir, $\mathbb{P}(Z \leq z_{1-\alpha}) = 1-\alpha$).
+      
+      Equivalentemente:
       \begin{equation}
-      \beta(\alpha) = \Phi\left(\Phi^{-1}(\alpha) + \frac{2\mu\sqrt{n}}{\sigma}\right)
+      \beta(\alpha) = \mathbb{P}\left(Z < z_{\alpha} + \frac{2\mu\sqrt{n}}{\sigma}\right)
       \end{equation}
+      
+      donde $z_{\alpha}$ es el cuantil de orden $\alpha$ de la distribución normal estándar.
       
       
       La curva ROC tiene las siguientes propiedades importantes:
@@ -859,528 +1013,6 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \end{figure}
     \end{solution}
     %----------------------
-    \question
     
-    Considere un problema de detección binario $\Theta = \{0,1\}$ donde la variable aleatoria fuente de observación $X$ toma valores en la recta real $X = \mathbb{R}$ y sigue las estadísticas como función del parámetro $\theta$ dadas por:
-    \begin{align}
-    \theta = 0 &: X \sim \text{Uniforme}[0,1] \\
-    \theta = 1 &: X \sim \text{Uniforme}[0,K]
-    \end{align}
-    con $K > 1$.
-    
-    \begin{parts}
-        \part Determine la familia de test óptimos en el sentido del Lema de Neyman-Pearson. Considere solamente las familias de test óptimas de tamaño entre $[0,1]$.
-        
-        \part Fije un umbral $\tau \in \mathbb{R}$ y considere el siguiente test determinístico:
-        \begin{equation}
-        \pi_\tau(x) = 1 \text{ si } \log\frac{f_X(x|\theta=1)}{f_X(x|\theta=0)} \geq \tau
-        \end{equation}
-        
-        y $\pi_\tau(x) = 0$ si la condición en (1.111) no se cumple. Determine las regiones de decisión de $\pi_\tau$, es decir los conjuntos $A_0^c = \pi_\tau^{-1}(\{0\})$ y $A_1^c = \pi_\tau^{-1}(\{1\})$. Exprese como función además dichas regiones como función de $\tau$. Identifique rangos concretos en el espacio de posibles valores de $\tau$.
-        
-        \part Del punto anterior, determine las expresiones para el poder y tamaño del test como función del valor de $\tau$. Recordar que:
-        \begin{align}
-        \alpha_{\pi_\tau} &= P_X(\pi_\tau(X) = 1 | \theta = 0) \\
-        \beta_{\pi_\tau} &= P_X(\pi_\tau(X) = 1 | \theta = 1)
-        \end{align}
-        
-        \part Determine la curva ROC. Es posible obtener la curva ROC completa (para todos los tamaños) con test determinísticos? Justifique.
-        
-        \part Vuelva al punto b) y d) y discuta que pasa con las regiones de decisión y la curva ROC si $K \to \infty$.
-    \end{parts}
-    %----------------------------
-    \begin{solution}
-      \subsection*{Resolución 3.1}
-      
-      Para determinar la familia de test óptimos según el Lema de Neyman-Pearson, necesitamos primero especificar las funciones de densidad de probabilidad bajo cada hipótesis.
-      
-      Bajo la hipótesis $\theta = 0$, tenemos $X \sim \text{Uniforme}[0,1]$:
-      \begin{equation}
-      f_X(x|\theta=0) = \begin{cases}
-      1 & \text{si } x \in [0,1] \\
-      0 & \text{en otro caso}
-      \end{cases}
-      \end{equation}
-      
-      Bajo la hipótesis $\theta = 1$, tenemos $X \sim \text{Uniforme}[0,K]$ con $K > 1$:
-      \begin{equation}
-      f_X(x|\theta=1) = \begin{cases}
-      \frac{1}{K} & \text{si } x \in [0,K] \\
-      0 & \text{en otro caso}
-      \end{cases}
-      \end{equation}
-      
-      El Lema de Neyman-Pearson establece que el test óptimo se basa en el cociente de verosimilitud:
-      \begin{equation}
-      L(x) = \frac{f_X(x|\theta=1)}{f_X(x|\theta=0)}
-      \end{equation}
-      
-      Analicemos este cociente por regiones:
-      
-      \begin{itemize}
-      \item \textbf{Para $x \in [0,1]$}: Ambas densidades son distintas de cero, por lo tanto:
-      \begin{equation}
-      L(x) = \frac{1/K}{1} = \frac{1}{K}
-      \end{equation}
-      
-      \item \textbf{Para $x \in (1,K]$}: Solo la densidad bajo $\theta=1$ es distinta de cero, mientras que bajo $\theta=0$ es cero. En este caso:
-      \begin{equation}
-      L(x) = \frac{1/K}{0} = +\infty
-      \end{equation}
-      
-      \item \textbf{Para $x \notin [0,K]$}: Ambas densidades son cero, por lo que el cociente no está definido (o se puede considerar que no aporta información).
-      \end{itemize}
-      
-      El test óptimo de Neyman-Pearson tiene la forma:
-      \begin{equation}
-      \pi_\eta(x) = \begin{cases}
-      1 & \text{si } L(x) > \eta \\
-      \gamma_0 & \text{si } L(x) = \eta \\
-      0 & \text{si } L(x) < \eta
-      \end{cases}
-      \end{equation}
-      
-      donde $\eta > 0$ es el umbral y $\gamma_0$ representa el valor esperado de la decisión cuando $L(x) = \eta$. Notemos que $\gamma_0$ toma valores en $[0,1]$, y en el contexto de detección binaria, este valor se interpreta como la probabilidad de decidir $\mathcal{H}_1$ mediante aleatorización.
-      
-      Dado que $K > 1$, tenemos que $\frac{1}{K} < 1$. Analicemos los diferentes casos según el valor de $\eta$:
-      
-      \begin{enumerate}
-      \item \textbf{Si $\eta < \frac{1}{K}$}: Entonces $L(x) > \eta$ para todo $x \in [0,K]$. El test decide $\mathcal{H}_1$ en todo $[0,K]$:
-      \begin{equation}
-      \pi_\eta(x) = \begin{cases}
-      1 & \text{si } x \in [0,K] \\
-      0 & \text{si } x \notin [0,K]
-      \end{cases}
-      \end{equation}
-      
-      \item \textbf{Si $\eta = \frac{1}{K}$}: Entonces $L(x) = \eta$ para $x \in [0,1]$ y $L(x) > \eta$ para $x \in (1,K]$. Se requiere aleatorización en $[0,1]$:
-      \begin{equation}
-      \pi_\eta(x) = \begin{cases}
-      1 & \text{si } x \in (1,K] \\
-      \gamma_0 & \text{si } x \in [0,1] \\
-      0 & \text{si } x \notin [0,K]
-      \end{cases}
-      \end{equation}
-      
-      \item \textbf{Si $\frac{1}{K} < \eta < +\infty$}: Entonces $L(x) < \eta$ para $x \in [0,1]$ y $L(x) > \eta$ para $x \in (1,K]$. El test decide:
-      \begin{equation}
-      \pi_\eta(x) = \begin{cases}
-      1 & \text{si } x \in (1,K] \\
-      0 & \text{si } x \in [0,1] \\
-      0 & \text{si } x \notin [0,K]
-      \end{cases}
-      \end{equation}
-      \end{enumerate}
-      
-      Por lo tanto, la familia de test óptimos de tamaño entre $[0,1]$ se caracteriza por:
-      
-      \begin{itemize}
-      \item \textbf{Región determinística}: Siempre se decide $\mathcal{H}_1$ cuando $x \in (1,K]$ (ya que allí $L(x) = +\infty$)
-      \item \textbf{Región de decisión variable}: En el intervalo $[0,1]$, la decisión depende del umbral $\eta$ y posiblemente de aleatorización
-      \item \textbf{Parámetro de control}: El tamaño del test se controla mediante $\eta$ y $\gamma_0$. Con aleatorización, es posible alcanzar cualquier tamaño $\alpha \in [0,1]$ (intervalo cerrado).
-      \end{itemize}
-      
-      La familia de test óptimos queda completamente caracterizada por el umbral $\eta \in (0, +\infty]$ y el valor esperado $\gamma_0 \in [0,1]$ cuando $\eta = \frac{1}{K}$, donde $\gamma_0$ representa la probabilidad de decidir $\mathcal{H}_1$ al aleatorizar en el intervalo $[0,1]$.
-      
-      \subsection*{Resolución 3.2}
-      
-      Consideremos el test determinístico dado por:
-      \begin{equation}
-      \pi_\tau(x) = 1 \text{ si } \log L(x) \geq \tau
-      \end{equation}
-      y $\pi_\tau(x) = 0$ en caso contrario.
-      
-      Primero, calculemos el logaritmo del cociente de verosimilitud en cada región:
-      
-      \begin{itemize}
-      \item \textbf{Para $x \in [0,1]$}: 
-      \begin{equation}
-      \log L(x) = \log\left(\frac{1}{K}\right) = -\log K
-      \end{equation}
-      
-      \item \textbf{Para $x \in (1,K]$}: 
-      \begin{equation}
-      \log L(x) = \log\left(+\infty\right) = +\infty
-      \end{equation}
-      
-      \item \textbf{Para $x \notin [0,K]$}: El cociente no está definido o ambas densidades son cero.
-      \end{itemize}
-      
-      La regla de decisión es: decidir $\mathcal{H}_1$ (es decir, $\pi_\tau(x) = 1$) si $\log L(x) \geq \tau$.
-      
-      Analicemos las regiones de decisión según el valor de $\tau$:
-      
-      \textbf{Caso 1: $\tau < -\log K$}
-      
-      En este caso:
-      \begin{itemize}
-      \item Para $x \in [0,1]$: $\log L(x) = -\log K$ y como $-\log K \geq \tau$, se decide $\mathcal{H}_1$
-      \item Para $x \in (1,K]$: $\log L(x) = +\infty > \tau$, se decide $\mathcal{H}_1$
-      \item Para $x \notin [0,K]$: No hay información, se decide $\mathcal{H}_0$ por defecto
-      \end{itemize}
-      
-      Las regiones de decisión son:
-      \begin{align}
-      A_1^c &= \pi_\tau^{-1}(\{1\}) = [0,K] \\
-      A_0^c &= \pi_\tau^{-1}(\{0\}) = \mathbb{R} \setminus [0,K]
-      \end{align}
-      
-      \textbf{Caso 2: $\tau = -\log K$}
-      
-      En este caso:
-      \begin{itemize}
-      \item Para $x \in [0,1]$: $\log L(x) = -\log K = \tau$, se decide $\mathcal{H}_1$ (por la condición $\geq$)
-      \item Para $x \in (1,K]$: $\log L(x) = +\infty > \tau$, se decide $\mathcal{H}_1$
-      \item Para $x \notin [0,K]$: Se decide $\mathcal{H}_0$
-      \end{itemize}
-      
-      Las regiones de decisión son:
-      \begin{align}
-      A_1^c &= \pi_\tau^{-1}(\{1\}) = [0,K] \\
-      A_0^c &= \pi_\tau^{-1}(\{0\}) = \mathbb{R} \setminus [0,K]
-      \end{align}
-      
-      \textbf{Caso 3: $-\log K < \tau < +\infty$}
-      
-      En este caso:
-      \begin{itemize}
-      \item Para $x \in [0,1]$: $\log L(x) = -\log K < \tau$, se decide $\mathcal{H}_0$
-      \item Para $x \in (1,K]$: $\log L(x) = +\infty > \tau$, se decide $\mathcal{H}_1$
-      \item Para $x \notin [0,K]$: Se decide $\mathcal{H}_0$
-      \end{itemize}
-      
-      Las regiones de decisión son:
-      \begin{align}
-      A_1^c &= \pi_\tau^{-1}(\{1\}) = (1,K] \\
-      A_0^c &= \pi_\tau^{-1}(\{0\}) = [0,1] \cup (\mathbb{R} \setminus [0,K])
-      \end{align}
-      
-      \textbf{Caso 4: $\tau \geq +\infty$} (o $\tau$ muy grande)
-      
-      En este caso, ninguna observación finita satisface $\log L(x) \geq \tau$, por lo que:
-      \begin{align}
-      A_1^c &= \pi_\tau^{-1}(\{1\}) = \emptyset \\
-      A_0^c &= \pi_\tau^{-1}(\{0\}) = \mathbb{R}
-      \end{align}
-      
-      En resumen, las regiones de decisión como función de $\tau$ son:
-      
-      \begin{equation}
-      A_1^c = \begin{cases}
-      [0,K] & \text{si } \tau \leq -\log K \\
-      (1,K] & \text{si } -\log K < \tau < +\infty \\
-      \emptyset & \text{si } \tau \to +\infty
-      \end{cases}
-      \end{equation}
-      
-      \begin{equation}
-      A_0^c = \begin{cases}
-      \mathbb{R} \setminus [0,K] & \text{si } \tau \leq -\log K \\
-      \mathbb{R} \setminus (1,K] & \text{si } -\log K < \tau < +\infty \\
-      \mathbb{R} & \text{si } \tau \to +\infty
-      \end{cases}
-      \end{equation}
-      
-      Los rangos concretos de $\tau$ que definen comportamientos distintos son:
-      \begin{itemize}
-      \item $\tau \in (-\infty, -\log K]$: Test que decide $\mathcal{H}_1$ en todo $[0,K]$
-      \item $\tau \in (-\log K, +\infty)$: Test que decide $\mathcal{H}_1$ solo en $(1,K]$
-      \end{itemize}
-      
-      \subsection*{Resolución 3.3}
-      
-      Ahora determinaremos las expresiones para el tamaño ($\alpha_{\pi_\tau}$) y la potencia ($\beta_{\pi_\tau}$) del test como función de $\tau$.
-      
-      \textbf{Cálculo del tamaño del test:}
-      
-      El tamaño del test es la probabilidad de rechazar $\mathcal{H}_0$ cuando es verdadera:
-      \begin{equation}
-      \alpha_{\pi_\tau} = P_X(\pi_\tau(X) = 1 | \theta = 0) = P_X(X \in A_1^c | \theta = 0)
-      \end{equation}
-      
-      Bajo $\theta = 0$, tenemos $X \sim \text{Uniforme}[0,1]$.
-      
-      \textbf{Caso 1: $\tau \leq -\log K$}
-      
-      En este caso, $A_1^c = [0,K]$. La probabilidad es:
-      \begin{equation}
-      \alpha_{\pi_\tau} = P_X(X \in [0,K] | \theta = 0) = P_X(X \in [0,1] | \theta = 0) = 1
-      \end{equation}
-      
-      ya que bajo $\theta = 0$, $X$ solo toma valores en $[0,1] \subset [0,K]$.
-      
-      \textbf{Caso 2: $-\log K < \tau < +\infty$}
-      
-      En este caso, $A_1^c = (1,K]$. La probabilidad es:
-      \begin{equation}
-      \alpha_{\pi_\tau} = P_X(X \in (1,K] | \theta = 0) = 0
-      \end{equation}
-      
-      ya que bajo $\theta = 0$, $X \in [0,1]$ y nunca puede estar en $(1,K]$.
-      
-      Por lo tanto:
-      \begin{equation}
-      \boxed{\alpha_{\pi_\tau} = \begin{cases}
-      1 & \text{si } \tau \leq -\log K \\
-      0 & \text{si } \tau > -\log K
-      \end{cases}}
-      \end{equation}
-      
-      \textbf{Cálculo de la potencia del test:}
-      
-      La potencia del test es la probabilidad de rechazar $\mathcal{H}_0$ cuando $\mathcal{H}_1$ es verdadera:
-      \begin{equation}
-      \beta_{\pi_\tau} = P_X(\pi_\tau(X) = 1 | \theta = 1) = P_X(X \in A_1^c | \theta = 1)
-      \end{equation}
-      
-      Bajo $\theta = 1$, tenemos $X \sim \text{Uniforme}[0,K]$.
-      
-      \textbf{Caso 1: $\tau \leq -\log K$}
-      
-      En este caso, $A_1^c = [0,K]$. La probabilidad es:
-      \begin{equation}
-      \beta_{\pi_\tau} = P_X(X \in [0,K] | \theta = 1) = 1
-      \end{equation}
-      
-      \textbf{Caso 2: $-\log K < \tau < +\infty$}
-      
-      En este caso, $A_1^c = (1,K]$. La probabilidad es:
-      \begin{align}
-      \beta_{\pi_\tau} &= P_X(X \in (1,K] | \theta = 1) \\
-      &= \int_1^K \frac{1}{K} \, dx \\
-      &= \frac{1}{K}(K - 1) \\
-      &= \frac{K-1}{K} \\
-      &= 1 - \frac{1}{K}
-      \end{align}
-      
-      Por lo tanto:
-      \begin{equation}
-      \boxed{\beta_{\pi_\tau} = \begin{cases}
-      1 & \text{si } \tau \leq -\log K \\
-      1 - \frac{1}{K} & \text{si } \tau > -\log K
-      \end{cases}}
-      \end{equation}
-      
-      \textbf{Observaciones importantes:}
-      
-      \begin{itemize}
-      \item El test solo tiene dos posibles comportamientos, determinados por si $\tau$ es mayor o menor/igual que $-\log K$.
-      
-      \item Cuando $\tau \leq -\log K$, el test es trivial: siempre decide $\mathcal{H}_1$ para cualquier observación en $[0,K]$, resultando en $\alpha = \beta = 1$.
-      
-      \item Cuando $\tau > -\log K$, el test decide $\mathcal{H}_1$ solo cuando $X \in (1,K]$. Este es el test no trivial interesante, con $\alpha = 0$ y $\beta = 1 - \frac{1}{K}$.
-      
-      \item Note que el test con $\tau > -\log K$ tiene tamaño cero ($\alpha = 0$), lo cual es óptimo desde el punto de vista de no cometer falsa alarma, pero tiene una potencia limitada de $1 - \frac{1}{K}$.
-      
-      \item A medida que $K$ aumenta, la potencia $\beta = 1 - \frac{1}{K}$ se acerca a 1, lo cual tiene sentido intuitivo: si $K$ es muy grande, la mayoría de las observaciones bajo $\mathcal{H}_1$ caerán en $(1,K]$.
-      \end{itemize}
-      
-      \subsection*{Resolución 3.4}
-      
-      Para construir la curva ROC, debemos graficar $\beta$ versus $\alpha$ para todos los posibles tests.
-      
-      Del análisis anterior, vimos que los tests determinísticos solo pueden producir dos puntos en el espacio $(\alpha, \beta)$:
-      
-      \begin{enumerate}
-      \item \textbf{Punto 1}: Cuando $\tau \leq -\log K$:
-      \begin{equation}
-      (\alpha, \beta) = (1, 1)
-      \end{equation}
-      
-      Este es el test trivial que siempre decide $\mathcal{H}_1$.
-      
-      \item \textbf{Punto 2}: Cuando $\tau > -\log K$:
-      \begin{equation}
-      (\alpha, \beta) = \left(0, 1 - \frac{1}{K}\right)
-      \end{equation}
-      
-      Este es el test que decide $\mathcal{H}_1$ solo cuando $X > 1$.
-      \end{enumerate}
-      
-      Adicionalmente, siempre existe el test trivial que nunca decide $\mathcal{H}_1$:
-      
-      \begin{enumerate}
-      \setcounter{enumi}{2}
-      \item \textbf{Punto 3}: Test que siempre decide $\mathcal{H}_0$:
-      \begin{equation}
-      (\alpha, \beta) = (0, 0)
-      \end{equation}
-      \end{enumerate}
-      
-      \textbf{¿Es posible obtener la curva ROC completa con tests determinísticos?}
-      
-      \textbf{No}, no es posible obtener la curva ROC completa usando únicamente tests determinísticos. Los tests determinísticos solo producen tres puntos discretos:
-      
-      \begin{itemize}
-      \item $(0, 0)$ - Test que nunca rechaza $\mathcal{H}_0$
-      \item $\left(0, 1 - \frac{1}{K}\right)$ - Test óptimo no trivial
-      \item $(1, 1)$ - Test que siempre rechaza $\mathcal{H}_0$
-      \end{itemize}
-      
-      Para obtener la curva ROC completa, necesitamos tests aleatorizados. Consideremos un test aleatorizado general:
-      
-      \begin{equation}
-      \pi_{\gamma_1}(x) = \begin{cases}
-      1 & \text{si } x \in (1, K] \\
-      \gamma_1 & \text{si } x \in [0,1] \\
-      0 & \text{si } x \notin [0,K]
-      \end{cases}
-      \end{equation}
-      
-      donde $\gamma_1$ representa el valor esperado de la decisión (o probabilidad de decidir $\mathcal{H}_1$) cuando $x \in [0,1]$, con $\gamma_1 \in [0,1]$. En la implementación práctica de detección binaria, cuando $x \in [0,1]$ se aleatoriza: se decide $\mathcal{H}_1$ con probabilidad $\gamma_1$ y $\mathcal{H}_0$ con probabilidad $1-\gamma_1$.
-      
-      Para este test aleatorizado:
-      
-      \begin{align}
-      \alpha &= P(X \in (1,K] | \theta=0) + \gamma_1 \cdot P(X \in [0,1] | \theta=0) \\
-      &= 0 + \gamma_1 \cdot 1 \\
-      &= \gamma_1
-      \end{align}
-      
-      \begin{align}
-      \beta &= P(X \in (1,K] | \theta=1) + \gamma_1 \cdot P(X \in [0,1] | \theta=1) \\
-      &= \frac{K-1}{K} + \gamma_1 \cdot \frac{1}{K} \\
-      &= 1 - \frac{1}{K} + \frac{\gamma_1}{K}
-      \end{align}
-      
-      Eliminando $\gamma_1 = \alpha$ de la segunda ecuación:
-      \begin{equation}
-      \beta = 1 - \frac{1}{K} + \frac{\alpha}{K} = 1 - \frac{1-\alpha}{K}
-      \end{equation}
-      
-      Esta es la ecuación de la curva ROC completa para $\alpha \in [0,1]$:
-      
-      \begin{equation}
-      \boxed{\beta(\alpha) = 1 - \frac{1-\alpha}{K} = \frac{K-1+\alpha}{K}}
-      \end{equation}
-      
-      Esta es una recta que conecta los puntos $(0, 1-\frac{1}{K})$ y $(1, 1)$.
-      
-      \textbf{Características de la curva ROC:}
-      
-      \begin{itemize}
-      \item Es una función lineal de $\alpha$
-      \item Tiene pendiente $\frac{1}{K}$
-      \item Comienza en el punto $(0, 1-\frac{1}{K})$
-      \item Termina en el punto $(1, 1)$
-      \item No pasa por el origen $(0,0)$ a menos que se considere el test trivial que nunca rechaza
-      \end{itemize}
-      
-      La curva ROC completa consiste en dos segmentos:
-      
-      \begin{enumerate}
-      \item Segmento vertical desde $(0,0)$ hasta $(0, 1-\frac{1}{K})$: Se obtiene variando entre el test que nunca rechaza y el test determinístico óptimo
-      \item Segmento lineal desde $(0, 1-\frac{1}{K})$ hasta $(1,1)$: Se obtiene con tests aleatorizados según la ecuación $\beta = 1 - \frac{1-\alpha}{K}$
-      \end{enumerate}
-      
-      Por lo tanto, la respuesta es: \textbf{No es posible obtener la curva ROC completa con tests determinísticos}. Se requieren tests aleatorizados para llenar el segmento entre $(0, 1-\frac{1}{K})$ y $(1,1)$. Sin embargo, el test determinístico con $\tau > -\log K$ es óptimo en el sentido de que alcanza el punto con máxima potencia para tamaño cero.
-      
-      \subsection*{Resolución 3.5}
-      
-      Ahora analizaremos qué sucede con las regiones de decisión y la curva ROC cuando $K \to \infty$.
-      
-      \textbf{Análisis de las regiones de decisión (parte b):}
-      
-      Recordemos que las regiones de decisión son:
-      
-      Para $\tau \leq -\log K$:
-      \begin{align}
-      A_1^c &= [0,K] \\
-      A_0^c &= \mathbb{R} \setminus [0,K]
-      \end{align}
-      
-      Para $\tau > -\log K$:
-      \begin{align}
-      A_1^c &= (1,K] \\
-      A_0^c &= \mathbb{R} \setminus (1,K]
-      \end{align}
-      
-      Cuando $K \to \infty$:
-      
-      \begin{itemize}
-      \item El umbral crítico $-\log K \to -\infty$. Esto significa que para cualquier valor finito de $\tau$, eventualmente tendremos $\tau > -\log K$ para $K$ suficientemente grande.
-      
-      \item Las regiones $[0,K]$ y $(1,K]$ se expanden hacia el infinito:
-      \begin{align}
-      \lim_{K \to \infty} [0,K] &= [0, \infty) \\
-      \lim_{K \to \infty} (1,K] &= (1, \infty)
-      \end{align}
-      
-      \item Para cualquier $\tau$ finito, el test con $K \to \infty$ decide:
-      \begin{align}
-      A_1^c &\to (1, \infty) \\
-      A_0^c &\to (-\infty, 1]
-      \end{align}
-      
-      \item La frontera de decisión se estabiliza en $x = 1$, independientemente del valor de $K$.
-      \end{itemize}
-      
-      \textbf{Interpretación}: En el límite $K \to \infty$, el test óptimo determinístico tiene una forma simple: decide $\mathcal{H}_1$ si y solo si $x > 1$. Esta regla de decisión es intuitiva: bajo $\mathcal{H}_0$, $X \in [0,1]$ siempre, mientras que bajo $\mathcal{H}_1$ con $K$ muy grande, hay una probabilidad alta de observar $X > 1$.
-      
-      \textbf{Análisis de la curva ROC (parte d):}
-      
-      La curva ROC tiene la forma:
-      \begin{equation}
-      \beta(\alpha) = 1 - \frac{1-\alpha}{K}
-      \end{equation}
-      
-      Cuando $K \to \infty$:
-      \begin{equation}
-      \lim_{K \to \infty} \beta(\alpha) = \lim_{K \to \infty} \left(1 - \frac{1-\alpha}{K}\right) = 1 - 0 = 1
-      \end{equation}
-      
-      para todo $\alpha \in (0,1]$.
-      
-      Esto significa que la curva ROC converge a:
-      
-      \begin{equation}
-      \beta(\alpha) = \begin{cases}
-      0 & \text{si } \alpha = 0 \\
-      1 & \text{si } \alpha \in (0, 1]
-      \end{cases}
-      \end{equation}
-      
-      En otras palabras, la curva ROC converge a una forma de "escalón" o función de Heaviside:
-      
-      \begin{itemize}
-      \item Parte verticalmente desde $(0,0)$ hasta $(0,1)$
-      \item Luego se extiende horizontalmente desde $(0,1)$ hasta $(1,1)$
-      \end{itemize}
-      
-      \textbf{Interpretación y significado:}
-      
-      \begin{itemize}
-      \item \textbf{Test casi perfecto}: Cuando $K \to \infty$, el problema de detección se vuelve "casi perfecto". Es posible alcanzar una potencia arbitrariamente cercana a 1 con un tamaño de test arbitrariamente pequeño.
-      
-      \item \textbf{Separación perfecta}: La razón es que, en el límite, las dos distribuciones se vuelven casi completamente separadas. Bajo $\mathcal{H}_0$, $X \in [0,1]$ con probabilidad 1. Bajo $\mathcal{H}_1$ con $K \to \infty$, la probabilidad de que $X > 1$ tiende a 1.
-      
-      \item \textbf{Región de soporte disjunto}: En el límite, tenemos:
-      \begin{align}
-      \text{Soporte de } f_0 &= [0,1] \\
-      \lim_{K \to \infty} \text{Soporte de } f_1 &= [0, \infty)
-      \end{align}
-      
-      La fracción del soporte de $f_1$ que se solapa con el soporte de $f_0$ es:
-      \begin{equation}
-      \frac{1}{K} \to 0 \text{ cuando } K \to \infty
-      \end{equation}
-      
-      \item \textbf{Test óptimo simple}: El test óptimo en el límite es simplemente: decidir $\mathcal{H}_1$ si $X > 1$. Este test tiene:
-      \begin{align}
-      \alpha &= P(X > 1 | \theta = 0) = 0 \\
-      \beta &= P(X > 1 | \theta = 1) = \lim_{K \to \infty} \frac{K-1}{K} = 1
-      \end{align}
-      
-      \item \textbf{AUC perfecta}: El área bajo la curva ROC converge a:
-      \begin{equation}
-      \text{AUC} = \lim_{K \to \infty} \int_0^1 \beta(\alpha) \, d\alpha = \lim_{K \to \infty} \int_0^1 \left(1 - \frac{1-\alpha}{K}\right) d\alpha = 1
-      \end{equation}
-      
-      Un AUC de 1 indica discriminación perfecta entre las dos hipótesis.
-      \end{itemize}
-      
-      \textbf{Conclusión}: Cuando $K \to \infty$, el problema de detección se simplifica enormemente. Las dos distribuciones se separan casi completamente, haciendo posible una discriminación casi perfecta con un test determinístico simple (decidir $\mathcal{H}_1$ si $X > 1$). La curva ROC converge a la forma ideal de una función escalón, indicando rendimiento perfecto del detector.
-      
-    \end{solution}
 \end{questions}
 \end{document}

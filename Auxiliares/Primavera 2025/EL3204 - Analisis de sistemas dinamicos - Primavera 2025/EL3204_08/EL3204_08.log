@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  14 OCT 2025 14:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  15 OCT 2025 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -988,39 +988,119 @@ Package hyperref Info: Link coloring ON on input line 19.
 <../fcfm_die.pdf, id=10, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 27.
-(pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 38.
+(pdftex.def)             Requested size: 264.46837pt x 85.6367pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <28> not available
+(Font)              size <24.88> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <28> not available
+(Font)              size <24.88> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+LaTeX Font Info:    Calculating math sizes for size <120> on input line 85.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 28.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 85.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 25--37
-$[]$ $[]$ 
- []
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
-
- []
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
 
 
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
 
-[1
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf>]
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <120> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <83.99963> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <60> not available
+(Font)              size <24.88> substituted on input line 85.
+
+
+
+[1{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+ <../fcfm_die.pdf>]
 
 [2]
 
@@ -1035,15 +1115,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 [7]
 
 [8]
-Overfull \hbox (7.29056pt too wide) in paragraph at lines 416--417
-[]\OT1/cmr/m/n/10.95 Complemente el an^^Salisis an-te-rior generando la curva ROC com-pleta para los es-ce-nar-ios $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10[]\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10[]$.
- []
-
-
 
 [9]
 
 [10]
+Overfull \hbox (7.29056pt too wide) in paragraph at lines 499--500
+[]\OT1/cmr/m/n/10.95 Complemente el an^^Salisis an-te-rior generando la curva ROC com-pleta para los es-ce-nar-ios $\OML/cmm/m/it/10.95 n \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10[]\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 10[]$.
+ []
+
+
 
 [11]
 
@@ -1066,19 +1146,7 @@ Overfull \hbox (7.29056pt too wide) in paragraph at lines 416--417
 [20]
 
 [21]
-
-[22]
-
-[23]
-
-[24]
-
-[25]
-
-[26]
-
-[27]
-This exam contains 3 questions with 14 parts, 0 subparts, and 0 subsubparts.
+This exam contains 2 questions with 9 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
 (EL3204_08.aux)
@@ -1086,21 +1154,26 @@ This exam has a total of 0 bonus points.
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 95.12pt have occurred.
+
 Package rerunfilecheck Info: File `EL3204_08.out' has not changed.
 (rerunfilecheck)             Checksum: D2D5B127F498EAA9D64B47CF9D564D3A;78.
  ) 
 Here is how much of TeX's memory you used:
- 61002 strings out of 473903
- 1566946 string characters out of 5727051
- 2383931 words of memory out of 5000000
- 82859 multiletter control sequences out of 15000+600000
- 578887 words of font info for 115 fonts, out of 8000000 for 9000
+ 60960 strings out of 473903
+ 1566826 string characters out of 5727051
+ 2395931 words of memory out of 5000000
+ 82897 multiletter control sequences out of 15000+600000
+ 585111 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,16n,90p,911b,1104s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3204_08.pdf (27 pages, 423746 bytes).
+ 89i,13n,90p,911b,1185s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3204_08.pdf (21 pages, 420931 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 266 named destinations out of 1000 (max. 500000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 184 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1759927434.23314 "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-05/EL3203_05.tex" "EL3203_05.pdf" "EL3203_05" 1759927482.10348 0
+["pdflatex"] 1760800232.60201 "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-05/EL3203_05.tex" "EL3203_05.pdf" "EL3203_05" 1760800246.24898 0
   "../aas_macros.sty" 1759927210 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1759927210 2199 9b25845e8203035cc171b20549e028e1 ""
   "../fcfm_die.pdf" 1759927210 70674 58fca911fad9f2323ab3bd83506d01cc ""
   "../macros.sty" 1759927210 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
-  "C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757947974 83965 9d76c75bafb07e33148657a7df88de60 ""
+  "C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760244193 151319 ba9a1df1ffdd1889cb03abaca1beca0a ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1719942157 12668 a3bee78d24191975534064feb2c2524e ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1719936018 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1719936021 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -286,8 +286,8 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL3203_05.aux" 1759927474 1513 1d65cabc2d1c74f596404652a8ade68e "pdflatex"
-  "EL3203_05.out" 1759927470 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3203_05.aux" 1760800244 1513 1d65cabc2d1c74f596404652a8ade68e "pdflatex"
+  "EL3203_05.out" 1760800242 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "EL3203_05.tex" 1759927210 40516 e1415811c7a66f77f3c77005ad20aafa ""
   "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3203 - Analisis señales - Primavera 2025/EL3203-05/EL3203_05.tex" 1759927210 40516 e1415811c7a66f77f3c77005ad20aafa ""
   (generated)
