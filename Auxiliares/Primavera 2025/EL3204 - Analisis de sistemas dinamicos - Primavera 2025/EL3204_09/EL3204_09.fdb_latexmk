@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1761076524.03938 "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_09/EL3204_09.tex" "EL3204_09.pdf" "EL3204_09" 1761076549.72873 0
+["pdflatex"] 1762134388.74405 "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_09/EL3204_09.tex" "EL3204_09.pdf" "EL3204_09" 1762134404.55107 0
   "../aas_macros.sty" 1759927211 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
   "../exercise-preamble.sty" 1759927211 2282 67423f5bf846307bd339f448d9ebb19d ""
   "../fcfm_die.pdf" 1759927211 70674 58fca911fad9f2323ab3bd83506d01cc ""
@@ -303,10 +303,10 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL3204_09.aux" 1761076540 3565 69719ff820f0be1c625bbea1f08c84c5 "pdflatex"
-  "EL3204_09.out" 1761076540 94 bb4c2d958dc15d602b0eac77c20f47bf "pdflatex"
-  "EL3204_09.tex" 1761076489 36571 10b0bb7978d354fee63f3c70d0c5f7b0 ""
-  "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_09/EL3204_09.tex" 1761076489 36571 10b0bb7978d354fee63f3c70d0c5f7b0 ""
+  "EL3204_09.aux" 1762134397 2997 c27175a2f85b33b4461f0feaa36b4509 "pdflatex"
+  "EL3204_09.out" 1762134395 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "EL3204_09.tex" 1762134393 45111 56a236add927bb5aac6ed74c34f5e6f7 ""
+  "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_09/EL3204_09.tex" 1762134393 45111 56a236add927bb5aac6ed74c34f5e6f7 ""
   (generated)
   "EL3204_09.aux"
   "EL3204_09.log"

@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1759926812.1477 "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_07/EL3204_07.tex" "EL3204_07.pdf" "EL3204_07" 1759926820.4112 0
-  "../aas_macros.sty" 1756753075 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
-  "../exercise-preamble.sty" 1756754158 2282 67423f5bf846307bd339f448d9ebb19d ""
-  "../fcfm_die.pdf" 1756753075 70674 58fca911fad9f2323ab3bd83506d01cc ""
-  "../macros.sty" 1756753075 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
-  "C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1757947974 83965 9d76c75bafb07e33148657a7df88de60 ""
+["pdflatex"] 1762127770.89387 "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_07/EL3204_07.tex" "EL3204_07.pdf" "EL3204_07" 1762127782.54923 0
+  "../aas_macros.sty" 1759927211 5997 c2e11ea0d34c30a6990185aa7cdac7a4 ""
+  "../exercise-preamble.sty" 1759927211 2282 67423f5bf846307bd339f448d9ebb19d ""
+  "../fcfm_die.pdf" 1759927211 70674 58fca911fad9f2323ab3bd83506d01cc ""
+  "../macros.sty" 1759927211 315 f96c00fecd22a20224e6e8dcacfdfb9b ""
+  "C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760244193 151319 ba9a1df1ffdd1889cb03abaca1beca0a ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1719942157 12668 a3bee78d24191975534064feb2c2524e ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1719936018 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/Erik/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1719936021 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -318,10 +318,10 @@
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/was/upgreek.sty" 1665850770 5794 9054e31be15d93f1e6bd28cca2b6643f ""
   "C:/Users/Erik/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1720213992 55379 c1bb65353efb0e01cf4da24c4213b5d7 ""
-  "EL3204_07.aux" 1759926819 2375 736af874950e6b4c175fe0c647e343b1 "pdflatex"
-  "EL3204_07.out" 1759926819 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
-  "EL3204_07.tex" 1759926803 71595 63a3dba68ab1c8d82dd4f4ed7ad3ac00 ""
-  "c:/Users/Erik/Desktop/Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_07/EL3204_07.tex" 1759926803 71595 63a3dba68ab1c8d82dd4f4ed7ad3ac00 ""
+  "EL3204_07.aux" 1762127781 2375 736af874950e6b4c175fe0c647e343b1 "pdflatex"
+  "EL3204_07.out" 1762127781 78 d2d5b127f498eaa9d64b47cf9d564d3a "pdflatex"
+  "EL3204_07.tex" 1759926943 71595 63a3dba68ab1c8d82dd4f4ed7ad3ac00 ""
+  "c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_07/EL3204_07.tex" 1759926943 71595 63a3dba68ab1c8d82dd4f4ed7ad3ac00 ""
   (generated)
   "EL3204_07.aux"
   "EL3204_07.log"

@@ -1,0 +1,611 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   %answers
+  ]{exam}
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{circuitikz}  % tal como ya lo tienes
+\ctikzset{current/american}
+
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Circuitos Eléctricos Analógicos} (EL3202-1) \\
+\large\textbf{Clase auxiliar 7} \\
+\normalsize Prof.~ Patricio Mendoza.\\
+\normalsize Prof.~Aux.~Renato Planas ~Erik Sáez
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+%----------------------------
+\question Los parámetros de cada transistor en el circuito mostrado en la Figura \ref{fig:circuito_p675} son $\beta=100$ y $V_A=\infty$.
+\begin{parts} 
+  \part Determine los parámetros de pequeña señal $g_m$, $r_{\pi}$ y $r_o$ para ambos transistores.
+  \part Determine la ganancia de tensión de pequeña señal $A_{v1}=v_{o1}/v_s$, suponiendo que $v_{o1}$ está conectado a un circuito abierto, y determine la ganancia $A_{v2}=v_o/v_{o1}$.
+  \part Determine la ganancia global de pequeña señal $A_v=v_o/v_s$. Compare la ganancia global con el producto $A_{v1}\cdot A_{v2}$, usando los valores calculados en la parte (b).
+\end{parts}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Auxiliar_7_1}
+\caption{Circuito amplificador de dos etapas con transistores BJT. La configuración muestra dos transistores $Q_1$ y $Q_2$ con sus respectivas resistencias de polarización y capacitores de acoplamiento.}
+\label{fig:circuito_p675}
+\end{figure}
+%----------------------------
+\begin{solution}
+  \subsection*{Resolución Parte (a)}
+  Se busca determinar los parámetros de pequeña señal. Para ello, primero se debe encontrar la corriente de polarización de cada transistor, por lo que los condensadores pasarán a estar abiertos. Luego, para el transistor $Q_1$ se tiene:
+  \begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.45\textwidth}
+  \centering
+  \includegraphics[width=0.6\textwidth]{Auxiliar_7_2}
+  \caption{Circuito equivalente de Thévenin visto desde la base del transistor $Q_1$.}
+  \label{fig:thevenin_q1}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.45\textwidth}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Auxiliar_7_3}
+  \caption{Circuito de polarización DC para análisis del transistor $Q_1$.}
+  \label{fig:polarizacion_q1}
+\end{subfigure}
+\caption{Análisis de polarización DC del transistor $Q_1$. (a) Equivalente de Thévenin en la base. (b) Circuito simplificado para cálculo de corrientes.}
+\label{fig:analisis_q1}
+\end{figure}
+Analizando la Figura \ref{fig:thevenin_q1}, mediante un divisor de voltaje, los parámetros del equivalente de Thévenin son:
+\begin{align}
+  V_{TH} &= V_{CC} \cdot \frac{R_{2}}{R_{1}+R_{2}} = 10\,\text{V} \cdot \frac{20\,\text{k}\Omega}{20\,\text{k}\Omega + 80\,\text{k}\Omega} = 2\,\text{V} \\
+  R_{TH} &= R_{1} \parallel R_{2} = 20\,\text{k}\Omega \parallel 80\,\text{k}\Omega = 16\,\text{k}\Omega 
+\end{align}
+Realizando una malla sobre el equivalente visto en la Figura \ref{fig:polarizacion_q1}, se obtiene:
+\begin{align}
+-V_{TH}+I_{B1} R_{TH} + 0.7\,\text{V} + I_{E1} R_{E1} &= 0 \\
+-V_{TH} + I_{B1} R_{TH} + 0.7 + I_{B1}(\beta + 1)R_{E1}&= 0\\
+I_{B1} = \frac{V_{TH}- 0.7}{R_{TH} + R_{E1}(\beta + 1)} = \frac{2-0.7}{16 + 1(101)} &= 0.0111\,\text{mA}
+\end{align}
+Por lo tanto, la corriente de colector y de emisor será:
+\begin{align}
+I_{C1} &= \beta \cdot I_{B1} = 100 \cdot 0.0111\,\text{mA} = 1.11\,\text{mA} \\
+I_{E1} &= I_{C1} + I_{B1} = 1.11\,\text{mA} + 0.0111\,\text{mA} = 1.1211\,\text{mA}
+\end{align}
+De esta manera se pueden calcular los parámetros de pequeña señal:
+\begin{align}
+g_{m1} &= \frac{I_{C1}}{V_T} = \frac{1.11\,\text{mA}}{26\,\text{mV}} = 42.69\,\text{mS} \\
+r_{\pi 1} &= \frac{\beta}{g_{m1}} = \frac{100}{42.69\,\text{mA/V}} = 2.34\,\text{k}\Omega \\
+r_{o1} &= \frac{V_A}{I_{C1}} = \frac{\infty}{1.11\,\text{mA}} = \infty
+\end{align}
+Con lo que el modelo de pequeña señal para el transistor $Q_1$ viene dado por la Figura \ref{fig:modelo_pequena_senal_q1}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Auxiliar_7_4}
+\caption{Modelo de pequeña señal para el transistor $Q_1$.}
+\label{fig:modelo_pequena_senal_q1}
+\end{figure}
+Para el transistor $Q_2$ se tendrá un desarrollo análogo, dado que se encuentra desacoplado del transistor $Q_1$ por el capacitor de acoplamiento ($C_{C2}$). Por tanto:
+\begin{align}
+V_{TH2} &= V_{CC} \cdot \frac{R_{4}}{R_{3}+R_{4}} = 10\,\text{V} \cdot \frac{15\,\text{k}\Omega}{15\,\text{k}\Omega + 85\,\text{k}\Omega} = 1.50\,\text{V} \\
+R_{TH2} &= R_{3} \parallel R_{4} = 15\,\text{k}\Omega \parallel 85\,\text{k}\Omega = 12.75\,\text{k}\Omega
+\end{align}
+De esta manera, al aplicar nuevamente la malla, se obtiene:
+\begin{align}
+  I_{B2} = \frac{V_{TH2}-0.7}{R_{TH2} + R_{E2}(\beta + 1)} = \frac{1.5-0.7}{12.75 + 0.5(101)} = 0.01265\,\text{mA} 
+\end{align}
+Por lo tanto, la corriente de colector y emisor será:
+\begin{align}
+I_{C2} &= \beta \cdot I_{B2} = 100 \cdot 0.01265\,\text{mA} = 1.265\,\text{mA}\\
+I_{E2} &= I_{C2} + I_{B2} = 1.265\,\text{mA} + 0.01265\,\text{mA} = 1.27765\,\text{mA}
+\end{align}
+Y los parámetros de pequeña señal para $Q_2$ son:
+\begin{align}
+g_{m2} &= \frac{I_{C2}}{V_T} = \frac{1.265\,\text{mA}}{26\,\text{mV}} = 48.65\,\text{mA/V} \\
+r_{\pi 2} &= \frac{\beta}{g_{m2}} = \frac{100}{48.65\,\text{mS}} = 2.06\,\text{k}\Omega \\
+r_{o2} &= \frac{V_A}{I_{C2}} = \frac{\infty}{1.265\,\text{mA}} = \infty
+\end{align}
+Por otro lado, el modelo de pequeña señal para el transistor $Q_2$ será:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Auxiliar_7_5}
+\caption{Modelo de pequeña señal para el transistor $Q_2$.}
+\label{fig:modelo_pequena_senal_q2}
+\end{figure}
+
+\subsection*{Resolución Parte (b)}
+Para calcular la ganancia $A_{v1}=v_{o1}/v_s$, consideramos que $v_{o1}$ está conectado a un circuito abierto, es decir, no hay carga conectada a la salida de la primera etapa. Analizando el circuito de pequeña señal del transistor $Q_1$ (Ver Figura \ref{fig:modelo_pequena_senal_q1}), y dado que $v_{\pi 1} = v_{s}$, se tiene:
+\begin{align}
+v_{o1} &= -g_{m1} \cdot v_{\pi 1} \cdot R_{C1}\\
+v_{o1} &= -g_{m1} \cdot v_{s} \cdot R_{C1}\\
+\frac{v_{o1}}{v_{s}} &= -g_{m1} \cdot R_{C1}\\
+A_{v1} &= -g_{m1} \cdot R_{C1} = -42.69\,\text{mS} \cdot 2\,\text{k}\Omega = -85.38
+\end{align}
+
+Para calcular la ganancia de la segunda etapa $A_{v2}=v_o/v_{o1}$, analizamos el circuito de pequeña señal del transistor $Q_2$ (Ver Figura \ref{fig:modelo_pequena_senal_q2}). En este caso, $v_{o1} = v_{\pi 2}$, y la resistencia de carga vista por el colector es $R_{C2} \parallel R_L$. Por tanto, la ganancia viene dada por:
+\begin{align}
+v_{o} &= -g_{m2} \cdot v_{\pi 2} \cdot (R_{C2} \parallel R_{L})\\
+v_{o} &= -g_{m2} \cdot v_{o1} \cdot (R_{C2} \parallel R_{L})\\
+\frac{v_o}{v_{o1}} &= -g_{m2} \cdot (R_{C2} \parallel R_{L})\\
+A_{v2} &= -g_{m2} \cdot (R_{C2} \parallel R_{L})\\
+A_{v2} &= -48.65\,\text{mA/V} \cdot (4\,\text{k}\Omega \parallel 4\,\text{k}\Omega) = -48.65\,\text{mA/V} \cdot 2\,\text{k}\Omega = -97.30
+\end{align}
+Con lo que se obtiene la ganancia de la segunda etapa como $A_{v2} = -97.30$.
+
+\subsection*{Resolución Parte (c)}
+Finalmente se busca analizar la ganancia global del amplificador de dos etapas y compararla con la multiplicación de las etapas individuales. Para esto utilizamos el circuito equivalente completo de pequeña señal mostrado en la Figura \ref{fig:circuito_equivalente_dos_etapas}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Auxiliar_7_6}
+\caption{Circuito equivalente de pequeña señal para el amplificador de dos etapas.}
+\label{fig:circuito_equivalente_dos_etapas}
+\end{figure}
+
+Analizando el circuito completo, comenzamos desde la salida $v_{o}$:
+\begin{align}
+v_{o} &= -g_{m2} \cdot v_{\pi 2} \cdot (R_{C2} \parallel R_{L})\\
+v_{o} &= -g_{m2} \cdot v_{o1} \cdot (R_{C2} \parallel R_{L})
+\end{align}
+
+El voltaje $v_{o1}$ en el colector de $Q_1$ viene dado por:
+\begin{align}
+v_{o1} &= -g_{m1} \cdot v_{\pi 1} \cdot \left(R_{C1} \parallel (R_{3} \parallel R_{4}) \parallel r_{\pi 2}\right)\\
+v_{o1} &= -g_{m1} \cdot v_{s} \cdot \left(R_{C1} \parallel (R_{3} \parallel R_{4}) \parallel r_{\pi 2}\right)
+\end{align}
+
+Donde $v_{s} = v_{\pi 1}$. Sustituyendo $v_{o1}$ en la expresión de $v_{o}$:
+\begin{align}
+v_{o} &= -g_{m2} \cdot (R_{C2} \parallel R_{L}) \cdot \left[-g_{m1} \cdot v_{s} \cdot \left(R_{C1} \parallel (R_{3} \parallel R_{4}) \parallel r_{\pi 2}\right)\right]\\
+\frac{v_{o}}{v_{s}} &= g_{m1} \cdot g_{m2} \cdot \left(R_{C1} \parallel (R_{3} \parallel R_{4}) \parallel r_{\pi 2}\right) \cdot (R_{C2} \parallel R_{L})
+\end{align}
+
+Calculando numéricamente:
+\begin{align}
+R_{3} \parallel R_{4} &= 15\,\text{k}\Omega \parallel 85\,\text{k}\Omega = 12.75\,\text{k}\Omega\\
+(R_{3} \parallel R_{4}) \parallel r_{\pi 2} &= 12.75\,\text{k}\Omega \parallel 2.06\,\text{k}\Omega = 1.77\,\text{k}\Omega\\
+R_{C1} \parallel ((R_{3} \parallel R_{4}) \parallel r_{\pi 2})   &= 2\,\text{k}\Omega \parallel 1.77\,\text{k}\Omega = 0.94\,\text{k}\Omega\\
+R_{C2} \parallel R_{L} &= 4\,\text{k}\Omega \parallel 4\,\text{k}\Omega = 2\,\text{k}\Omega
+\end{align}
+
+Por tanto:
+\begin{align}
+A_{v} &= g_{m1} \cdot g_{m2} \cdot 0.94\,\text{k}\Omega \cdot 2\,\text{k}\Omega\\
+A_{v} &= 42.69\,\text{mS} \cdot 48.65\,\text{mS} \cdot 0.94\,\text{k}\Omega \cdot 2\,\text{k}\Omega\\
+A_{v} &= 3900.7
+\end{align}
+
+\textbf{Comparación con el producto $A_{v1} \cdot A_{v2}$:}
+
+Calculado en la parte (b):
+\begin{align}
+A_{v1} \cdot A_{v2} = (-85.38) \cdot (-97.30) = 8307.5
+\end{align}
+
+Se observa que $A_v = 3900.7 \neq A_{v1} \cdot A_{v2} = 8307.5$. Esta diferencia se debe al \textbf{efecto de carga} entre las etapas. Cuando se calculó $A_{v1}$ en la parte (b), se asumió que $v_{o1}$ estaba en circuito abierto, es decir, sin carga. Sin embargo, en el circuito completo, la segunda etapa presenta una impedancia de entrada $(R_3 \parallel R_4 \parallel r_{\pi 2})$ que carga a la primera etapa, reduciendo su ganancia efectiva de $-85.38$ a aproximadamente $-40.1$.
+
+Este efecto de carga es característico de amplificadores en cascada cuando no existe un buffer o aislamiento perfecto entre etapas. La ganancia real del sistema $A_v = 3900.7$ es menor que el producto de las ganancias individuales debido a esta interacción entre etapas.
+\end{solution}
+\newpage
+%----------------------------
+\question El circuito de la Figura \ref{fig:circuito_gain_stage} es el circuito de Gain-Stage para un amplificador de telefonía. Asumiendo que todos los transistores tienen $\beta = 100$ y $V_{BE} = 0.7\,\text{V}$, se le pide:
+\begin{parts}
+  \part Encuentre la corriente DC en cada transistor, además determine el voltaje DC en la salida.
+  \part Encuentre la resistencia de entrada y de salida del circuito.
+  \part Encuentre la ganancia $\frac{v_o}{v_i}$ de esta etapa. Considere la resistencia de entrada del transistor 3 como $243\,\text{k}\Omega$. (Hint: Vaya calculando la ganancia en corriente, la figura 5 puede ser de ayuda).
+\end{parts}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{Auxiliar_7_7}
+\caption{Circuito Gain-Stage para amplificador de telefonía.}
+\label{fig:circuito_gain_stage}
+\end{figure}
+%----------------------------
+\begin{solution}
+  \subsection*{Resolución Parte (a)}
+Primero analizaremos las diferentes etapas del circuito para encontrar las corrientes DC en cada transistor. Comenzamos con el transistor $Q_1$, obteniendo el voltaje de Thévenin y la resistencia de Thévenin, lo que resulta en el siguiente circuito equivalente:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Auxiliar_7_8}
+\caption{Circuito equivalente de Thévenin visto desde la base del transistor $Q_1$.}
+\end{figure}
+Debemos tener cuidado, ya que en esta ocasión estamos alimentando tanto en la parte superior con $+5\,\text{V}$ como en la parte inferior con $-5\,\text{V}$. De esta manera, el voltaje de Thévenin $V_{TH} = V_{BB}$ se calcula como:
+\begin{align}
+  V_{TH} &= V_{BB} = -5\,\text{V} + \frac{33\,\text{k}\Omega}{33\,\text{k}\Omega + 68\,\text{k}\Omega} \cdot 10\,\text{V} = -1.73\,\text{V}
+\end{align}
+Y la resistencia de Thévenin es:
+\begin{align}
+  R_{TH} &= 33\,\text{k}\Omega \parallel 68\,\text{k}\Omega = 22.3\,\text{k}\Omega
+\end{align}
+Realizando una malla, se obtiene:
+\begin{align}
+  -V_{BB} + R_{BB}i_{B1} + 0.7 + R_{e}i_{e1} -5 &= 0\\
+  R_{BB}i_{B1} + R_{e}i_{B1}(\beta +1)  &= V_{BB} + 5 -0.7\\
+  i_{B1}&= \frac{V_{BB} + 5 -0.7}{R_{BB} + R_{e}(\beta +1)}\\
+  i_{B1}&= \frac{-1.73 + 5 -0.7}{22.3 + 4.7(101)}\\
+  i_{B1}&= 5.17 \times 10^{-6}\,\text{A} 
+\end{align}
+Por lo tanto, la corriente en el colector y emisor del transistor $Q_1$ es:
+\begin{align}
+  I_{C1} &= \beta i_{B1} = 100 \times 5.17 \times 10^{-6}\,\text{A} = 0.517\,\text{mA}\\
+  I_{E1} &= I_{C1} + i_{B1} = 0.517\,\text{mA} + 5.17 \times 10^{-6}\,\text{A} = 0.517\,\text{mA}
+\end{align}
+
+\textbf{Análisis del transistor $Q_2$:}
+
+Para analizar el transistor $Q_2$, utilizaremos la corriente de colector de $Q_{1}$ obtenida con anterioridad, de esta manera tenemos que la resistencia que verá la base será simplemente $8.2\,\text{k}\Omega$. Con lo que el voltaje en la base de $Q_2$ será:
+\begin{align}
+  V_{B2} = 5\,\text{V} - 8.2\,\text{k}\Omega \times 0.517\,\text{mA} = 0.74\,\text{V}
+\end{align}
+Con lo que el esquema quedará de la forma:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Auxiliar_7_9}
+\caption{Circuito simplificado para análisis del transistor $Q_2$.}
+\end{figure}
+Dado que estamos ante un transistor BJT tipo PNP, debemos tener cuidado con cómo se plantea la malla (Utilizamos la superior, no la inferior a diferencia de un NPN). De este modo tenemos que:
+\begin{align}
+  -5 + 3.3\,\text{k}\Omega \cdot I_{E2} + 0.7 + 8.2\,\text{k}\Omega \cdot I_{B2} + 0.74 = 0  
+\end{align}
+Notemos que, a diferencia del NPN, la corriente que va desde los $5\,\text{V}$ al transistor corresponde a la corriente del emisor. Recordemos que $I_{B2}$ puede ser expresada en función de $I_{E2}$ tal que:
+\begin{align}
+  I_{B2} = \frac{I_{E2}}{\beta +1}
+\end{align}
+Dejando todo en función de $I_{E2}$:
+\begin{align}
+  -5 + 3.3\,\text{k}\Omega \cdot I_{E2} + 0.7 + 8.2\,\text{k}\Omega \cdot \frac{I_{E2}}{\beta +1} + 0.74 &= 0  \\
+   3.3\,\text{k}\Omega \cdot I_{E2} + 8.2\,\text{k}\Omega \cdot \frac{I_{E2}}{101} &= 3.56  \\
+   I_{E2}(3.3 + 0.0812) &= 3.56\\
+   I_{E2} &= 1.05\,\text{mA}
+\end{align}
+Por lo tanto, la corriente en el colector de $Q_{2}$ será:
+\begin{align}
+  I_{C2} &= \frac{\beta}{\beta +1} I_{E2} = \frac{100}{101} \times 1.05\,\text{mA} = 1.04\,\text{mA}
+\end{align}
+
+\textbf{Análisis del transistor $Q_3$:}
+
+Análogamente, calculamos el voltaje equivalente para $Q_{3}$ utilizando la información de la corriente de colector de $Q_{2}$, por lo tanto:
+\begin{align}
+  V_{B3} - 1.04\,\text{mA} \times 5.6\,\text{k}\Omega &= -5\,\text{V}\\
+  V_{B3} &= -5 + 1.04\,\text{mA} \times 5.6\,\text{k}\Omega = 0.824\,\text{V}
+\end{align}
+Obteniendo el siguiente circuito equivalente:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{Auxiliar_7_10}
+\caption{Circuito simplificado para análisis del transistor $Q_3$.}
+\end{figure}
+Este transistor corresponde a un NPN, por lo que la malla será:
+\begin{align}
+  -0.824\,\text{V} - 5.6[k\Omega] \cdot I_{B3} + 0.7\,\text{V} + 2.4\,\text{k}\Omega \cdot I_{C3} - 5[V] &= 0
+\end{align}
+De esta manera podemos despejar $I_{B3}$ en función de $I_{C3}$:
+\begin{align}
+  I_{B3} &= \frac{I_{C3}}{\beta}\\
+  -0.824 + 5.6\,\text{k}\Omega \cdot \frac{I_{C3}}{100} + 0.7 + 2.4\,\text{k}\Omega \cdot I_{C3} - 5 &= 0\\
+  I_{C3}\left(\frac{5.6\,\text{k}\Omega}{100} + 2.4\,\text{k}\Omega\right) &= 5 + 0.824 - 0.7\\
+  I_{C3} \times 2.456\,\text{k}\Omega &= 5.124\,\text{V}\\
+  I_{C3} &= \frac{5.124\,\text{V}}{2.456\,\text{k}\Omega} = 2.08\,\text{mA}
+\end{align}
+Despejando, se tiene que $I_{c3} \approx 2.1\,\text{mA}$. Finalmente, podemos obtener el voltaje de salida DC:
+\begin{align}
+v_o - (-5\,\text{V}) &= I_{C3} \times 2.4\,\text{k}\Omega\\
+v_o + 5\,\text{V} &= 2.08\,\text{mA} \times 2.4\,\text{k}\Omega\\
+v_o + 5\,\text{V} &= 4.992\,\text{V}\\
+v_o &= -0.008\,\text{V} \approx 0\,\text{V}
+\end{align}
+Con lo que finalmente tenemos:
+\begin{itemize}
+  \item $I_{C1} = 0.517\,\text{mA}$
+  \item $I_{C2} = 1.04\,\text{mA}$
+  \item $I_{C3} = 2.1\,\text{mA}$
+  \item $v_o \approx 0\,\text{V}$
+\end{itemize}
+
+\subsection*{Resolución Parte (b)}
+
+Con la información DC de todo el sistema obtenida en la parte (a), procedemos a calcular las resistencias de entrada y salida del circuito.
+
+\textbf{Resistencia de entrada:}
+
+La resistencia de entrada, vista desde los terminales de $v_i$, está dada por (Esto para el modelo de pequeña señal de $Q_1$):
+\begin{align}
+R_{in} = 68\,\text{k}\Omega \parallel 33\,\text{k}\Omega \parallel r_{\pi 1}
+\end{align}
+
+Donde no se considera la resistencia reflejada del emisor de $4.7\,\text{k}\Omega$ debido a que hay un condensador que actúa como cortocircuito ideal en AC (ver Figura \ref{fig:circuito_gain_stage}). Para calcular $r_{\pi 1}$, primero determinamos $g_{m1}$:
+\begin{align}
+g_{m1} &= \frac{I_{C1}}{V_T} = \frac{0.517\,\text{mA}}{0.026\,\text{V}} = 20.8\,\text{mA/V}\\
+r_{\pi 1} &= \frac{\beta}{g_{m1}} = \frac{100}{20.8} = 4.81\,\text{k}\Omega
+\end{align}
+
+Por lo tanto:
+\begin{align}
+R_{in} = 68\,\text{k}\Omega \parallel 33\,\text{k}\Omega \parallel 4.81\,\text{k}\Omega = 3.62\,\text{k}\Omega
+\end{align}
+
+\textbf{Resistencia de salida:}
+Para analizar el modelo de salida, es conveniente utilizar el modelo T de pequeña señal para el transistor $Q_3$, el cual viene dado por:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\textwidth]{Auxiliar_7_12}
+\caption{Modelo T de pequeña señal para el transistor $Q_3$.}
+\end{figure}
+El cual nos permite traer la $r_{e}$ que se relaciona directamente con la resistencia $r_{\pi}$, mediante la siguiente relación:
+\begin{align}
+r_{e3} = \frac{r_b}{\beta + 1}
+\end{align}
+Donde la resistencia $r_b$ en este caso corresponderá a la resistencia $r_{\pi3}$ en serie con la resistencia de $5.6\,\text{k}\Omega$. De esta manera tenemos que:
+\begin{align}
+r_{b} = r_{\pi 3} + 5.6\,\text{k}\Omega
+\end{align}
+Con lo que finalmente tenemos que:
+\begin{align}
+r_{e3} = \frac{r_{\pi 3} + 5.6\,\text{k}\Omega}{\beta + 1}
+\end{align}
+Por último, esta resistencia se encuentra en paralelo con la resistencia de $2.4\,\text{k}\Omega$ que se encuentra en el colector del transistor $Q_3$, por lo que finalmente tenemos que la resistencia de salida será:
+\begin{align}
+  R_{0}&= 2.4[k\Omega] \parallel r_{e3}\\
+  R_{0}&= 2.4[k\Omega] \parallel \left(\frac{r_{\pi 3} + 5.6\,\text{k}\Omega}{\beta + 1}\right)
+\end{align}
+Calculando $r_{\pi 3}$:
+\begin{align}
+g_{m3} &= \frac{I_{C3}}{V_T} = \frac{2.1\,\text{mA}}{0.026\,\text{V}} = 80.77\,\text{mA/V}\\
+r_{\pi 3} &= \frac{\beta}{g_{m3}} = \frac{100}{80.77} = 1.24\,\text{k}\Omega
+\end{align}
+Sustituyendo:
+\begin{align}
+R_o &= 2.4\,\text{k}\Omega \parallel \left(\frac{1.24K\Omega}{101}+ \frac{5.6\,\text{k}\Omega}{101}\right)\\
+R_o &= 2.4\,\text{k}\Omega \parallel 67.3\,\Omega = 66.3\,\Omega
+\end{align}
+
+\subsection*{Resolución Parte (c)}
+
+Para calcular la ganancia total del circuito $A_v = \frac{v_o}{v_i}$, utilizaremos el método de ganancia en corriente, siguiendo el flujo de corriente a través de las tres etapas.
+
+\textbf{Primera etapa ($Q_1$):}
+
+La corriente de colector de $Q_1$ en función de $v_i$ es:
+\begin{align}
+i_{c1} = g_{m1}v_i = 20.8v_i
+\end{align}
+
+\textbf{Segunda etapa ($Q_2$):}
+
+Esta corriente $i_{c1}$ se divide entre la resistencia del colector ($8.2\,\text{k}\Omega$) y la resistencia de entrada de $Q_2$. Primero calculamos los parámetros de $Q_2$:
+\begin{align}
+g_{m2} &= \frac{I_{C2}}{V_T} = \frac{1.04\,\text{mA}}{0.026\,\text{V}} = 40\,\text{mA/V}\\
+r_{\pi 2} &= \frac{\beta}{g_{m2}} = \frac{100}{40} = 2.5\,\text{k}\Omega
+\end{align}
+
+Usando divisor de corriente para encontrar la corriente que va hacia la base de $Q_2$:
+\begin{align}
+i_{b2} = i_{c1} \cdot \frac{8.2}{8.2 + 2.5} = 20.8v_i \times 0.766 = 15.9v_i
+\end{align}
+
+La corriente en el colector de $Q_2$ será:
+\begin{align}
+i_{c2} = \beta \cdot i_{b2} = 100 \times 15.9v_i = 1590v_i
+\end{align}
+
+\textbf{Tercera etapa ($Q_3$):}
+
+Ahora, la corriente $i_{c2}$ se divide entre la resistencia del colector de $Q_2$ ($5.6\,\text{k}\Omega$) y la resistencia de entrada de $Q_3$. Dado que no hay condensador en el emisor de $Q_3$, debemos usar la regla de reflexión de resistencia completa:
+\begin{align}
+R_{in3} = (\beta + 1)(r_{e3} + 2.4\,\text{k}\Omega) = 101(11.9\,\Omega + 2.4\,\text{k}\Omega) \approx 244\,\text{k}\Omega
+\end{align}
+
+Usando divisor de corriente:
+\begin{align}
+i_{b3} = i_{c2} \times \frac{5.6}{5.6 + 244} = 1590v_i \times 0.0224 = 35.6v_i
+\end{align}
+
+La corriente por el emisor de $Q_3$ es:
+\begin{align}
+i_{e3} = (\beta + 1) \cdot i_{b3} = 101 \times 35.6v_i = 3595v_i
+\end{align}
+
+\textbf{Cálculo de la ganancia:}
+
+Finalmente, el voltaje de salida $v_o$ es:
+\begin{align}
+v_o = 2.4\,\text{k}\Omega \times i_{e3} = 2.4 \times 3595v_i = 8628v_i
+\end{align}
+
+Por lo tanto, la ganancia de voltaje es:
+\begin{align}
+A_v = \frac{v_o}{v_i} = 8628\,\text{V/V} \approx 8.6 \times 10^3\,\text{V/V}
+\end{align}
+\end{solution}
+\newpage
+%----------------------------
+\question El circuito de la Figura \ref{fig:seguidor_corriente} es un seguidor de corriente. Encuentre una expresión para $v_{OUT}$ en función de $v_{IN}$ en el caso que $Q_1$ y $Q_3$ operen en la región de corriente constante.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Auxiliar_7_11}
+\caption{Circuito seguidor de corriente con transistores MOSFET.}
+\label{fig:seguidor_corriente}
+\end{figure}
+%---------------------------
+\begin{solution}
+\subsection*{Resolución}
+
+Primero notemos que el transistor $Q_1$ opera de forma automática en la región de corriente constante, por la misma razón vista en el problema anterior.
+
+Para $v_{IN} > V_{TR3}$ y estando $Q_3$ en la región de corriente constante, la corriente de entrada $i_{IN}$ está dada por:
+\begin{align}
+i_{IN} = K_3 (v_{IN} - V_{TR3})^2
+\end{align}
+
+Podemos definir la característica $v$-$i$ del transistor $Q_1$ de la siguiente manera:
+\begin{align}
+v_{DS1} = V_{TR1} + \sqrt{\frac{i_{D1}}{K_1}}
+\end{align}
+
+El voltaje de salida del circuito, siendo $i_{D1} = i_{IN}$, se convierte en:
+\begin{align}
+v_{OUT} = V_{DD} - v_{DS1} = V_{DD} - V_{TR1} - \sqrt{\frac{i_{IN}}{K_1}}
+\end{align}
+
+Reemplazando la ecuación anterior, obtenemos una expresión para el voltaje de salida:
+\begin{align}
+v_{OUT} = V_{DD} - V_{TR1} - \sqrt{\frac{K_3}{K_1}}(v_{IN} - V_{TR3})
+\end{align}
+
+La pendiente de esta expresión constituye la ganancia del circuito en la región de corriente constante:
+\begin{align}
+\frac{dv_{OUT}}{dv_{IN}} = -\sqrt{\frac{K_3}{K_1}}
+\end{align}
+
+Si $Q_1$ y $Q_3$ están pareados, de manera que $K_1 = K_3$ y $V_{TR1} = V_{TR3}$, la expresión anterior se reduce a:
+\begin{align}
+v_{OUT} = V_{DD} - v_{IN}
+\end{align}
+
+Este circuito actúa como un seguidor de corriente con inversión de voltaje. Cuando los transistores están pareados ($K_1 = K_3$), la ganancia de voltaje es exactamente $-1$, lo que significa que el voltaje de salida es una réplica invertida del voltaje de entrada, referenciada a $V_{DD}$.
+
+La expresión de ganancia muestra que depende de la relación entre los parámetros de transconductancia de los transistores. Si $K_3 > K_1$, la ganancia será mayor en magnitud que 1, y viceversa. Este principio es fundamental en el diseño de amplificadores diferenciales y espejos de corriente en circuitos integrados.
+\end{solution}
+\newpage
+%----------------------------
+\question El circuito de la Figura \ref{fig:circuito_amplificador_diferencial} consiste en dos etapas de amplificadores diferenciales, los cuales están polarizados por dos fuentes de corrientes distintas. Obtenga la ganancia de este circuito.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Auxiliar_7_13}
+  \caption{Circuito de dos etapas de amplificadores diferenciales.}
+  \label{fig:circuito_amplificador_diferencial}
+\end{figure}
+%------------------
+\begin{solution}
+\subsection*{Resolución}
+
+Para resolver este problema, debemos utilizar el modelo de señal pequeña del circuito. Primero calcularemos la salida del primer amplificador diferencial formado por $Q_1$ y $Q_2$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Auxiliar_7_14}
+  \caption{Modelo de señal pequeña para la primera etapa del circuito de la pregunta 1.}
+  \label{fig:modelo_pequena_senal_etapa1}
+\end{figure}
+
+Utilizando el modelo de la Figura \ref{fig:modelo_pequena_senal_etapa1}, necesitamos encontrar una relación entre los voltajes de salida y los voltajes de entrada de este amplificador diferencial. Para esto empezamos por hacer dos mallas en las entradas, lo cual nos permitirá relacionar los voltajes $v_1$ y $v_2$ con las corrientes de base $i_{b1}$ e $i_{b2}$. Esto lo hacemos porque cada voltaje de salida se relaciona con las corrientes de colector que pasan a través de las resistencias $R_{C1}$.
+
+\begin{align}
+v_1 &= i_{b1}r_{\pi 1} + [(\beta_{01} + 1)i_{b1} + (\beta_{01} + 1)i_{b2}]r_{n1}\\
+v_2 &= i_{b2}r_{\pi 1} + [(\beta_{01} + 1)i_{b1} + (\beta_{01} + 1)i_{b2}]r_{n1}
+\end{align}
+
+Reordenamos las ecuaciones para agrupar los términos relacionados con cada corriente:
+\begin{align}
+v_1 &= [r_{\pi 1} + (\beta_{01} + 1)r_{n1}]i_{b1} + (\beta_{01} + 1)r_{n1}i_{b2}\\
+v_2 &= [r_{\pi 1} + (\beta_{01} + 1)r_{n1}]i_{b2} + (\beta_{01} + 1)r_{n1}i_{b1}
+\end{align}
+
+Ahora calculamos el modo diferencial y el modo común de este circuito. El modo diferencial corresponde a la diferencia entre las dos señales de entrada $(v_1 - v_2)$ y representa la señal útil que queremos amplificar. Por otro lado, el modo común corresponde al promedio de ambas señales $\frac{v_1 + v_2}{2}$ y representa señales indeseadas como ruido o interferencias que afectan por igual a ambas entradas. Un buen amplificador diferencial amplifica fuertemente el modo diferencial mientras rechaza (atenúa) el modo común. Para analizar el circuito, separamos estas dos componentes. Primero nos van a quedar dos ecuaciones en función de ambas corrientes:
+\begin{align}
+v_1 - v_2 &= r_{\pi 1}i_{b1} - r_{\pi 1}i_{b2}\\
+\frac{v_1 + v_2}{2} &= \frac{[r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}]}{2}i_{b1} + \frac{[r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}]}{2}i_{b2}
+\end{align}
+
+Despejamos la corriente $i_{b1}$ en la ecuación (5):
+\begin{align}
+i_{b1} = \frac{v_1 - v_2}{r_{\pi 1}} + i_{b2}
+\end{align}
+
+Reemplazamos $i_{b1}$ en (6):
+\begin{align}
+\frac{v_1 + v_2}{2} = \frac{[r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}]}{2r_{\pi 1}}(v_1 - v_2) + \frac{[r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}]}{2}i_{b2}
+\end{align}
+
+Ahora podemos tener una expresión de $i_{b2}$ en función del modo común y del modo diferencial despejando la ecuación (8). Luego, reemplazamos $i_{b2}$ en (7) de tal manera que también tenemos $i_{b1}$ en función del modo común y del modo diferencial del amplificador:
+\begin{align}
+i_{b2} &= \frac{1}{r_{\pi 1} + 2(\beta_{01} + 1)r_{\pi 1}}\left(\frac{v_1 + v_2}{2}\right) - \frac{1}{2r_{\pi 1}}(v_1 - v_2)\\
+i_{b1} &= \frac{1}{2r_{\pi 1}}(v_1 - v_2) + \frac{1}{r_{\pi 1} + 2(\beta_{01} + 1)r_{\pi 1}}\left(\frac{v_1 + v_2}{2}\right)
+\end{align}
+
+Hacemos una malla en cada salida del amplificador, y mediante la LVK obtenemos las siguientes ecuaciones:
+\begin{align}
+v_{o1} &= -R_{C1}\beta_{01}i_{b1}\\
+v_{o2} &= -R_{C1}\beta_{01}i_{b2}
+\end{align}
+
+Reemplazamos las corrientes ya calculadas en estas dos ecuaciones:
+\begin{align}
+v_{o1} &= -\frac{R_{C1}\beta_{01}}{2r_{\pi 1}}(v_1 - v_2) - \frac{R_{C1}\beta_{01}}{r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}}\left(\frac{v_1 + v_2}{2}\right)\\
+v_{o2} &= \frac{R_{C1}\beta_{01}}{2r_{\pi 1}}(v_1 - v_2) - \frac{R_{C1}\beta_{01}}{r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}}\left(\frac{v_1 + v_2}{2}\right)
+\end{align}
+
+Ahora analizamos cada término de estas ecuaciones. Notemos que el primer término está multiplicado por $\frac{1}{2r_{\pi 1}}$, mientras que el segundo término (correspondiente al modo común) está dividido por $r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}$. Dado que la resistencia de Norton $r_{n1}$ es muy grande (se diseña así para darle estabilidad al sistema y mejorar el rechazo al modo común), tenemos que:
+\begin{align}
+r_{\pi 1} + 2(\beta_{01} + 1)r_{n1} \gg 2r_{\pi 1}
+\end{align}
+
+Por lo tanto, el coeficiente del término de modo común es mucho menor que el coeficiente del término diferencial:
+\begin{align}
+\frac{1}{r_{\pi 1} + 2(\beta_{01} + 1)r_{n1}} \ll \frac{1}{2r_{\pi 1}}
+\end{align}
+
+Esto significa que el modo común es fuertemente atenuado (rechazado) con respecto al modo diferencial, lo cual es consistente con el objetivo del amplificador diferencial. Por esta razón, podemos despreciar el segundo término y llegamos a la siguiente expresión simplificada para las salidas de la primera etapa, recordando que $r_{\pi} = \frac{\beta}{g_m}$:
+\begin{align}
+v_{o1} &\approx -\frac{R_{C1}g_{m1}}{2}(v_1 - v_2)\\
+v_{o2} &\approx \frac{R_{C1}g_{m1}}{2}(v_1 - v_2)\\
+\frac{v_{o1} - v_{o2}}{v_1 - v_2} &= -R_{C1}g_{m1}
+\end{align}
+
+\textbf{Segunda etapa:}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Auxiliar_7_15}
+  \caption{Modelo de señal pequeña para la segunda etapa del circuito de la pregunta 1.}
+  \label{fig:modelo_pequena_senal_etapa2}
+\end{figure}
+
+De forma similar, calculamos la salida de estos transistores asumiendo que son iguales entre sí, pero no necesariamente iguales a los de la etapa anterior:
+\begin{align}
+v_o = -R_{C2}\beta_{02}i_{b4}
+\end{align}
+
+\begin{align}
+v_o = \frac{R_{C2}g_{m2}}{2}(v_{o1} - v_{o2}) - \frac{R_{C2}\beta_{02}}{r_{\pi 2} + 2(\beta_{02} + 1)r_{n2}}\frac{v_{o1} + v_{o2}}{2}
+\end{align}
+
+Nuevamente, aplicando el mismo razonamiento que en la primera etapa, dado que $r_{n2}$ es muy grande, el término del modo común es despreciable comparado con el término diferencial. Por lo tanto:
+\begin{align}
+v_o \approx \frac{R_{C2}g_{m2}}{2}(v_{o1} - v_{o2})
+\end{align}
+
+Finalmente obtenemos la ganancia del circuito dividiendo la salida por la entrada en modo diferencial:
+\begin{align}
+\frac{v_o}{v_1 - v_2} = \left[\frac{v_o}{v_{o1} - v_{o2}}\right]\left[\frac{v_{o1} - v_{o2}}{v_1 - v_2}\right] = \left[\frac{R_{C2}g_{m2}}{2}\right][-R_{C1}g_{m1}]
+\end{align}
+
+Si recordamos que $g_m = I_C/(\eta V_T)$, podemos tener una expresión final en términos de datos que podemos obtener en el circuito:
+\begin{align}
+\frac{v_o}{v_1 - v_2} = -\frac{g_{m1}g_{m2}R_{C1}R_{C2}}{2} = -\frac{I_{C1}I_{C3}R_{C1}R_{C2}}{2\eta_1\eta_2V_T^2}
+\end{align}
+
+Si hacemos la aproximación $I_C \approx I_E$ obtenemos las siguientes relaciones:
+\begin{align}
+I_{C1} + I_{C2} &\approx I_{E1} + I_{E2} = I_{o1}\\
+I_{C3} + I_{C4} &\approx I_{E3} + I_{E4} = I_{o2}
+\end{align}
+
+Asumiendo que los transistores $Q_1$ y $Q_2$ están pareados y también los transistores $Q_3$ y $Q_4$, llegamos a que $I_{C1} \approx I_{o1}/2$ y que $I_{C3} \approx I_{o2}/2$:
+\begin{align}
+\Rightarrow \frac{v_o}{v_1 - v_2} = -\frac{I_{o1}I_{o2}R_{C1}R_{C2}}{8\eta_1\eta_2V_T^2}
+\end{align}
+
+\end{solution}
+\end{questions}
+\end{document}

@@ -390,16 +390,16 @@ Donde:
     \item $x_3(t) = i(t)$: Corriente en la bobina
 \end{itemize}
 
-\item \textbf{Variables de salida}: Se considera que todas las variables de estado son medibles:
+\item \textbf{Variables de salida}: Se considera que se pueden medir la posición y la corriente, pero no la velocidad:
 \[
 \vec{Y}(t) = \begin{bmatrix}
-x(t) \\ \dot{x}(t) \\ i(t)
+x(t) \\ 0 \\ i(t)
 \end{bmatrix}, \qquad
 C = \begin{bmatrix}
 1 & 0 & 0 \\
-0 & 1 & 0 \\
+0 & 0 & 0 \\
 0 & 0 & 1
-\end{bmatrix} = I_3
+\end{bmatrix}
 \]
 \end{itemize}
 
@@ -424,8 +424,18 @@ x_2(t) \\[4pt]
 
 \textbf{Ecuación de salida}:
 \begin{align}
-\vec{Y}(t) = C \vec{X}(t) = I_3 \vec{X}(t)
+\vec{Y}(t) = C \vec{X}(t) = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 1
+\end{bmatrix} \vec{X}(t) = \begin{bmatrix}
+x_1(t) \\
+0 \\
+x_3(t)
+\end{bmatrix}
 \end{align}
+
+donde se mide la posición $x(t)$ y la corriente $i(t)$, pero no la velocidad.
 
 \subsubsection*{Características del Modelo}
 
@@ -434,12 +444,6 @@ x_2(t) \\[4pt]
     \item Término cuadrático $x_3^2(t)$ en la fuerza magnética
     \item Producto cruzado $x_3(t) x_2(t)$ en la ecuación eléctrica
     \item Términos recíprocos $(l_1 - x_1(t))^{-1}$ y $(l_1 - x_1(t))^{-2}$
-\end{itemize}
-
-\textbf{Acoplamiento}: Existe fuerte acoplamiento bidireccional entre los subsistemas mecánico y eléctrico, donde:
-\begin{itemize}
-    \item La corriente $i(t)$ genera fuerza magnética que afecta la dinámica mecánica
-    \item El movimiento $\dot{x}(t)$ induce voltaje que afecta la dinámica eléctrica
 \end{itemize}
 
 \subsection*{\textcolor{blue}{[0.15 Ptos]} Resolución 1.4}
@@ -457,9 +461,7 @@ De la primera condición se obtiene directamente que $x_2 = \dot{x} = 0$, es dec
 -\frac{R x_3 (l_1 - x_1)}{N^2 A \mu_0} &= 0
 \end{align}
 
-Dado que $R > 0$, $N^2 A \mu_0 > 0$, y $(l_1 - x_1) > 0$ para $x_1 < l_1$, la única solución posible es $x_3 = i(t) = 0$. Esto significa que en equilibrio no circula corriente por la bobina.
-
-Finalmente, analizando la segunda ecuación con las condiciones ya encontradas ($i = 0$ y $\dot{x} = 0$):
+Dado que $R > 0$, $N^2 A \mu_0 > 0$, y $(l_1 - x_1) > 0$ para $x_1 < l_1$, la única solución posible es $x_3 = i(t) = 0$. Esto significa que en equilibrio no circula corriente por la bobina. Finalmente, analizando la segunda ecuación con las condiciones ya encontradas ($i = 0$ y $\dot{x} = 0$):
 \begin{align}
 \frac{1}{2M} \cdot 0^2 \cdot \frac{N^2 A \mu_0}{(l_1 - x_1)^2} - \frac{K}{M}(x_1 - l_0) - \frac{B}{M} \cdot 0 &= 0\\
 -\frac{K}{M}(x_1 - l_0) &= 0\\
@@ -650,10 +652,6 @@ Reuniendo todos los elementos, el sistema linealizado en torno al punto de equil
 
 donde $\tilde{X} = \vec{X} - \vec{X}_{eq}$ y $\tilde{u} = u - u_{eq}$ representan las desviaciones respecto al punto de equilibrio.
 
-Este resultado revela características importantes del sistema linealizado. En primer lugar, se observa un desacoplamiento parcial entre los subsistemas mecánico y eléctrico para pequeñas perturbaciones alrededor del equilibrio. Las primeras dos filas describen la dinámica mecánica como un oscilador masa-resorte-amortiguador clásico de segundo orden, caracterizado por la frecuencia natural $\omega_n = \sqrt{K/M}$ y el coeficiente de amortiguamiento $\zeta = \frac{B}{2\sqrt{KM}}$. 
-
-Por otro lado, la tercera fila representa la dinámica eléctrica como un sistema de primer orden independiente, con constante de tiempo $\tau = \frac{N^2 A \mu_0}{R(l_1 - l_0)}$. Esta separación en el comportamiento lineal facilita significativamente el análisis de estabilidad y el diseño de controladores, ya que cada subsistema puede estudiarse de forma independiente en primera aproximación.
-
 \subsection*{\textcolor{blue}{[0.25 Ptos]} Resolución 2.3}
 
 Para obtener la Matriz de Transición de Estados (MTE), necesitamos calcular $e^{At}$ donde $A$ es la matriz de estado del sistema linealizado. Partiendo de la matriz obtenida en la sección anterior:
@@ -687,12 +685,12 @@ P_A(\lambda) &= \left(-\frac{R(l_1 - l_0)}{N^2 A \mu_0} - \lambda\right) \begin{
 
 De este polinomio característico obtenemos:
 
-**Primer valor propio:**
+\textbf{Primer valor propio:}
 \begin{align}
 \lambda_1 = -\frac{R(l_1 - l_0)}{N^2 A \mu_0}
 \end{align}
 
-**Segundo y tercer valor propio** (de la ecuación cuadrática):
+\textbf{Segundo y tercer valor propio} (de la ecuación cuadrática):
 \begin{align}
 \lambda^2 + \frac{B}{M}\lambda + \frac{K}{M} = 0
 \end{align}
@@ -710,20 +708,20 @@ Definiendo $\alpha = \frac{B}{2M}$ y $\beta = \frac{1}{2}\sqrt{\left(\frac{B}{M}
 
 Ahora calculamos los vectores propios resolviendo $(A - \lambda_i I)v_i = 0$ para cada valor propio.
 
-**Para $\lambda_1$:**
+\textbf{Para $\lambda_1$:}
 \begin{align}
 (A - \lambda_1 I)v_1 = \begin{bmatrix}
 \frac{R(l_1 - l_0)}{N^2 A \mu_0} & 1 & 0 \\
 -\frac{K}{M} & -\frac{B}{M} + \frac{R(l_1 - l_0)}{N^2 A \mu_0} & 0 \\
 0 & 0 & 0
-\end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
+\end{bmatrix} \begin{bmatrix} v_{11} \\ v_{12} \\ v_{13} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}
 \end{align}
 
-De la tercera ecuación: cualquier valor de $x_3$ es válido, elegimos $x_3 = 1$.
-De la primera ecuación: $x_2 + \frac{R(l_1 - l_0)}{N^2 A \mu_0} x_1 = 0$, por lo que $x_2 = 0$ y $x_1 = 0$.
+De la tercera ecuación: cualquier valor de $v_{13}$ es válido, elegimos $v_{13} = 1$.
+De la primera ecuación: $\frac{R(l_1 - l_0)}{N^2 A \mu_0} v_{11} + v_{12} = 0$, por lo que si elegimos $v_{11} = 0$, entonces $v_{12} = 0$.
 Por tanto: $v_1 = [0, 0, 1]^T$.
 
-**Para $\lambda_2 = -\alpha + \beta$:**
+\textbf{Para $\lambda_2 = -\alpha + \beta$:}
 \begin{align}
 (A - \lambda_2 I)v_2 = \begin{bmatrix}
 \alpha - \beta & 1 & 0 \\
@@ -737,7 +735,7 @@ De la primera ecuación: $(\alpha - \beta)x_1 + x_2 = 0$, por lo que $x_2 = -(\a
 Eligiendo $x_1 = 1$, obtenemos $x_2 = -\alpha + \beta = \lambda_2$.
 Por tanto: $v_2 = [1, \lambda_2, 0]^T = [1, -\alpha + \beta, 0]^T$.
 
-**Para $\lambda_3 = -\alpha - \beta$:**
+\textbf{Para $\lambda_3 = -\alpha - \beta$:}
 Siguiendo un proceso similar:
 $v_3 = [1, \lambda_3, 0]^T = [1, -\alpha - \beta, 0]^T$.
 
@@ -823,7 +821,7 @@ Para obtener la función de transferencia del sistema, utilizamos la relación m
 G(s) = C(sI - A)^{-1}B
 \end{align}
 
-donde $C = I_3$ (matriz identidad $3 \times 3$). Primero calculamos $(sI - A)$:
+donde $C = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$. Primero calculamos $(sI - A)$:
 \begin{align}
 sI - A = \begin{bmatrix}
 s & -1 & 0 \\[4pt]
@@ -837,7 +835,17 @@ La estructura triangular por bloques de esta matriz facilita el cálculo de la i
 \det(sI - A) = \left(s^2 + \frac{B}{M}s + \frac{K}{M}\right)\left(s + \frac{R(l_1 - l_0)}{N^2 A \mu_0}\right)
 \end{align}
 
-Calculando $(sI - A)^{-1}$ usando cofactores y luego multiplicando por $B$:
+Para calcular $(sI - A)^{-1}$, aprovechamos la estructura triangular por bloques. La matriz se puede expresar como:
+\begin{align}
+(sI - A)^{-1} = \begin{bmatrix}
+(sI - A_{22})^{-1} & * \\
+0 & \displaystyle\frac{1}{s + \frac{R(l_1 - l_0)}{N^2 A \mu_0}}
+\end{bmatrix}
+\end{align}
+
+donde $A_{22} = \begin{bmatrix} 0 & 1 \\ -\frac{K}{M} & -\frac{B}{M} \end{bmatrix}$ es el bloque superior izquierdo $2 \times 2$.
+
+Calculando $(sI - A)^{-1}B$, y notando que $B = [0, 0, \frac{l_1-l_0}{N^2A\mu_0}]^T$:
 \begin{align}
 (sI - A)^{-1}B = \frac{1}{\det(sI - A)} \begin{bmatrix}
 0 \\[4pt]
@@ -846,10 +854,10 @@ Calculando $(sI - A)^{-1}$ usando cofactores y luego multiplicando por $B$:
 \end{bmatrix}
 \end{align}
 
-Por lo tanto, la función de transferencia es:
+Finalmente, multiplicando por $C = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$:
 \begin{align}
 \boxed{
-G(s) = \begin{bmatrix}
+G(s) = C(sI-A)^{-1}B = \begin{bmatrix}
 0 \\[4pt]
 0 \\[4pt]
 \displaystyle\frac{\frac{l_1 - l_0}{N^2 A \mu_0}}{s + \frac{R(l_1 - l_0)}{N^2 A \mu_0}}
@@ -859,9 +867,10 @@ G(s) = \begin{bmatrix}
 
 Este resultado muestra que:
 \begin{itemize}
-    \item Las primeras dos salidas (posición y velocidad) no dependen directamente de la entrada voltaje, confirmando el desacoplamiento dinámico.
+    \item La primera salida (posición) no depende directamente de la entrada voltaje, confirmando el desacoplamiento dinámico entre el subsistema mecánico y la entrada eléctrica en el punto de equilibrio.
+    \item La segunda salida es siempre cero (velocidad no medida).
     \item La tercera salida (corriente) tiene una función de transferencia de primer orden con constante de tiempo $\tau = \frac{N^2 A \mu_0}{R(l_1 - l_0)}$.
-    \item El polo en $s = -\frac{R(l_1 - l_0)}{N^2 A \mu_0}$ corresponde al subsistema eléctrico.
+    \item El polo en $s = -\frac{R(l_1 - l_0)}{N^2 A \mu_0}$ corresponde al subsistema eléctrico y determina la rapidez de respuesta de la corriente ante cambios en el voltaje de entrada.
 \end{itemize}
 
 \subsection*{\textcolor{blue}{[0.5 Ptos]} Resolución 3.1}
@@ -872,30 +881,43 @@ En nuestro sistema, la relación salida-estado está dada por $\vec{y}(t) = C\ve
 \begin{align}
 C = \begin{bmatrix}
 1 & 0 & 0 \\
-0 & 1 & 0 \\
+0 & 0 & 0 \\
 0 & 0 & 1
 \end{bmatrix}_{3 \times 3}
 \end{align}
 
-Esto significa que la salida del sistema es exactamente igual al vector de estados:
+Esto significa que la salida del sistema mide solamente la posición y la corriente:
 \begin{align}
-\vec{y}(t) = \vec{X}(t) = \begin{bmatrix}
+\vec{y}(t) = \begin{bmatrix}
 x(t) \\
-\dot{x}(t) \\
+0 \\
 i(t)
 \end{bmatrix}
 \end{align}
 
-Dado que requerimos $\vec{y}(t) = \vec{0}$ para todo $t$ cuando la entrada es nula, y como $\vec{y}(t) = \vec{X}(t)$, se deduce que necesariamente $\vec{X}(t) = \vec{0}$ para todo $t$.
-
-Por lo tanto, el único estado cero del sistema es:
+Para que $\vec{y}(t) = \vec{0}$, necesitamos que:
 \begin{align}
-\vec{X}_e = \begin{bmatrix}
-x_0 \\
-\dot{x}_0 \\
-i_0
-\end{bmatrix} = \vec{0}
+C\vec{X}(t) = \begin{bmatrix}
+x(t) \\
+0 \\
+i(t)
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0 \\
+0
+\end{bmatrix}
 \end{align}
+
+Esto implica que $x(t) = 0$ y $i(t) = 0$, pero la velocidad $\dot{x}(t)$ puede tener cualquier valor ya que no aparece en la salida. Por lo tanto, los estados cero del sistema forman un subespacio unidimensional:
+\begin{align}
+\boxed{\vec{X}_e = \begin{bmatrix}
+0 \\
+\alpha \\
+0
+\end{bmatrix}, \quad \alpha \in \mathbb{R}}
+\end{align}
+
+Esto significa que cualquier estado con posición nula, corriente nula, y velocidad arbitraria es un estado cero. Físicamente, estos estados representan condiciones donde la armadura está en el origen ($x = 0$) sin corriente, pero puede tener cualquier velocidad inicial.
 
 \subsection*{\textcolor{blue}{[0.5 Ptos]} Resolución 3.2}
 
@@ -1053,7 +1075,7 @@ La respuesta en estado natural (RENC) se obtiene cuando la entrada es nula ($u(t
 y_{\text{RENC}} = C \Phi(s) \vec{X}_{eq}(0)
 \end{align}
 
-donde $\vec{X}_{eq}(0) = \begin{bmatrix} l_0 \\ 0 \\ 0 \end{bmatrix}$ y $C = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} = I$.
+donde $\vec{X}_{eq}(0) = \begin{bmatrix} l_0 \\ 0 \\ 0 \end{bmatrix}$ y $C = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$.
 
 Utilizando la matriz de transición de estados $\Phi(s)$ calculada anteriormente:
 
@@ -1143,15 +1165,9 @@ ya que $-\frac{B}{2M} < \frac{1}{2}\sqrt{\frac{B^2}{M^2} - 4\frac{K}{M}}$.
 \lambda_3 &= -\frac{B}{2M} - \frac{1}{2}\sqrt{\frac{B^2}{M^2} - 4\frac{K}{M}} < 0
 \end{align}
 
-por suma de términos negativos.
+por suma de términos negativos. El criterio utilizado es la ubicación de polos en el plano complejo. Para un sistema lineal e invariante en el tiempo, la estabilidad asintótica se garantiza cuando todos los polos (valores propios de la matriz $A$) tienen parte real negativa. Dado que los tres valores propios $\lambda_1$, $\lambda_2$ y $\lambda_3$ son negativos (o tienen parte real negativa en caso de ser complejos conjugados), podemos concluir que el sistema linealizado es estable.
 
-El criterio utilizado es la ubicación de polos en el plano complejo. Para un sistema lineal e invariante en el tiempo, la estabilidad asintótica se garantiza cuando todos los polos (valores propios de la matriz $A$) tienen parte real negativa.
-
-Dado que los tres valores propios $\lambda_1$, $\lambda_2$ y $\lambda_3$ son negativos (o tienen parte real negativa en caso de ser complejos conjugados), podemos concluir que el sistema linealizado es estable.
-
-Por lo tanto, se tiene estabilidad BIBO $\Rightarrow$ estabilidad BIBO.
-
-Esto significa que para cualquier entrada acotada, la salida del sistema será acotada, y que pequeñas perturbaciones alrededor del punto de equilibrio decaerán exponencialmente con el tiempo.
+Por lo tanto, se tiene estabilidad BIBO $\Rightarrow$ estabilidad BIBO. Esto significa que para cualquier entrada acotada, la salida del sistema será acotada, y que pequeñas perturbaciones alrededor del punto de equilibrio decaerán exponencialmente con el tiempo.
 
 \subsection*{\textcolor{blue}{[0.3 Ptos]} Resolución 5.2}
 

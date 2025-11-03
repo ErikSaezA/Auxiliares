@@ -428,10 +428,10 @@ INPUT .\EL3204_09.out
 INPUT .\EL3204_09.out
 INPUT EL3204_09.out
 INPUT EL3204_09.out
-OUTPUT EL3204_09.pdf
 INPUT .\EL3204_09.out
 INPUT .\EL3204_09.out
 OUTPUT EL3204_09.out
+OUTPUT EL3204_09.pdf
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
 INPUT ..\fcfm_die.pdf
@@ -475,7 +475,6 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\eule
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurb10.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
 INPUT C:\Users\Erik\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
@@ -512,16 +511,7 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\eule
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurb10.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurb7.tfm
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1095.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Users\Erik\AppData\Local\MiKTeX\fonts\tfm\public\rsfs\rsfs10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurm10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmib10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.tfm
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\euler\eurb10.tfm
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT EL3204_09.aux
 INPUT .\EL3204_09.out
 INPUT .\EL3204_09.out

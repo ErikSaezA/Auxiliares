@@ -131,19 +131,19 @@ es óptimo para su tamaño entre $[0, 1]$. Dado que $X$ es una variable aleatori
 \end{cases}
 \end{equation}
 
-con $\rho$ independiente de $X$. Además, el test de la forma (haciendo $\nu \to \infty$):
+con $\rho$ independiente de $X$. Además, el test de la forma (haciendo $\nu \to 0^+$):
+\begin{equation}
+(\forall x \in \mathbb{X})\pi(x) = 1
+\end{equation}
+
+es óptimo de tamaño 1 y el test de la forma (haciendo $\nu \to \infty$):
 \begin{equation}
 \pi(x) = \begin{cases}
 1 & \text{si } L(x|\theta = 0) = 0 \\
 0 & \text{si } L(x|\theta = 0) > 0
 \end{cases}
 \end{equation}
-
-es óptimo de tamaño 0 y el test de la forma (haciendo $\nu \to 0^+$):
-\begin{equation}
-(\forall x \in \mathbb{X})\pi(x) = 1
-\end{equation}
-es óptimo de tamaño 1.
+es óptimo de tamaño 0.
 
 Para evaluar un test de detección $\pi: \mathbb{X} \mapsto \{0, 1\}$, usamos dos probabilidades fundamentales:
 
@@ -272,22 +272,18 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       \mathcal{H}_1: \theta = 1 &\Rightarrow X \sim \text{Poisson}(\lambda_1)
       \end{align*}
       con $\lambda_1 > \lambda_0$.
-      
-      Para encontrar el test óptimo, aplicamos el Lema de Neyman-Pearson, que nos indica que debemos basar nuestra decisión en el cociente de verosimilitud:
+
+      Para encontrar el test óptimo, aplicamos el Lema de Neyman-Pearson, que nos indica que debemos basar nuestra decisión en el cociente de verosimilitud. Por lo que, decidimos $\mathcal{H}_1$ cuando $L(x) > \eta$. Esto nos lleva a la condición:
       \begin{equation}
-      L(x) = \frac{P_1(X = x)}{P_0(X = x)} = \frac{\frac{\lambda_1^x e^{-\lambda_1}}{x!}}{\frac{\lambda_0^x e^{-\lambda_0}}{x!}}
+      L(x) = \frac{P_1(X = x)}{P_0(X = x)} = \frac{\frac{\lambda_1^x e^{-\lambda_1}}{x!}}{\frac{\lambda_0^x e^{-\lambda_0}}{x!}} > \eta
       \end{equation}
       
       Simplificando esta expresión, los factoriales se cancelan y obtenemos:
       \begin{align}
-      L(x) &= \frac{\lambda_1^x e^{-\lambda_1}}{\lambda_0^x e^{-\lambda_0}} \\
-      &= \left(\frac{\lambda_1}{\lambda_0}\right)^x \cdot e^{-(\lambda_1 - \lambda_0)}
+      L(x) &= \frac{\lambda_1^x e^{-\lambda_1}}{\lambda_0^x e^{-\lambda_0}} > \eta \\
+      &= \left(\frac{\lambda_1}{\lambda_0}\right)^x \cdot e^{-(\lambda_1 - \lambda_0)} > \eta
       \end{align}
-      
-      Según el Lema de Neyman-Pearson, decidimos $\mathcal{H}_1$ cuando $L(x) > \eta$. Esto nos lleva a la condición:
-      \begin{equation}
-      \left(\frac{\lambda_1}{\lambda_0}\right)^x \cdot e^{-(\lambda_1 - \lambda_0)} > \eta
-      \end{equation}
+
       
       Para simplificar esta desigualdad, tomamos logaritmo natural en ambos lados (recordando que el logaritmo es una función monótona creciente que preserva la desigualdad):
       \begin{align}
@@ -319,8 +315,8 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
      El test óptimo tiene una estructura muy simple para distribuciones Poisson, siendo esencialmente un test de umbral sobre el número de eventos observados. La componente aleatoria (dada por $\gamma_0$) solo es necesaria cuando el umbral $\gamma$ cae exactamente en un valor entero y necesitamos ajustar con precisión la probabilidad de falsa alarma a exactamente $\alpha$.
 
       \subsection*{Resolución 1.4}
-      
-      Ahora debemos encontrar el test óptimo específico para $\alpha = 0.01$, con $\lambda_0 = 2$ y $\lambda_1 = 4$. Recordemos de la parte anterior que el test tiene la forma:
+
+      Ahora debemos encontrar el test óptimo específico para $\alpha = 0.01$, con $\lambda_0 = 2$ y $\lambda_1 = 4$. Donde se debe entender que el fijar un valor de $\alpha$ implica que estamos dispuestos a aceptar un cierto nivel de riesgo de falsa alarma y esto tiene implicancia directa sobre el umbral $\gamma$. Recordemos de la parte anterior que el test tiene la forma:
       \begin{equation}
       \pi(x) = \begin{cases}
       1 & \text{si } x > \gamma \\
@@ -328,13 +324,7 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       0 & \text{si } x < \gamma
       \end{cases}
       \end{equation}
-      
-      donde debemos determinar $\gamma$ y $\gamma_0$ tal que la probabilidad de falsa alarma bajo $\mathcal{H}_0$ sea exactamente $\alpha = 0.01$:
-      \begin{equation}
-      \mathbb{P}(\pi(X) = 1 | \theta = 0) = \mathbb{P}(X > \gamma | \theta = 0) + \gamma_0 \cdot \mathbb{P}(X = \gamma | \theta = 0) = 0.01
-      \end{equation}
-      
-      La probabilidad de falsa alarma es la probabilidad de rechazar $\mathcal{H}_0$ (decidir 1) cuando $\mathcal{H}_0$ es verdadera. Dado que el test $\pi(X)$ toma diferentes valores según la observación $X$, debemos calcular la esperanza de $\pi(X)$ bajo $\mathcal{H}_0$:
+      La probabilidad de falsa alarma es la probabilidad de rechazar $\mathcal{H}_0$ (decidir 1) cuando $\mathcal{H}_0$ es verdadera. Dado que el test $\pi(X)$ toma diferentes valores según la observación $X$, debemos calcular la esperanza de $\pi(X)$ bajo $\mathcal{H}_0$ (Aca es util ver el resumen y ver como se define $\alpha$ en funcion de la esperanza):
       
       \begin{align}
       \alpha = \mathbb{P}(\pi(X) = 1 | \theta = 0) &= \mathbb{E}[\pi(X) | \theta = 0] \\
@@ -555,9 +545,7 @@ Con lo que podemos concluir que la suma de $n$ variables Poisson independientes 
       \begin{equation}
       f_0(x_1^n) = \frac{1}{(2\pi\sigma^2)^{n/2}} \exp\left(-\frac{\|x_1^n - \bar{\mu}\|^2}{2\sigma^2}\right)
       \end{equation}
-      
-      
-      Por otro lado cuando $\theta = 1$, tenemos $S_1 = -\mu$, por lo tanto:
+      Donde se utilizo que $\|x_1^n - \bar{\mu}\|^2 = \sum_{i=1}^n (x_i - \mu)^2$. Por otro lado cuando $\theta = 1$, tenemos $S_1 = -\mu$, por lo tanto:
       \begin{equation}
       X_i = -\mu + N_i \sim \mathcal{N}(-\mu, \sigma^2)
       \end{equation}
@@ -638,9 +626,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \boxed{\log(L(x_1^n)) = \frac{-2}{\sigma^2} \bar{\mu}^T \cdot x_1^n}
       \end{equation}
       
-      donde $L(x_1^n)$ es el cociente de verosimilitud (likelihood ratio en inglés).
-      
-      Con lo cual se cumple lo pedido. Ahora determinamos las zonas de decisión para $n=2$ y $\eta=0$. Para $n=2$, tenemos $x_1^2 = (x_1, x_2)$ y $\bar{\mu} = (\mu, \mu)$. El logaritmo del cociente de verosimilitud es:
+      donde $L(x_1^n)$ es el cociente de verosimilitud (likelihood ratio en inglés). Con lo cual se cumple lo pedido. Ahora determinamos las zonas de decisión para $n=2$ y $\eta=0$. Para $n=2$, tenemos $x_1^2 = (x_1, x_2)$ y $\bar{\mu} = (\mu, \mu)$. El logaritmo del cociente de verosimilitud es:
       \begin{equation}
       \log(L(x_1, x_2)) = \frac{-2}{\sigma^2} \mu(x_1 + x_2)
       \end{equation}
@@ -701,7 +687,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \node[red!70!black, align=center] at (-2.3,-2.5) {$x_1 + x_2 < 0$\\Decidir $\mathcal{H}_1$\\Símbolo $-\mu$};
       
       % Etiqueta de frontera
-      \node[purple, font=\small, rotate=-45] at (1.5,0.3) {$x_1 + x_2 = 0$};
+      \node[purple, font=\small, rotate=-45] at (0.1,0.1) {$x_1 + x_2 = 0$};
       
       % Punto origen
       \fill[black] (0,0) circle (2pt);
@@ -720,10 +706,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       
       \subsection*{Resolución 2.3}
       
-      Para resolver esta parte, necesitamos determinar el test óptimo para cada valor de $n$ tal que la probabilidad de falsa alarma sea $\alpha = 0.01$, y luego calcular la potencia del test (probabilidad de detección correcta) $\beta_\eta^*$.
-      
-      
-      En la resolución 2.2, encontramos que el logaritmo del cociente de verosimilitud es:
+      Para resolver esta parte, necesitamos determinar el test óptimo para cada valor de $n$ tal que la probabilidad de falsa alarma sea $\alpha = 0.01$, y luego calcular la potencia del test (probabilidad de detección correcta) $\beta_\eta^*$. En la resolución 2.2, encontramos que el logaritmo del cociente de verosimilitud es:
       \begin{equation}
       \log(L(x_1^n)) = \frac{-2}{\sigma^2} \bar{\mu}^T \cdot x_1^n = \frac{-2\mu}{\sigma^2} \sum_{i=1}^n x_i
       \end{equation}
@@ -735,7 +718,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \text{Decidir } \mathcal{H}_1 \text{ si } x_1 + x_2 < 0
       \end{equation}
       
-      Esto se generaliza para cualquier $n$ y cualquier umbral $\eta$. La regla de decisión de Neyman-Pearson es:
+      Esto se puede generalizar para cualquier $n$ y cualquier umbral $\eta$. La regla de decisión de Neyman-Pearson es:
       \begin{equation}
       \log(L(x_1^n)) > \eta \quad \Leftrightarrow \quad \frac{-2\mu}{\sigma^2} \sum_{i=1}^n x_i > \eta
       \end{equation}
@@ -756,21 +739,19 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       X_1^n \equiv (X_1, X_2, X_3, \ldots, X_n)
       \end{equation}
       
-      Cada $X_i$ representa una medición individual. Por ejemplo, si $n=3$, entonces $X_1^3 = (X_1, X_2, X_3)$.
-      
-      El estadístico $T(X_1^n)$ es simplemente la \textbf{suma de todas las observaciones}:
+      Cada $X_i$ representa una medición individual. Por ejemplo, si $n=3$, entonces $X_1^3 = (X_1, X_2, X_3)$. Ademas podemos definir el estadístico $T(X_1^n)$ el cual es simplemente la \textbf{suma de todas las observaciones}:
       \begin{equation}
       T(X_1^n) = \sum_{i=1}^n X_i = X_1 + X_2 + X_3 + \cdots + X_n
       \end{equation}
       
       Este estadístico es suficiente porque resume toda la información relevante de las $n$ mediciones para tomar la decisión óptima. Bajo la hipótesis nula ($\theta = 0$, símbolo $+\mu$), cada observación es $X_i = \mu + N_i$, donde $N_i \sim \mathcal{N}(0, \sigma^2)$. Entonces:
       \begin{equation}
-      T(X_1^n) | \theta = 0 = \sum_{i=1}^n X_i = \sum_{i=1}^n (\mu + N_i) = n\mu + \sum_{i=1}^n N_i
+      T \left((X_1^n) | \theta = 0\right) = \sum_{i=1}^n X_i = \sum_{i=1}^n (\mu + N_i) = n\mu + \sum_{i=1}^n N_i
       \end{equation}
       
       Como la suma de variables normales independientes es también normal, tenemos:
       \begin{equation}
-      T(X_1^n) | \theta = 0 \sim \mathcal{N}(n\mu, n\sigma^2)
+      T\left((X_1^n) | \theta = 0\right) \sim \mathcal{N}(n\mu, n\sigma^2)
       \end{equation}
       \begin{itemize}
       \item \textit{Media:} $n\mu$ (porque sumamos $n$ términos iguales a $\mu$, más ruidos que promedian a cero)
@@ -779,7 +760,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \end{itemize}
       Análogamente, bajo la hipótesis alternativa ($\theta = 1$, símbolo $-\mu$), cada observación es $X_i = -\mu + N_i$:
       \begin{equation}
-      T(X_1^n) | \theta = 1 = \sum_{i=1}^n (-\mu + N_i) = -n\mu + \sum_{i=1}^n N_i \sim \mathcal{N}(-n\mu, n\sigma^2)
+      T\left((X_1^n) | \theta = 1\right) = \sum_{i=1}^n (-\mu + N_i) = -n\mu + \sum_{i=1}^n N_i \sim \mathcal{N}(-n\mu, n\sigma^2)
       \end{equation}
       
       Para analizar con $\alpha = 0.01$, necesitamos encontrar el umbral $\gamma$ tal que:
@@ -804,7 +785,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       Aplicando esta transformación a la desigualdad $T(X_1^n) < \gamma$:
       \begin{align}
       \mathbb{P}_{H_0}(T(X_1^n) < \gamma) &= \mathbb{P}_{H_0}\left(\frac{T(X_1^n) - n\mu}{\sigma\sqrt{n}} < \frac{\gamma - n\mu}{\sigma\sqrt{n}}\right) \\
-      &= \mathbb{P}(Z < \frac{\gamma - n\mu}{\sigma\sqrt{n}}) = \alpha
+      &= \mathbb{P}\left(Z < \frac{\gamma - n\mu}{\sigma\sqrt{n}}\right) = \alpha
       \end{align}
       
       donde $Z \sim \mathcal{N}(0,1)$ es una normal estándar.
@@ -816,10 +797,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       \frac{\gamma - n\mu}{\sigma\sqrt{n}} = -z_\alpha \quad \Rightarrow \quad \gamma = n\mu - z_\alpha \sigma \sqrt{n}
       \end{equation}
       
-      El umbral $\gamma$ está $z_\alpha = 2.326$ desviaciones estándar por debajo de la media bajo $\mathcal{H}_0$. Esto garantiza que la probabilidad de error tipo I (falsa alarma) sea exactamente $0.01$.
-    
-      
-      La potencia $\beta_\eta^*$ es la probabilidad de decidir correctamente $\mathcal{H}_1$ cuando $\mathcal{H}_1$ es verdadera:
+      El umbral $\gamma$ está $z_\alpha = 2.326$ desviaciones estándar por debajo de la media bajo $\mathcal{H}_0$. Esto garantiza que la probabilidad de error tipo I (falsa alarma) sea exactamente $0.01$. La potencia $\beta_\eta^*$ es la probabilidad de decidir correctamente $\mathcal{H}_1$ cuando $\mathcal{H}_1$ es verdadera:
       \begin{equation}
       \beta_\eta^* = \mathbb{P}_{H_1}(T(X_1^n) < \gamma)
       \end{equation}
@@ -872,9 +850,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       Para generar la curva ROC completa, debemos analizar cómo varía la potencia del test $\beta$ (probabilidad de detección) en función del tamaño del test $\alpha$ (probabilidad de falsa alarma) para diferentes valores de $n$.
       
       
-      La curva ROC se construye graficando $\beta(\alpha)$ versus $\alpha$ para $\alpha \in [0,1]$. Del análisis anterior, sabemos que:
-      
-      Para un tamaño de test $\alpha$ dado, el umbral es:
+      La curva ROC se construye graficando $\beta(\alpha)$ versus $\alpha$ para $\alpha \in [0,1]$. Para un tamaño de test $\alpha$ dado, el umbral es:
       \begin{equation}
       \gamma = n\mu - z_\alpha \sigma \sqrt{n}
       \end{equation}
@@ -1005,7 +981,7 @@ Luego el vector aleatorio $X_1^n$ tiene las siguientes distribuciones condiciona
       
       % Punto ideal (0,1)
       \fill[black] (0,1) circle (0.6pt);
-      \node[left, font=\tiny] at (-0.02,1) {Ideal};
+      \node[left, font=\tiny] at (-0.02,1.05) {Ideal};
       
       \end{tikzpicture}
       \caption{Curvas ROC para detección de señalización antipodal con diferentes números de mediciones $n$. A medida que $n$ aumenta, las curvas se desplazan hacia el punto ideal (0,1), indicando mejor discriminación entre las hipótesis. La línea punteada vertical marca el punto de operación analizado en la parte 2.3 con $\alpha=0.01$.}

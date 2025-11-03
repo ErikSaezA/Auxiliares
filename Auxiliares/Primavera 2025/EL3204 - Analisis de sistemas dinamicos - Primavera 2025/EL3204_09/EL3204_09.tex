@@ -89,101 +89,151 @@
 % =========================================
 % Unidad II — Detección Bayesiana (Resumen)
 % =========================================
-\section{(Resumen)}
+\section*{Resumen}
 
-\subsection*{Modelo básico de decisión}
-Sea $\{\mathcal H_i\}_{i=0}^{M-1}$ el conjunto de hipótesis, una observación $X\in\mathcal X$ con densidades condicionales $f_{X|\mathcal H_i}(x|\mathcal H_i)$, probabilidades a priori $\pi_i=P(\mathcal H_i)$ y matriz de costos $L(d_j|\mathcal H_i)$ (costo de decidir $d_j$ cuando la hipótesis verdadera es $\mathcal H_i$). El \textbf{riesgo posterior} para la acción $d_j$ dado $x$ es
-\[
-R(d_j|x)=\sum_{i=0}^{M-1} L(d_j|\mathcal H_i)\, P(\mathcal H_i|x).
-\]
-La \textbf{regla de Bayes} elige la decisión que minimiza el riesgo posterior:
-\[
-\delta^*(x)=\arg\min_{d_j} R(d_j|x).
-\]
+En esta unidad se presenta la perspectiva bayesiana: en lugar de asumir un parámetro desconocido fijo se modela \(\Theta\) como una variable aleatoria con una distribución a priori que refleja la creencia del agente. Las observaciones actualizan esa creencia mediante la regla de Bayes y, dado un esquema de costos, la decisión óptima minimiza el riesgo posterior. Desde un enfoque subjetivista la prior no tiene que describir un mecanismo físico, sino que recoge información previa del detector; esto permite un tratamiento más flexible de la incertidumbre en problemas de detección y estimación.
 
-\subsection*{Caso binario y Regla LRT Bayesiana}
-Para $M=2$ (hipótesis $\mathcal H_0$ vs. $\mathcal H_1$), con costos $L_{10}$ (falso positivo) y $L_{01}$ (falso negativo), la regla óptima se expresa como una \emph{prueba de razón de verosimilitudes} (\textit{LRT}):
+En el contexto Bayesiano, \(\Theta\) se modela como una variable aleatoria con valores en \(\mathcal{A} = \{1,\ldots,k\}\) y distribución a priori \(p_\Theta(\theta)\). Dada una observación \(X\), la probabilidad condicional se expresa mediante la regla de probabilidad condicional:
 \[
-\Lambda(x)=\frac{f_{X|\mathcal H_1}(x)}{f_{X|\mathcal H_0}(x)} \mathop{\gtrless}_{\mathcal H_0}^{\mathcal H_1} \eta,
-\qquad
-\eta=\frac{L_{10}-L_{00}}{L_{01}-L_{11}}\cdot \frac{\pi_0}{\pi_1}.
+\mathbb{P}(X(w) \in B|\Theta(w) = \theta) = P_{X|\Theta}(B,\{\theta\}) = P_\Theta(\{\theta\}) \cdot P_{X|\Theta}(B|\{\theta\}).
 \]
-En el caso de costos \emph{0--1} (errores puntúan $1$ y aciertos $0$), $\eta=\pi_0/\pi_1$.
-
-\subsection*{Regla MAP y Regla ML}
+Para un vector conjunto \((X,\Theta)\), la distribución conjunta queda determinada por:
+\[
+\mathbb{P}(X(w) \in B, \Theta(w) = \theta) = P_{X,\Theta}(B,\{\theta\}) = p_\Theta(\theta) \cdot \int_B f_{X|\Theta}(x|\theta)\,dx
+\]
+en el caso continuo, o bien
+\[
+\mathbb{P}(X(w) \in B, \Theta(w) = \theta) = P_{X,\Theta}(B,\{\theta\}) = p_\Theta(\theta) \cdot \sum_{x \in B} p_{X|\Theta}(x|\theta)
+\]
+en el caso discreto. Con esto, un problema de detección Bayesiano consiste en definir un espacio de observación \(\mathbb{X}\), un espacio de decisión \(\mathcal{A}\), las distribuciones condicionales \(P_{X|\Theta}(\cdot|\theta)\) o densidades \(f_{X|\Theta}(\cdot|\theta)\), una regla de decisión (test) \(\pi: \mathbb{X} \to \mathcal{A}\) y una función de costo \(L: \mathcal{A} \times \mathcal{A} \to \mathbb{R}^+ \cup \{0\}\) que penaliza decisiones incorrectas.
 \begin{itemize}
-    \item \textbf{MAP (Maximum A Posteriori):}
-    \[
-    \delta_{\mathrm{MAP}}(x)=\arg\max_i\, P(\mathcal H_i|x)=\arg\max_i\, \pi_i\, f_{X|\mathcal H_i}(x).
-    \]
-    Es óptima para costo 0--1: minimiza la probabilidad total de error.
-    \item \textbf{ML (Maximum Likelihood):}
-    \[
-    \delta_{\mathrm{ML}}(x)=\arg\max_i\, f_{X|\mathcal H_i}(x),
-    \]
-    es un caso especial de MAP cuando las \emph{a priori} son uniformes.
+\item \textbf{Riesgo Promedio Bayesiano:} Para encontrar la regla óptima, se busca minimizar el riesgo promedio Bayesiano, que es el promedio del costo dado por \(L(\Theta, \pi(X))\). Primero se define el \emph{riesgo promedio} condicionado a \(\Theta = \theta\):
+\[
+R(\theta, \pi) \triangleq \mathbb{E}(L(\theta, \pi(X))|\Theta = \theta) = 
+\begin{cases}
+\displaystyle\int_{\mathbb{X}} L(\theta, \pi(x)) f_{X|\Theta}(x|\theta)\,dx & \text{(caso continuo)} \\[0.5em]
+\displaystyle\sum_{x \in \mathbb{X}} L(\theta, \pi(x)) p_{X|\Theta}(x|\theta) & \text{(caso discreto)}
+\end{cases}
+\]
+El \emph{Riesgo Promedio Bayesiano} se obtiene promediando \(R(\theta, \pi)\) respecto a la distribución a priori de \(\Theta\):
+\[
+r(\pi) \triangleq \mathbb{E}_{\Theta}(R(\Theta, \pi)) = \sum_{\theta \in \mathcal{A}} R(\theta, \pi) \cdot p_{\Theta}(\theta) = \mathbb{E}_{X,\Theta}(L(\Theta, \pi(X))).
+\]
+La \emph{regla óptima Bayesiana} \(\pi^*\) es aquella que minimiza el riesgo promedio Bayesiano:
+\[
+\pi^* = \arg\min_{\pi \in F(\mathbb{X}, \mathcal{A})} r(\pi) = \arg\min_{\pi \in F(\mathbb{X}, \mathcal{A})} \mathbb{E}_{X,\Theta}(L(\Theta, \pi(X))).
+\]
+Equivalentemente, para cada observación \(x \in \mathbb{X}\), la decisión óptima \(\pi^*(x)\) minimiza el \emph{riesgo a posteriori}:
+\[
+\pi^*(x) = \arg\min_{y \in \mathcal{A}} \sum_{\theta \in \mathcal{A}} L(\theta, y) P_{\Theta|X}(\Theta = \theta|x) = \arg\min_{y \in \mathcal{A}} \mathbb{E}(L(\Theta, y)|X = x).
+\]
+\item \textbf{Función de costo 0-1 y regla MAP:} La función de costo 0-1 juega un rol fundamental en problemas de reconocimiento de patrones y comunicaciones digitales, pues su costo promedio equivale a la probabilidad de error de decisión. Se define como:
+\[
+L_{0,1}(x, y) = 
+\begin{cases}
+0 & \text{si } x = y \\
+1 & \text{si } x \neq y
+\end{cases}
+\quad \forall x, y \in \mathcal{A}.
+\]
+El riesgo promedio condicionado para la función \(L_{0,1}\) es:
+\[
+R_{0,1}(\theta, \pi) = \mathbb{E}_X(L_{0,1}(\theta, \pi(X))|\Theta = \theta) = \int_{\mathbb{X}} L_{0,1}(\theta, \pi(x)) f_{X|\Theta}(x|\theta)\,dx = P_{X|\Theta}(\pi(X) \neq \theta|\theta).
+\]
+Por lo tanto, el riesgo promedio Bayesiano de la regla \(\pi\) bajo el costo 0-1 es la probabilidad de error:
+\[
+r_{0,1}(\pi) = \mathbb{E}_{X,\Theta}\{L_{0,1}(\Theta, \pi(X))\} = \sum_{\theta=1}^{k} p_{\Theta}(\theta) \cdot R_{0,1}(\theta, \pi) = P_{X,\Theta}(\pi(X) \neq \Theta).
+\]
+Minimizar el riesgo promedio bajo \(L_{0,1}\) equivale a minimizar la probabilidad de error. La regla óptima es:
+\[
+\pi_{0,1}^*(x) = \arg\min_{y \in \mathcal{A}} \sum_{\theta \in \mathcal{A}} L_{0,1}(\theta, y) P_{\Theta|X}(\Theta = \theta|x) = \arg\max_{y \in \mathcal{A}} P_{\Theta|X}(\Theta = y|x),
+\]
+es decir, la regla Bayesiana óptima \(\pi_{0,1}^*(x)\) corresponde a \textbf{maximizar la probabilidad a posteriori} o regla \textbf{MAP} (\emph{maximum a posteriori}). Usando la regla de Bayes:
+\[
+\pi_{0,1}^*(x) = \arg\max_{\theta \in \mathcal{A}} P_{\Theta|X}(\Theta = \theta|x) = \arg\max_{\theta \in \mathcal{A}} \frac{f_{\Theta,X}(\theta, x)}{f_X(x)} = \arg\max_{\theta \in \mathcal{A}} f_{X|\Theta}(x|\theta) \cdot p_{\Theta}(\theta).
+\]
+Un caso particular es cuando la distribución a priori es equiprobable, \(p_{\Theta}(\theta) = \frac{1}{|\mathcal{A}|}\), entonces:
+\[
+\pi_{0,1}^*(x) = \arg\max_{\theta \in \mathcal{A}} f_{X|\Theta}(x|\theta),
+\]
+que corresponde al criterio de \textbf{máxima verosimilitud} o \textbf{ML} (\emph{maximum likelihood}).
+
+\item \textbf{Función de costo cuadrático y estimador MMSE:} Otra función de costo muy utilizada es la función de costo cuadrático \(L_{MSE}: \mathcal{A} \times \Delta \to \mathbb{R}^+ \cup \{0\}\) (con \(\Delta \subset \mathbb{R}\)) definida como:
+\[
+L_{MSE}(x, y) = (x - y)^2.
+\]
+Al usar esta función, el espacio de parámetro es distinto al de decisión, lo que permite entregar un valor estimado en lugar de decidir entre hipótesis discretas. El riesgo Bayesiano es:
+\[
+\mathbb{E}_{X,\Theta}(L_{MSE}(\Theta, \pi(X))) = \sum_{\theta \in \mathcal{A}} \int_{\mathbb{X}} (\theta - \pi(x))^2 f_{X,\Theta}(x, \theta)\,dx.
+\]
+Esta ecuación se conoce como el \emph{error cuadrático medio} o \emph{Mean Square Error}. Para encontrar la regla óptima, consideramos el operador de esperanza condicional:
+\[
+\mathbb{E}(\Theta|X = x) = \sum_{\theta \in \mathcal{A}} \theta P_{\Theta|X}(\Theta = \theta|x),
+\]
+que corresponde a la esperanza condicional de \(\Theta\) dado \(X = x\). Descomponiendo la suma:
+\[
+\sum_{\theta \in \mathcal{A}} (\theta - y)^2 P_{\Theta|X}(\Theta = \theta|x) = \sum_{\theta \in \mathcal{A}} (\theta - \mathbb{E}(\Theta|X = x))^2 P_{\Theta|X}(\Theta = \theta|x) + (\mathbb{E}(\Theta|X = x) - y)^2,
+\]
+se observa que:
+\[
+\sum_{\theta \in \mathcal{A}} (\theta - \mathbb{E}(\Theta|X = x))^2 P_{\Theta|X}(\Theta = \theta|x) = Var(\Theta|X = x)
+\]
+es la varianza condicional de \(\Theta\) dado \(X = x\). Por lo tanto, el argumento que minimiza la expresión es:
+\[
+\pi^*(x) = \arg\min_{y \in \mathcal{A}} Var(\Theta|X = x) + (\mathbb{E}(\Theta|X = x) - y)^2 = \arg\min_{y \in \mathcal{A}} (\mathbb{E}(\Theta|X = x) - y)^2 = \mathbb{E}(\Theta|X = x).
+\]
+El detector óptimo que minimiza el error cuadrático medio es:
+\[
+\pi_{MMSE}(x) = \mathbb{E}(\Theta|X = x) = \sum_{\theta \in \mathcal{A}} \theta P_{\Theta|X}(\Theta = \theta|x),
+\]
+que es la \textbf{esperanza condicional} o la \textbf{esperanza de la distribución a posteriori} de \(\Theta\) dado \(X = x\). El riesgo Bayesiano mínimo o error cuadrático medio mínimo (MMSE) está dado por:
+\[
+MMSE = \min_{\phi: \mathbb{X} \to \mathcal{A}} \mathbb{E}_{X,\Theta}(L(\Theta, \phi(X))) = \mathbb{E}_{\Theta,X}((\Theta - \phi(X))^2) = \int_{\mathbb{X}} Var(\Theta|X = x) f_X(x)\,dx = \mathbb{E}(Var(\Theta|X)),
+\]
+que corresponde al promedio de la varianza condicional.
+
+\item \textbf{Relación con el Lema de Neyman-Pearson:} En el caso binario \(\mathcal{A} = \{0, 1\}\) con una función de costo arbitraria de la forma:
+\[
+\begin{array}{c|c|c}
+\mathcal{A} \backslash \mathcal{A} & 0 & 1 \\
+\hline
+0 & l_{00} & l_{01} \\
+1 & l_{10} & l_{11}
+\end{array}
+\]
+la regla óptima es, para un \(x \in \mathbb{X}\) y aplicando la expresión de decisión punto a punto:
+\[
+\pi^*(x) = \arg\min_{y \in \mathcal{A}} \sum_{\theta \in \mathcal{A}} L(\theta, y) P_{\Theta|X}(\Theta = \theta|x) = 
+\begin{cases}
+1 & \text{si } \sum_{\theta \in \mathcal{A}} L(\theta, 0) P_{\Theta|X}(\Theta = \theta|x) > \sum_{\theta \in \mathcal{A}} L(\theta, 1) P_{\Theta|X}(\Theta = \theta|x) \\
+0 & \text{si } \sum_{\theta \in \mathcal{A}} L(\theta, 0) P_{\Theta|X}(\Theta = \theta|x) < \sum_{\theta \in \mathcal{A}} L(\theta, 1) P_{\Theta|X}(\Theta = \theta|x) \\
+I & \text{si } \sum_{\theta \in \mathcal{A}} L(\theta, 0) P_{\Theta|X}(\Theta = \theta|x) = \sum_{\theta \in \mathcal{A}} L(\theta, 1) P_{\Theta|X}(\Theta = \theta|x)
+\end{cases}
+\]
+donde \(I\) indica indiferencia. Simplificando las sumas y usando la regla de Bayes, se obtiene:
+\[
+\pi^*(x) = 
+\begin{cases}
+1 & \text{si } f_{X|\Theta}(x|\Theta = 1) > \frac{(l_{01} - l_{00})p_{\Theta}(0)}{(l_{10} - l_{11})p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0) \\[0.3em]
+0 & \text{si } f_{X|\Theta}(x|\Theta = 1) < \frac{(l_{01} - l_{00})p_{\Theta}(0)}{(l_{10} - l_{11})p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0) \\[0.3em]
+I & \text{si } f_{X|\Theta}(x|\Theta = 1) = \frac{(l_{01} - l_{00})p_{\Theta}(0)}{(l_{10} - l_{11})p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0)
+\end{cases}
+\]
+Observamos que la regla óptima es una instancia del \textbf{test de Neyman-Pearson} y el umbral es \(\nu = \frac{(l_{01} - l_{00})p_{\Theta}(0)}{(l_{10} - l_{11})p_{\Theta}(1)}\). La distribución a priori y los costos juegan un rol de ajuste del umbral y establecen un compromiso entre tamaño y poder del test. Para la función de costo \(L_{0,1}\) tenemos:
+\[
+\pi_{0,1}^*(x) = 
+\begin{cases}
+1 & \text{si } f_{X|\Theta}(x|\Theta = 1) > \frac{p_{\Theta}(0)}{p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0) \\[0.3em]
+0 & \text{si } f_{X|\Theta}(x|\Theta = 1) < \frac{p_{\Theta}(0)}{p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0) \\[0.3em]
+I & \text{si } f_{X|\Theta}(x|\Theta = 1) = \frac{p_{\Theta}(0)}{p_{\Theta}(1)} \cdot f_{X|\Theta}(x|\Theta = 0)
+\end{cases}
+\]
+La función de riesgo promedio Bayesiano en este caso equivale a la probabilidad de error:
+\[
+r_{0,1}(\pi) = P_{X,\Theta}(\pi(X) \neq \Theta) = P_{X|\Theta}(\pi(X) = 1|\Theta = 0)p_{\Theta}(0) + P_{X|\Theta}(\pi(X) = 0|\Theta = 1)p_{\Theta}(1).
+\]
+Se observa que la probabilidad de error no es más que la combinación convexa del error de tipo I (\(\alpha_\pi\)) y el error de tipo II (\(1 - \beta_\pi\)) donde sus ponderadores están dados por la distribución a priori. La distribución a priori indica cuánto peso o importancia se le dará a cada tipo de error, lo que nuevamente entrega un compromiso entre ambos tipos de errores, similar al test de Neyman-Pearson.
 \end{itemize}
-
-\subsection*{Curva ROC y desempeño}
-Al variar el umbral $\eta$ se obtienen pares $(P_{\mathrm{FA}},P_{\mathrm D})$ que definen la \textbf{curva ROC}. Regiones más próximas a la esquina superior izquierda indican mejores detectores. La elección del umbral se guía por costos y \emph{a priori} (óptimo Bayes) o por una cota en $P_{\mathrm{FA}}$ (criterio de Neyman--Pearson).
-
-\subsection*{Detección Gaussiana con media conocida}
-Si $X|\mathcal H_i \sim \mathcal N(\mu_i,\sigma^2)$ con varianza común, la LRT se vuelve umbral en $x$:
-\[
-\Lambda(x)=\exp\!\left(\frac{(\mu_1-\mu_0)}{\sigma^2}\,x - \frac{\mu_1^2-\mu_0^2}{2\sigma^2}\right) \mathop{\gtrless} \eta
-\ \Longleftrightarrow\
-x \mathop{\gtrless} \gamma,
-\]
-donde el umbral
-\[
-\gamma=\frac{\mu_0+\mu_1}{2} + \frac{\sigma^2}{\mu_1-\mu_0}\,\ln\eta.
-\]
-Con costo 0--1 y \emph{a priori} iguales, $\ln\eta=0$ y $\gamma=\tfrac{\mu_0+\mu_1}{2}$.
-
-\subsection*{Extensión a $M$-hipótesis}
-Para $M>2$:
-\[
-\delta^*(x)=\arg\min_{j} \sum_{i} L(d_j|\mathcal H_i)\,P(\mathcal H_i|x).
-\]
-Con costo 0--1:
-\[
-\delta_{\mathrm{MAP}}(x)=\arg\max_i\, P(\mathcal H_i|x).
-\]
-Cuando $f_{X|\mathcal H_i}$ y $\pi_i$ están en la familia exponencial, los \emph{suficientes} lineales permiten implementaciones por \emph{comparadores afines} (fronteras lineales/quadráticas según el caso).
-
-\subsection*{Estimación Bayesiana (parámetros continuos)}
-Sea $\Theta$ un parámetro con \emph{a priori} $p_\Theta(\theta)$ y verosimilitud $f_{X|\Theta}(x|\theta)$.
-\begin{itemize}
-    \item \textbf{Estimador MMSE} (pérdida cuadrática): 
-    \[
-    \hat\theta_{\mathrm{MMSE}}(x)=\mathbb E[\Theta|X=x].
-    \]
-    \item \textbf{Estimador MAP} (pérdida 0--1 asimptótica): 
-    \[
-    \hat\theta_{\mathrm{MAP}}(x)=\arg\max_\theta\, p_{\Theta|X}(\theta|x)\propto f_{X|\Theta}(x|\theta)\,p_\Theta(\theta).
-    \]
-    \item \textbf{MLE} se recupera con \emph{a priori} plana:
-    \(
-    \hat\theta_{\mathrm{ML}}(x)=\arg\max_\theta f_{X|\Theta}(x|\theta).
-    \)
-\end{itemize}
-\textbf{Ejemplo (Gaussiano conjugado):} Si $X|\theta\sim \mathcal N(\theta,\sigma^2)$ y $\Theta\sim \mathcal N(\mu_0,\tau^2)$, entonces
-\[
-\Theta|X=x \sim \mathcal N\!\left(\frac{\tfrac{1}{\sigma^2}x+\tfrac{1}{\tau^2}\mu_0}{\tfrac{1}{\sigma^2}+\tfrac{1}{\tau^2}},\ \frac{1}{\tfrac{1}{\sigma^2}+\tfrac{1}{\tau^2}}\right),
-\]
-y por tanto $\hat\theta_{\mathrm{MMSE}}=\hat\theta_{\mathrm{MAP}}$ es un promedio ponderado de $x$ y $\mu_0$.
-
-\subsection*{Riesgo Bayesiano y probabilidad de error}
-El \textbf{riesgo Bayesiano} es 
-\[
-R_B=\mathbb E\!\left[L(\delta(X)|\mathcal H)\right]
-=\sum_{i}\pi_i \int L(\delta(x)|\mathcal H_i)\, f_{X|\mathcal H_i}(x)\,dx,
-\]
-y bajo costo 0--1 coincide con la \emph{probabilidad total de error}. En el caso binario con LRT óptima:
-\[
-P_e=\pi_0\,P(\text{decidir }\mathcal H_1|\mathcal H_0)+\pi_1\,P(\text{decidir }\mathcal H_0|\mathcal H_1).
-\]
-
 %----------------------------
 \newpage
 \begin{questions}
@@ -233,9 +283,7 @@ Analizamos el vector aleatorio $\bm{X}_1^n = (X_1, ..., X_n)^T$ bajo ambas hipó
 \begin{itemize}
   \item  \textbf{Caso $\Theta = 1$ (Presencia de señal):}
 
-De la ecuación (2.87), tenemos que $X_i = s_i + N_i$ para $i = 1, ..., n$. Como los $N_i$ son independientes con $N_i \sim \mathcal{N}(0, \sigma^2)$ y la señal $s_i$ es determinista:
-
-Primero calculamos el vector de media y la matriz de covarianza. Para lo primero tenemos que:
+De la ecuación (2.87), tenemos que $X_i = s_i + N_i$ para $i = 1, ..., n$. Como los $N_i$ son independientes con $N_i \sim \mathcal{N}(0, \sigma^2)$ y la señal $s_i$ es determinista. Primero calculamos el vector de media y la matriz de covarianza. Para lo primero tenemos que:
 \begin{equation*}
   \mathbb{E}[X_i|\Theta = 1] = \mathbb{E}[s_i + N_i] = s_i + \mathbb{E}[N_i] = s_i
 \end{equation*}
@@ -260,9 +308,7 @@ donde cada elemento $(i,j)$ de esta matriz es:
   \Sigma_{ij} = \mathbb{E}[(X_i - \mu_i)(X_j - \mu_j)] = \text{Cov}(X_i, X_j)
 \end{equation*}
 
-Esta matriz es fundamental en el análisis de vectores Gaussianos porque especifica completamente la estructura de correlación entre las componentes del vector.
-
-Luego, para la matriz de covarianza en nuestro problema, recordemos que como las variables $N_i$ son independientes, entonces:
+Esta matriz es fundamental en el análisis de vectores Gaussianos porque especifica completamente la estructura de correlación entre las componentes del vector. Luego, para la matriz de covarianza en nuestro problema, recordemos que como las variables $N_i$ son independientes, entonces:
 \begin{equation*}
   \text{Cov}(X_i, X_j|\Theta = 1) = \text{Cov}(s_i + N_i, s_j + N_j) = \text{Cov}(N_i, N_j) = \begin{cases}
     \sigma^2 & \text{si } i = j \\
@@ -309,16 +355,17 @@ y por otro lado:
   \bm{\Sigma}_0 = \sigma^2 \bm{I}_n
 \end{equation*}
 \end{itemize}
+
+Podemos verificar que este resultado es idéntico al de $\text{Cov}(\bm{X}_1^n, \bm{X}_1^n|\Theta=1)$. Esto se debe a que la matriz de covarianza es invariante frente a traslaciones de la media, ya que mide la dispersión alrededor de la media y no depende del valor absoluto de ésta.
+
 \subsection*{Resolución 1.2}
 
-La regla de Máxima Verosimilitud (ML, por sus siglas en inglés \textit{Maximum Likelihood}) es un caso particular de la regla MAP cuando las hipótesis son equiprobables o no se tienen priors informativos. Como $\Sigma_0 = \Sigma_1$ y no se especifican costos ni priors distintos, con $p_{\Theta}(0) = p_{\Theta}(1)$, la regla MAP coincide con ML.
-
-Matemáticamente, la regla ML decide la hipótesis $\theta^*$ que maximiza la función de verosimilitud:
+La regla de Máxima Verosimilitud (ML, por sus siglas en inglés \textit{Maximum Likelihood}) decide la hipótesis $\theta^*$ que maximiza la función de verosimilitud:
 \begin{equation*}
   \theta^* = \arg\max_{\theta \in \Theta} f_{X|\Theta}(x|\theta)
 \end{equation*}
 
-Equivalentemente, podemos maximizar la log-verosimilitud (que es más conveniente computacionalmente):
+Equivalentemente, podemos maximizar la log-verosimilitud. Esto es válido porque la función logaritmo es estrictamente creciente, por lo que preserva el orden: si $f_{X|\Theta}(x|\theta_1) > f_{X|\Theta}(x|\theta_2)$, entonces $\ln f_{X|\Theta}(x|\theta_1) > \ln f_{X|\Theta}(x|\theta_2)$. Por lo tanto, el $\arg\max$ no cambia:
 \begin{equation*}
   \theta^* = \arg\max_{\theta \in \Theta} L(x|\theta) = \arg\max_{\theta \in \Theta} \ln f_{X|\Theta}(x|\theta)
 \end{equation*}
@@ -344,7 +391,7 @@ Para $\theta = 0$:
   L(\bm{x}|0) &= -\frac{n}{2}\ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum_{i=1}^{n}x_i^2
 \end{align*}
 
-Para determinar $\tau_{ML}(\bm{x})$, comparamos las log-verosimilitudes:
+Para determinar $\tau_{ML}(\bm{x})$, comparamos las log-verosimilitudes. Note que en el caso de dos hipótesis, el problema $\arg\max_{\theta \in \{0,1\}} L(\bm{x}|\theta)$ es equivalente a determinar cuál log-verosimilitud es mayor mediante una desigualdad: si $L(\bm{x}|1) > L(\bm{x}|0)$, entonces $\theta^* = 1$; si $L(\bm{x}|1) < L(\bm{x}|0)$, entonces $\theta^* = 0$. Por lo tanto:
 \begin{align*}
   \tau_{ML}(\bm{x}) = 1 &\iff L(\bm{x}|1) > L(\bm{x}|0) \\
   &\iff -\frac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i - s_i)^2 > -\frac{1}{2\sigma^2}\sum_{i=1}^{n}x_i^2 \\
@@ -357,16 +404,16 @@ Para determinar $\tau_{ML}(\bm{x})$, comparamos las log-verosimilitudes:
 Por lo que se llega a la siguiente regla de decisión:
 \begin{equation*}
   \tau_{ML}(x_1, ..., x_n) = \begin{cases}
-    1 & \text{si } T = \sum_{i=1}^{n}x_is_i > \frac{||s||^2}{2} \\
+    1 & \text{si } \sum_{i=1}^{n}x_is_i > \frac{||s||^2}{2} \\
     0 & \text{en caso contrario}
   \end{cases}
 \end{equation*}
 
-donde el umbral $\frac{||s||^2}{2}$ corresponde al punto medio entre las medias de $T$ bajo ambas hipótesis.
+donde el umbral $\frac{||s||^2}{2}$ corresponde al punto medio entre las medias .
 
 \subsection*{Resolución 1.3}
 
-Con $p_{\Theta}(1) = p_{\Theta}(0) = \frac{1}{2}$, la probabilidad de error es:
+Con $p_{\Theta}(1) = p_{\Theta}(0) = \frac{1}{2}$, calculamos la probabilidad de error. Nótese que utilizamos la \emph{regla de la probabilidad total} para descomponer la probabilidad de error en función de las hipótesis, combinando las probabilidades condicionales bajo cada escenario (presencia o ausencia de señal) ponderadas por las probabilidades a priori equiprobables:
 \begin{align*}
   P_e &= P(\tau_{ML} = 0, \Theta = 1) + P(\tau_{ML} = 1, \Theta = 0) \\
   &= P(\Theta = 1)P(\tau_{ML} = 0|\Theta = 1) + P(\Theta = 0)P(\tau_{ML} = 1|\Theta = 0) \\
@@ -381,20 +428,24 @@ Analizamos la distribución de $\sum_{i=1}^{n}X_is_i$ bajo cada hipótesis.
 \end{align*}
 Como $N_i \sim \mathcal{N}(0, \sigma^2)$ son independientes, la suma $\sum_{i=1}^{n}N_is_i$ es Gaussiana con media cero y varianza $\sigma^2\sum_{i=1}^{n}s_i^2 = \sigma^2||s||^2$. Por lo tanto:
 \begin{equation*}
-  \sum_{i=1}^{n}X_is_i\bigg|\Theta = 1 \sim \mathcal{N}(||s||^2, \sigma^2||s||^2)
+  \left(\sum_{i=1}^{n}X_is_i |\Theta = 1\right) \sim \mathcal{N}(||s||^2, \sigma^2||s||^2)
 \end{equation*}
 
 \textbf{Bajo $\Theta = 0$:} Como $X_i = N_i$, entonces:
 \begin{equation*}
-  \sum_{i=1}^{n}X_is_i\bigg|\Theta = 0 = \sum_{i=1}^{n}N_is_i \sim \mathcal{N}(0, \sigma^2||s||^2)
+  \left(\sum_{i=1}^{n}X_is_i|\Theta = 0\right)= \sum_{i=1}^{n}N_is_i \sim \mathcal{N}(0, \sigma^2||s||^2)
 \end{equation*}
 
 Ahora calculamos las probabilidades. Para $\Theta = 1$, estandarizamos:
 \begin{align*}
   P\left(\sum_{i=1}^{n}X_is_i \leq \frac{||s||^2}{2}\bigg|\Theta = 1\right) &= P\left(\frac{\sum_{i=1}^{n}X_is_i - ||s||^2}{\sigma||s||} \leq \frac{-||s||^2/2}{\sigma||s||}\bigg|\Theta = 1\right) \\
-  &= P\left(Z \leq -\frac{||s||}{2\sigma}\right) = Q\left(\frac{||s||}{2\sigma}\right)
+  &= P\left(Z \leq -\frac{||s||}{2\sigma}\right)
 \end{align*}
-donde $Z \sim \mathcal{N}(0, 1)$ y $Q(x) = P(Z > x)$ es la función Q.
+donde $Z \sim \mathcal{N}(0, 1)$. Usando la simetría de la distribución normal estándar, sabemos que $P(Z \leq -a) = P(Z \geq a) = P(Z > a)$ para cualquier $a > 0$. Por lo tanto:
+\begin{equation*}
+  P\left(Z \leq -\frac{||s||}{2\sigma}\right) = P\left(Z > \frac{||s||}{2\sigma}\right) = Q\left(\frac{||s||}{2\sigma}\right)
+\end{equation*}
+donde $Q(x) = P(Z > x)$ es la función Q.
 
 Para $\Theta = 0$:
 \begin{align*}
@@ -419,7 +470,7 @@ Cuando $||s||^2 \to \infty$, entonces $||s|| \to \infty$, y por lo tanto:
   \lim_{||s|| \to \infty} P_e = \lim_{||s|| \to \infty} Q\left(\frac{||s||}{2\sigma}\right) = Q(\infty) = 0
 \end{equation*}
 
-Podemos entenerlo como cuando la potencia de la señal tiende a infinito, el test de máxima verosimilitud puede distinguir perfectamente entre presencia y ausencia de señal, ya que la probabilidad de error tiende a cero. Esto tiene sentido físicamente: una señal con potencia infinita es fácilmente distinguible del ruido, sin importar cuán grande sea la varianza del ruido.
+Podemos entenderlo como que cuando la potencia de la señal tiende a infinito, el test de máxima verosimilitud puede distinguir perfectamente entre presencia y ausencia de señal, ya que la probabilidad de error tiende a cero. Esto tiene sentido físicamente: una señal con potencia infinita es fácilmente distinguible del ruido, sin importar cuán grande sea la varianza del ruido.
 \end{solution}
 
 %----------------------------
@@ -481,26 +532,26 @@ Para $X = 0$ (no le gusta):
 
 \subsection*{Resolución 2.2}
 
-Con la función de costo $L_{0,1}$ dada en (2.90), el riesgo Bayesiano para una regla de decisión $\delta(x)$ es:
+Con la función de costo $L_{0,1}$ dada en (2.90), el riesgo Bayesiano para una regla de decisión $\pi(x)$ es:
 \begin{align*}
-  r(\delta) &= \mathbb{E}_{X,\Theta}[L_{0,1}(\Theta, \delta(X))] \\
-  &= P(\Theta \neq \delta(X)) \\
+  r(\pi) &= \mathbb{E}_{X,\Theta}[L_{0,1}(\Theta, \pi(X))] \\
+  &= P(\Theta \neq \pi(X)) \\
   &= P(\text{error})
 \end{align*}
 
 Es decir, minimizar el riesgo equivale a minimizar la probabilidad de error. La regla de decisión óptima es el estimador MAP:
 \begin{equation*}
-  \delta^*(x) = \arg\max_{\theta \in \{V, P, B\}} p_{\Theta|X}(\theta|x)
+  \pi^*(x) = \arg\max_{\theta \in \{V, P, B\}} P_{\Theta|X}(\theta|x)
 \end{equation*}
 
 Usando el teorema de Bayes:
 \begin{equation*}
-  p_{\Theta|X}(\theta|x) = \frac{P_{X|\Theta}(x|\theta) \cdot p_\Theta(\theta)}{p_X(x)}
+  P_{\Theta|X}(\theta|x) = \frac{P_{X|\Theta}(x|\theta) \cdot p_\Theta(\theta)}{P_X(x)}
 \end{equation*}
 
-Como $p_X(x)$ es constante para todas las hipótesis, podemos comparar directamente:
+Como $P_X(x)$ es constante para todas las hipótesis, podemos comparar directamente:
 \begin{equation*}
-  \delta^*(x) = \arg\max_{\theta \in \{V, P, B\}} P_{X|\Theta}(x|\theta) \cdot p_\Theta(\theta)
+  \pi^*(x) = \arg\max_{\theta \in \{V, P, B\}} P_{X|\Theta}(x|\theta) \cdot p_\Theta(\theta)
 \end{equation*}
 
 Juanito observó que le gustó la bebida, es decir, $X = 1$. Calculamos las probabilidades a posteriori (sin normalizar):
@@ -518,16 +569,16 @@ Comparando los valores:
 
 La regla de decisión óptima indica que Juanito tomó \textbf{baltica}, ya que es la hipótesis con mayor probabilidad a posteriori dado que le gustó la bebida.
 
-Primero calculamos $p_X(1)$:
+Primero calculamos $P_X(1)$:
 \begin{equation*}
-  p_X(1) = 0.20 + 0.04 + 0.21 = 0.45
+  P_X(1) = 0.20 + 0.04 + 0.21 = 0.45
 \end{equation*}
 
 Las probabilidades a posteriori normalizadas son:
 \begin{align*}
-  p_{\Theta|X}(V|1) &= \frac{0.20}{0.45} = 0.444 \approx 44.4\% \\
-  p_{\Theta|X}(P|1) &= \frac{0.04}{0.45} = 0.089 \approx 8.9\% \\
-  p_{\Theta|X}(B|1) &= \frac{0.21}{0.45} = 0.467 \approx 46.7\%
+  P_{\Theta|X}(V|1) &= \frac{0.20}{0.45} = 0.444 \approx 44.4\% \\
+  P_{\Theta|X}(P|1) &= \frac{0.04}{0.45} = 0.089 \approx 8.9\% \\
+  P_{\Theta|X}(B|1) &= \frac{0.21}{0.45} = 0.467 \approx 46.7\%
 \end{align*}
 
 La baltica tiene la mayor probabilidad a posteriori (46.7\%), confirmando nuestra decisión óptima.
@@ -563,9 +614,7 @@ La baltica tiene la mayor probabilidad a posteriori (46.7\%), confirmando nuestr
 \begin{solution}
 \subsection*{Resolución 3.1}
 
-Para encontrar la regla de decisión óptima bajo la función de costo $L_{0,1}$, debemos minimizar el riesgo Bayesiano.
-
-Con la función de costo $L_{0,1}$, tenemos:
+Para encontrar la regla de decisión óptima bajo la función de costo $L_{0,1}$, debemos minimizar el riesgo Bayesiano. Con la función de costo $L_{0,1}$, tenemos:
 \begin{equation*}
   L_{0,1}(\theta, \delta) = \begin{cases}
     0 & \text{si } \theta = \delta \\
@@ -598,7 +647,7 @@ La regla óptima minimiza el riesgo condicional para cada $x$:
   r^*(x) = \arg\min_{\delta \in \{0,1\}} r(\delta|x)
 \end{equation*}
 
-Comparando los riesgos:
+Note que en el caso de dos opciones, el problema $\arg\min_{\delta \in \{0,1\}} r(\delta|x)$ es equivalente a determinar cuál riesgo es menor mediante una desigualdad: si $r(1|x) < r(0|x)$, entonces $r^*(x) = 1$; si $r(1|x) > r(0|x)$, entonces $r^*(x) = 0$. Por lo tanto, comparando los riesgos:
 \begin{align*}
   r^*(x) = 1 &\iff r(1|x) < r(0|x) \\
   &\iff 1 - \eta(x) < \eta(x) \\
@@ -647,7 +696,7 @@ Podemos reescribir:
 
 Por lo tanto:
 \begin{equation*}
-  P_{\Theta|X}(\pi(X) \neq \Theta|X = x) = \eta(x) - \mathbf{1}_{\pi(x)=1}(x) \cdot [2\eta(x) - 1]
+  P_{\Theta|X}(\pi(X) \neq \Theta|X = x) = (1 - \eta(x)) - \mathbf{1}_{\pi(x)=1}(x) \cdot [2\eta(x) - 1]
 \end{equation*}
 
 Para minimizar esta expresión dado $x$, debemos elegir $\mathbf{1}_{\pi(x)=1}(x)$ óptimamente:
@@ -660,12 +709,19 @@ Para minimizar esta expresión dado $x$, debemos elegir $\mathbf{1}_{\pi(x)=1}(x
 
 Esta es exactamente la regla $r^*(x)$ definida en (2.91).
 
-Como $r^*$ minimiza $P_{\Theta|X}(\pi(X) \neq \Theta|X = x)$ para cada $x \in \mathbb{X}$, también minimiza la probabilidad de error total:
+Como $r^*(x)$ minimiza $P_{\Theta|X}(\pi(X) \neq \Theta|X = x)$ para cada $x \in \mathbb{X}$, cualquier otra regla $\pi(x)$ que difiera de $r^*(x)$ en algún punto $x$ tendrá un valor mayor o igual de $P_{\Theta|X}(\pi(X) \neq \Theta|X = x)$ en ese punto. Por lo tanto, $r^*$ minimiza la probabilidad de error punto a punto.
+
+Ahora, integrando sobre todo el espacio de observación usando la medida de probabilidad, tenemos que la probabilidad de error total es:
 \begin{equation*}
-  P_{X,\Theta}(r^*(X) \neq \Theta) = \int_{\mathbb{X}} \min_{\delta \in \{0,1\}} P_{\Theta|X}(\delta \neq \Theta|X = x) \, dP_X(x)
+  P_{X,\Theta}(r^*(X) \neq \Theta) = \int_{\mathbb{X}} P_{\Theta|X}(r^*(x) \neq \Theta|X = x) \, f_X(x)\,dx
 \end{equation*}
 
-Por lo tanto, para cualquier otra regla $\pi$:
+donde usamos la notación $f_X(x)\,dx$ para denotar la medida de probabilidad (que puede ser una densidad o una masa de probabilidad, según el caso). Como para cada $x$ se tiene que:
+\begin{equation*}
+  P_{\Theta|X}(r^*(x) \neq \Theta|X = x) = \min_{\delta \in \{0,1\}} P_{\Theta|X}(\delta \neq \Theta|X = x) \leq P_{\Theta|X}(\pi(x) \neq \Theta|X = x)
+\end{equation*}
+
+para cualquier otra regla $\pi$, entonces integrando sobre todos los $x \in \mathbb{X}$:
 \begin{equation*}
   P_{X,\Theta}(r^*(X) \neq \Theta) \leq P_{X,\Theta}(\pi(X) \neq \Theta)
 \end{equation*}
@@ -697,7 +753,7 @@ Luego, se busca el estimador que minimice el error cuadrático medio $\phi_{MMSE
 \begin{parts}
   \part Determine la probabilidad conjunta $P_{X,\Theta}(X = k, \Theta = \theta)$ y con ello muestre que la variable aleatoria $X$ (número de partículas detectadas) distribuye Poisson de parámetro $\lambda p$, es decir:
   \begin{equation*}
-    p_X(k) = \frac{(\lambda p)^k}{k!} e^{-\lambda p}, \quad \forall k \in \{0, 1, 2, \cdots\}
+    P_X(k) = \frac{(\lambda p)^k}{k!} e^{-\lambda p}, \quad \forall k \in \{0, 1, 2, \cdots\}
   \end{equation*}
   
   \part Muestre que:
@@ -732,14 +788,14 @@ Para $\theta < k$: $P_{X,\Theta}(k, \theta) = 0$ (no se pueden detectar más par
 
 
 \begin{align*}
-  p_X(k) &= \sum_{\theta=0}^{\infty} P_{X,\Theta}(k, \theta) \\
+  P_X(k) &= \sum_{\theta=0}^{\infty} P_{X,\Theta}(k, \theta) \\
   &= \sum_{\theta=k}^{\infty} \frac{p^k (1-p)^{\theta-k} \lambda^{\theta}}{k!(\theta-k)!} e^{-\lambda} \\
   &= \frac{p^k e^{-\lambda}}{k!} \sum_{\theta=k}^{\infty} \frac{(1-p)^{\theta-k} \lambda^{\theta}}{(\theta-k)!}
 \end{align*}
 
 Hacemos el cambio de variable $m = \theta - k$:
 \begin{align*}
-  p_X(k) &= \frac{p^k e^{-\lambda}}{k!} \sum_{m=0}^{\infty} \frac{(1-p)^m \lambda^{m+k}}{m!} \\
+  P_X(k) &= \frac{p^k e^{-\lambda}}{k!} \sum_{m=0}^{\infty} \frac{(1-p)^m \lambda^{m+k}}{m!} \\
   &= \frac{p^k \lambda^k e^{-\lambda}}{k!} \sum_{m=0}^{\infty} \frac{[\lambda(1-p)]^m}{m!} \\
   &= \frac{(p\lambda)^k e^{-\lambda}}{k!} \cdot e^{\lambda(1-p)} \\
   &= \frac{(\lambda p)^k}{k!} e^{-\lambda + \lambda(1-p)} \\
@@ -750,15 +806,14 @@ Por lo tanto, $X \sim \text{Poisson}(\lambda p)$.
 
 \subsection*{Resolución 4.2}
 
-
-Usando el teorema de Bayes:
+Dado que ya tenemos la distribución conjunta $P_{X,\Theta}(k, \theta)$ del punto anterior, podemos calcular la distribución condicional:
 \begin{equation*}
-  P_{\Theta|X}(\theta|k) = \frac{P_{X,\Theta}(k, \theta)}{p_X(k)}
+  P_{\Theta|X}(\theta|k) = \frac{P_{X,\Theta}(k, \theta)}{P_X(k)}
 \end{equation*}
 
 Para $\theta \geq k$:
 \begin{align*}
-  P_{\Theta|X}(\theta|k) &= \frac{\frac{p^k (1-p)^{\theta-k} \lambda^{\theta}}{k!(\theta-k)!} e^{-\lambda}}{\frac{(\lambda p)^k}{k!} e^{-\lambda p}} \\
+  P_{\Theta|X}(\theta|k) &= \frac{P_{X,\Theta}(k, \theta)}{P_X(k)} = \frac{\frac{p^k (1-p)^{\theta-k} \lambda^{\theta}}{k!(\theta-k)!} e^{-\lambda}}{\frac{(\lambda p)^k}{k!} e^{-\lambda p}} \\
   &= \frac{p^k (1-p)^{\theta-k} \lambda^{\theta} e^{-\lambda}}{(\theta-k)!} \cdot \frac{k!}{(\lambda p)^k e^{-\lambda p}} \\
   &= \frac{(1-p)^{\theta-k} \lambda^{\theta} e^{-\lambda}}{(\theta-k)!} \cdot \frac{1}{\lambda^k e^{-\lambda p}} \\
   &= \frac{\lambda^{\theta-k} (1-p)^{\theta-k}}{(\theta-k)!} e^{-\lambda + \lambda p} \\
@@ -769,7 +824,7 @@ Para $\theta < k$: $P_{\Theta|X}(\theta|k) = 0$.
 
 Observamos que dado $X = k$, la variable $\Theta$ tiene una distribución Poisson desplazada: $\Theta - k \sim \text{Poisson}(\lambda(1-p))$.
 
-El estimador MMSE es la esperanza condicional:
+La regla MMSE es la esperanza condicional:
 \begin{align*}
   \pi_{MMSE}(k) &= \mathbb{E}[\Theta|X = k] \\
   &= \sum_{\theta=k}^{\infty} \theta \cdot P_{\Theta|X}(\theta|k) \\
@@ -796,13 +851,13 @@ Por lo tanto:
   \begin{equation*}
     \pi_{MMSE}(X) \approx X + \lambda(1-1) = X
   \end{equation*}
-  El estimador es aproximadamente igual al número de partículas detectadas, lo cual tiene sentido ya que el detector detecta casi todas las partículas emitidas.
+  La regla es aproximadamente igual al número de partículas detectadas, lo cual tiene sentido ya que el detector detecta casi todas las partículas emitidas.
   
   \item \textbf{Régimen $p \approx 0$ (detector muy malo):}
   \begin{equation*}
     \pi_{MMSE}(X) \approx X + \lambda(1-0) = X + \lambda
   \end{equation*}
-  El estimador se sesga fuertemente hacia el prior $\lambda$. Como el detector detecta muy pocas partículas, la observación $X$ es poco informativa y el estimador se apoya más en la información a priori. El término $X$ es pequeño (pocas detecciones) y el término $\lambda$ domina, estimando cerca del valor esperado a priori.
+  La regla se sesga fuertemente hacia el prior $\lambda$. Como el detector detecta muy pocas partículas, la observación $X$ es poco informativa y la regla se apoya más en la información a priori. El término $X$ es pequeño (pocas detecciones) y el término $\lambda$ domina, estimando cerca del valor esperado a priori.
 \end{itemize}
 
 \end{solution}
