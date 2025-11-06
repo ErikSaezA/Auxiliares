@@ -1,0 +1,566 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+  answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 9} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux.~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+\section{Resumen:}
+\subsection*{Ondas TEM, TE, y TM}
+Tal como habíamos visto en líneas de transmisión, para guías de ondas también se tienen campos transversales a la dirección de propagación de la onda. Si ambos campos son transversales, se tiene una onda TEM, si solo el campo eéctrico es transversal, se tendrá una onda TE. Por último, si solo el campo magnético es trasnversal a la dirección de propagación, se tendrá una onda TM:
+
+\begin{figure}[h]
+    \begin{center}
+    \includegraphics[width=0.7\linewidth]{TEM_TE_TM.png}
+    \caption{Ondas TEM, TE y TM, respectivamente.}
+    \label{fig:TEM_TE_TM}
+    \end{center}
+\end{figure}
+
+\subsection*{Frecuencia de corte}
+A diferencia de las líneas de transmisión, en guías de onda existe cierta frecuencia de corte ($\nu_{cutoff,m n}$). Esta indica que las frecuencias bajo este umbral son atenuadas exponencialmente con respecto a la distancia. Así, la guía de onda solo propagará frecuencias superiores a este umbral. Esta frecuencia se calcula como:
+\begin{align}
+    \nu_{cutoff, m n} = \frac{u}{2 \pi} \sqrt{\left(\frac{m \pi}{a}\right)^2 + \left(\frac{n \pi}{b}\right)^2}
+\end{align}
+Donde:
+\begin{itemize}
+    \item $\mathbf{m}$ corresponde al número de variaciones del campo transversal en $\hat{x}$ (a lo ancho de la guía de onda).
+    \item $\mathbf{n}$ corresponde al número de variaciones del campo transversal en $\hat{y}$. 
+    \item $\mathbf{a}$ corresponde al ancho total de la guía de onda rectangular.
+    \item $\mathbf{b}$ corresponde a la altura total de la guía de onda.
+    \item $\mathbf{u}$ corresponde a la velocidad en el medio que la guía de onda emplea como dieléctrico.
+\end{itemize}
+
+\subsection*{Frecuencia de la onda}
+Para un modo ($m,n$), la frecuencia de la onda en la guía de onda es:
+\begin{align}
+    F_{\text{mn}} &= \sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2}
+\end{align}
+Donde se debe cumplir que $\nu > \nu_{cutoff, mn}$.
+
+\subsection*{Impedancia característica del modo ($m,n$)}
+La impedancia característica para un modo $m,n$ se calcula como:
+\begin{align}
+    \eta_{TM,mn} &= \eta \cdot F_{mn} = \sqrt{\frac{\mu}{\epsilon}} \cdot \sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2}
+\end{align}
+Y para ondas TE:
+\begin{align}
+    \eta_{TE,mn} &= \frac{\eta}{F_{mn}} = \sqrt{\frac{\mu}{\epsilon}} \cdot \left(\sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2} \right)^{-1}
+\end{align}
+\subsection*{Constante de fase}
+La constante de fase para cierto modo ($\beta_{mn}$) se calcula como:
+\begin{align}
+    \beta_{mn} &= 2 \pi \nu \sqrt{\mu \epsilon}\sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2}
+\end{align}
+Donde es importante notar que el factor $\sqrt{\mu \epsilon}$ se puede relacionar con la velocidad mediante la siguiente expresión:
+\begin{align}
+    \sqrt{\mu \epsilon} &= \sqrt{(\mu_0 \mu_r) \cdot (\epsilon_0 \epsilon_r)} = \sqrt{(\mu_0 \epsilon_0) \cdot (\epsilon_r \mu_r)} = \sqrt{\mu_0 \epsilon_0} \cdot \sqrt{\mu_r \epsilon_r} = \frac{\sqrt{\mu_r \epsilon_r}}{c}
+\end{align}
+\subsection*{Longitud de onda}
+La longitud de onda para un modo ($m,n$) está dada por:
+
+\begin{align}
+    \lambda_{mn} &= \frac{2 \pi}{\beta_{mn}}
+\end{align}
+\subsection*{Velocidad de fase}
+La velocidad de fase en un modo ($m,n$) es:
+\begin{align}
+    u_{ph,mn} &= \frac{\omega}{\beta_{mn}} = \frac{2 \pi \nu}{\beta_{mn}}
+\end{align}
+\subsection*{Velocidad de grupo}
+La velocidad de grupo en un modo ($m,n$) viene dada por:
+\begin{align}
+    u_{g,mn} &= \frac{d \omega}{d \beta_{mn}} = \frac{1}{\sqrt{\mu \epsilon}} F_{\text{mn}} = u \cdot F_{\text{mn}}
+\end{align}
+Donde $u$ es la velocidad de la onda en el medio.
+\newpage
+\section{Ejercicios:}
+\begin{questions}
+    \question{Se tiene una guía de ondas común, compuesta de dimensiones rectangulares $a = 2.29 \, \text{cm}$ y $b = 1.02 \, \text{cm}$, y con aire como dieléctrico.} 
+    \begin{parts}
+        
+    
+    \part Determine la frecuencia de corte, $v_{\text{cutoff},mn}$ para los modos TM$_{11}$, TM$_{12}$ y TM$_{21}$. 
+    \part Determine $\eta_{\text{TM},11}$, $\beta_{11}$, $u_{11}$, y $\lambda_{11}$ para el modo TM$_{11}$ a una frecuencia de 18 GHz.
+\end{parts}
+
+
+\begin{center}
+    
+\begin{tikzpicture}[scale=2, line join=round, line cap=round, >=stealth]
+
+% Ejes coordenados
+\draw[->] (0,0,0) -- (1.8,0,0) node[anchor=west]{$\hat{x}$};
+\draw[->] (0,0,0) -- (0,1.2,0) node[anchor=south]{$\hat{y}$};
+\draw[->] (0,0,0) -- (0,0,1.2) node[anchor=east]{$\hat{z}$};
+
+% Puntos a y b
+\coordinate (A) at (1.5,0,0);
+\coordinate (B) at (0,1,0);
+\coordinate (C) at (1.5,1,0);
+
+% Proyecciones del cubo
+\draw[thick] (0,0,0) -- (A) -- (C) -- (B) -- cycle;
+\draw[dashed] (0,0,0) -- (0,0,-0.8);
+\draw[dashed] (A) -- ++(0,0,-0.8);
+\draw[dashed] (B) -- ++(0,0,-0.8);
+\draw[thick] (C) -- ++(0,0,-0.8);
+
+% Aristas verticales
+\draw[thick] (0,0,0) -- (0,1,0);
+\draw[thick] (A) -- (C);
+\draw[dashed] (0,0,0) -- (A);
+\draw[dashed] (B) -- (C);
+
+% Etiquetas de puntos
+\node[below] at (A) {$a$};
+\node[left] at (B) {$b$};
+\node[below left] at (0.15,0,0) {$0$};
+
+% Flecha hacia infinito
+\draw[->] (1.5,0,0) -- (1.5,0,-2) node[right]{$\infty$};
+
+\end{tikzpicture}
+\end{center}
+
+
+\begin{solution}
+    \begin{parts}
+        \part Usamos la siguiente fórmula para obtener la frecuencia de corte:
+        \begin{equation}
+    \nu_{cm,n} = \frac{c}{2} \sqrt{\del{\frac{m}{a}}^2 + \del{\frac{n}{b}}^2}
+\end{equation}
+donde $m$ y $n$ son los modos de la guía de ondas y $c$ es la velocidad en el vacío ($\approx 3 \cdot 10^8 [\text{m/s}]$). Evaluamos para los modos TM11, TM12 y TM21, obteniendo:
+\begin{align}
+    \nu_{c1,1} &= \frac{3\cdot 10^8 [\text{m/s}]}{2} \sqrt{\del{\frac{1}{2.29 [\text{cm}]}}^2 + \del{\frac{1}{1.02 [\text{cm}]}}^2}\\
+    &= \frac{3\cdot 10^8 [\text{m/s}]}{2} \sqrt{\del{\frac{1}{2.29 \cdot 10^{-2} [\text{m}]}}^2 + \del{\frac{1}{1.02 \cdot 10^{-2} [\text{m}]}}^2} =16.16 \, \text{GHz} \\
+    \nu_{c2,1} &= \frac{c}{2} \sqrt{\del{\frac{2}{a}}^2 + \del{\frac{1}{b}}^2} = 19.75 \, \text{GHz} \\
+    \nu_{c1,2} &= \frac{c}{2} \sqrt{\del{\frac{1}{a}}^2 + \del{\frac{2}{b}}^2} = 30.25 \, \text{GHz}
+\end{align}
+
+Con lo que se obtienen los valores de las diferentes frecuencias de corte, dependiendo del modo de la guía de onda. 
+\part Para calcular $\eta_{TM,mn}$, usamos la formula del resumen:
+\begin{equation}
+    \eta_{\text{TM}m,n}  = \sqrt{\frac{\mu}{\epsilon}} \sqrt{1 - \del{\frac{\nu_{cmn}}{\nu}}^2}
+\end{equation}
+
+Reemplazando los valores tenemos que:
+\begin{equation}
+    \eta_{\text{TM}m,n} = 120\pi \sqrt{1 - \del{\frac{16.16 \, \text{GHz}}{18 \, \text{GHz}}}^2} = 166.04 \, \Omega
+\end{equation}
+
+Tener en cuenta que en el vacío o aire, \(\sqrt{\frac{\mu}{\epsilon}} = 120\pi\), luego, para obtener el valor de la constante de propagación se tiene que:
+\begin{align}
+    \beta_{mn} &= 2 \pi \nu \sqrt{\mu \epsilon}\sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2}
+\end{align}
+Tal como aparece en el resumen, el factor $\sqrt{\mu \epsilon}$ lo podemos trabajar como $\frac{\sqrt{\mu_r \epsilon_r}}{c}$, donde en el vacío, tanto $\mu_r$ como $\epsilon_r$ valen 1. Así:
+\begin{align}
+    \beta_{1,1} &= 2 \pi \nu \frac{1}{c}\sqrt{1-\left( \frac{\nu_{cutoff, m n}}{\nu}\right)^2} = 2 \pi \frac{18\cdot10^9}{3 \cdot 10^8} \sqrt{1-\left(\frac{16.16\cdot 10^9}{18\cdot 10^9}\right)^2} \approx 166 [\unit{rad/m}]
+\end{align}
+Para obtener $\lambda_{1,1}$, usamos la fórmula del resumen:
+\begin{align}
+    \lambda_{mn} &= \frac{2 \pi}{\beta_{mn}} = \frac{2 \pi}{166} = 0.038 [\unit{m}]
+\end{align}
+Por último, nos piden la velocidad de fase. Usando la fórmula del resumen:
+\begin{align}
+    u_{ph,1,1} &= \frac{\omega}{\beta_{1,1}} = \frac{2 \pi \nu}{\beta_{1,1}} = \frac{2 \pi \cdot 18 \cdot 10^9 [\unit{rad/s}]}{166 [\unit{rad/m}]} = 6.81 \cdot 10^8 [\unit{m/s}]
+\end{align}
+
+    \end{parts}
+\end{solution}
+
+\question Una guía de ondas rectangular, con dieléctrico agua ($\epsilon_r = \num{80.2}$ y $\mu_r = \num{0.99}$ a \qty{20}{\degreeCelsius}), tiene dimensiones \( a = \qty{4}{\centi\m} \) y \( b = \qty{5.1}{\centi\m}\), y transmite una onda progresiva en el modo fundamental con una frecuencia de \qty{11.5}{\giga\hertz}.
+
+  \begin{parts}
+      \part Determine la constante de fase \( \beta_{10} \), la longitud de onda en la guía \( \lambda_{10} \), la velocidad de fase \( u_{\text{ph},10} \) y la impedancia de onda característica \( \eta_{\text{TE}_{10}} \) asociada a dicho modo.
+      \part Si el valor máximo del campo eléctrico es \( E_0 = \qty{1e3}{\volt\per\m} \), halle los valores máximos de las componentes del campo magnético.
+      \part Determine la potencia transmitida por la guía en este modo.
+  \end{parts}
+\begin{solution}
+    \begin{parts}
+        \part Primero que todo, es importante notar que el modo fundamental siempre será el modo $\text{TE}_{10}$. Entonces, partiremos calculando $\nu_{\text{cutoff},10}$:
+        \begin{align}
+            \nu_{\text{cutoff}} &= \frac{u}{2\pi}\sqrt{\left(\frac{m \pi}{a}\right)^2 + \left(\frac{n \pi}{b}\right)^2} \\
+            \Rightarrow \nu_{\text{cutoff},10} &= \frac{u}{2\pi}\sqrt{\left(\frac{ \pi}{4 \cdot 10^{-2}[\unit{m}]}\right)^2}
+        \end{align}
+        Hay que solucionar el tema de la velocidad $u$, ya que en este caso no estamos en el vacío, sino que en el agua. Para eso, nosotros sabemos que la velocidad la podemos escribir como:
+        \begin{align}
+            u &= \frac{1}{\sqrt{\mu \epsilon}} = \frac{c}{\sqrt{\mu_r \epsilon_r}}
+        \end{align}
+        Donde $c \approx 3 \cdot 10^8 [\unit{m/s}]$ representa la velocidad de las ondas EM en el vacío. Si reemplazamos:
+        \begin{align}
+            \nu_{\text{cutoff},10} &= \frac{c}{2\pi \sqrt{\mu_r \epsilon_r}}\sqrt{\left(\frac{ \pi}{4 \cdot 10^{-2}[\unit{m}]}\right)^2} \\
+            \nu_{\text{cutoff},10} &= \frac{3 \cdot 10^8}{2\pi \sqrt{80.2 \cdot 0.99}}\sqrt{\left(\frac{ \pi}{4 \cdot 10^{-2}[\unit{m}]}\right)^2} \\
+            \nu_{\text{cutoff},10} &= \frac{3 \cdot 10^8}{2\pi \sqrt{80.2 \cdot 0.99}}\sqrt{\left(\frac{ \pi}{4 \cdot 10^{-2}[\unit{m}]}\right)^2} = 0.42 \unit{\text{GHz}}.
+        \end{align}
+        Con esto calculamos el factor $F_{10}$:
+        \begin{align}
+            F_{10} &= \sqrt{1-\left( \frac{0.42 [\unit{\text{GHz}}]}{11.5 [\unit{\text{GHz}}]}\right)^2} \\
+            F_{10} &= 0.99
+        \end{align}
+        Con este factor ya calculado, el resto de cálculos se hará mucho más rápido. Así, calculemos los factores que nos piden:
+        \begin{align}
+            \eta_{\text{TE},10} &= \frac{\eta}{F_{\text{10}}} = \frac{\sqrt{\frac{\mu}{\epsilon}}}{0.99} = \frac{\sqrt{\frac{\mu_r \mu_0}{\epsilon_r \epsilon_0}}}{0.99} \\
+            \eta_{\text{TE},10} &= \frac{\sqrt{\frac{0.99 \cdot 1.256 \cdot 10^{-6}}{80.2 \cdot 8.854 \cdot 10^{-12}}}}{0.99} \\
+            \eta_{\text{TE},10} &= 42.26 [\unit{\ohm}]
+        \end{align}
+        Ahora $\beta_{10}$:
+        \begin{align}
+            \beta_{10} &= 2 \pi \nu \sqrt{\mu \epsilon} \cdot F_{\text{10}} = 2 \pi \nu \frac{\sqrt{\mu_r \epsilon_r}}{c} \cdot F_{\text{10}} = 2 \pi \cdot (11.5 \cdot 10^{9}[\text{Hz}]) \cdot \frac{\sqrt{79.4}}{3\cdot 10^{8} [\text{m/s}]} \cdot 0.99 \\
+            \beta_{10} &= 2123.64 [\text{rad/m}]
+        \end{align}
+        Para calcular $\lambda_{10}$:
+        \begin{align}
+            \lambda_{10} &= \frac{2 \pi}{\beta_{10}} = \frac{2 \pi [\text{rad}]}{2123.64[\text{rad/m}]} = 0.003 [\unit{\text{m}}] 
+        \end{align}
+        Finalmente, calculamos $u_{ph,10}$:
+        \begin{align}
+            u_{ph,10} &= \frac{2 \pi \nu}{\beta_{10}} = \frac{2 \pi \cdot 11.5 \cdot 10^{9} [rad \cdot \text{Hz}]}{2123.64 [\unit{rad/m}]} = 3.4 \cdot 10^7 [m/s]
+        \end{align}
+
+    \part Recordemos que según lo demostrado en la P2 a) del Aux 5, la Ley de Faraday y la Ley de Ampère-Maxwell para campos armónicos en medios lineales son:
+    \begin{align}
+        \nabla \times \bvec{E} &= - j \omega \mu \bvec{H} \\
+        \nabla \times \bvec{H} &= j \omega \epsilon \bvec{E}
+    \end{align}
+    Partamos por la Ley de Faraday: 
+    \\
+    Si separamos el campo $\bvec{H}$ en tres componentes y resolvemos el rotor:
+    \begin{align}
+\nabla \times \vec{E} =
+\begin{vmatrix}
+\hat{x} & \hat{y} & \hat{z} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+E_x & E_y & E_z
+\end{vmatrix}
+&= -j \omega \mu (H_x \hat{x} + H_y \hat{y} + H_z \hat{z})
+    \end{align}
+    A partir de lo anterior, se obtiene el siguiente sistema de ecuaciones:
+    \begin{align}
+    \frac{\partial E_{z}}{\partial y} - \frac{\partial E_{y}}{\partial z} &=-j \omega \mu H_{x}\\
+    \frac{\partial E_{x}}{\partial z} - \frac{\partial E_{z}}{\partial x} &=-j \omega \mu H_{y}\\
+    \frac{\partial E_{y}}{\partial x} - \frac{\partial E_{x}}{\partial y} &=-j \omega \mu H_{z}
+\end{align}
+Análogamente para la Ley de Ampère-Maxwell, se obtienen el siguiente set de ecuaciones:
+\begin{align}
+    \frac{\partial H_{z}}{\partial y} - \frac{\partial H_{y}}{\partial z} &=j \omega \mu E_{x}\\
+    \frac{\partial H_{x}}{\partial z} - \frac{\partial H_{z}}{\partial x} &=j \omega \mu E_{y}\\
+    \frac{\partial H_{y}}{\partial x} - \frac{\partial H_{x}}{\partial y} &=j \omega \mu E_{z}
+\end{align}
+Dado que buscamos obtener caracterizaciones sobre las direcciones $E_{z}$ y $H_{z}$ (para posteriormente analizar las ondas TE y TM), luego, dejamos las expresiones anteriores en función de estas. Así, se obtendrá lo siguiente:
+\begin{align}
+    H_{x} &=\frac{j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial y} - \beta \frac{\partial H_{z}}{\partial x}}\\
+    H_{y} &=\frac{-j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial x} - \beta \frac{\partial H_{z}}{\partial y}}\\
+    E_{x} &=\frac{-j}{k_{c}^{2}}\del{\beta \frac{\partial E_{z}}{\partial x} + w\mu \frac{\partial H_{z}}{\partial y}}\\
+    E_{y} &=\frac{j}{k_{c}^{2}}\del{-\beta \frac{\partial E_{z}}{\partial y} + w\mu \frac{\partial H_{z}}{\partial x}}
+\end{align}
+Donde se tendrá que $k_{c} = k^{2} - \beta^{2}$ la cual se denominará como frecuencia de corte. Este es un parámetro muy importante en temas de diseño y análisis de guías de onda. Una vez obtenidas las expresiones analizaremos los casos particulares para ondas TE y TM.
+
+\uline{Caso Ondas TE}
+
+Sabemos que en este tipo de ondas tenemos que $E_{z}= 0$, con lo que debido a esto nuestras ecuaciones se reducen a lo siguiente:
+\begin{align}
+    H_{x} &=\frac{j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial y} - \beta \frac{\partial H_{z}}{\partial x}} && \rightarrow & H_{x}&= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x}\\
+    H_{y} &=\frac{-j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial x} - \beta \frac{\partial H_{z}}{\partial y}} && \rightarrow & H_{y} &= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y}\\
+    E_{x} &=\frac{-j}{k_{c}^{2}}\del{\beta \frac{\partial E_{z}}{\partial x} + w\mu \frac{\partial H_{z}}{\partial y}} && \rightarrow & E_{x}&= \frac{-jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y}\\
+    E_{y} &=\frac{j}{k_{c}^{2}}\del{-\beta \frac{\partial E_{z}}{\partial y} + w\mu \frac{\partial H_{z}}{\partial x}}  && \rightarrow & E_{y}&= \frac{jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x}
+\end{align}
+Con lo que podemos reducir las ecuaciones a lo siguiente:
+\begin{align}
+    \del{\frac{\partial^{2}}{\partial x^{2}}  +\frac{\partial^{2}}{\partial y^{2}} + k_{c}^{2}} H_{z}= 0  
+\end{align}
+Esta es la ecuación general para ondas TE que puede utilizarse para cualquier tipo de geometría.
+
+\uline{Caso Ondas TM}
+
+En este tipo de ondas sabemos que $H_{z} = 0$ por lo que el desarrollo es análogo a lo anterior obteniendo el siguiente set de ecuaciones
+\begin{align}
+    H_{x} &=\frac{j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial y} - \beta \frac{\partial H_{z}}{\partial x}} && \rightarrow & H_{x}&= \frac{jw\epsilon}{k_{c}^{2}}\frac{\partial E_{z}}{\partial y}\\
+    H_{y} &=\frac{-j}{k_{c}^{2}}\del{ w\epsilon \frac{\partial E_{z}}{\partial x} - \beta \frac{\partial H_{z}}{\partial y}} && \rightarrow & H_{y} &= \frac{-jw\epsilon}{k_{c}^{2}}\frac{\partial E_{z}}{\partial x}\\
+    E_{x} &=\frac{-j}{k_{c}^{2}}\del{\beta \frac{\partial E_{z}}{\partial x} + w\mu \frac{\partial H_{z}}{\partial y}} && \rightarrow & E_{x}&= \frac{-j\beta}{k_{c}^{2}}\frac{\partial E_{z}}{\partial x}\\
+    E_{y} &=\frac{j}{k_{c}^{2}}\del{-\beta \frac{\partial E_{z}}{\partial y} + w\mu \frac{\partial H_{z}}{\partial x}}  && \rightarrow & E_{y}&= \frac{-j \beta }{k_{c}^{2}}\frac{\partial E_{z}}{\partial y}
+\end{align}
+Luego podemos expresar de manera general la expresión como:
+\begin{align}
+    \del{\frac{\partial^{2}}{\partial x^{2}}  +\frac{\partial^{2}}{\partial y^{2}} + k_{c}^{2}} E_{z}= 0  
+\end{align}
+Con lo que se obtienen las ecuaciones general para las ondas TE y TM.
+\\
+\\
+Ahora debemos ponernos en el caso específico de guías de onda rectangulares (las que veremos en este ramo). En este tipo de ondas asumiremos que los conductores de las murallas son lo suficientemente buenos como para despreciar los campos en los bordes (muros con $\sigma \rightarrow \infty$). Así:
+
+
+\begin{center}
+    
+\begin{tikzpicture}[scale=2, line join=round, line cap=round, >=stealth]
+
+% Ejes coordenados
+\draw[->] (0,0,0) -- (1.8,0,0) node[anchor=west]{$\hat{x}$};
+\draw[->] (0,0,0) -- (0,1.2,0) node[anchor=south]{$\hat{y}$};
+\draw[->] (0,0,0) -- (0,0,1.2) node[anchor=east]{$\hat{z}$};
+
+% Puntos a y b
+\coordinate (A) at (1.5,0,0);
+\coordinate (B) at (0,1,0);
+\coordinate (C) at (1.5,1,0);
+
+% Proyecciones del cubo
+\draw[thick] (0,0,0) -- (A) -- (C) -- (B) -- cycle;
+\draw[dashed] (0,0,0) -- (0,0,-0.8);
+\draw[dashed] (A) -- ++(0,0,-0.8);
+\draw[dashed] (B) -- ++(0,0,-0.8);
+\draw[thick] (C) -- ++(0,0,-0.8);
+
+% Aristas verticales
+\draw[thick] (0,0,0) -- (0,1,0);
+\draw[thick] (A) -- (C);
+\draw[dashed] (0,0,0) -- (A);
+\draw[dashed] (B) -- (C);
+
+% Etiquetas de puntos
+\node[below] at (A) {$a$};
+\node[left] at (B) {$b$};
+\node[below left] at (0.15,0,0) {$0$};
+
+% Flecha hacia infinito
+\draw[->] (1.5,0,0) -- (1.5,0,-2) node[right]{$\infty$};
+
+\end{tikzpicture}
+\end{center}
+
+Donde:
+
+\begin{align}
+    E_{x}(x,y)= 0  \text{ (En y=0, y=b)}\\
+    E_{y}(x,y)= 0  \text{ (En x=0, x=a)}
+\end{align}
+Analizamos el problema para ondas TE y TM:
+En base a lo anterior tendremos que la componente $E_{z}$ tiene dependencia solo de x e y. La ventaja de esto es que permitirá el uso del método de separación de variables para resolver la EDP. Recordar que en la P1 del Aux 3 se resolvió una EDP similar con más detalle. Entonces, se tiene:
+\begin{align}
+    E_{z}(x,y) = X(x)Y(y) = XY
+\end{align}
+Reescribiendo la ecuación se tiene:
+\begin{align}
+    \del{ \frac{\partial^{2}}{\partial x^{2}}  +\frac{\partial^{2}}{\partial y^{2}} + k_{c}^{2} }E_{z}&= 0  \\
+    \del{ \frac{\partial^{2}}{\partial x^{2}}  +\frac{\partial^{2}}{\partial y^{2}} + k_{c}^{2} }XY&= 0\\
+    Y\frac{\partial^{2} X}{\partial x^{2}} +  X\frac{\partial^{2} Y}{\partial y^{2}} + k_{c}^{2}XY&=0
+\end{align} 
+Dividiendo la expresión por $\frac{1}{XY}$ se tiene:
+\begin{align}
+    \frac{1}{X}\frac{\partial^{2} X}{\partial x^{2}} +  \frac{1}{Y}\frac{\partial^{2} Y}{\partial y^{2}} + k_{c}^{2}&=0
+\end{align}
+La expresión $k_{c}^{2}$ vendrá dada por lo siguiente $k_{c}^{2} = k_{x}^{2} + k_{y}^{2} $ por lo que separando por componente:
+\begin{align}
+     \frac{\partial^{2} X}{\partial x^{2}} + k_{x}^{2}X&=0 & \frac{\partial^{2} Y}{\partial y^{2}} + k_{y}^{2}Y&=0 
+\end{align}
+Luego se puede resolver cada ecuación por separado dando como resultado lo siguiente:
+\begin{align}
+    x&= A\cos(k_{x} x) + B\sin(k_{x}x)  & y&= C\cos(k_{y} y) + D\sin(k_{y}y)
+\end{align}
+Dado que previamente definimos $E_{z} = X(x)Y(y)$, y asumiendo que depende independientemente de estas dos componentes, obtendremos que el campo viene dado por:
+\begin{align}
+    E_{z}= ( A\cos(k_{x} x) + B\sin(k_{x}x) ) (C\cos(k_{y} y) + D\sin(k_{y}y))
+\end{align}
+Con lo que debemos despejar las constantes A,B,C,D, por lo que utilizaremos las condiciones de bordes definidas previamente, con lo que se tiene:
+\begin{align}
+    \text{\small{$E_{z} = 0 =$}}& \text{\small{$( A\cos(k_{x} 0 ) + B\sin(k_{x} 0 ) ) (C\cos(k_{y} y) + D\sin(k_{y}y))$}} \\
+    =& A(C\cos(k_{y} y) + D\sin(k_{y} y ))= 0
+\end{align}
+Como buscamos una solución no trivial, se impondrá que $A=0$ (obteniendo el valor de la primera variable), análogamente si evaluamos en $y = 0$ tendremos que:
+\begin{align}
+    E_{z} = 0 =& (B\sin(k_{x}x))(C\cos(k_{y} \cdot 0) + D\sin(k_{y} \cdot 0 )) \\
+              =& C ( B\sin(k_{x}x) ) = 0 
+\end{align}
+Con lo que nuevamente, para evitar las soluciones triviales, se impone que $C=0$, con esto obtenemos otra incógnita más, luego tenemos que el campo $E_{z}$ se reduce a:
+\begin{align}
+    E_{z} = B\sin(k_{x}x) D\sin(k_{y}y)
+\end{align}
+Evaluando sobre las dos condiciones de borde restantes tenemos que:
+\begin{align}
+    E_{z} = 0 = B\sin(k_{x} a) D\sin(k_{y}y) \text{ (Para x=a)} 
+\end{align}
+Nos despreocuparemos de la variable y, dado que nos interesa el análisis solo en los valores asociados a x, y por tanto se tiene que:
+\begin{align}
+    E_{z}     = B\sin(k_{x} a)&=0\\ 
+              \sin(k_{x} a) &=0 \\
+               k_{x}a &= m\pi\\
+               k_{x} &= \frac{m \pi}{a}
+\end{align}
+De esta manera obtenemos una expresión asociada a $k_{x}$, análogamente para $k_{y}$ tenemos que:
+\begin{align}
+    E_{z}     = D\sin(k_{y} b)&=0\\ 
+              \sin(k_{y} b) &=0 \\
+               k_{y}b &= n\pi\\
+               k_{y} &= \frac{n \pi}{b}
+\end{align}
+Una vez encontradas todos las expresiones, tenemos que el campo eléctrico vendrá expresado por:
+\begin{align}
+    E_{z} &= B \sin(k_{x}x) \sin(k_{y} y) \\
+          &=  B \sin\del{\frac{\pi m x }{a}} \sin\del{ \frac{n \pi y }{ b}}  e^{-j\beta z} \\
+          &= \beta_{mn} \sin\del{\frac{\pi m x }{a}} \sin\del{ \frac{n \pi y }{ b}} e^{-j\beta z}
+\end{align}
+Donde se tiene que $BD= \beta_{mn}$, estos valores usualmente se encuentran tabulados en tablas para los diferentes guías que utilizamos (Dado que rara vez tendremos una geometría con la que no estén tabulados dichos valores). El resultado final nos dice como se propaga la onda en la dirección de propagación.
+\\
+\\
+Finalmente, dado que buscábamos obtener las expresiones de los campos, se tendrá que reemplazando el valor de $E_{z}$lo siguiente:
+\begin{align}
+    H_{x}&= \frac{jw\epsilon}{k_{c}^{2}}\frac{\partial E_{z}}{\partial y} && \rightarrow &E_{x} &= \frac{-j\beta m \pi}{ak_{c}^{2}}B_{mn} \cos\del{\frac{\pi m x}{a}}\sin\del{ \frac{n \pi y}{b}}e^{-j\beta z}\\
+    H_{y} &= \frac{-jw\epsilon}{k_{c}^{2}}\frac{\partial E_{z}}{\partial x} && \rightarrow &  E_{y} &= \frac{-j\beta n \pi}{b k_{c}^{2}}B_{mn} \sin\del{\frac{\pi m x}{a}}\cos\del{ \frac{n \pi y}{b}}e^{-j\beta z}\\
+    E_{x}&= \frac{-j\beta}{k_{c}^{2}}\frac{\partial E_{z}}{\partial x} && \rightarrow &  H_{x} &= \frac{-jw \epsilon n \pi}{b k_{c}^{2}}B_{mn} \sin\del{\frac{\pi m x}{a}}\cos\del{ \frac{n \pi y}{b}}e^{-j\beta z}\\
+    E_{y}&= \frac{-j \beta }{k_{c}^{2}}\frac{\partial E_{z}}{\partial y} && \rightarrow & H_{y} &= \frac{-jw \epsilon n \pi}{a k_{c}^{2}}B_{mn} \cos\del{\frac{\pi m x}{a}}\sin\del{ \frac{n \pi y}{b}}e^{-j\beta z}
+\end{align}
+Con lo que finalmente se obtiene la expresión buscada.
+
+\uline{Caso 2 Ondas TE}
+
+El procedimiento para obtener las ecuaciones que caracterizan estas ondas es análogo al anterior con lo se obtiene que: 
+\begin{align}
+    H_{z} = A_{mn}\cos\del{\frac{m \pi x}{a}} \cos\del{\frac{n \pi y}{b}} e^{-j \beta z}  
+\end{align}
+Con lo que reemplazando en el set de ecuaciones se tiene que:
+\begin{align}
+     H_{x}&= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x} && \rightarrow &H_{x} &=\frac{j \beta m  \pi}{k_{c}^{2} a } A_{mn} \sin\del{\frac{\pi m x}{a}} \cos\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\ 
+        H_{y} &= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y} && \rightarrow & H_{y} &=\frac{j \beta n  \pi}{k_{c}^{2} b } A_{mn} \cos\del{\frac{\pi m x}{a}} \sin\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\
+        E_{x}&= \frac{-jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y}  && \rightarrow &   E_{x} &=\frac{jw\mu n \pi}{k_{c}^{2}b} A_{mn} \cos\del{\frac{\pi m x}{a}} \sin\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\
+         E_{y}&= \frac{jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x} && \rightarrow & E_{y} &=\frac{-jw\mu m \pi}{k_{c}^{2}a} A_{mn} \sin\del{\frac{\pi m x}{a}} \cos\del{ \frac{n \pi y}{b}} e^{-j\beta z}
+\end{align}
+Recordemos que estamos en el caso $\text{TE}_{10}$. Poniéndonos en las ecuaciones del caso TE y reemplazando por $m=1$ y $n=0$ se obtiene:
+\begin{align}
+    H_x &= \frac{j \beta \pi}{k_c^2 a} A_{10} \sin\del{\frac{\pi x}{a}} e^{-j\beta_{10} z}\\
+    E_{y} &=\frac{-j \omega \mu \pi}{k_{c}^{2}a} A_{10} \sin\del{\frac{\pi x}{a}} e^{-j\beta_{10} z}
+\end{align}
+Es importante notar que $\sin{(0)} = 0$, por ende, se nos van dos de las cuatro ecuaciones.
+\\
+\\
+Nos dicen que la amplitud máxima del campo eléctrico es 1000 \unit{V m^{-1}}. Así, reemplazamos en la ecuación de $E_y$, donde la amplitud son todas las constantes (sin incluir al j), es decir:
+\begin{align}
+    E_y &= -j 1000 \sin\del{\frac{\pi x}{a}} e^{-j\beta_{10} z} = -j 1000 \sin\del{\frac{\pi x}{4 \cdot 10^{-2}}} e^{-j \cdot 2123.64 \cdot z} \mathbf{\hat{y}}
+\end{align}
+Nosotros sabemos que el campo magnético en función del campo eléctrico se obtiene con:
+\begin{align}
+    H_x &= \frac{1}{\eta_{TE,10}} \mathbf{\hat{z}} \times E_y = -\frac{1}{42.26} \cdot j 1000 \sin\del{\frac{\pi x}{4 \cdot 10^{-2}}} e^{-j \cdot 2123.64 \cdot z} (-\mathbf{\hat{x}}) \\
+    H_x &=\frac{1}{42.26} \cdot j 1000 \sin\del{\frac{\pi x}{4 \cdot 10^{-2}}} e^{-j \cdot 2123.64 \cdot z} (\mathbf{\hat{x}})
+\end{align}
+Y entonces el valor máximo (amplitud) del campo magnético será $\frac{1000}{\eta_{TE,10}} = \frac{1000}{42.26} = 23.663$ [\unit{A m^{-1}}], obteniendo así lo pedido.  
+
+\part Aplicando la fórmula del formulario, el vector de Poynting viene dado por:
+\begin{align}
+    \langle \mathbf{S}\rangle &= \frac{1}{2} \text{Re}[\bvec{E} \times \bvec{H}^*]
+\end{align}
+Notemos que solo tenemos $E_y$ y $H_x$, es decir, nos falta $E_x$. Para obtenerlo, usamos la fórmula utilizada anteriormente, que nos entrega $\bvec{H}$ en función de $\bvec{E}$. Así:
+\begin{align}
+    \langle \mathbf{S}\rangle &= \frac{1}{2} \text{Re}[\bvec{E} \times \bvec{H}^*] = \frac{1}{2} \text{Re}[E_y (\mathbf{\hat{y}}) \times (\frac{1}{\eta_{TE,10}} \mathbf{\hat{z}} \times E_y \mathbf{\hat{y}})] \\
+    \langle \mathbf{S}\rangle &= \frac{1}{2} \text{Re}[E_y (\mathbf{\hat{y}}) \times \frac{E_y (-\mathbf{\hat{x}})}{\eta_{TE,10}}] \\
+    \langle \mathbf{S}\rangle &= \frac{1}{2} \text{Re}[\frac{E_y^2}{\eta_{TE,10}}](\mathbf{\hat{z}})
+\end{align}
+Si notamos que $E_y^2$ no tiene parte imaginaria (ya que la multiplicación de dos imaginarios es real, porque queda $j \cdot j = j^2 = -1$), por ende, el vector de Poynting es:
+\begin{align}
+    \langle \mathbf{S} \rangle &= \frac{1}{2} \frac{\norm{E_y}^2}{\eta_{TE,10}} (\mathbf{\hat{z}}) = \frac{1000^2 \cdot \sin^2{(\frac{\pi x}{a}})}{84.52} (\mathbf{\hat{z}}) = 11831.5 \cdot \sin^2{(\frac{\pi x}{a}}) (\mathbf{\hat{z}})
+\end{align}
+Para obtener la potencia promedio, sabemos que:
+\begin{align}
+    \langle \mathbf{P} \rangle &= \iint_S \langle  \mathbf{S} \rangle \cdot d\vec{s} \\
+    \langle \mathbf{P} \rangle &= 11831.5 \int_{y=0} ^{y=b} \int_{x_0} ^{x=a} \sin^2{(\frac{\pi x}{a}}) \cdot dx \cdot dy
+\end{align}
+Y resolviendo esa integral, se obtiene lo pedido.
+    \end{parts}
+\end{solution}
+
+\question \textbf{[Propuesto]}
+\\
+Sea una guía de ondas rectangular de medidas $a=\qty{3.47}{\centi\m}$ y $b=\qty{2.5}{\centi\m}$ (asuma en el vacío).
+  \begin{parts}
+      \part Obtenga las frecuencias de corte de los modos $\text{TE}_{10}$, $\text{TE}_{20}$, $\text{TE}_{01}$, $\text{TE}_{11}$, $\text{TM}_{11}$ y ordénelos de manera creciente.
+      \part Para el modo fundamental obtenga, $\beta_{mn}$, $u_{\text{ph}, mn}$, $u_{\text{g}, mn}$, $\lambda_{mn}$ y $\eta_{\text{TE},{mn}}$ a una frecuencia de $\nu=\qty{5}{\giga\hertz}$.
+      \part Interprete brevemente el significado de los parámetros obtenidos con anterioridad.
+      \part Sea el campo eléctrico para el modo fundamental de la forma:
+      \begin{align*}
+          E_{y} = -\ju 550 \sin\left(\frac{\pi x}{a}\right)\euler^{-\ju\beta_{mn}z} \quad \unit{\volt\per\m}
+      \end{align*}
+      Obtenga el vector de Poynting y su potencia promedio $\left< P \right>$ tanto para el modo $\text{TE}_{10}$ como para el modo $\text{TM}_{10}$. Para esto, primero debe obtener $\eta_{TM, 10}$.
+  \end{parts}
+\begin{solution}
+    \begin{parts}
+    \part
+        Las frecuencias de corte vienen dadas por:
+        \begin{align}
+            \nu_{cutoff, m n} = \frac{u}{2 \pi} \sqrt{\left(\frac{m \pi}{a}\right)^2 + \left(\frac{n \pi}{b}\right)^2}
+        \end{align}
+        Así:
+        \begin{align}
+            \text{TE}_{10} \quad \Rightarrow \nu_{\text{cutoff}, 10} &= \frac{c}{2} \sqrt{\del{\frac{1}{\qty{3.47}{\centi\m}}}^2} = \qty{4319.776}{\mega\hertz} = \qty{4.319}{\giga \hertz} \\
+        \text{TE}_{20} \quad \Rightarrow \nu_{\text{cutoff}, 20} &= \frac{c}{2} \sqrt{\del{\frac{2}{\qty{3.47}{\centi\m}}}^2} = \qty{8639.552}{\mega\hertz} = \qty{8.639}{\giga \hertz}\\
+        \text{TE}_{01} \quad \Rightarrow \nu_{\text{cutoff}, 01} &= \frac{c}{2} \sqrt{\del{\frac{1}{\qty{2.5}{\centi\m}}}^2} =  \qty{5995.849}{\mega\hertz} = \qty{5.995}{\giga \hertz} \\
+        \text{TE}_{11} \quad \Rightarrow \nu_{\text{cutoff}, 11} &= \frac{c}{2} \sqrt{\del{\frac{1}{\qty{3.47}{\centi\m}}}^2 + \del{\frac{1}{\qty{2.5}{\centi\m}}}^2} =  \qty{7389.903}{\mega\hertz} = \qty{7.389}{\giga \hertz}
+        \end{align}
+         Para el caso $\text{TM}_{11}$ es idéntico al caso $\text{TE}_{11}$. No hay diferencia en los modos TM o TE para la frecuencia de corte.
+         \part El modo fundamental es $\text{TE}_{10}$, para hacer más fácil el cálculo, primero obtendremos $F_{10}$:
+      \begin{equation}
+        F_{10} = \sqrt{1 - \del{\frac{\nu_{\text{cutoff}, 10}}{\nu}}^2} = \sqrt{1 - \del{\frac{\qty{4.319}{\giga\hertz}}{\qty{5}{\giga\hertz}}}^2} = \num{0,504}.
+      \end{equation}
+      Ahora calculamos lo pedido:
+      \begin{align}
+          \eta_{\text{TE}_{10}} &= \eta / F_{10} =  \sqrt{\frac{\mu}{\epsilon}} \frac{1}{F_{10}} = \qty{748,121}{\ohm} \\
+          \beta_{10} &= \frac{2 \pi \nu}{c} \cdot F_{10} = \qty{52,815}{\radian \per \meter} \\
+          \lambda_{10} &= \frac{2 \pi}{\beta_{10}} = \qty{0.118}{\meter} \\
+          u_{\text{ph}, {10}} &= \frac{2 \pi \nu}{\beta_{10}} = \qty{5.948e8}{\m\per\s} \\
+          u_{\text{g}, {10}} &= c \cdot F_{mn} = \qty{1.512e8}{\meter \per \second}
+      \end{align}
+      \part 
+      \begin{itemize}
+          \item $\beta_{mn}$ corresponde a la constante de onda, que es una adaptación a la constante de onda plana $\beta$. En este caso como ya no estamos en un caso de propagación plano, la constante es modificada en función de su modo de vibración. Es por eso que $\beta_{10}$ no será igual a $\beta_{01}$ ni a $\beta_{11}$.
+          \item $\lambda_{mn}$ es la longitud de onda de una onda viajera en una guía de ondas tal que posee un cambio de fase igual a \qty[parse-numbers=false]{2\pi}{\radian} en dirección al eje $z$.
+        \item $\eta_{\text{TE},{mn}}$ es la impedancia o impedancia intrínseca del modo $\text{TE}_{mn}$. Representa la razón entre los campos eléctrico y magnético de una onda corregida por una propagación tipo TE.
+        \item $u_{\text{ph}, mn}$ es la velocidad con la cual la fase del frente de onda se propaga. Esta es mayor a la velocidad de la luz en el material de la guía de onda. Es importante notar que la energía NO se transportará a esta velocidad.
+        \item $u_{\text{g}, mn}$ es la velocidad a la cual la información o modulación de una onda se propaga por la guía de onda. Esta velocidad es menor a la velocidad de la luz en el medio.
+      \end{itemize}
+      \part Para el vector de Poynting tenemos que:
+      \begin{align}
+        \left<\mathbf{S}\right> &= \frac{1}{2}\text{Re}\sbr{\mathbf{E}\times\mathbf{H}} = \frac{1}{2}\frac{\envert{E_x}^2 + \envert{E_y}^2}{\eta_{\text{TE}_{10}}} \uvec{z} = \frac{1}{2} \frac{\envert{E_y}^2}{\eta_{\text{TE}_{10}}}\uvec{z} = \frac{1}{2}\frac{\cbr{550\sin\del{\frac{\pi x}{\qty{3.47}{\centi\m}}}}^2}{\qty{748.121}{\ohm}}\uvec{z} \\
+        \left<\mathbf{S}\right> &= \frac{1}{2}\text{Re}\sbr{\mathbf{E}\times\mathbf{H}} = \frac{1}{2}\frac{\envert{E_x}^2 + \envert{E_y}^2}{\eta_{\text{TM}_{10}}} \uvec{z} = \frac{1}{2} \frac{\envert{E_y}^2}{\eta_{\text{TM}_{10}}}\uvec{z} = \frac{1}{2}\frac{\cbr{550\sin\del{\frac{\pi x}{\qty{3.47}{\centi\m}}}}^2}{\qty{189.709}{\ohm}} \uvec{z}
+      \end{align}
+      pueden entonces existir dos modos fundamentales $m=1$ y $n=0$ para $\text{TM}_{10}$ y $\text{TE}_{10}$, con $\eta_{\text{TM}_{10}} = \qty{189.709}{\ohm}$. Para la potencia debemos integrar en las unidades espaciales el vector de Poynting promedio, es decir:
+      \begin{align}
+        \left<P\del{z}\right> = \int_{x=0}^{x=a}\int_{y=0}^{y=b} \left<\mathbf{S}\right>\cdot\uvec{z}\dif{x}\dif{y}.
+      \end{align}
+      Entonces tenemos que para el caso $\text{TM}_{10}$ y $\text{TE}_{10}$,
+      \begin{align}
+        \left<P\del{z}\right> &= \frac{\qty{2.5}{\centi\m}}{2}\frac{550}{\qty{748.121}{\ohm}} \int_{x=0}^{x=a} \sin^2\del{\frac{\pi x}{\qty{3.47}{\centi\m}}}\dif{x} \\
+        \left<P\del{z}\right> &= \frac{\qty{2.5}{\centi\m}}{2}\frac{550}{\qty{189.709}{\ohm}} \int_{x=0}^{x=a} \sin^2\del{\frac{\pi x}{\qty{3.47}{\centi\m}}}\dif{x}.
+      \end{align}
+      Y con esto obtenemos lo pedido. No es necesario resolver esa integral.
+    \end{parts}
+\end{solution}
+
+
+\end{questions}
+
+
+
+
+
+
+
+
+
+\end{document}

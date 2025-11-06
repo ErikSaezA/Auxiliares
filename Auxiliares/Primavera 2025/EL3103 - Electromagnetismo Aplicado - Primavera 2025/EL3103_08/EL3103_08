@@ -1,0 +1,365 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+  answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 8: Pre-C2} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux.~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{questions}
+\question \label{q:transmission_line2} 
+Sea una línea de $Z_0 = \qty{50}{\ohm}$ que tiene una carga al final de su línea de $Z_L= 32$ \unit{\ohm}, y a esta se le adiciona un adaptador $\lambda/4$.
+\begin{parts}
+\part Determine la impedancia característica del adaptador ($Z_A$) tal que la línea se encuentre adaptada (minimice sus pérdidas).
+
+\part Calcule el coeficiente de reflexión y el parámetro \textbf{VSWR}. Interprete estos resultados.
+\part Repita el proceso para un adaptador de $\lambda/2$. ¿Cómo se puede interpretar esto?
+\end{parts}
+\begin{solution}
+    \begin{parts}
+        \part Sabemos que la impedancia de entrada del adaptador debe ser igual a la impedancia de la línea $Z_0$. De esta manera, calculamos la impedancia de entrada $Z_{in}$ en el adaptador:
+        \begin{align}
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\beta l)}}{Z_C + j Z_L \tan{(\beta l)}}\right) \\
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\frac{2 \pi}{\lambda} \cdot\frac{\lambda}{4})}}{Z_C + j Z_L \tan{(\frac{2 \pi}{\lambda} \cdot \frac{\lambda}{4})}}\right) \\
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\pi /2)}}{Z_C + j Z_L \tan{(\pi /2)}}\right)
+        \end{align}
+        Trabajando con el límite se obtiene lo siguiente (la demostración está hecha en la P1 c) del aux 7):
+        \begin{align}
+            Z_{in} &= \frac{Z_C^2}{Z_L}
+        \end{align}
+        Entonces, estamos trabajando en la entrada del adaptador. Por lo tanto, nuestro $Z_{in}$ es la impedancia característica de la línea $Z_0 = 50 \unit{\ohm}$, nuestro $Z_L = 32 \unit{\ohm}$ es la impedancia de la carga, y nuestra incógnita viene a ser la impedancia característica del adaptador ($Z_A$) que en la ecuación que tenemos viene a ser el $Z_C$. Por ende, despejamos la incógnita $Z_C$:
+        \begin{align}
+            Z_{in} &= \frac{Z_C^2}{Z_L} \Rightarrow Z_C = Z_A = \sqrt{Z_{in} \cdot Z_L} = \sqrt{Z_0 \cdot Z_L}
+        \end{align}
+        Reemplazando valores:
+        \begin{align}
+            Z_A &= \sqrt{50 \cdot 32} = 40 \unit{\ohm}
+        \end{align}
+        Por ende, la línea se encuentra totalmente adaptada si la impedancia característica del adaptador $Z_A = 40 \unit{\ohm}$.
+
+        \part Nos piden $\Gamma$:
+        \begin{align}
+            \Gamma &= \frac{Z_L - Z_0}{Z_L + Z_0} = \frac{Z_L - \frac{Z_C^2}{Z_L}}{Z_L + \frac{Z_C^2}{Z_L}} = \frac{50 - \frac{40^2}{32}}{50 + \frac{40^2}{32}} = \frac{50 - 50}{50 + 50} = 0 \unit{\ohm}
+        \end{align}
+        Es decir, las reflexiones son nulas cuando $Z_A = 40$. Esto coincide con lo esperado, ya que cuando una línea está bien adaptada (pérdidas despreciables), se espera no tener reflexiones. Ahora calculemos el parámetro \textbf{VSWR}:
+        \begin{align}
+            \mathbf{VSWR} &= \frac{1 + |\Gamma|}{1-|\Gamma|} = \frac{1 + 0}{1-0} = 1
+        \end{align}
+        Esto también coincide con lo esperado. Recordemos que el parámetro \textbf{VSWR} mide qué tan bien está adaptada la línea. Si la línea está bien adaptada, se espera que $\mathbf{VSWR} = 1$. Por otro lado, en líneas pésimamente adaptadas como circuitos abiertos o corto circuitos, se espera que $\mathbf{VSWR} = \infty$. 
+
+        \part Obtengamos $Z_{in}$ para el caso de $\lambda/2$:
+        \begin{align}
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\beta l)}}{Z_C + j Z_L \tan{(\beta l)}}\right) \\
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\frac{2 \pi}{\lambda} \cdot\frac{\lambda}{2})}}{Z_C + j Z_L \tan{(\frac{2 \pi}{\lambda} \cdot \frac{\lambda}{2})}}\right) \\
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \tan{(\pi)}}{Z_C + j Z_L \tan{(\pi)}}\right) \\
+            Z_{in} &= Z_C \left ( \frac{Z_L + j Z_C \cdot 0}{Z_C + j Z_L \cdot 0}\right) \\
+            Z_{in} &= Z_C \frac{Z_L}{Z_C} = Z_L
+        \end{align}
+        De esta forma, obtenemos que la impedancia de entrada del adaptador ($Z_0)$ debe ser igual a la impedancia de la carga ($Z_L$). Esta expresión no tiene dependencia de la impedancia característica del adaptador ($Z_A$), por ende, no se puede elegir un valor de esta tal que la línea se encuentre adaptada. Es por esto que en la industria no existen adaptadores de $\lambda / 2$.
+    \end{parts}
+\end{solution}
+\newpage
+\question \label{q:Ondas_2}
+
+Considere una onda plana cuyo campo eléctrico tiene una magnitud \(E_0\) (donde $E_0 = E_1^{+}$) y dirección $\uvecs{x}$, incidiendo normalmente en una sección de tres medios diferentes, siendo este último una placa dieléctrica perfecta adosada a un plano perfectamente conductor (\(\sigma = \infty\)), como se indica en la \cref{fig:12}.
+\begin{parts}
+    \part{Obtenga una relación entre los campos \(E^{-}_{2}\) y \(E^{+}_{2}\) en función de \(d_2\).}
+    \part{Una vez determinada la expresión anterior, analice cuando \(d_{2} = \frac{\lambda}{2}\) y explique en términos del módulo del coeficiente de reflexión.}
+    \part{Considerando que \(d_{2} = \frac{\lambda}{2}\), determine una expresión para las amplitudes de los campos \(E^{-}_{1}\) y \(E^{+}_{1}\) y analice el caso cuando \(d_{1} = \frac{\lambda}{2}\).}
+    \part{Considerando que \(d_{1} = d_{2} = \frac{\lambda}{2}\), calcule el valor de potencia por unidad de área en el Medio 1 tanto para la onda incidente como para la reflejada. ¿Son las potencias para la onda incidente y reflejada, obtenidas con anterioridad, diferentes? Argumente su respuesta.}
+    \part{Calcule la constante de propagación $\gamma$ para el medio 3. ¿Cómo se pueden obtener las constantes de atenuación y de fase? Luego, asuma que el medio 3 es sin pérdidas y vuelva a calcular $\gamma$.}
+\end{parts}
+
+\begin{center}
+
+\begin{tikzpicture}[scale=1.2]
+
+% --- Medio 1 ---
+\fill[pattern=grid,pattern color=gray!50] (-9,0) rectangle (-5,3);
+\draw (-9,0) rectangle (-5,3);
+\node at (-7,2.0) {\Large Medio 1};
+\node at (-7,1.3) {\large $\varepsilon_1,\mu_1$};
+
+% --- Medio 2 ---
+\fill[pattern=dots,pattern color=gray!50] (-5,0) rectangle (-2,3);
+\draw (-5,0) rectangle (-2,3);
+\node at (-3.5,2.0) {\Large Medio 2};
+\node at (-3.5,1.3) {\large $\varepsilon_2,\mu_2$};
+
+% --- Medio 3 ---
+\fill[pattern=horizontal lines,pattern color=gray!50] (-2,0) rectangle (0,3);
+\draw (-2,0) rectangle (0,3);
+\node at (-1,2.0) {\Large Medio 3};
+\node at (-1,1.3) {\large $\varepsilon_3,\mu_3$};
+
+
+% --- Eje x ---
+\draw[->,thick] (-9,-0.7) -- (1,-0.7) node[below] {\Large $x$};
+
+% --- Marcas d1, d2 y 0 ---
+\draw[thin] (-5,-0.7) -- (-5,-0.5) node[below,yshift=-6pt] {\Large $d_1$};
+\draw[thin] (-2,-0.7) -- (-2,-0.5) node[below,yshift=-6pt] {\Large $d_2$};
+\node[below] at (0,-0.7) {\Large $0$};
+
+\end{tikzpicture}
+\captionof{figure}{Sección de tres medios distintos, \cref{q:Ondas_2}.}
+\label{fig:12}
+\end{center}
+ 
+\begin{solution}
+\begin{parts}
+\part{Se busca obtener una relación para los campos $E_{2}^{-}$ y  $E_{2}^{+}$ en función de $d_{2}$, por tanto las expresiones de los campos eléctricos y magnéticos en general para los diferentes medios corresponden:}
+\\
+\\
+\uline{Medio 1: z $\leq$ d1}
+\begin{align}
+    \bvec{E}_{1}(z,t) &= (E_{1}^{+}e^{jwt}e^{-jk_{1} z} + E_{1}^{-}e^{jwt}e^{jk_{1} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{1}&= Y_{1}(\uvecs{z}) \times \bvec{E}_{1}\uvecs{x}\\
+    \bvec{H}_{1} &= Y_{1}(E_{1}^{+}e^{jwt}e^{-jk_{1} z} - E_{1}^{-}e^{jwt}e^{jk_{1} z}) \uvecs{y}
+\end{align}
+\uline{Medio 2: $d_{1}$ $\leq$ z $\leq$ $d_{2}$}
+\begin{align}
+    \bvec{E}_{2}(z,t) &= (E_{2}^{+}e^{jwt}e^{-jk_{2} z} + E_{2}^{-}e^{jwt}e^{jk_{2} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{2}&= Y_{2}(\uvecs{z}) \times \bvec{E}_{2}\uvecs{x}\\
+    \bvec{H}_{2} &= Y_{2}(E_{2}^{+}e^{jwt}e^{-jk_{2} z} - E_{2}^{-}e^{jwt}e^{jk_{2} z}) \uvecs{y}
+\end{align}
+\uline{Medio 3: d2 $\leq$ z  $\leq$ 0 }
+\begin{align}
+    \bvec{E}_{3}(z,t) &= (E_{3}^{+}e^{jwt}e^{-jk_{3} z} + E_{3}^{-}e^{jwt}e^{jk_{3} z})\uvecs{x}
+\end{align}
+\begin{align}
+    \bvec{H}_{3}&= Y_{3}(\uvecs{z}) \times \bvec{E}_{3}\uvecs{x}\\
+    \bvec{H}_{3} &= Y_{3}(E_{3}^{+}e^{jwt}e^{-jk_{3} z} - E_{3}^{-}e^{jwt}e^{jk_{3} z}) \uvecs{y}
+\end{align}
+Con lo que finalmente se obtienen las expresiones de campo eléctrico e intensidad magnetica para los tres medios. Para el medio 4, las expresiones son despreciables debido a la presencia de una pared con conductividad infinita (Reflexión total, campos inexistentes). Luego queremos relacionar $E_{2}^{+}$ y $E_{2}^{-}$, es por esto que evaluaremos en la interfaz de los medios 2 y 3:
+
+\uline{Interfaz medio 2 y 3 (campo eléctrico)}
+\begin{align}
+    \bvec{E}_{2}(z=-d_{2}) = \bvec{E}_{3}(z=-d_{2})
+\end{align}
+Reemplazando y teniendo la consideración con los signos se tendrá que:
+\begin{align}
+    (E_{2}^{+}e^{jwt}e^{jk_{2} d_{2}} + E_{2}^{-}e^{jwt}e^{-jk_{2} d_{2}})=(E_{3}^{+}e^{jwt}e^{jk_{3} d_{2}} + E_{3}^{-}e^{jwt}e^{-jk_{3} d_{2}})
+\end{align}
+A partir de ahora omitiremos en todas las expresiones los términos fasoriales asociados al tiempo $e^{jwt}$ dado que estas no cambian al pasar de un medio a otro, por lo que no será relevante.
+\begin{align}
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})=(E_{3}^{+}e^{jk_{3} d_{2}} + E_{3}^{-}e^{-jk_{3} d_{2}})
+\end{align}
+Necesitamos eliminar la dependencia de las amplitudes asociadas al medio 3, por lo que evaluando en z=0, tenemos que:
+\begin{align}
+    \bvec{E}_{3}(z=0,t) &= (E_{3}^{+}e^{-jk_{3} \cdot 0} + E_{3}^{-}e^{jk_{3} \cdot 0}) = 0\\
+    &= E_{3}^{+} + E_{3}^{-} = 0\\
+    &E_{3}^{+} = -E_{3}^{-}
+\end{align}
+Recordemos que lo igualamos a 0, debido a la conductividad infinita de la interfaz y por tanto la no existencia de onda en el otro medio. Reemplazando esta condición sobre lo anterior:
+\begin{align}
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=(E_{3}^{+}e^{jk_{3} d_{2}} + E_{3}^{-}e^{-jk_{3} d_{2}})\\
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=E_{3}^{+}(e^{jk_{3} d_{2}}- e^{-jk_{3} d_{2}})\\
+    (E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})&=2 E_{3}^{+}j\sin(k_{3} d_{2})
+\end{align}
+Con lo que reducimos a solo tener un $E_{3}^{+}$. De esta forma, debemos relacionar alguna otra expresión para reducirlo. Usando la intensidad de campo magnético de la siguiente manera:
+
+\uline{Interfaz medio 2 y 3 (campo magnético)}
+\begin{align}
+    \bvec{H}_{2}(z=-d_{2}) &= \bvec{H}_{3}(z = - d_{2})\\
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= Y_{3} (E_{3}^{+}e^{-jk_{3} z} - E_{3}^{-}e^{jk_{3} z})
+\end{align}
+Utilizamos la misma condición que obtuvimos antes (es decir que $E_{3}^{+} = -E_{3}^{-}$):
+\begin{align}
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= Y_{3} E_{3}^{+}(e^{-jk_{3} z} + e^{jk_{3} z})\\
+    Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z}) &= 2Y_{3} E_{3}^{+}\cos(k_{3} d_{2})
+\end{align}
+Luego realizando la división se observa que queda expresada solo en términos de $E_{2}^{+} $ y $E_{2}^{-}$ con lo que podemos relacionarlos en función de parámetros conocidos, es decir:
+\begin{align}
+    \frac{(E_{2}^{+}e^{jk_{2} d_{2}} + E_{2}^{-}e^{-jk_{2} d_{2}})}{Y_{2}(E_{2}^{+}e^{-jk_{2} z} - E_{1}^{-}e^{jk_{2} z})}= \frac{j \tan(k_{3} d_{2})}{Y_{3}}
+\end{align}
+Luego, despejando se logra obtener que: 
+\begin{align}
+    E_{2}^{-} = E_{2}^{+} \frac{e^{jk_{2} d_{2}} \left( \frac{Y_{2}}{Y_{3}} j\tan(k_{3} d_{2}) -1\right)}{ e^{-jk_{2} d_{2}} \left( 1+ \frac{Y_{2}}{Y_{3}} j \tan(k_{3} d_{2})\right)}
+\end{align}
+Con lo que finalmente se obtiene una expresión que relaciona los campos solo en función de la distancia $d_{2}$.
+
+\part{Se desea analizar la expresión anterior cuando $d_{2} = \frac{\lambda}{2}$, por lo que evaluando de manera directa se tendrá:}
+\begin{align}
+    E_{2}^{-}=& E_{2}^{+} \frac{e^{jk_{2}\cdot \frac{\lambda}{2}} \left( \frac{Y_{2}}{Y_{3}} j\tan(k_{3}\cdot \frac{\lambda}{2} )-1\right)}{ e^{-jk_{2}\cdot \frac{\lambda}{2}} \left( 1+ \frac{Y_{2}}{Y_{3}} j \tan(k_{3}\cdot \frac{\lambda}{2})\right)}
+\end{align}
+Luego, teniendo en consideración que:
+\begin{align}
+    e^{\pm jk_{2} d_{2}} =  e^{\pm j \frac{2\pi}{\lambda} \cdot \frac{\lambda}{2}} = e^{\pm j \pi} = (-1)\\
+    j\tan(k_{3} d_{2}) = j\tan(\pi) = 0
+\end{align}
+Relacionándolo con lo anterior sigue que:
+\begin{align}
+    E_{2}^{-} &= E_{2}^{+} \frac{-1 \left( \frac{Y_{2}}{Y_{3}} \cdot 0 - 1\right)}{ -1 \left( 1+ \frac{Y_{2}}{Y_{3}} \cdot 0\right)}\\
+    E_{2}^{-} &= - E_{2}^{+}
+\end{align}
+Con lo que tenemos un efecto similar al de una pared con conductividad infinita. Así, podemos calcular el coeficiente de reflexión:
+\begin{align}
+    \Gamma =& \frac{E_{2}^{-}}{E_{2}^{+}} e^{-2jk_{2} d_{2} }\\
+    =& (-1)
+\end{align}
+Donde si evaluamos obtenemos a priori lo que se esperaba de tener el efecto de una pared con conductividad infinita, esto principalmente porque tenemos amplitudes iguales solo con signos opuestos, y por lo tanto tendremos además una reflexión con un desfase de $\pm$ $\pi$.
+\part{Se busca relacionar las amplitudes para el medio 1 considerando la misma distancia para ($d_{2} = \lambda/4$) y relacionarlo con lo obtenido con anterioridad. Es directo ver que tenemos el mismo análisis anterior (un error común es volver a calcularlo y perder mucho tiempo), por lo que directamente tenemos que:}
+\begin{align}
+    E_{1}^{-} = E_{1}^{+} \frac{e^{jk_{1} d_{1}} \left( \frac{Y_{1}}{Y_{2}} j\tan(k_{2} d_{1}) -1\right)}{ e^{-jk_{1} d_{1}} \del{1+ \frac{Y_{1}}{Y_{2}} j \tan(k_{2} d_{1})}}
+\end{align}
+Con lo que tenemos para $d_{1} = d_{2} = \frac{\lambda}{2}$
+\begin{align}
+    E_{1}^{-} = - E_{1}^{+} = - E_{0}
+\end{align}
+Recordando que la amplitud de la onda incidente ($E_0$) es conocida.\\
+\part{Luego buscamos obtener si las potencias de la onda incidente y reflejada son iguales bajo las condiciones anteriores, por lo que tenemos lo siguiente:}
+\begin{align}
+    \langle \mathbf{S}_{1}^{+} \rangle &= \frac{1}{2} Re( \mathbf{E}_{1} \times \mathbf{H}_{1}^{*})= \frac{1}{2}(E_{1}^{+})^{2}Y_{1} \uvecs{z} \\
+    \langle \mathbf{S}_{1}^{-} \rangle &= \frac{1}{2} Re( \mathbf{E}_{1} \times \mathbf{H}_{1}^{*})= \frac{1}{2}(E_{1}^{-})^{2}Y_{1} \uvecs{z}
+\end{align}
+En base a lo anterior se tendrá que $E_{1}^{+} = -E_{1}^{-} = - E_{0} $, pero dado que tenemos la expresión al cuadrado, se observa finalmente lo siguiente:
+\begin{align}
+    \langle \mathbf{S}_{1}^{+} \rangle = \langle \mathbf{S}_{1}^{-} \rangle
+\end{align}
+Lo cual es consistente con la intuición.
+
+\part Se busca calcular $\gamma$ para el medio 3. Para esto, consideramos $\epsilon_3$ y $\mu_3$. Usando la fórmula del resumen se tiene:
+\begin{align}
+    \gamma_3=\alpha_3+j\beta_3= \sqrt{\,j\omega\mu_3\Bigl(\sigma_3+j\omega\varepsilon_3\Bigr)\,}
+\end{align}
+
+Donde:
+\[
+\begin{aligned}
+\alpha_3 &=\Re\{\gamma_3\}\quad \text{(coeficiente de atenuación [Np/m])},\\[4pt]
+\beta_3 &=\Im\{\gamma_3\}\quad \text{(constante de fase [rad/m])}.
+\end{aligned}
+\]
+
+Si el medio 3 no tuviera pérdidas ($\sigma = 0$) se tiene: 
+\begin{align}
+\gamma_3 &= \sqrt{j \omega \mu_3 (0+j \omega \epsilon_3)} \\
+\gamma_3 &= \sqrt{j \omega \mu_3j \omega \epsilon_3} \\
+\gamma_3 &= \sqrt{j^2 \omega^2 \mu_3 \epsilon_3} \\
+\gamma_3 &= j \omega\sqrt{ \mu_3 \epsilon_3} \rightarrow \gamma_3 = j \beta_3 \text{  con  } \beta_3 = \omega \sqrt{\mu_3 \epsilon_3}
+\end{align}
+Es decir, en un medio sin pérdidas la onda no se atenúa ($\alpha = 0)$.
+\end{parts}
+\end{solution}
+
+
+\newpage
+\question \textbf{[C2 Otoño 2025]}
+\\
+\\
+El problema de Airy consiste en la transmisión de una onda plana monocromática a través de una película transparente (\(\epsilon\), \(\mu\)) de grosor \(d\). Para resolverlo consideraremos incidencia normal de cinco ondas con las amplitudes de la Figura \ref{fig:airy}. Si \(\eta_0\) y \(\eta\) son las impedancias de onda en el vacío y en la película, demuestre que la fracción de la potencia incidente transmitida al vacío a través de la superficie \(z = d\) de la película es
+
+  \begin{equation}
+    |\mathcal{T}|^2 = \left| \frac{4 \eta \eta_0}{\left( (\eta + \eta_0)^2 - (\eta - \eta_0)^2 \exp(2 \ju \beta d) \right)} \right|^2
+  \end{equation}
+
+  \begin{centering}
+    \centering
+    \begin{tikzpicture}[>=latex, photon/.style={snake=coil, segment aspect=0, semithick, ->, thick}]
+      
+      
+      
+      \edef\d{4}
+      \edef\h{4}
+      
+      \fill[blue!20] (0,0) rectangle (\d,\h);
+      \draw[blue] (0,0) -- ++ (0,\h);
+      \draw[blue] (\d,0) -- ++ (0,\h);
+
+
+      \node[below] at (0, 0) {\(z = 0\)};
+      \node[below] at (\d, 0) {\(z = d\)};
+
+      \node at (-\d/2, \h/5) {\(\epsilon_0, \mu_0\)};
+      \node at (\d/2, \h/2) {\(\epsilon, \mu\)};
+      \node at ({3*\d/2}, \h/5) {\(\epsilon_0, \mu_0\)};
+
+      \draw[photon] (-{\d*.8}, 2.5) -- ++ ({\d*.8}, 0) node[midway, above] {\(1\)};
+      \draw[photon] (0, 1.5) -- ++ (-{\d*.8}, 0) node[midway, above] {\(r\)};
+      \draw[photon] (0, 3) -- ++ (\d, 0) node[midway, above] {\(t\)};
+      \draw[photon] (\d, 1) -- ++ (-\d, 0) node[midway, above] {\(r'\)};
+      \draw[photon] (\d, 2.5) -- ++ ({\d*.8}, 0) node[midway, above] {\(\mathcal{T}\)};
+    \end{tikzpicture}
+    \captionof{figure}{Ondas transmitidas y reflejadas en la película de grosor \(d\). Las etiquetas sobre cada flecha indican las amplitudes de cada onda.}
+    \label{fig:airy}
+  \end{centering}
+
+  \begin{solution}
+    Las cinco ondas de campo eléctrico son
+    \[
+    \mathbf{E} =  \uvec{x} \, e^{-\ju \omega t} \cdot
+    \begin{cases}
+    \exp(\ju \beta_0 z) + r \exp(-\ju \beta_0 z), & z \leq 0, \\
+    t \exp(\ju \beta z) + r' \exp(-\ju \beta z), & 0 \leq z \leq d, \\
+    \mathcal{T} \exp[\ju \beta_0 (z - d)], & z \geq d.
+    \end{cases}
+    \]
+    Las cinco ondas de campo magnético, consistentes con \(  \mathbf{H}_0 = \frac{1}{\eta_0}\uvec{k}_0 \times \mathbf{E} \) en el vacío y \( H = \frac{1}{\eta}\uvec{k} \times \mathbf{E} \) en la película, son
+    \[
+    \mathbf{H} = \uvec{y} \, e^{-\ju \omega t} \cdot
+    \begin{cases}
+    \eta_0^{-1} [\exp(\ju \beta_0 z) - r \exp(-\ju \beta_0 z)], & z \leq 0, \\
+    \eta^{-1} [t \exp(\ju \beta z) - r' \exp(-\ju \beta z)], & 0 \leq z \leq d, \\
+    \eta_0^{-1} \mathcal{T} \exp[\ju \beta_0 (z - d)], & z \geq d.
+    \end{cases}
+    \]
+    Todos los campos son tangenciales a las interfaces y, por lo tanto, continuos al pasar a través de ellas. La continuidad de \( E \) en \( z = 0 \) y \( z = d \) da:
+    \begin{align}
+    1 + r &= t + r^\prime, \label{eq:1} \\
+    t e^{\ju \beta d} + r' e^{-\ju \beta d} &= \mathcal{T}. \label{eq:2}
+    \end{align}
+    La continuidad de \( H \) en \( z = 0 \) y \( z = d \) da:
+    \begin{align}
+    \frac{1 - r}{\eta_0} &= \frac{t - r'}{\eta}, \label{eq:3} \\
+    \frac{t e^{\ju \beta d} - r' e^{-\ju \beta d}}{\eta} &= \frac{\mathcal{T}}{\eta_0}. \label{eq:4}
+    \end{align}
+    Eliminando \( r' \)  de \cref{eq:2,eq:4} obtenemos:
+    \begin{equation}
+    2 t e^{\ju \beta d} = \left(\frac{\eta}{\eta_0} + 1\right) \mathcal{T}. \label{eq:5}
+    \end{equation}
+    Para obtener otra relación entre \( t \) y \( T \), primero eliminamos \( r \) de \cref{eq:1,eq:3} para obtener:
+    \begin{equation}
+    (\eta - \eta_0) r = 2\eta - (\eta + \eta_0) t .\label{eq:6}
+    \end{equation}
+    Ahora, usamos \cref{eq:5} para eliminar \( r \) del lado derecho de \cref{eq:1}. El resultado es:
+    \begin{equation}
+    (\eta - \eta_0) e^{\ju \beta d} - (\eta + \eta_0) e^{-\ju \beta d} \, t + 2\eta e^{-\ju \beta d} = (\eta - \eta_0) \mathcal{T}. \label{eq:5}
+    \end{equation}
+    Finalmente, eliminando \( t \) entre \cref{eq:3,eq:5} obtenemos el resultado deseado:
+    \begin{equation}
+    \mathcal{T} = e^{\ju \beta d} \frac{4 \eta \eta_0}{(\eta + \eta_0)^2 - (\eta - \eta_0)^2 e^{2 \ju \beta d}}.
+    \end{equation}
+    La amplitud de entrada en el vacío es la unidad, y el volumen de salida también es vacío. Por lo tanto, la fracción de potencia transmitida es:
+    \begin{equation}
+    |\mathcal{T}|^2 = \left| \frac{4 Z Z_0}{(Z + Z_0)^2 - (Z - Z_0)^2 e^{2 \ju \beta d}} \right|^2.
+    \end{equation}
+  \end{solution}
+\end{questions}
+\end{document}
