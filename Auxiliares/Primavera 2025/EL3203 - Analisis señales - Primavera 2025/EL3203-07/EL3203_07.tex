@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   answers
+   %answers
   ]{exam}
 
 \usepackage[utf8]{inputenc}
@@ -73,11 +73,18 @@
     \vspace{1.5cm}
     
     % Subtítulo
-    {\LARGE\itshape Pauta Auxiliar 7 - Teorema del Muestreo}
+    {\LARGE\itshape Auxiliar 7 - Teorema del Muestreo}
     
     \vspace{0.5cm}
     {\large Prof Jorge Silva.}\\
     {\large Prof Auxiliar Erik Sáez Aravena.}
+    
+    % Decoración con símbolo matemático de fondo
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=0.2, rotate=0] at ([yshift=-6cm]current page.center) {
+            \scalebox{8}{$\mathcal{F}$}\color{black!10}
+        };
+    \end{tikzpicture}
     
     \vfill
     
@@ -90,74 +97,107 @@
 %----------------------------
 \section{Resumen}
 
-\subsection*{Transformadas de Fourier}
+\subsection*{1. Notación y Definiciones}
+Algunas definiciones y notaciones clave para el análisis de señales muestreadas:
+\textbf{Señales:}
+\begin{itemize}
+  \item $x_a(t)$: señal analógica (tiempo continuo)
+  \item $x(n)$: señal discreta (tiempo discreto), obtenida muestreando $x_a(t)$
+  \item Relación de muestreo: $x(n) = x_a(nT_s)$, donde $n \in \mathbb{Z}$
+\end{itemize}
+
+\textbf{Parámetros de muestreo:}
+\begin{itemize}
+  \item $T_s$: período de muestreo
+  \item $F_s = T_s^{-1}$: frecuencia de muestreo
+  \item $B$: ancho de banda de la señal (frecuencia máxima presente)
+\end{itemize}
+
+\textbf{Frecuencias:}
+\begin{itemize}
+  \item $F$: frecuencia continua (Hz)
+  \item $f = \frac{F}{F_s}$: frecuencia normalizada (adimensional)
+  \item $\omega = 2\pi f$: frecuencia angular normalizada (radianes)
+\end{itemize}
+
+\subsection*{2. Transformadas de Fourier}
+Se definen las siguientes transformadas de Fourier para señales en tiempo continuo y discreto:
+\textbf{Transformada de Fourier en tiempo continuo:}
+\begin{align}
+  X_a(F) &= \int_{-\infty}^{\infty} x_a(t)e^{-j2\pi Ft} dt \\
+  x_a(t) &= \int_{-\infty}^{\infty} X_a(F)e^{j2\pi Ft} dF
+\end{align}
 
 \textbf{Transformada de Fourier en tiempo discreto:}
+\begin{align}
+  X(\omega) &= \sum_{n=-\infty}^{\infty} x(n)e^{-j\omega n} \\
+  x(n) &= \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega)e^{j\omega n} d\omega
+\end{align}
+
+Nota: $X(\omega)$ es periódica con período $2\pi$, o equivalentemente, $X(2\pi f)$ es periódica con período 1.
+
+\subsection*{3. Teorema del Muestreo}
+
+\textbf{Espectro de la señal muestreada:}
+
+Cuando se muestrea una señal analógica $x_a(t)$ con frecuencia $F_s$, el espectro de la señal discreta resultante $x(n)$ está dado por:
 \begin{equation}
-  X(\omega) = \sum_{n \in \mathbb{Z}} x(n)e^{-j\omega n}
+  X(2\pi f) = F_s \sum_{k=-\infty}^{\infty} X_a(fF_s + kF_s) = F_s \sum_{k=-\infty}^{\infty} X_a(F + kF_s)
 \end{equation}
 
-\textbf{Transformada de Fourier en tiempo continuo:}
+donde $F = fF_s$ es la frecuencia continua.
+
+\subsection*{4. Condición de Nyquist (Criterio de Muestreo)}
+
+Para recuperar perfectamente la señal analógica original $x_a(t)$ a partir de sus muestras $x(n)$, debe cumplirse:
 \begin{equation}
-  X_a(\omega) = \int_{\mathbb{R}} x_a(t)e^{-j\omega t} d\omega
+  \boxed{F_s \geq 2B} \quad \Leftrightarrow \quad \boxed{T_s \leq \frac{1}{2B}}
 \end{equation}
 
-\subsection*{Transformadas inversas de Fourier}
+donde $B$ es el ancho de banda de la señal (frecuencia máxima presente).
 
-\textbf{Transformada inversa en tiempo discreto:}
+\textbf{Frecuencia de Nyquist:} $F_{\text{Nyquist}} = 2B$ es la frecuencia mínima de muestreo requerida.
+
+\begin{itemize}
+  \item Si $F_s \geq 2B$: No hay aliasing, las réplicas espectrales no se superponen, y el espectro se simplifica a:
+  \begin{equation}
+    X(2\pi f) = F_s X_a(fF_s), \quad f \in \left(-\frac{1}{2}, \frac{1}{2}\right]
+  \end{equation}
+  
+  \item Si $F_s < 2B$: Hay \textbf{aliasing}, las réplicas espectrales se superponen, y la información original se pierde irreversiblemente.
+\end{itemize}
+
+\subsection*{5. Reconstrucción de la Señal (Fórmula de Interpolación de Shannon)}
+
+Cuando se cumple la condición de Nyquist, la señal original puede reconstruirse perfectamente mediante:
 \begin{equation}
-  x(n) = \frac{1}{2\pi} \int_{-\pi}^{\pi} X(\omega)e^{j\omega n} d\omega
+  x_a(t) = \sum_{n=-\infty}^{\infty} x(n) \text{sinc}\left(\pi\frac{t - nT_s}{T_s}\right) = \sum_{n=-\infty}^{\infty} x_a(nT_s) \text{sinc}\left(\pi F_s(t - nT_s)\right)
 \end{equation}
 
-\textbf{Transformada inversa en tiempo continuo:}
-\begin{equation}
-  x_a(t) = \frac{1}{2\pi} \int_{\mathbb{R}} X_a(\omega)e^{j\omega t} d\omega
-\end{equation}
-
-\subsection*{Espectro de señal muestreada}
-
-El teorema del muestreo establece que cuando una señal analógica $x_a(t)$ se muestrea con periodo $T_s$ (frecuencia de muestreo $F_s = T_s^{-1}$), el espectro de frecuencia de la señal muestreada $X(2\pi f)$ está dado por:
-
-\begin{equation}
-  X(2\pi f) = F_s \sum_{k \in \mathbb{Z}} X_a(fF_s + kF_s)
-\end{equation}
-
-donde $f = \frac{F}{F_s}$ es la frecuencia normalizada.
-
-\textbf{Cuando se muestrea por sobre la tasa de Nyquist}, no hay aliasing y tenemos:
-\begin{equation}
-  X(2\pi f) = F_s X_a(fF_s)
-\end{equation}
-
-Notemos que la señal $x(n)$ inducida por un muestreo con periodo $T_s$ está dada por:
-\begin{equation}
-  x(n) = x_a(nT_s)
-\end{equation}
-
-Además, sabemos que, por el teorema del muestreo, se cumple que el espectro de frecuencia de la señal muestreada $X(2\pi f)$ está dado por la suma infinita de réplicas desplazadas de $X_a$:
-\begin{equation}
-  X(2\pi f) = \sum_{k \in \mathbb{Z}} F_s X_a(fF_s + kF_s)
-\end{equation}
-
-donde $F_s = T_s^{-1}$ es la frecuencia de muestreo. Esta expresión viene de considerar que, dado que la señal es discreta, la TF de la señal discreta es periódica con periodo 1, por lo que la TF en una frecuencia particular se ve afectada por las infinitas bandas laterales.
-
-\subsection*{Condición de Nyquist}
-
-Para poder recuperar perfectamente la señal analógica original $x_a(t)$ a partir de sus muestras $x(n)$, debe cumplirse:
-\begin{equation}
-  F_s \geq 2B
-\end{equation}
-
-donde $B$ es el ancho de banda de la señal (frecuencia máxima presente en la señal). Si esta condición no se cumple, ocurre \textbf{aliasing} y la señal no puede recuperarse.
-
-\subsection*{Función sinc}
-
-La función sinc normalizada se define como:
+donde la función sinc normalizada se define como:
 \begin{equation}
   \text{sinc}(\pi x) = \frac{\sin(\pi x)}{\pi x}
 \end{equation}
 
-Esta función aparece naturalmente en problemas de muestreo e interpolación.
+\begin{itemize}
+  \item Cada muestra $x(nT_s)$ contribuye con una función sinc centrada en $t = nT_s$
+  \item Las funciones sinc tienen la propiedad de que $\text{sinc}(0) = 1$ y $\text{sinc}(n\pi) = 0$ para $n \neq 0$
+  \item La reconstrucción es equivalente a pasar las muestras por un filtro pasa-bajos ideal con frecuencia de corte $F_s/2$
+\end{itemize}
+
+\subsection*{6. Recursos Interactivos}
+
+Para una mejor comprensión visual del teorema del muestreo y sus implicaciones, se recomiendan los siguientes recursos interactivos:
+
+\begin{itemize}
+  \item \textbf{Interpolación y Muestreo:} \\
+  \url{https://cs1230.graphics/demos/scaling/ip.html}
+  
+  \item \textbf{Visualización del Teorema del Muestreo:} \\
+  \url{https://resources.nerdfirst.net/sampling.html}
+\end{itemize}
+
+Estos sitios permiten experimentar de forma interactiva con diferentes frecuencias de muestreo y observar en tiempo real los efectos del aliasing y la reconstrucción de señales.
 
 \newpage
 
@@ -179,26 +219,42 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
   donde $f = \frac{F}{F_s}$ es la frecuencia normalizada.
   
   \begin{solution}
-  
-    Sabemos que la transformada inversa de Fourier continua está dada por:
+    
+    La estrategia consiste en expresar la misma cantidad $x(n)$ de dos formas diferentes y luego igualarlas:
+    \begin{itemize}
+      \item Evaluación de la señal continua en puntos discretos (usando la transformada inversa continua)
+      \item Usar la transformada inversa discreta (usando la transformada inversa discreta)
+    \end{itemize}
+    
+    Al igualar ambas expresiones, podremos relacionar los espectros $X(2\pi f)$ y $X_a(F)$.
+    
+    
+    Sabemos que la señal continua $x_a(t)$ puede recuperarse de su transformada de Fourier mediante:
     \begin{equation}
       x_a(t) = \int_{-\infty}^{\infty} X_a(F)e^{\left(j2\pi Ft\right)} dF
     \end{equation}
     
-    Evaluando en $t = nT_s$ y usando $F_s = T_s^{-1}$:
+    Como $x(n) = x_a(nT_s)$, evaluamos la expresión anterior en $t = nT_s$ y usando $F_s = T_s^{-1}$:
     \begin{equation}
       x(n) = x_a(nT_s) = \int_{-\infty}^{\infty} X_a(F)e^{\left(j2\pi \frac{F}{F_s}n\right)} dF
     \end{equation}
     
-    Por otro lado, la transformada inversa de Fourier discreta está dada por:
+    \textit{Nota: Aquí usamos la transformada continua porque $x_a(t)$ es una señal continua. Simplemente la evaluamos en puntos discretos.}
+    
+    Por otro lado, como $x(n)$ es una señal discreta, también puede expresarse mediante su transformada inversa de Fourier discreta:
     \begin{equation}
       x(n) = \int_{-\frac{1}{2}}^{\frac{1}{2}} X(2\pi f)e^{\left(j2\pi fn\right)} df
     \end{equation}
     
-    Por lo tanto, tenemos la siguiente identidad:
+    \textit{Nota: Aquí usamos la transformada discreta porque $x(n)$ es una secuencia discreta con espectro periódico.}
+
+    
+    Como ambas expresiones representan el mismo valor $x(n)$, tenemos la siguiente identidad:
     \begin{equation}
       \int_{-\frac{1}{2}}^{\frac{1}{2}} X(2\pi f) e^{\left(j2\pi fn\right)} df = \int_{-\infty}^{\infty} X_a(F)e^{\left(j2\pi \frac{F}{F_s}n\right)} dF
     \end{equation}
+    
+    \textit{Observación importante: En el lado izquierdo tenemos una integral sobre frecuencias normalizadas $f \in [-1/2, 1/2]$ (dominio de la transformada discreta), mientras que en el lado derecho tenemos una integral sobre todas las frecuencias continuas $F \in (-\infty, \infty)$. Nuestro objetivo es manipular el lado derecho para expresarlo también como una integral sobre $[-1/2, 1/2]$.}
     
     Definimos la siguiente función indexada por $F$:
     \begin{equation}
@@ -230,18 +286,18 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
       &= \int_{-\frac{1}{2}}^{\frac{1}{2}} F_s \left[\sum_{k \in \mathbb{Z}} X_a(fF_s + kF_s)\right] e^{\left(j2\pi fn\right)} df
     \end{align}
     
-    Comparando con la identidad que establecimos anteriormente:
+    Comparando con la identidad que establecimos en el Paso 3:
     \begin{equation}
       \int_{-\frac{1}{2}}^{\frac{1}{2}} X(2\pi f) e^{\left(j2\pi fn\right)} df = \int_{-\frac{1}{2}}^{\frac{1}{2}} F_s \left[\sum_{k \in \mathbb{Z}} X_a(fF_s + kF_s)\right] e^{\left(j2\pi fn\right)} df
     \end{equation}
     
-    Como esta igualdad debe cumplirse para todo $n \in \mathbb{Z}$, y dado que $e^{\left(j2\pi fn\right)}$ forma una base ortogonal, concluimos que:
+    Como esta igualdad debe cumplirse para todo $n \in \mathbb{Z}$, y dado que las exponenciales complejas $\{e^{\left(j2\pi fn\right)}\}_{n \in \mathbb{Z}}$ forman una base ortogonal en el espacio de funciones periódicas, concluimos que los integrandos deben ser iguales:
     \begin{equation}
       \boxed{X(2\pi f) = F_s \sum_{k=-\infty}^{\infty} X_a(fF_s + kF_s)}
     \end{equation}
     
-    para $f \in (-1/2, 1/2]$. Esta es la relación fundamental entre el espectro de la señal muestreada y el espectro de la señal continua original.
-   
+    para $f \in (-1/2, 1/2]$. Esta relación muestra que el espectro de la señal muestreada $X(2\pi f)$ es la suma de réplicas desplazadas del espectro continuo $X_a(F)$, escaladas por $F_s$. Cada réplica está centrada en $kF_s$ para $k \in \mathbb{Z}$. Esto explica el fenómeno de \textbf{aliasing} cuando las réplicas se superponen (cuando $F_s < 2B$).
+
   \end{solution}
   
   \part Para la señal anterior, demuestre que bajo la condición de muestreo de Nyquist ($F_s \geq 2B$, donde $B$ es el ancho de banda de la señal), la relación se simplifica a:
@@ -265,36 +321,63 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
       X_a(F) = 0 \quad \text{para } |F| > B
     \end{equation}
     
-    Cuando se cumple la condición de Nyquist $F_s \geq 2B$, analicemos cuándo los términos $X_a(fF_s + kF_s)$ son no nulos en el intervalo fundamental $f \in (-1/2, 1/2]$.
     
-    Para la banda $k$-ésima, necesitamos que:
+    Cuando se cumple la condición de Nyquist $F_s \geq 2B$, queremos demostrar que en la suma infinita:
+    \begin{equation}
+      X(2\pi f) = F_s \sum_{k=-\infty}^{\infty} X_a(fF_s + kF_s)
+    \end{equation}
+    solo sobrevive el término con $k=0$, es decir, que todos los demás términos son cero.
+
+    
+    Recordemos que $X_a(F) = 0$ para $|F| > B$ (señal de banda limitada). Por lo tanto, el término $X_a(fF_s + kF_s)$ solo es no nulo cuando:
     \begin{equation}
       |fF_s + kF_s| \leq B
     \end{equation}
     
-    Para $f \in (-1/2, 1/2]$:
+    Es decir, cuando la frecuencia $fF_s + kF_s$ cae dentro de la banda de la señal original $[-B, B]$.Para $f \in (-1/2, 1/2]$, el producto $fF_s$ varía en:
     \begin{equation}
       -\frac{F_s}{2} < fF_s \leq \frac{F_s}{2}
     \end{equation}
     
-    Por lo tanto:
+    Por lo tanto, cuando sumamos $kF_s$, el término $k$-ésimo cubre el rango:
     \begin{equation}
-      -\frac{F_s}{2} + kF_s < fF_s + kF_s \leq \frac{F_s}{2} + kF_s
+      \underbrace{-\frac{F_s}{2} + kF_s}_{\text{límite inferior}} < fF_s + kF_s \leq \underbrace{\frac{F_s}{2} + kF_s}_{\text{límite superior}}
     \end{equation}
     
-    Para que $|fF_s + kF_s| \leq B$, necesitamos que los intervalos $\left(-\frac{F_s}{2} + kF_s, \frac{F_s}{2} + kF_s\right]$ se intersecten con $[-B, B]$.
+    Este es un intervalo de ancho $F_s$ centrado en $kF_s$. Ahora debemos analizar cuáles de estos intervalos se intersectan con la banda de la señal $[-B, B]$
     
-    Para $k = 0$: El intervalo es $(-F_s/2, F_s/2]$. Dado que $F_s \geq 2B$, tenemos $[-B, B] \subseteq (-F_s/2, F_s/2]$, por lo que este término contribuye.
-    
-    Para $k \neq 0$: Los intervalos están centrados en $kF_s$ con ancho $F_s$. Para $k = 1$, el límite inferior es $F_s/2$ y para $k = -1$, el límite superior es $-F_s/2$. Dado que $F_s \geq 2B$, tenemos:
+    \textit{Caso $k = 0$:} El intervalo es $\left(-\frac{F_s}{2}, \frac{F_s}{2}\right]$. Como $F_s \geq 2B$, tenemos:
     \begin{equation}
-      \frac{F_s}{2} \geq B \quad \text{y} \quad -\frac{F_s}{2} \leq -B
+      \frac{F_s}{2} \geq B \quad \Rightarrow \quad [-B, B] \subseteq \left(-\frac{F_s}{2}, \frac{F_s}{2}\right]
     \end{equation}
+    Por lo tanto, este término SÍ contribuye para toda la banda de la señal.
     
-    Por lo tanto, no hay intersección entre las bandas adyacentes y $[-B, B]$ en el intervalo fundamental. Así:
+    \textit{Caso $k = 1$:} El intervalo es $\left(\frac{F_s}{2}, \frac{3F_s}{2}\right]$. Para que haya intersección con $[-B, B]$, necesitaríamos:
+    \begin{equation}
+      \frac{F_s}{2} \leq B
+    \end{equation}
+    Pero bajo Nyquist, $\frac{F_s}{2} \geq B$, por lo que NO hay intersección. El intervalo está completamente a la derecha de $[-B, B]$.
+    
+    \textit{Caso $k = -1$:} El intervalo es $\left(-\frac{3F_s}{2}, -\frac{F_s}{2}\right]$. Para que haya intersección con $[-B, B]$, necesitaríamos:
+    \begin{equation}
+      -\frac{F_s}{2} \geq -B
+    \end{equation}
+    Pero bajo Nyquist, $-\frac{F_s}{2} \leq -B$, por lo que NO hay intersección. El intervalo está completamente a la izquierda de $[-B, B]$.
+    
+    \textit{Caso $k \neq 0, \pm 1$:} Estos intervalos están aún más alejados, por lo que tampoco hay intersección.
+    
+    Bajo la condición de Nyquist, solo el término $k=0$ contribuye, y todos los demás son cero:
     \begin{equation}
       \boxed{X(2\pi f) = F_s X_a(fF_s), \quad f \in (-1/2, 1/2]}
     \end{equation}
+  
+    \begin{itemize}
+      \item La señal original ocupa $[-B, B]$
+      \item La réplica $k=0$ cubre $\left(-\frac{F_s}{2}, \frac{F_s}{2}\right]$ y contiene completamente a $[-B, B]$
+      \item Las réplicas $k=1$ y $k=-1$ cubren $\left(\frac{F_s}{2}, \frac{3F_s}{2}\right]$ y $\left(-\frac{3F_s}{2}, -\frac{F_s}{2}\right]$ respectivamente
+      \item Como $\frac{F_s}{2} \geq B$, hay un "espacio de guarda" entre la banda de la señal y las réplicas adyacentes
+      \item Este espacio de guarda evita el aliasing y permite la recuperación perfecta
+    \end{itemize}
     
     
     Para recuperar $x_a(t)$, partimos de la transformada inversa de Fourier continua:
@@ -407,9 +490,7 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
         X(2\pi f) = \sum_{k \in \mathbb{Z}} F_s X_a(fF_s + kF_s),
       \end{equation}
       
-      donde $F_s = T_s^{-1}$ es la frecuencia de muestreo. Esta expresión viene de considerar que, dado que la señal es discreta, la TF de la señal discreta es periódica con periodo 1, por lo que la TF en una frecuencia particular se ve afectada por las infinitas bandas laterales.
-      
-      Notemos que, para la señal analógica original, a partir de la TF visual se puede ver que:
+      donde $F_s = T_s^{-1}$ es la frecuencia de muestreo. Notemos que, para la señal analógica original, a partir de la TF visual se puede ver que:
       \begin{equation}
         \text{supp}(X_a(f)) = [-2F_0, -F_0] \cup [F_0, 2F_0]
       \end{equation}
@@ -436,7 +517,36 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
         \text{supp}(X_a(fF_s + kF_s)) = \left(-\frac{1}{2} - k, \frac{1}{2} - k\right]
       \end{equation}
       
-      de lo que podemos ver que el único valor de $k$ para el cual el soporte tiene intersección no nula con el intervalo fundamental es $k = 0$. De este modo, la TF de la señal muestreada se simplifica a:
+      
+      La expresión del soporte nos dice que para la banda $k$-ésima, el intervalo de frecuencias normalizadas $f$ que corresponde al soporte original de $X_a$ es $\left(-\frac{1}{2} - k, \frac{1}{2} - k\right]$. Esto se deriva de la transformación inversa:
+      \begin{itemize}
+        \item Soporte original de $X_a(F)$: $F \in [-2F_0, -F_0] \cup [F_0, 2F_0]$
+        \item Para la banda $k$, buscamos valores de $f$ tales que $fF_s + kF_s$ caiga en este soporte
+        \item Resolviendo: $-2F_0 \leq fF_s + kF_s \leq 2F_0$ y usando $F_s = 4F_0$, obtenemos el intervalo desplazado
+      \end{itemize}
+      
+      Evaluando para valores específicos de $k$:
+      \begin{align*}
+        k = 0 &: \quad \text{supp} = \left(-\frac{1}{2} - 0, \frac{1}{2} - 0\right] = \left(-\frac{1}{2}, \frac{1}{2}\right] \\[0.2cm]
+        k = 1 &: \quad \text{supp} = \left(-\frac{1}{2} - 1, \frac{1}{2} - 1\right] = \left(-\frac{3}{2}, -\frac{1}{2}\right] \\[0.2cm]
+        k = -1 &: \quad \text{supp} = \left(-\frac{1}{2} - (-1), \frac{1}{2} - (-1)\right] = \left(\frac{1}{2}, \frac{3}{2}\right] \\[0.2cm]
+        k = 2 &: \quad \text{supp} = \left(-\frac{1}{2} - 2, \frac{1}{2} - 2\right] = \left(-\frac{5}{2}, -\frac{3}{2}\right] \\[0.2cm]
+        k = -2 &: \quad \text{supp} = \left(-\frac{1}{2} + 2, \frac{1}{2} + 2\right] = \left(\frac{3}{2}, \frac{5}{2}\right]
+      \end{align*}
+      
+      Ahora debemos determinar cuáles de estas bandas intersectan el intervalo fundamental $(-1/2, 1/2]$. Esto \textbf{no es una imposición}, sino una \textbf{consecuencia geométrica} de analizar cada caso:
+      
+      \begin{itemize}
+        \item \textbf{Para $k=0$:} El soporte es $\left(-\frac{1}{2}, \frac{1}{2}\right]$, que es exactamente el intervalo fundamental. Por lo tanto, \textbf{sí hay intersección completa} y esta banda contribuye a la suma.
+        
+        \item \textbf{Para $k=1$:} El soporte es $\left(-\frac{3}{2}, -\frac{1}{2}\right]$. Este intervalo está completamente a la \textit{izquierda} del intervalo fundamental $(-1/2, 1/2]$, por lo que \textbf{no hay intersección}. Matemáticamente: $\left(-\frac{3}{2}, -\frac{1}{2}\right] \cap \left(-\frac{1}{2}, \frac{1}{2}\right] = \emptyset$.
+        
+        \item \textbf{Para $k=-1$:} El soporte es $\left(\frac{1}{2}, \frac{3}{2}\right]$. Este intervalo está completamente a la \textit{derecha} del intervalo fundamental $(-1/2, 1/2]$, por lo que \textbf{no hay intersección}. Matemáticamente: $\left(\frac{1}{2}, \frac{3}{2}\right] \cap \left(-\frac{1}{2}, \frac{1}{2}\right] = \emptyset$.
+        
+        \item \textbf{Para $|k| \geq 2$:} Los soportes están aún más alejados del intervalo fundamental, por lo que tampoco hay intersección.
+      \end{itemize}
+      
+      Como resultado de este análisis geométrico, todos los términos con $k \neq 0$ en la suma son idénticamente cero en el intervalo $f \in (-1/2, 1/2]$, porque sus soportes no intersectan este intervalo. Por lo tanto, la TF de la señal muestreada se simplifica a:
       \begin{equation}
         X(2\pi f) = F_s X_a(fF_s) = 4F_0 X_a(4fF_0)
       \end{equation}
@@ -470,7 +580,35 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
         \caption{Espectro de la señal muestreada $X(2\pi f)$ para $F_s = 4F_0$ (sin aliasing).}
       \end{figure}
       
-      la cual, en base a la representación gráfica de $X_a(f)$, podemos escribir como:
+      
+      Para determinar los intervalos exactos donde $X(2\pi f) \neq 0$, debemos mapear el soporte original de $X_a(F)$ al dominio de frecuencia normalizada $f$. Recordemos que la relación es:
+      \begin{equation}
+        X(2\pi f) = F_s X_a(fF_s) = 4F_0 X_a(4fF_0)
+      \end{equation}
+      
+      El soporte original de $X_a(F)$ es $[-2F_0, -F_0] \cup [F_0, 2F_0]$. Para encontrar el soporte en términos de $f$, resolvemos:
+      
+      \begin{itemize}
+        \item \textbf{Banda izquierda:} $X_a(F) \neq 0$ para $F \in [-2F_0, -F_0]$. Sustituyendo $F = 4fF_0$:
+        \begin{align}
+          -2F_0 &\leq 4fF_0 \leq -F_0 \\
+          -2 &\leq 4f \leq -1 \\
+          -\frac{1}{2} &\leq f \leq -\frac{1}{4}
+        \end{align}
+        Por lo tanto, $X(2\pi f) = 4F_0$ para $f \in \left[-\frac{1}{2}, -\frac{1}{4}\right]$.
+        
+        \item \textbf{Banda derecha:} $X_a(F) \neq 0$ para $F \in [F_0, 2F_0]$. Sustituyendo $F = 4fF_0$:
+        \begin{align}
+          F_0 &\leq 4fF_0 \leq 2F_0 \\
+          1 &\leq 4f \leq 2 \\
+          \frac{1}{4} &\leq f \leq \frac{1}{2}
+        \end{align}
+        Por lo tanto, $X(2\pi f) = 4F_0$ para $f \in \left[\frac{1}{4}, \frac{1}{2}\right]$.
+        
+        \item \textbf{Región central:} Para $f \in \left(-\frac{1}{4}, \frac{1}{4}\right)$, tenemos $4fF_0 \in (-F_0, F_0)$, que está fuera del soporte de $X_a(F)$, por lo que $X(2\pi f) = 0$.
+      \end{itemize}
+      
+      Por lo tanto, la expresión completa del espectro discreto es:
       \begin{equation}
         X(2\pi f) = \begin{cases}
           4F_0 & \text{si } f \in (-1/2, -1/4] \\
@@ -515,8 +653,7 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
     \part Repita el análisis del punto anterior si $F_s = 3F_0$ y comente si es posible recuperar $x_a(t)$ a partir de $x(n)$
     
     \begin{solution}
-      \textbf{Muestreo con $F_s = 3F_0$}
-      
+  
       El procedimiento a seguir para este caso es análogo al usado para la frecuencia anterior. En este caso, notemos que para la $k$-ésima banda las frecuencias máximas y mínimas son:
       \begin{align}
         3f_k^{\text{low}}F_0 + 3kF_0 &= -2F_0 \\
@@ -630,7 +767,7 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
       \end{equation}
       
       
-      \textit{No es posible recuperar $x_a(t)$ a partir de $x(n)$ cuando $F_s = 3F_0$}, ya que hay \textbf{aliasing}. Las componentes de las bandas $k=1$ y $k=-1$ se superponen con la banda fundamental en los intervalos $(-1/2, -1/3]$ y $(1/3, 1/2]$ respectivamente, violando el teorema del muestreo que requiere:
+      \textit{No es posible recuperar $x_a(t)$ a partir de $x(n)$ cuando $F_s = 3F_0$}, ya que hay \textbf{aliasing}. Las componentes de las bandas $k=1$ y $k=-1$ se superponen con la banda fundamental en los intervalos $(-1/2, -1/3]$ y $(1/3, 1/2]$ respectivamente, lo cual no cumple la condición de Nyquist para evitar el aliasing.
       \begin{equation}
         F_s \geq 2B
       \end{equation}
@@ -643,155 +780,7 @@ Esta función aparece naturalmente en problemas de muestreo e interpolación.
       Por lo tanto, la condición de Nyquist \textbf{no se cumple} y la información original se pierde debido a la superposición espectral (aliasing).
     \end{solution}
   \end{parts}
-  
-  \question \textit{Muestreo natural.} Suponga que la señal $f(t)$ es de banda limitada con $\mathcal{F}f(s) = 0$ para $|s| \geq B$. En lugar de muestrear con un tren de $\delta$'s, muestreamos $f(t)$ con un tren de pulsos muy angostos. El pulso está dado por una función $p(t)$, muestreamos a una tasa $T$, y la señal muestreada tiene la forma
-  \begin{equation}
-    g(t) = f(t) \left( \sum_{k=-\infty}^{\infty} T p(t - kT) \right)
-  \end{equation}
-  
-  \begin{parts}
-    \part ¿Es posible recuperar la señal original $f$ a partir de la señal $g$?
-    
-    \part Si no es posible, ¿por qué no? Si es posible, ¿qué condiciones sobre los parámetros $T$ y $B$, y sobre el pulso $p(x)$ lo hacen posible?
-    
-    \begin{solution}
-      Generalmente es más fácil pensar en el muestreo en el dominio de la frecuencia, por lo que comenzaremos encontrando la transformada de Fourier de $g(t)$. Notemos que nuestra función de muestreo natural es una periodización del pulso y puede expresarse como una convolución del pulso con un tren de impulsos.
-      
-      Podemos reescribir la señal muestreada como:
-      \begin{align}
-        g(t) &= f(t)T \sum_{n=-\infty}^{\infty} p(t - nT) \\
-        &= f(t)T \left( p(t) \ast \sum_{n=-\infty}^{\infty} \delta(t - nT) \right)
-      \end{align}
-      
-      donde en la segunda línea usamos la propiedad de que $\sum_{n=-\infty}^{\infty} p(t - nT) = p(t) \ast \sum_{n=-\infty}^{\infty} \delta(t - nT)$.
-      
-      Ahora, aplicamos la transformada de Fourier. Usando el teorema de convolución $\mathcal{F}\{f(t)h(t)\} = \mathcal{F}f(s) \ast \mathcal{F}h(s)$ y la propiedad dual del teorema de convolución, tenemos:
-      \begin{align}
-        \mathcal{F}\left(g(s)\right) &= \mathcal{F}\left(f(s)\right) \ast \mathcal{F}\left\{T p(t) \ast \sum_{n=-\infty}^{\infty} \delta(t - nT)\right\}
-      \end{align}
-      
-      Sabemos que la transformada de Fourier de un tren de impulsos periódicos $\sum_{n=-\infty}^{\infty} \delta(t - nT)$ es otro tren de impulsos en frecuencia:
-      \begin{equation}
-        \mathcal{F}\left\{\sum_{n=-\infty}^{\infty} \delta(t - nT)\right\} = \frac{1}{T}\sum_{n=-\infty}^{\infty} \delta\left(s - \frac{n}{T}\right)
-      \end{equation}
-      
-      Aplicando el teorema de convolución:
-      \begin{align}
-        \mathcal{F}g(s) &= \mathcal{F}f(s) \ast T \left( \mathcal{F}p(s) \cdot \frac{1}{T} \sum_{n=-\infty}^{\infty} \delta\left(s - \frac{n}{T}\right) \right) \\
-        &= \mathcal{F}f(s) \ast \left( \mathcal{F}p(s) \sum_{n=-\infty}^{\infty} \delta\left(s - \frac{n}{T}\right) \right)
-      \end{align}
-      
-      Usando la propiedad de multiplicación de la función delta:
-      \begin{equation}
-        \mathcal{F}g(s) = \mathcal{F}f(s) \ast \sum_{n=-\infty}^{\infty} \mathcal{F}p\left(\frac{n}{T}\right) \delta\left(s - \frac{n}{T}\right)
-      \end{equation}
-      
-      Y, finalmente, usando la linealidad de la convolución y la propiedad de desplazamiento de la función delta:
-      \begin{equation}
-        \mathcal{F}g(s) = \sum_{n=-\infty}^{\infty} \mathcal{F}p\left(\frac{n}{T}\right) \mathcal{F}f\left(s - \frac{n}{T}\right)
-      \end{equation}
-      
-      \textbf{(a)} Vemos que, al igual que con el muestreo ideal, la transformada de Fourier de la señal muestreada es una suma infinita de copias desplazadas de la transformada de Fourier de la señal original. La única diferencia en el caso cuando se usan pulsos realistas es que cada una de estas copias está escalada por el valor de la transformada de Fourier del pulso en la frecuencia central de esa copia. Pero un factor de escala puede eliminarse fácilmente ajustando la ganancia del filtro pasa-bajos que usamos para reconstruir $f(t)$ a partir de sus muestras. Entonces, \textbf{sí,} bajo ciertas condiciones es posible recuperar $f(t)$ a partir de $g(t)$.
-      
-      \textbf{(b)} Al igual que con el muestreo ideal, necesitamos muestrear por encima de la tasa de Nyquist para que no haya aliasing. Por lo tanto, necesitamos $T < \frac{1}{2B}$. Sorprendentemente, no hay condiciones sobre el pulso $p(t)$ siempre que tenga transformada de Fourier tal que la regla anterior tenga sentido. Mientras $\mathcal{F}p(0) \neq 0$ podemos reconstruir $f(t)$ mediante filtrado pasa-bajos con el escalamiento apropiado, y si $\mathcal{F}p(0) = 0$ entonces podemos recuperarla mediante filtrado pasa-banda para usar una de las otras copias.
-    \end{solution}
-  \end{parts}
-  
-  \question Sea $f(t) = \cos 2\pi t$. Suponga que muestreamos $f(t)$ a una tasa de $2/3$ Hz y luego interpolamos usando un filtro pasa-bajos con frecuencia de corte $2/3$. ¿Qué señal, $g(t)$, es el resultado? Grafique $f(t)$ y $g(t)$ en los mismos ejes y comente sobre lo que ve. ¿Es $g(t)$ un alias de $f(t)$ para esta tasa de muestreo?
-  
-  El proceso ilustrado en este problema es la base del \textit{osciloscopio de muestreo}.
-  
-  \begin{solution}
-    Comencemos con la transformada de Fourier de $f(t)$:
-    \begin{equation}
-      \mathcal{F}f(s) = \frac{1}{2}(\delta(s-1) + \delta(s+1))
-    \end{equation}
-    
-    Muestrear $f(t)$ a frecuencia $F_s = 2/3$ Hz (período $T = 3/2$) es, en el dominio de la frecuencia, convolucionar $\mathcal{F}f$ con un tren de impulsos en frecuencia $\sum_{k=-\infty}^{\infty} \delta(s - kF_s)$. Esto da:
-    \begin{align}
-      \mathcal{F}f \ast \sum_{k=-\infty}^{\infty} \delta\left(s - \frac{2k}{3}\right) &= \frac{1}{2}(\delta(s-1) + \delta(s+1)) \ast \sum_{k=-\infty}^{\infty} \delta\left(s - \frac{2k}{3}\right) \\
-      &= \frac{1}{2} \sum_{k=-\infty}^{\infty} \left[\delta\left(s-1-\frac{2k}{3}\right) + \delta\left(s+1-\frac{2k}{3}\right)\right]
-    \end{align}
-    
-    Luego cortamos por encima de $2/3$ Hz (y por debajo de $-2/3$ Hz), por lo que la pregunta es qué $\delta$'s en la convolución anterior están entre $-2/3$ y $+2/3$. Para los $\delta$'s en los puntos $1 + 2k/3$ queremos conocer los enteros $k$'s para los cuales
-    \begin{align}
-      -\frac{2}{3} &< 1 + \frac{2k}{3} < \frac{2}{3} \quad \text{entonces} \\
-      -\frac{5}{3} &< \frac{2k}{3} < -\frac{1}{3} \\
-      -5 &< 2k < -1
-    \end{align}
-    
-    y eso da $k = -1$ y $k = -2$ con $\delta$'s correspondientes (incluyendo el factor $1/2$ que está al frente):
-    \begin{equation}
-      \frac{1}{2}(\delta_{1-2/3} + \delta_{1-4/3}) = \frac{1}{2}(\delta_{1/3} + \delta_{-1/3})
-    \end{equation}
-    
-    Para los $\delta$'s en los puntos $-1 + 2k/3$ queremos conocer los enteros $k$'s para los cuales
-    \begin{align}
-      -\frac{2}{3} &< -1 + \frac{2k}{3} < \frac{2}{3} \quad \text{entonces} \\
-      \frac{1}{3} &< \frac{2k}{3} < \frac{5}{3} \\
-      1 &< 2k < 5
-    \end{align}
-    
-    y eso da $k = 1$ y $k = 2$ con $\delta$'s correspondientes
-    \begin{equation}
-      \frac{1}{2}(\delta_{-1+2/3} + \delta_{-1+4/3}) = \frac{1}{2}(\delta_{-1/3} + \delta_{1/3})
-    \end{equation}
-    
-    Por lo tanto, al aplicar el filtro pasa-bajos con frecuencia de corte $2/3$ Hz (que mantiene solo las componentes de frecuencia en el intervalo $[-2/3, 2/3]$ y elimina el resto), obtenemos:
-    \begin{equation}
-      \frac{1}{2}(\delta_{1/3} + \delta_{-1/3}) + \frac{1}{2}(\delta_{-1/3} + \delta_{1/3}) = \delta_{-1/3} + \delta_{1/3}
-    \end{equation}
-    
-    La transformada inversa de Fourier de esto es nuestra función $g(t)$, y eso es
-    \begin{equation}
-      g(t) = 2\cos\frac{2\pi t}{3}
-    \end{equation}
-    
-    Aquí hay un gráfico de $f(t)$ y $g(t)$ juntos:
-    
-    \begin{figure}[H]
-      \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-          axis lines=middle,
-          xlabel={$t$},
-          ylabel={},
-          xmin=-3.5, xmax=3.5,
-          ymin=-2.5, ymax=2.5,
-          xtick={-3,-2,-1,0,1,2,3},
-          ytick={-2,-1,0,1,2},
-          width=12cm,
-          height=7cm,
-          samples=200,
-          legend pos=north east,
-        ]
-        % f(t) = cos(2πt)
-        \addplot[blue, thick, domain=-3.5:3.5] {cos(deg(2*pi*x))};
-        \addlegendentry{$f(t) = \cos(2\pi t)$}
-        
-        % g(t) = 2cos(2πt/3)
-        \addplot[red, thick, dashed, domain=-3.5:3.5] {2*cos(deg(2*pi*x/3))};
-        \addlegendentry{$g(t) = 2\cos(2\pi t/3)$}
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Comparación de $f(t)$ y $g(t)$}
-    \end{figure}
-    
-    Diría que $g(t)$ tiene la misma forma que $f(t)$ pero está estirada tanto en las direcciones vertical como horizontal. $f(t)$ tiene periodo 1 y amplitud 1, mientras que $g(t)$ tiene periodo 3 y amplitud 2.
-    
-    Usando la tasa de muestreo $2/3$ los puntos de muestra (según el teorema del muestreo) son $3k/2$. Los valores de $f(t)$ en los puntos de muestra son
-    \begin{equation}
-      f(3k/2) = \cos 2\pi \frac{3k}{2} = \cos 3k\pi = (-1)^k
-    \end{equation}
-    
-    Los valores de $g(t)$ en los puntos de muestra son
-    \begin{equation}
-      g(3k/2) = 2\cos \frac{2\pi}{3} \frac{3k}{2} = 2\cos \pi k = 2(-1)^k
-    \end{equation}
-    
-    $g(t)$ está ``siguiendo'' $f(t)$ en los puntos de muestra, pero las funciones no son iguales en esos puntos; $g(t)$ es el doble del tamaño. No llamaría a $g(t)$ un alias de $f(t)$ en el uso estándar del término.
-  \end{solution}
-
+%-----------------------
 
 
 \end{questions}

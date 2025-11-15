@@ -2,7 +2,7 @@
   11pt,
   letterpaper,
    addpoints,
-   %answers
+   answers
   ]{exam}
 \usepackage{../exercise-preamble}
 \usepackage{float}
@@ -287,28 +287,32 @@ Obteniendo el siguiente circuito equivalente:
 \end{figure}
 Este transistor corresponde a un NPN, por lo que la malla será:
 \begin{align}
-  -0.824\,\text{V} - 5.6[k\Omega] \cdot I_{B3} + 0.7\,\text{V} + 2.4\,\text{k}\Omega \cdot I_{C3} - 5[V] &= 0
+  -0.824\,\text{V} - 5.6[k\Omega] \cdot I_{B3} + 0.7\,\text{V} + 2.4\,\text{k}\Omega \cdot I_{E3} - 5[V] &= 0
 \end{align}
-De esta manera podemos despejar $I_{B3}$ en función de $I_{C3}$:
+De esta manera podemos despejar $I_{B3}$ en función de $I_{E3}$:
 \begin{align}
-  I_{B3} &= \frac{I_{C3}}{\beta}\\
-  -0.824 + 5.6\,\text{k}\Omega \cdot \frac{I_{C3}}{100} + 0.7 + 2.4\,\text{k}\Omega \cdot I_{C3} - 5 &= 0\\
-  I_{C3}\left(\frac{5.6\,\text{k}\Omega}{100} + 2.4\,\text{k}\Omega\right) &= 5 + 0.824 - 0.7\\
-  I_{C3} \times 2.456\,\text{k}\Omega &= 5.124\,\text{V}\\
-  I_{C3} &= \frac{5.124\,\text{V}}{2.456\,\text{k}\Omega} = 2.08\,\text{mA}
+  I_{B3} &= \frac{I_{E3}}{\beta + 1}\\
+  -0.824 + 5.6\,\text{k}\Omega \cdot \frac{I_{E3}}{101} + 0.7 + 2.4\,\text{k}\Omega \cdot I_{E3} - 5 &= 0\\
+  I_{E3}\left(\frac{5.6\,\text{k}\Omega}{101} + 2.4\,\text{k}\Omega\right) &= 5 + 0.824 - 0.7\\
+  I_{E3} \times 2.455\,\text{k}\Omega &= 5.124\,\text{V}\\
+  I_{E3} &= \frac{5.124\,\text{V}}{2.455\,\text{k}\Omega} = 2.087\,\text{mA}
 \end{align}
-Despejando, se tiene que $I_{c3} \approx 2.1\,\text{mA}$. Finalmente, podemos obtener el voltaje de salida DC:
+Ahora calculamos $I_{C3}$ usando la relación $I_{C3} = \frac{\beta}{\beta+1}I_{E3}$:
+\begin{align}
+  I_{C3} &= \frac{100}{101} \times 2.087\,\text{mA} = 2.066\,\text{mA}
+\end{align}
+Despejando, se tiene que $I_{C3} \approx 2.07\,\text{mA}$. Finalmente, podemos obtener el voltaje de salida DC:
 \begin{align}
 v_o - (-5\,\text{V}) &= I_{C3} \times 2.4\,\text{k}\Omega\\
-v_o + 5\,\text{V} &= 2.08\,\text{mA} \times 2.4\,\text{k}\Omega\\
-v_o + 5\,\text{V} &= 4.992\,\text{V}\\
-v_o &= -0.008\,\text{V} \approx 0\,\text{V}
+v_o + 5\,\text{V} &= 2.066\,\text{mA} \times 2.4\,\text{k}\Omega\\
+v_o + 5\,\text{V} &= 4.958\,\text{V}\\
+v_o &= -0.042\,\text{V} \approx 0\,\text{V}
 \end{align}
 Con lo que finalmente tenemos:
 \begin{itemize}
   \item $I_{C1} = 0.517\,\text{mA}$
   \item $I_{C2} = 1.04\,\text{mA}$
-  \item $I_{C3} = 2.1\,\text{mA}$
+  \item $I_{C3} = 2.07\,\text{mA}$
   \item $v_o \approx 0\,\text{V}$
 \end{itemize}
 

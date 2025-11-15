@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  9 NOV 2025 23:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.19)  13 NOV 2025 11:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_07/EL3202_07.tex"
-(c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3202 - Circuitos Eléctricos Analógicos - Primavera 2025/EL3202_07/EL3202_07.tex
+**"c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_11/EL3204_11.tex"
+(c:/Users/Erik/Desktop/[Github] Auxiliares/Auxiliares/Auxiliares/Primavera 2025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_11/EL3204_11.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/exam\exam.cls
@@ -105,8 +105,12 @@ File: size11.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 \exam@FrameRule=\dimen143
 \exam@FrameSep=\dimen144
 ) (../exercise-preamble.sty
-Package: ../exercise-preamble 2023/01/01 v1.0 Exercise preamble
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+
+LaTeX Warning: You have requested package `',
+               but the package provides `../exercise-preamble'.
+
+Package: ../exercise-preamble 2023/04/30 Prof. Cassanelli custom LaTeX style
+(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -855,51 +859,75 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box103
 \@float@everytoks=\toks59
 \@floatcapt=\box104
-) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
-Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
-Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count392
-Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count393
+) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen348
+\lightrulewidth=\dimen349
+\cmidrulewidth=\dimen350
+\belowrulesep=\dimen351
+\belowbottomsep=\dimen352
+\aboverulesep=\dimen353
+\abovetopsep=\dimen354
+\cmidrulesep=\dimen355
+\cmidrulekern=\dimen356
+\defaultaddspace=\dimen357
+\@cmidla=\count392
+\@cmidlb=\count393
+\@aboverulesep=\dimen358
+\@belowrulesep=\dimen359
+\@thisruleclass=\count394
+\@lastruleclass=\count395
+\@thisrulewidth=\dimen360
+) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
+Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup8
+\symboldletters=\mathgroup9
+\symboldsymbols=\mathgroup10
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+Package bm Info: No bold for \U/rsfs/m/n, using \pmb.
+\symboldugrf@m=\mathgroup11
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
-Package translations Info: No language package found. I am going to use `english' as default language. on input line 14.
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 20.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count394
+\l__color_backend_stack_int=\count396
 \l__pdf_internal_box=\box105
-) (EL3202_07.aux)
-\openout1 = `EL3202_07.aux'.
+) (EL3204_11.aux)
+\openout1 = `EL3204_11.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count395
-\scratchdimen=\dimen348
+\scratchcounter=\count397
+\scratchdimen=\dimen361
 \scratchbox=\box106
-\nofMPsegments=\count396
-\nofMParguments=\count397
+\nofMPsegments=\count398
+\nofMParguments=\count399
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count398
-\MPscratchDim=\dimen349
-\MPnumerator=\count399
-\makeMPintoPDFobject=\count400
+\MPscratchCnt=\count400
+\MPscratchDim=\dimen362
+\MPnumerator=\count401
+\makeMPintoPDFobject=\count402
 \everyMPtoPDFconversion=\toks61
 ) (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -951,177 +979,200 @@ Package pgfplots notification 'compat/show suggested version=true': you might be
 (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 14.
-Package hyperref Info: Link coloring ON on input line 14.
- (EL3202_07.out) (EL3202_07.out)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 20.
+Package hyperref Info: Link coloring ON on input line 20.
+ (EL3204_11.out) (EL3204_11.out)
 \@outlinefile=\write4
-\openout4 = `EL3202_07.out'.
+\openout4 = `EL3204_11.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
 <use ../fcfm_die.pdf>
-Package pdftex.def Info: ../fcfm_die.pdf  used on input line 18.
-(pdftex.def)             Requested size: 248.6009pt x 80.49696pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
- (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+Package pdftex.def Info: ../fcfm_die.pdf  used on input line 39.
+(pdftex.def)             Requested size: 264.46837pt x 85.6367pt.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <28> not available
+(Font)              size <24.88> substituted on input line 52.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <28> not available
+(Font)              size <24.88> substituted on input line 52.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+LaTeX Font Info:    Calculating math sizes for size <280> on input line 80.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+(C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 80.
  (C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.43332pt too wide) in paragraph at lines 16--28
-$[]$ $[]$ 
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <280> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <195.99915> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <140> not available
+(Font)              size <24.88> substituted on input line 80.
+
+
+
+[1{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
+
+ <../fcfm_die.pdf>]
+
+[2]
+Overfull \hbox (9.34471pt too wide) in paragraph at lines 167--168
+[]\OT1/cmr/m/n/10.95 Esta propiedad re-fleja que m^^Sas ob-ser-va-ciones in-de-pen-di-entes pro-por-cio-nan m^^Sas in-for-maci^^Son so-bre el par^^Sametro. 
  []
 
-<../figures/Auxiliar_7_1.png, id=8, 675.27281pt x 347.79938pt>
-File: ../figures/Auxiliar_7_1.png Graphic file (type png)
-<use ../figures/Auxiliar_7_1.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_1.png  used on input line 43.
-(pdftex.def)             Requested size: 423.151pt x 217.94722pt.
-<../figures/Auxiliar_7_2.png, id=10, 350.81062pt x 510.40688pt>
-File: ../figures/Auxiliar_7_2.png Graphic file (type png)
-<use ../figures/Auxiliar_7_2.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_2.png  used on input line 55.
-(pdftex.def)             Requested size: 132.48135pt x 192.75725pt.
-<../figures/Auxiliar_7_3.png, id=11, 511.15968pt x 514.92375pt>
-File: ../figures/Auxiliar_7_3.png Graphic file (type png)
-<use ../figures/Auxiliar_7_3.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_3.png  used on input line 62.
-(pdftex.def)             Requested size: 154.55934pt x 155.69615pt.
-<../figures/Auxiliar_7_4.png, id=15, 752.8125pt x 251.43938pt>
-File: ../figures/Auxiliar_7_4.png Graphic file (type png)
-<use ../figures/Auxiliar_7_4.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_4.png  used on input line 94.
-(pdftex.def)             Requested size: 392.53755pt x 131.10986pt.
-<../figures/Auxiliar_7_5.png, id=16, 1020.81375pt x 349.305pt>
-File: ../figures/Auxiliar_7_5.png Graphic file (type png)
-<use ../figures/Auxiliar_7_5.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_5.png  used on input line 121.
-(pdftex.def)             Requested size: 392.53755pt x 134.32027pt.
-<../figures/Auxiliar_7_6.png, id=20, 1169.87062pt x 261.22594pt>
-File: ../figures/Auxiliar_7_6.png Graphic file (type png)
-<use ../figures/Auxiliar_7_6.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_6.png  used on input line 149.
-(pdftex.def)             Requested size: 490.67007pt x 109.56267pt.
 
 
-[1
+[3]
 
-{C:/Users/Erik/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <../fcfm_die.pdf> <../figures/Auxiliar_7_1.png>]
+[4]
+Overfull \hbox (8.6459pt too wide) detected at line 281
+[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@[] [][] \OT1/cmr/m/n/10.95 + [][]
+ []
 
-[2 <../figures/Auxiliar_7_2.png> <../figures/Auxiliar_7_3.png>]
 
-[3 <../figures/Auxiliar_7_4.png> <../figures/Auxiliar_7_5.png>]
-
-[4 <../figures/Auxiliar_7_6.png>]
 
 [5]
-<../figures/Auxiliar_7_7.png, id=117, 1541.76pt x 1027.84pt>
-File: ../figures/Auxiliar_7_7.png Graphic file (type png)
-<use ../figures/Auxiliar_7_7.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_7.png  used on input line 208.
-(pdftex.def)             Requested size: 370.2541pt x 246.82779pt.
-<../figures/Auxiliar_7_8.png, id=118, 1027.84pt x 1027.84pt>
-File: ../figures/Auxiliar_7_8.png Graphic file (type png)
-<use ../figures/Auxiliar_7_8.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_8.png  used on input line 218.
-(pdftex.def)             Requested size: 245.33504pt x 245.32217pt.
-<../figures/Auxiliar_7_9.png, id=119, 422.32782pt x 355.3275pt>
-File: ../figures/Auxiliar_7_9.png Graphic file (type png)
-<use ../figures/Auxiliar_7_9.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_9.png  used on input line 252.
-(pdftex.def)             Requested size: 245.33504pt x 206.41539pt.
-<../figures/Auxiliar_7_10.png, id=120, 548.80031pt x 520.19344pt>
-File: ../figures/Auxiliar_7_10.png Graphic file (type png)
-<use ../figures/Auxiliar_7_10.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_10.png  used on input line 285.
-(pdftex.def)             Requested size: 220.80003pt x 209.28812pt.
-<../figures/Auxiliar_7_12.png, id=122, 1027.84pt x 1541.76pt>
-File: ../figures/Auxiliar_7_12.png Graphic file (type png)
-<use ../figures/Auxiliar_7_12.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_12.png  used on input line 345.
-(pdftex.def)             Requested size: 147.20251pt x 220.78525pt.
 
-Underfull \vbox (badness 10000) detected at line 433
- []
+[6]
 
+[7]
 
+[8]
 
-[6 <../figures/Auxiliar_7_7.png (PNG copy)>]
-
-[7 <../figures/Auxiliar_7_8.png (PNG copy)>]
-
-[8 <../figures/Auxiliar_7_9.png>]
-
-[9 <../figures/Auxiliar_7_10.png>]
+[9]
 
 [10]
 
-[11 <../figures/Auxiliar_7_12.png (PNG copy)>]
+[11]
+Overfull \vbox (3.67548pt too high) detected at line 611
+ []
+
+
 
 [12]
-<../figures/Auxiliar_7_11.png, id=223, 522.45187pt x 579.66562pt>
-File: ../figures/Auxiliar_7_11.png Graphic file (type png)
-<use ../figures/Auxiliar_7_11.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_11.png  used on input line 439.
-(pdftex.def)             Requested size: 317.36526pt x 352.12724pt.
 
-
-[13 <../figures/Auxiliar_7_11.png>]
+[13]
 
 [14]
-<../figures/Auxiliar_7_13.png, id=244, 904.1278pt x 593.21625pt>
-File: ../figures/Auxiliar_7_13.png Graphic file (type png)
-<use ../figures/Auxiliar_7_13.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_13.png  used on input line 488.
-(pdftex.def)             Requested size: 423.151pt x 277.63495pt.
-<../figures/Auxiliar_7_14.png, id=245, 1153.30875pt x 454.69875pt>
-File: ../figures/Auxiliar_7_14.png Graphic file (type png)
-<use ../figures/Auxiliar_7_14.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_14.png  used on input line 500.
-(pdftex.def)             Requested size: 392.53755pt x 154.76204pt.
-<../figures/Auxiliar_7_15.png, id=247, 843.15pt x 378.66469pt>
-File: ../figures/Auxiliar_7_15.png Graphic file (type png)
-<use ../figures/Auxiliar_7_15.png>
-Package pdftex.def Info: ../figures/Auxiliar_7_15.png  used on input line 573.
-(pdftex.def)             Requested size: 392.53755pt x 176.29103pt.
 
-
-[15 <../figures/Auxiliar_7_13.png> <../figures/Auxiliar_7_14.png>]
+[15]
 
 [16]
-
-[17 <../figures/Auxiliar_7_15.png>]
-
-[18]
-This exam contains 4 questions with 6 parts, 0 subparts, and 0 subsubparts.
+This exam contains 5 questions with 7 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3202_07.aux)
+(EL3204_11.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
-Package rerunfilecheck Info: File `EL3202_07.out' has not changed.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 255.12pt have occurred.
+
+Package rerunfilecheck Info: File `EL3204_11.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 60912 strings out of 473903
- 1569117 string characters out of 5727051
- 2352944 words of memory out of 5000000
- 82877 multiletter control sequences out of 15000+600000
- 570456 words of font info for 87 fonts, out of 8000000 for 9000
+ 60761 strings out of 473903
+ 1563779 string characters out of 5727051
+ 2328931 words of memory out of 5000000
+ 82827 multiletter control sequences out of 15000+600000
+ 575891 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,101p,900b,1135s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on EL3202_07.pdf (18 pages, 3141033 bytes).
+ 89i,12n,90p,911b,1214s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3204_11.pdf (16 pages, 351020 bytes).
 PDF statistics:
- 402 PDF objects out of 1000 (max. 8388607)
- 178 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 237 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 500000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

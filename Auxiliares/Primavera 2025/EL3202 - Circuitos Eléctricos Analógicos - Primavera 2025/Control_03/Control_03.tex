@@ -1,0 +1,107 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   %answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage[most]{tcolorbox}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Circuitos Eléctricos Analógicos} (EL3202) \\
+\large\textbf{Control 1} \\
+\normalsize Prof Patricio Mendoza \\
+\normalsize Prof Aux  Renato Planas , Erik Sáez Aravena
+\end{center}
+\end{minipage}
+
+\begin{tcolorbox}[colback=gray!10!white,colframe=black!80!white,title=Instrucciones]
+Dispone de 1 hora y media para contestar el control. No se permite el uso de calculadoras ni teléfonos. Recuerde escribir su nombre y RUT en todas las hojas. La sospecha de copia será sancionada.
+\end{tcolorbox}
+
+\begin{questions}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \question 
+  Considere el circuito mostrado en la Figura \ref{fig:circuito_p676} con parámetros de transistor $\beta = 120$ y $V_A = \infty$. 
+  
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Control_03_01}
+    \caption{Circuito del problema 6.76}
+    \label{fig:circuito_p676}
+  \end{figure}
+  
+  \begin{parts}
+    \part Determine los parámetros de pequeña señal $g_m$, $r_\pi$, y $r_o$ para ambos transistores.
+    \begin{solution}
+      Se buscan determinar los parámetros de pequeña señal para ambos transistores. Primero, se debe encontrar el punto de operación DC para cada transistor. Primeramente debemos dejar en Circuito abierto los condensadores.
+      \begin{itemize}
+        \item \textbf{Analisis Transistor Q1:}
+        Tenemos que para el analisis en DC al dejar en abierto los condensadores, luego tenemos que el modelo de Thevenin equivalente sera:
+        \begin{align}
+          V_{TH} &= V_{CC} \cdot \frac{R_{2}}{R_{1} + R_{2}} = 12V \cdot \frac{12.7k\Omega}{12.7k\Omega + 67.3k\Omega} =  1.905[V] \\
+          R_{TH} &= R_{1} \parallel R_{2} = 67.3k[\Omega] \parallel 12.7k[\Omega] = 10.68k[\Omega] 
+        \end{align}
+      De esta manera tendremos luego que la malla par vendra dada por:
+     \begin{align}
+      -V_{TH} + 0.7 + I_B R_{TH} + I_E R_E = 0 \\
+      -V_[TH] + 0.7 + I_B R_{TH} + I_B(\beta + 1) R_E = 0 \\
+      I_B = \frac{V_{TH} - 0.7}{R_{TH} + (\beta + 1) R_E} = \frac{1.905 - 0.7}{10.68k\Omega + (120 + 1) \cdot 2k\Omega} = 0.00477[mA]
+     \end{align}
+     De esta manera tendremos que $I_{C1}$ sera:
+      \begin{align}
+        I_{C1} = \beta \cdot I_B = 120 \cdot 0.00477[mA] = 0.572[mA]
+      \end{align}
+      Con estos datos, ya podemos realizar el analisis para pequeña señal, donde tenemos que:
+      \begin{align}
+        g_{m1} &= \frac{I_{C1}}{V_T} = \frac{0.572[mA]}{25[mV]} = 22m[A/V] \\
+        r_{\pi 1} &= \frac{\beta}{g_{m1}} = \frac{120 \cdot 0.026}{0.572} = 5.45[k\Omega] \\
+        r_{o1} &= \frac{V_A}{I_{C1}} = \frac{\infty}{0.572[mA]} = \infty[\Omega]
+      \end{align}
+      \item \textbf{Analisis Transistor Q2:}
+      Para el transistor Q2, tenemos un analisis, similar dado por:
+      \begin{align}
+        V_{TH2} = V_{CC} \cdot \frac{R_4}{R_3 + R_4} = 12V \cdot \frac{45k\Omega}{45k\Omega + 15k\Omega} = 9[V] \\
+      \end{align}
+      Mientras que la resistencia de Thevenin sera:
+      \begin{align}
+        R_{TH2} = R_3 \parallel R_4 = 15k\Omega \parallel 45k\Omega = 11.25k\Omega
+      \end{align}
+      De esta manera tenemos que la malla para el transistor Q2 sera:
+      \begin{align}
+        -V_{TH2} + R_{TH2}I_{B2} + 0.7 + R_{E2}I_{E2} &= 0 \\
+        -V_{TH2} + R_{TH2}I_{B2} + 0.7 + R_{E2}(\beta + 1)I_{B2} &= 0 \\
+        I_{B2} &= \frac{V_{TH2} - 0.7}{R_{TH2} + (\beta + 1) R_{E2}}\\ 
+        &= \frac{9 - 0.7}{11.25k\Omega + (120 + 1) \cdot 1.6k\Omega} = 0.0405[mA]
+      \end{align}
+      De esta manera tendremos que: 
+      \begin{align}
+        I_{C2} &= \beta \cdot I_{B2} = 120 \cdot 0.0405[mA] = 4.86[mA]
+      \end{align}
+      Con estos datos, ya podemos realizar el analisis para pequeña señal, donde tenemos que:
+      \begin{align}
+        g_{m2} &= \frac{I_{C2}}{V_T} = \frac{4.86[mA]}{0.026[V]} = 187m[A/V] \\
+        r_{\pi 2} &= \frac{\beta}{g_{m2}} = \frac{120 \cdot 0.026}{4.86} = 0.642[k\Omega] \\
+        r_{o2} &= \frac{V_A}{I_{C2}} = \frac{\infty}{4.86[mA]} = \infty[\Omega]
+      \end{align}
+    \end{itemize}
+    Con lo que finalmente se obtienen todos los valores buscados.
+  \end{solution}
+
+  \part Determine la ganancia de voltaje de pequeña señal total $A_v = v_o/v_s$.
+    
+    \part Determine la resistencia de entrada $R_{is}$ y la resistencia de salida $R_o$.
+  
+  \end{parts}
+  
+\end{questions}
+\end{document}
