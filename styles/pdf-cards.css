@@ -1,0 +1,76 @@
+/* === Grilla 2 columnas que llena todo el ancho === */
+.card-grid.amplio {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnas iguales */
+  gap: 1rem;
+  align-items: start;
+}
+
+/* En pantallas pequeñas, 1 columna */
+@media (max-width: 799px) {
+  .card-grid.amplio { grid-template-columns: 1fr; }
+}
+
+/* Tarjeta */
+.aux-card {
+  padding: .8rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .6rem;
+  background: var(--md-default-bg-color);
+}
+
+/* Título */
+.aux-title { margin-bottom: .4rem; font-size: 1rem; font-weight: 600; }
+
+/* Preview más grande (ajusta a gusto: 200–240px) */
+.pdf-thumb {
+  height: 210px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+.pdf-thumb object, .pdf-thumb iframe, .pdf-thumb embed {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;  /* sin scroll interno */
+}
+
+/* Botones compactos */
+.btn-row { display: flex; gap: .5rem; margin-top: .45rem; }
+.md-button.md-button--xs { padding: .24rem .55rem; font-size: .8rem; border-radius: .45rem; }/* Ocupa 2 columnas como ya tenías */
+.card-grid.amplio { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem; }
+@media (max-width:799px){ .card-grid.amplio{ grid-template-columns:1fr; } }
+
+/* Tarjeta y título (igual que antes) */
+.aux-card{ padding:.8rem; border:1px solid var(--md-default-fg-color--lighter);
+  border-radius:.6rem; background:var(--md-default-bg-color); }
+.aux-title{ margin-bottom:.4rem; font-size:1rem; font-weight:600; }
+
+/* Mini-preview más grande */
+.pdf-thumb{ height:210px; border:1px solid var(--md-default-fg-color--lighter);
+  border-radius:.5rem; overflow:hidden; position:relative; }
+
+/* IFRAME limpio (sin interacción) */
+.pdf-frame{ width:100%; height:100%; border:0; pointer-events:none; }
+
+/* --- Recorte (crop) para esconder toolbar y sidebar del visor --- */
+/* Ajusta estos desplazamientos si usas otro navegador: */
+.pdf-thumb.crop .pdf-frame{
+  /* ampliamos y desplazamos el visor hacia arriba e izquierda */
+  width:calc(100% + 110px);
+  height:calc(100% + 44px);
+  transform: translate(-110px, -44px);
+}
+.btn-row{ display:flex; gap:.5rem; margin-top:.45rem; }
+.md-button.md-button--xs{ padding:.24rem .55rem; font-size:.8rem; border-radius:.45rem; }
+
+
+.course-meta{
+  margin: .4rem 0 1rem;
+  padding: .75rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: .6rem;
+  background: var(--md-default-bg-color);
+}
+.course-meta p{ margin:.45rem 0 0; font-size:.95rem; }
