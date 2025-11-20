@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  19 NOV 2025 09:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.19)  19 NOV 2025 13:17
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **"c:/Users/Erik/Desktop/Universidad/Docencia/Auxiliares/Auxiliares/Primavera 2
-025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_11/EL3204_1
-1.tex"
+025/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_12/EL3204_1
+2.tex"
 
 (c:/Users/Erik/Desktop/Universidad/Docencia/Auxiliares/Auxiliares/Primavera 202
-5/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_11/EL3204_11.
+5/EL3204 - Analisis de sistemas dinamicos - Primavera 2025/EL3204_12/EL3204_12.
 tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1274,8 +1274,8 @@ h' as default language. on input line 20.
 ex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count411
-) (EL3204_11.aux)
-\openout1 = `EL3204_11.aux'.
+) (EL3204_12.aux)
+\openout1 = `EL3204_12.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
@@ -1372,9 +1372,9 @@ nslations-basic-dictionary')
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 20.
 Package hyperref Info: Link coloring ON on input line 20.
- (EL3204_11.out) (EL3204_11.out)
+ (EL3204_12.out) (EL3204_12.out)
 \@outlinefile=\write4
-\openout4 = `EL3204_11.out'.
+\openout4 = `EL3204_12.out'.
 
 <../fcfm_die.pdf, id=6, 737.75626pt x 238.8925pt>
 File: ../fcfm_die.pdf Graphic file (type pdf)
@@ -1505,21 +1505,15 @@ Overfull \hbox (9.34471pt too wide) in paragraph at lines 167--168
 pen-di-entes pro-por-cio-nan m^^Sas in-for-maci^^Son so-bre el par^^Sametro. 
  []
 
-[3] [4]
-Overfull \hbox (8.6459pt too wide) detected at line 281
-[] \OT1/cmr/m/n/10.95 = \OMS/cmsy/m/n/10.95 ^^@[] [][] \OT1/cmr/m/n/10.95 + [][
-]
+[3] [4] [5] [6] [7]
+Underfull \vbox (badness 1968) detected at line 457
  []
 
-[5] [6] [7] [8] [9] [10] [11]
-Overfull \vbox (3.67548pt too high) detected at line 611
- []
-
-[12] [13] [14] [15] [16]
-This exam contains 5 questions with 7 parts, 0 subparts, and 0 subsubparts.
+[8] [9] [10] [11] [12] [13]
+This exam contains 3 questions with 0 parts, 0 subparts, and 0 subsubparts.
 This exam has a total of 0 points.
 This exam has a total of 0 bonus points.
-(EL3204_11.aux)
+(EL3204_12.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-10-24>
@@ -1529,41 +1523,42 @@ L3 programming layer <2025-10-24>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 255.12pt have occurred.
 
-Package rerunfilecheck Info: File `EL3204_11.out' has not changed.
+Package rerunfilecheck Info: File `EL3204_12.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 61826 strings out of 467870
- 1594215 string characters out of 5418838
- 2393458 words of memory out of 5000000
- 89905 multiletter control sequences out of 15000+600000
- 645543 words of font info for 107 fonts, out of 8000000 for 9000
+ 61764 strings out of 467870
+ 1593384 string characters out of 5418838
+ 2398458 words of memory out of 5000000
+ 89857 multiletter control sequences out of 15000+600000
+ 647829 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,12n,97p,912b,1342s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,14n,97p,912b,1239s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Erik\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1
 095.pk><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/cm/cmbx12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmex10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Erik/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Erik/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/E
-rik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
-Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Erik/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/Erik/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on EL3204_11.pdf (16 pages, 351153 bytes).
+ts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/Erik/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Erik/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Erik/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Eri
+k/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Us
+ers/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+r12.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr17.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmr6.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Erik/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Erik/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Erik/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Erik/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/Erik
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on EL3204_12.pdf (13 pages, 344943 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

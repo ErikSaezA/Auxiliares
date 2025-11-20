@@ -1,6 +1,6 @@
-PWD c:\Users\Erik\Desktop\Universidad\Docencia\Auxiliares\Auxiliares\Primavera 2025\EL3204 - Analisis de sistemas dinamicos - Primavera 2025\EL3204_11
+PWD c:\Users\Erik\Desktop\[Github] Auxiliares\Auxiliares\Auxiliares\Primavera 2025\EL3204 - Analisis de sistemas dinamicos - Primavera 2025\EL3204_11
 INPUT C:\Users\Erik\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Erik\Desktop\Universidad\Docencia\Auxiliares\Auxiliares\Primavera 2025\EL3204 - Analisis de sistemas dinamicos - Primavera 2025\EL3204_11\EL3204_11.tex
+INPUT c:\Users\Erik\Desktop\[Github] Auxiliares\Auxiliares\Auxiliares\Primavera 2025\EL3204 - Analisis de sistemas dinamicos - Primavera 2025\EL3204_11\EL3204_11.tex
 OUTPUT EL3204_11.log
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\exam\exam.cls
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\exam\exam.cls
@@ -308,7 +308,6 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryquotes.code.tex
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\tikz-ext\tikzlibraryext.topaths.arcthrough.code.tex
-INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\tikz-ext\tikzext-util.tex
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.code.tex
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.geometric.code.tex
@@ -386,9 +385,15 @@ INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\bitset\bitset.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\bigintcalc\bigintcalc.sty
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\atbegshi\atbegshi.sty
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\base\atbegshi-ltx.sty
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\base\atbegshi-ltx.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\base\atveryend-ltx.sty
+INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\base\atveryend-ltx.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\latex\rerunfilecheck\rerunfilecheck.sty
 INPUT C:\Users\Erik\AppData\Local\Programs\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
