@@ -1,0 +1,510 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{circuitikz}  % tal como ya lo tienes
+\ctikzset{current/american}
+
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Circuitos Eléctricos Analógicos} (EL3202-1) \\
+\large\textbf{Clase auxiliar 10} \\
+\normalsize Prof.~ Patricio Mendoza.\\
+\normalsize Prof.~Aux.~Renato Planas ~Erik Sáez
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+
+\begin{questions}
+%----------------------------
+\question Para el circuito de la figura 1, $R_A = R_1 = 1[k\Omega]$, $R_2 = 10[k\Omega]$ y $V_{CC} = -V_{EE} = 5[V]$. Asuma que todos los transistores tienen parámetros iguales.
+
+\begin{figure}[H]
+\centering
+% Aquí deberás incluir la figura del circuito
+ \includegraphics[width=0.8\textwidth]{Auxiliar_10/1}
+\caption{Circuito para pregunta 2.}
+\end{figure}
+
+\begin{parts}
+\part Determine la polarización (o punto de operación) de cada transistor ($V_{CEi}$ e $I_{Ci}$).
+\begin{solution}
+Los puntos de operación de los transistores vienen determinados tanto por su voltaje colector-emisor $V_{CE}$ como por su corriente de colector, por lo que deberemos determinar estos parámetros de cada transistor. Para determinar la polarización de cada transistor, lo primero que se logra identificar es que en la sección izquierda tenemos un espejo de corriente, luego analizaremos esta zona primero comenzando por el transistor $Q_A$. Definiendo nodos, tenemos:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Auxiliar_10/3}
+\caption{Circuito para pregunta 2.}
+\end{figure}
+Por lo tanto tenemos las siguientes relaciones entre los voltajes y corrientes:
+\begin{align}
+  V_{a} - V_{b} &= V_{BE} = 0.7[V] 
+\end{align}
+Donde tenemos que $V_{b} = V_{EE} = -5[V]$, el cual es el voltaje de polarización, por lo tanto se tendrá que:
+\begin{align}
+  V_{a} &= V_{BE} + V_{b} = 0.7 - 5 = -4.3[V]
+\end{align}
+Además, dado el circuito tenemos que $V_a = V_c$, de esta manera se logra obtener la corriente $I_{a}$ la cual viene dada por:
+\begin{align}
+  I_{a} &= \frac{0 - V_c}{R_A} = \frac{0 - (-4.3)}{1[k\Omega]} = 4.3[mA]
+\end{align}
+Donde asumimos que la corriente de base es despreciable, por lo que $I_{C,Q_A} = I_a = 4.3[mA]$. 
+Continuando con el resto de transistores, utilizamos el hecho de que estamos en presencia del espejo de corriente, por lo tanto tendremos las siguientes relaciones de corrientes:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Auxiliar_10/4}
+\caption{Espejo de corriente del circuito.}
+\end{figure}
+Con lo que podemos ver que la corriente de colector de los transistores $Q_B$ y $Q_C$ será igual a la corriente $I_a$, es decir $I_{C,Q_B} = I_{C,Q_C} = 4.3[mA]$. Para obtener el voltaje colector-emisor de estos transistores, deberemos analizar el circuito que lo continúa, por lo tanto tenemos que:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Auxiliar_10/5}
+\caption{Análisis de los transistores diferenciales.}
+\end{figure}
+Recordando que dado que estamos realizando el análisis en DC, las fuentes de voltaje AC se comportan como cortocircuitos. De esta manera tenemos que:
+\begin{align}
+  V_{BE,Q_1} = V_{D} - V_{F} = 0.7[V]
+\end{align}
+Por lo tanto:
+\begin{align}
+  V_{F} = V_D - 0.7 = 0 - 0.7 = -0.7[V]
+\end{align} 
+De esta manera podemos volver sobre nuestro análisis y determinar cuánto valen los voltajes colector-emisor de los transistores $Q_B$ y $Q_C$. Para el transistor $Q_{B}$ tenemos que:
+\begin{align}
+  V_{CE,Q_B} = V_{F} - V_{EE} = -0.7 - (-5) = 4.3[V]
+\end{align}
+Por otro lado, de manera análoga tenemos que para el transistor $Q_C$:
+\begin{align}
+  V_{CE,Q_C} = V_{CC} - V_{F} = 5 - (-0.7) = 5.7[V]
+\end{align}
+Por lo que tenemos ya sus puntos de operación. Luego queda analizar tanto $Q_{1}$ como $Q_2$. Asumiremos que la corriente de colector será igual a la corriente de emisor, dado que la corriente de base es despreciable. Para $Q_{1}$ la corriente de colector será:
+\begin{align}
+  I_{C,Q_1} = I_{a} = 4.3[mA]
+\end{align}
+Mientras que su voltaje colector-emisor será:
+\begin{align}
+  V_{CE,Q_1} = V_{CC} - V_{F} = 5 - (-0.7) = 5.7[V]
+\end{align}
+Por otro lado tenemos que para $Q_2$, la corriente del colector será $I_{C,Q_2} = I_a = 4.3[mA]$. Por lo tanto, el voltaje en el nodo I será:
+\begin{align}
+I_{a} &= \frac{V_{CC} - V_{I}}{R_{1}}\\
+V_{I} &= V_{CC} - I_{a} R_{1} = 5 - (4.3[mA] \cdot 1[k\Omega]) = 0.7[V]
+\end{align}
+De esta manera tenemos que el voltaje colector-emisor de $Q_2$ será:
+\begin{align}
+  V_{CE,Q_2} = V_{I} - V_{F} = 0.7 - (-0.7) = 1.4[V]
+\end{align}
+Por otro lado tenemos que para el transistor $Q_{3}$ se tendrá que:
+\begin{align}
+  V_{BE,Q_3} = V_{I} - V_{out} = 0.7[V]\\
+  V_{out} = V_{I} - V_{BE,Q_3} = 0.7 - 0.7 = 0[V] 
+\end{align}
+De esta manera tenemos que la corriente por la resistencia $R_{2}$ será:
+\begin{align}
+  I_{R_2} = \frac{V_{out} - V_{EE}}{R_{2}} = \frac{0 - (-5)}{10[k\Omega]} = 0.5[mA]
+\end{align}
+Asumiendo que la corriente de base de $Q_3$ es despreciable, entonces $I_{C,Q_3} \approx I_{R_2} = 0.5[mA]$. Con lo que tenemos que el voltaje colector-emisor de $Q_{3}$ será:
+\begin{align}
+  V_{CE,Q_3} = V_{CC} - V_{out} = 5 - 0 = 5[V]
+\end{align}
+De esta manera tenemos que, resumiendo, todos los puntos de polarización de los transistores serán:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Transistor & $I_{C}[mA]$ & $V_{CE}[V]$ \\ \hline
+$Q_{A}$   & 4.3          & 0.7          \\ \hline
+$Q_{B}$   & 4.3          & 4.3          \\ \hline
+$Q_{C}$   & 4.3          & 5.7          \\ \hline
+$Q_{1}$   & 4.3          & 5.7          \\ \hline
+$Q_{2}$   & 4.3          & 1.4          \\ \hline
+$Q_{3}$   & 0.5          & 5.0          \\ \hline
+\end{tabular}
+\caption{Puntos de operación de los transistores.}
+\end{table}
+
+\end{solution}
+\part Si se tiene $v_1(t) = V_a \cos(\omega t) + v_b \cos(\omega t + \pi/2)$ y $v_2(t) = V_a \cos(\omega t + \pi) + v_b \sin(\omega t + 2\pi)$, determine el valor total (AC y DC) de $V_{out}$.
+\begin{solution}
+Para determinar la componente AC de $V_{out}$, deberemos analizar el modelo de pequeña señal del circuito. Para ello, se eliminan las fuentes de voltaje DC (cortocircuitándolas) y se reemplazan los transistores por sus modelos híbridos-$\pi$. De esta manera tenemos el siguiente circuito:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Auxiliar_10/6}
+\caption{Modelo de pequeña señal del circuito.}
+\end{figure}
+Para las corrientes de base de $Q_1$ y $Q_2$ tenemos:
+\begin{align}
+  i_{b1} &= \frac{V_{1} - V_{a}}{r_{\pi_{1}}}\\
+  i_{b2} &= \frac{V_{2} - V_{a}}{r_{\pi_{2}}}
+\end{align}
+Si despejamos el valor de $V_a$ de ambas ecuaciones:
+\begin{align}
+  V_{a} &= i_{b1} r_{\pi_{1}} + V_{1} = i_{b2} r_{\pi_{2}} + V_{2}\\
+  V_{1} - V_{2} &= i_{b2} r_{\pi_{2}} - i_{b1} r_{\pi_{1}}\\
+\end{align}
+Dado que los transistores son iguales, tenemos que $r_{\pi_{1}} = r_{\pi_{2}} = r_{\pi}$, por lo que podemos reescribir la ecuación anterior como:
+\begin{align}
+  V_{1} - V_{2} &= r_{\pi} (i_{b2} - i_{b1})
+\end{align}
+Ahora bien, evaluando las señales de entrada tenemos:
+\begin{align}
+  V_{1} &= V_a \cos(\omega t) + v_b \cos(\omega t + \pi/2) = V_a \cos(\omega t) - v_b \sin(\omega t)\\
+  V_{2} &= V_a \cos(\omega t + \pi) + v_b \sin(\omega t + 2\pi) = -V_a \cos(\omega t) + v_b \sin(\omega t)
+\end{align}
+Con lo que observamos que $V_{1} = -V_{2}$. Por otro lado, por simetría del circuito, $i_{b1} = -i_{b2}$. Por lo tanto, podemos reescribir las corrientes de base en modo diferencial como:
+\begin{align}
+i_{b1}&= \frac{V_{1} - V_{2}}{2 r_{\pi}}\\
+i_{b2}&= \frac{V_{2} - V_{1}}{2 r_{\pi}}
+\end{align}
+Nos interesa obtener $V_{out}'$ (la señal AC en el nodo de salida antes de $Q_3$). Analizando el circuito:
+\begin{align}
+  \beta_{0} i_{b2} &= \frac{0- V_{out}'}{R_1}\\
+  V_{out}' &= - \beta_{0} i_{b2} R_1\\
+  V_{out}' &= - \beta_{0} R_1 \frac{V_{2} - V_{1}}{2 r_{\pi}}
+\end{align}
+Donde recordemos que $\beta_{0} = r_{\pi} g_{m}$, por lo tanto:
+\begin{align}
+  V_{out}' &= - g_{m} R_1 \left(\frac{V_{2} - V_{1}}{2}\right)\\
+            &= g_{m}R_{1} \left(\frac{V_{1} - V_{2}}{2}\right)
+\end{align}
+Ahora analizaremos el transistor $Q_{3}$,
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{Auxiliar_10/7}
+\caption{Análisis del transistor $Q_3$.}
+\end{figure}
+De esta manera tenemos que:
+\begin{align}
+  i_{b} &= \frac{V_{out}' - V_{out}}{r_{\pi}} \\
+  \frac{V_{out} - 0 }{R_{2}} &= \beta_{0} i_{b} + i_{b} = (\beta_{0} + 1) i_{b}
+\end{align}
+Reemplazando $i_{b}$ en la segunda ecuación:
+\begin{align}
+  \frac{V_{out}}{R_{2}} &= (\beta_{0} + 1) \frac{V_{out}' - V_{out}}{r_{\pi}}\\
+  \frac{V_{out}}{R_{2}} &= (\beta_{0} + 1) \frac{V_{out}'}{r_{\pi}} - (\beta_{0} + 1) \frac{V_{out}}{r_{\pi}}\\
+  V_{out}\left(\frac{1}{R_{2}} + \frac{\beta_{0} + 1}{r_{\pi}}\right) &= (\beta_{0} + 1) \frac{V_{out}'}{r_{\pi}}
+\end{align}
+Por lo tanto, despejando $V_{out}$:
+\begin{align}
+  V_{out} &= \frac{(\beta_{0} + 1) V_{out}'}{r_{\pi}\left(\frac{1}{R_{2}} + \frac{\beta_{0} + 1}{r_{\pi}}\right)}\\
+  V_{out} &= \frac{(\beta_{0} + 1) V_{out}'}{\frac{r_{\pi}}{R_{2}} + \beta_{0} + 1}\\
+  V_{out} &= \frac{R_{2}(\beta_{0} + 1) V_{out}'}{r_{\pi} + R_{2}(\beta_{0} + 1)}
+\end{align}
+Reemplazando $V_{out}'$ obtenido anteriormente:
+\begin{align}
+  V_{out} &= \frac{R_{2}(\beta_{0} + 1)}{r_{\pi} + R_{2}(\beta_{0} + 1)} \cdot g_{m}R_{1} \left(\frac{V_{1} - V_{2}}{2}\right)\\
+  V_{out} &= \frac{R_{2}(\beta_{0} + 1) g_{m} R_{1} (V_{1} - V_{2})}{2(r_{\pi} + R_{2}(\beta_{0} + 1))}
+\end{align}
+Ahora bien, si asumimos que $R_{2}(\beta_{0} + 1) >> r_{\pi}$, podemos simplificar la expresión:
+\begin{align}
+  V_{out} &\simeq \frac{R_{2}(\beta_{0} + 1) g_{m} R_{1} (V_{1} - V_{2})}{2 R_{2}(\beta_{0} + 1)}\\
+  V_{out} &\simeq \frac{g_{m} R_{1} (V_{1} - V_{2})}{2}
+\end{align}
+Reemplazando los valores de $V_1$ y $V_2$:
+\begin{align}
+  V_{1} - V_{2} &= V_a \cos(\omega t) - v_b \sin(\omega t) - (-V_a \cos(\omega t) + v_b \sin(\omega t))\\
+  V_{1} - V_{2} &= 2V_a \cos(\omega t) - 2v_b \sin(\omega t)
+\end{align}
+Por lo tanto:
+\begin{align}
+  V_{out} &\simeq \frac{g_{m} R_{1}}{2} \cdot 2(V_a \cos(\omega t) - v_b \sin(\omega t))\\
+  V_{out} &\simeq g_{m} R_{1} (V_a \cos(\omega t) - v_b \sin(\omega t))
+\end{align}
+
+Este es el componente AC de $V_{out}$. El componente DC ya lo obtuvimos en el inciso (a): $V_{out,DC} = 0[V]$.
+
+Para obtener un valor numérico, podemos calcular $g_m$ usando la corriente de colector de $Q_1$ y $Q_2$ obtenida anteriormente:
+\begin{align}
+  g_m = \frac{I_{C,Q_1}}{V_T} = \frac{4.3[mA]}{26[mV]} \approx 165.4[mS]
+\end{align}
+
+Por lo tanto, el valor total de $V_{out}$ (AC + DC) es:
+\begin{align}
+  V_{out}(t) &= V_{out,DC} + V_{out,AC}\\
+  V_{out}(t) &= 0 + g_{m} R_{1} (V_a \cos(\omega t) - v_b \sin(\omega t))\\
+  V_{out}(t) &= g_{m} R_{1} (V_a \cos(\omega t) - v_b \sin(\omega t))
+\end{align}
+Donde $g_m \approx 165.4[mS]$ y $R_1 = 1[k\Omega]$, por lo que la ganancia es aproximadamente $g_m R_1 \approx 165.4$.
+\end{solution}
+\begin{solution}
+  Preguntas realizadas durante la clase auxiliar.
+  \begin{itemize}
+    \item \textbf{¿Por qué se asume que la corriente de base es despreciable?}\\
+    Porque a términos prácticos, la corriente de base es mucho menor que la corriente de colector y emisor en transistores BJT, especialmente cuando el transistor está en la región activa. Esto permite simplificar de manera significativa los cálculos sin perder precisión en la mayoría de los casos prácticos, puede hacerlo siempre que lo justifique.
+    \item \textbf{En el seguidor de voltaje porque toda la corriente no va por el cortocircuito a la rama de corriente base?}\\
+    Lo que sucede, es que tendremos algo como:
+    \begin{align}
+      I_{ref} = I_{B1} + I_{B2} + I_{C}
+    \end{align}
+    Pero las corrientes $I_{B1} \approx \frac{I_{C}}{\beta}$ y dado que el beta es grande, entonces $I_{B1}$ y $I_{B2}$ son despreciables en comparación con $I_{C}$. Por lo que se asume que toda la corriente va por la rama del colector, por lo que $I_{ref} \approx I_{C}$.  
+  \end{itemize}
+\end{solution}
+\end{parts}
+%----------------------------
+\question Por casualidades de la vida, un amigo suyo necesita ayuda para determinar las características del amplificador diferencial de la Figura 2. Su amigo le comenta en primer lugar, que los transistores $Q_3$ y $Q_4$ de la figura de corriente Widlar se encuentran pareados y presentan los siguientes parámetros: $\beta = 100$, $V_{BE} = 0.7~[V]$, $r_0 = 35~[M\Omega]$. Por otro lado, los transistores $Q_1$ y $Q_2$ (también pareados) forman un circuito AD y tienen los siguientes parámetros: $\beta = 100$, $V_{BE} = 0.7~[V]$, $r_0 = \infty$.
+
+Además, su amigo le cuenta que utilizó un multímetro para medir las resistencias del AD, donde obtuvo que $R_1 = R_2 = 21.8~[k\Omega]$. Finalmente, él le pide que realice las siguientes tareas: (\textit{Importante:} $V_T = 26[mV]$)
+
+\begin{figure}[H]
+\centering
+% Aquí deberás incluir la figura del circuito
+\includegraphics[width=0.5\textwidth]{Auxiliar_10/2}
+\caption{Amplificador diferencial BJT polarizado mediante fuente $I_0$.}
+\end{figure}
+
+\begin{parts}
+\part Obtener el valor de $R_E$ e $I_0$, considerando que $R_E \cdot I_0 = 60[mV]$.
+\begin{solution}
+  
+  Se busca determinar el valor de la resistencia $R_E$ y la corriente $I_0$, primeramente reconocemos un circuito Widlar el cual se visualiza en el siguiente diagrama:
+  \begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{Auxiliar_10/9}
+\caption{Análisis del circuito de corriente Widlar.}
+\end{figure}
+Por lo que deberemos tener en cuenta la resistencia $R_{E}$ (Similar a $R_{2}$) en el diagrama anterior y su implicancia en el circuito (\href{https://www.u-cursos.cl/ingenieria/2025/2/EL3202/1/material_docente/detalle?id=9918589}{Recomiendo leer los apuntes}). Luego retomando el circuito, tendremos:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.2\textwidth]{Auxiliar_10/8}
+\caption{Análisis del circuito de corriente Widlar.}
+\end{figure}
+De esta manera tenemos que:
+\begin{align}
+  I_{ref} = \frac{V_{cc} - V_{a}}{R_{3}}
+\end{align}
+y por otro lado sabemos que:
+\begin{align}
+  V_{b} - V_{ee} = V_{b} - (-10[V]) = 0.7[V] \implies V_{b} = -9.3[V]
+\end{align}
+y dado que $V_{a} = V_{b}$, tenemos que:
+\begin{align}
+  I_{ref} = \frac{10[V] - (-9.3[V])}{3840[\Omega]} = 5.026[mA]
+\end{align}
+Luego utilizando la relación de corrientes en el circuito Widlar, tenemos que:
+\begin{align}
+  I_{ref} = I_{0} \cdot e^{\frac{R_E I_0}{\eta V_T}}
+\end{align}
+Considerando que $\eta = 1$, luego tenemos que recordar que por enunciado tenemos:
+\begin{align}
+  R_E \cdot I_0 = 60[mV]
+\end{align}
+Por lo que podemos reescribir la ecuación de $I_{ref}$ como:
+\begin{align}
+  5.026 \cdot 10^{-3}[A]= \frac{60 \cdot 10^{-3}}{R_{E}}\cdot e^{\frac{60[mV]}{26[mV]}} 
+\end{align}
+Por lo que despejando $R_E$ tenemos:
+\begin{align}
+  R_E = \frac{60 \cdot 10^{-3}}{5.026 \cdot 10^{-3}} \cdot e^{\frac{60[mV]}{26[mV]}}= 120[\Omega]
+\end{align}
+Luego podemos obtener $I_0$ como:
+\begin{align}
+  I_0 = \frac{60[mV]}{R_E} = \frac{60 \cdot 10^{-3}}{120[\Omega]} = 0.5[mA]
+\end{align}
+
+\end{solution}
+\part Calcular la resistencia $r_o$ que experimenta el emisor de los transistores $Q_1$ y $Q_2$.
+\begin{solution}
+La resistencia $r_o$ que experimenta el emisor de los transistores $Q_1$ y $Q_2$ corresponde a la resistencia de salida del espejo de corriente Widlar, denotada como $r_m$. Esta resistencia se calcula mediante la siguiente expresión:
+\begin{align}
+  r_m = r_0 \left[1 + \ln\left(\frac{I_{ref}}{I_0}\right)\right]
+\end{align}
+Donde $r_0 = 35[M\Omega]$ es la resistencia de salida del transistor, $I_{ref} = 5.026[mA]$ es la corriente calculada en el inciso anterior, y $I_0 = 0.5[mA]$. Primero, calculamos las corrientes en los transistores del amplificador diferencial. Como $I_0$ se divide entre los dos transistores $Q_1$ y $Q_2$:
+\begin{align}
+  I_0 = I_{E1} + I_{E2}
+\end{align}
+Por simetría del circuito (cuando no hay señal diferencial):
+\begin{align}
+  I_{E1} = I_{E2} = \frac{I_0}{2} = \frac{0.5[mA]}{2} = 0.25[mA]
+\end{align}
+La corriente de colector se relaciona con la corriente de emisor mediante:
+\begin{align}
+  I_C = \frac{\beta}{\beta + 1} I_E \approx I_E \quad \text{(para } \beta = 100\text{)}
+\end{align}
+Por lo tanto:
+\begin{align}
+  I_{C1} = I_{C2} \approx 0.25[mA]
+\end{align}
+Ahora calculamos $r_m$:
+\begin{align}
+  r_m &= 35 \times 10^6 \left[1 + \ln\left(\frac{5.026 \times 10^{-3}}{0.5 \times 10^{-3}}\right)\right]\\
+  r_m &= 35 \times 10^6 \left[1 + \ln(10.052)\right]\\
+  r_m &= 35 \times 10^6 [1 + 2.308]\\
+  r_m &= 35 \times 10^6 \times 3.308\\
+  r_m &= 1.16 \times 10^8[\Omega] = 116[M\Omega]
+\end{align}
+Por lo tanto, la resistencia que experimenta el emisor de los transistores $Q_1$ y $Q_2$ es $r_m = 1.16 \times 10^8[\Omega]$ o $116[M\Omega]$.
+\end{solution}
+
+\part Determinar las ganancias \textit{Single-ended}, las ganancias diferenciales y el $CMRR$ (en $[dB]$). Interprete el valor de $CMRR_{ac}$ en el contexto de amplificación.
+\begin{solution}
+Para calcular las ganancias del amplificador diferencial, primero necesitamos determinar la transconductancia $g_m$ de los transistores:
+\begin{align}
+  g_m = \frac{I_C}{V_T} = \frac{0.25 \times 10^{-3}}{26 \times 10^{-3}} = 9.62 \times 10^{-3}[S] = 9.62[mS]
+\end{align}
+
+Además, necesitamos el valor de $r_{\pi}$ para cada transistor:
+\begin{align}
+  r_{\pi} = \frac{\beta V_T}{I_C} = \frac{100 \times 26 \times 10^{-3}}{0.25 \times 10^{-3}} = 10.4[k\Omega]
+\end{align}
+
+\textbf{Ganancia en modo común (Single-Ended):}
+
+La ganancia en modo común para una salida single-ended está dada por:
+\begin{align}
+  A_{CM-SE_1} = \frac{-g_m R_1}{1 + 2g_m r_m}
+\end{align}
+
+Sustituyendo valores:
+\begin{align}
+  A_{CM-SE_1} &= \frac{-(9.62 \times 10^{-3})(21.8 \times 10^3)}{1 + 2(9.62 \times 10^{-3})(1.16 \times 10^8)}\\
+  A_{CM-SE_1} &= \frac{-209.716}{1 + 2.23 \times 10^6}\\
+  A_{CM-SE_1} &= \frac{-209.716}{2.23 \times 10^6}\\
+  A_{CM-SE_1} &= -9.40 \times 10^{-5} 
+\end{align}
+
+De manera similar:
+\begin{align}
+  A_{CM-SE_2} = A_{CM-SE_1} = -9.39 \times 10^{-5}
+\end{align}
+
+\textbf{Ganancia en modo diferencial (Single-Ended):}
+
+La ganancia en modo diferencial para una salida single-ended está dada por:
+\begin{align}
+  A_{dM-SE_1} = \frac{-g_m R_1}{2}
+\end{align}
+
+Sustituyendo valores:
+\begin{align}
+  A_{dM-SE_1} &= \frac{-(9.62 \times 10^{-3})(21.8 \times 10^3)}{2}\\
+  A_{dM-SE_1} &= \frac{-209.716}{2}\\
+  A_{dM-SE_1} &= -104.858
+\end{align}
+
+De manera similar, para la otra salida tenemos:
+\begin{align}
+  A_{dM-SE_2} = \frac{g_m R_2}{2} = 104.858
+\end{align}
+
+\textbf{Ganancia diferencial (salida diferencial):}
+
+La ganancia diferencial total es:
+\begin{align}
+  A_{dM-DIFF} = A_{dM-SE_1} - A_{dM-SE_2} = -g_m R_C
+\end{align}
+
+Sustituyendo valores:
+\begin{align}
+  A_{dM-DIFF} &= -(9.62 \times 10^{-3})(21.8 \times 10^3)\\
+  A_{dM-DIFF} &= -209.716
+\end{align}
+
+\textbf{Ganancia en modo común (salida diferencial):}
+
+Para la salida diferencial:
+\begin{align}
+  A_{CM-DIFF} = A_{CM-SE_1} - A_{CM-SE_2} = 0
+\end{align}
+
+Esto se debe a que ambas salidas responden de manera idéntica a la señal de modo común.
+
+\textbf{CMRR (Common Mode Rejection Ratio):}
+
+El CMRR se define como:
+\begin{align}
+  CMRR_{SC} = \left|\frac{A_{dM-SE_1}}{A_{CM-SE_1}}\right|
+\end{align}
+
+Sustituyendo valores:
+\begin{align}
+  CMRR_{SC} &= \left|\frac{-104.858}{-9.39 \times 10^{-5}}\right|\\
+  CMRR_{SC} &= \frac{104.858}{9.39 \times 10^{-5}}\\
+  CMRR_{SC} &= 1.117 \times 10^6
+\end{align}
+
+En decibelios:
+\begin{align}
+  CMRR_{SC}[dB] &= 20\log_{10}(1.117 \times 10^6)\\
+  CMRR_{SC}[dB] &= 20 \times 6.048\\
+  CMRR_{SC}[dB] &\approx 120.93[dB]
+\end{align}
+
+\textbf{Interpretación:}
+
+Un CMRR de aproximadamente $121[dB]$ significa que el amplificador rechaza las señales de modo común (ruido, interferencias que aparecen en ambas entradas) en una proporción de aproximadamente $1.117 \times 10^6$ respecto a las señales diferenciales. Esto es un excelente desempeño, lo que indica que el amplificador es muy efectivo en rechazar señales no deseadas que aparecen simultáneamente en ambas entradas, amplificando únicamente la diferencia entre las señales de entrada.
+
+\textbf{Resumen de resultados:}
+
+De manera compacta, los resultados son:
+\begin{align}
+  A_{CM-SE_1} &= -9.39 \times 10^{-5} \quad \text{(o } 9.42 \times 10^{-5}\text{ si se usa valor alternativo)}\\
+  A_{dM-SE_1} &= -104.858\\
+  A_{dM-DIFF} &= -209.716\\
+  A_{CM-DIFF} &= 0\\
+  CMRR_{SC} &\approx 120.93[dB]
+\end{align}
+\end{solution}
+
+\part Su amigo se percata que la razón de rechazo común es insuficiente para el amplificador. Por lo que le calcula la corriente de polarización tal que $CMRR_{ac}$ sea $160~[dB]$. Comente sobre qué posibles impactos habría en el circuito al cambiar dicha corriente.
+\begin{solution}
+Primero, convertimos el CMRR de decibelios a escala lineal:
+\begin{align}
+  160[dB] = 20\log_{10}(CMRR)\\
+  \frac{160}{20} = \log_{10}(CMRR)\\
+  CMRR = 10^8
+\end{align}
+
+Recordando la expresión del CMRR:
+\begin{align}
+  CMRR = \left|\frac{A_{dM-SE_1}}{A_{CM-SE_1}}\right| = \frac{\frac{g_m R_C}{2}}{\frac{g_m R_C}{1 + 2g_m r_m}} = \frac{1 + 2g_m r_m}{2}
+\end{align}
+
+Simplificando, y asumiendo que $2g_m r_m >> 1$ (lo cual es válido dado el alto valor de CMRR deseado):
+\begin{align}
+  CMRR &\approx \frac{2g_m r_m}{2} = g_m r_m
+\end{align}
+
+Por lo tanto:
+\begin{align}
+  10^8 &= g_m r_m
+\end{align}
+
+Ahora bien, sabemos que:
+\begin{align}
+  g_m = \frac{I_C}{V_T} = \frac{I_0}{2V_T}
+\end{align}
+
+Sustituyendo en la ecuación del CMRR:
+\begin{align}
+  10^8 &= \frac{I_0}{2V_T} \cdot r_m\\
+  10^8 &= \frac{I_0 r_m}{2V_T}
+\end{align}
+
+Despejando $I_0$ y usando el valor de $r_m = 1.16 \times 10^8[\Omega]$ calculado en el inciso (b):
+\begin{align}
+  I_0 &= \frac{2 \times 10^8 \times V_T}{r_m}\\
+  I_0 &= \frac{2 \times 10^8 \times 26 \times 10^{-3}}{1.16 \times 10^8}\\
+  I_0 &= \frac{5.2 \times 10^6}{1.16 \times 10^8}\\
+  I_0 &= 0.0448[A] = 44.8[mA]
+\end{align}
+
+Este valor de corriente ($44.8[mA]$) es extremadamente alto comparado con la corriente original de $0.5[mA]$. Esto representa un aumento de aproximadamente 90 veces en la corriente de polarización, lo cual es \textbf{muy alto y deterioraría significativamente el dispositivo}. Este resultado demuestra que mejorar el CMRR únicamente aumentando la corriente de polarización no es una solución práctica. Para lograr un CMRR de $160[dB]$, sería necesario modificar otros parámetros del diseño, como aumentar $r_m$ mediante el uso de espejos de corriente cascode o mejorados, en lugar de simplemente aumentar la corriente de polarización.
+\end{solution}
+\end{parts}
+
+\end{questions}
+\end{document}

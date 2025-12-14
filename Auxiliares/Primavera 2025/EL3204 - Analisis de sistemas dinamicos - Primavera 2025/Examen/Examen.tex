@@ -1,0 +1,410 @@
+\documentclass[
+  11pt,
+  letterpaper,
+   addpoints,
+   answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+\usepackage{float}
+\usepackage{empheq}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+\includegraphics[width=\textwidth]{../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Análisis de Sistemas Dinámicos y Estimación} (EL3103) \\
+\large\textbf{Examen} \\
+\normalsize Prof.~. Marcos Orchard - Sebastian Espinoza\\
+\normalsize Prof.~Aux.~Erik Saez 
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%--------------------------------------------------------------------------
+\begin{questions}
+    %--------------------------
+    \question Una empresa agrícola ha instalado un sistema de control digital para regular la temperatura de un invernadero de alta tecnología. El sistema opera con un periodo de muestreo de $T_s = 5$ minutos y utiliza sensores de temperatura distribuidos junto con actuadores de calefacción/ventilación. El equipo de ingeniería realizó un análisis experimental del comportamiento térmico del invernadero, obteniendo las siguientes observaciones:
+    
+    \begin{enumerate}
+        \item \textbf{Dinámica de tercer orden}: Debido a la inercia térmica del aire y las estructuras internas, la temperatura en el instante $k+3$ depende significativamente de su historia previa. Específicamente:
+        \begin{itemize}
+            \item La temperatura un periodo atrás $y[k+2]$ tiene un efecto multiplicador de factor $-4$
+            \item La temperatura dos periodos atrás $y[k+1]$ tiene un efecto multiplicador de factor $1$
+            \item La temperatura tres periodos atrás $y[k]$ tiene un efecto multiplicador de factor $6$ (debido a oscilaciones térmicas)
+        \end{itemize}
+        
+        \item \textbf{Actuación con retardos}: El sistema de calefacción/ventilación presenta retardos de transporte y mezcla. La potencia aplicada afecta la temperatura según:
+        \begin{itemize}
+            \item Acción anticipativa: $u[k+2]$ con ganancia 1 (pre-calentamiento del aire)
+            \item Acción principal: $u[k+1]$ con ganancia 2 (calefacción directa)
+            \item Compensación retardada: $u[k]$ con ganancia $-1$ (corrección por histéresis del sistema)
+        \end{itemize}
+    \end{enumerate}
+    
+    \vspace{0.2cm}
+     A partir de la información proporcionada, deduzca la ecuación en diferencias que modela el sistema térmico. La ecuación debe tener la forma:
+    \begin{equation*}
+        y(k+3) + \alpha_1 y(k+2) + \alpha_2 y(k+1) + \alpha_3 y(k) = \beta_0 u(k+2) + \beta_1 u(k+1) + \beta_2 u(k)
+    \end{equation*}
+    
+    donde $y(k)$ representa la desviación de temperatura (en °C) respecto al setpoint de 22°C en el instante $k$, y $u(k)$ es la señal de control aplicada (potencia de calefacción normalizada entre -1 y 1).
+
+    
+    \begin{parts}
+        \part[2] \textbf{Formule la ecuación en diferencias} a partir de la descripción física del sistema. Luego, obtenga la función de transferencia $G[z]$ y formule el sistema en variables de estado.
+        
+        \begin{solution}
+        
+        A partir de la descripción física:
+        \begin{itemize}
+            \item Temperatura en $k+3$: depende de $y[k+2]$ (multiplicador $-4$), $y[k+1]$ (multiplicador $1$) y $y[k]$ (multiplicador $6$)
+            \item Control: $u[k+2]$ con ganancia 1, $u[k+1]$ con ganancia 2, $u[k]$ con ganancia $-1$
+        \end{itemize}
+        
+        La ecuación en diferencias es:
+        \begin{empheq}[box=\fbox]{equation*}
+            y[k+3] - 4y[k+2] + y[k+1] + 6y[k] = u[k+2] + 2u[k+1] - u[k]
+        \end{empheq}
+
+        Aplicando la transformada $\mathcal{Z}$:
+        \begin{align}
+            z^3 Y[z] - 4z^2 Y[z] + z Y[z] + 6 Y[z] &= z^2 U[z] + 2z U[z] - U[z]\\
+            Y[z](z^3 - 4z^2 + z + 6) &= U[z](z^2 + 2z - 1)
+        \end{align}
+
+        La función de transferencia es:
+        \begin{empheq}[box=\fbox]{equation*}
+            G[z] = \frac{Y[z]}{U[z]} = \frac{z^2 + 2z - 1}{z^3 - 4z^2 + z + 6} = \frac{z^2 + 2z - 1}{(z+1)(z-2)(z-3)}
+        \end{empheq}
+        Para la formulacion en variables de estados, tenemos que utilizar la descomposición en fracciones parciales. Dado que el denominador tiene tres polos distintos ($z=-1$, $z=2$, $z=3$), la descomposición es:
+        \begin{equation}
+            G[z] = \frac{\alpha}{z + 1} + \frac{\beta}{z - 2} + \frac{\gamma}{z - 3}
+        \end{equation}
+        Calculando los coeficientes formando un sistema de ecuaciones tal que:
+        \begin{align}
+          \frac{\alpha}{z + 1} + \frac{\beta}{z - 2} + \frac{\gamma}{z - 3} &= \frac{z^2 + 2z - 1}{(z + 1)(z - 2)(z - 3)}\\
+          \alpha(z - 2)(z - 3) + \beta(z + 1)(z - 3) + \gamma(z + 1)(z - 2) &= z^2 + 2z - 1\\
+            (\alpha + \beta + \gamma) z^2 + (-5\alpha - 2\beta - \gamma) z + 6\alpha - 3\beta - 2\gamma &= z^2 + 2z - 1\\
+        \end{align}
+        De esta manera tenemos que el sistema de ecuaciones sera:
+        \begin{align}
+            \alpha + \beta + \gamma &= 1\\
+            -5\alpha - 2\beta - \gamma &= 2\\
+            6\alpha - 3\beta - 2\gamma &= -1
+        \end{align}
+        Resolviendo, obtenemos:
+        \begin{align}
+            \alpha &= -\frac{1}{6}\\
+            \beta &= -\frac{7}{3}\\
+            \gamma &= \frac{7}{2}
+        \end{align}
+        Con esto, la descomposición en fracciones parciales queda:
+        \begin{empheq}[box=\fbox]{equation*}
+            G[z] = \frac{-\frac{1}{6}}{z + 1} + \frac{-\frac{7}{3}}{z - 2} + \frac{\frac{7}{2}}{z - 3} = -\frac{1}{6(z + 1)} - \frac{7}{3(z - 2)} + \frac{7}{2(z - 3)}
+        \end{empheq}
+        Luego, la salida en $Z$ es:
+        \begin{equation}
+            Y[z] = -\frac{1}{6(z + 1)} U[z] - \frac{7}{3(z - 2)} U[z] + \frac{7}{2(z - 3)} U[z]
+        \end{equation}
+        donde podemos identificar inmediatamente el valor de $C$. Dado que hay dos estados observables, notemos que se tienen:
+        \begin{align}
+            X_1[z] &= \frac{U[z]}{z - 2}\\
+            X_2[z] &= \frac{U[z]}{z - 3}\\
+            X_3[z] &= \frac{U[z]}{z + 1}
+        \end{align}
+        Aplicando el procedimiento usual a cada uno de los estados, obtenemos:
+        \begin{align}
+            x_1[k+1] &= 2 x_1[k] + u[k]\\
+            x_2[k+1] &= 3 x_2[k] + u[k]\\
+            x_3[k+1] &= -1 x_3[k] + u[k]
+        \end{align}
+        Por lo tanto, la representación en variables de estado es:
+        \begin{empheq}[box=\fbox]{align}
+            x(k+1) &= \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} x(k) + \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix} u(k)\nonumber\\
+            y(k) &= \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix} x(k)\nonumber
+        \end{empheq}
+        De esta manera identificamos las matrices:
+        \begin{equation}
+            A = \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix}, \quad B = \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix}, \quad C = \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix}
+        \end{equation}
+        \end{solution}
+        
+        \part[1] Calcule la matriz de transición de estados (MTE) $\Phi(k) = A^k$ y obtenga las funciones base del sistema mediante la respuesta RENC.
+        
+        \begin{solution}
+
+        Para calcular la MTE $\Phi(k) = A^k$, primero encontramos los valores propios de $A$:
+        \begin{equation}
+            A = \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix}
+        \end{equation}
+
+        Dado que $A$ es diagonal, los valores propios son: $\lambda_1 = 2$, $\lambda_2 = 3$, $\lambda_3 = -1$. Para una matriz diagonal, la MTE es simplemente:
+        \begin{empheq}[box=\fbox]{equation*}
+            \Phi(k) = A^k = \begin{pmatrix} 2^k & 0 & 0\\ 0 & 3^k & 0\\ 0 & 0 & (-1)^k \end{pmatrix}, \quad k \geq 0
+        \end{empheq}
+
+        Para obtener las \textbf{funciones base} del sistema, calculamos la respuesta natural (RENC), que está dada por:
+        \begin{equation}
+            y_0(k) = C \Phi(k) x(0)
+        \end{equation}
+
+        Reemplazando:
+        \begin{align}
+            y_0(k) &= \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix} \begin{pmatrix} 2^k & 0 & 0\\ 0 & 3^k & 0\\ 0 & 0 & (-1)^k \end{pmatrix} \begin{pmatrix} x_1(0)\\ x_2(0)\\ x_3(0) \end{pmatrix}\\
+            &= \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix} \begin{pmatrix} 2^k x_1(0)\\ 3^k x_2(0)\\ (-1)^k x_3(0) \end{pmatrix}\\
+            &= x_1(0) \left(-\frac{7}{3}\right) 2^k + x_2(0) \left(\frac{7}{2}\right) 3^k + x_3(0) \left(-\frac{1}{6}\right) (-1)^k
+        \end{align}
+
+        Observamos que las componentes temporales (en $k$) son $2^k$, $3^k$ y $(-1)^k$, por lo que las funciones base del sistema son:
+        \begin{empheq}[box=\fbox]{equation*}
+            \varphi(k) = \begin{pmatrix} 2^k\\ 3^k\\ (-1)^k \end{pmatrix}, \quad k\geq 0
+        \end{empheq}
+        \end{solution}
+        
+        \part[1] Analice la estabilidad BIBS y BIBO del sistema.
+        
+        \begin{solution}
+
+        El sistema tiene tres polos: $z_1 = -1$, $z_2 = 2$, $z_3 = 3$   Un sistema es BIBS estable si todos los valores propios de $A$ satisfacen $|\lambda_i| < 1$ (estrictamente). En nuestro caso:
+        \begin{itemize}
+            \item $|\lambda_1| = |2| = 2 > 1$ (inestable)
+            \item $|\lambda_2| = |3| = 3 > 1$ (inestable)
+        \end{itemize}
+
+        Un sistema es BIBO estable si todos los polos de $G[z]$ están estrictamente dentro del círculo unitario ($|z_i| < 1$). Como tenemos polos en $z=-1$, $z=2$ y $z=3$, todos sobre o fuera del círculo unitario:
+
+        \begin{empheq}[box=\fbox]{align}
+            \text{BIBS:} &\quad \text{NO estable (polos en } z=2 \text{ y } z=3\text{)}\nonumber\\
+            \text{BIBO:} &\quad \text{NO estable}\nonumber
+        \end{empheq}
+        Luego dado que no ningun polo esta dentro del circulo unitario, el sistema es inestable tanto BIBS como BIBO.
+        \end{solution}
+        
+        \part[1] Verifique controlabilidad y observabilidad del sistema. Calcule el rango de las matrices correspondientes.
+        
+        \begin{solution}
+
+        La matriz de controlabilidad se define como:
+        \begin{equation}
+            \mathcal{C} = \begin{pmatrix} B & AB & A^2B \end{pmatrix}
+        \end{equation}
+
+        Con las matrices del sistema:
+        \begin{equation}
+            A = \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix}, \quad B = \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix}
+        \end{equation}
+
+        Calculamos:
+        \begin{align}
+            B &= \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix}\\[6pt]
+            AB &= \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix} = \begin{pmatrix} 2\\ 3\\ -1 \end{pmatrix}\\[6pt]
+            A^2B &= \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} \begin{pmatrix} 2\\ 3\\ -1 \end{pmatrix} = \begin{pmatrix} 4\\ 9\\ 1 \end{pmatrix}
+        \end{align}
+
+        Por lo tanto:
+        \begin{equation}
+            \mathcal{C} = \begin{pmatrix} 1 & 2 & 4\\ 1 & 3 & 9\\ 1 & -1 & 1 \end{pmatrix}
+        \end{equation}
+
+        Calculamos el determinante
+        \begin{align}
+            \det(\mathcal{C}) &= 1(3 \cdot 1 - 9 \cdot (-1)) - 2(1 \cdot 1 - 9 \cdot 1) + 4(1 \cdot (-1) - 3 \cdot 1)\\
+            &= 1(3 + 9) - 2(1 - 9) + 4(-1 - 3)\\
+            &= 12 + 16 - 16 = 12 \neq 0
+        \end{align}
+
+        El sistema es \textbf{completamente controlable} ($\text{rango}(\mathcal{C}) = 3$). Tambien es posible observar que las columnas son linealmente independientes. Por otro lado la matriz de observabilidad se define como:
+        \begin{equation}
+            \mathcal{O} = \begin{pmatrix} C\\ CA\\ CA^2 \end{pmatrix}
+        \end{equation}
+
+        Con:
+        \begin{equation}
+            C = \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix}
+        \end{equation}
+
+        Calculamos:
+        \begin{align}
+            C &= \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix}\\[6pt]
+            CA &= \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6} \end{pmatrix} \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} = \begin{pmatrix} -\frac{14}{3} & \frac{21}{2} & \frac{1}{6} \end{pmatrix}\\[6pt]
+            CA^2 &= \begin{pmatrix} -\frac{14}{3} & \frac{21}{2} & \frac{1}{6} \end{pmatrix} \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} = \begin{pmatrix} -\frac{28}{3} & \frac{63}{2} & -\frac{1}{6} \end{pmatrix}
+        \end{align}
+
+        Por lo tanto:
+        \begin{equation}
+            \mathcal{O} = \begin{pmatrix} -\frac{7}{3} & \frac{7}{2} & -\frac{1}{6}\\ -\frac{14}{3} & \frac{21}{2} & \frac{1}{6}\\ -\frac{28}{3} & \frac{63}{2} & -\frac{1}{6} \end{pmatrix}
+        \end{equation}
+
+        Calculamos el determinante. Multiplicando toda la matriz por 6 para simplificar:
+        \begin{equation}
+            6 \cdot \mathcal{O} = \begin{pmatrix} -14 & 21 & -1\\ -28 & 63 & 1\\ -56 & 189 & -1 \end{pmatrix}
+        \end{equation}
+
+        Calculando $\det(6 \cdot \mathcal{O})$ por la tercera columna:
+        \begin{align}
+            \det(6 \cdot \mathcal{O}) &= -1 \cdot \det\begin{pmatrix} -28 & 63\\ -56 & 189 \end{pmatrix} - 1 \cdot \det\begin{pmatrix} -14 & 21\\ -56 & 189 \end{pmatrix} - 1 \cdot \det\begin{pmatrix} -14 & 21\\ -28 & 63 \end{pmatrix}\\
+            &= -1(-28 \cdot 189 - 63 \cdot (-56)) - 1(-14 \cdot 189 - 21 \cdot (-56)) - 1(-14 \cdot 63 - 21 \cdot (-28))\\
+            &= -1(-5292 + 3528) - 1(-2646 + 1176) - 1(-882 + 588)\\
+            &= -1(-1764) - 1(-1470) - 1(-294)\\
+            &= 1764 + 1470 + 294 = 3528
+        \end{align}
+
+       Entonces:
+        \begin{equation}
+            \det(\mathcal{O}) = \frac{3528}{216} = \frac{49}{3} \neq 0
+        \end{equation}
+
+        El sistema es \textbf{completamente observable} ($\text{rango}(\mathcal{O}) = 3$).
+
+        \begin{empheq}[box=\fbox]{align}
+            \text{Controlable:} &\quad \text{Sí} \quad (\text{rango}(\mathcal{C}) = 3)\nonumber\\
+            \text{Observable:} &\quad \text{Sí} \quad (\text{rango}(\mathcal{O}) = 3)\nonumber
+        \end{empheq}
+        \end{solution}
+        
+        \part[1] Diseñe un controlador por realimentación de estados que ubique todos los polos en $z = 0.5$ (polo triple). Determine la ganancia $K$.
+        
+        \begin{solution}
+
+        El sistema controlado tiene la forma:
+        \begin{equation}
+            x(k+1) = (A - BK)\,x(k) + B\,r(k)
+        \end{equation}
+
+        donde $K = \begin{pmatrix} k_1 & k_2 & k_3 \end{pmatrix}$ es la ganancia del controlador.
+
+        Con las matrices del sistema:
+        \begin{equation}
+            A = \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix}, \quad B = \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix}
+        \end{equation}
+        Expandiendo:
+        \begin{align}
+            (\lambda - 0.5)^3 &= \lambda^3 - 3(0.5)\lambda^2 + 3(0.5)^2\lambda - (0.5)^3\\
+            &= \lambda^3 - 1.5\lambda^2 + 0.75\lambda - 0.125
+        \end{align}
+
+        Calculamos $A - BK$:
+        \begin{align}
+            A - BK &= \begin{pmatrix} 2 & 0 & 0\\ 0 & 3 & 0\\ 0 & 0 & -1 \end{pmatrix} - \begin{pmatrix} 1\\ 1\\ 1 \end{pmatrix} \begin{pmatrix} k_1 & k_2 & k_3 \end{pmatrix}\\
+            &= \begin{pmatrix} 2-k_1 & -k_2 & -k_3\\ -k_1 & 3-k_2 & -k_3\\ -k_1 & -k_2 & -1-k_3 \end{pmatrix}
+        \end{align}
+
+        El polinomio característico de $A - BK$ es:
+        \begin{equation}
+            \det(\lambda I - (A-BK)) = \det\begin{pmatrix} \lambda-2+k_1 & k_2 & k_3\\ k_1 & \lambda-3+k_2 & k_3\\ k_1 & k_2 & \lambda+1+k_3 \end{pmatrix}
+        \end{equation}
+
+        Expandiendo el determinante por la primera fila:
+        \begin{align}
+            \det(\lambda I - (A-BK)) &= (\lambda-2+k_1)\det\begin{pmatrix} \lambda-3+k_2 & k_3\\ k_2 & \lambda+1+k_3 \end{pmatrix}\nonumber\\
+            &\quad - k_2\det\begin{pmatrix} k_1 & k_3\\ k_1 & \lambda+1+k_3 \end{pmatrix}\nonumber\\
+            &\quad + k_3\det\begin{pmatrix} k_1 & \lambda-3+k_2\\ k_1 & k_2 \end{pmatrix}
+        \end{align}
+
+        Calculando cada determinante $2\times 2$:
+        \begin{align}
+            \det\begin{pmatrix} \lambda-3+k_2 & k_3\\ k_2 & \lambda+1+k_3 \end{pmatrix} &= (\lambda-3+k_2)(\lambda+1+k_3) - k_2k_3\\
+            &= \lambda^2 + (k_2+k_3-2)\lambda + (-3+k_2)(\lambda+1+k_3) - k_2k_3\\
+            &= \lambda^2 + (k_2+k_3-2)\lambda - 3 - 3k_3 + k_2 + k_2k_3 - k_2k_3\\
+            &= \lambda^2 + (k_2+k_3-2)\lambda + k_2 - 3k_3 - 3
+        \end{align}
+
+        \begin{align}
+            \det\begin{pmatrix} k_1 & k_3\\ k_1 & \lambda+1+k_3 \end{pmatrix} &= k_1(\lambda+1+k_3) - k_1k_3\\
+            &= k_1\lambda + k_1 + k_1k_3 - k_1k_3\\
+            &= k_1\lambda + k_1
+        \end{align}
+
+        \begin{align}
+            \det\begin{pmatrix} k_1 & \lambda-3+k_2\\ k_1 & k_2 \end{pmatrix} &= k_1k_2 - k_1(\lambda-3+k_2)\\
+            &= k_1k_2 - k_1\lambda + 3k_1 - k_1k_2\\
+            &= -k_1\lambda + 3k_1
+        \end{align}
+
+        Sustituyendo en la expansión:
+        \begin{align}
+            \det(\lambda I - (A-BK)) &= (\lambda-2+k_1)[\lambda^2 + (k_2+k_3-2)\lambda + k_2 - 3k_3 - 3]\nonumber\\
+            &\quad - k_2[k_1\lambda + k_1] + k_3[-k_1\lambda + 3k_1]
+        \end{align}
+
+        Expandiendo y agrupando términos:
+        \begin{align}
+            &= \lambda^3 + (k_2+k_3-2)\lambda^2 + (k_2-3k_3-3)\lambda\nonumber\\
+            &\quad - 2\lambda^2 - 2(k_2+k_3-2)\lambda - 2(k_2-3k_3-3)\nonumber\\
+            &\quad + k_1\lambda^2 + k_1(k_2+k_3-2)\lambda + k_1(k_2-3k_3-3)\nonumber\\
+            &\quad - k_1k_2\lambda - k_1k_2 - k_1k_3\lambda + 3k_1k_3
+        \end{align}
+        Por lo tanto, el polinomio característico es:
+        \begin{equation}
+            \lambda^3 + (k_1+k_2+k_3-4)\lambda^2 + (-2k_1-k_2-5k_3+1)\lambda + (-3k_1-2k_2+6k_3+6)
+        \end{equation}
+
+        Igualando con el polinomio deseado $\lambda^3 - 1.5\lambda^2 + 0.75\lambda - 0.125$:
+        \begin{align}
+            k_1+k_2+k_3-4 &= -1.5\\
+            -2k_1-k_2-5k_3+1 &= 0.75\\
+            -3k_1-2k_2+6k_3+6 &= -0.125
+        \end{align}
+
+        Simplificando:
+        \begin{align}
+            k_1+k_2+k_3 &= 2.5 \quad (1)\\
+            -2k_1-k_2-5k_3 &= -0.25 \quad (2)\\
+            -3k_1-2k_2+6k_3 &= -6.125 \quad (3)
+        \end{align}
+
+        De la ecuación (1): $k_3 = 2.5 - k_1 - k_2$
+
+        Sustituyendo en (2):
+        \begin{align}
+            -2k_1-k_2-5(2.5-k_1-k_2) &= -0.25\\
+            -2k_1-k_2-12.5+5k_1+5k_2 &= -0.25\\
+            3k_1+4k_2 &= 12.25 \quad (2')
+        \end{align}
+
+        Sustituyendo en (3):
+        \begin{align}
+            -3k_1-2k_2+6(2.5-k_1-k_2) &= -6.125\\
+            -3k_1-2k_2+15-6k_1-6k_2 &= -6.125\\
+            -9k_1-8k_2 &= -21.125 \quad (3')
+        \end{align}
+
+        De (2'): $k_1 = \frac{12.25 - 4k_2}{3}$
+
+        Sustituyendo en (3'):
+        \begin{align}
+            -9\left(\frac{12.25-4k_2}{3}\right)-8k_2 &= -21.125\\
+            -3(12.25-4k_2)-8k_2 &= -21.125\\
+            -36.75+12k_2-8k_2 &= -21.125\\
+            4k_2 &= 15.625\\
+            k_2 &= 3.90625
+        \end{align}
+
+        Sustituyendo en (2'):
+        \begin{align}
+            3k_1+4(3.90625) &= 12.25\\
+            k_1 &= \frac{12.25-15.625}{3} = -1.125
+        \end{align}
+
+        De (1):
+        \begin{equation}
+            k_3 = 2.5-(-1.125)-3.90625 = -0.28125
+        \end{equation}
+
+        Por lo tanto, la ganancia del controlador es:
+        \begin{empheq}[box=\fbox]{equation*}
+            K = \begin{pmatrix} -1.125 & 3.90625 & -0.28125 \end{pmatrix}
+        \end{empheq}
+        \end{solution}
+    \end{parts}
+
+\end{questions}
+
+\end{document}
