@@ -1,0 +1,543 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  addpoints,
+  answers
+]{exam}
+
+\usepackage{../control-preamble}
+
+\begin{document}
+\noindent
+
+\begin{minipage}{0.47\textwidth}
+  \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+  \begin{center}
+    \large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+    \large\textbf{Control recuperativo} \\
+    \normalsize Prof.\ \professor\\
+    \normalsize Prof.\ Auxiliar \auxiliar\\
+    \normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\uline{Tiempo: 10:15--12:15 hrs. \hfill \semester \hfill Puntos: \numpoints}
+\vspace{.85cm}
+
+\noindent\makebox[\textwidth]{\textbf{Nombre}:\hfill}
+
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{
+        Responda una pregunta \textbf{por hoja}.  Favor \textbf{no olvidar} escribir su nombre. Para cantidades vectoriales (usualmente definidas como $\mathbf{A}$ en clase), favor usar flecha $\vec{A}$ para indicar que son vectores y sin flecha para escalares $A\equiv\enVert[1]{\vec{A}}$, y para matrices $\sbr{A}$ usar corchetes.
+      }}}
+\end{center}
+
+\begin{questions}
+  \question Preguntas de contenido
+  \begin{parts}
+    \part[2] La ganancia de una radio antena o \textit{sensitivity} es medida usualmente en unidades de \unit{\kelvin\per\watt\m\squared\hertz}. Entonces, \textquestiondown qué significa esta cantidad?
+
+    \part[2] Muestre la ecuación de \textit{system temperature}, $T_\text{sys}$, y describa a lo menos cuatro de sus componentes.
+
+    \part[2] La densidad corriente eléctrica $\bvec{J}$ total posee varios componentes al estar en presencia de campos eléctricos y magnéticos, describa esta forma de $\bvec{J}$.
+
+    \part[2] Escriba las tres ecuaciones en condiciones de linealidad para materiales que relacionan propiedades magnéticas, de polarización, y corriente.
+
+    \part[2] Realice un diagrama de impedancia intrínseca de una onda TE y TM vs la frecuencia de transmisión $\nu$.
+
+    \bonuspart[1] James Clerck Maxwell derivó de forma independiente la llamada corrección de Ampère a finales de 1800s. Su contribución a la electrodinámica es invaluable, pero la notación moderna y aplicaciones fueron hechas por otros científicos. \textquestiondown Qué ingeniero eléctrico desarrollo el formalismo moderno de las ecuaciones de Maxwell?
+
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part Es la cantidad de temperatura que es convertida de un \textit{spectral flux density}. Es decir la cantidad de potencia (o equivalentemente temperatura de antena $T_\text{a}$) que podemos transformar de un frente de ondas expresado en unidades de flujo o vector de Poynting (\unit{\watt\per\m\squared}) dado un ancho de banda $\Delta\nu$.
+
+      \part La \textit{system temperatura} describe el rango de componentes que ``agregan'' ruido al sistema. Estas son:
+      \begin{equation}
+        T_{\text{sys}} = T_{\text{src}} + T_{\text{cmb}} + T_{\text{sky}} + T_{\text{spill}} + T_{\text{r}} + \dotso = T_{\text{a}} + T_{\text{r}}.
+      \end{equation}
+      \begin{itemize}
+        \item $T_\text{cmb}\approx\qty{2.73}{\kelvin}$, radiación constante en todas las direcciones
+        \item $T_\text{sky}$ o la misma atmósfera, que afecta a la trasmisión de ondas, se modela mediante un termino de opacidad (\textit{radiative transfer})
+        \item $T_\text{spill}$, ruido añadido al sistema debido al \textit{spill-over} de la antena
+        \item $T_\text{src}$, en telecomunicaciones puede llegar a ser varios ordenes de magnitud con respecto a las demás fuentes, pero en radio astronomía varios ordenes menor!
+      \end{itemize}
+
+      \part La corriente eléctrica está compuesta por:
+      \begin{equation}
+        \bvec{J} = \bvec{J}_f + \bvec{J}_b + \bvec{J}_p = \bvec{J}_f + \nabla\times\bvec{M} + \frac{\partial\bvec{P}}{\partial t},
+      \end{equation}
+      con $f$ la densidad de corriente libre que exista en el medio, $b$ la densidad de corriente atrapada y que es originada por el rotor del campo magnético variable en el tiempo, y $p$ la densidad de corriente originada por cambios en la polarización del material en el tiempo.
+
+      \part Las ecuaciones son:
+      \begin{align}
+        \bvec{P} & = \epsilon_0\chi_e\bvec{E} & \bvec{M} & = \chi_m \bvec{H} & \bvec{J} & = \sigma\bvec{E}.
+      \end{align}
+
+      \part La impedancia intrínseca vs la frecuencia en la \cref{fig:impedance}.
+
+      \begin{center}
+        \begin{tikzpicture}[font=\footnotesize]
+
+          \edef\etavalue{1};
+          \edef\nucut{1};
+
+          \coordinate (O) at (0, -1);
+          \draw[-latex] (O) -- ++ (0, 4);
+          \draw[-latex] (O) -- ++ (6, 0) node[below] {$\nu$};
+
+          \draw[dashed] (0, \etavalue) node[left] {$\eta$}  -- ++ (6, 0);
+          \draw[dashed] (\nucut, -1) node[below] {$\nu_{\text{cutoff},mn}$} -- ++ (0, 4);
+
+          \draw[scale=1, domain=1.45:5, smooth, variable=\x, blue, thick] plot ({\x}, {\etavalue*sqrt{1 - (2/\x)^2}}) node[below] {$\eta_{\text{TM},mn}$};
+
+          \draw[scale=1, domain=2.45:6, smooth, variable=\x, red, thick] plot ({\x-1}, {1/(\etavalue*sqrt{1 - (2/\x)^2})}) node[above] {$\eta_{\text{TE},mn}$};
+
+        \end{tikzpicture}
+        \captionof{figure}{{\color{blue}La impedancia del sistema aumenta al estar próximo a la frecuencia de corte, $\nu_\text{cutoff}$}. {\color{red}La impedancia del sistema disminuye al estar próximo a la frecuencia de corte, $\nu_\text{cutoff}$}.}
+        \label{fig:impedance}
+      \end{center}
+
+      \part Oliver Heaviside.
+    \end{parts}
+
+  \end{solution}
+
+  \question \label{q:Laplace_C3}
+  Considere un cilindro muy largo (de largo $l$), que tiene radio $R$, densidad de carga volumétrica $\uprho_0$, y que rota sobre su propio eje con velocidad angular constante $\boldsymbol{\omega} = \omega_0\uvec{z}$, tal como muestra la \cref{fig:Laplace_C3}. El cilindro está compuesto por las siguientes secciones contiguas:
+  \begin{itemize}
+    \item Medio 1: Permeabilidad magnética $\mu_1$, desde $\theta = 0$ hasta $\theta = \theta_1$.
+    \item Medio 2: Permeabilidad magnética $\mu_2$, desde $\theta = \theta_1$ hasta $\theta = \theta_1 + \theta_2$.
+    \item Medio 3: Material ferromagnético en donde se genera corriente ($\bvec{J}_f \neq 0$).
+  \end{itemize}
+  Se pide obtener lo siguiente:
+  \begin{parts}
+    \part[2] Escriba, de manera explícita, las condiciones que se deben cumplir en los medios 1 y 2 para que exista potencial escalar magnético ${V_m}$ en estos. ¿Por qué esto no se cumple en el medio 3?
+    \part[3] Obtenga el vector $\bvec{J}$ en función de las constantes $\omega_0$ y $\uprho_0$, escribiendo claramente la dirección de este. A partir de $\bvec{J}$, obtenga la corriente encerrada por unidad de largo $I_\text{enc}$ en todo el cilindro.
+    \part[5] Resuelva la ecuación de Laplace en los medios 1 y 2 para obtener ${V_{m1}}$ y ${V_{m2}}$, en donde debe despejar todas las constantes. Finalmente, encuentre los campos $\bvec{H}_1$ y $\bvec{H}_2$ en los medios mencionados. Para despejar las constantes puede serle útil usar los campos $\bvec{H}_1$ y $\bvec{H}_2$ junto a una condición de frontera del formulario.
+  \end{parts}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+
+      \coordinate (O) at (0, 0);
+
+      % Radio del círculo grande
+      \def\R{3}
+
+      % Radio de los sectores
+      \def\r{3}
+
+      % Ángulos de los sectores
+      \def\thetaOne{0}      % inicio primer sector
+      \def\thetaTwo{40}    % fin primer sector (ángulo θ1)
+      \def\thetaThree{80}  % fin segundo sector (ángulo θ1 + θ2)
+
+      %==== Círculo grande (mu → ∞) ====
+      \draw[pattern=north east lines, draw=black, line width=1.2pt, fill opacity=.5] (0,0) circle (\R);
+      \node at (-1.5,0.25) {\contour{white}{$\mu \to \infty$}};
+      \node at (-1.5,-0.25) {\contour{white}{$\uprho_0$}};
+
+      %==== Sector 1: de θ1 a θ2 (mu_1) ====
+      \draw[fill=blue!30, draw=black] (0,0) -- (\thetaOne:\r) arc (\thetaOne:\thetaTwo:\r) -- cycle;
+
+      % Etiqueta mu_1 dentro del sector 1
+      \node at ({(\thetaOne+\thetaTwo)/2}:2) {\contour{white}{$\mu_1$}};
+
+      %==== Sector 2: de θ2 a θ3 (mu_2) ====
+      \draw[fill=green!30, draw=black]
+      (0,0) -- (\thetaTwo:\r)
+      arc (\thetaTwo:\thetaThree:\r)
+      -- cycle;
+
+      % Etiqueta mu_2 dentro del sector 2
+      \node at ({(\thetaTwo+\thetaThree)/2}:2) {\contour{white}{$\mu_2$}};
+
+      %==== Etiquetas de los ángulos θ1 y θ2 ====
+      % θ1
+      \path[->] (0.8,0) coordinate (A) arc (0:40:0.8) coordinate (B);
+      \path[->] ({0.8*cos(40)},{0.8*sin(40)}) arc (40:80:0.8) coordinate (C);
+      \pic [draw, ->, "\contour{white}{$\theta_2$}", angle eccentricity=.7, angle radius=1cm] {angle = B--O--C};
+      \pic [draw, ->, "\contour{white}{$\theta_1$}", angle eccentricity=.7, angle radius=1cm] {angle = A--O--B};
+
+      % Flecha de rotación externa (omega_0, antihoraria)
+      \draw[-latex, thick]
+      (-80:1.25*\R)           % inicio del arco
+      arc (-80:-20:1.25*\R);   % va creciendo el ángulo → antihorario
+      \node[fill=white] at (-50:1.25*\R) {${\omega_0\uvec{z}}$};
+
+      % Condiciones de borde
+      \node at (4.15, 0) {${V_{m1}} = I_\text{enc}$};
+      \node at (0.5,3.5) {${V_{m2}} = 0$};
+
+    \end{tikzpicture}
+    \captionof{figure}{Cilindro de largo $l$ perteneciente a la \cref{q:Laplace_C3}.}
+    \label{fig:Laplace_C3}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part El potencial escalar magnético solo puede definirse en regiones en donde no existan corrientes libres, es decir:
+      \begin{align}
+        \bvec{J}_f = 0 \Rightarrow \nabla \times \bvec{H} = 0
+      \end{align}
+      De esta manera, existe un potencial escalar magnético tal que:
+      \begin{align}
+        \bvec{H} & = -\nabla{V_m}
+      \end{align}
+      En cambio en el medio 3 nos dicen por enunciado que $\bvec{J}_f \neq 0$, por ende:
+      \begin{align}
+        \nabla \times \bvec{H} & = \bvec{J}_f \neq 0
+      \end{align}
+      Y de esa forma no se puede definir un potencial escalar magnético tal que $\bvec{H} = -\nabla {V_m}$. En resumen, en los medios 1 y 2 se debe cumplir que $\bvec{J}_f = 0$ o bien $\nabla \times \bvec{H} = 0$. En el medio 3 no se puede definir un potencial escalar porque $\bvec{J}_f \neq 0$.
+
+      \part Se puede obtener $\bvec{J}$ con:
+      \begin{align}
+        \bvec{J}             & = \rho \cdot \mathbf{u}                                  \\
+        \Rightarrow \bvec{J} & = \uprho_0 \cdot (\boldsymbol{\omega} \times \mathbf{r}) \\
+        \Rightarrow \bvec{J} & = \uprho_0 \cdot (\omega_0 \uvec{z} \times r \uvec{r})   \\
+        \Rightarrow \bvec{J} & = \uprho_0 \omega_0 r\cdot (\uvec{z} \times \uvec{r})    \\
+        \Rightarrow \bvec{J} & = \uprho_0 \omega_0 r \uvecs{\theta}
+      \end{align}
+      Así, se puede calcular la corriente encerrada con:
+      \begin{align}
+        I_\text{enc} & = \iint_{S} \bvec{J} \cdot \dif{\mathbf{a}}                            \\
+        I_\text{enc} & = \int_{0}^{l} \int_{0}^{R} \uprho_0 \omega_0 r \cdot \dif{r} \dif{z}, \\
+        I_\text{enc} & = \uprho_0 \omega_0 l \frac{R^2}{2}.
+      \end{align}
+      Por unidad de largo:
+      \begin{align}
+        I_\text{enc} & = \uprho_0 \omega_0 \frac{R^2}{2}.
+      \end{align}
+
+      \part Se busca resolver la ecuación de Laplace en los medios 1 y 2. Hay que notar que el potencial ${V_m}$ tiene dependencia únicamente de $\theta$. Así, la ecuación de Laplace es:
+      \begin{align}
+        \frac{1}{r^2} \frac{\partial^2 {V_m}}{\partial \theta^2} & = 0.
+      \end{align}
+      De esto se obtiene una expresión para los potenciales en cada medio:
+
+      \underline{Medio 1}
+      \begin{align}
+        {V_{m1}}(\theta) & = A \theta + B
+      \end{align}
+      \underline{Medio 2}
+      \begin{align}
+        {V_{m2}}(\theta) & = C \theta + D
+      \end{align}
+      Por condiciones de borde:
+      \begin{align}
+        {V_{m1}} (\theta = 0)                 & = I_\text{enc} \Rightarrow B = \uprho_0 \omega_0 \frac{R^2}{2} \\
+        {V_{m2}} (\theta=\theta_1 + \theta_2) & = 0 \Rightarrow C \cdot (\theta_1 + \theta_2) + D = 0
+      \end{align}
+      Por continuidad del potencial magnético:
+      \begin{align}
+        {V_{m1}}(\theta = \theta_1) & = {V_{m2}}(\theta=\theta_1) \Rightarrow A \theta_1 + \uprho_0 \omega_0 \frac{R^2}{2} = C \theta_1 + D
+      \end{align}
+      Usando el campo magnético:
+      \begin{align}
+        \bvec{H}_1 & = -\nabla{{V_{m1}}}                                                    & \bvec{H}_2 & = -\nabla{V_{m2}}                                                      \\
+        \bvec{H}_1 & = -\frac{1}{r} \frac{\partial {V_{m1}}}{\partial \theta}\uvecs{\theta} & \bvec{H}_2 & = -\frac{1}{r} \frac{\partial {V_{m2}}}{\partial \theta}\uvecs{\theta} \\
+        \bvec{H}_1 & = -\frac{A}{r}\uvecs{\theta}                                           & \bvec{H}_2 & = -\frac{C}{r}\uvecs{\theta}
+      \end{align}
+      Por condición de frontera del formulario, se tiene lo siguiente:
+      \begin{align}
+        \bvec{B}_1 - \bvec{B}_2          & = 0,                                \\
+        \bvec{B}_1                       & = \bvec{B}_2,                       \\
+        \mu_1 \bvec{H}_1                 & = \mu_2 \bvec{H}_2,                 \\
+        -\mu_1 \frac{A}{r}\uvecs{\theta} & = -\mu_2 \frac{C}{r}\uvecs{\theta}, \\
+        \mu_1 A                          & = \mu_2 C,                          \\
+        C                                & = \frac{\mu_1}{\mu_2} A.
+      \end{align}
+      Con esas 4 ecuaciones se pueden despejar las cuatro constantes, obteniendo así:
+      \begin{align}
+        A & = \frac{-I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2},                                          \\
+        B & = I_\text{enc} = \uprho_0 \omega_0 \frac{R^2}{2},                                                        \\
+        C & = -\frac{\mu_1}{\mu_2} \frac{I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2},                      \\
+        D & = \frac{\mu_1}{\mu_2} \frac{I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2} (\theta_1 + \theta_2).
+      \end{align}
+      Así, se obtiene:
+      \begin{align}
+        {V_{m1}}   & = \uprho_0 \omega_0 \frac{R^2}{2}\del{\frac{1}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2} \theta + 1},                  \\
+        \bvec{H}_1 & = \frac{I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2} \frac{1}{r} \uvecs{\theta},                            \\
+        {V_{m2}}   & =\frac{\mu_1}{\mu_2}\frac{I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2}\del{-\theta + (\theta_1 +\theta_2)}, \\
+        \bvec{H}_2 & = \frac{\mu_1}{\mu_2} \frac{I_\text{enc}}{\theta_1 + \frac{\mu_1}{\mu_2}\theta_2} \frac{1}{r} \uvecs{\theta}.
+      \end{align}
+    \end{parts}
+  \end{solution}
+
+  \question \label{q:LT} Considere una línea de transmisión con una impedancia característica $Z_0 = \qty{50}{\ohm}$ y una impedancia de carga $Z_\mathcal{L} = \complexqty{60 + 47j}{\ohm}$.
+
+  \begin{parts}
+    \part[5] Encuentre de manera analítica el módulo del índice de reflexión $\enVert{\widehat{R}}$ en la carga, el VSWR y la impedancia de entrada vista desde una distancia $\qty{0.3}{\lambda}$.
+    \part[5] Se decide adaptar la línea utilizando un stub en paralelo terminado en corto-circuito. Utilizando la carta Smith, determine la menor distancia \textit{l} desde la carga donde debe conectarse el stub y el largo $\textit{l}_s$ del mismo tal que la línea se encuentre totalmente adaptada.
+  \end{parts}
+
+  %Figura LT
+
+  \begin{center}
+    \begin{tikzpicture}
+      \def\width{1.5}
+      \def\wavel{10}
+
+      \def\stubLen{3.5}
+      \def\stubAng{-50}
+      \def\offset{0.5}
+
+      \coordinate (O) at (0, 0);
+      \coordinate (A) at (0, \width/2);
+      \coordinate (B) at (0, -\width/2);
+
+      \draw[thick] (A) -- ++ (\wavel/2, 0) node[circle, draw, fill=black, inner sep=1pt] (Aext) {} -- ++ (\wavel/4, 0) coordinate (A1);
+      \draw[thick] (B) -- ++ (\wavel/2, 0) node[circle, draw, fill=black, inner sep=1pt] (Bext) {} -- ++ (\wavel/4, 0) coordinate (A2);
+
+      \node[thick,black, draw] (Z2) at ($(A1)!0.5!(A2)$) {$Z_\mathcal{L}$};
+      \draw[thick,black] (A1) -- (Z2.north);
+      \draw[thick,black] (A2) -- (Z2.south);
+      \draw[thick,black] (A1) -- (Aext);
+      \draw[thick,black] (A2) -- (Bext);
+
+      \draw[thick] (Aext) -- ++(\stubAng:\stubLen) coordinate (StubEndTop);
+      \draw[thick] (Bext) -- ++(\stubAng:\stubLen) coordinate (StubEndBot);
+      \draw[thick] (StubEndTop) -- (StubEndBot);
+
+      \draw[|<->|] ($(Bext) + ({\stubAng-90}:\offset)$) -- ($(StubEndBot) + ({\stubAng-90}:\offset)$) node[midway, sloped, fill=white] {$l_s$};
+
+      \draw[|<->|] ($(Aext) + (0, .5)$) -- ($(A1) + (0, .5)$) node[pos=.5,fill=white] {$\textit{l}$};
+
+      \draw[<-] ($(A)!.5!(B)$) -| ++ (-.5, -1) node[below] {$Z_\text{in}$};
+
+    \end{tikzpicture}
+    \captionof{figure}{Línea de transmisión con un \textit{stub} en paralelo (\cref{q:LT}).}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part La impedancia normalizada será $z_\mathcal{L} = \complexnum{1.2 + 0.94j}$. Luego, utilizamos la definición del índice de reflexión:
+      \begin{gather}
+        \widehat{R} = \frac{Z_\mathcal{L} - Z_0}{Z_\mathcal{L} + Z_0} = \frac{z_\mathcal{L} - 1}{z_\mathcal{L} + 1} = \frac{(\complexnum{1.2 + 0.94j}) - 1}{(\complexnum{1.2 + 0.94j}) + 1} \approx \complexnum{0.23 - 0.325j} \\
+        \Rightarrow \enVert{\widehat{R}}  = \sqrt{0.23^{2} + 0.325^{2}} \approx \num{0.4}.
+      \end{gather}
+      Por otra parte, el VSWR será:
+      \begin{equation}
+        \text{VSWR} = \frac{1 + \enVert{\widehat{R}}}{1 - \enVert{\widehat{R}}} \approx \num{2.33}.
+      \end{equation}
+      Finalmente, para encontrar la impedancia de entrada, utilizamos la \cref{eq:in}
+      \begin{equation}
+        Z_{in} = Z_0 \sbr{\frac{Z_\mathcal{L} + j Z_0 \tan{(\beta l)}}{Z_0 + j Z_\mathcal{L}\tan{(\beta l)}}}. \label{eq:in}
+      \end{equation}
+      Reemplazando los valores del enunciado y recordando que $\beta = \frac{2\pi}{\lambda}$, se obtendrá que:
+      \begin{equation}
+        Z_{in} = 50 \sbr{\frac{(60 + 47j)+ j 50 \tan{(0.6 \pi)}}{50 + j(60 + 47j)\tan{(0.6 \pi)}}} \approx \complexqty{21.82 - 6.76j}{\ohm}
+      \end{equation}
+
+      \part Comenzamos calculando la admitancia normalizada de la carga $y_\mathcal{L}$ y la ubicamos en la carta Smith.
+      \begin{equation}
+        z_\mathcal{L} = \complexnum{1.2 + 0.94j} \Rightarrow y_\mathcal{L} = \frac{1}{\complexnum{1.2 + 0.94j}} \approx \complexnum{0.51 - 0.4j}
+      \end{equation}
+      Se dibuja una circunferencia centrada en el origen de la carta que pase por $y_\mathcal{L}$. Asimismo, marcamos la intersección de esta circunferencia con el círculo unitario de la carta. A este punto le llamaremos $y^{*} \approx \complexnum{1 + 0.88j}$.
+
+      Se traza una recta desde el 1 real, que pase por $y_\mathcal{L}$, hasta el borde de la carta. Desde ese punto, nos movemos hacia el generador hasta $y^{*}$.
+      Esa distancia corresponde a $\textit{l} \approx \num{0.234}\lambda$. Con esto hemos adaptado la parte real de la carga. Para adaptar la parte compleja, necesitamos cancelar la parte imaginaria de $y^{*}$, por lo tanto, nos colocamos en el \num{-0.88} en el perímetro de la carta.
+
+      Desde ahí, nos movemos \textbf{hacia la carga} hasta el eje real derecho, pues esa zona corresponde a un corto-circuito, obteniendo que $l_s \approx \num{0.135}\lambda$.
+      Finalmente, habría que colocar un stub de largo $\num{0.135}\lambda$ a una distancia $\num{0.234}\lambda$ de la carga para adaptarla por completo.
+
+    \end{parts}
+  \end{solution}
+
+
+
+\question \label{q:guia_dielec} {Guía de ondas rectangular con dieléctrico}. Una empresa desarrolla un sensor industrial que utiliza una guía de ondas rectangular rellena con un polímero dieléctrico de permitividad relativa $\varepsilon_r = \num{2.5}$. La guía tiene paredes metálicas perfectas y dimensiones internas \(a = \qty{2.2}{\centi\m}\). \(b = \qty{1.0}{\centi\m}\), con propagación en la dirección $z$ y modos TEmn. El medio es no magnético y se opera  a una frecuencia de $\nu=\qty{12}{\giga\hertz}$.
+
+\begin{parts}
+
+  \part[3] {Frecuencia de corte en aire y con dieléctrico}.
+  Considere el modo $\mathrm{TE}_{10}$.
+  \begin{subparts}
+    \subpart Asumiendo que la guía está llena de aire, determine la 
+      {frecuencia de corte} $\nu_{\text{cutoff},10}^{(\text{aire})}$.
+    \subpart Determine la frecuencia de corte $\nu_{\text{cutoff},10}^{(\varepsilon_r=\num{2.5})}$ cuando la guía está 
+      completamente rellena con el polímero.
+    \subpart Comente brevemente cómo y por qué cambia la frecuencia de corte al introducir el dieléctrico.
+  \end{subparts}
+
+  \part[4] {Parámetros de propagación del modo $\mathrm{TE}_{10}$}.
+  Para la guía rellena con el polímero:
+  \begin{subparts}
+    \subpart Obtenga la {constante de fase} $\beta_{10}$ del modo $\mathrm{TE}_{10}$.
+    \subpart Obtenga la {longitud de onda} en el medio uniforme (onda plana en el polímero) 
+      $\lambda_0'$.
+    \subpart Obtenga la {longitud de onda guiada} $\lambda_{10}$ en la guía.
+    \subpart Obtenga la {velocidad de fase} $u_{\text{ph},10}$ del modo $\mathrm{TE}_{10}$.
+  \end{subparts}
+
+  \part[3] {Comparación de velocidades de fase}. Compare cualitativamente la velocidad de fase $u_{\text{ph},10}$ para el modo $\mathrm{TE}_{10}$ con:
+  \begin{subparts}
+    \subpart la velocidad de la luz en el vacío $u_0$.
+    \subpart la velocidad de propagación de una onda plana en el polímero (sin guía),
+      $u = u_0/\sqrt{\varepsilon_r}$.
+  \end{subparts}
+  Explique brevemente por qué $u_{\text{ph},10}$ puede diferir de ambas.
+
+\end{parts}
+
+\begin{solution}
+
+\textbf{Convención.} Usamos fasores (\textit{phasors}) con dependencia temporal $\euler^{\ju\omega t}$ y frecuencia angular $\omega = 2\pi \nu$. En un medio homogéneo con permitividad relativa $\varepsilon_r$ y permeabilidad relativa $\mu_r$, la velocidad de una onda plana es
+\begin{equation}
+  u = \frac{u_0}{\sqrt{\varepsilon_r\mu_r}}, \label{eq:velocidad_medio}
+\end{equation}
+y la constante de fase de una onda plana es
+\begin{equation}
+  \beta_0 = \frac{\omega}{u} = \frac{2\pi \nu\sqrt{\varepsilon_r\mu_r}}{u_0}.
+  \label{eq:beta0}
+\end{equation}
+Para una guía rectangular, la frecuencia de corte de los modos $\text{TE}_{mn}$ viene dada por
+\begin{equation}
+  \nu_{\text{cutoff},mn} = \frac{u_0}{2\sqrt{\varepsilon_r\mu_r}}
+  \sqrt{\left(\frac{m}{a}\right)^2 + \left(\frac{n}{b}\right)^2},
+  \label{eq:fc_general}
+\end{equation}
+y, para $\nu>\nu_{\text{cutoff},mn}$, la constante de fase se corrige mediante
+\begin{equation}
+  \beta_{mn} = \beta_0\,
+  \sqrt{1-\left(\frac{\nu_{\text{cutoff},mn}}{f}\right)^2}.
+  \label{eq:beta_mn}
+\end{equation}
+
+
+\begin{parts}
+
+\part{Frecuencias de corte.} Para el modo $\mathrm{TE}_{10}$ se tiene $m=1$, $n=0$:
+\begin{equation}
+  \nu_{\text{cutoff},10} = \frac{c}{2\sqrt{\varepsilon_r\mu_r}}
+  \frac{1}{a}.
+  \label{eq:fc10}
+\end{equation}
+
+\begin{subparts}
+  \subpart Guía llena de aire, $\varepsilon_r=1$. En aire, $\varepsilon_r=\mu_r=1$ y $a=\qty{2.2}{\centi\m}=\qty{0.022}{\m}$:
+\begin{equation}
+  \nu_{\text{cutoff},10}^{(\text{aire})} = \frac{\qty{299792458}{\m\per\s}}{2\times \qty{0.022}{\m}}
+  \approx \qty{6.8e9}{\hertz}
+  \approx \qty{6.82}{\giga\hertz}.
+  \label{eq:fc_air_num}
+\end{equation}
+
+\subpart Guía rellena con dieléctrico, $\varepsilon_r=\num{2.5}$. Con $\varepsilon_r=\num{2.5}$ y $\mu_r=1$:
+\begin{equation}
+  \nu_{\text{cutoff},10}^{(\varepsilon_r=\num{2.5})} = 
+  \frac{\qty{299792458}{\m\per\s}}{2\sqrt{\num{2.5}}\times \qty{0.022}{\m}}
+  \approx \qty{4.31}{\giga\hertz}.
+  \label{eq:fc_diel_num}
+\end{equation}
+
+\subpart Comentario. Al introducir un dieléctrico con $\varepsilon_r>1$, la velocidad de propagación en el medio disminuye
+(\cref{eq:velocidad_medio}), lo que reduce la frecuencia de corte. Es decir, el mismo modo
+$\mathrm{TE}_{10}$ puede existir a frecuencias menores cuando la guía está rellena con el polímero:
+\[
+  \nu_{\text{cutoff},10}^{(\varepsilon_r=\num{2.5})} \approx \qty{4.31}{\giga\hertz}
+  < \nu_{\text{cutoff},10}^{(\text{aire})} \approx \qty{6.82}{\giga\hertz}.
+\]
+\end{subparts}
+
+\part Parámetros de propagación a $\nu=\qty{12}{\giga\hertz}$, guía rellena. Tomamos $\nu=\qty{12}{\giga\hertz}$ y $\varepsilon_r=\num{2.5}$.
+Velocidad de una onda plana en el polímero. Usando \cref{eq:velocidad_medio}:
+\begin{equation}
+  u = \frac{u_0}{\sqrt{\varepsilon_r}}
+  = \frac{\qty{299792458}{\m\per\s}}{\sqrt{\num{2.5}}}
+  \approx \qty{1.90e8}{\m\per\s}.
+  \label{eq:u_poly_num}
+\end{equation}
+{Constante de fase de una onda plana en el polímero.} De \cref{eq:beta0}:
+\begin{equation}
+  \beta_0 = \frac{2\pi \nu}{u}
+  \approx \frac{2\pi\times \num{12e9}}{\num{1.90e8}}
+  \approx \qty{3.97e2}{\radian\per\m}.
+  \label{eq:beta0_num}
+\end{equation}
+Definimos el factor
+\begin{equation}
+  F_{10} \equiv \sqrt{1-\left(\frac{\nu_{\text{cutoff},10}}{\nu}\right)^2},
+  \label{eq:F10_def}
+\end{equation}
+de modo que $\beta_{10} = \beta_0 F_{10}$. Con $\nu_{\text{cutoff},10}\approx \qty{4.31}{\giga\hertz}$ y $\nu=\qty{12}{\giga\hertz}$:
+\begin{equation}
+  \frac{\nu_{\text{cutoff},10}}{\nu} \approx \frac{\num{4.31}}{12} \approx \num{0.359},\qquad
+  F_{10} \approx \sqrt{1-\num{0.359}^2} \approx \num{0.933}.
+  \label{eq:F10_num}
+\end{equation}
+
+\begin{subparts}
+  \subpart Constante de fase $\beta_{10}$. Usando \cref{eq:beta_mn,eq:F10_num}:
+\begin{equation}
+  \beta_{10} = \beta_0 F_{10}
+  \approx (\num{3.97e2})\times \num{0.933}
+  \approx \qty{3.71e2}{\radian\per\m}.
+  \label{eq:beta10_num}
+\end{equation}
+
+\subpart Longitud de onda en el medio uniforme $\lambda_0'$. La longitud de onda de una onda plana en el polímero es
+\begin{equation}
+  \lambda_0' = \frac{u}{\nu} = \frac{2\pi}{\beta_0}
+  \approx \frac{\num{1.90e8}}{\num{12e9}}
+  \approx \qty{1.58e-2}{\m} = \qty{1.58}{\centi\m}.
+  \label{eq:lambda0_num}
+\end{equation}
+
+\subpart Longitud de onda guiada $\lambda_{10}$. En la guía, la longitud de onda del modo $\mathrm{TE}_{10}$ es
+\begin{equation}
+  \lambda_{10} = \frac{2\pi}{\beta_{10}} 
+  = \frac{\lambda_0'}{F_{10}}
+  \approx \frac{\qty{1.58}{\centi\m}}{\num{0.933}}
+  \approx \qty{1.69}{\centi\m}.
+  \label{eq:lambda10_num}
+\end{equation}
+
+\subpart Velocidad de fase $u_{\text{ph},10}$. La velocidad de fase del modo guiado es
+\begin{equation}
+  u_{\text{ph},10} = \frac{\omega}{\beta_{10}} 
+  = \frac{2\pi \nu}{\beta_{10}}
+  = \frac{u}{F_{10}}
+  \approx \frac{\num{1.90e8}}{\num{0.933}}
+  \approx \qty{2.03e8}{\m\per\s}.
+  \label{eq:uph10_num}
+\end{equation}
+
+\end{subparts}
+
+\part Comparación de velocidades de fase.
+
+Tenemos numéricamente:
+\begin{align}
+  u_0 &\approx \qty{299792458}{\m\per\s},  &
+  u &\approx \qty{1.90e8}{\m\per\s}, &
+  u_{\text{ph},10} &\approx \qty{2.03e8}{\m\per\s}.
+\end{align}
+
+\begin{itemize}
+  \item Comparando con el vacío: $u_{\text{ph},10}<u_0$. El dieléctrico reduce la velocidad de propagación
+  respecto al vacío, de modo que incluso la velocidad de fase del modo guiado sigue siendo menor que $u_0$.
+  \item Comparando con la onda plana en el polímero: $u_{\text{ph},10}>u$. La geometría de la guía
+  hace que la longitud de onda guiada sea mayor que la longitud de onda en el medio uniforme
+  ($\lambda_{10}>\lambda_0'$), lo que se traduce en una velocidad de fase mayor en el modo guiado
+  ($u_{\text{ph},10}=u/F_{10}$ con $F_{10}<1$).
+\end{itemize}
+
+En resumen, el dieléctrico \textbf{baja} la velocidad base del medio respecto al vacío,
+mientras que el guiado introduce dispersión geométrica que \textbf{aumenta} la velocidad de fase
+respecto a la onda plana en el mismo material.
+
+\end{parts}
+
+\end{solution}
+
+
+\end{questions}
+
+\end{document}

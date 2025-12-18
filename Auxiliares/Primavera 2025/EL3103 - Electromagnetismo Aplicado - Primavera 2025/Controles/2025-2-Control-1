@@ -1,0 +1,564 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  addpoints,
+  % answers
+]{exam}
+
+\usepackage{../control-preamble}
+
+\begin{document}
+\noindent
+
+\begin{minipage}{0.47\textwidth}
+  \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+  \begin{center}
+    \large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+    \large\textbf{Control 1} \\
+    \normalsize Prof.~\professor\\
+    \normalsize Prof. Auxiliar~\auxiliar\\
+    \normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\uline{Tiempo: 10:15--12:15 hrs. \hfill \semester \hfill Puntos: \numpoints}
+\vspace{.85cm}
+
+\noindent\makebox[\textwidth]{\textbf{Nombre}:\hfill}
+
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{
+        Responda una pregunta \textbf{por hoja}.  Favor \textbf{no olvidar} escribir su nombre. Para cantidades vectoriales (usualmente definidas como $\mathbf{A}$ en clase), favor usar flecha $\vec{A}$ para indicar que son vectores y sin flecha para escalares $A\equiv\enVert[1]{\vec{A}}$, y para matrices $\sbr{A}$ usar corchetes.
+      }}}
+\end{center}
+
+\begin{questions}
+  \question Preguntas de contenido
+  \begin{parts}
+
+    \part[2] \textquestiondown La esfera de polarización de Pincaré describe los estados de polarización de la luz en una base ortonormal. Dibuje los ejes coordenados del vector que da forma a los estados de polarización.
+
+    \part[2] Una onda electromagnética que se propaga en el vacío posee una longitud de onda $\lambda = \qty{1.2}{\centi\m}$. La onda entra en contacto con otro material en el cuál existe un índice de refracción $n=1.2$, entonces \textquestiondown Cuál es la frecuencia de la onda electromagnética en este nuevo medio?
+
+    \part[2] Se desea calcular el potencial en el centro de una placa cuadrada $V_0$, como se muestra en \cref{fig:square}.
+
+    \begin{center}
+      \begin{tikzpicture}
+        \edef\width{2}
+        \edef\height{2}
+        \draw[top color=gray!20,bottom color=gray!50,shading angle=20] (0, 0) coordinate (A) -- ++ (\width, 0) coordinate (B) node[midway, below] {$V_1=\qty{0\pm.1}{\volt}$} -- ++ (0, \height) coordinate (C) node[midway, right] {$V_2=\qty{10\pm.5}{\volt}$} -- ++ (-\width, 0) coordinate (D) node[midway, above] {$V_3=\qty{2\pm.3}{\volt}$} -- cycle node[midway, left] {$V_4=\qty{1\pm.1}{\volt}$};
+        \draw[|<->|] (A) ++ (0, -1) -- ++ (\width, 0) node[midway, fill=white] {
+          \qty{10}{\centi\m}
+        };
+        \draw[|<->|] (B) ++ (3.5, 0) -- ++ (0, \height) node[midway, fill=white] {
+          \qty{10}{\centi\m}
+        };
+      \end{tikzpicture}
+      \captionof{figure}{Placa cuadrada.}
+      \label{fig:square}
+    \end{center}
+
+    \part[2] \textquestiondown Cuál es la diferencia entre superconductores tipo I y II?
+
+    \part[2] \textquestiondown En qué situación podemos utilizar la definición de potencial escalar magnético y qué unidades posee?
+
+    \bonuspart[1] \textquestiondown Qué tipo de polarización puede tener un frente de ondas esférico?
+
+    \bonuspart[1] \textquestiondown Cuál es la constante de capacitancia relativa del aire y del agua?
+
+    \bonuspart[2] Explique qué es el tiempo de relajación para un conductor, como obtenerlo (a través de qué ecuaciones), y su orden.
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part Simplemente el sistema coordenado en $U, Q, V$ e $I$ como el radio de la esfera:
+      \begin{center}
+        \tdplotsetmaincoords{60}{110}
+        \pgfmathsetmacro{\rvec}{1.1}
+        \pgfmathsetmacro{\thetavec}{40}
+        \pgfmathsetmacro{\phivec}{60}
+        \begin{tikzpicture}[scale=4.5, tdplot_main_coords]
+          \coordinate (O) at (0,0,0);
+
+          \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+
+          \draw[thick, -latex] (0, 0, 0) -- (.55, 0, 0);
+          \draw[thick, -latex] (0, 0, 0) -- (0, .75, 0);
+          \draw[thick, -latex] (0, 0, 0) -- (0, 0, 1);
+
+          \draw[-latex, thick, color=red] (O) -- (P) node[midway, anchor=east] {$I$};
+          \draw[dashed, color=red] (O) -- (Pxy);
+          \draw[dashed, color=red] (P) -- (Pxy);
+
+          \draw[dashed] ({\rvec * cos(\phivec) * sin(\thetavec)}, 0, 0) -- (Pxy);
+          \draw[dashed] (0, {\rvec * sin(\phivec) * sin(\thetavec)}, 0) -- (Pxy);
+          \draw[dashed] (0, 0, {\rvec * cos(\thetavec)}) -- (P);
+
+          \path (O) -- ({\rvec * cos(\phivec) * sin(\thetavec)}, 0, 0) node[midway, anchor=east] {$Q$};
+          \path (O) -- (0, {\rvec * sin(\phivec) * sin(\thetavec)}, 0)  node[midway, anchor=south west] {$U$};
+          \path (O) -- (0, 0, {\rvec * cos(\thetavec)}) node[midway, anchor=east] {$V$};
+
+          \tdplotdrawarc{(O)}{0.2}{0}{\phivec}{anchor=north}{$2\uppsi$}
+
+          \tdplotsetthetaplanecoords{\phivec}
+          \tdplotdrawarc[tdplot_rotated_coords]{(0,0,0)}{0.3}{\thetavec}{90}{anchor=south west}{$2\upchi$}
+        \end{tikzpicture}
+        \captionof{figure}{Definición de los parámetros de Stokes en las coordenadas esféricas de Poincaré. Los ángulos $2\uppsi$ y $2\upchi$ son las coordenadas esféricas de acimut y elevación, respectivamente.}
+      \end{center}
+
+      \part La frecuencia es independiente del medio de propagación, por lo que es simplemente:
+      \begin{equation}
+        \nu = \frac{u_0}{\lambda} = \frac{\qty{299792458}{\m\per\s}}{\qty{1.2}{\centi\m}} \approx \qty{25}{\giga\hertz}.
+      \end{equation}
+
+      \part Simplemente es el promedio de todas las cantidades:
+      \begin{align}
+        V_0 & = \frac{1}{4}\del{V_1+V_2+V_3+V_4} \pm \frac{1}{4}\sqrt{\delta V_1^2 + \delta V_2^2 + \delta V_3^2 + \delta V_4^2} \\
+            & = \frac{1}{4}\del{0 + 10 + 2 + 1} \pm \frac{1}{4}\sqrt{.1^2+.5^2+.3^2+.1^2}                                        \\ &= \qty{3.25\pm.15}{\volt}.
+      \end{align}
+
+      \part Tipo I expulsa de forma completa el campo magnético dentro del superconductor (llamado efecto Meissner). Tipo II existe una penetración parcial de campo magnético done coexisten dos regiones una superconductora y otra normal.
+
+      \part En el caso de que no existan corrientes, \unit{\ampere}.
+
+      \part Cualquier tipo de polarización, la forma del frente de ondas: uniforme, plano o esférico, son independientes de la polarización de la luz.
+
+      \part $\epsilon_r$ es para el aire es similar a \num{1} y para el agua es \num{80}.
+
+      \part El tiempo de relajación para un conductor es casi instantáneo y del orden de \qty{1e-19}{\s}. La cantidad depende de $\tau_\text{r} \equiv \frac{\epsilon}{\sigma}$ y es encontrada al relacionar la ecuación de continuidad y la ecuación (i) o ley de Gauss.
+
+    \end{parts}
+  \end{solution}
+
+  \question Un tubo cilíndrico infinitamente largo, de radio $a$, se mueve a una velocidad constante $u$ a lo largo de su eje. Lleva una carga por unidad de largo $\uplambda$, distribuida uniformemente sobre su superficie. Rodeándolo, a un radio $b$, se encuentra otro cilindro que se mueve con la misma velocidad, pero que lleva una carga opuesta $-\uplambda$. Encuentre:
+  \begin{parts}
+    \part[2] El campo eléctrico en todo el espacio.
+    \part[2] El campo magnético en todo el espacio.
+    \part[3] La energía por unidad de largo almacenada en los campos.
+    \part[3] La energía por unidad de tiempo transportada por los campos a través de un plano perpendicular a los cilindros.
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part Para $r>b$ y $r<a$, el campo eléctrico será nulo.
+      Para $a<r<b$, es posible aprovechar la simetría de la configuración para utilizar ley de Gauss. Sabemos que existe una carga $Q_{enc} = \uplambda\cdot l$. Así, el campo eléctrico estará dado por:
+      \begin{align}
+        \mathbf{E}(r) = \frac{\uplambda}{2\pi r \epsilon_0} \, \uvec{r}.
+        \label{eq:campo electrico}
+      \end{align}
+      En resumen:
+      \begin{equation}
+        \mathbf{E} = \begin{cases}
+          \mathbf{0} \quad r<a,                                         \\
+          \frac{\uplambda}{2\pi r \epsilon_0} \, \uvec{r}, \quad a<r<b, \\
+          \mathbf{0} \quad r>b.
+        \end{cases}
+      \end{equation}
+
+      \part Para $r>b$ y $r<a$, el campo magnético será nulo. Dado que el cilindro interior se mueve a una velocidad $u$, se generará una corriente de conducción:
+      \begin{align}
+        I = \uplambda u.
+      \end{align}
+      Por regla de la mano derecha, el campo magnético en $a<r<b$ cumple:
+      \begin{align}
+        \mathbf{B} = B(r)\, \uvec{\phi}.
+      \end{align}
+      Ocupando la ley de Ampère-Maxwell, es posible encontrar el campo magnético:
+      \begin{align}
+        \mathbf{B}(r) = \mu_0 \frac{\uplambda u}{2\pi r}\uvec{\phi}.
+      \end{align}
+      En resumen:
+      \begin{equation}
+        \mathbf{B} = \begin{cases}
+          \mathbf{0} \quad r<a,                                     \\
+          \mu_0 \frac{\uplambda u}{2\pi r}\uvec{\phi}, \quad a<r<b, \\
+          \mathbf{0} \quad r>b.
+        \end{cases}
+      \end{equation}
+
+      \part Ocupamos la fórmula para la energía electromagnética:
+      \begin{align}
+        U_\text{em}                       & = \frac{1}{2}\int_{0}^{l}\int_{0}^{2\pi}\int_{a}^{b}\epsilon_0\del{\frac{\uplambda}{2\pi r \epsilon_0}}^2+\frac{1}{\mu_0}\del{\mu_0 \frac{\uplambda u}{2\pi r}}^2r\dif{r}\dif{\phi}\dif{z} \\
+                                          & = \frac{\uplambda^2l}{4\pi\epsilon_0}\int_{a}^{b}\frac{1}{r}(1+\mu_0\epsilon_0u^2)\dif{r}                                                                                                  \\
+        \Rightarrow \frac{U_\text{em}}{l} & = \frac{\uplambda^2}{4\pi\epsilon_0}\ln{\del{\frac{b}{a}}}(1+\mu_0\epsilon_0 u^2).
+      \end{align}
+      \part Calculamos el vector de Poynting:
+      \begin{align}
+        \mathbf{S} & = \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B}),       \\
+        \mathbf{S} & = \frac{\uplambda^2u}{4\pi^2r^2\epsilon_0} \uvec{z}.
+      \end{align}
+      Luego, la energía por unidad de tiempo a través de un plano perpendicular a los cilindros será:
+      \begin{align}
+        \dod{U_\text{em}}{t} & = \int\int\mathbf{S}\cdot \dif{\mathbf{a}}= \frac{\uplambda^2u}{4\pi^2\epsilon_0}\cdot 2\pi \int_{a}^{b}\frac{1}{r}\dif{r}= \frac{\uplambda^2u}{2\pi\epsilon_0}\ln{\del{\frac{b}{a}}}.
+      \end{align}
+    \end{parts}
+  \end{solution}
+
+  \question \label{q:FDM} Placa con interfaz dieléctrica. Se tiene una placa rectangular con interfaz dieléctrica no cargada, compuesta por dos medios de permitividades $\epsilon_1$ y $\epsilon_2$ (tal como se muestra en la \cref{fig:FDM_C1}).
+  \begin{parts}
+    \part[3] Obtenga la distribución del potencial a través de toda la placa, en donde un punto debe estar ubicado en la interfaz dieléctrica. Para esto, debe utilizar el método de diferencias finitas y dejar el sistema matricial expresado.
+
+    \part[4] Asuma ahora que el medio 1 es vidrio ($\epsilon_1 \approx 5 \epsilon_0$) y que el medio 2 es teflón ($\epsilon_2 \approx 2 \epsilon_0$). Resuelva el sistema obtenido en la parte anterior y exprese numéricamente el potencial para cada punto de la malla.
+
+    \part[3] Obtenga una aproximación del campo eléctrico $\mathbf{E}$ en el centro de la placa.
+  \end{parts}
+
+  \begin{center}
+    \begin{tikzpicture}
+
+      \def\W{5cm}
+      \def\H{2cm}
+
+      \coordinate (A) at (-\W, \H);
+      \coordinate (B) at ( \W, \H);
+      \coordinate (C) at ( \W,-\H);
+      \coordinate (D) at (-\W,-\H);
+
+      \coordinate (E) at (0, \H);
+      \coordinate (F) at (0,-\H);
+
+      \draw[very thick] (B) rectangle (D);
+
+      \path[top color=gray!20,bottom color=gray!50, shading angle=20]
+      (A)--(E)--(F)--(D)--cycle;
+
+      \path[top color=gray!110,bottom color=gray!100, shading angle=-20]
+      (E)--(B)--(C)--(F)--cycle;
+
+      \node[] at (-\W/2,0) {$\epsilon_1$};
+      \node[white] at ( \W/2,0) {$\epsilon_2$};
+
+      \node[above] at ($(A)!0.5!(B)$) {$V=0\,\text{V}$};r
+      \node[below] at ($(D)!0.5!(C)$) {$V=0\,\text{V}$};
+      \node[left]  at ($(A)!0.5!(D)$) {$V=120\,\text{V}$};
+      \node[right] at ($(B)!0.5!(C)$) {$V=80\,\text{V}$};
+
+      \draw[|<->|] ($(D)+(0,-1)$) -- ($(C)+(0, -1)$)
+      node[midway, fill=white] {12 cm};
+
+      \draw[|<->|] ($(C)+(2.5,0)$) -- ($(B)+(2.5,0)$)
+      node[midway, rotate=90, fill=white] {6 cm};
+
+    \end{tikzpicture}
+    \captionof{figure}{Placa con interfaz dieléctrica, \cref{q:FDM}.}
+    \label{fig:FDM_C1}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part Se necesita una discretización tal que haya un punto en la interfaz (centro del rectángulo). Así, se tomará la malla más simple posible que cumpla esta condición:
+
+      \begin{center}
+        \begin{tikzpicture}
+
+          \def\W{5}
+          \def\H{2.5}
+
+          \path[top color=gray!20,bottom color=gray!50, shading angle=20]
+          (-\W,\H)--(0,\H)--(0,-\H)--(-\W,-\H)--cycle;
+
+          \path[top color=gray!110,bottom color=gray!100, shading angle=-20]
+          (0,\H)--(\W,\H)--(\W,-\H)--(0,-\H)--cycle;
+
+          \draw[dotted] (-\W,0) -- (\W,0);
+          \draw[dotted] (-\W,0) -- (-\W,-\H);
+          \draw[dotted] (0,0) -- (0,-\H);
+          \draw[dotted] (\W,0) -- (\W,-\H);
+          \draw[dotted] (-\W,-\H) -- (\W,-\H);
+          \draw[dotted] (-\H,0) -- (-\H,-\H);
+          \draw[dotted] (\H,0) -- (\H,-\H);
+          \draw[dotted] (-\W,\H) -- (\W,\H);
+          \draw[dotted] (-\W,0) -- (-\W,\H);
+          \draw[dotted] (\W,0) -- (\W,\H);
+          \draw[dotted] (-\H,0) -- (-\H,\H);
+          \draw[dotted] (0,0) -- (0,\H);
+          \draw[dotted] (\H,0) -- (\H,\H);
+
+          \node[circle, fill=red, text=white, inner sep=1pt] at (-\H,0) {$V_1$};
+          \node[circle, fill=red, text=white, inner sep=1pt] at (0,0) {$V_2$};
+          \node[circle, fill=red, text=white, inner sep=1pt] at (\H,0) {$V_3$};
+
+          \draw[->|] (-\W,-\H) -- (-\H,-\H) node[midway, below] {$h=\qty{3}{\centi\m}$};
+          \draw[->|] (-\W,-\H) -- (-\W,0) node[midway, left] {$h=\qty{3}{\centi\m}$};
+
+          \node[above] at (0, \H) {$V=\qty{0}{\volt}$};
+          \node[left] at (-\W,0) {$V=\qty{120}{\volt}$};
+          \node[right] at (\W,0) {$V=\qty{80}{\volt}$};
+          \node[below] at (0,-\H) {$V=\qty{0}{\volt}$};
+
+          \node[] at (-{\W * .85}, {\H * .85}) {$\epsilon_1$};
+          \node[white] at ({\W * .85}, {\H * .85}) {$\epsilon_2$};
+
+        \end{tikzpicture}
+        \captionof{figure}{Discretización de la placa con interfaz.}
+      \end{center}
+
+      Donde $h_x = h_y = \qty{3}{\centi\m}$. De esta forma, se obtiene el siguiente sistema de ecuaciones:
+      \begin{align}
+        V_1 & = \frac{1}{4}(120+0+0+V_2)                                                                  \\
+        V_2 & = \frac{1}{2(\epsilon_1 + \epsilon_2)} \left[\epsilon_1 V_1 + 0+ 0 + \epsilon_2 V_3 \right] \\
+        V_3 & = \frac{1}{4}(V_2 + 80 + 0 + 0).
+      \end{align}
+      Simplificado:
+      \begin{align}
+        V_1 & = \frac{1}{4}(120+V_2)                                                               \\
+        V_2 & = \frac{1}{2(\epsilon_1 + \epsilon_2)} \left[\epsilon_1 V_1 + \epsilon_2 V_3 \right] \\
+        V_3 & = \frac{1}{4}(V_2 + 80).
+      \end{align}
+      Y el sistema matricial queda:
+      \begin{align}
+        \begin{bmatrix}
+          4           & -1                         & 0           \\
+          -\epsilon_1 & 2(\epsilon_1 + \epsilon_2) & -\epsilon_2 \\
+          0           & -1                         & 4
+        \end{bmatrix}
+        \begin{bmatrix}
+          V_1 \\ V_2 \\ V_3
+        \end{bmatrix}
+         & =
+        \begin{bmatrix}
+          120 \\ 0 \\ 80
+        \end{bmatrix}.
+      \end{align}
+
+      \part Reemplazando los valores de $\epsilon$ dados por el enunciado se obtiene:
+      \begin{align}
+        \begin{bmatrix}
+          4             & -1            & 0            \\
+          - 5\epsilon_0 & 14 \epsilon_0 & -2\epsilon_0 \\
+          0             & -1            & 4
+        \end{bmatrix}
+        \begin{bmatrix}
+          V_1 \\ V_2 \\ V_3
+        \end{bmatrix}
+         & =
+        \begin{bmatrix}
+          120 \\ 0 \\ 80
+        \end{bmatrix}.
+      \end{align}
+      Y resolviendo el sistema se llega a los siguientes valores numéricos para los potenciales:
+      \begin{align}
+        V_1 \approx \qty{33.9}{\volt} \\
+        V_2 \approx \qty{15.5}{\volt} \\
+        V_3 \approx \qty{23.9}{\volt}
+      \end{align}
+
+      \part El campo se puede expresar como:
+      \begin{align}
+        \mathbf{E} & = - \nabla V = -\frac{\partial V}{\partial x} \hat{x} - \frac{\partial V}{\partial y}\, \uvec{y}.
+      \end{align}
+      Para calcular las derivadas en el punto central se utiliza central-difference:
+      \begin{align}
+        \frac{dV}{dx} & \approx \frac{V(x_2 + h) - V(x_2 - h)}{2h} = \frac{V_3 - V_1}{2 \cdot 3} = \frac{23.9 - 33.9}{6} \approx \qty{-1.7}{\volt\per\m} \\
+        \frac{dV}{dy} & \approx \frac{V(y_2 + h) - V(y_2 - h)}{2h} = \frac{0 - 0}{2 \cdot 3} = \qty{0}{\volt\per\m}.
+      \end{align}
+      El campo obtenido es:
+      \begin{align}
+        \mathbf{E} & \approx \qty{1.7}{\volt\per\m}\, \uvec{x}.
+      \end{align}
+    \end{parts}
+  \end{solution}
+
+  \question \label{q:gm} {Contador Geiger} (\cref{fig:geiger}). Considere un tubo GM idealizado como un capacitor coaxial de longitud $L$, con ánodo (hilo) de radio $a$ y cátodo (cilindro) de radio interno $b$ ($a\ll b$), relleno con gas noble y mezcla de apagado a presión constante $P=\qty{1.013e5}{\pascal}$. El ánodo se polariza a un potencial {$V_0$} mediante una {resistencia de \textit{quenching}} $R$ en serie. La permitividad del gas puede tomarse como $\epsilon \simeq \epsilon_0$.
+
+  Una partícula que atraviesa el gas deposita una energía {$U_{\rm dep}$} y crea pares ión--electrón.
+  Como \textbf{primera aproximación} del efecto físico, supondremos que el desarrollo de la avalancha está gobernado exclusivamente por el \textbf{campo eléctrico local} $\mathbf{E}(r)$ dentro del gas, y que la microfísica de colisiones queda \textbf{encapsulada} en el coeficiente de \textit{Townsend} $\alpha(E)$, donde $E=\enVert{\mathbf{E}(r)}$ es la magnitud del campo.
+  A presión fija, usaremos la ley de Townsend en función de $E$:
+  \[
+    \alpha(E)=A\,\exp\!\left(-\frac{B}{E}\right),
+  \]
+  con $A$ y $B$ constantes del gas. En este control, {solo será requerido calcular $\alpha$ a partir de $E(r)$} obtenido en la parte (a), y usarlo luego en las expresiones de ganancia.
+
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm,>=stealth,line cap=round,line join=round]
+      %----- Colores suaves (opcionales) -----
+      \definecolor{tube}{RGB}{205,230,255}
+      \definecolor{metal}{RGB}{120,120,120}
+      \definecolor{gaspt}{RGB}{50,100,220}
+
+      %=========================%
+      %   FUENTE + TIERRA       %
+      %=========================%
+      % Bus de tierra y símbolo
+      \draw (-1.5,5.2) -- (-1.5,4.2);
+      \draw (-1.8,4.2) -- (-1.2,4.2);
+      \draw (-1.7,4.0) -- (-1.3,4.0);
+      \draw (-1.6,3.8) -- (-1.4,3.8);
+
+      % Batería HV (placas horizontales)
+      \draw[very thick] (-1.2,2.0) -- (0.2,2.0);   % placa corta (-)
+      \draw[very thick] (-1.4,1.7) -- (0.4,1.7);   % placa larga  (+)
+      \node[right] at (-0.2,2.3) {$-$};
+      \node[right] at (-0.2,1.4) {$+$};
+      \node[align=left] at (-1.7,1.85) {\large $V_0$};
+
+      % Conexiones HV ↔ tierra ↔ R
+      \draw (-1.5,5.2) -- (-0.5,5.2);
+      \draw (-0.5,5.2) -- (-0.5,2.0);  % bus → placa negativa
+      \draw (-0.5,1.7) -- (-0.5,0.0);  % placa positiva → nodo de R
+
+      %=========================%
+      %      RESISTENCIA        %
+      %=========================%
+      \draw (0.7,-0.4) rectangle (2.7,0.4);
+      \node[align=center] at (1.7,0) {Resistencia \\ \textit{quenching}};
+      % \node[below] at (1.7,-0.35) {Resistencia de \textit{quenching}};
+      \draw (-0.5,0.0) -- (0.7,0.0);   % fuente → R
+      \draw (2.7,0.0) -- (3.85,0.0);   % R → ánodo
+
+      %=========================%
+      %   TUBO COAXIAL (GM)     %
+      %=========================%
+      \def\xL{4.0} \def\xR{8.0} \def\ry{1.2} \def\rx{0.6} \def\hc{4.0}
+
+      % Relleno "gas"
+      \fill[tube] (\xL,-\ry+\hc) rectangle (\xR,\ry+\hc);
+
+      % Carcasa cilíndrica (cátodo) y conexión a tierra
+      \draw[line width=1.5pt,metal] (\xL,\ry+4) -- (\xR,\ry+4);
+      \draw[line width=1.5pt,metal] (\xL,-\ry+4) -- (\xR,-\ry+4);
+      \node[above] at (\xL+0.6,\ry+4.2) {Cátodo};
+      \draw (\xL,\ry+4) -- (-1.5,5.2); % cátodo → tierra
+      \draw[dash pattern=on 7pt off 5pt, metal] (\xL,\ry+4) -- (\xL,-\ry+4);
+
+      % Ánodo (hilo) y conexión
+      \draw[line width=2pt] (\xL-0.15,4) -- (\xR,4);
+      \draw[] (\xL-0.15,0.0) -- (\xL-0.15,4.0); % R → ánodo
+      \node[above] at (\xL+0.6,4.15) {Ánodo};
+
+      % Etiqueta "Gas" dentro del tubo
+      \node[text=gaspt] at (\xL+2.0,-\ry+4.6) {\textbf{Gas}};
+
+      % Radiación entrante y fuente
+      \draw[->,thick] (\xR+0.9,0.4+\hc) -- (\xR+\rx+0.05,0.2+\hc);
+      \node[right] at (\xR+0.85,0.5+\hc) {Radiación ionizante};
+      \draw[->,very thick,gaspt] (\xR+0.6,0.1+\hc) -- (\xR-2.6,\ry/2+\hc);
+      \draw[very thick,gaspt] (\xR+1.9,\hc-1.9) -- (\xR+0.6,0.1+\hc);
+      \fill[metal] (\xR+2.05,\hc-2.0) circle (0.12) node[below] {Cuerpo radiactivo};
+      % \node[below] at (\xR+2.2,\hc-2.0) {Cuerpo radiactivo};
+    \end{tikzpicture}
+    \captionof{figure}{Ilustración contador Geiger. La sección azul corresponde a un cilindro con cátodo sus paredes y ánodo el pin central.}
+    \label{fig:geiger}
+  \end{center}
+
+  Datos dimensiones y cantidades físicas del sistema ilustrador en \cref{fig:geiger}.
+  \begin{align*}
+    a & =\qty{25}{\micro\m}, & b & =\qty{1}{\centi\m}, & L & =\qty{10}{\centi\m}, & V_0 & =\qty{900}{\volt},
+    \\ W&=\qty{26}{\electronvolt}, & A&=\qty{3.04e5}{\per\m}, & B&=\qty{7.6e6}{\volt\per\m} & R&=\qty{10}{\mega\ohm}.
+  \end{align*}
+  Aquí $W$ es la energía media por par ión--electrón del gas.
+
+  \begin{parts}
+    \part {Electrostática del coaxial}.
+    \begin{subparts}
+      \subpart[4] Resuelva la ecuación de Laplace sobre la geometría del coaxial para el potencial eléctrico y, usando dicho potencial, demuestre que el campo eléctrico dentro del volumen del gas es
+      \[
+        \mathbf{E}(r)=\frac{V_0}{r\,\ln(b/a)}\,\uvec{r}.
+      \]
+      \subpart[2] Determine la {capacitancia por unidad de longitud} del coaxial y la {capacitancia total} $C$ del tubo.
+    \end{subparts}
+
+    \part {Avalancha y carga transferida}.
+    \begin{subparts}
+      \subpart[1] Estime el número de pares primarios generados considerando $U_{\rm dep}=\qty{1.2e6}{\electronvolt}$:
+      \[
+        N_0=\dfrac{U_{\rm dep}}{W}.
+      \]
+      \subpart[1] Suponiendo que un electrón “semilla” nace en $r_0\in(a,b)$ y deriva al ánodo, escriba la {ganancia} por avalancha
+      \[
+        M(r_0)=\exp\!\Bigg( \int_{r_0}^{a}\alpha\!\big(E(r)\big)\,\dif{r} \Bigg).
+      \]
+      \subpart[2] Considere que la semilla nace a mitad de camino entre $a$ y $b$, es decir $r_0=\dfrac{a+b}{2}$. Obtenga el {número total de electrones},
+      \[
+        N_e \approx N_0\,M(r_0),
+      \]
+      y determine la {carga transferida a los electrodos}.
+    \end{subparts}
+
+    \bonuspart {Circuito RC y pulso de tensión}.
+    \begin{subparts}
+      \bonussubpart[2] Resuelva la tensión del tubo en el tiempo considerando que antes de $t^\ast$ el circuito está en equilibrio.
+      La avalancha en $t=t^\ast$ descarga instantáneamente el capacitor en una caída $\Delta V$ y luego el sistema se recupera con la constante de tiempo $\tau=RC$. Debe demostrar que el resultado es de la forma
+      \[
+        V_{\text{tubo}}(t)=V_0-\Delta V\,e^{-(t-t^\ast)/(RC)}\,u(t-t^\ast),
+      \]
+      donde $u(\cdot)$ es la función escalón de Heaviside (vale $0$ si su argumento es negativo y $1$ si es no negativo).
+
+      \bonussubpart[2] Graficar $V_{\text{tubo}}(t)$ indicando numéricamente $\Delta V$ y $\tau$.
+    \end{subparts}
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part En coordenadas cilíndricas, con simetría en $\theta$ y $z$:
+      \[
+        \nabla^2 V=\frac{1}{r}\dod{}{r}\!\left(r\dod{V}{r}\right)=0\ \Rightarrow\
+        V(r)=C_1\ln r + C_2.
+      \]
+      Con $V(a)=V_0$, $V(b)=0$ se obtiene
+      \[
+        V(r)=\frac{V_0}{\ln(b/a)}\ln\!\frac{b}{r},\qquad
+        \mathbf{E}(r)=-\nabla V=\frac{V_0}{r\,\ln(b/a)}\,\hat{\mathbf r}.
+      \]
+      Ley de Gauss con $\mathbf D=\epsilon\mathbf E$ da
+      \[
+        C'=\frac{2\pi\epsilon}{\ln(b/a)},\qquad C=C' L=\frac{2\pi\epsilon L}{\ln(b/a)}.
+      \]
+
+      \part Con $U_{\rm dep}=\qty{1.2e6}{\electronvolt}$, $W=\qty{26}{\electronvolt}$:
+      \[
+        N_0=\frac{U_{\rm dep}}{W}\approx \num{4.6e4}.
+      \]
+      A presión fija $\alpha(E)=A \mathrm{e}^{-B/E}$ y $E(r)=V_0/[r\ln(b/a)]$ $\Rightarrow$
+      \[
+        \alpha(r)=A\exp\!\Big[-\tfrac{B\ln(b/a)}{V_0}\,r\Big]=A \mathrm{e}^{-k r},\quad k=\tfrac{B\ln(b/a)}{V_0}.
+      \]
+      Entonces
+      \[
+        M(r_0)=\exp\!\left(\int_{a}^{r_0}\alpha(r)\,dr\right)=
+        \exp\!\left(\frac{A}{k}\,[\mathrm{e}^{-ka}-\mathrm{e}^{-k r_0}]\right).
+      \]
+      Con $r_0=\tfrac{a+b}{2}$:
+      \[
+        N_e\approx N_0\,M(r_0),\qquad Q=eN_e.
+      \]
+
+      \part En DC el capacitor es abierto $\Rightarrow$ no hay corriente y $V_{\text{tubo}}(t<t^\ast)=V_0$.
+      La avalancha transfiere $Q$ y provoca $\Delta V=Q/C$ instantánea. Para $t>t^\ast$:
+      \[
+        \frac{dV_{\text{tubo}}}{dt}+\frac{1}{RC}V_{\text{tubo}}=\frac{V_0}{RC},\quad
+        V_{\text{tubo}}(t^\ast{}^+)=V_0-\Delta V,
+      \]
+      de donde
+      \[
+        V_{\text{tubo}}(t)=V_0-\Delta V\,\mathrm{e}^{-(t-t^\ast)/(RC)}\,u(t-t^\ast).
+      \]
+      % Figura esquemática (escala arbitraria) del pulso V_tubo(t)
+      \begin{center}
+        \begin{tikzpicture}[line cap=round,line join=round]
+          \def\xmax{8}\def\ymax{3.5}\def\Vzero{2.5}\def\dV{1.2}\def\tstar{2.0}
+          \draw[-latex] (0,0) -- (\xmax+0.2,0) node[below] {$t$};
+          \draw[-latex] (0,0) -- (0,\ymax) node[left] {$V_{\text{tubo}}$};
+          \draw[dashed] (0,\Vzero) -- (\xmax,\Vzero); \node[above right] at (0.05,\Vzero) {$V_0$};
+          \draw[very thick, blue] (0,\Vzero) -- (\tstar,\Vzero);
+          \draw[very thick, blue] (\tstar,\Vzero) -- (\tstar,{\Vzero-\dV});
+          \draw[very thick,blue,domain=\tstar:\xmax,samples=200] plot (\x, {\Vzero-\dV*exp(-(\x-\tstar)/1.3)});
+          \draw[dotted] (\tstar,0) -- (\tstar,\ymax); \node[below] at (\tstar,0) {$t^\ast$};
+          \draw[<->|] (\tstar-0.5,\Vzero) -- node[fill=white] {$\Delta V$} (\tstar-0.5,{\Vzero-\dV});
+          \pgfmathsetmacro{\tone}{\tstar+1.3}
+          \draw[dotted] (\tone,0) -- (\tone,\ymax); \node[below] at (\tone,0) {$t^\ast+\tau$};
+          \fill (\tone, {\Vzero-\dV*exp(-1)}) circle (1.2pt);
+        \end{tikzpicture}
+        \captionof{figure}{Diagrama potencial $V_\text{tubo}\del{t}$.}
+      \end{center}
+
+    \end{parts}
+  \end{solution}
+
+\end{questions}
+
+\end{document}

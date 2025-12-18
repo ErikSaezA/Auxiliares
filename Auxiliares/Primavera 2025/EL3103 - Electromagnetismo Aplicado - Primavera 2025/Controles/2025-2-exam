@@ -1,0 +1,634 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  addpoints,
+  answers
+]{exam}
+
+\usepackage{../control-preamble}
+
+\begin{document}
+\noindent
+
+\begin{minipage}{0.47\textwidth}
+  \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+  \begin{center}
+    \large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+    \large\textbf{Examen} \\
+    \normalsize Prof.\ \professor\\
+    \normalsize Prof.\ Auxiliar \auxiliar\\
+    \normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\uline{Tiempo: 14:00--17:00 hrs. \hfill \semester \hfill Puntos: \numpoints}
+\vspace{.85cm}
+
+\noindent\makebox[\textwidth]{\textbf{Nombre}:\hfill}
+
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{
+        Responda una pregunta \textbf{por hoja}.  Favor \textbf{no olvidar} escribir su nombre. Para cantidades vectoriales (usualmente definidas como $\mathbf{A}$ en clase), favor usar flecha $\vec{A}$ para indicar que son vectores y sin flecha para escalares $A\equiv\enVert[1]{\vec{A}}$, y para matrices $\sbr{A}$ usar corchetes.
+      }}}
+\end{center}
+
+\begin{questions}
+  \question Preguntas de contenido
+
+  \begin{parts}
+    \part[2] Relice un bosquejo de la curva campo eléctrico vs distancia de un campo eléctrico generado por una carga positiva $+q$, y un dipolo eléctrico $+\mathbf{p}$.
+
+    \part[2] Explique qué es una línea de emisión espectral, su relación con la longitud de onda, y qué sucede al tener un sistema que emite expuesto a un campo eléctrico.
+
+    \part[2] \textquestiondown Qué representan los errores de fase de una radio antena?
+
+    \part[2] \textquestiondown Cómo expresamos pérdidas en una guía de ondas, y a qué fenómeno se debe?
+
+    \part[2] Escriba las ecuaciones de Maxwell-Heaviside en su forma diferencial y para materiales para cualquier tipo de material.
+
+    \bonuspart[2] \textquestiondown Qué es la iluminación de una radio antena y cuál es su utilidad?
+
+    \bonuspart[2] \textquestiondown Qué es la \textit{system temperature} $T_\text{sys}$?
+
+    \bonuspart[1] \textquestiondown Cuál es el campo de visión máximo que puede tener un lente óptico de \qty{35}{\milli\m} de apertura?
+
+    \bonuspart[1] \textquestiondown A qué llamamos \textit{fringes}?
+
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part
+      \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+          % Positive charge
+
+          \draw[axis] (0,0) -- ++ (0,5) node[left] {$E\del{r}$};
+          \draw[axis] (0,0) -- ++ (6,0) node[right] {$r$};
+
+          \edef\xstart{.5}
+          \edef\xstop{5}
+
+          \draw[thick, blue, domain=\xstart:\xstop] plot (\x, {1/(\x*\x)});
+
+          \draw[thick, purple, domain=\xstart:\xstop] plot (\x, {1/(\x*\x*\x)});
+
+          \node[blue, above] at (\xstart, {1/(\xstart*\xstart)}) {\contour{white}{$E\propto r^{-2}$}};
+          \node[red, above] at (\xstart, {1/(\xstart*\xstart*\xstart)}) {$E\propto r^{-3}$};
+        \end{tikzpicture}
+        \captionof{figure}{Bosquejo dependencia campo eléctrico. Dipolo en {\color{red} rojo} y carga puntual en {\color{blue} azul}.}
+      \end{center}
+
+      \part Un salto energético de un nivel energético más alto (es decir interior al átomo) a uno más bajo. Simplemente:
+      \begin{equation}
+        hu_0/\lambda = E_{n} - E_{n^\prime},
+      \end{equation}
+      Dado un nivel $n < n^\prime$ y $\lambda$ la longitud de onda de la línea de emisión espectral.
+      El átomo al estar expuesto a un campo eléctrico puede desarrollar estructuras más finas de niveles energéticos, llamada ``estructura hiperfina''.
+
+      \part Los errores de fase son desalineaciones ópticas o pérdidas coherentes de la suma total del frente de ondas en algún punto de interés como lo es el foco de un colector paraboloide. En este tipo de colectores los errores de fase están dominados por los errores superficiales de la radio antena.
+
+      \part Lo expresamos a través de la permitividad compleja:
+      \begin{equation}
+        {\epsilon = \epsilon^\prime - \ju\epsilon^{\prime\prime} = \frac{\enVert{\mathbf{D}}}{\enVert{\mathbf{E}}} \del{\cos\delta + \ju\sin\delta} = \enVert{\epsilon}\euler^{\ju\delta}}.
+      \end{equation}
+      El fenómeno se debe a una no linealidad entre el campo eléctrico y el desplazamiento eléctrico, es decir su dirección ya no es exactamente igual y es una desviación de la propiedad de linealidad del material.
+
+      \part Las ecuaciones de Maxwell-Heaviside en su forma diferencial, y para cualquier material, no necesariamente poseen el termino lineal o la solución matemática simplificada, entonces:
+      \begin{align}
+        \text{(i)}  & \quad \tcbhighmath{\nabla\cdot\bvec{D} = \uprho_f} & \text{(iii)} & \quad \tcbhighmath{\nabla\times\bvec{E} = -\frac{\partial\bvec{B}}{\partial t}} \label{eq:maxwell_materials_general1}             \\
+        \text{(ii)} & \quad \tcbhighmath{\nabla\cdot\bvec{B} = 0}        & \text{(iv)}  & \quad \tcbhighmath{\nabla\times\bvec{H} = \bvec{J}_f + \frac{\partial\bvec{D}}{\partial t}} \label{eq:maxwell_materials_general2}
+      \end{align}
+      con el sub-índice $f$ para la densidad de carga $\uprho_f$ y para la densidad de corriente $\bvec{J}_f$ libres o no pertenecientes al material.
+
+      \part Es una distribución de energía o intensidad sobre la superficie del colector o plato. Esta distribución es utilizada para disminuir la cantidad de \textit{sidelobes} o la intensidad de ellos. La iluminación está directamente relacionada con la eficiencia de \textit{leakage} (o el \textit{spillover} del patron de radiación).
+
+      \part La \textit{system temperature} es el ruido completo que un sistema de radiómetro capta:
+      \begin{multline}
+        T_{\text{sys}} = T_\text{a} + T_\text{r} = \cbr{T_{\text{src}} + T_{\text{cmb}} + T_{\text{sky}} + T_{\text{earth}} + T_{\text{spill}} + \dotso} \\ + \cbr{T_{\text{r},0} + \frac{T_{\text{r},1}}{G_0} + \frac{T_{\text{r},2}}{G_0G_1} + \dotso + \frac{T_{\text{r},m-1}}{G_0G_1\dotso G_{m-2}}}.
+      \end{multline}
+      Compuesta de la temperatura del receptor (toda la cadena de radio frecuencias desde la antena hasta que la señal es digitalizada) y la temperatura de antenna (o efectivamente, todo lo que ve la antena).
+
+      \bonuspart Esto corresponde simplemente a el beam:
+      \begin{equation}
+        \text{BW} = \qty{1.22}{\radian}\times\frac{\lambda}{D_\text{p}} = \qty{1.22}{\radian} \times \frac{\qtyrange{380}{700}{\nano\m}}{\qty{35}{\milli\m}} = \qtyrange{0.75}{1.37}{\degree}
+      \end{equation}
+
+      \bonuspart Los \textit{fringes} son patrones de interferencia constructiva y destructiva que se forman cuando dos o más ondas de radio se combinan coherentemente. En interferometría de radio, corresponden a las oscilaciones periódicas de la señal correlacionada entre dos antenas a medida que la fuente astronómica se mueve a través del cielo debido a la rotación de la Tierra, o equivalentemente, cuando varía la diferencia de fase geométrica entre las señales recibidas por cada antena.
+    \end{parts}
+  \end{solution}
+
+  \bonusquestion[5] \label{q:dfm} Una región rectangular de $\qty{6}{\m} \times \qty{8}{\m}$ el potencial es exactamente igual a cero en sus cuatro fronteras. La distribución de carga, sin embargo, está dada por $\uprho = 3\epsilon_0$. Entonces, resuelva \textbf{numéricamente la ecuación de Poisson} definiendo una ecuación de potencial (i.e., \textit{five-point equal arm difference}) y determine la distribución del potencial en la región rectangular con al menos \num{6} nodos.
+
+  \begin{solution}
+    La ecuación \textit{five-point (equal arm) difference} se modifica por el término fuente uniforme. Para cualquier punto interior $(i,j)$ el esquema queda:
+    \begin{equation}
+      \frac{1}{h^2}\bigl(V_{i+1,j}+V_{i-1,j}+V_{i,j+1}+V_{i,j-1}-4V_{i,j}\bigr) = -3,
+      \label{eq:five-point}
+    \end{equation}
+    donde $h$ es el paso de malla. Tomamos $h=\qty{2}{\m}$ y discretizamos el dominio como en la \cref{fig:dfm}.
+
+    \begin{center}
+      \begin{tikzpicture}[scale=.5]
+
+        \edef\width{6}
+        \edef\height{8}
+        \edef\h{2}
+
+        \draw[fill=gray!20] (0, 0) coordinate (A) -- ++ (\width, 0) coordinate (B) node[midway, below] {$V=\qty{0}{\volt}$} -- ++ (0, \height) coordinate (C) node[midway, right] {$V=\qty{0}{\volt}$} -- ++ (-\width, 0) coordinate (D) node[midway, above] {$V=\qty{0}{\volt}$} -- cycle node[midway, left] {$V=\qty{0}{\volt}$};
+
+        \foreach \x in {1, 2}{
+            \draw[dashed] ({\x*\h}, 0) -- ({\x*\h}, \height);
+          }
+        \foreach \y in {1, 2, 3}{
+            \draw[dashed] (0, {\y*\h}) -- (\width, {\y*\h});
+          }
+
+        \node[white, circle, fill=red, inner sep=1pt] at ({1*\h}, {3*\h}) {$V_1$};
+        \node[white, circle, fill=red, inner sep=1pt] at ({2*\h}, {3*\h}) {$V_2$};
+        \node[white, circle, fill=red, inner sep=1pt] at ({1*\h}, {2*\h}) {$V_3$};
+        \node[white, circle, fill=red, inner sep=1pt] at ({2*\h}, {2*\h}) {$V_4$};
+        \node[white, circle, fill=red, inner sep=1pt] at ({1*\h}, {1*\h}) {$V_5$};
+        \node[white, circle, fill=red, inner sep=1pt] at ({2*\h}, {1*\h}) {$V_6$};
+
+        \draw[|<->|] (A) ++ (0, -2) -- ++ (\width, 0) node[midway, fill=white] {\qty{6}{\m}};
+        \draw[|<->|] (B) ++ (4, 0) -- ++ (0, \height) node[midway, fill=white] {\qty{8}{\m}};
+      \end{tikzpicture}
+      \captionof{figure}{Resolución \cref{q:dfm}}
+      \label{fig:dfm}
+    \end{center}
+
+    Multiplicando la \cref{eq:five-point} por $h^2$ y usando fronteras de Dirichlet $V=0$, el sistema lineal para los $6$ nodos interiores (ordenados como en la figura) es:
+    \begin{equation}
+      \sbr{
+        \begin{array}{cccccc}
+          -4 & 1  & 1  & 0  & 0  & 0  \\
+          1  & -4 & 0  & 1  & 0  & 0  \\
+          1  & 0  & -4 & 1  & 1  & 0  \\
+          0  & 1  & 1  & -4 & 0  & 1  \\
+          0  & 0  & 1  & 0  & -4 & 1  \\
+          0  & 0  & 0  & 1  & 1  & -4 \\
+        \end{array}}
+      \sbr{\begin{array}{c} V_1 \\ V_2 \\ V_3 \\ V_4 \\ V_5 \\ V_6 \end{array}}
+      =
+      \sbr{\begin{array}{c} -3h^2 \\ -3h^2 \\ -3h^2 \\ -3h^2 \\ -3h^2 \\ -3h^2 \end{array}}
+      =
+      \sbr{\begin{array}{c} -12 \\ -12 \\ -12 \\ -12 \\ -12 \\ -12 \end{array}}.
+    \end{equation}
+
+    Por simetría, $V_1=V_2=V_5=V_6$ y $V_3=V_4$. Resolviendo:
+    \begin{equation}
+      V_1=V_2=V_5=V_6=\frac{48}{7}\;\si{\volt}\approx\qty{6.86}{\volt},
+      \qquad
+      V_3=V_4=\frac{60}{7}\;\si{\volt}\approx\qty{8.57}{\volt}.
+    \end{equation}
+  \end{solution}
+
+  \question \label{q:WaveGuide_exam}
+  Un fabricante de automóviles utiliza guías de onda rectangulares impresas dentro de placas de circuitos impresos (PCB) para los sistemas de asistencia avanzada a la conducción (ADAS) en sus autos, tal como muestra la \cref{fig:wave_guide}. Para poder transmitir de mejor manera las ondas milimétricas que emplea el sistema ADAS, el fabricante usa un material dieléctrico comercial ligeramente magnético, con susceptibilidad eléctrica $\chi_e = \num{3.5}$ y susceptibilidad magnética $\chi_m = \num{0.02}$. El dieléctrico es homogéneo e isotrópico, tal que las ecuaciones de Maxwell-Heaviside y las ecuaciones constitutivas sí son válidas dentro de la guía de onda. A partir de esto:
+
+  \begin{parts}
+    \part[3] Utilizando las ecuaciones de Maxwell-Heaviside para medios lineales, homogéneos e isotrópicos, y considerando que el material no está cargado ($\uprho_f = 0$), demuestre que la ecuación de onda dentro de la guía es:
+    \begin{align*}
+      \nabla^2\bvec{E} - \mu_0 \epsilon_0 \left( 1 + \chi_m + \chi_e + \chi_e \chi_m \right) \frac{\partial ^2 \bvec{E}}{\partial t ^2} & = \sigma \mu_0 (1 + \chi_e) \frac{\partial \bvec{E}}{\partial t}
+    \end{align*}
+    {\textbf{Nota}: No reemplace los valores de} $\chi_e$ y $\chi_m$ {para esta parte.}
+    \part[4] Calcule la frecuencia de corte para los modos $\text{TE}_{10}$ y $\text{TE}_{11}$.
+    \part[3] Considerando que los radares vehículares normalmente utilizan ondas de radio con frecuencias de $\qty{79}{\giga \hertz}$, el fabricante de automóviles finalmente se decanta por el modo $\text{TE}_{11}$. Con la información anterior, calcule $\eta_{\text{TE},11}$, $\beta_{11}$, $\lambda_{11}$ y $u_{\text{ph},11}$. Compare esta última con la velocidad de la onda en el dieléctrico. ¿Se cumple lo esperado? ¿Qué se espera al comparar $u_{\text{g},11}$ con la velocidad ya mencionada?
+    \\
+    {\textbf{Nota}: No es necesario que calcule} $u_{\text{g},11}$, {simplemente explique.}
+  \end{parts}
+
+  \begin{center}
+
+    \begin{tikzpicture}[scale=2, line join=round, line cap=round, >=stealth]
+
+      \draw[axis] (0,0,0) -- (1.8,0,0) node[anchor=west]{$\uvec{x}$};
+      \draw[axis] (0,0,0) -- (0,1.2,0) node[anchor=south]{$\uvec{y}$};
+      \draw[axis] (0,0,0) -- (0,0,1.2) node[anchor=east]{$\uvec{z}$};
+
+      \coordinate (A) at (1.5,0,0);
+      \coordinate (B) at (0,1,0);
+      \coordinate (C) at (1.5,1,0);
+      \draw[very thick] (0,0,0) -- (A) -- (C) -- (B) -- cycle;
+      \draw[dashed] (0,0,0) -- (0,0,-0.8);
+      \draw[dashed] (A) -- ++(0,0,-0.8);
+      \draw[dashed] (B) -- ++(0,0,-0.8);
+      \draw[very thick] (C) -- ++(0,0,-0.8);
+      \draw[very thick] (0,0,0) -- (0,1,0);
+      \draw[very thick] (A) -- (C);
+      \draw[dashed] (0,0,0) -- (A);
+      \draw[dashed] (B) -- (C);
+
+      \node[below] at (A) {$a = \qty{0.31}{\centi \m}$};
+      \node[left] at (B) {$b = \qty{0.155}{\centi \m}$};
+      % \node[below left] at (0.15,0,0) {$0$};
+
+      % Flecha hacia infinito
+      \draw[->] (1.5,0,0) -- (1.5,0,-2) node[right]{$\infty$};
+
+    \end{tikzpicture}
+    \captionof{figure}{Guía de onda rectangular de un sistema ADAS en un automóvil.}
+    \label{fig:wave_guide}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part Partiendo de la ley de Faraday para medios lineales:
+      \begin{align}
+        \nabla \times \bvec{E}                                        & = - \mu \frac{\partial \bvec{H}}{\partial t}                             \\
+        \nabla \times \left(\nabla \times \bvec{E}  \right)           & = \nabla \times \left( -\mu \frac{\partial \bvec{H}}{\partial t} \right) \\
+        \nabla \times \left(\nabla \times \bvec{E}  \right)           & = -\mu \frac{\partial}{\partial t}\left(\nabla \times \bvec{H}\right)    \\
+        \nabla \left(\nabla \cdot \bvec{E} \right) - \nabla^2\bvec{E} & = -\mu \frac{\partial}{\partial t} \left( \nabla \times \bvec{H} \right)
+      \end{align}
+      Recordando que el material no está cargado ($\uprho_f = 0$), por ley de Gauss se tiene:
+      \begin{align}
+        \nabla \cdot \bvec{E} = 0 \Rightarrow \nabla^2\bvec{E} & = \mu \frac{\partial}{\partial t} \left( \nabla \times \bvec{H} \right)
+      \end{align}
+      Usando la ley de Ampère-Maxwell para medios lineales y reemplazando en lo anterior se obtiene:
+      \begin{align}
+        \nabla^2\bvec{E} & = \mu \frac{\partial}{\partial t} \left( \sigma \bvec{E} + \epsilon \frac{\partial \bvec{E}}{\partial t} \right) \\
+        \nabla^2\bvec{E} & = \mu\sigma \frac{\partial \bvec{E}}{\partial t} + \mu\epsilon \frac{\partial^2 \bvec{E}}{\partial t^2}          \\
+        \nabla^2\bvec{E} & - \mu\epsilon \frac{\partial^2 \bvec{E}}{\partial t^2} = \mu\sigma \frac{\partial \bvec{E}}{\partial t}
+      \end{align}
+      Finalmente, recordando que $\epsilon = \epsilon_0(1 + \chi_e)$, $\mu = \mu_0(1 + \chi_m)$ se tiene:
+      \begin{align}
+        \nabla^2\bvec{E} - \mu_0(1 + \chi_m) \cdot \epsilon_0(1+\chi_e) \frac{\partial^2 \bvec{E}}{\partial t^2}                          & = \sigma\mu_0(1 + \chi_m) \frac{\partial \bvec{E}}{\partial t}   \\
+        \nabla^2\bvec{E} - \mu_0 \epsilon_0 \left( 1 + \chi_m + \chi_e + \chi_e \chi_m \right) \frac{\partial ^2 \bvec{E}}{\partial t ^2} & = \sigma \mu_0 (1 + \chi_e) \frac{\partial \bvec{E}}{\partial t}
+      \end{align}
+      Que es lo pedido.
+
+      \part Primero hay que calcular $\mu_r$ y $\epsilon_r$:
+      \begin{align}
+        \epsilon_r = (1 + \chi_e) = 1+3.5 = 4.5 &  & \mu_r = (1 + \chi_m) = 1+ 0.02 = 1.02
+      \end{align}
+
+      Para el modo TE$_{10}$:
+      \begin{align}
+        \nu_{cutoff, 10} & = \frac{u}{2 \pi} \sqrt{\left(\frac{ \pi}{a}\right)^2} = \frac{u_0}{2 \pi \sqrt{\mu_r \epsilon_r}} \sqrt{\left(\frac{ \pi}{a}\right)^2} \approx \qty{22.6}{\giga \hertz}
+      \end{align}
+      Para el modo TE$_{11}$:
+      \begin{align}
+        \nu_{cutoff, 11} & = \frac{u}{2 \pi} \sqrt{\left(\frac{ \pi}{a}\right)^2 + \left( \frac{\pi}{b} \right)^2} = \frac{u_0}{2 \pi \sqrt{\mu_r \epsilon_r}} \sqrt{\left(\frac{ \pi}{a}\right)^2 + \left( \frac{\pi}{b} \right)^2} \approx \qty{50.5}{\giga \hertz}
+      \end{align}
+
+      \part Para facilitar los cálculos posteriores, se obtiene $F_{1,1}$:
+      \begin{align}
+        F_{1,1} & = \sqrt{1-\left( \frac{\nu_{\text{cutoff},11}}{\nu} \right)^2} = \sqrt{1-\left( \frac{\qty{50.5}{\giga \hertz}}{\qty{79}{\giga \hertz}} \right)^2} = \num{0.769}
+      \end{align}
+      Ahora se pide calcular lo siguiente:
+      \begin{align}
+        \eta_{TE,11}     & = \frac{\eta}{F_{1,1}} = \frac{\sqrt{\frac{\mu}{\epsilon}}}{F_{1,1}} = \frac{\sqrt{\frac{\mu_r \mu_0}{\epsilon_r \epsilon_0}}}{F_{1,1}} = \qty{233.181}{\ohm} \\
+        \beta_{11}       & = \beta F_{1,1} = \omega \sqrt{\mu \epsilon} F_{1,1} = \frac{2 \pi \nu \sqrt{\mu_r \epsilon_r}}{u_0}F_{1,1} = \qty{2725.95}{\text{rad/m}}                     \\
+        \lambda_{11}     & = \frac{2\pi}{\beta_{11}} = \qty{0.0023}{\meter} = \qty{2.3}{\mm}                                                                                             \\
+        u_{\text{ph},11} & = \frac{\omega}{\beta_{11}} = \frac{2 \pi \nu}{\beta_{11}} = \qty{1.82e8}{\text{m/s}}
+      \end{align}
+      Si calculamos la velocidad en el medio:
+      \begin{align}
+        u & = \frac{u_0}{\sqrt{\mu_r \epsilon_r}} = \qty{1.4e8}{\text{m/s}}
+      \end{align}
+      Es decir, $u_{\text{ph},11} > u$ que efectivamente era de esperar. También se espera que $u_{\text{g},11} < u$.
+    \end{parts}
+  \end{solution}
+
+  \question Un horno de inducción es un tipo de horno eléctrico que permite fundir metales sin contacto directo.
+  Estos funcionan haciendo circular una corriente alterna por bobinas magnéticas externas, las cuales generan un campo
+  magnético variable y, por lo tanto, una corriente que calienta el metal mediante el efecto Joule.
+  Para analizar este mecanismo, consideraremos un modelo simplificado.
+
+  Suponga que la bobina del horno se modela como un solenoide de largo $l$ y radio $a$, mientras que la carga metálica se representa mediante una espira circular de alambre
+  de radio $a/2$ y resistencia $R$, colocada de manera coaxial al interior del solenoide. El solenoide es alimentado por una corriente alterna,
+  de manera que el campo magnético en su interior es sinusoidal:
+  $\bvec{B} = B_0 \cos(\omega t) \, \uvec{z}$. El objetivo de este ejercicio es determinar la corriente inducida en la espira en función del tiempo
+  y calcular el flujo de energía electromagnética a través de la superficie lateral del solenoide.
+  Para ello, siga los siguientes pasos:
+
+  \begin{parts}
+    \part[2] Obtenga el flujo magnético $\Phi_B$ a través de la espira.
+    \part[2] Calcule la fuerza electromotriz (\textit{electromotive force}; emf) inducida en la espira y, con ello, la corriente inducida $I = \frac{\text{emf}}{R}$. \\
+    \textit{Hint:} Recuerde que la {fem} corresponde a  $\text{emf} = \oint \bvec{E} \cdot \dif{\mathbf{l}}$. Además, la ley de Faraday-Lenz podría serle de gran utilidad.
+    \part[3] Encuentre el campo eléctrico inducido \textbf{al interior del solenoide} debido a la presencia del campo magnético variable.
+    \part[3] Determine el flujo total del vector de Poynting a través de la superficie lateral del solenoide.
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part Calculamos el flujo magnético por definición:
+      \begin{equation}
+        \Phi_B = \iint \bvec{B} \cdot \dif{\mathbf{a}} = \bvec{B} \, A.
+      \end{equation}
+      Donde $A = \pi \left(\frac{a}{2}\right)^2$ es el área de la espira. Por lo tanto:
+      \begin{equation}
+        \tcbhighmath{\Phi_B = \frac{\pi a^2}{4}B_0\cos(\omega t)}
+      \end{equation}
+      \part Gracias al hint, sabemos que:
+      \begin{equation}
+        \text{emf} = \oint \bvec{E} \cdot \dif{\mathbf{l}}.
+      \end{equation}
+      Y por Faraday-Lenz se tiene la siguiente relación:
+      \begin{equation}
+        \oint\bvec{E}\cdot\dif\mathbf{l} = -\frac{\dif}{\dif t}\iint\bvec{B}\cdot\dif\mathbf{a} \quad \Rightarrow \quad \text{emf} = -\frac{\dif}{\dif t}\Phi_B.
+      \end{equation}
+      Utilizando lo encontrado en el inciso anterior:
+      \begin{equation}
+        \text{emf} = \frac{\pi a^2}{4} B_0 \omega \sin(\omega t).
+      \end{equation}
+      Dividiendo por la resistencia $R$:
+      \begin{equation}
+        \Rightarrow \tcbhighmath{I(t) = \frac{\pi a^2}{4R} B_0 \omega \sin(\omega t)}
+      \end{equation}
+
+      \part Replicamos el procedimiento anterior para un camino circular de radio $r<a$ arbitrario
+      \begin{equation}
+        \Phi_{B,s} = \pi r^2 B_0 \cos(\omega t) \, \Rightarrow \, -\frac{\dif}{\dif t}\Phi_{B,s} = \pi r^2 \omega B_0 \sin(\omega t).
+      \end{equation}
+      Nuevamente por Faraday-Lenz en forma integral:
+      \begin{align}
+        \oint\bvec{E}\cdot\dif\mathbf{l} = \mathcal{E}(r) \cdot 2\pi r \\
+        \bvec{E}(r) \cdot 2\pi r = \pi r^2 \omega B_0 \sin(\omega t)\, \uvecs{\phi}.
+      \end{align}
+      Despejando e incorporando la dirección del campo:
+      \begin{equation}
+        \tcbhighmath{
+          \bvec{E}(r) = \frac{r \omega}{2} B_0 \sin(\omega t)\, \uvecs{\phi}
+        }
+      \end{equation}
+
+      \part Partimos calculando el vector de Poynting dentro del solenoide:
+      \begin{align}
+        \bvec{S} & = \frac{1}{\mu_0}\del{\bvec{E}\times\bvec{B}}                                                                   \\
+        \bvec{S} & = \frac{1}{\mu_0} \, \frac{r \omega}{2} B_0 \sin(\omega t)\, \uvecs{\phi} \times B_0 \cos(\omega t) \, \uvec{z} \\
+        \bvec{S} & = \frac{\omega r}{2\mu_0} B_0^2 \cos(\omega t)\sin(\omega t) \, \uvec{r}
+      \end{align}
+      Luego, la energía por unidad de tiempo que atraviesa la superficie lateral (cilindro de radio $a$ y largo $l$) será:
+      \begin{equation}
+        \iint \bvec{S} \cdot \dif{\mathbf{a}} = \iint \frac{\omega a}{2\mu_0} B_0^2 \cos(\omega t)\sin(\omega t) \, a\dif{\phi}\dif{z}.
+      \end{equation}
+      \begin{equation}
+        \tcbhighmath{
+          \iint \bvec{S} \cdot \dif{\mathbf{a}} = \frac{\pi a^2}{\mu_0} \omega l B_0^2 \cos(\omega t)\sin(\omega t)
+        }
+      \end{equation}
+    \end{parts}
+  \end{solution}
+
+  \question\label{q:crt} {Tubo de rayos catódicos y carga espacial}.
+  Considere un tubo de rayos catódicos idealizado como un capacitor de placas paralelas al vacío, de área $A$ y separación $l$, tal como se ilustra en la figura. La placa izquierda (cátodo) se mantiene a potencial $V=0$ y la placa derecha (ánodo) a un potencial constante $V=V_1>0$.
+  %
+  Desde el cátodo se emite un haz estacionario de electrones que se mueven sólo en la dirección $x$, sin colisiones, de modo que la \textbf{densidad de corriente} $\mathcal{J}$ es constante. Denotamos por $\uprho(x)$ la densidad de carga espacial debida a los electrones y por $V(x)$ el potencial electrostático.
+
+  Utilice la siguiente lista de supuestos y figura:
+  \begin{itemize}
+    \item Toda la energía cinética de los electrones proviene del campo eléctrico (no hay otras fuerzas).
+    \item Los electrones salen del cátodo con velocidad inicial nula.
+    \item Considerando que $v(x)$ es la velocidad de los electrones, la densidad de corriente satisface
+    \begin{equation}
+      \bvec{J} = -\,\uprho(x)\,\mathbf{v}(x)
+    \end{equation}
+  \end{itemize}
+
+  \begin{center}
+    \begin{tikzpicture}
+      % Dibujar la placa izquierda (cátodo)
+      \draw[line width=1mm] (0,-2) -- (0,2);
+
+      % Dibujar la placa derecha (ánodo)
+      \draw[line width=1mm] (3,-2) -- (3,2);
+
+      % Cables
+      \draw[thick] (0,-1) -- (-1,-1);
+      \draw[thick] (-1,-1) -- (-1,3);
+      \draw[thick] (-1,3) -- (0.5,3);
+      \draw[thick] (0.7,3) -- (4,3);
+      \draw[thick] (4,3) -- (4,-1);
+      \draw[thick] (4,-1) -- (3,-1);
+
+      % Fuente
+      \draw[line width=0.7mm] (0.5,2.8) -- (0.5,3.2);
+      \node at (0.3,3.3) {-};
+      \draw[line width=0.7mm] (0.7,2.6) -- (0.7,3.4);
+      \node at (0.9,3.3) {+};
+
+      % Eje x
+      \draw[thick,|-latex] (0,-2.5) -- (3,-2.5);
+      % \draw[thick] (0,-2.3) -- (0,-2.6);
+      \node at (0,-2.2) {$x=0$};
+      \node at (3,-2.2) {$x=l$};
+
+      % Etiquetas
+      \node at (-1,-1.5) {Cátodo};
+      \node at (4,-1.5) {Ánodo};
+
+      % Dibujar puntos distribuidos entre las placas (de izquierda a derecha)
+      \foreach \i in {1,...,300} {
+          % Calcular la posición x de cada punto con densidad decreciente
+          \pgfmathsetmacro{\x}{3*(\i/300)^6} % Densidad decreciente hacia el ánodo
+          \pgfmathsetmacro{\y}{2*rand} % Posición aleatoria en y
+          \draw[fill=black] (\x, \y) circle (0.01cm);
+        }
+
+    \end{tikzpicture}
+    \captionof{figure}{Tubo de rayos catódicos, \cref{q:crt}.}
+    \label{fig:capacitor_placas}
+  \end{center}
+
+  Considerando la masa y la carga del electrón como $m$ y $-e$, respectivamente, con $e>0$, responda secuencial-mente al siguiente set de preguntas.
+
+  \begin{parts}
+    \part[3] A partir del primer supuesto de la lista dada y de la relación $\mathcal{J} = -\uprho(x)\,v(x)$, exprese la densidad de carga $\uprho(x)$ como función del potencial $V(x)$ y de la densidad de corriente $\mathcal{J}$. \textit{Hint:} Puede usar la conservación de la energía,
+    \begin{equation}
+      \frac{1}{2}m v^2(x) = U_\text{potencial}.
+    \end{equation}
+
+    \part[3] Usando la ecuación de Poisson y el resultado anterior, muestre que el potencial $V(x)$ satisface una ecuación diferencial de la forma
+    \[
+      \frac{d^2V}{dx^2} = k\,V^{-1/2},
+    \]
+    donde $k$ es una constante que debe escribir en función de $\mathcal{J}$, $m$, $e$ y $\epsilon_0$. Luego, desarrollando la EDO e imponiendo las condiciones de borde, determine la expresión de $V(x)$ en el intervalo $0<x<l$.
+
+    \part[3] A partir de $V(x)$, calcule el campo eléctrico $E(x)$ entre las placas y la energía electrostática total $W_e$ almacenada en el volumen entre ellas.
+
+    \part[1] Use el resultado de la parte (b) para escribir la corriente total $I=\mathcal{J}A$ en la forma
+    \[
+      I = \frac{4\epsilon_0}{9}\,\sqrt{\frac{2e}{m}}\;V_1^{3/2}\,\frac{A}{l^2}.
+    \]
+    Verifique que esta expresión es dimensionalmente consistente si se usan como magnitudes fundamentales $M, L, T, I$ y se consideran las dimensiones
+    \[
+      [V] = \frac{M L^2}{T^3 I},
+      \qquad
+      [\epsilon_0] = \frac{I^2 T^4}{M L^3}.
+    \]
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+    \part Como los electrones parten del cátodo con velocidad nula y se aceleran sólo por el campo electrostático,
+    \[
+      \frac{1}{2}m v^2(x) = e\,V(x)
+      \;\Rightarrow\;
+      v(x) = \sqrt{\frac{2e}{m}\,V(x)}.
+    \]
+    La densidad de corriente estacionaria se escribe como
+    \[
+      \mathcal{J} = -\uprho(x)\,v(x),
+    \]
+    por lo que
+    \[
+      \uprho(x) = -\frac{\mathcal{J}}{v(x)}
+      = -\mathcal{J}\,\sqrt{\frac{m}{2e}}\;V(x)^{-1/2}.
+    \]
+    Nótese que $\uprho<0$ si $\mathcal{J}>0$, como corresponde a electrones.
+
+    \part La ecuación de Poisson en 1D es
+    \[
+      \frac{d^2V}{dx^2} = -\frac{\uprho(x)}{\epsilon_0}
+      = \frac{\mathcal{J}}{\epsilon_0}\sqrt{\frac{m}{2e}}\;V^{-1/2}.
+    \]
+    Definiendo
+    \[
+      k \equiv \frac{\mathcal{J}}{\epsilon_0}\sqrt{\frac{m}{2e}},
+    \]
+    se obtiene
+    \[
+      \frac{d^2V}{dx^2} = k\,V^{-1/2}.
+    \]
+    Escribimos $V'=\dfrac{dV}{dx}$ y usamos
+    \[
+      \frac{d^2V}{dx^2} = \frac{dV'}{dx}
+      = \frac{dV'}{dV}\,\frac{dV}{dx}
+      = V'\,\frac{dV'}{dV}.
+    \]
+    Entonces,
+    \[
+      V'\,\frac{dV'}{dV} = k\,V^{-1/2}
+      \;\Rightarrow\;
+      V'\,dV' = k\,V^{-1/2}\,dV.
+    \]
+    Integramos:
+    \[
+      \int V'\,dV' = \int k\,V^{-1/2}\,dV
+      \;\Rightarrow\;
+      \frac{(V')^2}{2} = 2k\,V^{1/2} + C.
+    \]
+    En $x=0$ se tiene $V(0)=0$ y el campo debe ser finito, lo que conduce naturalmente a $C=0$. De este modo,
+    \[
+      (V')^2 = 4k\,V^{1/2}
+      \;\Rightarrow\;
+      \frac{dV}{dx} = 2\sqrt{k}\,V^{1/4},
+    \]
+    donde tomamos la raíz positiva porque $V$ aumenta con $x$. Separando variables,
+    \[
+      \frac{dV}{V^{1/4}} = 2\sqrt{k}\,dx.
+    \]
+    Integramos entre $x=0$ y un $x$ genérico:
+    \[
+      \int_0^{V(x)} V^{-1/4}dV = 2\sqrt{k}\int_0^{x} dx
+      \;\Rightarrow\;
+      \frac{4}{3}V(x)^{3/4} = 2\sqrt{k}\,x.
+    \]
+    Es decir,
+    \[
+      V(x)^{3/4} = \frac{3}{2}\sqrt{k}\,x.
+    \]
+    Aplicando ahora la condición de borde $V(l)=V_1$:
+    \[
+      V_1^{3/4} = \frac{3}{2}\sqrt{k}\,l
+      \;\Rightarrow\;
+      \sqrt{k} = \frac{2}{3}\,\frac{V_1^{3/4}}{l}.
+    \]
+    Sustituyendo en la expresión general,
+    \[
+      V(x)^{3/4} = \frac{3}{2}\frac{2}{3}\,\frac{V_1^{3/4}}{l}\Bigr) x
+      = V_1^{3/4}\,\frac{x}{l},
+    \]
+    lo que finalmente da
+    \[
+      V(x) = V_1\left(\frac{x}{l}\right)^{4/3},\qquad 0<x<l.
+    \]
+
+    \part El campo eléctrico es
+    \[
+      E(x) = -\frac{dV}{dx}
+      = -\frac{d}{dx}\Bigl[V_1\Bigl(\frac{x}{l}\Bigr)^{4/3}\Bigr]
+      = -\frac{4}{3}\frac{V_1}{l}\left(\frac{x}{l}\right)^{1/3}.
+    \]
+    Su magnitud es
+    \[
+      |E(x)| = \frac{4}{3}\frac{V_1}{l}\left(\frac{x}{l}\right)^{1/3}.
+    \]
+    La densidad de energía eléctrica es
+    \[
+      w_e(x) = \frac{1}{2}\epsilon_0 E^2(x),
+    \]
+    y la energía total entre las placas resulta
+    \[
+      W_e = \int_0^l \frac{1}{2}\epsilon_0 E^2(x)\,A\,dx
+      = \frac{1}{2}\epsilon_0 A\int_0^l
+      \left(\frac{4}{3}\frac{V_1}{l}\right)^2
+      \left(\frac{x}{l}\right)^{2/3}dx.
+    \]
+    Sacando constantes e introduciendo $y=x/l$:
+    \[
+      W_e = \frac{1}{2}\epsilon_0 A\left(\frac{16}{9}\frac{V_1^2}{l^2}\right)
+      \,l\int_0^1 y^{2/3}dy
+      = \eval{\frac{8}{9}\epsilon_0 A\frac{V_1^2}{l}\,
+      \frac{y^{5/3}}{5/3}}_0^1.
+    \]
+    Como $\int_0^1y^{2/3}dy = \frac{3}{5}$, se obtiene
+    \[
+      W_e = \frac{8}{15}\,\epsilon_0\,A\,\frac{V_1^2}{l}.
+    \]
+
+    \part De la definición de $k$ y del resultado de la parte (b),
+    \[
+      k = \frac{\mathcal{J}}{\epsilon_0}\sqrt{\frac{m}{2e}}
+      = \frac{4}{9}\frac{V_1^{3/2}}{l^2},
+    \]
+    por lo que
+    \[
+      \mathcal{J} = \frac{4}{9}\,\epsilon_0\sqrt{\frac{2e}{m}}\,
+      \frac{V_1^{3/2}}{l^2}.
+    \]
+    La corriente total es $I = \mathcal{J}A$, luego
+    \[
+      I = \frac{4\epsilon_0}{9}\sqrt{\frac{2e}{m}}\,
+      V_1^{3/2}\,\frac{A}{l^2},
+    \]
+    como se quería demostrar.
+
+    Para el análisis dimensional, usamos como magnitudes fundamentales $M,L,T,I$ y las dimensiones dadas:
+    \[
+      [V] = \frac{ML^2}{T^3 I},\qquad
+      [\epsilon_0] = \frac{I^2 T^4}{ML^3},\qquad
+      [e] = IT,\qquad
+      [m]=M,\qquad
+      [A]=L^2,\qquad
+      [l]=L.
+    \]
+    El factor
+    \[
+      \epsilon_0\sqrt{\frac{2e}{m}}V_1^{3/2}\frac{A}{l^2}
+    \]
+    tiene dimensión
+    \[
+      [\epsilon_0]\,[e/m]^{1/2}\,[V]^{3/2}\,[A]\,[l]^{-2}
+      = \del{\frac{I^2 T^4}{ML^3}}
+      \del{\frac{IT}{M}}^{1/2}
+      \del{\frac{ML^2}{T^3 I}}^{3/2}
+      \frac{L^2}{L^2},
+    \]
+    lo que, simplificando, conduce a
+    \[
+      [I] = I,
+    \]
+    es decir, la expresión para $I$ es dimensionalmente consistente.
+    \end{parts}
+  \end{solution}
+
+\end{questions}
+
+\end{document}

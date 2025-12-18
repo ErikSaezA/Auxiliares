@@ -1,0 +1,277 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  % addpoints,
+  answers
+  ]{exam}
+
+\usepackage{../exercise-preamble}
+
+\begin{document}
+
+\noindent
+\begin{minipage}{0.47\textwidth}
+    \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+\begin{center} 
+\large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+\large\textbf{Clase auxiliar 10: Pre-Examen} \\
+\normalsize Prof.~\professor\\
+\normalsize Prof. Aux. ~\auxiliar\\
+\normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\vspace{.85cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{questions}
+\question A partir de las ecuaciones de Maxwell-Heaviside, derive la ecuación de continuidad de carga en el vacío:
+\begin{align*}
+    \frac{\partial \rho}{\partial t} &= - \nabla \cdot \bvec{J}
+\end{align*}
+\begin{solution}
+    Partiendo de la ley de Ampère-Maxwell y aplicando divergencia a ambos lados:
+    \begin{align}
+        \nabla \times \bvec{B} &= \mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t} \\
+        \nabla \cdot \left( \nabla \times \bvec{B} \right) &= \nabla \cdot \left( \mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t} \right)
+    \end{align}
+    Por identidad vectorial se tiene que:
+    \begin{align}
+        \nabla \cdot (\nabla \times \bvec{B}) = 0
+    \end{align}
+    Así, volviendo a lo anterior:
+    \begin{align}
+        \nabla \cdot \left( \mu_0 \bvec{J} + \mu_0 \epsilon_0 \frac{\partial \bvec{E}}{\partial t} \right) &= 0 \\
+        \mu_0 \left(\nabla \cdot \bvec{J} \right)+ \mu_0 \epsilon_0 \frac{\partial}{\partial t} \left( \nabla \cdot\bvec{E} \right) &= 0
+    \end{align}
+    Por ley de Gauss, sabemos que $\nabla \cdot \bvec{E} = \rho / \epsilon_0$. Así, se obtiene:
+    \begin{align}
+        \mu_0 \left(\nabla \cdot \bvec{J} \right)+ \mu_0 \epsilon_0 \frac{\partial}{\partial t} \left(\frac{\rho}{\epsilon_0} \right) &= 0 \\
+        \nabla \cdot \bvec{J}+ \frac{\partial \rho}{\partial t} &= 0 \\
+        \frac{\partial \rho}{\partial t} &= -\nabla \cdot \bvec{J}
+    \end{align}
+    Y se obtiene lo pedido.
+\end{solution}
+\newpage 
+
+\question{Considere una guía de ondas rectangular compuesta de aire y paredes metálicas, con dimensiones $a = 2.29 \, \text{cm}$ y $b = 1.02 \, \text{cm}$. Determine la frecuencia de corte en el modo más bajo. También obtenga la velocidad de fase, la constante de fase de onda, la longitud de onda, y la impedancia intrínseca a una frecuencia de 7 GHz. Si la amplitud del campo eléctrico es $1000 \, \text{V/m}$, determine la energía promedio transmitida a través de la guía de ondas en este modo a 7 GHz.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{solution}
+Buscamos obtener la frecuencia de corte del modo más bajo (también llamado modo fundamental), como vimos anteriormente el primer modo de propagación en una onda corresponde al modo $TE_{1,0}$, por lo tanto reemplazando tenemos que (Usaremos que $\mu_{0}= \epsilon_{0} \approx1$, dado que estamos en el aire):
+\begin{align}
+    f_{c_{m,n}} &= \frac{c}{2 \pi \sqrt{\mu_{r} \epsilon_{r}}} \sqrt{\del{ \frac{m \pi}{a}}^{2} + \del{ \frac{n \pi}{b}}^{2}}\\
+    f_{c_{1,1}} &= \frac{c}{2 \pi \sqrt{\mu_{r} \epsilon_{r}}} \sqrt{\del{ \frac{\pi}{a}}^{2} + 0}\\
+                &= \frac{3 10^{8} \, \text{[m/s]}}{2\pi} \frac{\pi}{a}\\
+                &\approx 6.56 \, \text{[GHz]} 
+\end{align}
+Para la constante de fase tenemos que:
+\begin{align}
+    \beta_{m,n} &= \beta \sqrt{1- \del{\frac{f_{c_{m,n}}}{f}}^{2}}\\
+                &= \beta_{0}\sqrt{1- \del{\frac{6.56 \, \text{GHz}}{7 \, \text{GHz}}}^{2}}\\
+                &= \beta_{0} = 0.3483\\
+                &= 51.06 \, \text{[rad/m]}
+\end{align}
+Para el $\beta= \beta_{0}$ se calcula como $\beta_{0}= w\sqrt{\mu \epsilon}$ con lo que reemplazando $\beta_{0} = 7[Ghz] \frac{2\pi}{3 10^{8}[m/s]}= 146.6 [rad/s]$, luego para $u_{n,m}$ se tendra que:
+\begin{align}
+    u_{1,0} &= \frac{u}{ \sqrt{1- \del{\frac{f_{c_{1,0}}}{f}}}}\\
+           &= \frac{3 10^{8} \, \text{m/s}}{0.3483}\\
+           &= 8.61 \times 10^{9} \, \text{m/s}
+\end{align}
+Para la constante de fase tenemos que: 
+\begin{align}
+    \lambda_{1,0} &= \frac{\lambda}{\sqrt{1 - \del{\frac{f_{c_{1,0}}}{f}}}}\\
+                  &= \frac{\frac{2\pi}{\beta_{0}}}{0.3483} \\
+                  &= 0.123 \, \text{[m]} = 12.3 \, \text{[cm]}
+\end{align}
+Luego para la impedancia intrínseca del medio $\eta$ tenemos que:
+\begin{align}
+    \eta_{TE_{1,1}} &= \eta \del{\sqrt{1- \del{\frac{f_{c_{1,1}}}{f}}^{2}}}^{-1} \\
+                   &= \eta_{0} \del{\sqrt{1- \del{\frac{f_{c_{1,1}}}{f}}^{2}}}^{-1} \\
+                   &= 120\pi (0.3483)^{-1} = 1082.37 \, \Omega
+\end{align}
+Recordemos que la impedancia intrínseca del medio en el vacio o aire equivale a $\eta_{0} = 120\pi$. Por otro lado que quiere obtener la energía promedio transmitida a lo largo de la linea, por lo que retomando las expresiones de los campos calculadas con anterioridad se tiene el siguiente set de ecuaciones:
+{\small}
+\begin{align*}
+    H_{x}&= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x} && \rightarrow &H_{x} &=\frac{j \beta m  \pi}{k_{c}^{2} a } A_{mn} \sin\del{\frac{\pi m x}{a}} \cos\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\ 
+    H_{y} &= \frac{-j\beta}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y} && \rightarrow & H_{y} &=\frac{j \beta n  \pi}{k_{c}^{2} b } A_{mn} \cos\del{\frac{\pi m x}{a}} \sin\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\
+    E_{x}&= \frac{-jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial y}  && \rightarrow &   E_{x} &=\frac{jw\mu n \pi}{k_{c}^{2}b} A_{mn} \cos\del{\frac{\pi m x}{a}} \sin\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\
+     E_{y}&= \frac{jw\mu}{k_{c}^{2}}\frac{\partial H_{z}}{\partial x} && \rightarrow & E_{y} &=\frac{-jw\mu m \pi}{k_{c}^{2}a} A_{mn} \sin\del{\frac{\pi m x}{a}} \cos\del{ \frac{n \pi y}{b}} e^{-j\beta z}
+\end{align*}
+Con lo que reemplazando el valor de n y m, para $E_{y}$ y $H_{x}$ que al ser transversales nos interesan, dan como resultado que:
+\begin{align}
+    E_{y} &=\frac{-jw\mu m \pi}{k_{c}^{2}a} A_{mn} \sin\del{\frac{\pi m x}{a}} \cos\del{ \frac{n \pi y}{b}} e^{-j\beta z}\\
+    E_{y} &=\frac{-jw\mu  \pi}{k_{c}^{2}a} A_{10} \sin\del{\frac{\pi  x}{a}} \cos\del{ \frac{0 \pi y}{b}} e^{-j\beta z}\\
+          &=\frac{-jw\mu  \pi}{k_{c}^{2}a} A_{10} \sin\del{\frac{\pi  x}{a}}  e^{-j\beta z}
+\end{align}
+Dado que nos dicen que el campo eléctrico es 1000 (es decir todo lo que acompaña al j), luego podemos agrupar las constantes con tal de reducir el campo eléctrico a:
+\begin{align}
+    E_{y} &= -j1000 \sin\del{\frac{\pi  x}{a}}  e^{-j\beta_{1,0} z}
+\end{align}
+
+Luego tenemos que el vector de $S$ vendra dado por:
+\begin{align}
+    \langle \mathbf{S} \rangle = \frac{1}{2} \operatorname{Re} \sbr{\mathbf{E}_{y} \times \overline{\mathbf{H}}_{x}}
+\end{align}
+Donde en base a las ecuaciones anteriores y reemplazando $\mathbf{H}_x$ con la formula de la impedancia intrínseca para el modo TE (Revisar formulario) se tiene que:
+\begin{align}
+    \uvecs{S} &= \frac{1}{2} \| E_{y} \times \frac{E_{y}}{\eta_{TE_{10}}} \| \\
+     &= \frac{1}{2} \frac{ \|E_{y}^{2}\|}{\eta_{TE_{10}}} \\
+     &= \frac{1000^{2}}{2 1082.37} \sin^{2}\del{\frac{\pi x}{a}} \uvecs{z}\\
+     &= 461.95 \sin^{2}\del{\frac{\pi x}{a}} \uvecs{z}
+\end{align}
+Con lo que finalmente integrado sobre todo el conductor se obtiene lo siguiente:
+\begin{align}
+    \langle P(z) \rangle &= \int_{y=0}^{y=b} \int_{x=0}^{x=a} \langle \mathbf{S} \rangle \cdot \uvecs{z} \, \dif{x} \, \dif{y}\\
+            &= 461.95 b\int_{x=0}^{x=a}\sin^{2}\del{\frac{\pi x}{a}}\dif{x}\\
+            &=230.97 ab\\
+            &= 53.65 \, \text{mW}
+\end{align}
+Se obtiene lo buscado.
+\end{solution}
+
+
+
+\newpage
+
+\question Se tiene un acelerador lineal, comúnmente usado en radioterapia, que busca acelerar partículas como protones o electrones a grandes velocidades utilizando campos eléctricos de gran energía. Para esto, considere un tubo metálico cilíndrico de radio $R$ y longitud $L$, donde la muralla izquierda está conectada a tierra ($V = 0$), tal como indica la \cref{fig:Poisson_acc}. En $z= 0$ existe una región emisora que inyecta partículas cargadas con velocidad inicial nula, mientras que en $z= L$ hay un electrodo cuya diferencia de potencial controla la aceleración, generado así una densidad de carga $\rho = \rho_0$. Teniendo en cuenta lo anterior:
+\begin{parts}
+    \part Encuentre la corriente $I$ que fluye por el tubo. \textit{Hint: Use conservación de energía y despeje la velocidad de las partículas.}
+    \part Considerando que $L >> R$, y que ahora $\rho$ no es constante, sino que tiene dependencia regida por $\rho(z) =
+    -k \cdot V^{-1/2}$, resuelva la ecuación de Poisson para determinar el potencial eléctrico generado por el acelerador lineal.
+    \part Obtenga el campo eléctrico del sistema.
+\end{parts}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.1]
+
+% Parámetros
+\def\R{1.2}  % radio del cilindro
+\def\L{5.0}  % largo del cilindro
+
+% Dibujar cilindro (vista lateral)
+% Contorno superior
+\draw[thick] (0,\R) -- (\L,\R);
+% Contorno inferior
+\draw[thick] (0,-\R) -- (\L,-\R);
+
+% Tapas (representación gráfica sencilla)
+\draw[thick] (0,\R) arc (90:270:\R);
+\draw[thick] (\L,\R) arc (90:-90:\R);
+
+% Eje z
+\draw[->, thick] (-0.3,0) -- (\L+0.5,0) node[right] {$z$};
+
+% Labels de los electrodos
+\node at (0,-0.65) {$z=0$};
+\node at (\L,-0.65) {$z=L$};
+\node at (2.5, -0.65) {$\rho = \rho_0$};
+
+% Potencial aplicado
+\node at (0,1.6) {$V(0) = \qty{0}{\volt}$};
+
+% Flechas de partículas aceleradas
+\draw[->, ultra thick, red] (0.3,0.3) -- (5.2,0.3);
+\draw[->, ultra thick, red] (0.3,-0.3) -- (5.2,-0.3);
+
+% Etiqueta de partículas
+\node[red] at (2.5,0.6) {Partículas aceleradas};
+
+% Texto del tubo
+\node at (2.5,-1.5) {Tubo cilíndrico conductor de radio $R$};
+
+\end{tikzpicture}
+\captionof{figure}{Acelerador lineal cilíndrico.}
+\label{fig:Poisson_acc}
+\end{center}
+
+\begin{solution}
+    \begin{parts}
+        \part Hay que recordar que cuando hay cargas que se mueven, se genera corriente. Esto viene dado por la siguiente ecuación:
+        \begin{align}
+            \bvec{J} = \rho \cdot \vec{v}
+        \end{align}
+        Donde $\rho = \rho_0$ es conocido, por ende, nos falta encontrar la velocidad. Para esto, tal como indica el hint, usamos conservación de la energía:
+        \begin{align}
+            K = U
+        \end{align}
+        Donde $K$ es la energía cinética y $U$ es la energía potencial eléctrica. Recordemos que la energía potencial eléctrica viene dada por $U = qV$. Como son los electrones los que generan corriente, usamos que la carga $q = e$. Así, planteamos la conservación de la energía:
+        \begin{align}
+            \frac{1}{2}mv^2 &= eV(z) \\
+            \Rightarrow v &= \sqrt{\frac{2eV(z)}{m}}
+        \end{align}
+        Por ende, el vector densidad de corriente viene dado por:
+        \begin{align}
+            \bvec{J} &= \rho_0 \sqrt{\frac{2eV(z)}{m}} \hat{z}
+        \end{align}
+        Y la corriente viene dada por:
+        \begin{align}
+            I &= \iint_{S} \bvec{J} \dif{\vec{s}} \\
+            I &= \int_{0}^{2\pi} \int_{0}^{R} \rho_0 \sqrt{\frac{2eV(z)}{m}} r\dif{r}\dif{\theta} \\
+            I &= \frac{2 \pi \rho_0 R^2}{2} \sqrt{\frac{2eV(z)}{m}} \\
+            I &= \pi \rho_0 R^2 \sqrt{\frac{2eV(z)}{m}}
+        \end{align}
+
+        \part Recordando que la ecuación de Poisson viene dada por:
+        \begin{align}
+            \nabla^2 V(z) &= -\frac{\rho}{\epsilon_0}
+        \end{align}
+        Como el potencial tiene dependencia únicamente según $z$, la EDO a resolver es:
+        \begin{align}
+            \frac{\partial^2V(z)}{\partial z^2} &= \frac{k}{\epsilon_0} V^{-1/2}\\
+            \frac{\dif{V'}}{\dif{z}} &= \frac{k}{\epsilon_0} V^{-1/2}
+        \end{align}
+        Por regla de la cadena, se tiene que:
+        \begin{align}
+            \frac{\dif{V'}}{\dif{z}} &= \frac{\dif{V'}}{\dif{V}}\cdot \frac{\dif{V}}{\dif{z}} = \frac{\dif{V'}}{\dif{V}} \cdot V'
+        \end{align}
+        Reemplazando lo anterior en la EDO se tiene:
+        \begin{align}
+            \frac{\dif{V'}}{\dif{V}} \cdot V' &= \frac{k}{\epsilon_0} V^{-1/2} \\
+            V' \dif{V'} &= \frac{k}{\epsilon_0} V^{-1/2} \dif{V} \\
+            \int V' \dif{V'} &= \frac{k}{\epsilon_0} \int V^{-1/2} \dif{V} \\
+            \frac{(V')^2}{2} &= \frac{k}{\epsilon_0} \frac{V^{1/2}}{1/2} + C, C \in \mathbb{R} \\
+            \Rightarrow V' &= \sqrt{\frac{4k}{\epsilon_0} V^{1/2}} + C_1, C_1 = \sqrt{C} \in \mathbb{R}
+        \end{align}
+        Antes de seguir, hay una condición de borde útil. Recordemos que en $z=0$, las cargas parten desde el reposo, por ende, $\bvec{E}(z=0) = 0 \Rightarrow -V'(z=0) = V(z=0) = 0$. Por ende:
+        \begin{align}
+            -V'(z=0) &= \sqrt{\frac{4k}{\epsilon_0} V(z=0)^{1/2}} + C_1 \\
+            0 &= 0 + C_1 \Rightarrow C_1 = 0
+        \end{align}
+        Ahora debemos resolver la EDO para encontrar $V(z)$: 
+        \begin{align}
+            \frac{\dif{V}}{\dif{z}} &= \sqrt{\frac{4k}{\epsilon_0} V^{1/2}}\\
+            \frac{\dif{V}}{\dif{z}} &= 2 \sqrt{\frac{k}{\epsilon_0}} V^{1/4} \\
+            \frac{\dif{V}}{V^{1/4}} &= 2 \sqrt{\frac{k}{\epsilon_0}} \dif{z} \\
+            \int \frac{\dif{V}}{V^{1/4}} &= 2 \int \sqrt{\frac{k}{\epsilon_0}} \dif{z} \\
+            \frac{V^{3/4}}{3/4} &= 2\sqrt{\frac{k}{\epsilon_0}} z + B, B \in \mathbb{R} \\
+            \frac{4}{3}V^{3/4} &= 2 \sqrt{\frac{k}{\epsilon_0}} z + B \\
+            V^{3/4} &= \frac{3}{2} \sqrt{\frac{k}{\epsilon_0}} z + A \\
+            V(z) &= \left( \frac{3}{2} \sqrt{\frac{k}{\epsilon_0}} \right)^{4/3} \cdot z^{4/3} + A, A = B^{4/3} \in \mathbb{R}
+        \end{align}
+        Para despejar la constante, usamos la primera condición de borde:
+        \begin{align}
+            V(z=0) &= 0 \\
+            \Rightarrow A = 0
+        \end{align}
+        Por ende, el potencial es:
+        \begin{align}
+            V(z) &= \left( \frac{3}{2} \sqrt{\frac{k}{\epsilon_0}} \right)^{4/3} \cdot z^{4/3}
+        \end{align}
+\part Para encontrar el campo, simplemente aplicamos el gradiente:
+\begin{align}
+    \bvec{E} &= -\nabla V \\
+    \bvec{E} &= -\frac{\text{d}}{\dif{z}} \left( \left( \frac{3}{2} \sqrt{\frac{k}{\epsilon_0}} \right)^{4/3} \cdot z^{4/3} \right) \hat{z} \\
+    \bvec{E} &= -\frac{4}{3} \left( \frac{3}{2} \sqrt{\frac{k}{\epsilon_0}} \right)^{4/3} \cdot z^{1/3} \hat{z}
+\end{align}
+
+        
+    \end{parts}
+\end{solution}
+
+\end{questions}
+
+\end{document}

@@ -1,0 +1,510 @@
+\documentclass[
+  11pt,
+  letterpaper,
+  addpoints,
+  answers
+]{exam}
+
+\usepackage{../control-preamble}
+
+\begin{document}
+\noindent
+
+\begin{minipage}{0.47\textwidth}
+  \includegraphics[width=\textwidth]{../../fcfm_die}
+\end{minipage}
+\begin{minipage}{0.53\textwidth}
+  \begin{center}
+    \large\textbf{Electromagnetismo Aplicado} (EL3103) \\
+    \large\textbf{Control 2} \\
+    \normalsize Prof.\ \professor\\
+    \normalsize Prof.\ Auxiliar \auxiliar\\
+    \normalsize Ayudantes: \ayudanteA~-~\ayudanteB
+  \end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+\noindent
+\uline{Tiempo: 10:15--12:15 hrs. \hfill \semester \hfill Puntos: \numpoints}
+\vspace{.85cm}
+
+\noindent\makebox[\textwidth]{\textbf{Nombre}:\hfill}
+
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{
+        Responda una pregunta \textbf{por hoja}.  Favor \textbf{no olvidar} escribir su nombre. Para cantidades vectoriales (usualmente definidas como $\mathbf{A}$ en clase), favor usar flecha $\vec{A}$ para indicar que son vectores y sin flecha para escalares $A\equiv\enVert[1]{\vec{A}}$, y para matrices $\sbr{A}$ usar corchetes.
+      }}}
+\end{center}
+
+\begin{questions}
+  \question Preguntas de contenido
+  \begin{parts}
+    \part[2] Mencione en qué rango de longitudes de onda para teorías electromagnéticas: circuital, microondas y óptica respecto a el tamaño de su longitud de onda.
+
+    \part[2] \textquestiondown Qué es la desviación de Allan $\sigma\del{y}$?
+
+    \part[2] La tecnología Blue-Ray se basa en luz para almacenar información en discos. \textquestiondown Qué elemento y qué longitud de onda son necesarias para su implementación?
+
+    \part[2] Radio ondas utilizadas en telecomunicaciones son afectadas por un efecto dispersivo en la ionosfera haciendo que frecuencias mayores sean menos atenuadas. \textquestiondown Qué tipo de dependencia en frecuencia corresponde a este retardo?
+
+    \part[2] \textquestiondown Qué instrumento posee una mayor resolución angular? Una antena de \qty{5}{\m} operando a \qty{300}{\mega\hertz} o una antena de \qty{3}{\m} operando a \qty{1}{\giga\hertz}.
+
+    \part[2] Los dispositivos de carga acoplada o CCD de sus siglas en inglés viven en cámaras fotografías modernas y celulares. \textquestiondown Cuál es el rango de longitud de ondas a las cuales operan y cuál es el principio físico que hace posible su funcionamiento?
+
+    \part[2] \textquestiondown Cuál es el teorema o límite que rige el \textit{sampling} de señales en detectores? Explique (idealmente con una bosquejo).
+
+  \end{parts}
+
+  \begin{solution}
+    \begin{parts}
+      \part Dependencia del largo eléctrico (solo con dar las razones de largos es suficiente):
+      \begin{enumerate}
+        \item \textbf{Teoría circuital} $\lambda \gg \ell$: oscilaciones mucho más grandes que el tamaño del circuito, las oscilaciones de fase de voltaje y corriente pueden ser aproximadas como constantes. Toda acción ocurre en el campo cercano. Ecuaciones de Maxwell-Heaviside se reducen a las \textbf{leyes de circuitos de Kirchoff}.
+        \item \textbf{Teoría de microondas} $\lambda \approx \ell$: longitud de onda de un orden parecido al instrumento utilizado. Simples cables deben ser reemplazados por líneas de transmisión y guías de ondas. Es necesario describir las ecuaciones de Maxwell-Heaviside con algunas aproximaciones (ecuaciones telegráficas).
+        \item \textbf{Óptica} $\lambda \ll \ell$: longitud de onda muy pequeñas en comparación al equipo utilizado. Todas las ondas se comportan en el campo lejano (\textit{far-field}). Conceptos de voltaje, corriente, capacitancia, e inductancia pierden sentido, y se utiliza el indice de refracción (con $\mu_\text{r}$ y/ó $\epsilon_\text{r}$). Ecuaciones de Maxwell-Heaviside son aproximadas a geometría óptica o física óptica.
+      \end{enumerate}
+
+      \part Una forma de medir la inestabilidad de un reloj atómico y que se expresa como:
+      \begin{equation}
+        \sigma_y \approx \frac{\Delta\nu}{\nu_0\sqrt{N}}\sqrt{\frac{T_c}{\tau}}.
+      \end{equation}
+      Con una correcta descripción es suficiente.
+
+      \part Los diodos LASER azules basados en GaN son clave para sistemas como el Blu-Ray. Su longitud de onda es $\lambda\approx\qty{400}{\nano\m}$.
+
+      \part Una dependencia a la menos dos cuadrática, es decir el \textit{dispersive delay}: $t_\text{dd}\propto \nu^{-2}$.
+
+      \part La resolución de una antena es de $\theta=\qty{1.22}{\radian}\times\frac{\lambda}{D}$,
+      \begin{align}
+        \theta_1 & = \qty{1.22}{\radian}\times\frac{\qty{299792458}{\meter\per\second}/\qty{300}{\mega\hertz}}{\qty{5}{\meter}}
+        \approx \qty{0.243831}{\radian},                                                                                        \\
+        \theta_2 & = \qty{1.22}{\radian}\times\frac{\qty{299792458}{\meter\per\second}/\qty{1}{\giga\hertz}}{\qty{3}{\meter}}
+        \approx \qty{0.121916}{\radian},
+      \end{align}
+      luego la mejor resolución angular corresponde a $\theta_2$.
+
+      \part $\Delta\lambda = \qtyrange{300}{1100}{\nano\m}$, efecto fotoeléctrico.
+
+      \part El teorema de sampling Nyquist-Shannon (no es necesario mencionar el nombre completo). \Cref{fig:nyquist} muestra que el sampling necesario para poder mapear por completo la fase de una onda debe ser de una cierta tolerancia, un sampling menor solo encontrará amplitud de una onda pero no la fase completa.
+
+      \begin{center}
+        \begin{tikzpicture}[domain=0:8, samples=100]
+          \draw[very thin,color=gray] (-0.1,-1.1) grid (7.9,1.1);
+
+          \draw[-latex] (-0.2,0) -- (8.4,0) node[right] {$x$};
+          \draw[-latex] (0,-1.2) -- (0,1.4) node[above] {$f(x)$};
+
+          \draw[thick, color=blue] plot (\x, {sin(\x r)}) node[right] {$f(x) = \sin\del{x}$};
+
+          \draw[thick, color=red] plot (\x, {sin(\x r*4)}) node[right, yshift=-5] {$f(x) = \sin\del{4x}$};
+
+          \foreach \x in {0, 3.14, {7*3.14/5}, {2*3.14}}{
+              \node[fill=brown, circle, draw, brown, inner sep=1.5pt] at (\x, {sin(\x r)}) {};
+            };
+        \end{tikzpicture}
+        \captionof{figure}{Puntos de color café pueden mapear tanto la curva $\sin\del{x}$ y $\sin\del{4x}$ (y una familia de sub-curvas). Existe un limite natural para poder mapear por completo una onda tanto su fase como amplitud, esto se llama sampling Nyquist-Shannon.}
+        \label{fig:nyquist}
+      \end{center}
+    \end{parts}
+  \end{solution}
+
+  \question \label{q:LT_avión} {Línea de transmisión en un sistema de radar de avión.} La antena de radar de un avión comercial está conectada a un transmisor mediante una línea de transmisión. El transmisor genera una señal que se envía a través de una línea de impedancia característica $Z_0 = \qty{100}{\ohm}$ hacia la antena. Esta última tiene una impedancia $Z_\mathcal{L} = \complexqty{35 + 20 j}{\ohm}$. Usted, como ingeniero eléctrico, ha sido contratado por la aerolínea para adaptar la línea de transmisión y así evitar distorsiones en las señales transmitidas. Para realizar este proceso de adaptación, siga los siguientes pasos:
+
+  \begin{parts}
+    \part[3] Obtenga, sin hacer uso de la carta Smith, el módulo del coeficiente de reflexión $\widehat{R}$ y el parámetro {VSWR} para la línea de transmisión descrita anteriormente.
+
+    \part Tras los cálculos anteriores, usted se da cuenta que con esa antena la línea presenta un alto índice de reflexiones. Es por esto que decide cambiar esta por otro modelo que tiene impedancia de carga equivalente a $Z_\mathcal{L} = \qty{55}{\ohm}$. Ahora debe realizar el proceso de adaptación de la línea con un adaptador de $\lambda/4$, tal como muestra la \cref{fig:LT_plane}:
+    \begin{subparts}
+      \subpart[2] Demuestre que, para un adaptador de $\lambda/4$, se obtiene que $Z_\text{in} = \frac{Z_0^2}{Z_\mathcal{L}}$.
+      \subpart[5] Utilice la fórmula demostrada para diseñar un adaptador para el sistema antena-transmisor. Para esto, obtenga un valor para $Z_1$ tal que el adaptador elimine por completo las reflexiones. ¿Qué valores de $\widehat{R}$ y {VSWR} se esperan obtener? (No es necesario que los calcule, solo escríbalos y explique por qué se espera obtener estos).
+    \end{subparts}
+
+  \end{parts}
+
+  \begin{center}
+    \begin{tikzpicture}
+      \edef\width{1.5};
+      \edef\wavel{19};
+
+      \edef\angle{50};
+      \coordinate (O) at (0, 0);
+      \coordinate (A) at (0, {\width/2});
+      \coordinate (B) at (0, -{\width/2});
+
+      \draw[thick] (A) -- ++ ({\wavel/2}, 0) node[circle, draw, fill=black, inner sep=1pt] {} coordinate (Aext) -- ++ ({\wavel/4}, 0) coordinate (A1);
+      \draw[thick] (B) -- ++ ({\wavel/2}, 0) node[circle, draw, fill=black, inner sep=1pt] {} coordinate (Bext) -- ++ ({\wavel/4}, 0) coordinate (A2);
+
+      \node[thick,black, draw] (Z2) at ($(A1)!0.5!(A2)$) {$Z_\mathcal{L}$};
+      \draw[thick,black, thick] (A1) -- (Z2.north);
+      \draw[thick,black, thick] (A2) -- (Z2.south);
+      \draw[thick,black, thick] (A1) -- (Aext);
+      \draw[thick,black, thick] (A2) -- (Bext);
+
+      \draw[thick,dashed] (Aext) -- (Bext) node[draw,dashed,midway, fill=white] {$Z_1$};
+
+      \draw[|<->|] ($(Aext) + (0, .5)$) -- ($(A1) + (0, .5)$) node[pos=.5,fill=white] {$\lambda/4$};
+
+      \draw[<-] ($(A)!.5!(B)$) -| ++ (-.5, -1) node[below] {$Z_\text{in}$};
+
+    \end{tikzpicture}
+    \captionof{figure}{Línea de transmisión del sistema antena-transmisor correspondiente a la \cref{q:LT_avión}.}
+    \label{fig:LT_plane}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part Para calcular $\widehat{R}$: Se obtiene la impedancia de carga normalizada $z_L = Z_\mathcal{L} / Z_0 = \frac{\complexnum{35 + 20j}}{100} = \complexnum{0.35 + 0.2j}$. Con esto:
+      \begin{align}
+        \widehat{R} & = \frac{Z_\mathcal{L}-Z_0}{Z_\mathcal{L}+Z_0} = \frac{z_L-1}{z_L+1} = \frac{\complexnum{-0.65 + 0.2 j}}{\complexnum{1.35 + 0.2j}} \\
+        \widehat{R} & \approx \complexnum{-0.45 + 0.215 j}
+      \end{align}
+      Con esto, se obtiene el módulo $\mathbf{\enVert{\widehat{R}}}$:
+      \begin{align}
+        \mathbf{\enVert{\widehat{R}}} & = \sqrt{(-0.45)^2 + (0.215)^2} = 0.498
+      \end{align}
+      Y para calcular {VSWR}:
+      \begin{align}
+        \text{VSWR} = \frac{1+\enVert{\widehat{R}}}{1-\enVert{\widehat{R}}} = \frac{1+0.498}{1-0.498} \approx 2.98
+      \end{align}
+
+      \part Usando la fórmula:
+      \begin{align}
+        Z_\text{in} & = Z_0 \sbr{\frac{Z_\mathcal{L} + \ju Z_0 \tan{(\beta l)}}{Z_0 + \ju Z_\mathcal{L} \tan{(\beta l)}}}
+      \end{align}
+      Y reemplazando $l = \lambda / 4$ y $\beta = 2 \pi / \lambda$ se obtiene que:
+      \begin{align}
+        Z_\text{in} & = Z_0 \sbr{\frac{Z_\mathcal{L} + \ju Z_0 \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{4})}}{Z_0 + \ju Z_\mathcal{L} \tan{(\frac{2 \pi}{\lambda} \frac{\lambda}{4})}}} \\
+        Z_\text{in} & = Z_0 \sbr{\frac{Z_\mathcal{L} + \ju Z_0 \tan{(\frac{\pi}{2})}}{Z_0 + \ju Z_\mathcal{L} \tan{(\frac{\pi}{2})}}}
+      \end{align}
+      Como $\tan{(\pi / 2)} \rightarrow \infty$ se tiene:
+      \begin{align}
+        Z_\text{in} & = Z_0 \sbr{\frac{Z_\mathcal{L} + \ju Z_0 \tan{(\frac{\pi}{2})}}{Z_0 + \ju Z_\mathcal{L} \tan{(\frac{\pi}{2})}}}                                \\
+        Z_\text{in} & = Z_0 \sbr{\frac{Z_\mathcal{L} + \ju Z_0 \infty}{Z_0 + \ju Z_\mathcal{L} \infty}}                                                              \\
+        Z_\text{in} & = Z_0 \frac{\infty}{\infty}\sbr{\frac{Z_\mathcal{L}/\infty + \frac{j Z_0 \infty}{\infty}}{Z_0/\infty + \frac{j Z_\mathcal{L} \infty}{\infty}}} \\
+        Z_\text{in} & = Z_0\sbr{\frac{0 + \ju Z_0}{0 + \ju Z_\mathcal{L}}}                                                                                           \\
+        Z_\text{in} & = \frac{Z_0^2}{Z_\mathcal{L}}
+      \end{align}
+      Y se obtiene lo pedido.
+
+      Ahora, para realizar la adaptación, es importante darse cuenta que como queremos la impedancia del adaptador, $Z_\text{in} = Z_0$ y $Z_0 = Z_1$. Usando la fórmula anterior, despejamos $Z_1$:
+      \begin{align}
+        Z_0 & = \frac{Z_1}{Z_\mathcal{L}}                           \\
+        Z_1 & = \sqrt{Z_0 \times Z_\mathcal{L}}                     \\
+        Z_1 & = \sqrt{100 \times 55} = 74.162 \mathbf{\unit{ \ohm}}
+      \end{align}
+      Se espera obtener que $\widehat{R} = 0$ y que $\text{VSWR} = 1$, ya que si el proceso de adaptación está bien realizado se espera eliminar todas las reflexiones ($\widehat{R} = 0$). Por otro lado, recordemos que $\text{VSWR}$ indica qué tan bien adaptada se encuentra la línea y este índice va desde 1 hasta $\infty$. Por ende, si la línea está bien adaptada, se espera el mínimo posible ($\text{VSWR} = 1$).
+    \end{parts}
+  \end{solution}
+
+  \question Considere una línea de transmisión con una impedancia característica $Z_0 = \qty{50}{\ohm}$ y una impedancia de carga $Z_\mathcal{L} = \complexqty{25 - 40j}{\ohm}$. Haciendo uso de la carta Smith, encuentre:
+
+  \begin{parts}
+    \part[2] El VSWR y el módulo del índice de reflexión $\enVert{\widehat{R}}$.
+    \part[2] La impedancia de entrada vista a una distancia de $0.4 \lambda$.
+    \part[2] ¿La línea se encuentra bien adaptada? ¿Qué interpretación le pueda dar a esta respuesta?
+  \end{parts}
+
+  %Figura LT
+  \begin{center}
+    \begin{circuitikz}[american]
+      \draw
+      (0,0) to[short,o-] (4,0)
+      (0,-2) to[short,o-] (4,-2);
+
+      \draw
+      (4,0) to[generic,l=$Z_\mathcal{L}$,-o] (4,-2);
+
+      \node at (2,0.3) {$Z_0$};
+
+      \draw[-latex] (-0.5,-1) -- (0,-1);
+      \node[left] at (-0.5,-1) {$Z_\text{in}$};
+
+      \node[below] at (0,-2.3) {$\ell$};
+      \node[below] at (4,-2.3) {$0$};
+    \end{circuitikz}
+    \captionof{figure}{Modelo de LT con impedancia de carga $Z_\mathcal{L}$ y entrada $Z_{in}$.}
+  \end{center}
+
+  \begin{solution}
+    \begin{parts}
+      \part La impedancia normalizada será $z_\mathcal{L} = \complexnum{0.5 - j0.8}$. Dibujamos un círculo con centro en el 1 real que pasa por $z_\mathcal{L}$, y extendemos una recta desde la intersección de la circunferencia con el eje real hasta la tabla inferior. Se obtiene que $\enVert{\widehat{R}} \approx \num{0.55}$ y $\text{VSWR}\approx \num{3.5}$.
+      \part Se extiende una recta desde el centro de la circunferencia unitaria que pase por $z_\mathcal{L}$, hasta el borde de la carta Smith, quedando en aproximadamente $\num{.38}\lambda$. Se trasladan $\num{.4}\lambda$ hacia el generador, obteniendo $\num{.28}\lambda$. Se traza una recta desde este punto hasta el círculo unitario, encontrando que $z_{in} \approx \complexnum{2.5 - j1.5}$. Finalmente, multiplicando por \qty{50}{\ohm} para obtener el valor no normalizado, $Z_{in} \approx \complexqty{120 - 75j}{\ohm}$.
+      \part No, la línea no se encuentra bien adaptada. Notamos que el índice de reflexión es cercano a \num{0.55}, es decir, aproximadamente el \qty{55}{\percent} de la amplitud de la onda incidente se refleja. Asimismo, el VSWR es mucho mayor a \num{1}, lo que significa que no toda la potencia se transmite hacia la carga.
+
+      La desadaptación ocasiona ondas estacionarias en la línea, por lo que solo una fracción de la potencia logra transmitirse efectivamente a la carga, reduciendo la transferencia de energía y pudiendo causar pérdidas o distorsiones en la señal transmitida.
+    \end{parts}
+  \end{solution}
+
+  \question[14] \label{q:micro2} {Horno microondas de una dimensión}. Considere una cavidad 1D con paredes conductoras perfectas (PEC) en $x=0$ y $x=L$. Entre ambas hay tres regiones: \textbf{aire 1} ($0\le x\le L_1$), \textbf{alimento} ($L_1\le x\le L_1+d$) y \textbf{aire 3} ($L_1+d\le x\le L$), con $L=L_1+d+L_3$. El régimen es armónico monofrecuencia (forzado) con dependencia temporal común $\euler^{\ju\omega t}$, incidencia normal y polarización $\mathbf{E}\parallel\uvec{y}$, $\mathbf{H}\parallel\uvec{z}$. El alimento es no magnético ($\mu_r\simeq 1$) y se modela con permitividad compleja  $\epsilon_2=\epsilon_0\big(\epsilon'_r-\ju\,\epsilon''_r\big)$.
+
+    {Hipótesis de excitación (coherencia y realimentación):} se modela un único generador acoplado en \textbf{aire 1} que excita una onda viajera hacia $+x$ (denótese su amplitud como $A$). No hay excitación independiente desde \textbf{aire 3}. Todas las ondas que se generan por reflexiones en interfaces y en la pared PEC son \textbf{coherentes} con la fuente en el sentido fasorial: comparten la misma frecuencia $\omega$ y la misma referencia temporal $\euler^{\ju\omega t}$; los desfases espaciales provienen sólo de la propagación y de las reflexiones. En régimen estacionario, $A$ representa la \textbf{amplitud neta} de la onda que viaja hacia $+x$ en aire 1 e \textbf{incluye el efecto de la realimentación cavitaria} (múltiples idas y vueltas). Todas las amplitudes (incluida $A$) deben determinarse imponiendo continuidad de $E_t,H_t$ y las condiciones PEC; \textbf{no asuma relaciones adicionales entre amplitudes sin deducirlas de dichas condiciones}.
+
+  \textbf{Datos numéricos (use SI):}
+  \begin{align}
+    f & =\qty{2.45}{\giga\hertz}, & L_1 & =\qty{5.0}{\centi\m}, & d & =\qty{3.0}{\centi\m}, & L_3 & =\qty{4.0}{\centi\m}, & \epsilon'_r & =\num{55.0}, & \epsilon''_r & =\num{18.0}.
+  \end{align}
+
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm]
+      %----- Parámetros geométricos (en cm) -----
+      \def\Lone{5.0}
+      \def\dd{3.0}
+      \def\Lthree{4.0}
+      \pgfmathsetmacro{\L}{\Lone+\dd+\Lthree}
+      \def\H{2.0}
+
+      %----- Estilos -----
+      \tikzset{
+        pecwall/.style={line width=2pt},
+        iface/.style={dash pattern=on 4pt off 3pt, thick},
+        wave/.style={-latex, line width=1.5pt},
+        dim/.style={-latex},
+        dim2/.style={|<->|},
+        yscale=1.5, xscale=1.2
+      }
+
+      %===== Regiones con texturas BN =====
+      % Aire 1 y Aire 3: MISMA textura
+      \fill[pattern=dots] (0,0) rectangle (\Lone,\H);
+      \fill[pattern=north east lines] (\Lone,0) rectangle (\Lone+\dd,\H); % Alimento (distinta)
+      \fill[pattern=dots] (\Lone+\dd,0) rectangle (\L,\H);
+
+      %===== Paredes PEC =====
+      \draw[pecwall] (0,0) -- (0,\H);
+      \draw[pecwall] (\L,0) -- (\L,\H);
+      \node[] at (0,\H+0.25) {PEC};
+      \node[] at (\L,\H+0.25) {PEC};
+
+      %===== Interfaces =====
+      \draw[iface] (\Lone,0) -- (\Lone,\H);
+      \draw[iface] (\Lone+\dd,0) -- (\Lone+\dd,\H);
+
+      % Etiquetas de regiones
+      \node[] at (\Lone/2,\H/2) {\contour{white}{Aire 1}};
+      \node[] at (\Lone+\dd/2,\H/2) {\contour{white}{Alimento}};
+      \node[] at (\Lone+\dd+\Lthree/2,\H/2) {\contour{white}{Aire 3}};
+
+      %===== Eje x y polarización =====
+      \draw[-latex] (-0.3,-0.3) -- (0.3,-0.3) node[left, pos=0] {$\uvec{x}$};
+      % \node[lab] at (0,-0.1) {$\uvec{x}$};
+      \node[] at (\L/2,\H+0.45) {$\mathbf{E}\parallel\uvec{y},\ \mathbf{H}\parallel\uvec{z}$};
+
+      %===== Marcas de interfaces =====
+      \node[] at (\Lone,-0.18) {$x=L_1$};
+      \node[] at (\Lone+\dd,-0.18) {$x=L_1+d$};
+
+      %===== Flechas de longitud (bajo la cavidad) =====
+      \draw[dim2] (0,-0.55) -- (\Lone,-0.55) node[midway,fill=white] {$L_1$};
+      \draw[dim2] (\Lone,-0.55) -- (\Lone+\dd,-0.55) node[midway,fill=white] {$d$};
+      \draw[dim2] (\Lone+\dd,-0.55) -- (\L,-0.55) node[midway,fill=white] {$L_3$};
+
+      %===== Ondas (A,B) en Aire 1; (F,G) en Alimento; (C,D) en Aire 3 =====
+      \pgfmathsetmacro{\ywave}{0.78*\H}
+      % Aire 1: A (→) y B (←)
+      \draw[wave] (0.15*\Lone,\ywave) -- (0.75*\Lone,\ywave) node[midway, above] (0.42*\Lone,\ywave+0.17) {\contour{white}{$A\euler^{-\ju \beta_0 x}$}};
+
+      \draw[wave] (0.85*\Lone,\ywave-1.0) -- (0.25*\Lone,\ywave-1.0) node[midway, below] {\contour{white}{$B\euler^{+j\beta_0 x}$}};
+
+      % Alimento: F (→) y G (←) en z = x - L1
+      \draw[wave] (\Lone+0.15*\dd,\ywave) -- (\Lone+0.85*\dd,\ywave) node[midway, above] {\contour{white}{$F\euler^{-\ju \tilde{k}_2 z}$}};
+
+      \draw[wave] (\Lone+0.85*\dd,\ywave-1.0) -- (\Lone+0.15*\dd,\ywave-1.0) node[midway, below] {\contour{white}{$G\euler^{+j\tilde{k}_2 z}$}};
+
+      % Aire 3: C (→) y D (←) en y = x - (L1+d)
+      \draw[wave] (\Lone+\dd+0.15*\Lthree,\ywave) -- (\Lone+\dd+0.85*\Lthree,\ywave) node[midway, above] {\contour{white}{$C\euler^{-\ju \beta_0 y}$}};
+
+      \draw[wave] (\Lone+\dd+0.85*\Lthree,\ywave-1.0) -- (\Lone+\dd+0.15*\Lthree,\ywave-1.0) node[midway, below] (\Lone+\dd+0.5*\Lthree,\ywave-1.17) {\contour{white}{$D\euler^{+j\beta_0 y}$}};
+
+    \end{tikzpicture}
+    \captionof{figure}{Esquema \cref{q:micro2}.}
+  \end{center}
+
+  \begin{parts}
+
+    \part[6] {Planteamiento de campos y sistema}. Proponga para cada región una superposición de ondas progresivas y regresivas en $x$. Utilizando la continuidad de $E_t$ y $H_t$ en cada interfaz, determine el {sistema de ecuaciones} para las amplitudes de las ondas. Use las condiciones PEC en $E(0)=0$ y $E(L)=0$ para cerrar un sistema con cuatro amplitudes desconocidas. Justifique por qué en el tercer medio {sí} hay onda reflejada (efecto de la PEC en $x=L$).
+
+    \bonuspart[3] {Subcascada aire 3 + PEC y reflexión efectiva en $x=L_1+d$}
+
+    \begin{subparts}
+      \subpart Trabaje en el tramo aire 3 con PEC en $x=L$ y demuestre que
+      \begin{equation}\label{eq:Gamma3PEC}
+        \widehat{R}_{(3|\text{PEC})}=-\,\euler^{-\ju \,2\beta_0 L_3}.
+      \end{equation}
+
+      \subpart Usando sólo continuidad de $E,H$ y el esquema de reflexiones múltiples (serie geométrica) en la cara $x=L_1+d$, obtenga la reflexión efectiva “vuelta al alimento”:
+      \begin{equation}\label{eq:Gammab}
+        \widehat{R}_b=r_{23}+\frac{t_{23}\,t_{32}\,\widehat{R}_{(3|\text{PEC})}}{1-r_{32}\,\widehat{R}_{(3|\text{PEC})}}.
+      \end{equation}
+    \end{subparts}
+
+    \bonuspart[3] Reflexión total en $x=L_1$ y fórmula clave.
+    \begin{subparts}
+      \subpart Propague desde $x=L_1+d$ hasta $x=L_1$ a través del alimento y defina
+      \begin{equation}\label{eq:qdef}
+        q=\widehat{R}_b\,\euler^{-2j\widetilde{\beta_2} d}.
+      \end{equation}
+
+      \subpart En el plano $x=L_1$, con $r\equiv\widehat{R}_{\rm tot}$ definido como \textbf{onda hacia $-x$}/\textbf{onda hacia $+x$} en aire 1, y usando $G=qF$ en el alimento más continuidad de $E,H$, demuestre
+      \begin{equation}\label{eq:key}
+        \frac{1+r}{1-r}=\frac{\eta_0}{\eta_2}\,\frac{1+q}{1-q},\qquad \eta_2=\sqrt{\frac{\mu_0}{\epsilon_2}},
+      \end{equation}
+      y despeje $r$ explícitamente:
+      \begin{equation}\label{eq:rfinal}
+        r=\frac{\dfrac{\eta_0}{\eta_2}(1+q)-(1-q)}{\dfrac{\eta_0}{\eta_2}(1+q)+(1-q)}.
+      \end{equation}
+      {Reporte el \underline{porcentaje} de potencia reflejada y de potencia absorbida.}
+    \end{subparts}
+
+  \end{parts}
+
+  \begin{solution}
+    {Convención y notación.} Fasores con tiempo $\euler^{\ju\omega t}$. En aire:
+    $\beta_0=\omega\sqrt{\mu_0\epsilon_0}$, $\eta_0=\sqrt{\mu_0/\epsilon_0}$.
+    En el alimento (no magnético): $\epsilon_2=\epsilon_0(\epsilon_r'-j\epsilon_r'')$,
+    $\eta_2=\sqrt{\mu_0/\epsilon_2}$, $\widetilde{\beta_2}=\beta_0\sqrt{\epsilon_r'-j\epsilon_r''}=\beta-j\alpha$.
+      {Físicamente:} $\beta$ fija la fase, $\alpha>0$ modela {pérdidas} (calor).
+
+    \begin{parts}
+      \part Planteamiento de campos y sistema (paso a paso).
+      \begin{enumerate}
+        \item {Soluciones 1D por región (ondas viajeras):}
+        \begin{align}
+          E_1(x)      & =A\,\euler^{-\ju \beta_0 x}+B\,\euler^{+j\beta_0 x},                                                                                        &
+          H_1(x)      & =\frac{1}{\eta_0}\!\left(A\,\euler^{-\ju \beta_0 x}-B\,\euler^{+j\beta_0 x}\right), \tag{S1}\label{eq:S1}                                     \\
+          E_2(\Delta) & =F\,\euler^{-\ju \widetilde{\beta_2} \Delta}+G\,\euler^{+j\widetilde{\beta_2} \Delta},                                                      &
+          H_2(\Delta) & =\frac{1}{\eta_2}\!\left(F\,\euler^{-\ju \widetilde{\beta_2} \Delta}-G\,\euler^{+j\widetilde{\beta_2} \Delta}\right), \tag{S2}\label{eq:S2}   \\
+          E_3(y)      & =C\,\euler^{-\ju \beta_0 y}+D\,\euler^{+j\beta_0 y},                                                                                        &
+          H_3(y)      & =\frac{1}{\eta_0}\!\left(C\,\euler^{-\ju \beta_0 y}-D\,\euler^{+j\beta_0 y}\right), \tag{S3}\label{eq:S3}
+        \end{align}
+        donde $\Delta=x-L_1$ y $y=x-(L_1+d)$. {Físicamente:} cada medio uniforme admite {superposición} de ondas hacia $\pm x$. En el alimento, $\widetilde{\beta_2}$ complejo introduce {atenuación} (absorción).
+
+        \item {Fronteras PEC ($E_t=0$):}
+        \begin{align}
+          E_1(0)=0   & \Rightarrow A+B=0 \Rightarrow B=-A, \tag{S4}\label{eq:S4}                                                                        \\
+          E_3(L_3)=0 & \Rightarrow C \euler^{-\ju \beta_0L_3}+D \euler^{+j\beta_0L_3}=0 \Rightarrow D=-C\,\euler^{-2j\beta_0L_3}. \tag{S5}\label{eq:S5}
+        \end{align}
+        {Físicamente:} la PEC {invierte} el campo (fase $\pi$). Obliga a una onda regresiva en aire 3.
+
+        \item {Continuidad en $x=L_1$ (aire1 $\leftrightarrow$ alimento):} usando \eqref{eq:S4},
+        \begin{align}
+          E_1(L_1)=E_2(0) & :\quad A\!\left(\euler^{-\ju \beta_0L_1}-\euler^{+j\beta_0L_1}\right)=F+G, \tag{S6}\label{eq:S6}                                  \\
+          H_1(L_1)=H_2(0) & :\quad \frac{A}{\eta_0}\!\left(\euler^{-\ju \beta_0L_1}+\euler^{+j\beta_0L_1}\right)=\frac{1}{\eta_2}(F-G). \tag{S7}\label{eq:S7}
+        \end{align}
+
+        \item {Continuidad en $x=L_1+d$ (alimento $\leftrightarrow$ aire3):} usando \eqref{eq:S5},
+        \begin{align}
+          F \euler^{-\ju \widetilde{\beta_2} d}+G \euler^{+j\widetilde{\beta_2} d}                & =C - C \euler^{-2j\beta_0 L_3}, \tag{S8}\label{eq:S8}                \\
+          \frac{F \euler^{-\ju \widetilde{\beta_2} d}-G \euler^{+j\widetilde{\beta_2} d}}{\eta_2} & =\frac{C + C \euler^{-2j\beta_0 L_3}}{\eta_0}. \tag{S9}\label{eq:S9}
+        \end{align}
+      \end{enumerate}
+      Las \cref{eq:S6,eq:S9}, con \cref{eq:S4,eq:S5}, cierran el sistema en $A,F,G,C$.
+
+      \part Subcascada aire 3 + PEC y reflexión efectiva en $x=L_1+d$.
+      \begin{enumerate}
+        \item {Reflexión equivalente del tramo aire3+PEC:}
+        \begin{equation}
+          \boxed{\,\widehat{R}_{(3|\mathrm{PEC})}=-\,\euler^{-\ju 2\beta_0L_3}\,}. \tag{S10}\label{eq:S10}
+        \end{equation}
+        {Física:} inversión por PEC ($-$) y {fase ida-vuelta} $\euler^{-\ju 2\beta_0L_3}$.
+
+        \item {Fresnel normal (para campos $E$):}
+        \begin{equation}
+          r_{ij}=\frac{\eta_j-\eta_i}{\eta_i+\eta_j},\qquad
+          t_{ij}=\frac{2\,\eta_j}{\eta_i+\eta_j}. \tag{S11}\label{eq:S11}
+        \end{equation}
+        {Física:} $r_{ij}$ mide \textit{mismatch} de impedancias; $t_{ij}$ la fracción transmitida hacia $j$.
+
+        \item {Reflexión efectiva vuelta al alimento (múltiples recorridos, derivación).}
+
+        {Plano y normalización.}
+        Evaluamos en $x=L_1+d^{-}$ (lado del alimento). Incidente (desde 2) normalizada a $1$.
+
+        \medskip
+        {Descomposición camino-a-camino.}
+        \begin{subparts}
+          \subpart \underline{Reflexión directa (sin entrar a 3):}
+          \begin{equation}
+            E^{(-)}_{2,\mathrm{dir}}=r_{23}. \tag{S12a}\label{eq:S12a}
+          \end{equation}
+
+          \subpart \underline{Una vuelta completa 3\,$\leftrightarrow$\,PEC:}
+          \begin{equation}
+            E^{(-)}_{2,\mathrm{1v}}=t_{23}\,\widehat{R}_{(3|\mathrm{PEC})}\,t_{32}. \tag{S12b}\label{eq:S12b}
+          \end{equation}
+
+          \subpart \underline{Con una reverberación extra en 3:}
+          \begin{equation}
+            E^{(-)}_{2,\mathrm{2v}}=t_{23}\,\widehat{R}_{(3|\mathrm{PEC})}\, \big(r_{32}\,\widehat{R}_{(3|\mathrm{PEC})}\big)\,t_{32}. \tag{S12c}\label{eq:S12c}
+          \end{equation}
+
+          \subpart \underline{General, $m$ reverberaciones:}
+          \begin{equation}
+            E^{(-)}_{2,\mathrm{m v}}=t_{23}\,\widehat{R}_{(3|\mathrm{PEC})}\,\big(r_{32}\,\widehat{R}_{(3|\mathrm{PEC})}\big)^{m-1}\,t_{32},\quad m=1,2,\dots \tag{S12d}\label{eq:S12d}
+          \end{equation}
+        \end{subparts}
+
+        {Suma (serie geométrica).}
+        \begin{align}
+          \widehat{R}_b
+           & = r_{23}\;+\; \sum_{m=1}^{\infty} E^{(-)}_{2,\mathrm{m v}}
+          = r_{23}\;+\; t_{23}\,\widehat{R}_{(3|\mathrm{PEC})}\,t_{32}\sum_{m=0}^{\infty}\big(r_{32}\widehat{R}_{(3|\mathrm{PEC})}\big)^m \nonumber       \\[4pt]
+           & =\boxed{\,r_{23}+\frac{t_{23}\,t_{32}\,\widehat{R}_{(3|\mathrm{PEC})}}{1-r_{32}\,\widehat{R}_{(3|\mathrm{PEC})}}\,}. \tag{S12}\label{eq:S12}
+        \end{align}
+        {Convergencia:} $|r_{32}\widehat{R}_{(3|\mathrm{PEC})}|<1$ (si $\to1$, alta $Q$ y grandes campos internos).
+
+        \medskip
+        {Observaciones.}
+        \begin{itemize}
+          \item $r_{23}$: reflexión al incidir desde $2$; $r_{32}$: desde $3$ (en normal, $r_{32}=-r_{23}$).
+          \item Todos los factores se evalúan en el {mismo plano} $x=L_1+d$; $\widehat{R}_{(3|\mathrm{PEC})}$ ya incluye la fase ida-vuelta en 3.
+          \item Sumamos {amplitudes} de $E$; para potencias se usa $|\cdot|^2$ y, si cambia el lado, la relación de impedancias.
+        \end{itemize}
+      \end{enumerate} % <-- cierra (b)
+
+      \part {Reflexión total en $x=L_1$ y fórmula clave.}
+      \begin{enumerate}
+        \item {Propagación de vuelta por el alimento (ida+vuelta):}
+        \begin{equation}
+          \boxed{\,q=\widehat{R}_b\,\euler^{-2j\widetilde{\beta_2} d}\,},\qquad \widetilde{\beta_2}=\beta-j\alpha. \tag{S13}\label{eq:S13}
+        \end{equation}
+        {Física:} $\euler^{-2j\widetilde{\beta_2} d}=\euler^{-\ju 2\beta d}\,\euler^{-2\alpha d}$; la parte $\euler^{-2\alpha d}$ {reduce} amplitud (absorción).
+
+        \item {Definiciones locales en $x=L_1$:}
+        \begin{equation}
+          A_1= A\,\euler^{-\ju \beta_0L_1},\quad B_1= B\,\euler^{+j\beta_0L_1},\quad
+          \boxed{\,r\equiv\widehat{R}_{\mathrm{tot}}=\frac{B_1}{A_1}\,}. \tag{S14}\label{eq:S14}
+        \end{equation}
+        Entonces
+        \begin{equation}
+          E_1=A_1(1+r),\qquad H_1=\frac{A_1}{\eta_0}(1-r);\quad
+          E_2=F(1+q),\quad H_2=\frac{F}{\eta_2}(1-q). \tag{S15}\label{eq:S15}
+        \end{equation}
+
+        \item {Continuidad en $x=L_1$ y relación clave:}
+        \begin{align}
+          A_1(1+r)                & =F(1+q), \tag{S16}\label{eq:S16}                \\
+          \frac{A_1}{\eta_0}(1-r) & =\frac{F}{\eta_2}(1-q). \tag{S17}\label{eq:S17}
+        \end{align}
+        Eliminando $A_1,F$:
+        \begin{equation}
+          \boxed{\,\frac{1+r}{1-r}=\frac{\eta_0}{\eta_2}\,\frac{1+q}{1-q}\,}. \tag{S18}\label{eq:S18}
+        \end{equation}
+        Despejando $r$:
+        \begin{equation}
+          \boxed{\,r=\frac{\dfrac{\eta_0}{\eta_2}(1+q)-(1-q)}{\dfrac{\eta_0}{\eta_2}(1+q)+(1-q)}\,}. \tag{S19}\label{eq:S19}
+        \end{equation}
+
+        \item {Evaluación numérica (datos del enunciado):} $f=\qty{2.45}{\giga\hertz}$, $d=\qty{3}{\centi\m}$, $L_3=\qty{4}{\centi\m}$,
+        $\epsilon_r'=55$, $\epsilon_r''=18$ $\Rightarrow |r|^2\simeq 0.587$:
+        \begin{equation}
+          \boxed{~\%\,\mathrm{reflejada}\approx 58.7\%,\qquad \%\,\mathrm{absorbida}\approx 41.3\%~}. \tag{S20}\label{eq:S20}
+        \end{equation}
+      \end{enumerate}
+
+    \end{parts}
+
+  \end{solution}
+
+\end{questions}
+
+\end{document}
