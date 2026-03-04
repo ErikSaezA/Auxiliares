@@ -1,0 +1,62 @@
+# Author: Tomas Cassanelli
+
+# Look here how to add more style!
+# https://matplotlib.org/stable/tutorials/introductory/customizing.html
+
+
+# LINES
+lines.linewidth     : 0.5
+lines.markersize    : 2
+
+# TEXT
+text.usetex         : True
+text.latex.preamble : \usepackage{sansmathfonts} \usepackage[T1]{fontenc} \usepackage{upgreek} \usepackage{amsmath} \usepackage{commath} \usepackage[detect-weight=true, detect-family=true]{siunitx}[=v2] \DeclareSIUnit{\parsec}{pc} \DeclareSIUnit{\ergs}{ergs} \DeclareSIUnit{\jansky}{Jy} \DeclareSIUnit{\arcsec}{arcsec} \DeclareSIUnit{\day}{day} \DeclareSIUnit{\TECu}{TECu} \DeclareSIUnit{\mas}{mas}
+
+# FONT
+font.family         : Computer Modern Sans Serif
+font.size           : 9
+
+# AXES
+axes.labelsize      : 8.5
+axes.linewidth      : 0.4
+axes.titlesize      : 9
+axes.grid           : True
+
+# CHIME, LC, FF, ARO10m
+axes.prop_cycle     : cycler('color', ['1f2db4', 'b41f2d', '1fb4a6', 'b4a61f'])
+
+patch.linewidth     : 0.5
+
+# TICKS
+xtick.labelsize     : 8
+ytick.labelsize     : 8
+xtick.major.width   : 0.4
+xtick.minor.width   : 0.4
+ytick.major.width   : 0.4
+ytick.minor.width   : 0.4
+
+# IMAGES
+image.cmap          : viridis
+image.origin        : lower
+image.aspect        : auto
+
+# GRIDS
+grid.linestyle      : --
+grid.alpha          : 0.6
+grid.linewidth      : 0.4
+grid.color          : b0b0b0
+
+# FIGURE
+figure.titlesize    : 9
+figure.dpi          : 200
+
+# LEGEND
+legend.fontsize     : 6
+legend.fancybox     : False
+legend.borderpad    : 0.4
+legend.frameon      : True
+
+# SAVING FIGURES
+savefig.bbox        : tight
+savefig.pad_inches  : 0.03
+

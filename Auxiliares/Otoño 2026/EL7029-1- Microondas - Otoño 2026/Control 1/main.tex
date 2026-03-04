@@ -1,0 +1,64 @@
+% Template:     Auxiliar LaTeX
+% Documento:    Archivo principal
+% Versión:      8.3.0 (07/03/2024)
+% Codificación: UTF-8
+%
+% Autor: Pablo Pizarro R.
+%        pablo@ppizarror.com
+%
+% Manual template: [https://latex.ppizarror.com/auxiliares]
+% Licencia MIT:    [https://opensource.org/licenses/MIT]
+
+% CREACIÓN DEL DOCUMENTO
+\documentclass[
+	spanish, % Idioma: spanish, english, etc.
+	letterpaper, oneside
+]{article}
+
+
+% INFORMACIÓN DEL DOCUMENTO
+\def\documenttitle {Control 1}
+\def\documentsubject {Análisis de sistemas dinámicos}
+
+\def\documentauthor {Nombre del autor}
+\def\coursename {Análisis de Sistemas Dinámicos y Estimación}
+\def\coursecode {EL3204}
+
+\def\universityname {Universidad de Chile}
+\def\universityfaculty {Facultad de Ciencias Físicas y Matemáticas}
+\def\universitydepartment {Departamento de la Universidad}
+\def\universitydepartmentimage {departamentos/fcfm}
+\def\universitydepartmentimagecfg {height=1.75cm}
+\def\universitylocation {Santiago de Chile}
+
+% EQUIPO DOCENTE
+\def\teachingstaff {
+	\textbf{Profesor: Heraldo Rozas Ovando} \\
+	\textbf{Auxiliares}: Maximiliano Morales Henríquez, Erik Sáez Aravena
+}
+
+
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+
+
+% INICIO DE PÁGINAS
+
+\begin{document}
+\setlength\parindent{0pt}
+% CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
+\templatePagecfg
+
+% ======================= INICIO DEL DOCUMENTO =======================
+\input{Introduccion}
+\input{P1}
+%\newpage
+\input{P1_pauta}
+\newpage
+\input{P2}
+%\newpage
+% FIN DEL DOCUMENTO
+\end{document}

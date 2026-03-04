@@ -1,0 +1,20 @@
+# macos
+.DS_Store
+.AppleDouble
+.LSOverride
+*.code-workspace
+**/.DS_Store
+.vscode
+
+# latex
+presentation_template.pdf
+**.aux
+**.blg
+**.fdb_latexmk
+**.fls
+**.log
+**.out
+**.synctex.gz
+*.nav
+*.snm
+*.toc
